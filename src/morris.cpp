@@ -9,7 +9,8 @@
 #define MORRIS_PP 2
 #define CHCONST 36
 
-std::default_random_engine generator;
+unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
+std::default_random_engine generator(seed);
 std::uniform_real_distribution<double> distribution(0.0,1.0);
 
 class morris{
@@ -257,7 +258,7 @@ int morrisExperiment(double eps, int numCopies){
 	std::vector<double> largeErrors;
 	for(int cc = 0 ; cc < numCopies ; cc++){
 		morris test;
-		int total = 1000;
+		int total = 100;
 		for(int i = 0 ; i < total ; ++i){
 			test.update();
 		}
@@ -269,7 +270,7 @@ int morrisExperiment(double eps, int numCopies){
 
 	//
 	std::cout << "Morris" << std::endl;
-	std::cout << "Empirical Prob of Error: " << ((1.0*largeErrors.size())/numCopies) << " Expected: " << (1.0/(2*eps*eps)) << std::endl;
+	std::cout << "Empirical Prob of Error: " << ((100.0*largeErrors.size())/numCopies) << "% Expected: " << (100.0/(2*eps*eps)) << "%" << std::endl;
 }
 
 int morrisPExperiment(double eps, double delta, int numCopies){
@@ -292,7 +293,7 @@ int morrisPExperiment(double eps, double delta, int numCopies){
 	//
 	std::cout << "Morris P" << std::endl;
 	std::cout << "Copies Number: " << copies_number << std::endl;
-	std::cout << "Empirical Prob of Error: " << ((1.0*largeErrors.size())/numCopies) << " Expected: " << delta << std::endl;
+	std::cout << "Empirical Prob of Error: " << ((100.0*largeErrors.size())/numCopies) << "% Expected: " << (100.0*delta) << "%" << std::endl;
 }
 
 int morrisPPExperiment(double eps, double delta, int numCopies){
@@ -316,7 +317,7 @@ int morrisPPExperiment(double eps, double delta, int numCopies){
 	//
 	std::cout << "Morris PP" << std::endl;
 	std::cout << "Copies Number: " << copies_number << std::endl;
-	std::cout << "Empirical Prob of Error: " << ((1.0*largeErrors.size())/numCopies) << " Expected: " << delta << std::endl;
+	std::cout << "Empirical Prob of Error: " << ((100.0*largeErrors.size())/numCopies) << "% Expected: " << (100.0*delta) << "%" << std::endl;
 }
 
 int exp1(){
@@ -371,15 +372,15 @@ int exp2(){
 	std::cout << "eps: " << eps << " delta: " << delta << " reps: " << numCopies << std::endl;  	
 	std::cout << "******** Morris *********" << std::endl;
 	for(int i = 0 ; i < total ; ++i){
-		std::cout << "Error after event " << (i+1) << ": " << (100.0*errorsM.at(i)/numCopies) << " Expected: " << (1.0/(2*eps*eps)) <<  std::endl;
+		std::cout << "Prob of error after event " << (i+1) << ": " << (100.0*errorsM.at(i)/numCopies) << "% Expected: " << (100.0/(2*eps*eps)) << "%" <<  std::endl;
 	}
 	std::cout << std::endl << "******** MorrisP *********" << std::endl;
 	for(int i = 0 ; i < total ; ++i){
-		std::cout << "Error after event " << (i+1) << ": " << (100.0*errorsMP.at(i)/numCopies) << " Expected: " << 100.0*delta <<  std::endl;
+		std::cout << "Prob of error after event " << (i+1) << ": " << (100.0*errorsMP.at(i)/numCopies) << "% Expected: " << (100.0*delta) << "%" <<  std::endl;
 	}
 	std::cout << std::endl << "******** MorrisPP *********" << std::endl;
 	for(int i = 0 ; i < total ; ++i){
-		std::cout << "Error after event " << (i+1) << ": " << (100.0*errorsMPP.at(i)/numCopies) << " Expected: " << 100.0*delta <<  std::endl;
+		std::cout << "Error after event " << (i+1) << ": " << (100.0*errorsMPP.at(i)/numCopies) << "% Expected: " << (100.0*delta) << "%" <<  std::endl;
 	}
 
 	return 0;
