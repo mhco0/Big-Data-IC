@@ -94,18 +94,22 @@ class morris_pp{
 /*
 	Running t instantiations of Morris+ with delta = 1/3(delta for Morris+, not Morris++). 
 	Output the median value:
-	- t = omega(lg(1/delta))
+	- t = teta(lg(1/delta))
 */
 private:
 	std::vector<morris_p> counters;
 	uint64_t t;
 	double delt;
+	double err;
 public:
-	morris_pp(double deltt){
+	morris_pp(double er, double deltt){
+		const int c = 36;
+		// The constant that we found by using Chernoff bound
 		delt = deltt;
-		t = (int)std::ceil(std::log2(1.0/delt));
+		err = er;
+		t = (int)std::round(c*std::log(1.0/delt));
 
-		counters.resize(t,morris_p(0.33,delt));
+		counters.resize(t,morris_p(err,0.33));
 	}
 
 	~morris_pp(){
@@ -119,6 +123,9 @@ public:
 		return delt;
 	}
 
+	double error_rate(){
+		return err;
+	}
 	void update(){
 		for(int i = 0; i < this->copys_number() ; i++){
 			counters[i].update();
@@ -136,63 +143,93 @@ public:
 
 
 void help(void){
-	std::cout << "./morris.exe [--help/--no-wait] n_events error_rate_morris_p delta_morris_p delta_morris_pp morris_relative" << std::endl;
+	std::cout << "./morris.exe [--help/--no-wait/--no-wait-no-error-prob] n_events error_rate_morris_p delta_morris_p error_rate_morris_pp delta_morris_pp morris_relative" << std::endl;
 	std::cout << ".Doc:" << std::endl;
 	std::cout << "--help (optional): Show help guide (this guide)." << std::endl;
-	std::cout << "--no-wait (optional): Jumps to conclusive results, stop the wait for input." << std::endl;
+	std::cout << "--no-wait (optional): Jumps to conclusive results (with error prob), stop the wait for input." << std::endl;
+	std::cout << "--no-wait-no-error-prob (optional): Jumps to conclusive results (without error prob), stop the wait for input." << std::endl;
 	std::cout << "n_events (required): Number of events to stream computes." << std::endl;
 	std::cout << "error_rate_morris_p (required): Error rate for morris_p algorithm test." << std::endl;
-	std::cout << "delta_morris_p (required): Delta value for morris_p algorithm test." << std::endl;
+	std::cout << "delta_morris_p (required): Fail probability used in morris_p algorithm test." << std::endl;
+	std::cout << "error_rate_morris_pp (required): Error rate for morris_pp algorithm." << std::endl;
 	std::cout << "delta_morris_pp (required): Fail propability used in morris_pp algorithm." << std::endl;
 	std::cout << "morris_relative (required): E-risk expected for morris algorithm.(>~ 70%)" << std::endl;
 }
-	
-void benchmark(int event_number,morris& test,morris_p& test2, morris_pp& test3,double morris_relative = 0.70){
-	static int fail_morris = 0;
-	static int fail_morris_p = 0;
-	static int fail_morris_pp = 0;
-	int diff_morris = (int)abs(test.query() - event_number);
-	int diff_morris_p = (int)abs(test2.query() - event_number);
-	int diff_morris_pp = (int)abs(test3.query() - event_number);
 
-	if(diff_morris > morris_relative*event_number) fail_morris++;
-	if(diff_morris_p > test2.error_rate()*event_number) fail_morris_p++;
-	if(diff_morris_pp > 0.33*event_number) fail_morris_pp++;
-
-	if (event_number%1000 == 0){
-		std::cout << "--------------------BENCHMARK------------------" << std::endl;
-		std::cout << "-----------------------------------------------" << std::endl;
-		std::cout << "True value := " << event_number << std::endl;
-		std::cout << "-----------------------------------------------" << std::endl;
-		std::cout << "Using Morris Algorithm: " << std::endl;
-		std::cout << "Value predicted := " << test.query() << std::endl;
-		std::cout << "Diff Between expected value and true value := " << diff_morris << std::endl;
-		std::cout << "Fail count := " << fail_morris << std::endl;
-		std::cout << "Fail prob := "<< morris_relative << std::endl;
-		std::cout << "-----------------------------------------------" << std::endl;
-		std::cout << "-----------------------------------------------" << std::endl;
-		std::cout << "Using Morris Plus Algorithm(" << test2.copys_number() << " copys): " << std::endl;
-		std::cout << "Value predicted := " << test2.query() << std::endl;
-		std::cout << "Diff Between expected value and true value := " << diff_morris_p << std::endl;
-		std::cout << "Fail count := " << fail_morris_p << std::endl;
-		std::cout << "Fail prob := "<< test2.delta() << std::endl;
-		std::cout << "-----------------------------------------------" << std::endl;
-		std::cout << "-----------------------------------------------" << std::endl;
-		std::cout << "Using Morris Plus Plus Algorithm(" << test3.copys_number() << " copys): " << std::endl;
-		std::cout << "Value predicted := " << test3.query() << std::endl;
-		std::cout << "Diff Between expected value and true value := " << diff_morris_pp << std::endl;
-		std::cout << "Fail count := " << fail_morris_pp << std::endl;
-		std::cout << "Fail prob := "<< test3.delta() << std::endl;
-		std::cout << "-----------------------------------------------" << std::endl;
+void print_error_prob(std::vector<int> error_score[3],int events,int times_running){
+	std::cout << "Printing fails for Morris Algorithm:" << std::endl;
+	for(int i=0;i<events;i++){
+		std::cout << (i+1) <<" : " << error_score[0][i]*100/(double)times_running << "%" << std::endl;
 	}
+	std::cout << "Printing fails for Morris Plus Algorithm:" << std::endl;
+	for(int i=0;i<events;i++){
+		std::cout << (i+1) <<" : " << error_score[1][i]*100/(double)times_running << "%" << std::endl;
+	}
+	std::cout << "Printing fails for Morris Plus Plus Algorithm:" << std::endl;
+	for(int i=0;i<events;i++){
+		std::cout << (i+1) <<" : " << error_score[2][i]*100/(double)times_running << "%" << std::endl;
+	}
+}
 
+void print_summary(int local_event,morris& test,morris_p& test2,morris_pp& test3,double morris_relative,std::vector<int> event_fail_counts[3]){
+	std::cout << "--------------------BENCHMARK------------------" << std::endl;
+	std::cout << "-----------------------------------------------" << std::endl;
+	std::cout << "True value := " << local_event << std::endl;
+	std::cout << "-----------------------------------------------" << std::endl;
+	std::cout << "Using Morris Algorithm: " << std::endl;
+	std::cout << "Value predicted := " << test.query() << std::endl;
+	std::cout << "Fail count for event {"<< local_event <<"} := " << event_fail_counts[0][local_event-1] << std::endl;
+	std::cout << "Fail prob := "<< morris_relative << std::endl;
+	std::cout << "-----------------------------------------------" << std::endl;
+	std::cout << "-----------------------------------------------" << std::endl;
+	std::cout << "Using Morris Plus Algorithm(" << test2.copys_number() << " copys): " << std::endl;
+	std::cout << "Value predicted := " << test2.query() << std::endl;
+	std::cout << "Fail count for event {"<< local_event <<"} := " << event_fail_counts[1][local_event-1] << std::endl;
+	std::cout << "Fail prob := "<< test2.delta() << std::endl;
+	std::cout << "-----------------------------------------------" << std::endl;
+	std::cout << "-----------------------------------------------" << std::endl;
+	std::cout << "Using Morris Plus Plus Algorithm(" << test3.copys_number() << " copys): " << std::endl;
+	std::cout << "Value predicted := " << test3.query() << std::endl;
+	std::cout << "Fail count for event {"<< local_event <<"} := " << event_fail_counts[2][local_event-1] << std::endl;
+	std::cout << "Fail prob := "<< test3.delta() << std::endl;
+	std::cout << "-----------------------------------------------" << std::endl;
+}
+	
+void benchmark(int event_number,morris& test,morris_p& test2, morris_pp& test3,double morris_relative,bool print_relative,std::vector<int> event_fail_counts[3]){
+	for(int i=1;i<=event_number;i++){
+		test.update();
+		test2.update();
+		test3.update();
+
+		double diff_morris = abs(test.query() - i);
+		double diff_morris_p = abs(test2.query() - i);
+		double diff_morris_pp = abs(test3.query() - i);
+
+		if(diff_morris > morris_relative*i){
+			event_fail_counts[0][i-1]++;
+		}
+
+		if(diff_morris_p > test2.error_rate()*i){
+			event_fail_counts[1][i-1]++;
+		}
+
+		if(diff_morris_pp > test3.error_rate()*i){
+			event_fail_counts[2][i-1]++;
+		}
+
+		if (print_relative){
+			print_summary(i,test,test2,test3,morris_relative,event_fail_counts);
+		}
+	}
 }
 
 int main(int argc,char* argv[]){
+	std::vector<int> error_score[3];
 	std::deque<std::string> args;
 	std::cin.tie(0);
 	std::ios::sync_with_stdio(false);
 	bool wait_input = true;
+	bool see_error_prob = true;
 
 	for(int i=1;i<argc;i++){
 		std::string s(argv[i]);
@@ -210,29 +247,44 @@ int main(int argc,char* argv[]){
 		args.pop_front();
 	}
 
-	if(args.size() != 5){
+	if(args[0] == "--no-wait-no-error-prob"){
+		wait_input = false;
+		see_error_prob = false;
+		args.pop_front();
+	}
+
+	if(args.size() != 6){
 		std::cout << "Invalid parameters, try --help" << std::endl;
 		return 0;
 	}
 
 	const int events = std::stoi(args[0]);
-	morris test;
-	morris_p test2(std::stod(args[1]),std::stod(args[2]));
-	morris_pp test3(std::stod(args[3]));
+	
+	for(int i=0;i<3;i++){
+		error_score[i].resize(events,0);
+	}
 
-	for(int i=1;i<=events;i++){
+	for(int i=0;i<100;i++){
 		//std::cout << std::flush;
 		//system("cls");
-		test.update();
-		test2.update();
-		test3.update();
+		morris test;
+		morris_p test2(std::stod(args[1]),std::stod(args[2]));
+		morris_pp test3(std::stod(args[3]),std::stod(args[4]));
 
-		benchmark(i,test,test2,test3,std::stod(args[4]));
+		benchmark(events,test,test2,test3,std::stod(args[5]),wait_input,error_score);
+		//make a vector to run this N times and take the median hoping that (P[Ni fails] <= delta)
 
 		if(wait_input){
 			system("pause");
 		}
+
+		if (i == 99){
+			print_summary(events,test,test2,test3,std::stod(args[5]),error_score);
+			std::cout << std::endl;
+		}
 	}
+
+	if(see_error_prob) print_error_prob(error_score,events,100);
 
 	return 0;
 }
