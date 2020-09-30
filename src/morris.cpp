@@ -9,6 +9,9 @@
 #define MORRIS_PP 2
 #define CHCONST 36
 
+std::default_random_engine generator;
+std::uniform_real_distribution<double> distribution(0.0,1.0);
+
 class morris{
 /*
 	Fix probability error:
@@ -19,8 +22,6 @@ private:
 	uint64_t counter;
 
 	bool can_update(){
-		std::default_random_engine generator;
- 		std::uniform_real_distribution<double> distribution(0.0,1.0);
  		double number = distribution(generator);
 
 		return (number < (1.0/(1LU << counter)));
@@ -75,7 +76,7 @@ public:
 		return delt;
 	}
 
-	uint32_t copys_number(void){
+	uint64_t copys_number(void){
 		return s;
 	}
 
@@ -227,9 +228,9 @@ void benchmark(int event_number,morris& test,morris_p& test2, morris_pp& test3,d
 		test2.update();
 		test3.update();
 
-		double diff_morris = abs(test.query() - i);
-		double diff_morris_p = abs(test2.query() - i);
-		double diff_morris_pp = abs(test3.query() - i);
+		double diff_morris = fabs(test.query() - i);
+		double diff_morris_p = fabs(test2.query() - i);
+		double diff_morris_pp = fabs(test3.query() - i);
 
 		if(diff_morris > morris_relative*i){
 			event_fail_counts[MORRIS][i-1]++;
@@ -251,7 +252,146 @@ void benchmark(int event_number,morris& test,morris_p& test2, morris_pp& test3,d
 	return;
 }
 
+int morrisExperiment(double eps, int numCopies){
+	
+	std::vector<double> largeErrors;
+	for(int cc = 0 ; cc < numCopies ; cc++){
+		morris test;
+		int total = 1000;
+		for(int i = 0 ; i < total ; ++i){
+			test.update();
+		}
+		double realtiveError = fabs((1.0*total)-test.query())/total;
+		//std::cout << "iteration " << cc << ": Result = " << test.query() << " Relative Error: " << (100.0*realtiveError) << std::endl;
+		if(realtiveError > eps)		
+			largeErrors.push_back(realtiveError);
+	}
+
+	//
+	std::cout << "Morris" << std::endl;
+	std::cout << "Empirical Prob of Error: " << ((1.0*largeErrors.size())/numCopies) << " Expected: " << (1.0/(2*eps*eps)) << std::endl;
+}
+
+int morrisPExperiment(double eps, double delta, int numCopies){
+	
+	std::vector<double> largeErrors;
+	uint64_t copies_number = 0;
+	for(int cc = 0 ; cc < numCopies ; cc++){
+		morris_p test(eps,delta);
+		copies_number = test.copys_number();
+		int total = 100;
+		for(int i = 0 ; i < total ; ++i){
+			test.update();
+		}
+		double realtiveError = fabs((1.0*total)-test.query())/total;
+		//std::cout << "iteration " << cc << ": Actual Answer: " << total << " Result = " << test.query() << " Relative Error: " << (100.0*realtiveError) << " Desired: " << (100.0*eps) << std::endl;
+		if(realtiveError > eps)		
+			largeErrors.push_back(realtiveError);
+	}
+
+	//
+	std::cout << "Morris P" << std::endl;
+	std::cout << "Copies Number: " << copies_number << std::endl;
+	std::cout << "Empirical Prob of Error: " << ((1.0*largeErrors.size())/numCopies) << " Expected: " << delta << std::endl;
+}
+
+int morrisPPExperiment(double eps, double delta, int numCopies){
+	
+	std::vector<double> largeErrors;
+	
+	uint64_t copies_number = 0;
+	for(int cc = 0 ; cc < numCopies ; cc++){
+		morris_pp test(eps,delta);
+		copies_number = test.copys_number();
+		int total = 100;
+		for(int i = 0 ; i < total ; ++i){
+			test.update();
+		}
+		double realtiveError = fabs((1.0*total)-test.query())/total;
+		//std::cout << "iteration " << cc << ": Actual Answer: " << total << " Result = " << test.query() << " Relative Error: " << (100.0*realtiveError) << " Desired: " << (100.0*eps) << std::endl;
+		if(realtiveError > eps)		
+			largeErrors.push_back(realtiveError);
+	}
+
+	//
+	std::cout << "Morris PP" << std::endl;
+	std::cout << "Copies Number: " << copies_number << std::endl;
+	std::cout << "Empirical Prob of Error: " << ((1.0*largeErrors.size())/numCopies) << " Expected: " << delta << std::endl;
+}
+
+int exp1(){
+	double eps = 0.5;
+	double delta = 0.1;
+	int numCopies = 100;
+
+	std::cout << "******** Experiment *********" << std::endl;	
+	std::cout << "eps: " << eps << " delta: " << delta << " reps: " << numCopies << std::endl;  	
+	std::cout << "*****************" << std::endl;
+	morrisExperiment(eps,numCopies);
+	std::cout << std::endl << "*****************" << std::endl;
+	morrisPExperiment(eps,delta,numCopies);
+	std::cout << std::endl << "*****************" << std::endl;
+	morrisPPExperiment(eps,delta,numCopies);
+
+	return 0;
+}
+
+int exp2(){
+	double eps = 0.5;
+	double delta = 0.1;
+	int numCopies = 1000;
+	int total = 100;
+
+
+	std::vector<double> errorsM(total,0);
+	std::vector<double> errorsMP(total,0);
+	std::vector<double> errorsMPP(total,0);
+	
+	for(int cc = 0 ; cc < numCopies ; cc++){
+		morris test;
+		morris_p test1(eps,delta);
+		morris_pp test2(eps,delta);
+		for(int i = 1 ; i <= total ; ++i){
+			test.update();
+			test1.update();
+			test2.update();
+			//
+			double realtiveError = fabs((1.0*i)-test.query())/i;
+			double realtiveError1 = fabs((1.0*i)-test1.query())/i;
+			double realtiveError2 = fabs((1.0*i)-test2.query())/i;
+			//
+			if(realtiveError > eps)		errorsM[i-1] += 1;	
+			if(realtiveError1 > eps)	errorsMP[i-1] += 1;
+			if(realtiveError2 > eps)	errorsMPP[i-1] += 1;
+		}
+		
+	}
+
+	std::cout << "******** Experiment *********" << std::endl;	
+	std::cout << "eps: " << eps << " delta: " << delta << " reps: " << numCopies << std::endl;  	
+	std::cout << "******** Morris *********" << std::endl;
+	for(int i = 0 ; i < total ; ++i){
+		std::cout << "Error after event " << (i+1) << ": " << (100.0*errorsM.at(i)/numCopies) << " Expected: " << (1.0/(2*eps*eps)) <<  std::endl;
+	}
+	std::cout << std::endl << "******** MorrisP *********" << std::endl;
+	for(int i = 0 ; i < total ; ++i){
+		std::cout << "Error after event " << (i+1) << ": " << (100.0*errorsMP.at(i)/numCopies) << " Expected: " << 100.0*delta <<  std::endl;
+	}
+	std::cout << std::endl << "******** MorrisPP *********" << std::endl;
+	for(int i = 0 ; i < total ; ++i){
+		std::cout << "Error after event " << (i+1) << ": " << (100.0*errorsMPP.at(i)/numCopies) << " Expected: " << 100.0*delta <<  std::endl;
+	}
+
+	return 0;
+}
+
 int main(int argc,char* argv[]){
+	exp1();
+	std::cout << std::endl;
+	exp2();
+}
+
+int oldMain(int argc,char* argv[]){
 	std::vector<int> error_score[3];
 	std::deque<std::string> args;
 	std::cin.tie(0);
