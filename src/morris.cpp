@@ -3,6 +3,11 @@
 #include <vector>
 #include <deque>
 #include <random>
+#define SAME_STREAM 100
+#define MORRIS 0
+#define MORRIS_P 1
+#define MORRIS_PP 2
+#define CHCONST 36
 
 class morris{
 /*
@@ -18,12 +23,12 @@ private:
  		std::uniform_real_distribution<double> distribution(0.0,1.0);
  		double number = distribution(generator);
 
-		return (number < (1.0/(1U << counter)));
+		return (number < (1.0/(1LU << counter)));
 	}
 
 public:
 	morris(){
-		counter = 0U;
+		counter = 0LU;
 	}
 
 	void update(void){
@@ -31,7 +36,7 @@ public:
 	}
 
 	uint64_t query(void){
-		return ((1U << counter) - 1);
+		return ((1LU << counter) - 1);
 	}
 };
 
@@ -103,11 +108,11 @@ private:
 	double err;
 public:
 	morris_pp(double er, double deltt){
-		const int c = 36;
+		const int c = CHCONST;
 		// The constant that we found by using Chernoff bound
 		delt = deltt;
 		err = er;
-		t = (int)std::round(c*std::log(1.0/delt));
+		t = (int)std::ceil(c*std::log(1.0/delt));
 
 		counters.resize(t,morris_p(err,0.33));
 	}
@@ -157,40 +162,61 @@ void help(void){
 }
 
 void print_error_prob(std::vector<int> error_score[3],int events,int times_running){
+	int in_line = 0;
+
 	std::cout << "Printing fails for Morris Algorithm:" << std::endl;
+	std::cout << std::endl;
 	for(int i=0;i<events;i++){
-		std::cout << (i+1) <<" : " << error_score[0][i]*100/(double)times_running << "%" << std::endl;
+		std::cout << (i+1) <<": " << error_score[MORRIS][i]*100/(double)times_running << "%\t";
+		in_line++;
+
+		if (!(in_line%20)) std::cout << std::endl;
 	}
+
+	std::cout << std::endl;
 	std::cout << "Printing fails for Morris Plus Algorithm:" << std::endl;
+	std::cout << std::endl;
+
+	in_line = 0;
+
 	for(int i=0;i<events;i++){
-		std::cout << (i+1) <<" : " << error_score[1][i]*100/(double)times_running << "%" << std::endl;
+		std::cout << (i+1) <<": " << error_score[MORRIS_P][i]*100/(double)times_running << "%\t";
+		in_line++;
+
+		if (!(in_line%20)) std::cout << std::endl;
 	}
+
+	std::cout << std::endl;
 	std::cout << "Printing fails for Morris Plus Plus Algorithm:" << std::endl;
+	std::cout << std::endl;
+
+	in_line = 0;
+
 	for(int i=0;i<events;i++){
-		std::cout << (i+1) <<" : " << error_score[2][i]*100/(double)times_running << "%" << std::endl;
+		std::cout << (i+1) <<": " << error_score[MORRIS_PP][i]*100/(double)times_running << "%\t";
+		in_line++;
+
+		if (!(in_line%20)) std::cout << std::endl;
 	}
 }
 
-void print_summary(int local_event,morris& test,morris_p& test2,morris_pp& test3,double morris_relative,std::vector<int> event_fail_counts[3]){
+void print_summary(int local_event,morris& test,morris_p& test2,morris_pp& test3,double morris_relative){
 	std::cout << "--------------------BENCHMARK------------------" << std::endl;
 	std::cout << "-----------------------------------------------" << std::endl;
 	std::cout << "True value := " << local_event << std::endl;
 	std::cout << "-----------------------------------------------" << std::endl;
 	std::cout << "Using Morris Algorithm: " << std::endl;
 	std::cout << "Value predicted := " << test.query() << std::endl;
-	std::cout << "Fail count for event {"<< local_event <<"} := " << event_fail_counts[0][local_event-1] << std::endl;
 	std::cout << "Fail prob := "<< morris_relative << std::endl;
 	std::cout << "-----------------------------------------------" << std::endl;
 	std::cout << "-----------------------------------------------" << std::endl;
 	std::cout << "Using Morris Plus Algorithm(" << test2.copys_number() << " copys): " << std::endl;
 	std::cout << "Value predicted := " << test2.query() << std::endl;
-	std::cout << "Fail count for event {"<< local_event <<"} := " << event_fail_counts[1][local_event-1] << std::endl;
 	std::cout << "Fail prob := "<< test2.delta() << std::endl;
 	std::cout << "-----------------------------------------------" << std::endl;
 	std::cout << "-----------------------------------------------" << std::endl;
 	std::cout << "Using Morris Plus Plus Algorithm(" << test3.copys_number() << " copys): " << std::endl;
 	std::cout << "Value predicted := " << test3.query() << std::endl;
-	std::cout << "Fail count for event {"<< local_event <<"} := " << event_fail_counts[2][local_event-1] << std::endl;
 	std::cout << "Fail prob := "<< test3.delta() << std::endl;
 	std::cout << "-----------------------------------------------" << std::endl;
 }
@@ -206,21 +232,23 @@ void benchmark(int event_number,morris& test,morris_p& test2, morris_pp& test3,d
 		double diff_morris_pp = abs(test3.query() - i);
 
 		if(diff_morris > morris_relative*i){
-			event_fail_counts[0][i-1]++;
+			event_fail_counts[MORRIS][i-1]++;
 		}
 
 		if(diff_morris_p > test2.error_rate()*i){
-			event_fail_counts[1][i-1]++;
+			event_fail_counts[MORRIS_P][i-1]++;
 		}
 
 		if(diff_morris_pp > test3.error_rate()*i){
-			event_fail_counts[2][i-1]++;
+			event_fail_counts[MORRIS_PP][i-1]++;
 		}
 
 		if (print_relative){
-			print_summary(i,test,test2,test3,morris_relative,event_fail_counts);
+			print_summary(i,test,test2,test3,morris_relative);
 		}
 	}
+
+	return;
 }
 
 int main(int argc,char* argv[]){
@@ -264,7 +292,7 @@ int main(int argc,char* argv[]){
 		error_score[i].resize(events,0);
 	}
 
-	for(int i=0;i<100;i++){
+	for(int i=0;i<SAME_STREAM;i++){
 		//std::cout << std::flush;
 		//system("cls");
 		morris test;
@@ -275,16 +303,16 @@ int main(int argc,char* argv[]){
 		//make a vector to run this N times and take the median hoping that (P[Ni fails] <= delta)
 
 		if(wait_input){
-			system("pause");
+			//system("pause");
 		}
 
-		if (i == 99){
-			print_summary(events,test,test2,test3,std::stod(args[5]),error_score);
+		if (i == SAME_STREAM - 1){
+			print_summary(events,test,test2,test3,std::stod(args[5]));
 			std::cout << std::endl;
 		}
 	}
 
-	if(see_error_prob) print_error_prob(error_score,events,100);
+	if(see_error_prob) print_error_prob(error_score,events,SAME_STREAM);
 
 	return 0;
 }
