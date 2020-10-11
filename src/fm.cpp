@@ -5,20 +5,23 @@
 #include <random>
 #include <chrono>
 #include <map>
-#define ARGS_NUMBER 2
+#include <set>
+#include "bob_jenkins_hash.h"
+#define ARGS_NUMBER 4
+#define SAME_STREAM 200
+#define USE_BJH false
 using ll = unsigned long long int;
-
 
 unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
 std::default_random_engine generator(seed);
 
 ll lsb(ll y){
 	
-	if(y == 0) throw std::invalid_argument("0 don't has a bit set");
+	if(y == 0ULL) throw std::invalid_argument("0 don't has a bit set");
 
-	ll index = 0;
+	ll index = 0ULL;
 
-	while(!(y & index)){
+	while(!(y & (1ULL << index))){
 		index++;
 	}
 
@@ -29,45 +32,56 @@ ll nextp2(ll x){
 	return (1ULL << (int)std::ceil(std::log2(x)));
 }
 
-ll h_map(ll x,ll && m){
-	std::uniform_int_distribution<int> distribution(1,(1ULL << m));
-	static ll a = distribution(generator);
-	static ll b = distribution(generator);
-	// a can't be zero;
-	// a and b must be random numbers in [1..2^m] choose properly after
+class two_wise_family{
+/*
+	The class for two-wise family functions.
 
-	/*
-	std::cout << "1^m : " <<(1ULL<<m) << std::endl;
-	std::cout << "prim : " << ((1ULL)<<61 - 1) << std::endl;
-	std::cout << "a : " << a << std::endl;
-	std::cout << "b : " << b << std::endl;
-	std::cout << "x : " << x << std::endl;
+	//f:[n] -> [n] m-> log2(n) 
+*/
+private:
+	ll a,b;
+	ll universe;
+public:
 
-	std::cout << "a*x : " << a*x << std::endl;
-	std::cout << "a*x + b : " << a*x + b << std::endl;
+	two_wise_family(){
+	}
 
-	std::cout << "(a*x + b) mod prim : " << (a*x + b) % ((1ULL<<61) - 1) << std::endl;
-	std::cout << "((a*x + b) mod prim ) mod 1^m : " << ((a*x + b) % ((1ULL<<61) - 1)) % (1ULL<<m) << std::endl;
+	two_wise_family(ll&& m){
+		// This can be changed later to not use only log2(m) and just m.
+		std::uniform_int_distribution<int> distribution(1,(1ULL << m));
+		this->a = distribution(generator);
+		this->b = distribution(generator);
+		this->universe = (1ULL << m);
+		// a can't be zero;
+		// a and b must be random numbers in [1..2^(log2(n))] choose properly after
+		// where log2(n) = m
+	}
 
-	std::cout << "------------" << std::endl;
-	*/
 
-	return ((a*x + b) % ((1ULL<<61) - 1)) % (1ULL<<m) + 1;
-}
+	ll hash(ll x){
+
+		//See later the reason for the prim commented here
+		return ((this->a * x + this->b)  /*% ((1ULL<<61) - 1)*/ ) % (this->universe) + 1;
+	}
+};
 
 class non_idealized_fm{
 	/*
-	- P[|n-ñ| > e*n] < delta
+	- save the max value for distinct elements you saw
 	*/
 private:
+	two_wise_family h;
 	ll counter;
 	ll universe;
 public:
-	
+
+	non_idealized_fm(){
+	}
+
 	non_idealized_fm(ll n){
 		universe = nextp2(n);
-		counter = 0LL;
-
+		counter = 0ULL;
+		h = two_wise_family(std::log2(universe));
 		//after you need to upper the n to the next power of 2 (round up)
 	}
 
@@ -78,8 +92,8 @@ public:
 		//std::cout <<"My universe : " << universe << std::endl;
 		//std::cout <<"log2(universe) : " << std::log2(universe) << std::endl;
 
-		counter = std::max(counter, lsb(h_map(stream,(ll)std::log2(universe))));
-		// this 32 may be log2(universe) try this later
+		if(!USE_BJH) counter = std::max(counter, lsb(h.hash(stream)));
+		else counter = std::max(counter,lsb(bob_jenkins_hash::hash(ull_to_bytes(stream))));
 	}
  
 	ll query(void){
@@ -89,111 +103,183 @@ public:
 
 class trivial_solution_dep{
 private:
+	std::set<ll> many_seen;
 	double error;
 	double constant;
 	int store;
-	std::map<ll,int> many_saw;
+	int logic;
+	bool busted;
 	/* 
-		Use map is a bad approximation because we use O(N*logN), and we can solve with
-		O(logN) change later;
+		c/e^2
 	*/
-
 public:
 	trivial_solution_dep(){
 	}
 
-	trivial_solution_dep(double cst, double err){
+
+	trivial_solution_dep(ll n,double cst, double err){
 		constant = cst;
 		error = err;
+		logic = 0;
+		busted = false;
 		store = (int) std::ceil(constant/(error*error));
+
+		//std::cout << store << std::endl;
+		// save the elements in the set
 	}
 
 	~trivial_solution_dep(){
 	}
 
 	void update(ll elem){
-		if(many_saw.size() < store){
-			if(!many_saw[elem]){
-				many_saw[elem] = 1;
+		if(logic < store){
+			if(many_seen.find(elem) == many_seen.end()){
+				many_seen.insert(elem);
+				logic++;
 			}
+		}else{
+			busted = true;
 		}
 	}	
 
-	int saw(){
-		return many_saw.size();
+	int seen(){
+		return logic;
+	}
+
+	bool bust(){
+		return busted;
 	}
 };
 
 
-class refined_ts_dep{
+class refined_fm{
 private:
 	/*
-		to asnwer the cases where we cannot find such a j that t/(2^(j+1)) ~= 1/(error*error)
+		to answer the cases where we cannot find such a j that t/(2^(j+1)) ~= 1/(error*error)
+
+		this happens for small values that we find
+
 		we can also run in parallel a copy of TS that asnwer the question for small values,
 
 		t < 10/e^2
 	
 		for values greater than this we use the j that we find in non_idealized_fm
 
-		trivial_solution_dep ts_for_small_values(cst,err);
+		trivial_solution_dep ts_for_small_values(n,cst,err);
 
+		for small values of j , jmax can be < 0 so, we must run a extra Ts for this cases
+
+		we also must run a parallel copy of non_idealized_fm to pick the correct value for ~t 
 	*/
 	std::vector<trivial_solution_dep> ts;
+	trivial_solution_dep ts_for_small_values;
+	non_idealized_fm fm_to_find_t;
+	two_wise_family g;
 	ll universe;
 	double error;
 	double constant;
-	int j;
+
+	ll jmax(void){
+		return ((ll)std::log2(fm_to_find_t.query()*error*error) - 1ULL);
+	}
+
 public:
-	refined_ts_dep(ll n,double cst,double err,int jax){
-		//this jax here is only for tests, the non_idealized_fm must run in parallel here 
-		//to pick the real j used for the stream.
+	refined_fm(ll n,double cst,double err){
 		universe = nextp2(n);
 		constant = cst;
 		error = err;
 
-		ts.resize((ll)std::log2(universe),trivial_solution_dep(constant,error));
+		ts_for_small_values = trivial_solution_dep(n,constant,error);
+		fm_to_find_t = non_idealized_fm(n);
+		g = two_wise_family(std::log2(universe));
+		ts.resize((ll)std::log2(universe) + 1ULL,trivial_solution_dep(n,constant,error));
 	}
-	~refined_ts_dep(){
+
+	~refined_fm(){
 	}
 
 	void update(ll stream){
-		ts[lsb(h_map(stream,(ll)std::log2(universe)))].update(stream);
+
+		/*
+			std::cout << "size := ";
+			std::cout << ts.size() << std::endl;
+			std::cout << "hash_value := ";
+			std::cout << lsb(h_map(stream,(ll)std::log2(universe))) << std::endl;
+	
+			search for c++ assert lib
+			this is because assert lib can change with DEBUG mode
+		*/
+
+		ts_for_small_values.update(stream);
+		fm_to_find_t.update(stream);
+		if (!USE_BJH){
+			ts[lsb(g.hash(stream))].update(stream);
+		}else{
+			ts[lsb(bob_jenkins_hash::hash(ull_to_bytes(stream)))].update(stream);
+		}
 	}
 
-
-	int query(){
+	ll query(){
 		/*
 			remember that j must be find where 
 
 			t/(2^(j+1)) ~= 1/(error)^2
 		*/
 
-		return (1<<(j+1))*ts[j].saw();
+		ll j_max = this->jmax();
+
+		if(j_max >= 0ULL and j_max < ts.size()) return (1ULL << (j_max + 1ULL)) * ts[j_max].seen();
+		else return ts_for_small_values.seen();
+	}
+
+	double error_rate(){
+		return error;
+	}
+
+	double constant_used(){
+		return constant;
 	}
 };
 
 void help(void){
-	std::cout << "./morris.exe [--help] n_events n_distinct_events delta_morris_p error_rate_morris_pp delta_morris_pp morris_relative" << std::endl;
+	std::cout << "./fm.exe [--help/--hard] n_events n_distinct_events constant_refined error_rate_refined" << std::endl;
 	std::cout << ".Doc:" << std::endl;
 	std::cout << "--help (optional): Show help guide (this guide)." << std::endl;
+	std::cout << "--hard (optional): Do a hardwork test for SAME_STREAM and show the probs." << std::endl;
 	std::cout << "n_events (required): Number of events to stream computes." << std::endl;
 	std::cout << "n_distinct_events (required): Number of distinct numbers on the stream (0 <= n_distinct_events <= n_events)." << std::endl;
-	std::cout << "delta_morris_p (required): Fail probability used in morris_p algorithm test." << std::endl;
-	std::cout << "error_rate_morris_pp (required): Error rate for morris_pp algorithm." << std::endl;
-	std::cout << "delta_morris_pp (required): Fail propability used in morris_pp algorithm." << std::endl;
-	std::cout << "morris_relative (required): E-risk expected for morris algorithm.(>~ 70%)" << std::endl;
+	std::cout << "constant_refined (required): constant used in refined fm algorithm test for how many elements the TS will store." << std::endl;
+	std::cout << "error_rate_refined (required): Error rate for refined fm algorithm." << std::endl;
 }
 
-void print_summary(int n_distinct_events,non_idealized_fm& fm){
-	std::cout << "--------------------BENCHMARK------------------" << std::endl;
-	std::cout << "-----------------------------------------------" << std::endl;
+void print_fm_summary(int n_distinct_events,non_idealized_fm& fm){
+	std::cout << "--------------------BENCHMARK-FM-------------------" << std::endl;
+	std::cout << "---------------------------------------------------" << std::endl;
 	std::cout << "True value := " << n_distinct_events << std::endl;
-	std::cout << "-----------------------------------------------" << std::endl;
+	std::cout << "---------------------------------------------------" << std::endl;
 	std::cout << "Using Non Idealized Flajolet-Martin Algorithm: " << std::endl;
 	std::cout << "Value predicted := " << fm.query() << std::endl;
-	std::cout << "-----------------------------------------------" << std::endl;
-	std::cout << "-----------------------------------------------" << std::endl;
-	std::cout << "-----------------------------------------------" << std::endl;
+	std::cout << "Diff Values := " << std::max((ll)n_distinct_events,fm.query()) - std::min((ll)n_distinct_events,fm.query()) << std::endl;
+	std::cout << "---------------------------------------------------" << std::endl;
+	std::cout << "---------------------------------------------------" << std::endl;
+	std::cout << "---------------------------------------------------" << std::endl;
+}
+
+void print_refined_fm_summary(int n_distinct_events,refined_fm& fm){
+	std::cout << "--------------------BENCHMARK-RFM------------------" << std::endl;
+	std::cout << "---------------------------------------------------" << std::endl;
+	std::cout << "True value := " << n_distinct_events << std::endl;
+	std::cout << "---------------------------------------------------" << std::endl;
+	std::cout << "Using Refined Flajolet-Martin Algorithm: " << std::endl;
+	std::cout << "Value predicted := " << fm.query() << std::endl;
+	std::cout << "Constant used := " << fm.constant_used() << std::endl;
+	std::cout << "Error rate used := " << fm.error_rate() << std::endl;
+	std::cout << "Error rate^2 := " << fm.error_rate() * fm.error_rate() << std::endl;
+	std::cout << "Correct answer up to " << fm.constant_used()/(fm.error_rate()*fm.error_rate()) << std::endl;
+	std::cout << "Diff Values := " << std::max((ll)n_distinct_events,fm.query()) - std::min((ll)n_distinct_events,fm.query()) << std::endl;
+	std::cout << "---------------------------------------------------" << std::endl;
+	std::cout << "---------------------------------------------------" << std::endl;
+	std::cout << "---------------------------------------------------" << std::endl;
 }
 
 
@@ -202,6 +288,7 @@ int main(int argc,char * argv[]){
 	std::vector<ll> numbers_on_stream;
 	std::cin.tie(0);
 	std::ios::sync_with_stdio(false);
+	bool hardwork = false;
 
 	for(int i=1;i<argc;i++){
 		std::string s(argv[i]);
@@ -214,16 +301,29 @@ int main(int argc,char * argv[]){
 		return 0;
 	}
 
+	if(args[0] == "--hard"){
+		hardwork = true;
+		args.pop_front();
+	}
+
 	if(args.size() != ARGS_NUMBER){
 		std::cout << "Invalid parameters, try --help" << std::endl;
 		return 0;
 	}
 
+	if (std::stoi(args[0]) < std::stoi(args[1])){
+		std::cout << "Error: arg[0] must be greater than arg[1]" << std::endl;
+		help();
+		return 0;
+	}
+
+	if(USE_BJH) std::cout << "Using Bob Jenkins Hash..." << std::endl;
+	else std::cout << "Using h_map hash..." << std::endl;
+	std::cout << std::endl;
+
 	ll distinct = std::stoi(args[1]);
 	std::uniform_int_distribution<ll> values_to_copy(1ULL,distinct);
 	numbers_on_stream.resize(std::stoi(args[0]),0ULL);
-	non_idealized_fm fm(numbers_on_stream.size());
-
 	
 	for(ll i=0;i<distinct;i++){
 		numbers_on_stream[i] = i + 1;
@@ -233,23 +333,86 @@ int main(int argc,char * argv[]){
 		numbers_on_stream[i] = values_to_copy(generator);
 	}
 
-	for(int i=0;i<numbers_on_stream.size();i++){
-		std::cout << numbers_on_stream[i] << " ";
-	}
-	std::cout << std::endl;
-
 	std::random_shuffle(numbers_on_stream.begin(),numbers_on_stream.end());
 
-	for(int i=0;i<numbers_on_stream.size();i++){
-		std::cout << numbers_on_stream[i] << " ";
+	if(hardwork){
+		double constant_used = std::stod(args[2]);
+
+		double fm_times_wrong_med = 0;
+		double rfm_times_wrong_med = 0;
+		ll fm_median_value = 0;
+		ll rfm_median_value = 0;
+
+		for(int j=0;j<SAME_STREAM;j++){
+
+			non_idealized_fm fm(numbers_on_stream.size());
+			refined_fm rfm(numbers_on_stream.size(),std::stod(args[2]),std::stod(args[3]));
+			std::vector<bool> elements_so_far(numbers_on_stream.size(),false);
+			int fm_times_wrong = 0;
+			int rfm_times_wrong = 0;
+			ll distinct_saw_so_far = 0;
+
+
+			std::cout << "On epoch (" << j + 1 << ") : " << std::endl;
+
+
+			for(int i=0;i<numbers_on_stream.size();i++){
+				if(!elements_so_far[numbers_on_stream[i]]){
+					elements_so_far[numbers_on_stream[i]] = true;
+					distinct_saw_so_far++;
+				}
+
+
+				fm.update(numbers_on_stream[i]);
+				rfm.update(numbers_on_stream[i]);
+
+				//ll fm_diff = std::max(fm.query(),distinct_saw_so_far) - std::min(fm.query(),distinct_saw_so_far);
+				//ll rfm_diff = std::max(fm.query(),distinct_saw_so_far) - std::min(fm.query(),distinct_saw_so_far);
+
+				if(fm.query()*1.0 < distinct_saw_so_far*1.0/constant_used or fm.query()*1.0 > constant_used*distinct_saw_so_far*1.0 ) fm_times_wrong++;		
+				if(rfm.query()*1.0 < distinct_saw_so_far*1.0/constant_used or rfm.query()*1.0 > constant_used*distinct_saw_so_far*1.0 ) rfm_times_wrong++;
+
+				//NOTE : Later implementation -> P[|Zj* - EZj*|< some constant] < other constant
+			}
+
+			std::cout << "fm times wrong on epoch := " << fm_times_wrong << std::endl;
+			std::cout << "rfm times wrong on epoch := " << rfm_times_wrong << std::endl;
+
+			fm_times_wrong_med += fm_times_wrong;
+			rfm_times_wrong_med += rfm_times_wrong;
+
+			fm_median_value += fm.query();
+			rfm_median_value += rfm.query();
+
+			std::cout << std::endl << std::endl;
+
+			print_fm_summary(distinct,fm);
+			std::cout << std::endl;
+			print_refined_fm_summary(distinct,rfm);
+			std::cout << std::endl << std::endl;
+		}
+
+		std::cout << "fm median output := " << fm_median_value*1.0/SAME_STREAM << std::endl;
+		std::cout << "rfm median output := " << rfm_median_value*1.0/SAME_STREAM << std::endl;
+
+		std::cout << "fm median for errors := " << (fm_times_wrong_med*100.0/(SAME_STREAM*numbers_on_stream.size())) << "%" << std::endl;
+		std::cout << "rfm median for errors := " << (rfm_times_wrong_med*100.0/(SAME_STREAM*numbers_on_stream.size())) << "%" << std::endl;
+
+	}else{
+		non_idealized_fm fm(numbers_on_stream.size());
+		refined_fm rfm(numbers_on_stream.size(),std::stod(args[2]),std::stod(args[3]));
+
+
+		for(int i=0;i<numbers_on_stream.size();i++){
+			fm.update(numbers_on_stream[i]);
+			rfm.update(numbers_on_stream[i]);
+		}
+
+		print_fm_summary(distinct,fm);
+		std::cout << std::endl;
+		print_refined_fm_summary(distinct,rfm);
 	}
-	std::cout << std::endl;
 
-	for(int i=0;i<numbers_on_stream.size();i++){
-		fm.update(numbers_on_stream[i]);
-	}
-
-	print_summary(distinct,fm);
-
+	
 	return 0;
 }		
