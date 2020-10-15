@@ -8,7 +8,7 @@
 #include <set>
 #include <cassert>
 #include "bob_jenkins_hash.h"
-#define ARGS_NUMBER 5
+#define ARGS_NUMBER 4
 #define SAME_STREAM 1000
 #define USE_BJH false		
 //#define NDEBUG
@@ -298,48 +298,26 @@ class bjkst{
 private:
 	two_wise_family h;
 	std::vector<std::set<ll>> bucket;
+	int universe;
 	int bucket_bottom;
 	int bucket_logic_size;
 	double bucket_max_size;
-	int universe;
 	double error;
-	double delt;
 
-	double calc_const(){
-		/*
-			1/12+48/c <= delta/2
-			(c+12*48)/12*c <= delta/2
-			(c+12*48) <= 12*delta/2*c
-
-			[12*delta/2 - 1]*c >= 12*48
-		*/
-		assert((6.0*this->delt-1.0) > 0.0);
-
-		return (576.0);//(6.0*this->delt - 1.0);
-	}
 public:
 	bjkst(){
 	}
 
-	bjkst(int n,double err,double dlt){
-		//calcule const, then compare const / error^2 with bucket_logic_size
+	bjkst(int n,double err){
 		bucket_bottom = 0;
 		bucket_logic_size = 0;
 		error = err;
-		delt = dlt;
 		universe = nextp2(n);
 		h = two_wise_family(universe);
 
 		bucket.resize(std::log2(universe) + 1,{});
 
-		assert(error == 0.5);
-
-		bucket_max_size = calc_const()/(error*error);
-	 
-		//std::cout << "bucket sz : "<< bucket_max_size << std::endl;
-
-		assert(bucket_max_size > 576);
-
+		bucket_max_size = 576.0/(error*error);
 	}	
 
 	~bjkst(){
@@ -374,7 +352,7 @@ public:
 	}
 
 	double delta(){
-		return delt;
+		return 1.0/6.0;
 	}
 
 	int busted(){
@@ -387,7 +365,7 @@ public:
 };
 
 void help(void){
-	std::cout << "./fm.exe [--help/--hard] n_events n_distinct_events interval_nfm error_rate_djkst delta_djkst" << std::endl;
+	std::cout << "./fm.exe [--help/--hard] n_events n_distinct_events interval_nfm error_rate_djkst " << std::endl;
 	std::cout << ".Doc:" << std::endl;
 	std::cout << "--help (optional): Show help guide (this guide)." << std::endl;
 	std::cout << "--hard (optional): Do a hardwork test for SAME_STREAM and show the probs." << std::endl;
@@ -395,7 +373,6 @@ void help(void){
 	std::cout << "n_distinct_events (required): Number of distinct numbers on the stream (0 <= n_distinct_events <= n_events)." << std::endl;
 	std::cout << "interval_nfm (required) : Interval for Non Idealized FM just for probability test." << std::endl;
 	std::cout << "error_rate_djkst (required): Error rate used in Bjkst algorithm." << std::endl;
-	std::cout << "delta_djkst (required): Fail probability for Bjkst algorithm." << std::endl;
 }
 
 void print_fm_summary(int n_distinct_events,int interval_nfm,non_idealized_fm& fm){
@@ -533,7 +510,7 @@ int new_main(int argc,char * argv[]){
 		for(int j=0;j<SAME_STREAM;j++){
 
 			non_idealized_fm fm(numbers_on_stream.size());
-			bjkst bjk(numbers_on_stream.size(),std::stod(args[3]),std::stod(args[4]));
+			bjkst bjk(numbers_on_stream.size(),std::stod(args[3]));
 			bool fm_wrong_on_epoch = false;
 			bool bjkst_wrong_on_epoch = false;
 
@@ -582,7 +559,7 @@ int new_main(int argc,char * argv[]){
 	}else{
 		int interval_nfm = std::stoi(args[2]);
 		non_idealized_fm fm(numbers_on_stream.size());
-		bjkst bjk(numbers_on_stream.size(),std::stod(args[3]),std::stod(args[4]));
+		bjkst bjk(numbers_on_stream.size(),std::stod(args[3]));
 
 
 		for(int i=0;i<numbers_on_stream.size();i++){
