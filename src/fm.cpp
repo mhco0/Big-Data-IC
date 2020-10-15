@@ -6,10 +6,12 @@
 #include <chrono>
 #include <map>
 #include <set>
+#include <cassert>
 #include "bob_jenkins_hash.h"
-#define ARGS_NUMBER 4
-#define SAME_STREAM 200
-#define USE_BJH false
+#define ARGS_NUMBER 5
+#define SAME_STREAM 1000
+#define USE_BJH false		
+//#define NDEBUG
 using ll = unsigned long long int;
 
 unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
@@ -36,7 +38,7 @@ class two_wise_family{
 /*
 	The class for two-wise family functions.
 
-	//f:[n] -> [n] m-> log2(n) 
+	//f:[n] -> [n] 
 */
 private:
 	ll a,b;
@@ -46,28 +48,37 @@ public:
 	two_wise_family(){
 	}
 
-	two_wise_family(ll&& m){
-		// This can be changed later to not use only log2(m) and just m.
-		std::uniform_int_distribution<int> distribution(1,(1ULL << m));
+	two_wise_family(ll m){
+		std::uniform_int_distribution<int> distribution(1,m);
 		this->a = distribution(generator);
 		this->b = distribution(generator);
-		this->universe = (1ULL << m);
+		this->universe = m;
 		// a can't be zero;
-		// a and b must be random numbers in [1..2^(log2(n))] choose properly after
-		// where log2(n) = m
+		// a and b must be random numbers in [1..m] choose properly after
+		// where l
 	}
 
+	two_wise_family(ll a, ll b, ll m){
+		this->a = a;
+		this->b = b;
+		this->universe = m;
+	}
 
 	ll hash(ll x){
-
 		//See later the reason for the prim commented here
-		return ((this->a * x + this->b)  /*% ((1ULL<<61) - 1)*/ ) % (this->universe) + 1;
+		return (((this->a * x + this->b)  /*% ((1ULL<<61) - 1)*/ ) % (this->universe)) + 1;
 	}
 };
 
 class non_idealized_fm{
 	/*
 	- save the max value for distinct elements you saw
+
+		To j* not in [lgt - lgc , logt + lgc]
+		then 2^j* not in [t/c , c*t]
+
+		and P[ 2^j* not in [t/c , c*t] ] <= (2^(c+1) + 2^(c-1))/2^(2*c)
+
 	*/
 private:
 	two_wise_family h;
@@ -80,9 +91,10 @@ public:
 
 	non_idealized_fm(ll n){
 		universe = nextp2(n);
-		counter = 0ULL;
-		h = two_wise_family(std::log2(universe));
 		//after you need to upper the n to the next power of 2 (round up)
+		counter = 0ULL;
+		h = two_wise_family(universe);
+		
 	}
 
 	~non_idealized_fm(){
@@ -99,6 +111,35 @@ public:
 	ll query(void){
 		return (1ULL << counter);
 	} 
+
+
+	double fail_prob(int constant_interval){
+		/*
+			2^jmax !belongs [t/c,c*t]
+			
+			~ j !belongs [lgt - lgc , lgt + lgc]
+
+			P[Zj- = 0] = P[|Zj- - E[Zj-]| >= t/(2^((lgt - lgc)+1))] <= [t/(2^((lgt - lgc)+1))]/[t/(2^((lgt - lgc)+1))]^2
+
+			P[Zj- = 0] <= (2^((lgt - lgc)+1))/t 
+									
+			P[Zj- = 0] <= (2/c)
+			
+			...
+
+			P[Zj+ >= 1] <= t/(2^((lgt + lgc)+1))
+						
+			P[Zj+ >= 1] <= (1/(2*c))
+
+			...
+
+			P[j !belongs [lgt - lgc , lgt + lgc]] = 2/c + 1/2*c
+
+			P[j !belongs [lgt - lgc , lgt + lgc]] = (5/(2*c))
+
+		*/
+		return 5.0/(2.0*constant_interval);
+	}
 };
 
 class trivial_solution_dep{
@@ -184,14 +225,14 @@ private:
 	}
 
 public:
-	refined_fm(ll n,double cst,double err){
+	refined_fm(ll n,double err,double cst){
 		universe = nextp2(n);
 		constant = cst;
 		error = err;
 
 		ts_for_small_values = trivial_solution_dep(n,constant,error);
 		fm_to_find_t = non_idealized_fm(n);
-		g = two_wise_family(std::log2(universe));
+		g = two_wise_family(universe);
 		ts.resize((ll)std::log2(universe) + 1ULL,trivial_solution_dep(n,constant,error));
 	}
 
@@ -239,20 +280,125 @@ public:
 	double constant_used(){
 		return constant;
 	}
+
+	int many_busted(){
+		int busted = 0;
+
+		for(auto&it : ts){
+			if(it.bust()) busted++;
+		}
+
+		return busted;
+	}
+};
+
+// BJKST
+
+class bjkst{
+private:
+	two_wise_family h;
+	std::vector<std::set<ll>> bucket;
+	int bucket_bottom;
+	int bucket_logic_size;
+	double bucket_max_size;
+	int universe;
+	double error;
+	double delt;
+
+	double calc_const(){
+		/*
+			1/12+48/c <= delta/2
+			(c+12*48)/12*c <= delta/2
+			(c+12*48) <= 12*delta/2*c
+
+			[12*delta/2 - 1]*c >= 12*48
+		*/
+		assert((6.0*this->delt-1.0) > 0.0);
+
+		return (576.0);//(6.0*this->delt - 1.0);
+	}
+public:
+	bjkst(){
+	}
+
+	bjkst(int n,double err,double dlt){
+		//calcule const, then compare const / error^2 with bucket_logic_size
+		bucket_bottom = 0;
+		bucket_logic_size = 0;
+		error = err;
+		delt = dlt;
+		universe = nextp2(n);
+		h = two_wise_family(universe);
+
+		bucket.resize(std::log2(universe) + 1,{});
+
+		assert(error == 0.5);
+
+		bucket_max_size = calc_const()/(error*error);
+	 
+		//std::cout << "bucket sz : "<< bucket_max_size << std::endl;
+
+		assert(bucket_max_size > 576);
+
+	}	
+
+	~bjkst(){
+	}
+
+	void update(ll elem){
+
+		assert(lsb(h.hash(elem)) >= 0 and lsb(h.hash(elem)) < (std::log2(universe) + 1));
+
+		if(lsb(h.hash(elem)) >= bucket_bottom){
+			if(bucket[lsb(h.hash(elem))].find(elem) == bucket[lsb(h.hash(elem))].end()){
+				bucket[lsb(h.hash(elem))].insert(elem);
+				bucket_logic_size++;
+			}
+
+			while(bucket_logic_size >= bucket_max_size){
+				bucket_logic_size -= bucket[bucket_bottom].size();
+				bucket[bucket_bottom].clear();
+
+				bucket_bottom++;
+			}
+		}
+	}
+
+
+	ll query(){
+		return (1ULL << bucket_bottom) * bucket_logic_size;
+	}
+
+	double error_rate(){
+		return error;
+	}
+
+	double delta(){
+		return delt;
+	}
+
+	int busted(){
+		return (bucket_bottom);
+	}
+
+	double max_store(){
+		return bucket_max_size;// (576/e^2)
+	}
 };
 
 void help(void){
-	std::cout << "./fm.exe [--help/--hard] n_events n_distinct_events constant_refined error_rate_refined" << std::endl;
+	std::cout << "./fm.exe [--help/--hard] n_events n_distinct_events interval_nfm error_rate_djkst delta_djkst" << std::endl;
 	std::cout << ".Doc:" << std::endl;
 	std::cout << "--help (optional): Show help guide (this guide)." << std::endl;
 	std::cout << "--hard (optional): Do a hardwork test for SAME_STREAM and show the probs." << std::endl;
 	std::cout << "n_events (required): Number of events to stream computes." << std::endl;
 	std::cout << "n_distinct_events (required): Number of distinct numbers on the stream (0 <= n_distinct_events <= n_events)." << std::endl;
-	std::cout << "constant_refined (required): constant used in refined fm algorithm test for how many elements the TS will store." << std::endl;
-	std::cout << "error_rate_refined (required): Error rate for refined fm algorithm." << std::endl;
+	std::cout << "interval_nfm (required) : Interval for Non Idealized FM just for probability test." << std::endl;
+	std::cout << "error_rate_djkst (required): Error rate used in Bjkst algorithm." << std::endl;
+	std::cout << "delta_djkst (required): Fail probability for Bjkst algorithm." << std::endl;
 }
 
-void print_fm_summary(int n_distinct_events,non_idealized_fm& fm){
+void print_fm_summary(int n_distinct_events,int interval_nfm,non_idealized_fm& fm){
 	std::cout << "--------------------BENCHMARK-FM-------------------" << std::endl;
 	std::cout << "---------------------------------------------------" << std::endl;
 	std::cout << "True value := " << n_distinct_events << std::endl;
@@ -260,6 +406,8 @@ void print_fm_summary(int n_distinct_events,non_idealized_fm& fm){
 	std::cout << "Using Non Idealized Flajolet-Martin Algorithm: " << std::endl;
 	std::cout << "Value predicted := " << fm.query() << std::endl;
 	std::cout << "Diff Values := " << std::max((ll)n_distinct_events,fm.query()) - std::min((ll)n_distinct_events,fm.query()) << std::endl;
+	std::cout << "Fail Prob := " << fm.fail_prob(interval_nfm)*100.0 << "%" << std::endl;
+	std::cout << "Interval expected := " << "[" << n_distinct_events*1.0/interval_nfm <<" , " <<interval_nfm*n_distinct_events <<"]" << std::endl;
 	std::cout << "---------------------------------------------------" << std::endl;
 	std::cout << "---------------------------------------------------" << std::endl;
 	std::cout << "---------------------------------------------------" << std::endl;
@@ -282,8 +430,46 @@ void print_refined_fm_summary(int n_distinct_events,refined_fm& fm){
 	std::cout << "---------------------------------------------------" << std::endl;
 }
 
+void print_bjkst_summary(int n_distinct_events,bjkst& fm){
+	std::cout << "------------------------BJKST----------------------" << std::endl;
+	std::cout << "---------------------------------------------------" << std::endl;
+	std::cout << "True value := " << n_distinct_events << std::endl;
+	std::cout << "---------------------------------------------------" << std::endl;
+	std::cout << "Using BJKST Algorithm: " << std::endl;
+	std::cout << "Value predicted := " << fm.query() << std::endl;
+	std::cout << "Error rate used := " << fm.error_rate() << std::endl;
+	std::cout << "Fail prob := " << fm.delta()*100.0 << "%" <<  std::endl;
+	std::cout << "Diff Values := " << std::max((ll)n_distinct_events,fm.query()) - std::min((ll)n_distinct_events,fm.query()) << std::endl;
+	std::cout << "How many buckets bust := " << fm.busted() << std::endl;
+	std::cout << "Should be write up to := " << fm.max_store() << std::endl;
+	std::cout << "---------------------------------------------------" << std::endl;
+	std::cout << "---------------------------------------------------" << std::endl;
+	std::cout << "---------------------------------------------------" << std::endl;
+}
 
-int main(int argc,char * argv[]){
+int main(){
+	std::vector<int> v(129,0);
+
+	for(int i=1;i<=128;i++){
+		for(int j=1;j<=128;j++){
+			two_wise_family h(i,j,128);
+
+			for(int k=1;k<=128;k++){
+				v[h.hash(k)]++;
+			}
+		}
+	}
+
+	for(int i=0;i<129;i++){
+		std::cout << "(" << i << " , " << v[i] << ") ";
+		std::cout << std::endl;
+	}
+	std::cout << std::endl;
+
+	return 0;
+}
+
+int new_main(int argc,char * argv[]){
 	std::deque<std::string> args;
 	std::vector<ll> numbers_on_stream;
 	std::cin.tie(0);
@@ -318,7 +504,7 @@ int main(int argc,char * argv[]){
 	}
 
 	if(USE_BJH) std::cout << "Using Bob Jenkins Hash..." << std::endl;
-	else std::cout << "Using h_map hash..." << std::endl;
+	else std::cout << "Using two wish family hash..." << std::endl;
 	std::cout << std::endl;
 
 	ll distinct = std::stoi(args[1]);
@@ -336,83 +522,80 @@ int main(int argc,char * argv[]){
 	std::random_shuffle(numbers_on_stream.begin(),numbers_on_stream.end());
 
 	if(hardwork){
-		double constant_used = std::stod(args[2]);
+		int interval_nfm = std::stoi(args[2]);
+		double constant_used = std::stod(args[3]);
 
 		double fm_times_wrong_med = 0;
-		double rfm_times_wrong_med = 0;
-		ll fm_median_value = 0;
-		ll rfm_median_value = 0;
+		double bjkst_times_wrong_med = 0;
+		ll fm_average_value = 0;
+		ll bjkst_average_value = 0;
 
 		for(int j=0;j<SAME_STREAM;j++){
 
 			non_idealized_fm fm(numbers_on_stream.size());
-			refined_fm rfm(numbers_on_stream.size(),std::stod(args[2]),std::stod(args[3]));
-			std::vector<bool> elements_so_far(numbers_on_stream.size(),false);
-			int fm_times_wrong = 0;
-			int rfm_times_wrong = 0;
-			ll distinct_saw_so_far = 0;
+			bjkst bjk(numbers_on_stream.size(),std::stod(args[3]),std::stod(args[4]));
+			bool fm_wrong_on_epoch = false;
+			bool bjkst_wrong_on_epoch = false;
 
 
 			std::cout << "On epoch (" << j + 1 << ") : " << std::endl;
 
 
 			for(int i=0;i<numbers_on_stream.size();i++){
-				if(!elements_so_far[numbers_on_stream[i]]){
-					elements_so_far[numbers_on_stream[i]] = true;
-					distinct_saw_so_far++;
-				}
-
-
 				fm.update(numbers_on_stream[i]);
-				rfm.update(numbers_on_stream[i]);
-
-				//ll fm_diff = std::max(fm.query(),distinct_saw_so_far) - std::min(fm.query(),distinct_saw_so_far);
-				//ll rfm_diff = std::max(fm.query(),distinct_saw_so_far) - std::min(fm.query(),distinct_saw_so_far);
-
-				if(fm.query()*1.0 < distinct_saw_so_far*1.0/constant_used or fm.query()*1.0 > constant_used*distinct_saw_so_far*1.0 ) fm_times_wrong++;		
-				if(rfm.query()*1.0 < distinct_saw_so_far*1.0/constant_used or rfm.query()*1.0 > constant_used*distinct_saw_so_far*1.0 ) rfm_times_wrong++;
-
-				//NOTE : Later implementation -> P[|Zj* - EZj*|< some constant] < other constant
+				//bjk.update(numbers_on_stream[i]);
 			}
 
-			std::cout << "fm times wrong on epoch := " << fm_times_wrong << std::endl;
-			std::cout << "rfm times wrong on epoch := " << rfm_times_wrong << std::endl;
+			if((fm.query()*1.0 < (distinct*1.0/interval_nfm*1.0)) or (fm.query()*1.0 > (interval_nfm*distinct*1.0))){
+				fm_wrong_on_epoch = true;
+			}
 
-			fm_times_wrong_med += fm_times_wrong;
-			rfm_times_wrong_med += rfm_times_wrong;
+			/*if(std::fabs(bjk.query() - distinc) > (bjk.error_rate() * distinct)){
+				bjkst_wrong_on_epoch = true;
+			}*/
 
-			fm_median_value += fm.query();
-			rfm_median_value += rfm.query();
+			std::cout << "fm wrong on epoch := " << fm_wrong_on_epoch << std::endl;
+			//std::cout << "bjkst wrong on epoch := " << bjkst_wrong_on_epoch << std::endl;
+
+			fm_times_wrong_med += fm_wrong_on_epoch;
+			bjkst_times_wrong_med += bjkst_wrong_on_epoch;
+
+			fm_average_value += fm.query();
+			bjkst_average_value += bjk.query();
 
 			std::cout << std::endl << std::endl;
 
-			print_fm_summary(distinct,fm);
+			print_fm_summary(distinct,interval_nfm,fm);
 			std::cout << std::endl;
-			print_refined_fm_summary(distinct,rfm);
+			//print_bjkst_summary(distinct,bjk);
 			std::cout << std::endl << std::endl;
 		}
 
-		std::cout << "fm median output := " << fm_median_value*1.0/SAME_STREAM << std::endl;
-		std::cout << "rfm median output := " << rfm_median_value*1.0/SAME_STREAM << std::endl;
+		std::cout << "RESUME:" << std::endl;
 
-		std::cout << "fm median for errors := " << (fm_times_wrong_med*100.0/(SAME_STREAM*numbers_on_stream.size())) << "%" << std::endl;
-		std::cout << "rfm median for errors := " << (rfm_times_wrong_med*100.0/(SAME_STREAM*numbers_on_stream.size())) << "%" << std::endl;
+		std::cout << "fm median output := " << fm_average_value*1.0/SAME_STREAM << std::endl;
+		//std::cout << "bjkst median output := " << bjkst_average_value*1.0/SAME_STREAM << std::endl;
+
+		std::cout << "fm median for errors := " << (fm_times_wrong_med*100.0/(SAME_STREAM)) << "%" << std::endl;
+		//std::cout << "bjkst median for errors := " << (bjkst_times_wrong_med*100.0/(SAME_STREAM)) << "%" << std::endl;
 
 	}else{
+		int interval_nfm = std::stoi(args[2]);
 		non_idealized_fm fm(numbers_on_stream.size());
-		refined_fm rfm(numbers_on_stream.size(),std::stod(args[2]),std::stod(args[3]));
+		bjkst bjk(numbers_on_stream.size(),std::stod(args[3]),std::stod(args[4]));
 
 
 		for(int i=0;i<numbers_on_stream.size();i++){
 			fm.update(numbers_on_stream[i]);
-			rfm.update(numbers_on_stream[i]);
+			bjk.update(numbers_on_stream[i]);
 		}
 
-		print_fm_summary(distinct,fm);
+		print_fm_summary(distinct,interval_nfm,fm);
 		std::cout << std::endl;
-		print_refined_fm_summary(distinct,rfm);
+		print_bjkst_summary(distinct,bjk);
 	}
-
 	
+	std::cout << "finishing..." << std::endl;
+
 	return 0;
 }		
