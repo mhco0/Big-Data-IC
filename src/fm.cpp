@@ -74,6 +74,34 @@ ll lsb(ll y){
 	return index;
 }
 
+std::vector<unsigned short> binaryExpansion(ll y, ll expansionSize){
+	std::vector<unsigned short> result(expansionSize,0);
+
+	ll index = 0ULL;
+
+	while(index < expansionSize){
+		if((y & (1ULL << index)))
+			result[index] = 1;
+		index++;
+	}
+
+	return result;
+}
+
+ll binaryToDecimal(std::vector<unsigned short>& expansion){
+	ll expansionSize = expansion.size();
+	ll index = 0ULL;
+	ll result = 0ULL;
+	
+	while(index < expansionSize){
+		if(expansion[index])
+			result += ((1ULL << index));
+		index++;
+	}
+
+	return result;
+}
+
 ll nextp2(ll x){
 	return (1ULL << (int)std::ceil(std::log2(x)));
 }
@@ -110,7 +138,62 @@ public:
 
 	ll hash(ll x){
 		//See later the reason for the prim commented here
-		return (((this->a * x + this->b)  /*% ((1ULL<<61) - 1)*/ ) % (this->universe)) + 1;
+		return (((this->a * x + this->b)  % ((1ULL<<61) - 1) ) % (this->universe)) + 1;
+	}
+};
+
+
+class binary_two_wise_family{
+/*
+	The class for two-wise family functions.
+
+	//f:[n] -> [n] 
+*/
+private:
+	ll domainBits;
+	ll rangeBits;
+	//
+	std::vector<unsigned short> binaryMatrix;
+	std::vector<unsigned short> binaryCteVector;
+public:
+
+	binary_two_wise_family(){
+	}
+
+	binary_two_wise_family(ll db, ll rb):
+	domainBits(db),
+	rangeBits(rb) {
+		std::uniform_int_distribution<int> distribution(0,1);
+
+		//
+		for(ll i = 0 ; i < domainBits ; ++i){
+			for(ll j = 0 ; j < rangeBits ; ++j){
+				binaryMatrix.push_back(distribution(generator));
+			}
+		}
+		//
+		for(ll j = 0 ; j < rangeBits ; ++j){
+			binaryCteVector.push_back(distribution(generator));
+		}
+	}
+
+	ll hash(ll x){
+		using namespace std;
+		//write binary expantion of x with domainBits size
+		vector<unsigned short> xb = binaryExpansion(x,domainBits);
+
+		//compute result
+		vector<unsigned short> result;
+		for(ll k = 0 ; k < rangeBits ; ++k){
+			short aux = 0;
+			for(ll n = 0 ; n < domainBits ; ++n){
+				aux = (aux + binaryMatrix[k*domainBits + n]*xb[n]) % 2;
+			}
+			result.push_back(aux);
+		}
+		
+		//get back to result
+		return binaryToDecimal(result) + 1;
 	}
 };
 
@@ -125,7 +208,7 @@ class non_idealized_fm{
 
 	*/
 private:
-	two_wise_family h;
+	binary_two_wise_family h;
 	ll counter;
 	ll universe;
 public:
@@ -134,11 +217,10 @@ public:
 	}
 
 	non_idealized_fm(ll n){
-		universe = nextPrime(n);//nextp2(n);
+		universe = nextp2(n);
 		//after you need to upper the n to the next power of 2 (round up)
 		counter = 0ULL;
-		h = two_wise_family(universe);
-		
+		h = binary_two_wise_family(log2(universe),log2(universe));
 	}
 
 	~non_idealized_fm(){
@@ -340,7 +422,7 @@ public:
 
 class bjkst{
 private:
-	two_wise_family h;
+	binary_two_wise_family h;
 	std::vector<std::set<ll>> bucket;
 	int universe;
 	int bucket_bottom;
@@ -356,10 +438,11 @@ public:
 		bucket_bottom = 0;
 		bucket_logic_size = 0;
 		error = err;
+		ll aux = nextp2(n);
 		universe = nextp2(n);
-		h = two_wise_family(universe);
+		h = binary_two_wise_family(log2(universe),log2(universe));
 
-		bucket.resize(std::log2(universe) + 1,{});
+		bucket.resize(std::log2(aux) + 1,{});
 
 		bucket_max_size = 576.0/(error*error);
 	}	
@@ -490,6 +573,26 @@ int testHash(){
 	return 0;
 }
 
+int testBinaryHash(){
+	using namespace std;
+	ll x = 8;
+	vector<unsigned short> result = binaryExpansion(x,5);
+	for(int i = 0 ; i < result.size(); ++i){ 
+		cout << result[i]  << " ";
+	}
+	cout << endl;
+
+	cout << binaryToDecimal(result) << endl;
+	//
+	binary_two_wise_family h = binary_two_wise_family(3, 2);
+	for(int i = 0 ; i < 8; ++i){
+		cout << "i: "<< i << " hash: " << h.hash(i) << endl;
+	}
+
+	//
+	return 0;
+}
+
 int main(int argc,char * argv[]){
 	std::deque<std::string> args;
 	std::vector<ll> numbers_on_stream;
@@ -564,19 +667,19 @@ int main(int argc,char * argv[]){
 
 			for(int i=0;i<numbers_on_stream.size();i++){
 				fm.update(numbers_on_stream[i]);
-				//bjk.update(numbers_on_stream[i]);
+				bjk.update(numbers_on_stream[i]);
 			}
 
 			if((fm.query()*1.0 < (distinct*1.0/interval_nfm*1.0)) or (fm.query()*1.0 > (interval_nfm*distinct*1.0))){
 				fm_wrong_on_epoch = true;
 			}
 
-			/*if(std::fabs(bjk.query() - distinc) > (bjk.error_rate() * distinct)){
+			if(std::fabs(bjk.query() - distinct) > (bjk.error_rate() * distinct)){
 				bjkst_wrong_on_epoch = true;
-			}*/
+			}
 
 			std::cout << "fm wrong on epoch := " << fm_wrong_on_epoch << std::endl;
-			//std::cout << "bjkst wrong on epoch := " << bjkst_wrong_on_epoch << std::endl;
+			std::cout << "bjkst wrong on epoch := " << bjkst_wrong_on_epoch << std::endl;
 
 			fm_times_wrong_med += fm_wrong_on_epoch;
 			bjkst_times_wrong_med += bjkst_wrong_on_epoch;
@@ -588,17 +691,17 @@ int main(int argc,char * argv[]){
 
 			print_fm_summary(distinct,interval_nfm,fm);
 			std::cout << std::endl;
-			//print_bjkst_summary(distinct,bjk);
+			print_bjkst_summary(distinct,bjk);
 			std::cout << std::endl << std::endl;
 		}
 
-		std::cout << "RESUME:" << std::endl;
+		std::cout << "Summary:" << std::endl;
 
-		std::cout << "fm median output := " << fm_average_value*1.0/SAME_STREAM << std::endl;
-		//std::cout << "bjkst median output := " << bjkst_average_value*1.0/SAME_STREAM << std::endl;
+		std::cout << "fm average output := " << fm_average_value*1.0/SAME_STREAM << std::endl;
+		std::cout << "bjkst aberage output := " << bjkst_average_value*1.0/SAME_STREAM << std::endl;
 
-		std::cout << "fm median for errors := " << (fm_times_wrong_med*100.0/(SAME_STREAM)) << "%" << std::endl;
-		//std::cout << "bjkst median for errors := " << (bjkst_times_wrong_med*100.0/(SAME_STREAM)) << "%" << std::endl;
+		std::cout << "fm average for errors := " << (fm_times_wrong_med*100.0/(SAME_STREAM)) << "%" << std::endl;
+		std::cout << "bjkst average for errors := " << (bjkst_times_wrong_med*100.0/(SAME_STREAM)) << "%" << std::endl;
 
 	}else{
 		int interval_nfm = std::stoi(args[2]);
