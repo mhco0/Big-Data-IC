@@ -9,7 +9,7 @@
 #include <cassert>
 #include "bob_jenkins_hash.h"
 
-#define ARGS_NUMBER 5
+#define ARGS_NUMBER 4
 #define SAME_STREAM 1000
 #define USE_BJH false		
 //#define NDEBUG
@@ -440,7 +440,7 @@ public:
 		error = err;
 		ll aux = nextp2(n);
 		universe = nextp2(n);
-		h = binary_two_wise_family(log2(universe),log2(universe));
+		h = binary_two_wise_family(std::log2(universe),std::log2(universe));
 
 		bucket.resize(std::log2(aux) + 1,{});
 
@@ -674,7 +674,7 @@ int main(int argc,char * argv[]){
 				fm_wrong_on_epoch = true;
 			}
 
-			if(std::fabs(bjk.query() - distinct) > (bjk.error_rate() * distinct)){
+			if(std::fabs(bjk.query() - (distinct*1.0)) > (bjk.error_rate() * (distinct*1.0))){
 				bjkst_wrong_on_epoch = true;
 			}
 
@@ -698,7 +698,7 @@ int main(int argc,char * argv[]){
 		std::cout << "Summary:" << std::endl;
 
 		std::cout << "fm average output := " << fm_average_value*1.0/SAME_STREAM << std::endl;
-		std::cout << "bjkst aberage output := " << bjkst_average_value*1.0/SAME_STREAM << std::endl;
+		std::cout << "bjkst average output := " << bjkst_average_value*1.0/SAME_STREAM << std::endl;
 
 		std::cout << "fm average for errors := " << (fm_times_wrong_med*100.0/(SAME_STREAM)) << "%" << std::endl;
 		std::cout << "bjkst average for errors := " << (bjkst_times_wrong_med*100.0/(SAME_STREAM)) << "%" << std::endl;
