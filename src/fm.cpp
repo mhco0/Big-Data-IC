@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include <algorithm>
 #include <vector>
 #include <deque>
@@ -12,16 +13,16 @@
 #define ARGS_NUMBER 4
 #define SAME_STREAM 1000
 #define USE_BJH false		
-//#define NDEBUG
+#define NDEBUG
 using ll = unsigned long long int;
 
 unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
 std::default_random_engine generator(seed);
-
+ll diff_max_without_g = 0ULL;
+ll diff_max_with_g = 0ULL;
 // Function that returns true if n  
 // is prime else returns false  
-bool isPrime(int n)  
-{  
+bool isPrime(int n){  
     // Corner cases  
     if (n <= 1)  return false;  
     if (n <= 3)  return true;  
@@ -39,8 +40,7 @@ bool isPrime(int n)
   
 // Function to return the smallest 
 // prime number greater than N 
-int nextPrime(int N) 
-{ 
+int nextPrime(int N){ 
   
     // Base case 
     if (N <= 1) 
@@ -424,27 +424,39 @@ class bjkst{
 private:
 	binary_two_wise_family h;
 	std::vector<std::set<ll>> bucket;
-	int universe;
-	int bucket_bottom;
-	int bucket_logic_size;
+	ll universe;
+	ll bucket_bottom;
+	ll bucket_logic_size;
 	double bucket_max_size;
 	double error;
 
+	binary_two_wise_family g;
+	std::set<std::pair<ll,ll>> bucket2;
+	ll bucket_bottom2;
+	ll bucket_logic_size2;
+	double space_amout = 3.0;
+	bool use_g_hash;
 public:
 	bjkst(){
 	}
 
-	bjkst(int n,double err){
-		bucket_bottom = 0;
-		bucket_logic_size = 0;
+	bjkst(int n,double err,bool ugh = false){
+		bucket_bottom = 0ULL;
+		bucket_logic_size = 0ULL;
+		bucket_bottom2 = 0ULL;
+		bucket_logic_size2 = 0ULL;
 		error = err;
-		ll aux = nextp2(n);
 		universe = nextp2(n);
 		h = binary_two_wise_family(std::log2(universe),std::log2(universe));
 
-		bucket.resize(std::log2(aux) + 1,{});
+		ll contra_domain = space_amout*(1.0/(error*error*error*error))*std::log2(universe)*std::log2(universe);
+		g = binary_two_wise_family(std::log2(universe),std::log2(contra_domain));
+
+		bucket.resize(std::log2(universe) + 1,{});
 
 		bucket_max_size = 576.0/(error*error);
+
+		use_g_hash = ugh;
 	}	
 
 	~bjkst(){
@@ -454,24 +466,54 @@ public:
 
 		assert(lsb(h.hash(elem)) >= 0 and lsb(h.hash(elem)) < (std::log2(universe) + 1));
 
-		if(lsb(h.hash(elem)) >= bucket_bottom){
-			if(bucket[lsb(h.hash(elem))].find(elem) == bucket[lsb(h.hash(elem))].end()){
-				bucket[lsb(h.hash(elem))].insert(elem);
-				bucket_logic_size++;
+		if(!use_g_hash){
+			if(lsb(h.hash(elem)) >= bucket_bottom){
+				if(bucket[lsb(h.hash(elem))].find(elem) == bucket[lsb(h.hash(elem))].end()){
+					bucket[lsb(h.hash(elem))].insert(elem);
+					bucket_logic_size++;
+				}
+
+				while(bucket_logic_size >= bucket_max_size){
+					bucket_logic_size -= bucket[bucket_bottom].size();
+					bucket[bucket_bottom].clear();
+
+					bucket_bottom++;
+				}
 			}
+		}else{
+			if(lsb(h.hash(elem)) >= bucket_bottom2){
+				if(bucket2.find({g.hash(elem),lsb(h.hash(elem))}) == bucket2.end()){
+					bucket2.insert({g.hash(elem),lsb(h.hash(elem))});
+					bucket_logic_size2++;
+				}
 
-			while(bucket_logic_size >= bucket_max_size){
-				bucket_logic_size -= bucket[bucket_bottom].size();
-				bucket[bucket_bottom].clear();
+				while(bucket_logic_size2 >= bucket_max_size){
+					bool shrink_all = false;
 
-				bucket_bottom++;
+					do{
+						auto it = std::find_if(bucket2.begin(),bucket2.end(),[this](const std::pair<ll,ll>& p){
+							return (p.second == bucket_bottom2);
+						});
+
+						if(it != bucket2.end()){
+							bucket2.erase(it);
+
+							bucket_logic_size2--;
+						}else{
+							shrink_all = true;
+						}
+
+					}while(!shrink_all);
+
+					bucket_bottom2++;
+				}
 			}
 		}
 	}
 
-
 	ll query(){
-		return (1ULL << bucket_bottom) * bucket_logic_size;
+		if (use_g_hash) return (1ULL << bucket_bottom2) * bucket_logic_size2;
+		else return (1ULL << bucket_bottom) * bucket_logic_size;
 	}
 
 	double error_rate(){
@@ -483,11 +525,35 @@ public:
 	}
 
 	int busted(){
-		return (bucket_bottom);
+		return bucket_bottom;
 	}
 
 	double max_store(){
 		return bucket_max_size;// (576/e^2)
+	}
+
+	void final_state(){
+		std::ofstream f;
+
+		f.open("bjkst_final_state.out",std::ios::ate);
+
+		if(!use_g_hash){
+			f << "z (without g): " << bucket_bottom << std::endl;
+			f << "bucket size (without g): " << bucket_logic_size << std::endl;
+			f << std::endl;
+		}else{
+			f << "z (with g): " << bucket_bottom2 << std::endl;
+			f << "bucket size (with g): " << bucket_logic_size2 << std::endl;
+			f << std::endl;
+		}
+
+		f << "bucket max : " << bucket_max_size << std::endl;
+
+		f.close();
+	}
+
+	bool uses_g(){
+		return use_g_hash;
 	}
 };
 
@@ -540,15 +606,45 @@ void print_bjkst_summary(int n_distinct_events,bjkst& fm){
 	std::cout << "True value := " << n_distinct_events << std::endl;
 	std::cout << "---------------------------------------------------" << std::endl;
 	std::cout << "Using BJKST Algorithm: " << std::endl;
-	std::cout << "Value predicted := " << fm.query() << std::endl;
+
+	if(fm.uses_g()){
+		std::cout << "Value predicted with g hash := ";
+	}else{
+		std::cout << "Value predicted without g hash := ";
+	}
+
+	std::cout << fm.query() << std::endl;
+
 	std::cout << "Error rate used := " << fm.error_rate() << std::endl;
 	std::cout << "Fail prob := " << fm.delta()*100.0 << "%" <<  std::endl;
-	std::cout << "Diff Values := " << std::max((ll)n_distinct_events,fm.query()) - std::min((ll)n_distinct_events,fm.query()) << std::endl;
+
+	if(fm.uses_g()){
+		std::cout << "Diff Values with g := ";
+	}else{
+		std::cout << "Diff Values without g := ";
+	}
+
+	std::cout << std::max((ll)n_distinct_events,fm.query()) - std::min((ll)n_distinct_events,fm.query()) << std::endl;
+
 	std::cout << "How many buckets bust := " << fm.busted() << std::endl;
 	std::cout << "Should be write up to := " << fm.max_store() << std::endl;
 	std::cout << "---------------------------------------------------" << std::endl;
 	std::cout << "---------------------------------------------------" << std::endl;
 	std::cout << "---------------------------------------------------" << std::endl;
+
+
+	ll old_diff_g = diff_max_with_g;
+	ll old_diff_wt_g = diff_max_without_g;
+
+	if(fm.uses_g()){
+		diff_max_with_g = std::max(diff_max_with_g,(std::max((ll)n_distinct_events,fm.query()) - std::min((ll)n_distinct_events,fm.query())));	
+	}else{
+		diff_max_without_g = std::max(diff_max_without_g,(std::max((ll)n_distinct_events,fm.query()) - std::min((ll)n_distinct_events,fm.query())));	
+	}
+
+	if (old_diff_g != diff_max_with_g or old_diff_wt_g != diff_max_without_g){
+		fm.final_state();
+	}
 }
 
 int testHash(){
@@ -591,6 +687,45 @@ int testBinaryHash(){
 
 	//
 	return 0;
+}
+
+std::vector<ll> generate_with_binomial_distribution(ll t, double prob,ll numbers_of_elements){
+	std::binomial_distribution<ll> gen(t,prob);
+	std::vector<ll> v;
+
+	for(ll i=0;i<numbers_of_elements;i++){
+		v.push_back(gen(generator));
+		v[i]++;
+	}
+
+	return v;
+}
+
+int distinct_in(std::vector<ll>& v){
+	std::map<ll,int> mp;
+	int count = 0;
+
+	for(auto&it:v){
+		if(!mp[it]){
+			count++;
+			mp[it] = 1;
+		}
+	}
+
+	return count;
+}
+
+
+int main2(){
+	std::vector<ll> v = generate_with_binomial_distribution(9,0.9,20);
+
+	for(auto &it:v){
+		std::cout << it << " ";
+	}
+
+	std::cout << std::endl;
+
+	std::cout << distinct_in(v)  << std::endl;
 }
 
 int main(int argc,char * argv[]){
@@ -649,17 +784,21 @@ int main(int argc,char * argv[]){
 		int interval_nfm = std::stoi(args[2]);
 		double constant_used = std::stod(args[3]);
 
-		double fm_times_wrong_med = 0;
-		double bjkst_times_wrong_med = 0;
-		ll fm_average_value = 0;
-		ll bjkst_average_value = 0;
+		double fm_times_wrong_med = 0.0;
+		double bjkst_times_wrong_med = 0.0;
+		double bjkst_times_wrong_med_with_g = 0.0;
+		ll fm_average_value = 0ULL;
+		ll bjkst_average_value = 0ULL;
+		ll bjkst_average_value_with_g = 0ULL; 
 
 		for(int j=0;j<SAME_STREAM;j++){
 
 			non_idealized_fm fm(numbers_on_stream.size());
 			bjkst bjk(numbers_on_stream.size(),std::stod(args[3]));
+			bjkst bjk2(numbers_on_stream.size(),std::stod(args[3]),true);
 			bool fm_wrong_on_epoch = false;
 			bool bjkst_wrong_on_epoch = false;
+			bool bjkst_wrong_on_epoch_with_g = false;
 
 
 			std::cout << "On epoch (" << j + 1 << ") : " << std::endl;
@@ -668,40 +807,58 @@ int main(int argc,char * argv[]){
 			for(int i=0;i<numbers_on_stream.size();i++){
 				fm.update(numbers_on_stream[i]);
 				bjk.update(numbers_on_stream[i]);
+				bjk2.update(numbers_on_stream[i]);
 			}
 
 			if((fm.query()*1.0 < (distinct*1.0/interval_nfm*1.0)) or (fm.query()*1.0 > (interval_nfm*distinct*1.0))){
 				fm_wrong_on_epoch = true;
 			}
 
-			if(std::fabs(bjk.query() - (distinct*1.0)) > (bjk.error_rate() * (distinct*1.0))){
+			if(std::fabs((bjk.query()*1.0) - (distinct*1.0)) > (bjk.error_rate() * (distinct*1.0))){
 				bjkst_wrong_on_epoch = true;
 			}
 
+			if(std::fabs((bjk2.query()*1.0) - (distinct*1.0)) > (bjk2.error_rate() * (distinct*1.0))){
+				bjkst_wrong_on_epoch_with_g = true;
+			}
+
 			std::cout << "fm wrong on epoch := " << fm_wrong_on_epoch << std::endl;
-			std::cout << "bjkst wrong on epoch := " << bjkst_wrong_on_epoch << std::endl;
+			std::cout << "bjkst wrong on epoch without g hash := " << bjkst_wrong_on_epoch << std::endl;
+			std::cout << "bjkst wrong on epoch with g  hash := " << bjkst_wrong_on_epoch_with_g << std::endl;
 
 			fm_times_wrong_med += fm_wrong_on_epoch;
 			bjkst_times_wrong_med += bjkst_wrong_on_epoch;
+			bjkst_times_wrong_med_with_g += bjkst_wrong_on_epoch_with_g;
 
 			fm_average_value += fm.query();
 			bjkst_average_value += bjk.query();
+			bjkst_average_value_with_g += bjk2.query();
 
 			std::cout << std::endl << std::endl;
 
 			print_fm_summary(distinct,interval_nfm,fm);
 			std::cout << std::endl;
 			print_bjkst_summary(distinct,bjk);
+			std::cout << std::endl;
+			print_bjkst_summary(distinct,bjk2);
 			std::cout << std::endl << std::endl;
 		}
 
 		std::cout << "Summary:" << std::endl;
 
 		std::cout << "fm average output := " << fm_average_value*1.0/SAME_STREAM << std::endl;
-		std::cout << "bjkst average output := " << bjkst_average_value*1.0/SAME_STREAM << std::endl;
-
 		std::cout << "fm average for errors := " << (fm_times_wrong_med*100.0/(SAME_STREAM)) << "%" << std::endl;
-		std::cout << "bjkst average for errors := " << (bjkst_times_wrong_med*100.0/(SAME_STREAM)) << "%" << std::endl;
+		std::cout << std::endl;
+		std::cout << "bjkst average output := " << bjkst_average_value*1.0/SAME_STREAM << std::endl;
+		std::cout << std::endl;
+		std::cout << "Times wrong without g hash := " << bjkst_times_wrong_med << std::endl;
+		std::cout << "bjkst average for errors without g hash := " << (bjkst_times_wrong_med*100.0/(SAME_STREAM)) << "%" << std::endl;
+		std::cout << "Max diff on all runs without g hash := " << diff_max_without_g << std::endl;
+		std::cout << std::endl;
+		std::cout << "Times wrong with g hash := " << bjkst_times_wrong_med_with_g << std::endl;
+		std::cout << "bjkst average for errors with g hash := " << ((bjkst_times_wrong_med_with_g*100.0)/(SAME_STREAM)) << "%" << std::endl;
+		std::cout << "Max diff on all runs with g hash := " << diff_max_with_g << std::endl;
+		std::cout << std::endl;
 
 	}else{
 		int interval_nfm = std::stoi(args[2]);
@@ -722,4 +879,4 @@ int main(int argc,char * argv[]){
 	std::cout << "finishing..." << std::endl;
 
 	return 0;
-}		
+}			
