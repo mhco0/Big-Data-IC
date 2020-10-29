@@ -11,7 +11,7 @@
 #include "bob_jenkins_hash.h"
 
 #define ARGS_NUMBER 4
-#define SAME_STREAM 1000
+#define SAME_STREAM 1
 #define USE_BJH false		
 #define NDEBUG
 using ll = unsigned long long int;

@@ -1,0 +1,10 @@
+Results for Tug of War Plus:
+True value : 18809174064
+Average F2 estimated : 18288775624.57
+How many estimators : 25
+Times wrong on 100 tests : 10
+Average of errors : 10.00%
+Error for the test :0.50
+Fail prob expected : 33.00%
+
+// tug_of_war --towp 0.5 0.33 1000000 80000 60000

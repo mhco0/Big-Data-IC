@@ -64,7 +64,11 @@ public:
 		delt = dlt;
 		copys = (int)(1.0/(2*delt*(error*error)))+1;
 		s = copys;
-		counters.resize(copys,morris());
+
+		for(int i=0;i<s;i++){
+			morris m;
+			counters.push_back(m);
+		}
 	}
 
 	~morris_p(){
@@ -117,7 +121,10 @@ public:
 		err = er;
 		t = (int)std::ceil(c*std::log(1.0/delt));
 
-		counters.resize(t,morris_p(err,0.33));
+		for(int i=0;i<t;i++){
+			morris_p m(err,0.33);
+			counters.push_back(m);
+		}
 	}
 
 	~morris_pp(){
