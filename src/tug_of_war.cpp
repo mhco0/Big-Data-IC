@@ -2,14 +2,14 @@
 #include "global_generator.h"
 #include "k_wise_family.h"
 #include "binary_two_wise_family.h"
-#define SAME_STREAM 100
+#define SAME_STREAM 1000
 using namespace std;
 using ll = long long int;
 
 /*
 	Pick a function from a 4-wise independent family then pick the last random bit and returns {1,-1}
 */
-int last_random_bit(function<ll(ll)> hash_function,ll elem){
+int last_random_bit(function<ll(ll)>& hash_function,ll elem){
 	ll hash_response = hash_function(elem);
 
 	if(hash_response & 1) return 1;
@@ -132,6 +132,16 @@ public:
 	int how_many_estimators(){
 		return t_copys;
 	}
+
+	ll how_many_estimators_from_twop(){
+		ll parse_sum = 0LL;
+
+		for(int i=0;i<t_copys;i++){
+			parse_sum += estimators[i].how_many_estimators();
+		}
+
+		return parse_sum;
+	}
 };
 
 
@@ -156,32 +166,38 @@ ll calc_F2_moment(vector<ll> &stream){
 	return real_f2_moment;
 }
 
+ll calc_F4_moment(vector<ll> &stream){
+	ll real_f4_moment = 0LL;
+
+	for(auto&it:stream){
+		real_f4_moment += it*it*it*it;
+	}
+
+	return real_f4_moment;
+}
+
 /*
 	Make a stream vector with vector_size elements, using add operations and sub operations as passed in the args
 */
 pair<vector<ll>,vector<pair<ll,ll>>> make_stream_and_commands(ll vector_size, int number_of_add_operations, int number_of_sub_operations,int random_add = 1000){
-	uniform_int_distribution<ll> who_pick(0LL,vector_size-1);
+	uniform_int_distribution<ll> who_pick(0LL,1LL);
+	uniform_int_distribution<ll> how_many_give(0LL, 1LL);
 	vector<ll> stream(vector_size,0);
 	vector<pair<ll,ll>> commands_to_stream;
-	vector<ll> non_zero_elements;
 
 	for(int i=0;i<number_of_add_operations;i++){
 		ll random_element = who_pick(generator);
-		uniform_int_distribution<ll> how_many_give(stream[random_element], stream[random_element] + random_add);
+		
 		ll delta_to_random_element = how_many_give(generator);
 
 		stream[random_element] += delta_to_random_element;
-
-		non_zero_elements.push_back(random_element);
 
 		commands_to_stream.push_back({random_element,delta_to_random_element});
 	}
 
 	for(int i=0;i<number_of_sub_operations;i++){
-		uniform_int_distribution<ll> non_zero_pick(0,non_zero_elements.size()-1);
-		ll random_element = non_zero_elements[non_zero_pick(generator)];
-		uniform_int_distribution<ll> how_many_give(0LL, stream[random_element]);
-		ll delta_to_random_element = how_many_give(generator);
+		ll random_element = who_pick(generator);
+		ll delta_to_random_element = max(how_many_give(generator),stream[random_element]);
 
 		stream[random_element] -= delta_to_random_element;
 
@@ -200,6 +216,7 @@ void test_towpp(double error_expected, double delta_expected, ll vector_size, in
 	vector<pair<ll,ll>> commands = stream_and_commands.second;
 
 	int estimators_used = 0LL;
+	ll estimators_from_towp = 0LL;
 	ll real_f2_moment = calc_F2_moment(stream);
 	ll average_error = 0LL;
 	ll average_value = 0LL;
@@ -208,6 +225,7 @@ void test_towpp(double error_expected, double delta_expected, ll vector_size, in
 		tug_of_war_pp towpp(error_expected,delta_expected,stream.size());
 
 		estimators_used = towpp.how_many_estimators();
+		estimators_from_towp = towpp.how_many_estimators_from_twop();
 
 		bool fail = false;
 
@@ -228,6 +246,7 @@ void test_towpp(double error_expected, double delta_expected, ll vector_size, in
 	cout << "True value : " << real_f2_moment << endl;
 	cout << "Average F2 estimated : " << (average_value*1.0)/(same_stream*1.0) << endl;
 	cout << "How many estimators : " << estimators_used << endl;
+	cout << "How many estimators from Tug of War Plus : " << estimators_from_towp << endl;
 	cout << "Times wrong on "<< same_stream << " tests : " << average_error << endl;
 	cout << "Average of errors : " << (average_error*100.0)/(same_stream*1.0) << "%" << endl;
 	cout << "Error for the test :" << error_expected << endl;
@@ -286,6 +305,7 @@ void test_tow(double error_expected,ll vector_size, int number_of_add_operations
 	vector<pair<ll,ll>> commands = stream_and_commands.second;
 
 	ll real_f2_moment = calc_F2_moment(stream);
+	ll real_f4_moment = calc_F4_moment(stream);
 	ll average_error = 0LL;
 	ll average_value = 0LL;
 
@@ -293,8 +313,8 @@ void test_tow(double error_expected,ll vector_size, int number_of_add_operations
 	for(int i=0;i<same_stream;i++){
 		k_wise_family f(4,stream.size());
 
-		function<ll(ll)> four_wise_function = bind<ll>(&k_wise_family::operator(),f,placeholders::_1);
-		auto hash_function = bind<int>(last_random_bit,four_wise_function,placeholders::_1);
+		function<ll(ll)> function_from_four_wise = bind<ll>(&k_wise_family::operator(),f,placeholders::_1);
+		auto hash_function = bind<int>(last_random_bit,function_from_four_wise,placeholders::_1);
 		tug_of_war tow(hash_function);
 
 		bool fail = false;
@@ -318,6 +338,7 @@ void test_tow(double error_expected,ll vector_size, int number_of_add_operations
 	cout << "Average of errors : " << (average_error*100.0)/(same_stream*1.0) << "%" << endl;
 	cout << "Error for the test :" << error_expected << endl;
 	cout << "Fail prob expected : " << (200.0)/(error_expected*error_expected*1.0) << "%" << endl;
+	cout << "Real prob expected : " << (100.0*((2.0/(error_expected*error_expected)) - ((2.0*real_f4_moment)/(error_expected*error_expected*real_f2_moment*real_f2_moment*1.0)))) << "%" << endl;	
 }
 
 /*
@@ -396,7 +417,7 @@ bool test_if_family_is_4_wise(ll universe){
 		}
 	}
 
-
+	assert(counter.size() > 4);
 	ll frequency = counter[0][1][2][3][0][1][2][3];
 
 	for(int x1=0;x1<contra_domain;x1++){
@@ -409,10 +430,10 @@ bool test_if_family_is_4_wise(ll universe){
 								for(int f4=0;f4<contra_domain;f4++){
 									cout << counter[x1][x2][x3][x4][f1][f2][f3][f4] << " ";
 
-									bool xs_diff = x1 == x2 or x1 == x3 or x1 == x4;
-									xs_diff = xs_diff or (x2 == x3 or x2 == x4);
-									xs_diff = xs_diff or (x3 == x4);
-									if(not xs_diff and frequency != counter[x1][x2][x3][x4][f1][f2][f3][f4]) is_four_wise = false;
+									bool xs_eq = x1 == x2 or x1 == x3 or x1 == x4;
+									xs_eq = xs_eq or (x2 == x3 or x2 == x4);
+									xs_eq = xs_eq or (x3 == x4);
+									if(not xs_eq and frequency != counter[x1][x2][x3][x4][f1][f2][f3][f4]) is_four_wise = false;
 								}
 							}
 						}
