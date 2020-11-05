@@ -12,3 +12,4 @@
 #include <functional>
 #include <utility>
 #include <iomanip>
+#include <exception>
