@@ -1,0 +1,32 @@
+[
+{
+  "directory": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/googletest/googlemock",
+  "command": "/bin/x86_64-linux-gnu-g++-9   -isystem \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/googletest/googlemock/include\" -isystem \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/googletest/googlemock\" -isystem \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/googletest/googletest/include\" -isystem \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/googletest/googletest\"  -g -fPIC   -Wall -Wshadow -Werror -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -std=c++11 -o CMakeFiles/gmock_main.dir/src/gmock_main.cc.o -c \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/googletest/googlemock/src/gmock_main.cc\"",
+  "file": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/googletest/googlemock/src/gmock_main.cc"
+},
+{
+  "directory": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/googletest/googlemock",
+  "command": "/bin/x86_64-linux-gnu-g++-9   -I\"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/googletest/googlemock/include\" -I\"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/googletest/googlemock\" -isystem \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/googletest/googletest/include\" -isystem \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/googletest/googletest\"  -g -fPIC   -Wall -Wshadow -Werror -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -std=c++11 -o CMakeFiles/gmock.dir/src/gmock-all.cc.o -c \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/googletest/googlemock/src/gmock-all.cc\"",
+  "file": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/googletest/googlemock/src/gmock-all.cc"
+},
+{
+  "directory": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/googletest/googletest",
+  "command": "/bin/x86_64-linux-gnu-g++-9   -isystem \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/googletest/googletest/include\" -isystem \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/googletest/googletest\"  -g -fPIC   -Wall -Wshadow -Werror -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -std=c++11 -o CMakeFiles/gtest_main.dir/src/gtest_main.cc.o -c \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/googletest/googletest/src/gtest_main.cc\"",
+  "file": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/googletest/googletest/src/gtest_main.cc"
+},
+{
+  "directory": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/googletest/googletest",
+  "command": "/bin/x86_64-linux-gnu-g++-9   -I\"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/googletest/googletest/include\" -I\"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/googletest/googletest\"  -g -fPIC   -Wall -Wshadow -Werror -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -std=c++11 -o CMakeFiles/gtest.dir/src/gtest-all.cc.o -c \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/googletest/googletest/src/gtest-all.cc\"",
+  "file": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/googletest/googletest/src/gtest-all.cc"
+},
+{
+  "directory": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src",
+  "command": "/bin/x86_64-linux-gnu-g++-9   -I\"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src\"  -g -fPIC   -std=gnu++11 -o CMakeFiles/GLOBAL_GEN.dir/global_generator/global_generator.cpp.o -c \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/global_generator/global_generator.cpp\"",
+  "file": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/global_generator/global_generator.cpp"
+},
+{
+  "directory": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test",
+  "command": "/bin/x86_64-linux-gnu-g++-9   -I\"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src\" -isystem \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/googletest/googletest/include\" -isystem \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/googletest/googletest\"  -g -fPIE   -std=gnu++11 -o CMakeFiles/test_kll.dir/test_kll.cpp.o -c \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_kll.cpp\"",
+  "file": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_kll.cpp"
+}
+]

@@ -1,0 +1,3 @@
+file(REMOVE_RECURSE
+  "libGLOBAL_GEN.a"
+)

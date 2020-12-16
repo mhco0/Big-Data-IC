@@ -1,4 +1,5 @@
-#pragma once
+#ifndef COMMUM_HEADER_H
+#define COMMUM_HEADER_H
 #include <iostream>
 #include <fstream>
 #include <algorithm>
@@ -13,3 +14,5 @@
 #include <utility>
 #include <iomanip>
 #include <exception>
+#include <limits>
+#endif

@@ -1,0 +1,2 @@
+/bin/ar qc libKLL.a  
+/bin/ranlib libKLL.a

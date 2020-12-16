@@ -7,10 +7,8 @@ class q_digest{
 private:
 	class node{
 	private:
-		static int ids;
 		friend class q_digest;
 		int weight;
-		int id;
 		node * left;
 		node * right;
 
@@ -29,39 +27,24 @@ private:
 			}
 		}
 
-		void private_sub_tree_weights_print(node* rt,int indent,vector<int>& sub_tree_weights){
+		void private_sub_tree_weights_print(node* rt,int indent){
 			if(rt){
-				if(rt->right) private_sub_tree_weights_print(rt->right,indent + 4,sub_tree_weights);
+				if(rt->right) private_sub_tree_weights_print(rt->right,indent + 4);
 		        if (indent) cout << setw(indent) << ' ';
 		        if (rt->right) cout<<" /\n" << setw(indent) << ' ';
 
-		        cout<< sub_tree_weights[rt->id] << "\n ";
+		        cout<< sub_tree_weight_from(rt) << "\n ";
 
 		        if(rt->left) {
 					cout << setw(indent) << ' ' <<" \\\n";
-					private_sub_tree_weights_print(rt->left,indent + 4,sub_tree_weights);
+					private_sub_tree_weights_print(rt->left,indent + 4);
 		        }
 			}
 		}
 
-		void dfs(node * rt,vector<bool>& visit,vector<int>& sub_tree_weights){
-			if(rt == nullptr) return;
-
-			visit[rt->id] = true;
-			sub_tree_weights[rt->id] += rt->weight;
-
-			if(rt->left and not visit[rt->left->id]){
-				dfs(rt->left,visit,sub_tree_weights);
-			}
-
-			if(rt->right and not visit[rt->right->id]){
-				dfs(rt->right,visit,sub_tree_weights);
-			}
-
-			if(rt->left) sub_tree_weights[rt->id] += sub_tree_weights[rt->left->id]; 
-			if(rt->right) sub_tree_weights[rt->id] += sub_tree_weights[rt->right->id];
-
-			return;
+		int sub_tree_weight_from(node * rt){
+			if(rt == nullptr) return 0;
+			else return rt->weight + sub_tree_weight_from(rt->left) + sub_tree_weight_from(rt->right);
 		}
 
 		void delete_tree(node * rt){
@@ -87,10 +70,8 @@ private:
 	public:
 		node(int weight){
 			this->weight = weight;
-			this->id = ids;
 			this->left = nullptr;
 			this->right = nullptr;
-			this->ids++;
 		}
 
 		~node(){
@@ -106,21 +87,9 @@ private:
 		}
 
 		void print_subtree_weights(){
-			auto sub_tree_weights = this->get_subtree_weights();
-			private_sub_tree_weights_print(this,0,sub_tree_weights);
+			private_sub_tree_weights_print(this,0);
 		}
 
-		vector<int> get_subtree_weights(){
-			vector<bool> visit;
-			vector<int> sub_tree_weights;
-
-			visit.assign(this->ids,false);
-			sub_tree_weights.assign(this->ids,0);
-
-			dfs(this,visit,sub_tree_weights);
-
-			return sub_tree_weights;
-		}
 
 		//DEBUG
 		friend q_digest tree_on_paper_ex1();
@@ -160,7 +129,7 @@ private:
 		return (x == l and x == r);
 	}
 
-	void private_compress(node * rt,int debt,vector<int>& sub_tree_weights){
+	void private_compress(node * rt,int debt){
 		if (rt == nullptr) return;
 		if (rt->weight == 0) return;
 
@@ -168,18 +137,18 @@ private:
 			rt->weight -= debt;
 		}else{
 
-			if((sub_tree_weights[rt->id] - debt) > capacity){
+			if((rt->sub_tree_weight_from(rt) - debt) > capacity){
 				debt += (capacity - rt->weight);
 				rt->weight = capacity;
 
 				//pass the sub-tree weight for the left and the right child
 
-				int left_sub_weight = (rt->left) ? sub_tree_weights[rt->left->id] : 0;
+				int left_sub_weight = rt->sub_tree_weight_from(rt->left);
 
-				private_compress(rt->left,min(debt,left_sub_weight),sub_tree_weights);
-				private_compress(rt->right,max(debt - left_sub_weight,0),sub_tree_weights);
+				private_compress(rt->left,min(debt,left_sub_weight));
+				private_compress(rt->right,max(debt - left_sub_weight,0));
 			}else{
-				rt->weight = sub_tree_weights[rt->id] - debt;
+				rt->weight = rt->sub_tree_weight_from(rt) - debt;
 
 				//see after if i can delete this from memory
 				rt->set_subtree_weight_to_zero(rt->left);
@@ -257,7 +226,6 @@ private:
 	}
 
 	int private_query(int x){
-		vector<int> sub_tree_weights = root->get_subtree_weights();
 		node * cur = root;
 		int rank = 0;
 		int left_range = 0;
@@ -271,7 +239,7 @@ private:
 				cur = cur->left;
 				right_range = middle;
 			}else{
-				if(cur->left) rank += sub_tree_weights[cur->left->id];
+				rank += cur->sub_tree_weight_from(cur->left);
 				cur = cur->right;
 				left_range = middle + 1;
 			}
@@ -283,6 +251,8 @@ private:
 	void insert_in_buffer(int x,int weight){
 		total_weight += weight;
 		small_buffer.push_back({x,weight});
+
+		// do one binary_search
 
 		int index = small_buffer.size()-1;
 
@@ -335,8 +305,7 @@ public:
 	//DEBUG
 	q_digest(q_digest::node* root,double error,int universe):q_digest(error,universe){
 		this->root = root;
-		vector<int> sub_tree_weights = this->root->get_subtree_weights();
-		this->total_weight = (this->root) ? sub_tree_weights[this->root->id] : 0;
+		this->total_weight = root->sub_tree_weight_from(root);
 		this->ceil_weight = 2*total_weight;
 		this->capacity = (error*total_weight)/log2(universe);
 	}
@@ -369,9 +338,8 @@ public:
 	}
 
 	void compress(){
-		vector<int> sub_tree_weights = this->root->get_subtree_weights();
 		this->capacity = (error * total_weight)/log2(universe);
-		private_compress(this->root,0,sub_tree_weights);
+		private_compress(this->root,0);
 	}
 
 	q_digest merge(q_digest& rhs){
@@ -403,8 +371,6 @@ public:
 	friend q_digest tree_on_paper_ex2();
 	friend void compress_tree_from_ex1();
 };
-
-int q_digest::node::ids = 0;
 
 /*
 	Calculates the rank(x), for a given stream
@@ -550,8 +516,7 @@ void compress_tree_from_ex1(){
 
 	cout << "Before : " << endl;
 	qdst.print();
-	auto subtree_weights = qdst.root->get_subtree_weights();
-	qdst.private_compress(qdst.root,0,subtree_weights);
+	qdst.private_compress(qdst.root,0);
 	cout << "After : " << endl;
 	qdst.print(); 
 }
