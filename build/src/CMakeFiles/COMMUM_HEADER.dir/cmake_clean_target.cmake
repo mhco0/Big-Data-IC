@@ -1,0 +1,3 @@
+file(REMOVE_RECURSE
+  "libCOMMUM_HEADER.a"
+)

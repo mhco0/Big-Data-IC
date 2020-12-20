@@ -1,0 +1,65 @@
+Start testing: Dec 16 23:21 -03
+----------------------------------------------------------
+1/1 Testing: test_kll
+1/1 Test: test_kll
+Command: "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test/test_kll"
+Directory: /mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test
+"test_kll" start time: Dec 16 23:21 -03
+Output:
+----------------------------------------------------------
+Running main() from /mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/googletest/googletest/src/gtest_main.cc
+[==========] Running 3 tests from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 3 tests from KllTest
+[ RUN      ] KllTest.TestInsertSorted
+[       OK ] KllTest.TestInsertSorted (0 ms)
+[ RUN      ] KllTest.TestUpdate
+height [0]: 2 
+
+height [0]: 2 3 
+
+height [0]: 2 3 4 
+
+height [0]: 
+height [1]: 2 4 
+
+height [0]: 6 
+height [1]: 2 4 
+
+height [0]: 6 12 
+height [1]: 2 4 
+
+height [0]: 
+height [1]: 2 4 12 
+
+height [0]: 13 
+height [1]: 2 4 12 
+
+height [0]: 13 45 
+height [1]: 2 4 12 
+
+[       OK ] KllTest.TestUpdate (0 ms)
+[ RUN      ] KllTest.TestQuery
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_kll.cpp:36: Failure
+Value of: false
+  Actual: false
+Expected: true
+[  FAILED  ] KllTest.TestQuery (0 ms)
+[----------] 3 tests from KllTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 3 tests from 1 test suite ran. (0 ms total)
+[  PASSED  ] 2 tests.
+[  FAILED  ] 1 test, listed below:
+[  FAILED  ] KllTest.TestQuery
+
+ 1 FAILED TEST
+<end of output>
+Test time =   0.04 sec
+----------------------------------------------------------
+Test Failed.
+"test_kll" end time: Dec 16 23:21 -03
+"test_kll" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Dec 16 23:21 -03

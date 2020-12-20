@@ -82,6 +82,7 @@ test/test_kll: test/CMakeFiles/test_kll.dir/build.make
 test/test_kll: lib/libgtest_maind.a
 test/test_kll: src/libKLL.a
 test/test_kll: src/libGLOBAL_GEN.a
+test/test_kll: src/libCOMMUM_HEADER.a
 test/test_kll: lib/libgtestd.a
 test/test_kll: test/CMakeFiles/test_kll.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable test_kll"

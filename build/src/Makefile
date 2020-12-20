@@ -168,6 +168,21 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+src/CMakeFiles/COMMUM_HEADER.dir/rule:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/COMMUM_HEADER.dir/rule
+.PHONY : src/CMakeFiles/COMMUM_HEADER.dir/rule
+
+# Convenience name for target.
+COMMUM_HEADER: src/CMakeFiles/COMMUM_HEADER.dir/rule
+
+.PHONY : COMMUM_HEADER
+
+# fast build rule for target.
+COMMUM_HEADER/fast:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f src/CMakeFiles/COMMUM_HEADER.dir/build.make src/CMakeFiles/COMMUM_HEADER.dir/build
+.PHONY : COMMUM_HEADER/fast
+
+# Convenience name for target.
 src/CMakeFiles/GLOBAL_GEN.dir/rule:
 	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/GLOBAL_GEN.dir/rule
 .PHONY : src/CMakeFiles/GLOBAL_GEN.dir/rule
@@ -237,6 +252,7 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... test"
+	@echo "... COMMUM_HEADER"
 	@echo "... GLOBAL_GEN"
 	@echo "... KLL"
 	@echo "... global_generator/global_generator.o"

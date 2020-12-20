@@ -1,0 +1,2 @@
+/bin/ar qc libCOMMUM_HEADER.a  
+/bin/ranlib libCOMMUM_HEADER.a

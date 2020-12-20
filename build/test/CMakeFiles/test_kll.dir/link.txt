@@ -1,1 +1,1 @@
-/bin/x86_64-linux-gnu-g++-9  -g   CMakeFiles/test_kll.dir/test_kll.cpp.o  -o test_kll  ../lib/libgtest_maind.a ../src/libKLL.a ../src/libGLOBAL_GEN.a ../lib/libgtestd.a -lpthread 
+/bin/x86_64-linux-gnu-g++-9  -g   CMakeFiles/test_kll.dir/test_kll.cpp.o  -o test_kll  ../lib/libgtest_maind.a ../src/libKLL.a ../src/libGLOBAL_GEN.a ../src/libCOMMUM_HEADER.a ../lib/libgtestd.a -lpthread 

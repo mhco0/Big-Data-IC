@@ -220,6 +220,19 @@ gtest/fast:
 .PHONY : gtest/fast
 
 #=============================================================================
+# Target rules for targets named COMMUM_HEADER
+
+# Build rule for target.
+COMMUM_HEADER: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 COMMUM_HEADER
+.PHONY : COMMUM_HEADER
+
+# fast build rule for target.
+COMMUM_HEADER/fast:
+	$(MAKE) -f src/CMakeFiles/COMMUM_HEADER.dir/build.make src/CMakeFiles/COMMUM_HEADER.dir/build
+.PHONY : COMMUM_HEADER/fast
+
+#=============================================================================
 # Target rules for targets named GLOBAL_GEN
 
 # Build rule for target.
@@ -275,6 +288,7 @@ help:
 	@echo "... gmock"
 	@echo "... gtest_main"
 	@echo "... gtest"
+	@echo "... COMMUM_HEADER"
 	@echo "... GLOBAL_GEN"
 	@echo "... KLL"
 	@echo "... test_kll"
