@@ -2,106 +2,9 @@
 #include <kll/kll.hpp>
 #include <commum_header/commum_header.h>
 #include <global_generator/global_generator.h>
+#include <stream_maker/stream_maker.h>
 
 using namespace std;
-
-vector<int> random_int_stream(int vector_size, int min_v, int max_v){
-	uniform_int_distribution<int> who_pick(min_v,max_v);
-	vector<int> random_stream;
-
-	for(int i = 0; i < vector_size; i++){
-		random_stream.push_back(who_pick(generator));
-	}
-
-	return random_stream;
-}
-
-vector<int> real_ranks_from(vector<int>& stream){
-	sort(stream.begin(),stream.end());
-
-	int max_elem = stream[stream.size() - 1];
-	bool find_nz = false;
-	vector<int> ranks(max_elem + 1, 0);
-
-	for(int i = 0; i < stream.size(); i++){
-		ranks[stream[i]]++;
-	}
-
-	int accumulate = 0;
-
-	for(int i = 0; i < ranks.size(); i++){
-		if(ranks[i] != 0){
-			accumulate += ranks[i];
-			ranks[i] = accumulate - ranks[i];
-		}else{
-			ranks[i] = accumulate;
-		}
-	}
-
-	return ranks;
-}
-
-vector<int> merge_stream(vector<int>& stream1, vector<int>& stream2){
-	vector<int> merged_stream;
-	int i = 0;
-	int j = 0;
-
-	while(i < stream1.size() && j < stream2.size()){
-		merged_stream.push_back(stream1[i]);
-		merged_stream.push_back(stream2[j]);
-		i++;
-		j++;
-	}
-
-	while(i < stream1.size()){
-		merged_stream.push_back(stream1[i]);
-		i++;
-	}
-
-	while(j < stream2.size()){
-		merged_stream.push_back(stream2[j]);
-		j++;
-	}
-
-	return merged_stream;
-}
-
-TEST(RanksTest, TestRandomStream){
-	vector<int> stream = random_int_stream(100, 0, 10);
-
-	ASSERT_TRUE(stream.size() == 100);
-
-	for(auto& it : stream){	
-		EXPECT_LE(it, 10);
-		EXPECT_GE(it, 0);
-	}
-}
-
-TEST(RanksTest, TestRealRank){
-	vector<int> stream = {1, 3, 4, 3, 4, 5, 10, 2, 5, 2, 9, 10};
-	vector<int> ranks = {0, 0, 1, 3, 5, 7, 9, 9, 9, 9, 10};
-
-	vector<int> real_ranks = real_ranks_from(stream);
-	
-	ASSERT_EQ(ranks.size(), real_ranks.size());
-
-	for(int i = 0; i < real_ranks.size(); i++){
-		EXPECT_EQ(ranks[i], real_ranks[i]);
-	}
-}
-
-TEST(RanksTest, TestMergeStream){
-	vector<int> stream1 = random_int_stream(100, 0, 10);
-	vector<int> stream2 = random_int_stream(300, 20, 50);
-	vector<int> merged = merge_stream(stream1, stream2);
-
-	ASSERT_TRUE(merged.size() == 400);
-
-	for(auto& it : merged){	
-		EXPECT_LE(it, 50);
-		EXPECT_GE(it, 0);
-	}
-}
 
 TEST(KllTest, TestInsertSorted){
 	vector<int> random_input;
@@ -179,7 +82,7 @@ TEST(KllTest, TestBounds){
 	double error = 0.01;
 	int attempts = 100;
 	vector<int> stream = random_int_stream(N, 20, 1000);
-	vector<int> real_ranks = real_ranks_from(stream);
+	vector<int> real_ranks = real_ranks_from_stream(stream);
 	vector<int> fails(real_ranks.size(), 0);
 
 	for(int i = 0; i < attempts; i++){
@@ -212,8 +115,8 @@ TEST(KllTest, TestMerge){
 	int attempts = 1000;
 	vector<int> stream1 = random_int_stream(N1, 0, 100);
 	vector<int> stream2 = random_int_stream(N2, 100, 200);
-	vector<int> merged_stream = merge_stream(stream1, stream2);
-	vector<int> real_ranks = real_ranks_from(merged_stream);
+	vector<int> merged_stream = merge_stream<int>(stream1, stream2);
+	vector<int> real_ranks = real_ranks_from_stream(merged_stream);
 	vector<int> fails(real_ranks.size(), 0);
 
 	for(int i = 0; i < attempts; i++){

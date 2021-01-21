@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/test_stream_maker.dir/test_stream_maker.cpp.o  -o ../bin/test_stream_maker  ../lib/libgtest_main.a ../lib/libSTREAM_MAKER.a ../lib/libGLOBAL_GEN.a ../lib/libCOMMUM_HEADER.a ../lib/libPBPLOTS_PBPLOTTER.a ../lib/libgtest.a -lpthread ../lib/libPBPLOTS_LIB.a ../lib/libPBPLOTS_SUPPORT_LIB.a 

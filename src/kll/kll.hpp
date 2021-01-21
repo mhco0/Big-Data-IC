@@ -31,5 +31,4 @@ public:
     double get_capacity();
 };
 
-#include "kll.tpp"
 #endif

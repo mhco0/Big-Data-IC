@@ -56,18 +56,6 @@ CMAKE_BINARY_DIR = "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build"
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
-
-# Special rule for the target install/local
-install/local/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local/fast
-
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
@@ -100,6 +88,18 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
 
 # Special rule for the target edit_cache
 edit_cache:
@@ -168,6 +168,66 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+test/CMakeFiles/test_pbplotter.dir/rule:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_pbplotter.dir/rule
+.PHONY : test/CMakeFiles/test_pbplotter.dir/rule
+
+# Convenience name for target.
+test_pbplotter: test/CMakeFiles/test_pbplotter.dir/rule
+
+.PHONY : test_pbplotter
+
+# fast build rule for target.
+test_pbplotter/fast:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_pbplotter.dir/build.make test/CMakeFiles/test_pbplotter.dir/build
+.PHONY : test_pbplotter/fast
+
+# Convenience name for target.
+test/CMakeFiles/test_dcs.dir/rule:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_dcs.dir/rule
+.PHONY : test/CMakeFiles/test_dcs.dir/rule
+
+# Convenience name for target.
+test_dcs: test/CMakeFiles/test_dcs.dir/rule
+
+.PHONY : test_dcs
+
+# fast build rule for target.
+test_dcs/fast:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_dcs.dir/build.make test/CMakeFiles/test_dcs.dir/build
+.PHONY : test_dcs/fast
+
+# Convenience name for target.
+test/CMakeFiles/test_count_sketch.dir/rule:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_count_sketch.dir/rule
+.PHONY : test/CMakeFiles/test_count_sketch.dir/rule
+
+# Convenience name for target.
+test_count_sketch: test/CMakeFiles/test_count_sketch.dir/rule
+
+.PHONY : test_count_sketch
+
+# fast build rule for target.
+test_count_sketch/fast:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_count_sketch.dir/build.make test/CMakeFiles/test_count_sketch.dir/build
+.PHONY : test_count_sketch/fast
+
+# Convenience name for target.
+test/CMakeFiles/test_k_wise_family.dir/rule:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_k_wise_family.dir/rule
+.PHONY : test/CMakeFiles/test_k_wise_family.dir/rule
+
+# Convenience name for target.
+test_k_wise_family: test/CMakeFiles/test_k_wise_family.dir/rule
+
+.PHONY : test_k_wise_family
+
+# fast build rule for target.
+test_k_wise_family/fast:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_k_wise_family.dir/build.make test/CMakeFiles/test_k_wise_family.dir/build
+.PHONY : test_k_wise_family/fast
+
+# Convenience name for target.
 test/CMakeFiles/test_kll.dir/rule:
 	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_kll.dir/rule
 .PHONY : test/CMakeFiles/test_kll.dir/rule
@@ -181,6 +241,102 @@ test_kll: test/CMakeFiles/test_kll.dir/rule
 test_kll/fast:
 	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_kll.dir/build.make test/CMakeFiles/test_kll.dir/build
 .PHONY : test_kll/fast
+
+# Convenience name for target.
+test/CMakeFiles/test_stream_maker.dir/rule:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_stream_maker.dir/rule
+.PHONY : test/CMakeFiles/test_stream_maker.dir/rule
+
+# Convenience name for target.
+test_stream_maker: test/CMakeFiles/test_stream_maker.dir/rule
+
+.PHONY : test_stream_maker
+
+# fast build rule for target.
+test_stream_maker/fast:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_stream_maker.dir/build.make test/CMakeFiles/test_stream_maker.dir/build
+.PHONY : test_stream_maker/fast
+
+test_count_sketch.o: test_count_sketch.cpp.o
+
+.PHONY : test_count_sketch.o
+
+# target to build an object file
+test_count_sketch.cpp.o:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_count_sketch.dir/build.make test/CMakeFiles/test_count_sketch.dir/test_count_sketch.cpp.o
+.PHONY : test_count_sketch.cpp.o
+
+test_count_sketch.i: test_count_sketch.cpp.i
+
+.PHONY : test_count_sketch.i
+
+# target to preprocess a source file
+test_count_sketch.cpp.i:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_count_sketch.dir/build.make test/CMakeFiles/test_count_sketch.dir/test_count_sketch.cpp.i
+.PHONY : test_count_sketch.cpp.i
+
+test_count_sketch.s: test_count_sketch.cpp.s
+
+.PHONY : test_count_sketch.s
+
+# target to generate assembly for a file
+test_count_sketch.cpp.s:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_count_sketch.dir/build.make test/CMakeFiles/test_count_sketch.dir/test_count_sketch.cpp.s
+.PHONY : test_count_sketch.cpp.s
+
+test_dcs.o: test_dcs.cpp.o
+
+.PHONY : test_dcs.o
+
+# target to build an object file
+test_dcs.cpp.o:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_dcs.dir/build.make test/CMakeFiles/test_dcs.dir/test_dcs.cpp.o
+.PHONY : test_dcs.cpp.o
+
+test_dcs.i: test_dcs.cpp.i
+
+.PHONY : test_dcs.i
+
+# target to preprocess a source file
+test_dcs.cpp.i:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_dcs.dir/build.make test/CMakeFiles/test_dcs.dir/test_dcs.cpp.i
+.PHONY : test_dcs.cpp.i
+
+test_dcs.s: test_dcs.cpp.s
+
+.PHONY : test_dcs.s
+
+# target to generate assembly for a file
+test_dcs.cpp.s:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_dcs.dir/build.make test/CMakeFiles/test_dcs.dir/test_dcs.cpp.s
+.PHONY : test_dcs.cpp.s
+
+test_k_wise_family.o: test_k_wise_family.cpp.o
+
+.PHONY : test_k_wise_family.o
+
+# target to build an object file
+test_k_wise_family.cpp.o:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_k_wise_family.dir/build.make test/CMakeFiles/test_k_wise_family.dir/test_k_wise_family.cpp.o
+.PHONY : test_k_wise_family.cpp.o
+
+test_k_wise_family.i: test_k_wise_family.cpp.i
+
+.PHONY : test_k_wise_family.i
+
+# target to preprocess a source file
+test_k_wise_family.cpp.i:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_k_wise_family.dir/build.make test/CMakeFiles/test_k_wise_family.dir/test_k_wise_family.cpp.i
+.PHONY : test_k_wise_family.cpp.i
+
+test_k_wise_family.s: test_k_wise_family.cpp.s
+
+.PHONY : test_k_wise_family.s
+
+# target to generate assembly for a file
+test_k_wise_family.cpp.s:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_k_wise_family.dir/build.make test/CMakeFiles/test_k_wise_family.dir/test_k_wise_family.cpp.s
+.PHONY : test_k_wise_family.cpp.s
 
 test_kll.o: test_kll.cpp.o
 
@@ -209,23 +365,97 @@ test_kll.cpp.s:
 	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_kll.dir/build.make test/CMakeFiles/test_kll.dir/test_kll.cpp.s
 .PHONY : test_kll.cpp.s
 
+test_pbplotter.o: test_pbplotter.cpp.o
+
+.PHONY : test_pbplotter.o
+
+# target to build an object file
+test_pbplotter.cpp.o:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_pbplotter.dir/build.make test/CMakeFiles/test_pbplotter.dir/test_pbplotter.cpp.o
+.PHONY : test_pbplotter.cpp.o
+
+test_pbplotter.i: test_pbplotter.cpp.i
+
+.PHONY : test_pbplotter.i
+
+# target to preprocess a source file
+test_pbplotter.cpp.i:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_pbplotter.dir/build.make test/CMakeFiles/test_pbplotter.dir/test_pbplotter.cpp.i
+.PHONY : test_pbplotter.cpp.i
+
+test_pbplotter.s: test_pbplotter.cpp.s
+
+.PHONY : test_pbplotter.s
+
+# target to generate assembly for a file
+test_pbplotter.cpp.s:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_pbplotter.dir/build.make test/CMakeFiles/test_pbplotter.dir/test_pbplotter.cpp.s
+.PHONY : test_pbplotter.cpp.s
+
+test_stream_maker.o: test_stream_maker.cpp.o
+
+.PHONY : test_stream_maker.o
+
+# target to build an object file
+test_stream_maker.cpp.o:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_stream_maker.dir/build.make test/CMakeFiles/test_stream_maker.dir/test_stream_maker.cpp.o
+.PHONY : test_stream_maker.cpp.o
+
+test_stream_maker.i: test_stream_maker.cpp.i
+
+.PHONY : test_stream_maker.i
+
+# target to preprocess a source file
+test_stream_maker.cpp.i:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_stream_maker.dir/build.make test/CMakeFiles/test_stream_maker.dir/test_stream_maker.cpp.i
+.PHONY : test_stream_maker.cpp.i
+
+test_stream_maker.s: test_stream_maker.cpp.s
+
+.PHONY : test_stream_maker.s
+
+# target to generate assembly for a file
+test_stream_maker.cpp.s:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_stream_maker.dir/build.make test/CMakeFiles/test_stream_maker.dir/test_stream_maker.cpp.s
+.PHONY : test_stream_maker.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... install/local"
 	@echo "... install"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
+	@echo "... test_pbplotter"
+	@echo "... install/local"
+	@echo "... test_dcs"
+	@echo "... test_count_sketch"
 	@echo "... edit_cache"
 	@echo "... test"
+	@echo "... test_k_wise_family"
 	@echo "... install/strip"
 	@echo "... test_kll"
+	@echo "... test_stream_maker"
+	@echo "... test_count_sketch.o"
+	@echo "... test_count_sketch.i"
+	@echo "... test_count_sketch.s"
+	@echo "... test_dcs.o"
+	@echo "... test_dcs.i"
+	@echo "... test_dcs.s"
+	@echo "... test_k_wise_family.o"
+	@echo "... test_k_wise_family.i"
+	@echo "... test_k_wise_family.s"
 	@echo "... test_kll.o"
 	@echo "... test_kll.i"
 	@echo "... test_kll.s"
+	@echo "... test_pbplotter.o"
+	@echo "... test_pbplotter.i"
+	@echo "... test_pbplotter.s"
+	@echo "... test_stream_maker.o"
+	@echo "... test_stream_maker.i"
+	@echo "... test_stream_maker.s"
 .PHONY : help
 
 

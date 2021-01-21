@@ -220,6 +220,19 @@ gtest/fast:
 .PHONY : gtest/fast
 
 #=============================================================================
+# Target rules for targets named GLOBAL_GEN
+
+# Build rule for target.
+GLOBAL_GEN: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 GLOBAL_GEN
+.PHONY : GLOBAL_GEN
+
+# fast build rule for target.
+GLOBAL_GEN/fast:
+	$(MAKE) -f src/CMakeFiles/GLOBAL_GEN.dir/build.make src/CMakeFiles/GLOBAL_GEN.dir/build
+.PHONY : GLOBAL_GEN/fast
+
+#=============================================================================
 # Target rules for targets named COMMUM_HEADER
 
 # Build rule for target.
@@ -233,17 +246,43 @@ COMMUM_HEADER/fast:
 .PHONY : COMMUM_HEADER/fast
 
 #=============================================================================
-# Target rules for targets named GLOBAL_GEN
+# Target rules for targets named K_WISE_FAMILY
 
 # Build rule for target.
-GLOBAL_GEN: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 GLOBAL_GEN
-.PHONY : GLOBAL_GEN
+K_WISE_FAMILY: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 K_WISE_FAMILY
+.PHONY : K_WISE_FAMILY
 
 # fast build rule for target.
-GLOBAL_GEN/fast:
-	$(MAKE) -f src/CMakeFiles/GLOBAL_GEN.dir/build.make src/CMakeFiles/GLOBAL_GEN.dir/build
-.PHONY : GLOBAL_GEN/fast
+K_WISE_FAMILY/fast:
+	$(MAKE) -f src/CMakeFiles/K_WISE_FAMILY.dir/build.make src/CMakeFiles/K_WISE_FAMILY.dir/build
+.PHONY : K_WISE_FAMILY/fast
+
+#=============================================================================
+# Target rules for targets named COUNT_SKETCH
+
+# Build rule for target.
+COUNT_SKETCH: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 COUNT_SKETCH
+.PHONY : COUNT_SKETCH
+
+# fast build rule for target.
+COUNT_SKETCH/fast:
+	$(MAKE) -f src/CMakeFiles/COUNT_SKETCH.dir/build.make src/CMakeFiles/COUNT_SKETCH.dir/build
+.PHONY : COUNT_SKETCH/fast
+
+#=============================================================================
+# Target rules for targets named PBPLOTS_SUPPORT_LIB
+
+# Build rule for target.
+PBPLOTS_SUPPORT_LIB: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 PBPLOTS_SUPPORT_LIB
+.PHONY : PBPLOTS_SUPPORT_LIB
+
+# fast build rule for target.
+PBPLOTS_SUPPORT_LIB/fast:
+	$(MAKE) -f src/CMakeFiles/PBPLOTS_SUPPORT_LIB.dir/build.make src/CMakeFiles/PBPLOTS_SUPPORT_LIB.dir/build
+.PHONY : PBPLOTS_SUPPORT_LIB/fast
 
 #=============================================================================
 # Target rules for targets named KLL
@@ -259,6 +298,110 @@ KLL/fast:
 .PHONY : KLL/fast
 
 #=============================================================================
+# Target rules for targets named STREAM_MAKER
+
+# Build rule for target.
+STREAM_MAKER: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 STREAM_MAKER
+.PHONY : STREAM_MAKER
+
+# fast build rule for target.
+STREAM_MAKER/fast:
+	$(MAKE) -f src/CMakeFiles/STREAM_MAKER.dir/build.make src/CMakeFiles/STREAM_MAKER.dir/build
+.PHONY : STREAM_MAKER/fast
+
+#=============================================================================
+# Target rules for targets named PBPLOTS_PBPLOTTER
+
+# Build rule for target.
+PBPLOTS_PBPLOTTER: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 PBPLOTS_PBPLOTTER
+.PHONY : PBPLOTS_PBPLOTTER
+
+# fast build rule for target.
+PBPLOTS_PBPLOTTER/fast:
+	$(MAKE) -f src/CMakeFiles/PBPLOTS_PBPLOTTER.dir/build.make src/CMakeFiles/PBPLOTS_PBPLOTTER.dir/build
+.PHONY : PBPLOTS_PBPLOTTER/fast
+
+#=============================================================================
+# Target rules for targets named DCS
+
+# Build rule for target.
+DCS: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 DCS
+.PHONY : DCS
+
+# fast build rule for target.
+DCS/fast:
+	$(MAKE) -f src/CMakeFiles/DCS.dir/build.make src/CMakeFiles/DCS.dir/build
+.PHONY : DCS/fast
+
+#=============================================================================
+# Target rules for targets named PBPLOTS_LIB
+
+# Build rule for target.
+PBPLOTS_LIB: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 PBPLOTS_LIB
+.PHONY : PBPLOTS_LIB
+
+# fast build rule for target.
+PBPLOTS_LIB/fast:
+	$(MAKE) -f src/CMakeFiles/PBPLOTS_LIB.dir/build.make src/CMakeFiles/PBPLOTS_LIB.dir/build
+.PHONY : PBPLOTS_LIB/fast
+
+#=============================================================================
+# Target rules for targets named test_pbplotter
+
+# Build rule for target.
+test_pbplotter: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_pbplotter
+.PHONY : test_pbplotter
+
+# fast build rule for target.
+test_pbplotter/fast:
+	$(MAKE) -f test/CMakeFiles/test_pbplotter.dir/build.make test/CMakeFiles/test_pbplotter.dir/build
+.PHONY : test_pbplotter/fast
+
+#=============================================================================
+# Target rules for targets named test_dcs
+
+# Build rule for target.
+test_dcs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_dcs
+.PHONY : test_dcs
+
+# fast build rule for target.
+test_dcs/fast:
+	$(MAKE) -f test/CMakeFiles/test_dcs.dir/build.make test/CMakeFiles/test_dcs.dir/build
+.PHONY : test_dcs/fast
+
+#=============================================================================
+# Target rules for targets named test_count_sketch
+
+# Build rule for target.
+test_count_sketch: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_count_sketch
+.PHONY : test_count_sketch
+
+# fast build rule for target.
+test_count_sketch/fast:
+	$(MAKE) -f test/CMakeFiles/test_count_sketch.dir/build.make test/CMakeFiles/test_count_sketch.dir/build
+.PHONY : test_count_sketch/fast
+
+#=============================================================================
+# Target rules for targets named test_k_wise_family
+
+# Build rule for target.
+test_k_wise_family: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_k_wise_family
+.PHONY : test_k_wise_family
+
+# fast build rule for target.
+test_k_wise_family/fast:
+	$(MAKE) -f test/CMakeFiles/test_k_wise_family.dir/build.make test/CMakeFiles/test_k_wise_family.dir/build
+.PHONY : test_k_wise_family/fast
+
+#=============================================================================
 # Target rules for targets named test_kll
 
 # Build rule for target.
@@ -270,6 +413,19 @@ test_kll: cmake_check_build_system
 test_kll/fast:
 	$(MAKE) -f test/CMakeFiles/test_kll.dir/build.make test/CMakeFiles/test_kll.dir/build
 .PHONY : test_kll/fast
+
+#=============================================================================
+# Target rules for targets named test_stream_maker
+
+# Build rule for target.
+test_stream_maker: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_stream_maker
+.PHONY : test_stream_maker
+
+# fast build rule for target.
+test_stream_maker/fast:
+	$(MAKE) -f test/CMakeFiles/test_stream_maker.dir/build.make test/CMakeFiles/test_stream_maker.dir/build
+.PHONY : test_stream_maker/fast
 
 # Help Target
 help:
@@ -288,10 +444,22 @@ help:
 	@echo "... gmock"
 	@echo "... gtest_main"
 	@echo "... gtest"
-	@echo "... COMMUM_HEADER"
 	@echo "... GLOBAL_GEN"
+	@echo "... COMMUM_HEADER"
+	@echo "... K_WISE_FAMILY"
+	@echo "... COUNT_SKETCH"
+	@echo "... PBPLOTS_SUPPORT_LIB"
 	@echo "... KLL"
+	@echo "... STREAM_MAKER"
+	@echo "... PBPLOTS_PBPLOTTER"
+	@echo "... DCS"
+	@echo "... PBPLOTS_LIB"
+	@echo "... test_pbplotter"
+	@echo "... test_dcs"
+	@echo "... test_count_sketch"
+	@echo "... test_k_wise_family"
 	@echo "... test_kll"
+	@echo "... test_stream_maker"
 .PHONY : help
 
 

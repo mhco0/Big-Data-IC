@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../lib/libPBPLOTS_PBPLOTTER.a  CMakeFiles/PBPLOTS_PBPLOTTER.dir/pbplots/pbPlotter.cpp.o
+/usr/bin/ranlib ../lib/libPBPLOTS_PBPLOTTER.a

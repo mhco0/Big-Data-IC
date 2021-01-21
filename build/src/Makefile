@@ -80,6 +80,16 @@ install/local/fast: preinstall/fast
 	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local/fast
 
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
+
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
@@ -92,15 +102,16 @@ install/fast: preinstall/fast
 	/usr/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
 
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
 
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
+# Special rule for the target test
+test/fast: test
 
-.PHONY : list_install_components/fast
+.PHONY : test/fast
 
 # Special rule for the target rebuild_cache
 rebuild_cache:
@@ -123,17 +134,6 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
-
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-
-.PHONY : test/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -168,21 +168,6 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-src/CMakeFiles/COMMUM_HEADER.dir/rule:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/COMMUM_HEADER.dir/rule
-.PHONY : src/CMakeFiles/COMMUM_HEADER.dir/rule
-
-# Convenience name for target.
-COMMUM_HEADER: src/CMakeFiles/COMMUM_HEADER.dir/rule
-
-.PHONY : COMMUM_HEADER
-
-# fast build rule for target.
-COMMUM_HEADER/fast:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f src/CMakeFiles/COMMUM_HEADER.dir/build.make src/CMakeFiles/COMMUM_HEADER.dir/build
-.PHONY : COMMUM_HEADER/fast
-
-# Convenience name for target.
 src/CMakeFiles/GLOBAL_GEN.dir/rule:
 	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/GLOBAL_GEN.dir/rule
 .PHONY : src/CMakeFiles/GLOBAL_GEN.dir/rule
@@ -198,6 +183,66 @@ GLOBAL_GEN/fast:
 .PHONY : GLOBAL_GEN/fast
 
 # Convenience name for target.
+src/CMakeFiles/COMMUM_HEADER.dir/rule:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/COMMUM_HEADER.dir/rule
+.PHONY : src/CMakeFiles/COMMUM_HEADER.dir/rule
+
+# Convenience name for target.
+COMMUM_HEADER: src/CMakeFiles/COMMUM_HEADER.dir/rule
+
+.PHONY : COMMUM_HEADER
+
+# fast build rule for target.
+COMMUM_HEADER/fast:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f src/CMakeFiles/COMMUM_HEADER.dir/build.make src/CMakeFiles/COMMUM_HEADER.dir/build
+.PHONY : COMMUM_HEADER/fast
+
+# Convenience name for target.
+src/CMakeFiles/K_WISE_FAMILY.dir/rule:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/K_WISE_FAMILY.dir/rule
+.PHONY : src/CMakeFiles/K_WISE_FAMILY.dir/rule
+
+# Convenience name for target.
+K_WISE_FAMILY: src/CMakeFiles/K_WISE_FAMILY.dir/rule
+
+.PHONY : K_WISE_FAMILY
+
+# fast build rule for target.
+K_WISE_FAMILY/fast:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f src/CMakeFiles/K_WISE_FAMILY.dir/build.make src/CMakeFiles/K_WISE_FAMILY.dir/build
+.PHONY : K_WISE_FAMILY/fast
+
+# Convenience name for target.
+src/CMakeFiles/COUNT_SKETCH.dir/rule:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/COUNT_SKETCH.dir/rule
+.PHONY : src/CMakeFiles/COUNT_SKETCH.dir/rule
+
+# Convenience name for target.
+COUNT_SKETCH: src/CMakeFiles/COUNT_SKETCH.dir/rule
+
+.PHONY : COUNT_SKETCH
+
+# fast build rule for target.
+COUNT_SKETCH/fast:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f src/CMakeFiles/COUNT_SKETCH.dir/build.make src/CMakeFiles/COUNT_SKETCH.dir/build
+.PHONY : COUNT_SKETCH/fast
+
+# Convenience name for target.
+src/CMakeFiles/PBPLOTS_SUPPORT_LIB.dir/rule:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/PBPLOTS_SUPPORT_LIB.dir/rule
+.PHONY : src/CMakeFiles/PBPLOTS_SUPPORT_LIB.dir/rule
+
+# Convenience name for target.
+PBPLOTS_SUPPORT_LIB: src/CMakeFiles/PBPLOTS_SUPPORT_LIB.dir/rule
+
+.PHONY : PBPLOTS_SUPPORT_LIB
+
+# fast build rule for target.
+PBPLOTS_SUPPORT_LIB/fast:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f src/CMakeFiles/PBPLOTS_SUPPORT_LIB.dir/build.make src/CMakeFiles/PBPLOTS_SUPPORT_LIB.dir/build
+.PHONY : PBPLOTS_SUPPORT_LIB/fast
+
+# Convenience name for target.
 src/CMakeFiles/KLL.dir/rule:
 	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/KLL.dir/rule
 .PHONY : src/CMakeFiles/KLL.dir/rule
@@ -211,6 +256,120 @@ KLL: src/CMakeFiles/KLL.dir/rule
 KLL/fast:
 	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f src/CMakeFiles/KLL.dir/build.make src/CMakeFiles/KLL.dir/build
 .PHONY : KLL/fast
+
+# Convenience name for target.
+src/CMakeFiles/STREAM_MAKER.dir/rule:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/STREAM_MAKER.dir/rule
+.PHONY : src/CMakeFiles/STREAM_MAKER.dir/rule
+
+# Convenience name for target.
+STREAM_MAKER: src/CMakeFiles/STREAM_MAKER.dir/rule
+
+.PHONY : STREAM_MAKER
+
+# fast build rule for target.
+STREAM_MAKER/fast:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f src/CMakeFiles/STREAM_MAKER.dir/build.make src/CMakeFiles/STREAM_MAKER.dir/build
+.PHONY : STREAM_MAKER/fast
+
+# Convenience name for target.
+src/CMakeFiles/PBPLOTS_PBPLOTTER.dir/rule:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/PBPLOTS_PBPLOTTER.dir/rule
+.PHONY : src/CMakeFiles/PBPLOTS_PBPLOTTER.dir/rule
+
+# Convenience name for target.
+PBPLOTS_PBPLOTTER: src/CMakeFiles/PBPLOTS_PBPLOTTER.dir/rule
+
+.PHONY : PBPLOTS_PBPLOTTER
+
+# fast build rule for target.
+PBPLOTS_PBPLOTTER/fast:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f src/CMakeFiles/PBPLOTS_PBPLOTTER.dir/build.make src/CMakeFiles/PBPLOTS_PBPLOTTER.dir/build
+.PHONY : PBPLOTS_PBPLOTTER/fast
+
+# Convenience name for target.
+src/CMakeFiles/DCS.dir/rule:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/DCS.dir/rule
+.PHONY : src/CMakeFiles/DCS.dir/rule
+
+# Convenience name for target.
+DCS: src/CMakeFiles/DCS.dir/rule
+
+.PHONY : DCS
+
+# fast build rule for target.
+DCS/fast:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f src/CMakeFiles/DCS.dir/build.make src/CMakeFiles/DCS.dir/build
+.PHONY : DCS/fast
+
+# Convenience name for target.
+src/CMakeFiles/PBPLOTS_LIB.dir/rule:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/PBPLOTS_LIB.dir/rule
+.PHONY : src/CMakeFiles/PBPLOTS_LIB.dir/rule
+
+# Convenience name for target.
+PBPLOTS_LIB: src/CMakeFiles/PBPLOTS_LIB.dir/rule
+
+.PHONY : PBPLOTS_LIB
+
+# fast build rule for target.
+PBPLOTS_LIB/fast:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f src/CMakeFiles/PBPLOTS_LIB.dir/build.make src/CMakeFiles/PBPLOTS_LIB.dir/build
+.PHONY : PBPLOTS_LIB/fast
+
+count_sketch/count_sketch.o: count_sketch/count_sketch.cpp.o
+
+.PHONY : count_sketch/count_sketch.o
+
+# target to build an object file
+count_sketch/count_sketch.cpp.o:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f src/CMakeFiles/COUNT_SKETCH.dir/build.make src/CMakeFiles/COUNT_SKETCH.dir/count_sketch/count_sketch.cpp.o
+.PHONY : count_sketch/count_sketch.cpp.o
+
+count_sketch/count_sketch.i: count_sketch/count_sketch.cpp.i
+
+.PHONY : count_sketch/count_sketch.i
+
+# target to preprocess a source file
+count_sketch/count_sketch.cpp.i:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f src/CMakeFiles/COUNT_SKETCH.dir/build.make src/CMakeFiles/COUNT_SKETCH.dir/count_sketch/count_sketch.cpp.i
+.PHONY : count_sketch/count_sketch.cpp.i
+
+count_sketch/count_sketch.s: count_sketch/count_sketch.cpp.s
+
+.PHONY : count_sketch/count_sketch.s
+
+# target to generate assembly for a file
+count_sketch/count_sketch.cpp.s:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f src/CMakeFiles/COUNT_SKETCH.dir/build.make src/CMakeFiles/COUNT_SKETCH.dir/count_sketch/count_sketch.cpp.s
+.PHONY : count_sketch/count_sketch.cpp.s
+
+dcs/dcs.o: dcs/dcs.cpp.o
+
+.PHONY : dcs/dcs.o
+
+# target to build an object file
+dcs/dcs.cpp.o:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f src/CMakeFiles/DCS.dir/build.make src/CMakeFiles/DCS.dir/dcs/dcs.cpp.o
+.PHONY : dcs/dcs.cpp.o
+
+dcs/dcs.i: dcs/dcs.cpp.i
+
+.PHONY : dcs/dcs.i
+
+# target to preprocess a source file
+dcs/dcs.cpp.i:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f src/CMakeFiles/DCS.dir/build.make src/CMakeFiles/DCS.dir/dcs/dcs.cpp.i
+.PHONY : dcs/dcs.cpp.i
+
+dcs/dcs.s: dcs/dcs.cpp.s
+
+.PHONY : dcs/dcs.s
+
+# target to generate assembly for a file
+dcs/dcs.cpp.s:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f src/CMakeFiles/DCS.dir/build.make src/CMakeFiles/DCS.dir/dcs/dcs.cpp.s
+.PHONY : dcs/dcs.cpp.s
 
 global_generator/global_generator.o: global_generator/global_generator.cpp.o
 
@@ -239,6 +398,168 @@ global_generator/global_generator.cpp.s:
 	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f src/CMakeFiles/GLOBAL_GEN.dir/build.make src/CMakeFiles/GLOBAL_GEN.dir/global_generator/global_generator.cpp.s
 .PHONY : global_generator/global_generator.cpp.s
 
+k_wise_family/k_wise_family.o: k_wise_family/k_wise_family.cpp.o
+
+.PHONY : k_wise_family/k_wise_family.o
+
+# target to build an object file
+k_wise_family/k_wise_family.cpp.o:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f src/CMakeFiles/K_WISE_FAMILY.dir/build.make src/CMakeFiles/K_WISE_FAMILY.dir/k_wise_family/k_wise_family.cpp.o
+.PHONY : k_wise_family/k_wise_family.cpp.o
+
+k_wise_family/k_wise_family.i: k_wise_family/k_wise_family.cpp.i
+
+.PHONY : k_wise_family/k_wise_family.i
+
+# target to preprocess a source file
+k_wise_family/k_wise_family.cpp.i:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f src/CMakeFiles/K_WISE_FAMILY.dir/build.make src/CMakeFiles/K_WISE_FAMILY.dir/k_wise_family/k_wise_family.cpp.i
+.PHONY : k_wise_family/k_wise_family.cpp.i
+
+k_wise_family/k_wise_family.s: k_wise_family/k_wise_family.cpp.s
+
+.PHONY : k_wise_family/k_wise_family.s
+
+# target to generate assembly for a file
+k_wise_family/k_wise_family.cpp.s:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f src/CMakeFiles/K_WISE_FAMILY.dir/build.make src/CMakeFiles/K_WISE_FAMILY.dir/k_wise_family/k_wise_family.cpp.s
+.PHONY : k_wise_family/k_wise_family.cpp.s
+
+kll/kll.o: kll/kll.cpp.o
+
+.PHONY : kll/kll.o
+
+# target to build an object file
+kll/kll.cpp.o:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f src/CMakeFiles/KLL.dir/build.make src/CMakeFiles/KLL.dir/kll/kll.cpp.o
+.PHONY : kll/kll.cpp.o
+
+kll/kll.i: kll/kll.cpp.i
+
+.PHONY : kll/kll.i
+
+# target to preprocess a source file
+kll/kll.cpp.i:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f src/CMakeFiles/KLL.dir/build.make src/CMakeFiles/KLL.dir/kll/kll.cpp.i
+.PHONY : kll/kll.cpp.i
+
+kll/kll.s: kll/kll.cpp.s
+
+.PHONY : kll/kll.s
+
+# target to generate assembly for a file
+kll/kll.cpp.s:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f src/CMakeFiles/KLL.dir/build.make src/CMakeFiles/KLL.dir/kll/kll.cpp.s
+.PHONY : kll/kll.cpp.s
+
+pbplots/pbPlots.o: pbplots/pbPlots.cpp.o
+
+.PHONY : pbplots/pbPlots.o
+
+# target to build an object file
+pbplots/pbPlots.cpp.o:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f src/CMakeFiles/PBPLOTS_LIB.dir/build.make src/CMakeFiles/PBPLOTS_LIB.dir/pbplots/pbPlots.cpp.o
+.PHONY : pbplots/pbPlots.cpp.o
+
+pbplots/pbPlots.i: pbplots/pbPlots.cpp.i
+
+.PHONY : pbplots/pbPlots.i
+
+# target to preprocess a source file
+pbplots/pbPlots.cpp.i:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f src/CMakeFiles/PBPLOTS_LIB.dir/build.make src/CMakeFiles/PBPLOTS_LIB.dir/pbplots/pbPlots.cpp.i
+.PHONY : pbplots/pbPlots.cpp.i
+
+pbplots/pbPlots.s: pbplots/pbPlots.cpp.s
+
+.PHONY : pbplots/pbPlots.s
+
+# target to generate assembly for a file
+pbplots/pbPlots.cpp.s:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f src/CMakeFiles/PBPLOTS_LIB.dir/build.make src/CMakeFiles/PBPLOTS_LIB.dir/pbplots/pbPlots.cpp.s
+.PHONY : pbplots/pbPlots.cpp.s
+
+pbplots/pbPlotter.o: pbplots/pbPlotter.cpp.o
+
+.PHONY : pbplots/pbPlotter.o
+
+# target to build an object file
+pbplots/pbPlotter.cpp.o:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f src/CMakeFiles/PBPLOTS_PBPLOTTER.dir/build.make src/CMakeFiles/PBPLOTS_PBPLOTTER.dir/pbplots/pbPlotter.cpp.o
+.PHONY : pbplots/pbPlotter.cpp.o
+
+pbplots/pbPlotter.i: pbplots/pbPlotter.cpp.i
+
+.PHONY : pbplots/pbPlotter.i
+
+# target to preprocess a source file
+pbplots/pbPlotter.cpp.i:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f src/CMakeFiles/PBPLOTS_PBPLOTTER.dir/build.make src/CMakeFiles/PBPLOTS_PBPLOTTER.dir/pbplots/pbPlotter.cpp.i
+.PHONY : pbplots/pbPlotter.cpp.i
+
+pbplots/pbPlotter.s: pbplots/pbPlotter.cpp.s
+
+.PHONY : pbplots/pbPlotter.s
+
+# target to generate assembly for a file
+pbplots/pbPlotter.cpp.s:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f src/CMakeFiles/PBPLOTS_PBPLOTTER.dir/build.make src/CMakeFiles/PBPLOTS_PBPLOTTER.dir/pbplots/pbPlotter.cpp.s
+.PHONY : pbplots/pbPlotter.cpp.s
+
+pbplots/supportLib.o: pbplots/supportLib.cpp.o
+
+.PHONY : pbplots/supportLib.o
+
+# target to build an object file
+pbplots/supportLib.cpp.o:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f src/CMakeFiles/PBPLOTS_SUPPORT_LIB.dir/build.make src/CMakeFiles/PBPLOTS_SUPPORT_LIB.dir/pbplots/supportLib.cpp.o
+.PHONY : pbplots/supportLib.cpp.o
+
+pbplots/supportLib.i: pbplots/supportLib.cpp.i
+
+.PHONY : pbplots/supportLib.i
+
+# target to preprocess a source file
+pbplots/supportLib.cpp.i:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f src/CMakeFiles/PBPLOTS_SUPPORT_LIB.dir/build.make src/CMakeFiles/PBPLOTS_SUPPORT_LIB.dir/pbplots/supportLib.cpp.i
+.PHONY : pbplots/supportLib.cpp.i
+
+pbplots/supportLib.s: pbplots/supportLib.cpp.s
+
+.PHONY : pbplots/supportLib.s
+
+# target to generate assembly for a file
+pbplots/supportLib.cpp.s:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f src/CMakeFiles/PBPLOTS_SUPPORT_LIB.dir/build.make src/CMakeFiles/PBPLOTS_SUPPORT_LIB.dir/pbplots/supportLib.cpp.s
+.PHONY : pbplots/supportLib.cpp.s
+
+stream_maker/stream_maker.o: stream_maker/stream_maker.cpp.o
+
+.PHONY : stream_maker/stream_maker.o
+
+# target to build an object file
+stream_maker/stream_maker.cpp.o:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f src/CMakeFiles/STREAM_MAKER.dir/build.make src/CMakeFiles/STREAM_MAKER.dir/stream_maker/stream_maker.cpp.o
+.PHONY : stream_maker/stream_maker.cpp.o
+
+stream_maker/stream_maker.i: stream_maker/stream_maker.cpp.i
+
+.PHONY : stream_maker/stream_maker.i
+
+# target to preprocess a source file
+stream_maker/stream_maker.cpp.i:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f src/CMakeFiles/STREAM_MAKER.dir/build.make src/CMakeFiles/STREAM_MAKER.dir/stream_maker/stream_maker.cpp.i
+.PHONY : stream_maker/stream_maker.cpp.i
+
+stream_maker/stream_maker.s: stream_maker/stream_maker.cpp.s
+
+.PHONY : stream_maker/stream_maker.s
+
+# target to generate assembly for a file
+stream_maker/stream_maker.cpp.s:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f src/CMakeFiles/STREAM_MAKER.dir/build.make src/CMakeFiles/STREAM_MAKER.dir/stream_maker/stream_maker.cpp.s
+.PHONY : stream_maker/stream_maker.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -247,17 +568,48 @@ help:
 	@echo "... depend"
 	@echo "... install/strip"
 	@echo "... install/local"
-	@echo "... install"
 	@echo "... list_install_components"
+	@echo "... GLOBAL_GEN"
+	@echo "... COMMUM_HEADER"
+	@echo "... K_WISE_FAMILY"
+	@echo "... install"
+	@echo "... COUNT_SKETCH"
+	@echo "... PBPLOTS_SUPPORT_LIB"
+	@echo "... KLL"
+	@echo "... STREAM_MAKER"
+	@echo "... PBPLOTS_PBPLOTTER"
+	@echo "... DCS"
+	@echo "... PBPLOTS_LIB"
+	@echo "... test"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... test"
-	@echo "... COMMUM_HEADER"
-	@echo "... GLOBAL_GEN"
-	@echo "... KLL"
+	@echo "... count_sketch/count_sketch.o"
+	@echo "... count_sketch/count_sketch.i"
+	@echo "... count_sketch/count_sketch.s"
+	@echo "... dcs/dcs.o"
+	@echo "... dcs/dcs.i"
+	@echo "... dcs/dcs.s"
 	@echo "... global_generator/global_generator.o"
 	@echo "... global_generator/global_generator.i"
 	@echo "... global_generator/global_generator.s"
+	@echo "... k_wise_family/k_wise_family.o"
+	@echo "... k_wise_family/k_wise_family.i"
+	@echo "... k_wise_family/k_wise_family.s"
+	@echo "... kll/kll.o"
+	@echo "... kll/kll.i"
+	@echo "... kll/kll.s"
+	@echo "... pbplots/pbPlots.o"
+	@echo "... pbplots/pbPlots.i"
+	@echo "... pbplots/pbPlots.s"
+	@echo "... pbplots/pbPlotter.o"
+	@echo "... pbplots/pbPlotter.i"
+	@echo "... pbplots/pbPlotter.s"
+	@echo "... pbplots/supportLib.o"
+	@echo "... pbplots/supportLib.i"
+	@echo "... pbplots/supportLib.s"
+	@echo "... stream_maker/stream_maker.o"
+	@echo "... stream_maker/stream_maker.i"
+	@echo "... stream_maker/stream_maker.s"
 .PHONY : help
 
 

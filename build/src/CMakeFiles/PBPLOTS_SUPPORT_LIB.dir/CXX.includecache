@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/pbplots/supportLib.cpp
+supportLib.hpp
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/pbplots/supportLib.hpp
+
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/pbplots/supportLib.hpp
+vector
+-
+string
+-
+iostream
+-
+fstream
+-
+
