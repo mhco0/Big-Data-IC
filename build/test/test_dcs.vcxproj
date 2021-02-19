@@ -113,7 +113,7 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>..\lib\Debug\gtest_maind.lib;..\lib\Debug\DCS.lib;..\lib\Debug\STREAM_MAKER.lib;..\lib\Debug\PBPLOTS_PBPLOTTER.lib;..\lib\Debug\gtestd.lib;..\lib\Debug\COUNT_SKETCH.lib;..\lib\Debug\K_WISE_FAMILY.lib;..\lib\Debug\COMMUM_HEADER.lib;..\lib\Debug\GLOBAL_GEN.lib;..\lib\Debug\PBPLOTS_LIB.lib;..\lib\Debug\PBPLOTS_SUPPORT_LIB.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>..\lib\Debug\gtest_maind.lib;..\lib\Debug\DCS.lib;..\lib\Debug\STREAM_MAKER.lib;..\lib\Debug\PBPLOTS_PBPLOTTER.lib;..\lib\Debug\gtestd.lib;..\lib\Debug\COUNT_SKETCH.lib;..\lib\Debug\QUANTILE_SKETCH.lib;..\lib\Debug\K_WISE_FAMILY.lib;..\lib\Debug\COMMUM_HEADER.lib;..\lib\Debug\GLOBAL_GEN.lib;..\lib\Debug\PBPLOTS_LIB.lib;..\lib\Debug\PBPLOTS_SUPPORT_LIB.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -155,7 +155,7 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>..\lib\Release\gtest_main.lib;..\lib\Release\DCS.lib;..\lib\Release\STREAM_MAKER.lib;..\lib\Release\PBPLOTS_PBPLOTTER.lib;..\lib\Release\gtest.lib;..\lib\Release\COUNT_SKETCH.lib;..\lib\Release\K_WISE_FAMILY.lib;..\lib\Release\COMMUM_HEADER.lib;..\lib\Release\GLOBAL_GEN.lib;..\lib\Release\PBPLOTS_LIB.lib;..\lib\Release\PBPLOTS_SUPPORT_LIB.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>..\lib\Release\gtest_main.lib;..\lib\Release\DCS.lib;..\lib\Release\STREAM_MAKER.lib;..\lib\Release\PBPLOTS_PBPLOTTER.lib;..\lib\Release\gtest.lib;..\lib\Release\COUNT_SKETCH.lib;..\lib\Release\QUANTILE_SKETCH.lib;..\lib\Release\K_WISE_FAMILY.lib;..\lib\Release\COMMUM_HEADER.lib;..\lib\Release\GLOBAL_GEN.lib;..\lib\Release\PBPLOTS_LIB.lib;..\lib\Release\PBPLOTS_SUPPORT_LIB.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
@@ -197,7 +197,7 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>..\lib\MinSizeRel\gtest_main.lib;..\lib\MinSizeRel\DCS.lib;..\lib\MinSizeRel\STREAM_MAKER.lib;..\lib\MinSizeRel\PBPLOTS_PBPLOTTER.lib;..\lib\MinSizeRel\gtest.lib;..\lib\MinSizeRel\COUNT_SKETCH.lib;..\lib\MinSizeRel\K_WISE_FAMILY.lib;..\lib\MinSizeRel\COMMUM_HEADER.lib;..\lib\MinSizeRel\GLOBAL_GEN.lib;..\lib\MinSizeRel\PBPLOTS_LIB.lib;..\lib\MinSizeRel\PBPLOTS_SUPPORT_LIB.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>..\lib\MinSizeRel\gtest_main.lib;..\lib\MinSizeRel\DCS.lib;..\lib\MinSizeRel\STREAM_MAKER.lib;..\lib\MinSizeRel\PBPLOTS_PBPLOTTER.lib;..\lib\MinSizeRel\gtest.lib;..\lib\MinSizeRel\COUNT_SKETCH.lib;..\lib\MinSizeRel\QUANTILE_SKETCH.lib;..\lib\MinSizeRel\K_WISE_FAMILY.lib;..\lib\MinSizeRel\COMMUM_HEADER.lib;..\lib\MinSizeRel\GLOBAL_GEN.lib;..\lib\MinSizeRel\PBPLOTS_LIB.lib;..\lib\MinSizeRel\PBPLOTS_SUPPORT_LIB.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
@@ -238,7 +238,7 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>..\lib\RelWithDebInfo\gtest_main.lib;..\lib\RelWithDebInfo\DCS.lib;..\lib\RelWithDebInfo\STREAM_MAKER.lib;..\lib\RelWithDebInfo\PBPLOTS_PBPLOTTER.lib;..\lib\RelWithDebInfo\gtest.lib;..\lib\RelWithDebInfo\COUNT_SKETCH.lib;..\lib\RelWithDebInfo\K_WISE_FAMILY.lib;..\lib\RelWithDebInfo\COMMUM_HEADER.lib;..\lib\RelWithDebInfo\GLOBAL_GEN.lib;..\lib\RelWithDebInfo\PBPLOTS_LIB.lib;..\lib\RelWithDebInfo\PBPLOTS_SUPPORT_LIB.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>..\lib\RelWithDebInfo\gtest_main.lib;..\lib\RelWithDebInfo\DCS.lib;..\lib\RelWithDebInfo\STREAM_MAKER.lib;..\lib\RelWithDebInfo\PBPLOTS_PBPLOTTER.lib;..\lib\RelWithDebInfo\gtest.lib;..\lib\RelWithDebInfo\COUNT_SKETCH.lib;..\lib\RelWithDebInfo\QUANTILE_SKETCH.lib;..\lib\RelWithDebInfo\K_WISE_FAMILY.lib;..\lib\RelWithDebInfo\COMMUM_HEADER.lib;..\lib\RelWithDebInfo\GLOBAL_GEN.lib;..\lib\RelWithDebInfo\PBPLOTS_LIB.lib;..\lib\RelWithDebInfo\PBPLOTS_SUPPORT_LIB.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -348,6 +348,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ProjectReference Include="C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\build\src\PBPLOTS_SUPPORT_LIB.vcxproj">
       <Project>{02EE11EC-B5B6-3124-9489-37087CB9F5FA}</Project>
       <Name>PBPLOTS_SUPPORT_LIB</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\build\src\QUANTILE_SKETCH.vcxproj">
+      <Project>{A94197DF-1008-38FA-9386-3ED9658E0189}</Project>
+      <Name>QUANTILE_SKETCH</Name>
     </ProjectReference>
     <ProjectReference Include="C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\build\src\STREAM_MAKER.vcxproj">
       <Project>{AAAB3885-DD9C-303A-BBA7-C1B5FDEDA374}</Project>

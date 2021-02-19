@@ -1,0 +1,56 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/commum_header/commum_header.h
+iostream
+-
+fstream
+-
+algorithm
+-
+vector
+-
+deque
+-
+random
+-
+chrono
+-
+map
+-
+set
+-
+cassert
+-
+functional
+-
+utility
+-
+iomanip
+-
+exception
+-
+limits
+-
+
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/global_generator/global_generator.h
+chrono
+-
+random
+-
+
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/kll/kll.cpp
+kll.hpp
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/kll/kll.hpp
+
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/kll/kll.hpp
+../commum_header/commum_header.h
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/commum_header/commum_header.h
+../global_generator/global_generator.h
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/global_generator/global_generator.h
+

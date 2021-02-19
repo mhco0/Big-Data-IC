@@ -111,12 +111,16 @@ int count_sketch::query(int elem){
     else return (ranks[size/2 - 1] + ranks[size / 2]) / 2;
 }
 
-count_sketch count_sketch::merge(const count_sketch& rhs){
-    assert(this->t == rhs.t);
-    assert(this->d == rhs.d);
+quantile_sketch<int>* count_sketch::merge(const quantile_sketch<int>& rhs){
+    const count_sketch & rhs_cv = dynamic_cast<const count_sketch &> (rhs);
+
+    if (&rhs_cv == nullptr) return nullptr;
+
+    assert(this->t == rhs_cv.t);
+    assert(this->d == rhs_cv.d);
 
     for(int i = 0; i < this->d; i++){
-        assert(this->hash_functions[i].get_constants() == rhs.hash_functions[i].get_constants());
+        assert(this->hash_functions[i].get_constants() ==  rhs_cv.hash_functions[i].get_constants());
     }
 
     std::vector<std::vector<int>> merged_v;
@@ -127,11 +131,11 @@ count_sketch count_sketch::merge(const count_sketch& rhs){
         merged_v[i].assign(this->t, 0);
 
         for(int j = 0; j< this->t; j++){
-            merged_v[i][j] =  this->estimators[i][j] + rhs.estimators[i][j];
+            merged_v[i][j] =  this->estimators[i][j] + rhs_cv.estimators[i][j];
         }
     }
 
-    count_sketch merged_cs(this->error, this->delta, this->hash_functions, merged_v);
+    quantile_sketch<int>* merged_cs = new count_sketch(this->error, this->delta, this->hash_functions, merged_v);
 
     return merged_cs;
 }

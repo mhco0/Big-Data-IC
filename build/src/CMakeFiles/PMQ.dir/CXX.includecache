@@ -1,0 +1,48 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/commum_header/commum_header.h
+iostream
+-
+fstream
+-
+algorithm
+-
+vector
+-
+deque
+-
+random
+-
+chrono
+-
+map
+-
+set
+-
+cassert
+-
+functional
+-
+utility
+-
+iomanip
+-
+exception
+-
+limits
+-
+
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/pmq/pmq.cpp
+pmq.h
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/pmq/pmq.h
+
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/pmq/pmq.h
+../commum_header/commum_header.h
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/commum_header/commum_header.h
+

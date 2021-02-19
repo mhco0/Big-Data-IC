@@ -90,6 +90,28 @@ list_install_components/fast: list_install_components
 
 .PHONY : list_install_components/fast
 
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
+
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
+
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
@@ -112,28 +134,6 @@ test:
 test/fast: test
 
 .PHONY : test/fast
-
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
-
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -168,6 +168,36 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+src/CMakeFiles/QUANTILE_SKETCH.dir/rule:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/QUANTILE_SKETCH.dir/rule
+.PHONY : src/CMakeFiles/QUANTILE_SKETCH.dir/rule
+
+# Convenience name for target.
+QUANTILE_SKETCH: src/CMakeFiles/QUANTILE_SKETCH.dir/rule
+
+.PHONY : QUANTILE_SKETCH
+
+# fast build rule for target.
+QUANTILE_SKETCH/fast:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f src/CMakeFiles/QUANTILE_SKETCH.dir/build.make src/CMakeFiles/QUANTILE_SKETCH.dir/build
+.PHONY : QUANTILE_SKETCH/fast
+
+# Convenience name for target.
+src/CMakeFiles/QUADTREE.dir/rule:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/QUADTREE.dir/rule
+.PHONY : src/CMakeFiles/QUADTREE.dir/rule
+
+# Convenience name for target.
+QUADTREE: src/CMakeFiles/QUADTREE.dir/rule
+
+.PHONY : QUADTREE
+
+# fast build rule for target.
+QUADTREE/fast:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f src/CMakeFiles/QUADTREE.dir/build.make src/CMakeFiles/QUADTREE.dir/build
+.PHONY : QUADTREE/fast
+
+# Convenience name for target.
 src/CMakeFiles/GLOBAL_GEN.dir/rule:
 	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/GLOBAL_GEN.dir/rule
 .PHONY : src/CMakeFiles/GLOBAL_GEN.dir/rule
@@ -181,21 +211,6 @@ GLOBAL_GEN: src/CMakeFiles/GLOBAL_GEN.dir/rule
 GLOBAL_GEN/fast:
 	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f src/CMakeFiles/GLOBAL_GEN.dir/build.make src/CMakeFiles/GLOBAL_GEN.dir/build
 .PHONY : GLOBAL_GEN/fast
-
-# Convenience name for target.
-src/CMakeFiles/COMMUM_HEADER.dir/rule:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/COMMUM_HEADER.dir/rule
-.PHONY : src/CMakeFiles/COMMUM_HEADER.dir/rule
-
-# Convenience name for target.
-COMMUM_HEADER: src/CMakeFiles/COMMUM_HEADER.dir/rule
-
-.PHONY : COMMUM_HEADER
-
-# fast build rule for target.
-COMMUM_HEADER/fast:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f src/CMakeFiles/COMMUM_HEADER.dir/build.make src/CMakeFiles/COMMUM_HEADER.dir/build
-.PHONY : COMMUM_HEADER/fast
 
 # Convenience name for target.
 src/CMakeFiles/K_WISE_FAMILY.dir/rule:
@@ -226,6 +241,21 @@ COUNT_SKETCH: src/CMakeFiles/COUNT_SKETCH.dir/rule
 COUNT_SKETCH/fast:
 	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f src/CMakeFiles/COUNT_SKETCH.dir/build.make src/CMakeFiles/COUNT_SKETCH.dir/build
 .PHONY : COUNT_SKETCH/fast
+
+# Convenience name for target.
+src/CMakeFiles/QUANTILE_QUADTREE.dir/rule:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/QUANTILE_QUADTREE.dir/rule
+.PHONY : src/CMakeFiles/QUANTILE_QUADTREE.dir/rule
+
+# Convenience name for target.
+QUANTILE_QUADTREE: src/CMakeFiles/QUANTILE_QUADTREE.dir/rule
+
+.PHONY : QUANTILE_QUADTREE
+
+# fast build rule for target.
+QUANTILE_QUADTREE/fast:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f src/CMakeFiles/QUANTILE_QUADTREE.dir/build.make src/CMakeFiles/QUANTILE_QUADTREE.dir/build
+.PHONY : QUANTILE_QUADTREE/fast
 
 # Convenience name for target.
 src/CMakeFiles/PBPLOTS_SUPPORT_LIB.dir/rule:
@@ -316,6 +346,93 @@ PBPLOTS_LIB: src/CMakeFiles/PBPLOTS_LIB.dir/rule
 PBPLOTS_LIB/fast:
 	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f src/CMakeFiles/PBPLOTS_LIB.dir/build.make src/CMakeFiles/PBPLOTS_LIB.dir/build
 .PHONY : PBPLOTS_LIB/fast
+
+# Convenience name for target.
+src/CMakeFiles/PMQ.dir/rule:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/PMQ.dir/rule
+.PHONY : src/CMakeFiles/PMQ.dir/rule
+
+# Convenience name for target.
+PMQ: src/CMakeFiles/PMQ.dir/rule
+
+.PHONY : PMQ
+
+# fast build rule for target.
+PMQ/fast:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f src/CMakeFiles/PMQ.dir/build.make src/CMakeFiles/PMQ.dir/build
+.PHONY : PMQ/fast
+
+# Convenience name for target.
+src/CMakeFiles/POINT.dir/rule:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/POINT.dir/rule
+.PHONY : src/CMakeFiles/POINT.dir/rule
+
+# Convenience name for target.
+POINT: src/CMakeFiles/POINT.dir/rule
+
+.PHONY : POINT
+
+# fast build rule for target.
+POINT/fast:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f src/CMakeFiles/POINT.dir/build.make src/CMakeFiles/POINT.dir/build
+.PHONY : POINT/fast
+
+# Convenience name for target.
+src/CMakeFiles/COMMUM_HEADER.dir/rule:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/COMMUM_HEADER.dir/rule
+.PHONY : src/CMakeFiles/COMMUM_HEADER.dir/rule
+
+# Convenience name for target.
+COMMUM_HEADER: src/CMakeFiles/COMMUM_HEADER.dir/rule
+
+.PHONY : COMMUM_HEADER
+
+# fast build rule for target.
+COMMUM_HEADER/fast:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f src/CMakeFiles/COMMUM_HEADER.dir/build.make src/CMakeFiles/COMMUM_HEADER.dir/build
+.PHONY : COMMUM_HEADER/fast
+
+# Convenience name for target.
+src/CMakeFiles/AABB.dir/rule:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/AABB.dir/rule
+.PHONY : src/CMakeFiles/AABB.dir/rule
+
+# Convenience name for target.
+AABB: src/CMakeFiles/AABB.dir/rule
+
+.PHONY : AABB
+
+# fast build rule for target.
+AABB/fast:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f src/CMakeFiles/AABB.dir/build.make src/CMakeFiles/AABB.dir/build
+.PHONY : AABB/fast
+
+aabb/aabb.o: aabb/aabb.cpp.o
+
+.PHONY : aabb/aabb.o
+
+# target to build an object file
+aabb/aabb.cpp.o:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f src/CMakeFiles/AABB.dir/build.make src/CMakeFiles/AABB.dir/aabb/aabb.cpp.o
+.PHONY : aabb/aabb.cpp.o
+
+aabb/aabb.i: aabb/aabb.cpp.i
+
+.PHONY : aabb/aabb.i
+
+# target to preprocess a source file
+aabb/aabb.cpp.i:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f src/CMakeFiles/AABB.dir/build.make src/CMakeFiles/AABB.dir/aabb/aabb.cpp.i
+.PHONY : aabb/aabb.cpp.i
+
+aabb/aabb.s: aabb/aabb.cpp.s
+
+.PHONY : aabb/aabb.s
+
+# target to generate assembly for a file
+aabb/aabb.cpp.s:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f src/CMakeFiles/AABB.dir/build.make src/CMakeFiles/AABB.dir/aabb/aabb.cpp.s
+.PHONY : aabb/aabb.cpp.s
 
 count_sketch/count_sketch.o: count_sketch/count_sketch.cpp.o
 
@@ -533,6 +650,87 @@ pbplots/supportLib.cpp.s:
 	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f src/CMakeFiles/PBPLOTS_SUPPORT_LIB.dir/build.make src/CMakeFiles/PBPLOTS_SUPPORT_LIB.dir/pbplots/supportLib.cpp.s
 .PHONY : pbplots/supportLib.cpp.s
 
+pmq/pmq.o: pmq/pmq.cpp.o
+
+.PHONY : pmq/pmq.o
+
+# target to build an object file
+pmq/pmq.cpp.o:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f src/CMakeFiles/PMQ.dir/build.make src/CMakeFiles/PMQ.dir/pmq/pmq.cpp.o
+.PHONY : pmq/pmq.cpp.o
+
+pmq/pmq.i: pmq/pmq.cpp.i
+
+.PHONY : pmq/pmq.i
+
+# target to preprocess a source file
+pmq/pmq.cpp.i:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f src/CMakeFiles/PMQ.dir/build.make src/CMakeFiles/PMQ.dir/pmq/pmq.cpp.i
+.PHONY : pmq/pmq.cpp.i
+
+pmq/pmq.s: pmq/pmq.cpp.s
+
+.PHONY : pmq/pmq.s
+
+# target to generate assembly for a file
+pmq/pmq.cpp.s:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f src/CMakeFiles/PMQ.dir/build.make src/CMakeFiles/PMQ.dir/pmq/pmq.cpp.s
+.PHONY : pmq/pmq.cpp.s
+
+point/point.o: point/point.cpp.o
+
+.PHONY : point/point.o
+
+# target to build an object file
+point/point.cpp.o:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f src/CMakeFiles/POINT.dir/build.make src/CMakeFiles/POINT.dir/point/point.cpp.o
+.PHONY : point/point.cpp.o
+
+point/point.i: point/point.cpp.i
+
+.PHONY : point/point.i
+
+# target to preprocess a source file
+point/point.cpp.i:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f src/CMakeFiles/POINT.dir/build.make src/CMakeFiles/POINT.dir/point/point.cpp.i
+.PHONY : point/point.cpp.i
+
+point/point.s: point/point.cpp.s
+
+.PHONY : point/point.s
+
+# target to generate assembly for a file
+point/point.cpp.s:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f src/CMakeFiles/POINT.dir/build.make src/CMakeFiles/POINT.dir/point/point.cpp.s
+.PHONY : point/point.cpp.s
+
+quadtree/quadtree.o: quadtree/quadtree.cpp.o
+
+.PHONY : quadtree/quadtree.o
+
+# target to build an object file
+quadtree/quadtree.cpp.o:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f src/CMakeFiles/QUADTREE.dir/build.make src/CMakeFiles/QUADTREE.dir/quadtree/quadtree.cpp.o
+.PHONY : quadtree/quadtree.cpp.o
+
+quadtree/quadtree.i: quadtree/quadtree.cpp.i
+
+.PHONY : quadtree/quadtree.i
+
+# target to preprocess a source file
+quadtree/quadtree.cpp.i:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f src/CMakeFiles/QUADTREE.dir/build.make src/CMakeFiles/QUADTREE.dir/quadtree/quadtree.cpp.i
+.PHONY : quadtree/quadtree.cpp.i
+
+quadtree/quadtree.s: quadtree/quadtree.cpp.s
+
+.PHONY : quadtree/quadtree.s
+
+# target to generate assembly for a file
+quadtree/quadtree.cpp.s:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f src/CMakeFiles/QUADTREE.dir/build.make src/CMakeFiles/QUADTREE.dir/quadtree/quadtree.cpp.s
+.PHONY : quadtree/quadtree.cpp.s
+
 stream_maker/stream_maker.o: stream_maker/stream_maker.cpp.o
 
 .PHONY : stream_maker/stream_maker.o
@@ -569,20 +767,29 @@ help:
 	@echo "... install/strip"
 	@echo "... install/local"
 	@echo "... list_install_components"
+	@echo "... rebuild_cache"
+	@echo "... edit_cache"
+	@echo "... QUANTILE_SKETCH"
+	@echo "... QUADTREE"
 	@echo "... GLOBAL_GEN"
-	@echo "... COMMUM_HEADER"
 	@echo "... K_WISE_FAMILY"
 	@echo "... install"
 	@echo "... COUNT_SKETCH"
+	@echo "... QUANTILE_QUADTREE"
 	@echo "... PBPLOTS_SUPPORT_LIB"
 	@echo "... KLL"
 	@echo "... STREAM_MAKER"
 	@echo "... PBPLOTS_PBPLOTTER"
 	@echo "... DCS"
-	@echo "... PBPLOTS_LIB"
 	@echo "... test"
-	@echo "... rebuild_cache"
-	@echo "... edit_cache"
+	@echo "... PBPLOTS_LIB"
+	@echo "... PMQ"
+	@echo "... POINT"
+	@echo "... COMMUM_HEADER"
+	@echo "... AABB"
+	@echo "... aabb/aabb.o"
+	@echo "... aabb/aabb.i"
+	@echo "... aabb/aabb.s"
 	@echo "... count_sketch/count_sketch.o"
 	@echo "... count_sketch/count_sketch.i"
 	@echo "... count_sketch/count_sketch.s"
@@ -607,6 +814,15 @@ help:
 	@echo "... pbplots/supportLib.o"
 	@echo "... pbplots/supportLib.i"
 	@echo "... pbplots/supportLib.s"
+	@echo "... pmq/pmq.o"
+	@echo "... pmq/pmq.i"
+	@echo "... pmq/pmq.s"
+	@echo "... point/point.o"
+	@echo "... point/point.i"
+	@echo "... point/point.s"
+	@echo "... quadtree/quadtree.o"
+	@echo "... quadtree/quadtree.i"
+	@echo "... quadtree/quadtree.s"
 	@echo "... stream_maker/stream_maker.o"
 	@echo "... stream_maker/stream_maker.i"
 	@echo "... stream_maker/stream_maker.s"

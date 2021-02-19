@@ -5,7 +5,7 @@ using namespace std;
 template <class T>
 class gk{
 private:
-    multimap<T,pair<int, int>> tuple_list;
+    multimap<T, pair<int, int>> tuple_list;
     int N;
     double epsilon;
 

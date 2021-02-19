@@ -1,0 +1,92 @@
+{
+	"archive" : {},
+	"artifacts" : 
+	[
+		{
+			"path" : "lib/libQUANTILE_QUADTREE.a"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_library",
+			"target_link_libraries"
+		],
+		"files" : 
+		[
+			"src/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 89,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 133,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 134,
+				"parent" : 0
+			}
+		]
+	},
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 2,
+			"id" : "QUANTILE_SKETCH::@145eef247bfb46b6828c"
+		},
+		{
+			"backtrace" : 3,
+			"id" : "POINT::@145eef247bfb46b6828c"
+		},
+		{
+			"backtrace" : 3,
+			"id" : "COMMUM_HEADER::@145eef247bfb46b6828c"
+		},
+		{
+			"backtrace" : 3,
+			"id" : "AABB::@145eef247bfb46b6828c"
+		}
+	],
+	"id" : "QUANTILE_QUADTREE::@145eef247bfb46b6828c",
+	"name" : "QUANTILE_QUADTREE",
+	"nameOnDisk" : "libQUANTILE_QUADTREE.a",
+	"paths" : 
+	{
+		"build" : "src",
+		"source" : "src"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Header Files",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 1,
+			"path" : "src/quantile_quadtree/quantile_quadtree.hpp",
+			"sourceGroupIndex" : 0
+		}
+	],
+	"type" : "STATIC_LIBRARY"
+}

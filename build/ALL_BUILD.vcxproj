@@ -169,6 +169,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
+    <ProjectReference Include="C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\build\src\AABB.vcxproj">
+      <Project>{A53B28E1-608E-340E-AB0D-CEF5128AD963}</Project>
+      <Name>AABB</Name>
+    </ProjectReference>
     <ProjectReference Include="C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\build\src\COMMUM_HEADER.vcxproj">
       <Project>{23044ADF-6227-3C07-937F-D6865F48E6C8}</Project>
       <Name>COMMUM_HEADER</Name>
@@ -204,6 +208,26 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ProjectReference Include="C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\build\src\PBPLOTS_SUPPORT_LIB.vcxproj">
       <Project>{02EE11EC-B5B6-3124-9489-37087CB9F5FA}</Project>
       <Name>PBPLOTS_SUPPORT_LIB</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\build\src\PMQ.vcxproj">
+      <Project>{9A7F7F38-E082-3928-9C87-8A212A9F85BC}</Project>
+      <Name>PMQ</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\build\src\POINT.vcxproj">
+      <Project>{642CA5F8-DF74-35E5-AFCC-44F64251D23E}</Project>
+      <Name>POINT</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\build\src\QUADTREE.vcxproj">
+      <Project>{217F870E-6260-3ABD-BCF9-BF986ED139E1}</Project>
+      <Name>QUADTREE</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\build\src\QUANTILE_QUADTREE.vcxproj">
+      <Project>{2DC8C79D-2FFA-394C-AF12-B555262C5FBA}</Project>
+      <Name>QUANTILE_QUADTREE</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\build\src\QUANTILE_SKETCH.vcxproj">
+      <Project>{A94197DF-1008-38FA-9386-3ED9658E0189}</Project>
+      <Name>QUANTILE_SKETCH</Name>
     </ProjectReference>
     <ProjectReference Include="C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\build\src\STREAM_MAKER.vcxproj">
       <Project>{AAAB3885-DD9C-303A-BBA7-C1B5FDEDA374}</Project>
@@ -244,6 +268,14 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ProjectReference Include="C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\build\test\test_pbplotter.vcxproj">
       <Project>{B7630892-BC51-3185-A15A-A7861912DE1B}</Project>
       <Name>test_pbplotter</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\build\test\test_quadtree.vcxproj">
+      <Project>{7DBFE6EB-A496-3E45-A1F6-DB7000D3E627}</Project>
+      <Name>test_quadtree</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\build\test\test_quantile_quadtree.vcxproj">
+      <Project>{8A37F831-9E3E-3558-81EF-F6EFA3D8B703}</Project>
+      <Name>test_quantile_quadtree</Name>
     </ProjectReference>
     <ProjectReference Include="C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\build\test\test_stream_maker.vcxproj">
       <Project>{4BF053B0-B7E8-3C3E-9E96-6DA3D3C5BA15}</Project>

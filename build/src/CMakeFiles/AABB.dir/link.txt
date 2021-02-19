@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../lib/libAABB.a  CMakeFiles/AABB.dir/aabb/aabb.cpp.o
+/usr/bin/ranlib ../lib/libAABB.a

@@ -85,6 +85,7 @@ bin/test_dcs: lib/libSTREAM_MAKER.a
 bin/test_dcs: lib/libPBPLOTS_PBPLOTTER.a
 bin/test_dcs: lib/libgtest.a
 bin/test_dcs: lib/libCOUNT_SKETCH.a
+bin/test_dcs: lib/libQUANTILE_SKETCH.a
 bin/test_dcs: lib/libK_WISE_FAMILY.a
 bin/test_dcs: lib/libCOMMUM_HEADER.a
 bin/test_dcs: lib/libGLOBAL_GEN.a

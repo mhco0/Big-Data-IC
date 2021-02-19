@@ -56,38 +56,28 @@ CMAKE_BINARY_DIR = "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build"
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target install
-install: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/bin/cmake -P cmake_install.cmake
-.PHONY : install
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
 
-# Special rule for the target install
-install/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/bin/cmake -P cmake_install.cmake
-.PHONY : install/fast
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
 
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
 
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
+# Special rule for the target test
+test/fast: test
 
-.PHONY : list_install_components/fast
-
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
+.PHONY : test/fast
 
 # Special rule for the target install/local
 install/local: preinstall
@@ -112,28 +102,38 @@ edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
 
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
 
-# Special rule for the target test
-test/fast: test
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
 
-.PHONY : test/fast
+.PHONY : rebuild_cache/fast
 
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
 
-# Special rule for the target install/strip
-install/strip/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip/fast
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -168,64 +168,19 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-test/CMakeFiles/test_pbplotter.dir/rule:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_pbplotter.dir/rule
-.PHONY : test/CMakeFiles/test_pbplotter.dir/rule
+test/CMakeFiles/test_stream_maker.dir/rule:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_stream_maker.dir/rule
+.PHONY : test/CMakeFiles/test_stream_maker.dir/rule
 
 # Convenience name for target.
-test_pbplotter: test/CMakeFiles/test_pbplotter.dir/rule
+test_stream_maker: test/CMakeFiles/test_stream_maker.dir/rule
 
-.PHONY : test_pbplotter
+.PHONY : test_stream_maker
 
 # fast build rule for target.
-test_pbplotter/fast:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_pbplotter.dir/build.make test/CMakeFiles/test_pbplotter.dir/build
-.PHONY : test_pbplotter/fast
-
-# Convenience name for target.
-test/CMakeFiles/test_dcs.dir/rule:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_dcs.dir/rule
-.PHONY : test/CMakeFiles/test_dcs.dir/rule
-
-# Convenience name for target.
-test_dcs: test/CMakeFiles/test_dcs.dir/rule
-
-.PHONY : test_dcs
-
-# fast build rule for target.
-test_dcs/fast:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_dcs.dir/build.make test/CMakeFiles/test_dcs.dir/build
-.PHONY : test_dcs/fast
-
-# Convenience name for target.
-test/CMakeFiles/test_count_sketch.dir/rule:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_count_sketch.dir/rule
-.PHONY : test/CMakeFiles/test_count_sketch.dir/rule
-
-# Convenience name for target.
-test_count_sketch: test/CMakeFiles/test_count_sketch.dir/rule
-
-.PHONY : test_count_sketch
-
-# fast build rule for target.
-test_count_sketch/fast:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_count_sketch.dir/build.make test/CMakeFiles/test_count_sketch.dir/build
-.PHONY : test_count_sketch/fast
-
-# Convenience name for target.
-test/CMakeFiles/test_k_wise_family.dir/rule:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_k_wise_family.dir/rule
-.PHONY : test/CMakeFiles/test_k_wise_family.dir/rule
-
-# Convenience name for target.
-test_k_wise_family: test/CMakeFiles/test_k_wise_family.dir/rule
-
-.PHONY : test_k_wise_family
-
-# fast build rule for target.
-test_k_wise_family/fast:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_k_wise_family.dir/build.make test/CMakeFiles/test_k_wise_family.dir/build
-.PHONY : test_k_wise_family/fast
+test_stream_maker/fast:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_stream_maker.dir/build.make test/CMakeFiles/test_stream_maker.dir/build
+.PHONY : test_stream_maker/fast
 
 # Convenience name for target.
 test/CMakeFiles/test_kll.dir/rule:
@@ -243,19 +198,94 @@ test_kll/fast:
 .PHONY : test_kll/fast
 
 # Convenience name for target.
-test/CMakeFiles/test_stream_maker.dir/rule:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_stream_maker.dir/rule
-.PHONY : test/CMakeFiles/test_stream_maker.dir/rule
+test/CMakeFiles/test_k_wise_family.dir/rule:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_k_wise_family.dir/rule
+.PHONY : test/CMakeFiles/test_k_wise_family.dir/rule
 
 # Convenience name for target.
-test_stream_maker: test/CMakeFiles/test_stream_maker.dir/rule
+test_k_wise_family: test/CMakeFiles/test_k_wise_family.dir/rule
 
-.PHONY : test_stream_maker
+.PHONY : test_k_wise_family
 
 # fast build rule for target.
-test_stream_maker/fast:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_stream_maker.dir/build.make test/CMakeFiles/test_stream_maker.dir/build
-.PHONY : test_stream_maker/fast
+test_k_wise_family/fast:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_k_wise_family.dir/build.make test/CMakeFiles/test_k_wise_family.dir/build
+.PHONY : test_k_wise_family/fast
+
+# Convenience name for target.
+test/CMakeFiles/test_quadtree.dir/rule:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_quadtree.dir/rule
+.PHONY : test/CMakeFiles/test_quadtree.dir/rule
+
+# Convenience name for target.
+test_quadtree: test/CMakeFiles/test_quadtree.dir/rule
+
+.PHONY : test_quadtree
+
+# fast build rule for target.
+test_quadtree/fast:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_quadtree.dir/build.make test/CMakeFiles/test_quadtree.dir/build
+.PHONY : test_quadtree/fast
+
+# Convenience name for target.
+test/CMakeFiles/test_dcs.dir/rule:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_dcs.dir/rule
+.PHONY : test/CMakeFiles/test_dcs.dir/rule
+
+# Convenience name for target.
+test_dcs: test/CMakeFiles/test_dcs.dir/rule
+
+.PHONY : test_dcs
+
+# fast build rule for target.
+test_dcs/fast:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_dcs.dir/build.make test/CMakeFiles/test_dcs.dir/build
+.PHONY : test_dcs/fast
+
+# Convenience name for target.
+test/CMakeFiles/test_pbplotter.dir/rule:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_pbplotter.dir/rule
+.PHONY : test/CMakeFiles/test_pbplotter.dir/rule
+
+# Convenience name for target.
+test_pbplotter: test/CMakeFiles/test_pbplotter.dir/rule
+
+.PHONY : test_pbplotter
+
+# fast build rule for target.
+test_pbplotter/fast:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_pbplotter.dir/build.make test/CMakeFiles/test_pbplotter.dir/build
+.PHONY : test_pbplotter/fast
+
+# Convenience name for target.
+test/CMakeFiles/test_quantile_quadtree.dir/rule:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_quantile_quadtree.dir/rule
+.PHONY : test/CMakeFiles/test_quantile_quadtree.dir/rule
+
+# Convenience name for target.
+test_quantile_quadtree: test/CMakeFiles/test_quantile_quadtree.dir/rule
+
+.PHONY : test_quantile_quadtree
+
+# fast build rule for target.
+test_quantile_quadtree/fast:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_quantile_quadtree.dir/build.make test/CMakeFiles/test_quantile_quadtree.dir/build
+.PHONY : test_quantile_quadtree/fast
+
+# Convenience name for target.
+test/CMakeFiles/test_count_sketch.dir/rule:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_count_sketch.dir/rule
+.PHONY : test/CMakeFiles/test_count_sketch.dir/rule
+
+# Convenience name for target.
+test_count_sketch: test/CMakeFiles/test_count_sketch.dir/rule
+
+.PHONY : test_count_sketch
+
+# fast build rule for target.
+test_count_sketch/fast:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_count_sketch.dir/build.make test/CMakeFiles/test_count_sketch.dir/build
+.PHONY : test_count_sketch/fast
 
 test_count_sketch.o: test_count_sketch.cpp.o
 
@@ -392,6 +422,60 @@ test_pbplotter.cpp.s:
 	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_pbplotter.dir/build.make test/CMakeFiles/test_pbplotter.dir/test_pbplotter.cpp.s
 .PHONY : test_pbplotter.cpp.s
 
+test_quadtree.o: test_quadtree.cpp.o
+
+.PHONY : test_quadtree.o
+
+# target to build an object file
+test_quadtree.cpp.o:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_quadtree.dir/build.make test/CMakeFiles/test_quadtree.dir/test_quadtree.cpp.o
+.PHONY : test_quadtree.cpp.o
+
+test_quadtree.i: test_quadtree.cpp.i
+
+.PHONY : test_quadtree.i
+
+# target to preprocess a source file
+test_quadtree.cpp.i:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_quadtree.dir/build.make test/CMakeFiles/test_quadtree.dir/test_quadtree.cpp.i
+.PHONY : test_quadtree.cpp.i
+
+test_quadtree.s: test_quadtree.cpp.s
+
+.PHONY : test_quadtree.s
+
+# target to generate assembly for a file
+test_quadtree.cpp.s:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_quadtree.dir/build.make test/CMakeFiles/test_quadtree.dir/test_quadtree.cpp.s
+.PHONY : test_quadtree.cpp.s
+
+test_quantile_quadtree.o: test_quantile_quadtree.cpp.o
+
+.PHONY : test_quantile_quadtree.o
+
+# target to build an object file
+test_quantile_quadtree.cpp.o:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_quantile_quadtree.dir/build.make test/CMakeFiles/test_quantile_quadtree.dir/test_quantile_quadtree.cpp.o
+.PHONY : test_quantile_quadtree.cpp.o
+
+test_quantile_quadtree.i: test_quantile_quadtree.cpp.i
+
+.PHONY : test_quantile_quadtree.i
+
+# target to preprocess a source file
+test_quantile_quadtree.cpp.i:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_quantile_quadtree.dir/build.make test/CMakeFiles/test_quantile_quadtree.dir/test_quantile_quadtree.cpp.i
+.PHONY : test_quantile_quadtree.cpp.i
+
+test_quantile_quadtree.s: test_quantile_quadtree.cpp.s
+
+.PHONY : test_quantile_quadtree.s
+
+# target to generate assembly for a file
+test_quantile_quadtree.cpp.s:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_quantile_quadtree.dir/build.make test/CMakeFiles/test_quantile_quadtree.dir/test_quantile_quadtree.cpp.s
+.PHONY : test_quantile_quadtree.cpp.s
+
 test_stream_maker.o: test_stream_maker.cpp.o
 
 .PHONY : test_stream_maker.o
@@ -425,19 +509,21 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... install"
-	@echo "... list_install_components"
-	@echo "... rebuild_cache"
-	@echo "... test_pbplotter"
-	@echo "... install/local"
-	@echo "... test_dcs"
-	@echo "... test_count_sketch"
-	@echo "... edit_cache"
-	@echo "... test"
-	@echo "... test_k_wise_family"
 	@echo "... install/strip"
-	@echo "... test_kll"
 	@echo "... test_stream_maker"
+	@echo "... test_kll"
+	@echo "... test_k_wise_family"
+	@echo "... test"
+	@echo "... test_quadtree"
+	@echo "... test_dcs"
+	@echo "... install/local"
+	@echo "... test_pbplotter"
+	@echo "... test_quantile_quadtree"
+	@echo "... edit_cache"
+	@echo "... rebuild_cache"
+	@echo "... list_install_components"
+	@echo "... test_count_sketch"
+	@echo "... install"
 	@echo "... test_count_sketch.o"
 	@echo "... test_count_sketch.i"
 	@echo "... test_count_sketch.s"
@@ -453,6 +539,12 @@ help:
 	@echo "... test_pbplotter.o"
 	@echo "... test_pbplotter.i"
 	@echo "... test_pbplotter.s"
+	@echo "... test_quadtree.o"
+	@echo "... test_quadtree.i"
+	@echo "... test_quadtree.s"
+	@echo "... test_quantile_quadtree.o"
+	@echo "... test_quantile_quadtree.i"
+	@echo "... test_quantile_quadtree.s"
 	@echo "... test_stream_maker.o"
 	@echo "... test_stream_maker.i"
 	@echo "... test_stream_maker.s"

@@ -34,3 +34,15 @@ add_test(NAME test_dcs COMMAND test_dcs)
 add_executable(test_pbplotter test_pbplotter.cpp)
 target_link_libraries(test_pbplotter PRIVATE gtest_main PBPLOTS_PBPLOTTER COMMUM_HEADER)
 target_include_directories(test_pbplotter PRIVATE ${LIBS_SOURCE})
+
+add_executable(test_quadtree test_quadtree.cpp)
+target_link_libraries(test_quadtree PRIVATE gtest_main QUADTREE STREAM_MAKER)
+target_include_directories(test_quadtree PRIVATE ${LIBS_SOURCE})
+
+add_test(NAME test_quadtree COMMAND test_quadtree)
+
+add_executable(test_quantile_quadtree test_quantile_quadtree.cpp)
+target_link_libraries(test_quantile_quadtree PRIVATE gtest_main QUANTILE_QUADTREE STREAM_MAKER COUNT_SKETCH)
+target_include_directories(test_quantile_quadtree PRIVATE ${LIBS_SOURCE})
+
+add_test(NAME test_quantile_quadtree COMMAND test_quantile_quadtree)

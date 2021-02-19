@@ -182,6 +182,45 @@ int quantile(vector<pair<int, int>>& stream, int total_weight, double quant){
 	return -0x3f3f3f;
 }
 
+vector<pair<int, pair<double, double>>> random_stream_in_region(int vector_size, double minx, double miny, double maxx, double maxy){
+	uniform_real_distribution<double> x_distribution(minx, maxx);
+	uniform_real_distribution<double> y_distribution(miny, maxy);
+	vector<pair<int, pair<double, double>>> ret;
+	
+	for(int i = 0; i < vector_size; i++){
+		ret.push_back({i, {x_distribution(generator), y_distribution(generator)}});
+	}
+
+	return ret;
+}
+
+vector<pair<pair<int, int>, pair<double, double>>> random_stream_in_region_with_weight(int vector_size, double minx, double miny, double maxx, double maxy, int min_v, int max_v, int min_w, int max_w){
+	uniform_real_distribution<double> x_distribution(minx, maxx);
+	uniform_real_distribution<double> y_distribution(miny, maxy);
+	uniform_int_distribution<int> who_pick(min_v, max_v);
+	uniform_int_distribution<int> weight(min_w, max_w);
+	map<int, int> weight_got;
+	vector<pair<pair<int, int>, pair<double, double>>> random_stream;
+	
+	
+	for(int i = 0; i < vector_size; i++){
+		int element = who_pick(generator);
+		int new_weight = weight(generator);
+
+		if(new_weight > 0){
+			weight_got[element] += new_weight;
+		}else{
+			if((weight_got[element] + new_weight) < 0){
+				new_weight = -new_weight;
+			}
+		}
+
+		random_stream.push_back({{element, new_weight}, {x_distribution(generator), y_distribution(generator)}});
+	}
+
+	return random_stream;
+}
+
 void show_stream(vector<int>& stream){
 	for(auto& it : stream){
 		cout <<  it << " ";

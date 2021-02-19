@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/test_quadtree.dir/test_quadtree.cpp.o  -o ../bin/test_quadtree  ../lib/libgtest_main.a ../lib/libQUADTREE.a ../lib/libSTREAM_MAKER.a ../lib/libgtest.a -lpthread ../lib/libAABB.a ../lib/libPOINT.a ../lib/libCOMMUM_HEADER.a ../lib/libGLOBAL_GEN.a 

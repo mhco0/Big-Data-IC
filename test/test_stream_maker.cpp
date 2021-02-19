@@ -130,6 +130,21 @@ TEST(StreamTest, TestFrequencyCounterWithWeight){
 	ASSERT_TRUE(ans == frequency_counter(stream));
 }
 
+TEST(StreamTest, TestRandomRegionPoints){
+	vector<pair<int, pair<double, double>>> stream = random_stream_in_region(1000, 0.0, 0.0, 100.0, 100.0);
+
+	EXPECT_EQ(stream.size() , 1000);
+
+	for(int i = 0; i < stream.size(); i++){
+		EXPECT_EQ(stream[i].first, i);
+
+		EXPECT_LT(stream[i].second.first, 100.0);
+		EXPECT_LT(stream[i].second.second, 100.0);
+		EXPECT_GE(stream[i].second.first, 0.0);
+		EXPECT_GE(stream[i].second.second, 0.0);
+	}
+}
+
 TEST(RanksTest, TestRealRank){
 	vector<int> stream = {1, 3, 4, 3, 4, 5, 10, 2, 5, 2, 9, 10};
 	vector<int> ranks = {0, 0, 1, 3, 5, 7, 9, 9, 9, 9, 10};

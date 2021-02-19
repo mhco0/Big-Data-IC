@@ -24,6 +24,6 @@ test/CMakeFiles/test_kll.dir/test_kll.cpp.o: ../googletest/googletest/include/gt
 test/CMakeFiles/test_kll.dir/test_kll.cpp.o: ../src/commum_header/commum_header.h
 test/CMakeFiles/test_kll.dir/test_kll.cpp.o: ../src/global_generator/global_generator.h
 test/CMakeFiles/test_kll.dir/test_kll.cpp.o: ../src/kll/kll.hpp
-test/CMakeFiles/test_kll.dir/test_kll.cpp.o: ../src/kll/kll.tpp
+test/CMakeFiles/test_kll.dir/test_kll.cpp.o: ../src/stream_maker/stream_maker.h
 test/CMakeFiles/test_kll.dir/test_kll.cpp.o: ../test/test_kll.cpp
 

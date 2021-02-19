@@ -110,10 +110,10 @@ TEST(CountScketchTest, TestMerge){
             cs2.update(it.first, it.second);
         }
 
-        count_sketch merged_cs = cs1.merge(cs2);
+        count_sketch* merged_cs = dynamic_cast<count_sketch *>(cs1.merge(cs2));
 
         for(auto & it : frequency){
-            int approx_f = merged_cs.query(it.first);
+            int approx_f = merged_cs->query(it.first);
             int real_f = it.second;
             
             if(fabs(approx_f - real_f) > (error * total_weight)) fails[it.first]++;

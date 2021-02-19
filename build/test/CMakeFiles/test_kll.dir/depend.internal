@@ -25,5 +25,5 @@ test/CMakeFiles/test_kll.dir/test_kll.cpp.o
  ../src/commum_header/commum_header.h
  ../src/global_generator/global_generator.h
  ../src/kll/kll.hpp
- ../src/kll/kll.tpp
+ ../src/stream_maker/stream_maker.h
  /mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_kll.cpp

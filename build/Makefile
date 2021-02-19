@@ -220,6 +220,32 @@ gtest/fast:
 .PHONY : gtest/fast
 
 #=============================================================================
+# Target rules for targets named QUANTILE_SKETCH
+
+# Build rule for target.
+QUANTILE_SKETCH: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 QUANTILE_SKETCH
+.PHONY : QUANTILE_SKETCH
+
+# fast build rule for target.
+QUANTILE_SKETCH/fast:
+	$(MAKE) -f src/CMakeFiles/QUANTILE_SKETCH.dir/build.make src/CMakeFiles/QUANTILE_SKETCH.dir/build
+.PHONY : QUANTILE_SKETCH/fast
+
+#=============================================================================
+# Target rules for targets named QUADTREE
+
+# Build rule for target.
+QUADTREE: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 QUADTREE
+.PHONY : QUADTREE
+
+# fast build rule for target.
+QUADTREE/fast:
+	$(MAKE) -f src/CMakeFiles/QUADTREE.dir/build.make src/CMakeFiles/QUADTREE.dir/build
+.PHONY : QUADTREE/fast
+
+#=============================================================================
 # Target rules for targets named GLOBAL_GEN
 
 # Build rule for target.
@@ -231,19 +257,6 @@ GLOBAL_GEN: cmake_check_build_system
 GLOBAL_GEN/fast:
 	$(MAKE) -f src/CMakeFiles/GLOBAL_GEN.dir/build.make src/CMakeFiles/GLOBAL_GEN.dir/build
 .PHONY : GLOBAL_GEN/fast
-
-#=============================================================================
-# Target rules for targets named COMMUM_HEADER
-
-# Build rule for target.
-COMMUM_HEADER: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 COMMUM_HEADER
-.PHONY : COMMUM_HEADER
-
-# fast build rule for target.
-COMMUM_HEADER/fast:
-	$(MAKE) -f src/CMakeFiles/COMMUM_HEADER.dir/build.make src/CMakeFiles/COMMUM_HEADER.dir/build
-.PHONY : COMMUM_HEADER/fast
 
 #=============================================================================
 # Target rules for targets named K_WISE_FAMILY
@@ -270,6 +283,19 @@ COUNT_SKETCH: cmake_check_build_system
 COUNT_SKETCH/fast:
 	$(MAKE) -f src/CMakeFiles/COUNT_SKETCH.dir/build.make src/CMakeFiles/COUNT_SKETCH.dir/build
 .PHONY : COUNT_SKETCH/fast
+
+#=============================================================================
+# Target rules for targets named QUANTILE_QUADTREE
+
+# Build rule for target.
+QUANTILE_QUADTREE: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 QUANTILE_QUADTREE
+.PHONY : QUANTILE_QUADTREE
+
+# fast build rule for target.
+QUANTILE_QUADTREE/fast:
+	$(MAKE) -f src/CMakeFiles/QUANTILE_QUADTREE.dir/build.make src/CMakeFiles/QUANTILE_QUADTREE.dir/build
+.PHONY : QUANTILE_QUADTREE/fast
 
 #=============================================================================
 # Target rules for targets named PBPLOTS_SUPPORT_LIB
@@ -350,56 +376,69 @@ PBPLOTS_LIB/fast:
 .PHONY : PBPLOTS_LIB/fast
 
 #=============================================================================
-# Target rules for targets named test_pbplotter
+# Target rules for targets named PMQ
 
 # Build rule for target.
-test_pbplotter: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test_pbplotter
-.PHONY : test_pbplotter
+PMQ: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 PMQ
+.PHONY : PMQ
 
 # fast build rule for target.
-test_pbplotter/fast:
-	$(MAKE) -f test/CMakeFiles/test_pbplotter.dir/build.make test/CMakeFiles/test_pbplotter.dir/build
-.PHONY : test_pbplotter/fast
+PMQ/fast:
+	$(MAKE) -f src/CMakeFiles/PMQ.dir/build.make src/CMakeFiles/PMQ.dir/build
+.PHONY : PMQ/fast
 
 #=============================================================================
-# Target rules for targets named test_dcs
+# Target rules for targets named POINT
 
 # Build rule for target.
-test_dcs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test_dcs
-.PHONY : test_dcs
+POINT: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 POINT
+.PHONY : POINT
 
 # fast build rule for target.
-test_dcs/fast:
-	$(MAKE) -f test/CMakeFiles/test_dcs.dir/build.make test/CMakeFiles/test_dcs.dir/build
-.PHONY : test_dcs/fast
+POINT/fast:
+	$(MAKE) -f src/CMakeFiles/POINT.dir/build.make src/CMakeFiles/POINT.dir/build
+.PHONY : POINT/fast
 
 #=============================================================================
-# Target rules for targets named test_count_sketch
+# Target rules for targets named COMMUM_HEADER
 
 # Build rule for target.
-test_count_sketch: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test_count_sketch
-.PHONY : test_count_sketch
+COMMUM_HEADER: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 COMMUM_HEADER
+.PHONY : COMMUM_HEADER
 
 # fast build rule for target.
-test_count_sketch/fast:
-	$(MAKE) -f test/CMakeFiles/test_count_sketch.dir/build.make test/CMakeFiles/test_count_sketch.dir/build
-.PHONY : test_count_sketch/fast
+COMMUM_HEADER/fast:
+	$(MAKE) -f src/CMakeFiles/COMMUM_HEADER.dir/build.make src/CMakeFiles/COMMUM_HEADER.dir/build
+.PHONY : COMMUM_HEADER/fast
 
 #=============================================================================
-# Target rules for targets named test_k_wise_family
+# Target rules for targets named AABB
 
 # Build rule for target.
-test_k_wise_family: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test_k_wise_family
-.PHONY : test_k_wise_family
+AABB: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 AABB
+.PHONY : AABB
 
 # fast build rule for target.
-test_k_wise_family/fast:
-	$(MAKE) -f test/CMakeFiles/test_k_wise_family.dir/build.make test/CMakeFiles/test_k_wise_family.dir/build
-.PHONY : test_k_wise_family/fast
+AABB/fast:
+	$(MAKE) -f src/CMakeFiles/AABB.dir/build.make src/CMakeFiles/AABB.dir/build
+.PHONY : AABB/fast
+
+#=============================================================================
+# Target rules for targets named test_stream_maker
+
+# Build rule for target.
+test_stream_maker: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_stream_maker
+.PHONY : test_stream_maker
+
+# fast build rule for target.
+test_stream_maker/fast:
+	$(MAKE) -f test/CMakeFiles/test_stream_maker.dir/build.make test/CMakeFiles/test_stream_maker.dir/build
+.PHONY : test_stream_maker/fast
 
 #=============================================================================
 # Target rules for targets named test_kll
@@ -415,17 +454,82 @@ test_kll/fast:
 .PHONY : test_kll/fast
 
 #=============================================================================
-# Target rules for targets named test_stream_maker
+# Target rules for targets named test_k_wise_family
 
 # Build rule for target.
-test_stream_maker: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test_stream_maker
-.PHONY : test_stream_maker
+test_k_wise_family: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_k_wise_family
+.PHONY : test_k_wise_family
 
 # fast build rule for target.
-test_stream_maker/fast:
-	$(MAKE) -f test/CMakeFiles/test_stream_maker.dir/build.make test/CMakeFiles/test_stream_maker.dir/build
-.PHONY : test_stream_maker/fast
+test_k_wise_family/fast:
+	$(MAKE) -f test/CMakeFiles/test_k_wise_family.dir/build.make test/CMakeFiles/test_k_wise_family.dir/build
+.PHONY : test_k_wise_family/fast
+
+#=============================================================================
+# Target rules for targets named test_quadtree
+
+# Build rule for target.
+test_quadtree: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_quadtree
+.PHONY : test_quadtree
+
+# fast build rule for target.
+test_quadtree/fast:
+	$(MAKE) -f test/CMakeFiles/test_quadtree.dir/build.make test/CMakeFiles/test_quadtree.dir/build
+.PHONY : test_quadtree/fast
+
+#=============================================================================
+# Target rules for targets named test_dcs
+
+# Build rule for target.
+test_dcs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_dcs
+.PHONY : test_dcs
+
+# fast build rule for target.
+test_dcs/fast:
+	$(MAKE) -f test/CMakeFiles/test_dcs.dir/build.make test/CMakeFiles/test_dcs.dir/build
+.PHONY : test_dcs/fast
+
+#=============================================================================
+# Target rules for targets named test_pbplotter
+
+# Build rule for target.
+test_pbplotter: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_pbplotter
+.PHONY : test_pbplotter
+
+# fast build rule for target.
+test_pbplotter/fast:
+	$(MAKE) -f test/CMakeFiles/test_pbplotter.dir/build.make test/CMakeFiles/test_pbplotter.dir/build
+.PHONY : test_pbplotter/fast
+
+#=============================================================================
+# Target rules for targets named test_quantile_quadtree
+
+# Build rule for target.
+test_quantile_quadtree: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_quantile_quadtree
+.PHONY : test_quantile_quadtree
+
+# fast build rule for target.
+test_quantile_quadtree/fast:
+	$(MAKE) -f test/CMakeFiles/test_quantile_quadtree.dir/build.make test/CMakeFiles/test_quantile_quadtree.dir/build
+.PHONY : test_quantile_quadtree/fast
+
+#=============================================================================
+# Target rules for targets named test_count_sketch
+
+# Build rule for target.
+test_count_sketch: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_count_sketch
+.PHONY : test_count_sketch
+
+# fast build rule for target.
+test_count_sketch/fast:
+	$(MAKE) -f test/CMakeFiles/test_count_sketch.dir/build.make test/CMakeFiles/test_count_sketch.dir/build
+.PHONY : test_count_sketch/fast
 
 # Help Target
 help:
@@ -444,22 +548,30 @@ help:
 	@echo "... gmock"
 	@echo "... gtest_main"
 	@echo "... gtest"
+	@echo "... QUANTILE_SKETCH"
+	@echo "... QUADTREE"
 	@echo "... GLOBAL_GEN"
-	@echo "... COMMUM_HEADER"
 	@echo "... K_WISE_FAMILY"
 	@echo "... COUNT_SKETCH"
+	@echo "... QUANTILE_QUADTREE"
 	@echo "... PBPLOTS_SUPPORT_LIB"
 	@echo "... KLL"
 	@echo "... STREAM_MAKER"
 	@echo "... PBPLOTS_PBPLOTTER"
 	@echo "... DCS"
 	@echo "... PBPLOTS_LIB"
-	@echo "... test_pbplotter"
-	@echo "... test_dcs"
-	@echo "... test_count_sketch"
-	@echo "... test_k_wise_family"
-	@echo "... test_kll"
+	@echo "... PMQ"
+	@echo "... POINT"
+	@echo "... COMMUM_HEADER"
+	@echo "... AABB"
 	@echo "... test_stream_maker"
+	@echo "... test_kll"
+	@echo "... test_k_wise_family"
+	@echo "... test_quadtree"
+	@echo "... test_dcs"
+	@echo "... test_pbplotter"
+	@echo "... test_quantile_quadtree"
+	@echo "... test_count_sketch"
 .PHONY : help
 
 

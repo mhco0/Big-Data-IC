@@ -274,6 +274,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <Project>{6F2CE860-13C7-3C72-B40D-D524829D868D}</Project>
       <Name>K_WISE_FAMILY</Name>
     </ProjectReference>
+    <ProjectReference Include="C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\build\src\QUANTILE_SKETCH.vcxproj">
+      <Project>{A94197DF-1008-38FA-9386-3ED9658E0189}</Project>
+      <Name>QUANTILE_SKETCH</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

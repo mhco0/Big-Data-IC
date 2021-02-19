@@ -6,4 +6,5 @@ src/CMakeFiles/COUNT_SKETCH.dir/count_sketch/count_sketch.cpp.o: ../src/count_sk
 src/CMakeFiles/COUNT_SKETCH.dir/count_sketch/count_sketch.cpp.o: ../src/count_sketch/count_sketch.h
 src/CMakeFiles/COUNT_SKETCH.dir/count_sketch/count_sketch.cpp.o: ../src/global_generator/global_generator.h
 src/CMakeFiles/COUNT_SKETCH.dir/count_sketch/count_sketch.cpp.o: ../src/k_wise_family/k_wise_family.h
+src/CMakeFiles/COUNT_SKETCH.dir/count_sketch/count_sketch.cpp.o: ../src/quantile_sketch/quantile_sketch.hpp
 

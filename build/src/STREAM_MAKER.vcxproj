@@ -262,6 +262,14 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
+    <ProjectReference Include="C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\build\src\COMMUM_HEADER.vcxproj">
+      <Project>{23044ADF-6227-3C07-937F-D6865F48E6C8}</Project>
+      <Name>COMMUM_HEADER</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\build\src\GLOBAL_GEN.vcxproj">
+      <Project>{9CFF2319-B27A-3FEA-B2B2-AD1A7465A895}</Project>
+      <Name>GLOBAL_GEN</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
