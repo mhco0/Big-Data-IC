@@ -96,7 +96,7 @@ private:
 		friend q_digest tree_on_paper_ex2();
 	};
 
-	class merge_error:public exception{
+	class merge_error: public exception{
 	public:
 		const char* what() const throw(){
 			return "On Q-Digest::merge(): the error and the domain must match";

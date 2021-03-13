@@ -83,7 +83,6 @@ bin/test_count_sketch: lib/libgtest_main.a
 bin/test_count_sketch: lib/libCOUNT_SKETCH.a
 bin/test_count_sketch: lib/libSTREAM_MAKER.a
 bin/test_count_sketch: lib/libgtest.a
-bin/test_count_sketch: lib/libQUANTILE_SKETCH.a
 bin/test_count_sketch: lib/libK_WISE_FAMILY.a
 bin/test_count_sketch: lib/libCOMMUM_HEADER.a
 bin/test_count_sketch: lib/libGLOBAL_GEN.a

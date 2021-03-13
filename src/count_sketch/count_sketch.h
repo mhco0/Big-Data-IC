@@ -1,12 +1,11 @@
 #ifndef COUNT_SKETCH_H
 #define COUNT_SKETCH_H
-#include "../quantile_sketch/quantile_sketch.hpp"
 #include "../global_generator/global_generator.h"
 #include "../commum_header/commum_header.h"
 #include "../k_wise_family/k_wise_family.h"
 
 
-class count_sketch : public quantile_sketch<int> {
+class count_sketch {
 private:    
     double error, delta;
     // d is the number of rows and t is the number of collums for the estimator matrix
@@ -21,9 +20,9 @@ public:
     count_sketch(int fixd, int fixt);
     ~count_sketch();
 
-    void update(int elem, int weight) override;
-    int query(int elem) override;
-    quantile_sketch<int>* merge(const quantile_sketch<int>& rhs) override;
+    void update(int elem, int weight);
+    int query(int elem);
+    count_sketch* merge(const count_sketch& rhs);
 
     int get_d() const;
     int get_t() const;

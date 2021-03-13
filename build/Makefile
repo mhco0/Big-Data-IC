@@ -220,43 +220,17 @@ gtest/fast:
 .PHONY : gtest/fast
 
 #=============================================================================
-# Target rules for targets named QUANTILE_SKETCH
+# Target rules for targets named COUNT_SKETCH
 
 # Build rule for target.
-QUANTILE_SKETCH: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 QUANTILE_SKETCH
-.PHONY : QUANTILE_SKETCH
+COUNT_SKETCH: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 COUNT_SKETCH
+.PHONY : COUNT_SKETCH
 
 # fast build rule for target.
-QUANTILE_SKETCH/fast:
-	$(MAKE) -f src/CMakeFiles/QUANTILE_SKETCH.dir/build.make src/CMakeFiles/QUANTILE_SKETCH.dir/build
-.PHONY : QUANTILE_SKETCH/fast
-
-#=============================================================================
-# Target rules for targets named QUADTREE
-
-# Build rule for target.
-QUADTREE: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 QUADTREE
-.PHONY : QUADTREE
-
-# fast build rule for target.
-QUADTREE/fast:
-	$(MAKE) -f src/CMakeFiles/QUADTREE.dir/build.make src/CMakeFiles/QUADTREE.dir/build
-.PHONY : QUADTREE/fast
-
-#=============================================================================
-# Target rules for targets named GLOBAL_GEN
-
-# Build rule for target.
-GLOBAL_GEN: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 GLOBAL_GEN
-.PHONY : GLOBAL_GEN
-
-# fast build rule for target.
-GLOBAL_GEN/fast:
-	$(MAKE) -f src/CMakeFiles/GLOBAL_GEN.dir/build.make src/CMakeFiles/GLOBAL_GEN.dir/build
-.PHONY : GLOBAL_GEN/fast
+COUNT_SKETCH/fast:
+	$(MAKE) -f src/CMakeFiles/COUNT_SKETCH.dir/build.make src/CMakeFiles/COUNT_SKETCH.dir/build
+.PHONY : COUNT_SKETCH/fast
 
 #=============================================================================
 # Target rules for targets named K_WISE_FAMILY
@@ -272,69 +246,30 @@ K_WISE_FAMILY/fast:
 .PHONY : K_WISE_FAMILY/fast
 
 #=============================================================================
-# Target rules for targets named COUNT_SKETCH
+# Target rules for targets named CONFIG
 
 # Build rule for target.
-COUNT_SKETCH: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 COUNT_SKETCH
-.PHONY : COUNT_SKETCH
+CONFIG: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 CONFIG
+.PHONY : CONFIG
 
 # fast build rule for target.
-COUNT_SKETCH/fast:
-	$(MAKE) -f src/CMakeFiles/COUNT_SKETCH.dir/build.make src/CMakeFiles/COUNT_SKETCH.dir/build
-.PHONY : COUNT_SKETCH/fast
+CONFIG/fast:
+	$(MAKE) -f src/CMakeFiles/CONFIG.dir/build.make src/CMakeFiles/CONFIG.dir/build
+.PHONY : CONFIG/fast
 
 #=============================================================================
-# Target rules for targets named QUANTILE_QUADTREE
+# Target rules for targets named GK
 
 # Build rule for target.
-QUANTILE_QUADTREE: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 QUANTILE_QUADTREE
-.PHONY : QUANTILE_QUADTREE
+GK: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 GK
+.PHONY : GK
 
 # fast build rule for target.
-QUANTILE_QUADTREE/fast:
-	$(MAKE) -f src/CMakeFiles/QUANTILE_QUADTREE.dir/build.make src/CMakeFiles/QUANTILE_QUADTREE.dir/build
-.PHONY : QUANTILE_QUADTREE/fast
-
-#=============================================================================
-# Target rules for targets named PBPLOTS_SUPPORT_LIB
-
-# Build rule for target.
-PBPLOTS_SUPPORT_LIB: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 PBPLOTS_SUPPORT_LIB
-.PHONY : PBPLOTS_SUPPORT_LIB
-
-# fast build rule for target.
-PBPLOTS_SUPPORT_LIB/fast:
-	$(MAKE) -f src/CMakeFiles/PBPLOTS_SUPPORT_LIB.dir/build.make src/CMakeFiles/PBPLOTS_SUPPORT_LIB.dir/build
-.PHONY : PBPLOTS_SUPPORT_LIB/fast
-
-#=============================================================================
-# Target rules for targets named KLL
-
-# Build rule for target.
-KLL: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 KLL
-.PHONY : KLL
-
-# fast build rule for target.
-KLL/fast:
-	$(MAKE) -f src/CMakeFiles/KLL.dir/build.make src/CMakeFiles/KLL.dir/build
-.PHONY : KLL/fast
-
-#=============================================================================
-# Target rules for targets named STREAM_MAKER
-
-# Build rule for target.
-STREAM_MAKER: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 STREAM_MAKER
-.PHONY : STREAM_MAKER
-
-# fast build rule for target.
-STREAM_MAKER/fast:
-	$(MAKE) -f src/CMakeFiles/STREAM_MAKER.dir/build.make src/CMakeFiles/STREAM_MAKER.dir/build
-.PHONY : STREAM_MAKER/fast
+GK/fast:
+	$(MAKE) -f src/CMakeFiles/GK.dir/build.make src/CMakeFiles/GK.dir/build
+.PHONY : GK/fast
 
 #=============================================================================
 # Target rules for targets named PBPLOTS_PBPLOTTER
@@ -350,56 +285,43 @@ PBPLOTS_PBPLOTTER/fast:
 .PHONY : PBPLOTS_PBPLOTTER/fast
 
 #=============================================================================
-# Target rules for targets named DCS
+# Target rules for targets named KLL
 
 # Build rule for target.
-DCS: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 DCS
-.PHONY : DCS
+KLL: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 KLL
+.PHONY : KLL
 
 # fast build rule for target.
-DCS/fast:
-	$(MAKE) -f src/CMakeFiles/DCS.dir/build.make src/CMakeFiles/DCS.dir/build
-.PHONY : DCS/fast
+KLL/fast:
+	$(MAKE) -f src/CMakeFiles/KLL.dir/build.make src/CMakeFiles/KLL.dir/build
+.PHONY : KLL/fast
 
 #=============================================================================
-# Target rules for targets named PBPLOTS_LIB
+# Target rules for targets named QUANTILE_QUADTREE
 
 # Build rule for target.
-PBPLOTS_LIB: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 PBPLOTS_LIB
-.PHONY : PBPLOTS_LIB
+QUANTILE_QUADTREE: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 QUANTILE_QUADTREE
+.PHONY : QUANTILE_QUADTREE
 
 # fast build rule for target.
-PBPLOTS_LIB/fast:
-	$(MAKE) -f src/CMakeFiles/PBPLOTS_LIB.dir/build.make src/CMakeFiles/PBPLOTS_LIB.dir/build
-.PHONY : PBPLOTS_LIB/fast
+QUANTILE_QUADTREE/fast:
+	$(MAKE) -f src/CMakeFiles/QUANTILE_QUADTREE.dir/build.make src/CMakeFiles/QUANTILE_QUADTREE.dir/build
+.PHONY : QUANTILE_QUADTREE/fast
 
 #=============================================================================
-# Target rules for targets named PMQ
+# Target rules for targets named BD_DEBUG
 
 # Build rule for target.
-PMQ: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 PMQ
-.PHONY : PMQ
+BD_DEBUG: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 BD_DEBUG
+.PHONY : BD_DEBUG
 
 # fast build rule for target.
-PMQ/fast:
-	$(MAKE) -f src/CMakeFiles/PMQ.dir/build.make src/CMakeFiles/PMQ.dir/build
-.PHONY : PMQ/fast
-
-#=============================================================================
-# Target rules for targets named POINT
-
-# Build rule for target.
-POINT: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 POINT
-.PHONY : POINT
-
-# fast build rule for target.
-POINT/fast:
-	$(MAKE) -f src/CMakeFiles/POINT.dir/build.make src/CMakeFiles/POINT.dir/build
-.PHONY : POINT/fast
+BD_DEBUG/fast:
+	$(MAKE) -f src/CMakeFiles/BD_DEBUG.dir/build.make src/CMakeFiles/BD_DEBUG.dir/build
+.PHONY : BD_DEBUG/fast
 
 #=============================================================================
 # Target rules for targets named COMMUM_HEADER
@@ -415,6 +337,71 @@ COMMUM_HEADER/fast:
 .PHONY : COMMUM_HEADER/fast
 
 #=============================================================================
+# Target rules for targets named DCS
+
+# Build rule for target.
+DCS: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 DCS
+.PHONY : DCS
+
+# fast build rule for target.
+DCS/fast:
+	$(MAKE) -f src/CMakeFiles/DCS.dir/build.make src/CMakeFiles/DCS.dir/build
+.PHONY : DCS/fast
+
+#=============================================================================
+# Target rules for targets named UTILS
+
+# Build rule for target.
+UTILS: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 UTILS
+.PHONY : UTILS
+
+# fast build rule for target.
+UTILS/fast:
+	$(MAKE) -f src/CMakeFiles/UTILS.dir/build.make src/CMakeFiles/UTILS.dir/build
+.PHONY : UTILS/fast
+
+#=============================================================================
+# Target rules for targets named BD_TIMER
+
+# Build rule for target.
+BD_TIMER: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 BD_TIMER
+.PHONY : BD_TIMER
+
+# fast build rule for target.
+BD_TIMER/fast:
+	$(MAKE) -f src/CMakeFiles/BD_TIMER.dir/build.make src/CMakeFiles/BD_TIMER.dir/build
+.PHONY : BD_TIMER/fast
+
+#=============================================================================
+# Target rules for targets named MEMORY_TRACKER
+
+# Build rule for target.
+MEMORY_TRACKER: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 MEMORY_TRACKER
+.PHONY : MEMORY_TRACKER
+
+# fast build rule for target.
+MEMORY_TRACKER/fast:
+	$(MAKE) -f src/CMakeFiles/MEMORY_TRACKER.dir/build.make src/CMakeFiles/MEMORY_TRACKER.dir/build
+.PHONY : MEMORY_TRACKER/fast
+
+#=============================================================================
+# Target rules for targets named Q_DIGEST
+
+# Build rule for target.
+Q_DIGEST: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Q_DIGEST
+.PHONY : Q_DIGEST
+
+# fast build rule for target.
+Q_DIGEST/fast:
+	$(MAKE) -f src/CMakeFiles/Q_DIGEST.dir/build.make src/CMakeFiles/Q_DIGEST.dir/build
+.PHONY : Q_DIGEST/fast
+
+#=============================================================================
 # Target rules for targets named AABB
 
 # Build rule for target.
@@ -426,6 +413,175 @@ AABB: cmake_check_build_system
 AABB/fast:
 	$(MAKE) -f src/CMakeFiles/AABB.dir/build.make src/CMakeFiles/AABB.dir/build
 .PHONY : AABB/fast
+
+#=============================================================================
+# Target rules for targets named PMQ
+
+# Build rule for target.
+PMQ: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 PMQ
+.PHONY : PMQ
+
+# fast build rule for target.
+PMQ/fast:
+	$(MAKE) -f src/CMakeFiles/PMQ.dir/build.make src/CMakeFiles/PMQ.dir/build
+.PHONY : PMQ/fast
+
+#=============================================================================
+# Target rules for targets named DCS_FACTORY
+
+# Build rule for target.
+DCS_FACTORY: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 DCS_FACTORY
+.PHONY : DCS_FACTORY
+
+# fast build rule for target.
+DCS_FACTORY/fast:
+	$(MAKE) -f src/CMakeFiles/DCS_FACTORY.dir/build.make src/CMakeFiles/DCS_FACTORY.dir/build
+.PHONY : DCS_FACTORY/fast
+
+#=============================================================================
+# Target rules for targets named POINT
+
+# Build rule for target.
+POINT: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 POINT
+.PHONY : POINT
+
+# fast build rule for target.
+POINT/fast:
+	$(MAKE) -f src/CMakeFiles/POINT.dir/build.make src/CMakeFiles/POINT.dir/build
+.PHONY : POINT/fast
+
+#=============================================================================
+# Target rules for targets named QUADTREE
+
+# Build rule for target.
+QUADTREE: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 QUADTREE
+.PHONY : QUADTREE
+
+# fast build rule for target.
+QUADTREE/fast:
+	$(MAKE) -f src/CMakeFiles/QUADTREE.dir/build.make src/CMakeFiles/QUADTREE.dir/build
+.PHONY : QUADTREE/fast
+
+#=============================================================================
+# Target rules for targets named SKETCH_FACTORY
+
+# Build rule for target.
+SKETCH_FACTORY: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 SKETCH_FACTORY
+.PHONY : SKETCH_FACTORY
+
+# fast build rule for target.
+SKETCH_FACTORY/fast:
+	$(MAKE) -f src/CMakeFiles/SKETCH_FACTORY.dir/build.make src/CMakeFiles/SKETCH_FACTORY.dir/build
+.PHONY : SKETCH_FACTORY/fast
+
+#=============================================================================
+# Target rules for targets named QUANTILE_SKETCH
+
+# Build rule for target.
+QUANTILE_SKETCH: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 QUANTILE_SKETCH
+.PHONY : QUANTILE_SKETCH
+
+# fast build rule for target.
+QUANTILE_SKETCH/fast:
+	$(MAKE) -f src/CMakeFiles/QUANTILE_SKETCH.dir/build.make src/CMakeFiles/QUANTILE_SKETCH.dir/build
+.PHONY : QUANTILE_SKETCH/fast
+
+#=============================================================================
+# Target rules for targets named STREAM_MAKER
+
+# Build rule for target.
+STREAM_MAKER: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 STREAM_MAKER
+.PHONY : STREAM_MAKER
+
+# fast build rule for target.
+STREAM_MAKER/fast:
+	$(MAKE) -f src/CMakeFiles/STREAM_MAKER.dir/build.make src/CMakeFiles/STREAM_MAKER.dir/build
+.PHONY : STREAM_MAKER/fast
+
+#=============================================================================
+# Target rules for targets named PBPLOTS_LIB
+
+# Build rule for target.
+PBPLOTS_LIB: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 PBPLOTS_LIB
+.PHONY : PBPLOTS_LIB
+
+# fast build rule for target.
+PBPLOTS_LIB/fast:
+	$(MAKE) -f src/CMakeFiles/PBPLOTS_LIB.dir/build.make src/CMakeFiles/PBPLOTS_LIB.dir/build
+.PHONY : PBPLOTS_LIB/fast
+
+#=============================================================================
+# Target rules for targets named KLL_FACTORY
+
+# Build rule for target.
+KLL_FACTORY: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 KLL_FACTORY
+.PHONY : KLL_FACTORY
+
+# fast build rule for target.
+KLL_FACTORY/fast:
+	$(MAKE) -f src/CMakeFiles/KLL_FACTORY.dir/build.make src/CMakeFiles/KLL_FACTORY.dir/build
+.PHONY : KLL_FACTORY/fast
+
+#=============================================================================
+# Target rules for targets named Q_DIGEST_FACTORY
+
+# Build rule for target.
+Q_DIGEST_FACTORY: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Q_DIGEST_FACTORY
+.PHONY : Q_DIGEST_FACTORY
+
+# fast build rule for target.
+Q_DIGEST_FACTORY/fast:
+	$(MAKE) -f src/CMakeFiles/Q_DIGEST_FACTORY.dir/build.make src/CMakeFiles/Q_DIGEST_FACTORY.dir/build
+.PHONY : Q_DIGEST_FACTORY/fast
+
+#=============================================================================
+# Target rules for targets named PBPLOTS_SUPPORT_LIB
+
+# Build rule for target.
+PBPLOTS_SUPPORT_LIB: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 PBPLOTS_SUPPORT_LIB
+.PHONY : PBPLOTS_SUPPORT_LIB
+
+# fast build rule for target.
+PBPLOTS_SUPPORT_LIB/fast:
+	$(MAKE) -f src/CMakeFiles/PBPLOTS_SUPPORT_LIB.dir/build.make src/CMakeFiles/PBPLOTS_SUPPORT_LIB.dir/build
+.PHONY : PBPLOTS_SUPPORT_LIB/fast
+
+#=============================================================================
+# Target rules for targets named GLOBAL_GEN
+
+# Build rule for target.
+GLOBAL_GEN: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 GLOBAL_GEN
+.PHONY : GLOBAL_GEN
+
+# fast build rule for target.
+GLOBAL_GEN/fast:
+	$(MAKE) -f src/CMakeFiles/GLOBAL_GEN.dir/build.make src/CMakeFiles/GLOBAL_GEN.dir/build
+.PHONY : GLOBAL_GEN/fast
+
+#=============================================================================
+# Target rules for targets named GK_FACTORY
+
+# Build rule for target.
+GK_FACTORY: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 GK_FACTORY
+.PHONY : GK_FACTORY
+
+# fast build rule for target.
+GK_FACTORY/fast:
+	$(MAKE) -f src/CMakeFiles/GK_FACTORY.dir/build.make src/CMakeFiles/GK_FACTORY.dir/build
+.PHONY : GK_FACTORY/fast
 
 #=============================================================================
 # Target rules for targets named test_stream_maker
@@ -441,6 +597,19 @@ test_stream_maker/fast:
 .PHONY : test_stream_maker/fast
 
 #=============================================================================
+# Target rules for targets named test_memory_tracker
+
+# Build rule for target.
+test_memory_tracker: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_memory_tracker
+.PHONY : test_memory_tracker
+
+# fast build rule for target.
+test_memory_tracker/fast:
+	$(MAKE) -f test/CMakeFiles/test_memory_tracker.dir/build.make test/CMakeFiles/test_memory_tracker.dir/build
+.PHONY : test_memory_tracker/fast
+
+#=============================================================================
 # Target rules for targets named test_kll
 
 # Build rule for target.
@@ -454,6 +623,19 @@ test_kll/fast:
 .PHONY : test_kll/fast
 
 #=============================================================================
+# Target rules for targets named test_quantile_quadtree
+
+# Build rule for target.
+test_quantile_quadtree: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_quantile_quadtree
+.PHONY : test_quantile_quadtree
+
+# fast build rule for target.
+test_quantile_quadtree/fast:
+	$(MAKE) -f test/CMakeFiles/test_quantile_quadtree.dir/build.make test/CMakeFiles/test_quantile_quadtree.dir/build
+.PHONY : test_quantile_quadtree/fast
+
+#=============================================================================
 # Target rules for targets named test_k_wise_family
 
 # Build rule for target.
@@ -465,6 +647,19 @@ test_k_wise_family: cmake_check_build_system
 test_k_wise_family/fast:
 	$(MAKE) -f test/CMakeFiles/test_k_wise_family.dir/build.make test/CMakeFiles/test_k_wise_family.dir/build
 .PHONY : test_k_wise_family/fast
+
+#=============================================================================
+# Target rules for targets named tester
+
+# Build rule for target.
+tester: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 tester
+.PHONY : tester
+
+# fast build rule for target.
+tester/fast:
+	$(MAKE) -f test/CMakeFiles/tester.dir/build.make test/CMakeFiles/tester.dir/build
+.PHONY : tester/fast
 
 #=============================================================================
 # Target rules for targets named test_quadtree
@@ -493,32 +688,6 @@ test_dcs/fast:
 .PHONY : test_dcs/fast
 
 #=============================================================================
-# Target rules for targets named test_pbplotter
-
-# Build rule for target.
-test_pbplotter: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test_pbplotter
-.PHONY : test_pbplotter
-
-# fast build rule for target.
-test_pbplotter/fast:
-	$(MAKE) -f test/CMakeFiles/test_pbplotter.dir/build.make test/CMakeFiles/test_pbplotter.dir/build
-.PHONY : test_pbplotter/fast
-
-#=============================================================================
-# Target rules for targets named test_quantile_quadtree
-
-# Build rule for target.
-test_quantile_quadtree: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test_quantile_quadtree
-.PHONY : test_quantile_quadtree
-
-# fast build rule for target.
-test_quantile_quadtree/fast:
-	$(MAKE) -f test/CMakeFiles/test_quantile_quadtree.dir/build.make test/CMakeFiles/test_quantile_quadtree.dir/build
-.PHONY : test_quantile_quadtree/fast
-
-#=============================================================================
 # Target rules for targets named test_count_sketch
 
 # Build rule for target.
@@ -530,6 +699,58 @@ test_count_sketch: cmake_check_build_system
 test_count_sketch/fast:
 	$(MAKE) -f test/CMakeFiles/test_count_sketch.dir/build.make test/CMakeFiles/test_count_sketch.dir/build
 .PHONY : test_count_sketch/fast
+
+#=============================================================================
+# Target rules for targets named test_q_digest
+
+# Build rule for target.
+test_q_digest: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_q_digest
+.PHONY : test_q_digest
+
+# fast build rule for target.
+test_q_digest/fast:
+	$(MAKE) -f test/CMakeFiles/test_q_digest.dir/build.make test/CMakeFiles/test_q_digest.dir/build
+.PHONY : test_q_digest/fast
+
+#=============================================================================
+# Target rules for targets named test_config
+
+# Build rule for target.
+test_config: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_config
+.PHONY : test_config
+
+# fast build rule for target.
+test_config/fast:
+	$(MAKE) -f test/CMakeFiles/test_config.dir/build.make test/CMakeFiles/test_config.dir/build
+.PHONY : test_config/fast
+
+#=============================================================================
+# Target rules for targets named test_gk
+
+# Build rule for target.
+test_gk: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_gk
+.PHONY : test_gk
+
+# fast build rule for target.
+test_gk/fast:
+	$(MAKE) -f test/CMakeFiles/test_gk.dir/build.make test/CMakeFiles/test_gk.dir/build
+.PHONY : test_gk/fast
+
+#=============================================================================
+# Target rules for targets named test_pbplotter
+
+# Build rule for target.
+test_pbplotter: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_pbplotter
+.PHONY : test_pbplotter
+
+# fast build rule for target.
+test_pbplotter/fast:
+	$(MAKE) -f test/CMakeFiles/test_pbplotter.dir/build.make test/CMakeFiles/test_pbplotter.dir/build
+.PHONY : test_pbplotter/fast
 
 # Help Target
 help:
@@ -548,30 +769,47 @@ help:
 	@echo "... gmock"
 	@echo "... gtest_main"
 	@echo "... gtest"
-	@echo "... QUANTILE_SKETCH"
-	@echo "... QUADTREE"
-	@echo "... GLOBAL_GEN"
-	@echo "... K_WISE_FAMILY"
 	@echo "... COUNT_SKETCH"
-	@echo "... QUANTILE_QUADTREE"
-	@echo "... PBPLOTS_SUPPORT_LIB"
-	@echo "... KLL"
-	@echo "... STREAM_MAKER"
+	@echo "... K_WISE_FAMILY"
+	@echo "... CONFIG"
+	@echo "... GK"
 	@echo "... PBPLOTS_PBPLOTTER"
-	@echo "... DCS"
-	@echo "... PBPLOTS_LIB"
-	@echo "... PMQ"
-	@echo "... POINT"
+	@echo "... KLL"
+	@echo "... QUANTILE_QUADTREE"
+	@echo "... BD_DEBUG"
 	@echo "... COMMUM_HEADER"
+	@echo "... DCS"
+	@echo "... UTILS"
+	@echo "... BD_TIMER"
+	@echo "... MEMORY_TRACKER"
+	@echo "... Q_DIGEST"
 	@echo "... AABB"
+	@echo "... PMQ"
+	@echo "... DCS_FACTORY"
+	@echo "... POINT"
+	@echo "... QUADTREE"
+	@echo "... SKETCH_FACTORY"
+	@echo "... QUANTILE_SKETCH"
+	@echo "... STREAM_MAKER"
+	@echo "... PBPLOTS_LIB"
+	@echo "... KLL_FACTORY"
+	@echo "... Q_DIGEST_FACTORY"
+	@echo "... PBPLOTS_SUPPORT_LIB"
+	@echo "... GLOBAL_GEN"
+	@echo "... GK_FACTORY"
 	@echo "... test_stream_maker"
+	@echo "... test_memory_tracker"
 	@echo "... test_kll"
+	@echo "... test_quantile_quadtree"
 	@echo "... test_k_wise_family"
+	@echo "... tester"
 	@echo "... test_quadtree"
 	@echo "... test_dcs"
-	@echo "... test_pbplotter"
-	@echo "... test_quantile_quadtree"
 	@echo "... test_count_sketch"
+	@echo "... test_q_digest"
+	@echo "... test_config"
+	@echo "... test_gk"
+	@echo "... test_pbplotter"
 .PHONY : help
 
 

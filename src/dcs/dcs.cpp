@@ -85,6 +85,39 @@ int dcs::quantile(double quant){
     return x;
 }
 
+quantile_sketch<int> * dcs::merge(const quantile_sketch<int>& rhs){
+    const dcs& rhs_cv = dynamic_cast<const dcs&> (rhs);
+
+    if(&rhs_cv == nullptr){
+        std::cerr << "Error in dcs cast" << std::endl;
+        return nullptr;
+    }
+
+    if(this->error - rhs_cv.error > 1e-6){
+        std::cerr << "dcs's error need to match" << std::endl;
+        return nullptr;
+    }
+
+    if(this->universe != rhs_cv.universe){
+        std::cerr << "dcs's universe need to match" << std::endl;
+        return nullptr;
+    }
+
+    dcs* merged = new dcs(this->error, this->universe);
+
+    for(int i = 0; i < merged->lvls; i++){
+        if(i > merged->s){
+            for(int j = 0; j < merged->frequency_counters[i - (merged->s + 1)].size(); j++){
+                merged->frequency_counters[i - (merged->s + 1)][j] = this->frequency_counters[i - (this->s + 1)][j] + rhs_cv.frequency_counters[i - (rhs_cv.s + 1)][j];
+            }
+        }else{
+            merged->estimators[i] = *(this->estimators[i].merge(rhs_cv.estimators[i]));
+        }
+    }
+
+    return merged;
+}
+
 int dcs::get_tree_lvl() const {
     return this->lvls;
 }

@@ -15,6 +15,8 @@ std::map<int, int> frequency_counter(std::vector<std::pair<int, int>>& stream);
 int quantile(std::vector<std::pair<int, int>>& stream, int total_weight, double quant);
 std::vector<std::pair<int, std::pair<double, double>>> random_stream_in_region(int vector_size, double minx, double miny, double maxx, double maxy);
 std::vector<std::pair<std::pair<int, int>, std::pair<double, double>>> random_stream_in_region_with_weight(int vector_size, double minx, double miny, double maxx, double maxy, int min_v, int max_v, int min_w, int max_w);
+std::vector<std::pair<int, std::pair<double, double>>> random_stream_city(int vector_size, double minx, double miny, double maxx, double maxy, int min_v, int max_v, int citys, double max_radius);
+std::pair<std::pair<double, double>, std::pair<double, double>> random_rectangle_in_region(double minx, double miny, double maxx, double maxy);
 
 template<class T>
 std::vector<T> merge_stream(std::vector<T>& stream1, std::vector<T>& stream2){

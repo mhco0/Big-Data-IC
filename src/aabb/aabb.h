@@ -16,6 +16,7 @@ public:
     
     void bounds(const double& minx, const double& miny, const double& maxx, const double& maxy);
     bool contains(const point<double>& pos) const;
+    bool is_inside(const aabb& rhs) const;
     std::pair<point<double>, point<double>> bounds() const;
     friend std::ostream& operator<<(std::ostream &os, const aabb& box);
 };

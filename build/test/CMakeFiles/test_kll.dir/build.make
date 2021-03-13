@@ -82,9 +82,12 @@ bin/test_kll: test/CMakeFiles/test_kll.dir/build.make
 bin/test_kll: lib/libgtest_main.a
 bin/test_kll: lib/libKLL.a
 bin/test_kll: lib/libSTREAM_MAKER.a
-bin/test_kll: lib/libGLOBAL_GEN.a
-bin/test_kll: lib/libCOMMUM_HEADER.a
+bin/test_kll: lib/libKLL_FACTORY.a
 bin/test_kll: lib/libgtest.a
+bin/test_kll: lib/libKLL.a
+bin/test_kll: lib/libCOMMUM_HEADER.a
+bin/test_kll: lib/libGLOBAL_GEN.a
+bin/test_kll: lib/libSKETCH_FACTORY.a
 bin/test_kll: test/CMakeFiles/test_kll.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ../bin/test_kll"
 	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/test_kll.dir/link.txt --verbose=$(VERBOSE)

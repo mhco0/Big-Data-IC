@@ -1,7 +1,7 @@
 #include "kll.hpp"
 
 template<class T>
-kll<T>::kll(double err) : coin(0,1){
+kll<T>::kll(double err) : coin(0, 1){
     error = err;
     buffer_diff = 0.7; // change here later
     double capacity_const = (std::pow(buffer_diff, 3) * (2 * buffer_diff - 1)) / 2.0;
@@ -58,49 +58,55 @@ int kll<T>::query(T elem){
 }
 
 template<class T>
-kll<T> kll<T>::merge(kll<T>& lhs){
-    if((lhs.error - this->error) > 1e-6){
-        std::cerr << "kll's error need to match" << std::endl;
-        return kll<T>(0.0);
+quantile_sketch<T>* kll<T>::merge(const quantile_sketch<T>& rhs){
+    const kll<T>& rhs_cv = dynamic_cast<const kll<T>&> (rhs);
+    if(&rhs_cv == nullptr){
+        std::cerr << "Error in kll cast" << std::endl;
+        return nullptr;
     }
 
-    kll<T> merged_summary(this->error);
-    merged_summary.height = std::max(lhs.height, this->height);
+    if((rhs_cv.error - this->error) > 1e-6){
+        std::cerr << "kll's error need to match" << std::endl;
+        return nullptr;
+    }
 
-    for(int l = 0; l <= merged_summary.height; l++){
-        if(l < merged_summary.height){
-            merged_summary.buffers_array.push_back({});
+    kll<T>* merged_summary = new kll<T>(rhs_cv.error) ;
+    merged_summary->height = std::max(rhs_cv.height, this->height);
+
+    for(int l = 0; l <= merged_summary->height; l++){
+        if(l < merged_summary->height){
+            merged_summary->buffers_array.push_back({});
         }
         
         int i = 0;
         int j = 0;
 
-        bool have_in_lhs = l < lhs.buffers_array.size();
+        bool have_in_rhs = l < rhs_cv.buffers_array.size();
         bool have_in_this = l < this->buffers_array.size();
-        bool have_in_both_arrays = have_in_lhs && have_in_this;
+        bool have_in_both_arrays = have_in_rhs && have_in_this;
 
-        while (have_in_both_arrays &&  i < lhs.buffers_array[l].size() && j < this->buffers_array[l].size()){
-            if(lhs.buffers_array[l][i] <= this->buffers_array[l][j]){
-                merged_summary.buffers_array[l].push_back(lhs.buffers_array[l][i]);
+        while (have_in_both_arrays &&  i < rhs_cv.buffers_array[l].size() && j < this->buffers_array[l].size()){
+            if(rhs_cv.buffers_array[l][i] <= this->buffers_array[l][j]){
+                merged_summary->buffers_array[l].push_back(rhs_cv.buffers_array[l][i]);
                 i++;
             }else{
-                merged_summary.buffers_array[l].push_back(this->buffers_array[l][j]);
+                merged_summary->buffers_array[l].push_back(this->buffers_array[l][j]);
                 j++;
             }
         }
 
-        while(have_in_lhs && i < lhs.buffers_array[l].size()){
-            merged_summary.buffers_array[l].push_back(lhs.buffers_array[l][i]);
+        while(have_in_rhs && i < rhs_cv.buffers_array[l].size()){
+            merged_summary->buffers_array[l].push_back(rhs_cv.buffers_array[l][i]);
             i++;
         }
 
         while(have_in_this && j < this->buffers_array[l].size()){
-            merged_summary.buffers_array[l].push_back(this->buffers_array[l][j]);
+            merged_summary->buffers_array[l].push_back(this->buffers_array[l][j]);
             j++;
         }
     }
 
-    merged_summary.compress();
+    merged_summary->compress();
 
     return merged_summary;
 }

@@ -74,6 +74,33 @@ TEST(AABBTest, TestOverlap){
     EXPECT_TRUE(region4.intersects(region3));
 }
 
+TEST(AABBTest, TestIfIsInside){
+    aabb region1(0.0, 0.0, 5.0, 5.0);
+    aabb region2(1.0, 1.0, 3.0, 4.0);
+    aabb region3(3.0, 4.0, 7.0, 8.0);
+    aabb region4(1.0, 1.0, 3.0, 3.0);
+
+    EXPECT_TRUE(region1.is_inside(region1));
+    EXPECT_FALSE(region1.is_inside(region2));
+    EXPECT_FALSE(region1.is_inside(region3));
+    EXPECT_FALSE(region1.is_inside(region4));
+    
+    EXPECT_TRUE(region2.is_inside(region2));
+    EXPECT_TRUE(region2.is_inside(region1));
+    EXPECT_FALSE(region2.is_inside(region3));
+    EXPECT_FALSE(region2.is_inside(region4));
+
+    EXPECT_TRUE(region3.is_inside(region3));
+    EXPECT_FALSE(region3.is_inside(region1));
+    EXPECT_FALSE(region3.is_inside(region2));
+    EXPECT_FALSE(region3.is_inside(region4));
+
+    EXPECT_TRUE(region4.is_inside(region4));
+    EXPECT_TRUE(region4.is_inside(region1));
+    EXPECT_TRUE(region4.is_inside(region2));
+    EXPECT_FALSE(region4.is_inside(region3));
+}
+
 TEST(QuadtreeTest, TestInsertion){
     quadtree<int> test;
     vector<point<double>> points = {{3.0, 3.0}, {0.0, 0.0}, {6.0, 6.0}, {1.0, 3.0}};

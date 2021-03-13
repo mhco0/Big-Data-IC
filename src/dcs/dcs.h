@@ -3,8 +3,9 @@
 #include "../commum_header/commum_header.h"
 #include "../global_generator/global_generator.h"
 #include "../count_sketch/count_sketch.h"
+#include "../quantile_sketch/quantile_sketch.hpp"
 
-class dcs{
+class dcs : public quantile_sketch<int>{
 private: 
     int universe;
     double error;
@@ -21,9 +22,11 @@ public:
     dcs(double err, int universe);
     ~dcs();
 
-    void update(int x, int weight);
-    int query(int x);
-    int quantile(double quant);
+    void update(int x, int weight) override;
+    int query(int x) override;
+    int quantile(double quant) override;
+
+    quantile_sketch<int> * merge(const quantile_sketch<int>& rhs) override;
 
     int get_tree_lvl() const;
     int get_w() const;

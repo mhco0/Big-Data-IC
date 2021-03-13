@@ -22,13 +22,26 @@ test/CMakeFiles/test_quantile_quadtree.dir/test_quantile_quadtree.cpp.o: ../goog
 test/CMakeFiles/test_quantile_quadtree.dir/test_quantile_quadtree.cpp.o: ../googletest/googletest/include/gtest/internal/gtest-string.h
 test/CMakeFiles/test_quantile_quadtree.dir/test_quantile_quadtree.cpp.o: ../googletest/googletest/include/gtest/internal/gtest-type-util.h
 test/CMakeFiles/test_quantile_quadtree.dir/test_quantile_quadtree.cpp.o: ../src/aabb/aabb.h
+test/CMakeFiles/test_quantile_quadtree.dir/test_quantile_quadtree.cpp.o: ../src/bd_debug/bd_debug.h
+test/CMakeFiles/test_quantile_quadtree.dir/test_quantile_quadtree.cpp.o: ../src/bd_timer/bd_timer.h
 test/CMakeFiles/test_quantile_quadtree.dir/test_quantile_quadtree.cpp.o: ../src/commum_header/commum_header.h
 test/CMakeFiles/test_quantile_quadtree.dir/test_quantile_quadtree.cpp.o: ../src/count_sketch/count_sketch.h
+test/CMakeFiles/test_quantile_quadtree.dir/test_quantile_quadtree.cpp.o: ../src/dcs/dcs.h
+test/CMakeFiles/test_quantile_quadtree.dir/test_quantile_quadtree.cpp.o: ../src/dcs_factory/dcs_factory.h
+test/CMakeFiles/test_quantile_quadtree.dir/test_quantile_quadtree.cpp.o: ../src/gk/gk.hpp
+test/CMakeFiles/test_quantile_quadtree.dir/test_quantile_quadtree.cpp.o: ../src/gk_factory/gk_factory.hpp
 test/CMakeFiles/test_quantile_quadtree.dir/test_quantile_quadtree.cpp.o: ../src/global_generator/global_generator.h
 test/CMakeFiles/test_quantile_quadtree.dir/test_quantile_quadtree.cpp.o: ../src/k_wise_family/k_wise_family.h
+test/CMakeFiles/test_quantile_quadtree.dir/test_quantile_quadtree.cpp.o: ../src/kll/kll.hpp
+test/CMakeFiles/test_quantile_quadtree.dir/test_quantile_quadtree.cpp.o: ../src/kll_factory/kll_factory.hpp
+test/CMakeFiles/test_quantile_quadtree.dir/test_quantile_quadtree.cpp.o: ../src/memory_tracker/memory_tracker.h
 test/CMakeFiles/test_quantile_quadtree.dir/test_quantile_quadtree.cpp.o: ../src/point/point.hpp
+test/CMakeFiles/test_quantile_quadtree.dir/test_quantile_quadtree.cpp.o: ../src/q_digest/q_digest.h
+test/CMakeFiles/test_quantile_quadtree.dir/test_quantile_quadtree.cpp.o: ../src/q_digest_factory/q_digest_factory.h
 test/CMakeFiles/test_quantile_quadtree.dir/test_quantile_quadtree.cpp.o: ../src/quantile_quadtree/quantile_quadtree.hpp
 test/CMakeFiles/test_quantile_quadtree.dir/test_quantile_quadtree.cpp.o: ../src/quantile_sketch/quantile_sketch.hpp
+test/CMakeFiles/test_quantile_quadtree.dir/test_quantile_quadtree.cpp.o: ../src/sketch_factory/sketch_factory.hpp
 test/CMakeFiles/test_quantile_quadtree.dir/test_quantile_quadtree.cpp.o: ../src/stream_maker/stream_maker.h
+test/CMakeFiles/test_quantile_quadtree.dir/test_quantile_quadtree.cpp.o: ../src/utils/utils.h
 test/CMakeFiles/test_quantile_quadtree.dir/test_quantile_quadtree.cpp.o: ../test/test_quantile_quadtree.cpp
 

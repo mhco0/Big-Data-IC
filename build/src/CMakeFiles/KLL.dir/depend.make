@@ -5,4 +5,5 @@ src/CMakeFiles/KLL.dir/kll/kll.cpp.o: ../src/commum_header/commum_header.h
 src/CMakeFiles/KLL.dir/kll/kll.cpp.o: ../src/global_generator/global_generator.h
 src/CMakeFiles/KLL.dir/kll/kll.cpp.o: ../src/kll/kll.cpp
 src/CMakeFiles/KLL.dir/kll/kll.cpp.o: ../src/kll/kll.hpp
+src/CMakeFiles/KLL.dir/kll/kll.cpp.o: ../src/quantile_sketch/quantile_sketch.hpp
 

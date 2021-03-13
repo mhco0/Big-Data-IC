@@ -1,1 +1,0 @@
-/usr/bin/c++     CMakeFiles/test_k_wise_family.dir/test_k_wise_family.cpp.o  -o ../bin/test_k_wise_family  ../lib/libgtest_main.a ../lib/libK_WISE_FAMILY.a ../lib/libGLOBAL_GEN.a ../lib/libCOMMUM_HEADER.a ../lib/libgtest.a -lpthread 

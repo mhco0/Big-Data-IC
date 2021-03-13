@@ -83,12 +83,26 @@ bin/test_quantile_quadtree: lib/libgtest_main.a
 bin/test_quantile_quadtree: lib/libQUANTILE_QUADTREE.a
 bin/test_quantile_quadtree: lib/libSTREAM_MAKER.a
 bin/test_quantile_quadtree: lib/libCOUNT_SKETCH.a
+bin/test_quantile_quadtree: lib/libKLL_FACTORY.a
+bin/test_quantile_quadtree: lib/libGK_FACTORY.a
+bin/test_quantile_quadtree: lib/libQ_DIGEST_FACTORY.a
+bin/test_quantile_quadtree: lib/libDCS_FACTORY.a
+bin/test_quantile_quadtree: lib/libMEMORY_TRACKER.a
+bin/test_quantile_quadtree: lib/libBD_TIMER.a
+bin/test_quantile_quadtree: lib/libBD_DEBUG.a
+bin/test_quantile_quadtree: lib/libUTILS.a
 bin/test_quantile_quadtree: lib/libgtest.a
 bin/test_quantile_quadtree: lib/libAABB.a
 bin/test_quantile_quadtree: lib/libPOINT.a
+bin/test_quantile_quadtree: lib/libKLL.a
+bin/test_quantile_quadtree: lib/libGK.a
+bin/test_quantile_quadtree: lib/libQ_DIGEST.a
+bin/test_quantile_quadtree: lib/libSKETCH_FACTORY.a
+bin/test_quantile_quadtree: lib/libDCS.a
+bin/test_quantile_quadtree: lib/libCOUNT_SKETCH.a
+bin/test_quantile_quadtree: lib/libK_WISE_FAMILY.a
 bin/test_quantile_quadtree: lib/libQUANTILE_SKETCH.a
 bin/test_quantile_quadtree: lib/libCOMMUM_HEADER.a
-bin/test_quantile_quadtree: lib/libK_WISE_FAMILY.a
 bin/test_quantile_quadtree: lib/libGLOBAL_GEN.a
 bin/test_quantile_quadtree: test/CMakeFiles/test_quantile_quadtree.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ../bin/test_quantile_quadtree"

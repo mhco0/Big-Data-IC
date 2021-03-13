@@ -83,14 +83,17 @@ bin/test_dcs: lib/libgtest_main.a
 bin/test_dcs: lib/libDCS.a
 bin/test_dcs: lib/libSTREAM_MAKER.a
 bin/test_dcs: lib/libPBPLOTS_PBPLOTTER.a
+bin/test_dcs: lib/libDCS_FACTORY.a
 bin/test_dcs: lib/libgtest.a
-bin/test_dcs: lib/libCOUNT_SKETCH.a
-bin/test_dcs: lib/libQUANTILE_SKETCH.a
-bin/test_dcs: lib/libK_WISE_FAMILY.a
-bin/test_dcs: lib/libCOMMUM_HEADER.a
-bin/test_dcs: lib/libGLOBAL_GEN.a
 bin/test_dcs: lib/libPBPLOTS_LIB.a
 bin/test_dcs: lib/libPBPLOTS_SUPPORT_LIB.a
+bin/test_dcs: lib/libDCS.a
+bin/test_dcs: lib/libQUANTILE_SKETCH.a
+bin/test_dcs: lib/libCOUNT_SKETCH.a
+bin/test_dcs: lib/libCOMMUM_HEADER.a
+bin/test_dcs: lib/libK_WISE_FAMILY.a
+bin/test_dcs: lib/libGLOBAL_GEN.a
+bin/test_dcs: lib/libSKETCH_FACTORY.a
 bin/test_dcs: test/CMakeFiles/test_dcs.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ../bin/test_dcs"
 	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/test_dcs.dir/link.txt --verbose=$(VERBOSE)

@@ -1,6 +1,7 @@
 #include <gtest/gtest.h>
 #include <stream_maker/stream_maker.h>
 #include <pbplots/pbPlotter.h>
+//#include <fstream>
 
 using namespace std;
 
@@ -138,11 +139,43 @@ TEST(StreamTest, TestRandomRegionPoints){
 	for(int i = 0; i < stream.size(); i++){
 		EXPECT_EQ(stream[i].first, i);
 
-		EXPECT_LT(stream[i].second.first, 100.0);
-		EXPECT_LT(stream[i].second.second, 100.0);
+		EXPECT_LE(stream[i].second.first, 100.0);
+		EXPECT_LE(stream[i].second.second, 100.0);
 		EXPECT_GE(stream[i].second.first, 0.0);
 		EXPECT_GE(stream[i].second.second, 0.0);
 	}
+}
+
+TEST(StreamTest, TestRandomCitys){
+	auto stream = random_stream_city(1000, 0.0, 0.0, 100.0, 100.0, 0, 1000, 10, 5.0);
+	//ofstream city_file;
+
+	//city_file.open("test_file.txt", ios::out);
+
+	EXPECT_EQ(stream.size() , 1000);
+
+	for(int i = 0; i < stream.size(); i++){
+		//city_file << stream[i].second.first << "\t" << stream[i].second.second << "\t" << stream[i].first << endl;
+		
+		EXPECT_LE(stream[i].first, 1000);
+		EXPECT_GE(stream[i].first, 0);
+		EXPECT_LE(stream[i].second.first, 100.0);
+		EXPECT_LE(stream[i].second.second, 100.0);
+		EXPECT_GE(stream[i].second.first, 0.0);
+		EXPECT_GE(stream[i].second.second, 0.0);
+	}
+
+	//city_file.close();
+}
+
+TEST(StreamTest, TestRandomRegion){
+	auto rect = random_rectangle_in_region(0.0, 0.0, 100.0, 100.0);
+
+	
+	EXPECT_LE(rect.second.first, 100.0);
+	EXPECT_LE(rect.second.second, 100.0);
+	EXPECT_GE(rect.first.first, 0.0);
+	EXPECT_GE(rect.first.second, 0.0);
 }
 
 TEST(RanksTest, TestRealRank){

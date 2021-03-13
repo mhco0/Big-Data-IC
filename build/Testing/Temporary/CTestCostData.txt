@@ -1,3 +1,0 @@
-test_kll 0 0
----
-test_kll

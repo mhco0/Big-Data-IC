@@ -2,9 +2,10 @@
 #define KLL_H
 #include "../commum_header/commum_header.h"
 #include "../global_generator/global_generator.h"
+#include "../quantile_sketch/quantile_sketch.hpp"
 
 template<class T>
-class kll{
+class kll : public quantile_sketch<T>{
 protected:
     
     std::uniform_int_distribution<int> coin;
@@ -19,9 +20,9 @@ public:
 
     static void insert_sorted(std::vector<T> &buffer, const T &elem);
     void compress();
-    void update(T elem);
-    int query(T elem);
-    kll<T> merge(kll<T>& lhs);
+    void update(T elem) override;
+    int query(T elem) override;
+    quantile_sketch<T>* merge(const quantile_sketch<T>& rhs) override;
 
     //DEBUG
     void print();

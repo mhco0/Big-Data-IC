@@ -1,2 +1,0 @@
-/usr/bin/ar qc ../lib/libGLOBAL_GEN.a  CMakeFiles/GLOBAL_GEN.dir/global_generator/global_generator.cpp.o
-/usr/bin/ranlib ../lib/libGLOBAL_GEN.a

@@ -1,2 +1,0 @@
-/usr/bin/ar qc ../lib/libKLL.a  CMakeFiles/KLL.dir/kll/kll.cpp.o
-/usr/bin/ranlib ../lib/libKLL.a

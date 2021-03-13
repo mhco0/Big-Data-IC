@@ -1,8 +1,7 @@
 #include <gtest/gtest.h> 
 #include <kll/kll.hpp>
-#include <commum_header/commum_header.h>
-#include <global_generator/global_generator.h>
 #include <stream_maker/stream_maker.h>
+#include <kll_factory/kll_factory.hpp>
 
 using namespace std;
 
@@ -96,7 +95,7 @@ TEST(KllTest, TestBounds){
 			int approximated_rank = test.query(j);
 			int real_rank = real_ranks[j];
 
-			if(abs(approximated_rank - real_rank) > (error*N)){
+			if(abs(approximated_rank - real_rank) > (error * N)){
 				fails[j]++;
 			}
 		}
@@ -131,20 +130,52 @@ TEST(KllTest, TestMerge){
 			k2.update(it);
 		}
 
-		kll<int> merged_kll = k1.merge(k2);
+		kll<int>* merged_kll = dynamic_cast<kll<int>*>(k1.merge(k2));
 
 		for(int j = 0; j < real_ranks.size(); j++){
-			int approximated_rank = merged_kll.query(j);
+			int approximated_rank = merged_kll->query(j);
 			int real_rank = real_ranks[j];
 
-			if(abs(approximated_rank - real_rank) > (error*N_total)){
+			if(abs(approximated_rank - real_rank) > (error * N_total)){
 				fails[j]++;
 			}
 		}
+
 	}
 
 	for(int i = 0; i < fails.size(); i++){
 		EXPECT_LT((fails[i]/(double) attempts), error) << "fails : " << fails[i];
 	}
 	
+}
+
+TEST(KllTest, TestFactory){
+	int N = 20000;
+	double error = 0.01;
+	int attempts = 100;
+	vector<int> stream = random_int_stream(N, 20, 1000);
+	vector<int> real_ranks = real_ranks_from_stream(stream);
+	vector<int> fails(real_ranks.size(), 0);
+
+	for(int i = 0; i < attempts; i++){
+		kll_factory<int> factory(error);
+		kll<int>* test = dynamic_cast<kll<int> *>(factory.instance());
+
+		for(auto& it : stream){
+			test->update(it);
+		}
+
+		for(int j = 0; j < real_ranks.size(); j++){
+			int approximated_rank = test->query(j);
+			int real_rank = real_ranks[j];
+
+			if(abs(approximated_rank - real_rank) > (error * N)){
+				fails[j]++;
+			}
+		}
+	}
+
+	for(int i = 0; i < fails.size(); i++){
+		EXPECT_LT((fails[i]/(double) attempts), error);
+	}
 }

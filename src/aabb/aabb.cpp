@@ -33,6 +33,11 @@ bool aabb::intersects(aabb rhs) const{
         and (bottom <= this->max_bound.y()) and (top >= this->min_bound.y());
 }
 
+bool aabb::is_inside(const aabb& rhs) const{
+    return (rhs.min_bound.x() <= this->min_bound.x()) and (rhs.max_bound.x() >= this->max_bound.x()) \
+            and (rhs.min_bound.y() <= this->min_bound.y()) and (rhs.max_bound.y() >= this->max_bound.y());
+}
+
 void aabb::bounds(const double& minx, const double& miny, const double& maxx, const double& maxy){
     this->min_bound.xy(minx, miny);
     this->max_bound.xy(maxx, maxy);

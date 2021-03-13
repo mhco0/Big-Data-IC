@@ -1,11 +1,10 @@
 #ifndef QUANTILE_QUADTREE_H
 #define QUANTILE_QUADTREE_H
 #include "../quantile_sketch/quantile_sketch.hpp"
-#include "../count_sketch/count_sketch.h"
+#include "../sketch_factory/sketch_factory.hpp"
 #include "../aabb/aabb.h"
-#include <iostream>
 
-template<class SketchType , class ObjType>
+template<class ObjType>
 class quantile_quadtree{
 private:
     class node{
@@ -13,7 +12,7 @@ private:
         aabb box;
 
         quantile_sketch<ObjType> * payload;
-        quantile_quadtree<SketchType, ObjType>::node * childs[4];
+        quantile_quadtree<ObjType>::node * childs[4];
 
         node(const aabb& bound){
             this->box = bound;
@@ -26,10 +25,11 @@ private:
     };
 
     aabb boundarys;
-    aabb leaf_sz;
-    quantile_quadtree<SketchType, ObjType>::node * root;
+    int max_deep;
+    sketch_factory<ObjType> * factory;
+    quantile_quadtree<ObjType>::node * root;
 
-    int direction(const quantile_quadtree<SketchType, ObjType>::node& root, const point<double>& pos){
+    int direction(const quantile_quadtree<ObjType>::node& root, const point<double>& pos){
         aabb box = root.box;
         point<double> center((box.bounds().first.x() + box.bounds().second.x()) / 2.0, (box.bounds().first.y() + box.bounds().second.y()) / 2.0);
 
@@ -44,98 +44,35 @@ private:
         else return -1;
     }
 
-    template<class ...Args>
-    void construct(quantile_quadtree<SketchType, ObjType>::node& root, const aabb& leaf_size, Args... args){
-        double min_x_sz = fabs(leaf_size.bounds().second.x() - leaf_size.bounds().first.x());
-        double min_y_sz = fabs(leaf_size.bounds().second.y() - leaf_size.bounds().first.y());
-        double node_x = fabs(root.box.bounds().second.x() - root.box.bounds().first.x()); 
-        double node_y = fabs(root.box.bounds().second.y() - root.box.bounds().first.y());
-
-        if(node_x <= min_x_sz and node_y <= min_y_sz){
-            root.payload = new SketchType((args)...);
-            return;
-        }
-
-        point<double> center((root.box.bounds().second.x() + root.box.bounds().first.x()) / 2.0, (root.box.bounds().second.y() + root.box.bounds().first.y()) / 2.0);
-
-        aabb northeast(center.x(), center.y(), root.box.bounds().second.x(), root.box.bounds().second.y());
-        root.childs[0] = new quantile_quadtree<SketchType, ObjType>::node(northeast);
-        construct(*root.childs[0], leaf_size, (args)...);
-
-        aabb northwest(root.box.bounds().first.x(), center.y(), center.x(), root.box.bounds().second.y());
-        root.childs[1] = new quantile_quadtree<SketchType, ObjType>::node(northwest);
-        construct(*root.childs[1], leaf_size, (args)...);
-
-        aabb southwest(root.box.bounds().first.x(), root.box.bounds().first.y(), center.x(), center.y());
-        root.childs[2] = new quantile_quadtree<SketchType, ObjType>::node(southwest);
-        construct(*root.childs[2], leaf_size, (args)...);
-
-        aabb southeast(center.x(), root.box.bounds().first.y(), root.box.bounds().second.x(), center.y());
-        root.childs[3] = new quantile_quadtree<SketchType, ObjType>::node(southeast);
-        construct(*root.childs[3], leaf_size, (args)...);
-
-        return;
-    }
-
-    quantile_sketch<ObjType> * search_region(const quantile_quadtree<SketchType, ObjType>::node& root, const aabb& region){
-        double min_x_sz = fabs(this->leaf_sz.bounds().second.x() - this->leaf_sz.bounds().first.x());
-        double min_y_sz = fabs(this->leaf_sz.bounds().second.y() - this->leaf_sz.bounds().first.y());
-        double node_x = fabs(root.box.bounds().second.x() - root.box.bounds().first.x()); 
-        double node_y = fabs(root.box.bounds().second.y() - root.box.bounds().first.y());
-
-        if(node_x <= min_x_sz and node_y <= min_y_sz){ // leaf 
+    quantile_sketch<ObjType> * search_region(const quantile_quadtree<ObjType>::node& root, const aabb& region, int deep){
+        if(deep == this->max_deep or root.box.is_inside(region)){ // leaf 
            return root.payload;
         }
 
         quantile_sketch<ObjType> * to_merge[4] = {nullptr, nullptr, nullptr, nullptr};
 
-
         for(int i = 0; i < 4; i++){
             if (root.childs[i] != nullptr){
                 if (region.intersects(root.childs[i]->box)){
-                    to_merge[i] = search_region(*root.childs[i], region);
+                    to_merge[i] = search_region(*root.childs[i], region, deep + 1);
                 }
             }
         }
 
-        quantile_sketch<ObjType> * merge_north = nullptr;
-        quantile_sketch<ObjType> * merge_south = nullptr;
-        quantile_sketch<ObjType> * merged = nullptr;
+        quantile_sketch<ObjType> * merged = to_merge[0];
 
-        if(to_merge[0] != nullptr or to_merge[1] != nullptr){
-            if(to_merge[0] != nullptr and to_merge[1] != nullptr){
-                merge_north = to_merge[0]->merge(*to_merge[1]);
-            }else if(to_merge[0] != nullptr){
-                merge_north = to_merge[0];
-            }else{
-                merge_north = to_merge[1];
-            }
-        }
-
-        if(to_merge[2] != nullptr or to_merge[3] != nullptr){
-            if(to_merge[2] != nullptr and to_merge[3] != nullptr){
-                merge_south = to_merge[2]->merge(*to_merge[3]);
-            }else if(to_merge[2] != nullptr){
-                merge_south = to_merge[2];
-            }else{
-                merge_south = to_merge[3];
-            }
-        }
-
-        if(merge_north != nullptr or merge_south != nullptr){
-            if(merge_north != nullptr and merge_south != nullptr){
-                merged = merge_north->merge(*merge_south);
-            }else if(merge_north != nullptr){
-                merged = merge_north;
-            }else{
-                merged = merge_south;
+        for(int i = 1; i < 4; i++){
+            if(merged == nullptr and to_merge[i] != nullptr){
+                merged = to_merge[i];
+            }else if(merged != nullptr and to_merge[i] != nullptr){
+                merged = merged->merge(*to_merge[i]);
             }
         }
 
         return merged;
     }
 
-    void delete_tree(quantile_quadtree<SketchType, ObjType>::node* root){
+    void delete_tree(quantile_quadtree<ObjType>::node* root){
         for(int i = 0; i < 4; i++){
             if (root->childs[i] != nullptr){
                 delete_tree(root->childs[i]);
@@ -152,60 +89,118 @@ private:
 public:
     
 
-    // IDEA : transformar o leaf_size na profundidade maxima
-    // IDEA : mudar os parametros variaveis para o padrão da classe abstrata
-    template<class ...Args>
-    quantile_quadtree(const aabb& region, const aabb& leaf_size, Args... args){
+    quantile_quadtree(const aabb& region, const int& deep_length, sketch_factory<ObjType>* fact){
         this->boundarys = region;
-        this->leaf_sz = leaf_size;
-        this->root = new quantile_quadtree<SketchType, ObjType>::node(this->boundarys);
-        this->construct(*this->root, this->leaf_sz, (args)...);
+        this->max_deep = deep_length;
+        this->factory = fact;
+        this->root = new quantile_quadtree<ObjType>::node(this->boundarys);
+        this->root->payload = this->factory->instance();
     }
+
+    quantile_quadtree(const quantile_quadtree& other) = delete;
+
+    quantile_quadtree<ObjType>& operator=(const quantile_quadtree& other) = delete;
 
     ~quantile_quadtree(){
         delete_tree(this->root);
     }
 
     bool update(const point<double>& pos, const ObjType& value){
-        quantile_quadtree<SketchType, ObjType>::node * cur = this->root;
-
+        quantile_quadtree<ObjType>::node * cur = this->root;
+        int cur_deep = 0;
         int what_child = direction(*cur, pos);
 
         if (what_child == -1) return false;
 
-        while(cur->childs[what_child] != nullptr){ // leaf case
-            cur = cur->childs[what_child];
-            what_child = direction(*cur, pos);
+        cur->payload->update(value);
 
+        while(cur_deep <= this->max_deep){ // leaf case
+            if(cur->childs[what_child] == nullptr){
+                //needs to create a new node
+
+                point<double> center((cur->box.bounds().second.x() + cur->box.bounds().first.x()) / 2.0, (cur->box.bounds().second.y() + cur->box.bounds().first.y()) / 2.0);
+                aabb bound_region;
+                switch (what_child) {
+                    case 0:
+                        bound_region.bounds(center.x(), center.y(), cur->box.bounds().second.x(), cur->box.bounds().second.y());
+                        break;
+                    case 1:
+                        bound_region.bounds(cur->box.bounds().first.x(), center.y(), center.x(), cur->box.bounds().second.y());
+                        break;
+                    case 2:
+                        bound_region.bounds(cur->box.bounds().first.x(), cur->box.bounds().first.y(), center.x(), center.y());
+                        break;
+                    case 3:
+                        bound_region.bounds(center.x(), cur->box.bounds().first.y(), cur->box.bounds().second.x(), center.y());
+                        break;
+                    default:
+                        break;
+                }
+
+                cur->childs[what_child] = new quantile_quadtree<ObjType>::node(bound_region);
+                cur->childs[what_child]->payload = this->factory->instance();
+            }
+
+            cur->childs[what_child]->payload->update(value);
+            cur = cur->childs[what_child];
+            cur_deep++;
+
+            what_child = direction(*cur, pos);
             if (what_child == -1) return false;
         }
-
-        cur->payload->update(value);
 
         return true;
     }
 
     bool update(const point<double>& pos, const ObjType& value, int weight){
-        quantile_quadtree<SketchType, ObjType>::node * cur = this->root;
-
+        quantile_quadtree< ObjType>::node * cur = this->root;
+        int cur_deep = 0;
         int what_child = direction(*cur, pos);
 
         if (what_child == -1) return false;
 
-        while(cur->childs[what_child] != nullptr){ // leaf case
-            cur = cur->childs[what_child];
-            what_child = direction(*cur, pos);
+        cur->payload->update(value, weight);
 
+        while(cur_deep <= this->max_deep){ // leaf case
+            if(cur->childs[what_child] == nullptr){
+                //needs to create a new node
+
+                point<double> center((cur->box.bounds().second.x() + cur->box.bounds().first.x()) / 2.0, (cur->box.bounds().second.y() + cur->box.bounds().first.y()) / 2.0);
+                aabb bound_region;
+                switch (what_child) {
+                    case 0:
+                        bound_region.bounds(center.x(), center.y(), cur->box.bounds().second.x(), cur->box.bounds().second.y());
+                        break;
+                    case 1:
+                        bound_region.bounds(cur->box.bounds().first.x(), center.y(), center.x(), cur->box.bounds().second.y());
+                        break;
+                    case 2:
+                        bound_region.bounds(cur->box.bounds().first.x(), cur->box.bounds().first.y(), center.x(), center.y());
+                        break;
+                    case 3:
+                        bound_region.bounds(center.x(), cur->box.bounds().first.y(), cur->box.bounds().second.x(), center.y());
+                        break;
+                    default:
+                        break;
+                }
+
+                cur->childs[what_child] = new quantile_quadtree<ObjType>::node(bound_region);
+                cur->childs[what_child]->payload = this->factory->instance();
+            }
+
+            cur->childs[what_child]->payload->update(value, weight);
+            cur = cur->childs[what_child];
+            cur_deep++;
+
+            what_child = direction(*cur, pos);
             if (what_child == -1) return false;
         }
-
-        cur->payload->update(value, weight);
 
         return true;
     }
 
     int query(const aabb& region, const ObjType& value){
-        quantile_sketch<ObjType> * sketch = search_region(*this->root, region);
+        quantile_sketch<ObjType> * sketch = search_region(*this->root, region, 0);
 
         if(sketch == nullptr) return -1;
         else{

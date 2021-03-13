@@ -9,6 +9,8 @@
 /mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/aabb/aabb.h
 ../point/point.hpp
 /mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/point/point.hpp
+iostream
+-
 
 /mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/commum_header/commum_header.h
 iostream
