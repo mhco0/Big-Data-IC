@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../lib/libMEMORY_TRACKER.a  CMakeFiles/MEMORY_TRACKER.dir/memory_tracker/memory_tracker.cpp.o
+/usr/bin/ranlib ../lib/libMEMORY_TRACKER.a

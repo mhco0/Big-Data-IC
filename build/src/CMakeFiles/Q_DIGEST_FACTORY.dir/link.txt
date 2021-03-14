@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../lib/libQ_DIGEST_FACTORY.a  
+/usr/bin/ranlib ../lib/libQ_DIGEST_FACTORY.a

@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/test_gk.dir/test_gk.cpp.o  -o ../bin/test_gk  ../lib/libgtest_main.a ../lib/libGK.a ../lib/libgtest.a -lpthread ../lib/libQUANTILE_SKETCH.a ../lib/libCOMMUM_HEADER.a ../lib/libGLOBAL_GEN.a 

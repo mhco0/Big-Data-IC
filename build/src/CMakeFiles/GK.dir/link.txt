@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../lib/libGK.a  
+/usr/bin/ranlib ../lib/libGK.a

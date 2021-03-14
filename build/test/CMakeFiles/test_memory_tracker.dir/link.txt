@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/test_memory_tracker.dir/test_memory_tracker.cpp.o  -o ../bin/test_memory_tracker  ../lib/libgtest_main.a ../lib/libMEMORY_TRACKER.a ../lib/libgtest.a -lpthread 

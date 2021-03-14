@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/memory_tracker/memory_tracker.cpp
+memory_tracker.h
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/memory_tracker/memory_tracker.h
+
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/memory_tracker/memory_tracker.h
+typeinfo
+-
+assert.h
+-
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+algorithm
+-
+new
+-
+

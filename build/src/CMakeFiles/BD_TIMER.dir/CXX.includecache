@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/bd_timer/bd_timer.cpp
+bd_timer.h
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/bd_timer/bd_timer.h
+
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/bd_timer/bd_timer.h
+chrono
+-
+

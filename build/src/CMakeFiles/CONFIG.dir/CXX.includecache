@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/bd_debug/bd_debug.h
+iostream
+-
+
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/config/config.cpp
+config.h
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/config/config.h
+
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/config/config.h
+string
+-
+vector
+-
+fstream
+-
+iostream
+-
+algorithm
+-
+../bd_debug/bd_debug.h
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/bd_debug/bd_debug.h
+../utils/utils.h
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/utils/utils.h
+
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/utils/utils.h
+algorithm
+-
+string
+-
+vector
+-
+deque
+-
+

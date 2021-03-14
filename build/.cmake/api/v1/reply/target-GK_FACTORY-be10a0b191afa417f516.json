@@ -1,0 +1,96 @@
+{
+	"archive" : {},
+	"artifacts" : 
+	[
+		{
+			"path" : "lib/libGK_FACTORY.a"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_library",
+			"target_link_libraries"
+		],
+		"files" : 
+		[
+			"src/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 149,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 240,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 239,
+				"parent" : 0
+			}
+		]
+	},
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 2,
+			"id" : "GK::@145eef247bfb46b6828c"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "COMMUM_HEADER::@145eef247bfb46b6828c"
+		},
+		{
+			"backtrace" : 3,
+			"id" : "SKETCH_FACTORY::@145eef247bfb46b6828c"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "QUANTILE_SKETCH::@145eef247bfb46b6828c"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "GLOBAL_GEN::@145eef247bfb46b6828c"
+		}
+	],
+	"id" : "GK_FACTORY::@145eef247bfb46b6828c",
+	"name" : "GK_FACTORY",
+	"nameOnDisk" : "libGK_FACTORY.a",
+	"paths" : 
+	{
+		"build" : "src",
+		"source" : "src"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Header Files",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 1,
+			"path" : "src/gk_factory/gk_factory.hpp",
+			"sourceGroupIndex" : 0
+		}
+	],
+	"type" : "STATIC_LIBRARY"
+}

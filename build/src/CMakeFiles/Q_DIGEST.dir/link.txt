@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../lib/libQ_DIGEST.a  CMakeFiles/Q_DIGEST.dir/q_digest/q_digest.cpp.o
+/usr/bin/ranlib ../lib/libQ_DIGEST.a
