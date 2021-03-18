@@ -1,2 +1,2 @@
-/usr/bin/ar qc ../lib/libPMQ.a  CMakeFiles/PMQ.dir/pmq/pmq.cpp.o
-/usr/bin/ranlib ../lib/libPMQ.a
+/bin/ar qc ../lib/libPMQ.a  CMakeFiles/PMQ.dir/pmq/pmq.cpp.o
+/bin/ranlib ../lib/libPMQ.a

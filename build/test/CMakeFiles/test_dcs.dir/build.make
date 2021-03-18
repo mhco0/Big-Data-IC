@@ -60,15 +60,15 @@ include test/CMakeFiles/test_dcs.dir/flags.make
 test/CMakeFiles/test_dcs.dir/test_dcs.cpp.o: test/CMakeFiles/test_dcs.dir/flags.make
 test/CMakeFiles/test_dcs.dir/test_dcs.cpp.o: ../test/test_dcs.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object test/CMakeFiles/test_dcs.dir/test_dcs.cpp.o"
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/test_dcs.dir/test_dcs.cpp.o -c "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_dcs.cpp"
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && /bin/x86_64-linux-gnu-g++-9  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/test_dcs.dir/test_dcs.cpp.o -c "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_dcs.cpp"
 
 test/CMakeFiles/test_dcs.dir/test_dcs.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test_dcs.dir/test_dcs.cpp.i"
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_dcs.cpp" > CMakeFiles/test_dcs.dir/test_dcs.cpp.i
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && /bin/x86_64-linux-gnu-g++-9 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_dcs.cpp" > CMakeFiles/test_dcs.dir/test_dcs.cpp.i
 
 test/CMakeFiles/test_dcs.dir/test_dcs.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test_dcs.dir/test_dcs.cpp.s"
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_dcs.cpp" -o CMakeFiles/test_dcs.dir/test_dcs.cpp.s
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && /bin/x86_64-linux-gnu-g++-9 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_dcs.cpp" -o CMakeFiles/test_dcs.dir/test_dcs.cpp.s
 
 # Object files for target test_dcs
 test_dcs_OBJECTS = \
@@ -79,14 +79,11 @@ test_dcs_EXTERNAL_OBJECTS =
 
 bin/test_dcs: test/CMakeFiles/test_dcs.dir/test_dcs.cpp.o
 bin/test_dcs: test/CMakeFiles/test_dcs.dir/build.make
-bin/test_dcs: lib/libgtest_main.a
+bin/test_dcs: lib/libgtest_maind.a
 bin/test_dcs: lib/libDCS.a
 bin/test_dcs: lib/libSTREAM_MAKER.a
-bin/test_dcs: lib/libPBPLOTS_PBPLOTTER.a
 bin/test_dcs: lib/libDCS_FACTORY.a
-bin/test_dcs: lib/libgtest.a
-bin/test_dcs: lib/libPBPLOTS_LIB.a
-bin/test_dcs: lib/libPBPLOTS_SUPPORT_LIB.a
+bin/test_dcs: lib/libgtestd.a
 bin/test_dcs: lib/libDCS.a
 bin/test_dcs: lib/libQUANTILE_SKETCH.a
 bin/test_dcs: lib/libCOUNT_SKETCH.a

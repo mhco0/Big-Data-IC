@@ -1,2 +1,2 @@
-/usr/bin/ar qc ../lib/libBD_TIMER.a  CMakeFiles/BD_TIMER.dir/bd_timer/bd_timer.cpp.o
-/usr/bin/ranlib ../lib/libBD_TIMER.a
+/bin/ar qc ../lib/libBD_TIMER.a  CMakeFiles/BD_TIMER.dir/bd_timer/bd_timer.cpp.o
+/bin/ranlib ../lib/libBD_TIMER.a

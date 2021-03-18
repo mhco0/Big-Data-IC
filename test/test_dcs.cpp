@@ -1,5 +1,4 @@
 #include <gtest/gtest.h>
-#include <pbplots/pbplotter.h>
 #include <stream_maker/stream_maker.h>
 #include <dcs/dcs.h>
 #include <dcs_factory/dcs_factory.h>
@@ -174,28 +173,6 @@ TEST(DcsTest, TestErrorFromRandomStream){
 		max_mean_error = max(max_mean_error, it);
 	}
 
-	/*pbplotter canvas(600, 800);
-	canvas.set_title(L"DCS Ans Comp (Red = dcs::query() ; Green = rank)");
-	canvas.set_x_label(L"Value used in Query [Uniform Dist]");
-	canvas.auto_padding();
-	canvas.auto_bounds();
-	canvas.show_grid(false);
-
-	pbplotter_serie dcs_ans(values, mean_dcs_ans);
-	pbplotter_serie real_ans(values, sample_real_ranks);
-	
-	dcs_ans.use_lines(L"solid");
-	dcs_ans.set_color(1, 0, 0);
-	real_ans.use_lines(L"solid");
-	real_ans.set_color(0, 1, 0);
-
-	canvas.add(dcs_ans);
-	canvas.add(real_ans);
-
-	canvas.draw_plot();
-
-	canvas.save_as("../imgs/dcs/uniform_test/ans_and_query.png");*/
-
 	cout << "Testing dcs using uniform int distribution : " << endl;
 	cout << "Max diff on stream tested := " << max_diff << endl;
 	cout << "Max mean diff on stream tested := " << max_mean_error << endl;
@@ -262,31 +239,6 @@ TEST(DcsTest, TestErrorSimilarities){
 			EXPECT_LT((fails[i]/(double) attempts), error / log2(universe));
 		}
 
-		/*pbplotter canvas(1200, 800);
-		canvas.set_title(L"DCS Error Relation (Red = mean error ; Blue = epsilon * rank ; Green = rank)");
-		canvas.set_x_label(L"Value used in Query [Uniform Dist]");
-		canvas.auto_padding();
-		canvas.auto_bounds();
-		canvas.show_grid(false);
-
-		pbplotter_serie real_ans(values, sample_real_ranks);
-		pbplotter_serie dcs_ans(values, mean_dcs_error);
-		pbplotter_serie epsilon_rank(values, errors_on_rank);
-		
-		real_ans.use_lines(L"solid");
-		real_ans.set_color(0, 1, 0);
-		dcs_ans.use_lines(L"solid");
-		dcs_ans.set_color(1, 0, 0);
-		epsilon_rank.use_lines(L"solid");
-		epsilon_rank.set_color(0, 0, 1);
-
-		canvas.add(real_ans);
-		canvas.add(dcs_ans);
-		canvas.add(epsilon_rank);
-
-		canvas.draw_plot();
-
-		canvas.save_as("../imgs/dcs/uniform_test/epsilon_relations/epsilon" + to_string(error) +"_and_real_ranks.png");*/	
 	}
 }
 
@@ -359,28 +311,6 @@ TEST(DcsTest, TestErrorFromNormalStream){
 		max_mean_error = max(max_mean_error, it);
 	}
 
-	/*pbplotter canvas(1200, 800);
-	canvas.set_title(L"DCS Ans Comp (Red = dcs::query() ; Green = rank)");
-	canvas.set_x_label(L"Value used in Query [Normal Dist]");
-	canvas.auto_padding();
-	canvas.auto_bounds();
-	canvas.show_grid(false);
-
-	pbplotter_serie dcs_ans(values, mean_dcs_ans);
-	pbplotter_serie real_ans(values, sample_real_ranks);
-	
-	dcs_ans.use_lines(L"solid");
-	dcs_ans.set_color(1, 0, 0);
-	real_ans.use_lines(L"solid");
-	real_ans.set_color(0, 1, 0);
-
-	canvas.add(dcs_ans);
-	canvas.add(real_ans);
-
-	canvas.draw_plot();
-
-	canvas.save_as("../imgs/dcs/normal_test/ans_and_query.png");*/
-
 	cout << "Testing dcs using normal int distribution : " << endl;
 	cout << "Max diff on stream tested := " << max_diff << endl;
 	cout << "Max mean diff on stream tested := " << max_mean_error << endl;
@@ -443,28 +373,6 @@ TEST(DcsTest, TestFailPlot){
 			big_fail = max(big_fail, failure[i]);
 		}
 
-		/*pbplotter canvas(1200, 800);
-		canvas.set_title(L"DCS Fail Plot (Red = fail ; Blue = expeted bound)");
-		canvas.set_x_label(L"Value used in Query [Uniform Dist]");
-		canvas.auto_padding();
-		canvas.auto_bounds();
-		canvas.show_grid(false);
-
-		pbplotter_serie dcs_fail(values, failure);
-		pbplotter_serie bound_serie(values, bounds);
-		
-		dcs_fail.use_lines(L"solid");
-		dcs_fail.set_color(1, 0, 0);
-		bound_serie.use_lines(L"solid");
-		bound_serie.set_color(0, 0, 1);
-
-		canvas.add(dcs_fail);
-		canvas.add(bound_serie);
-
-		canvas.draw_plot();
-
-		canvas.save_as("../imgs/dcs/uniform_test/failure/epsilon" + to_string(error) +"_fail.png");
-		*/
 		cout << big_fail << endl;	
 	}
 }
@@ -527,32 +435,6 @@ TEST(DcsTest, TestFailCondition){
 			EXPECT_LT((fails[i]/(double) attempts), error / log2(universe));
 		}
 
-		/*pbplotter canvas(1200, 800);
-		canvas.set_title(L"DCS Fail Plot (Red = mean error ; Blue =  epsilon * W ; Purple = max error)");
-		canvas.set_x_label(L"Value used in Query [Uniform Dist]");
-		canvas.auto_padding();
-		canvas.auto_bounds();
-		canvas.show_grid(false);
-
-		pbplotter_serie mean_error_serie(values, dcs_mean_error);
-		pbplotter_serie fail_condition(values, error_to_fail);
-		pbplotter_serie max_error_serie(values, dcs_max_error);
-		
-		mean_error_serie.use_lines(L"solid");
-		mean_error_serie.set_color(1, 0, 0);
-		fail_condition.use_lines(L"solid");
-		fail_condition.set_color(0, 0, 1);
-		max_error_serie.use_lines(L"solid");
-		max_error_serie.set_color(1, 0, 1);
-
-		canvas.add(mean_error_serie);
-		canvas.add(fail_condition);
-		canvas.add(max_error_serie);
-
-		canvas.draw_plot();
-
-		canvas.save_as("../imgs/dcs/uniform_test/failure/fail_condition/epsilon_" + to_string(error) +"_fail_condition.png");
-		*/
 	}
 }
 
@@ -581,27 +463,6 @@ TEST(DcsTest, MemoryTest){
 
 		EXPECT_EQ(memory_dcs.size(), values.size());
 		EXPECT_EQ(memory_brute.size(), values.size());
-
-		/*pbplotter canvas(1200, 800);
-		canvas.set_title(L"DCS Memory Comp (Green = Dcs Memory Use ; Blue = Brute Memory Use [/10^2])");
-		canvas.set_x_label(L"Universes");
-		canvas.auto_padding();
-		canvas.auto_bounds();
-		canvas.show_grid(false);
-
-		pbplotter_serie dcs_memory_serie(values, memory_dcs);
-		pbplotter_serie brute_memory_serie(values, memory_brute);
-
-		dcs_memory_serie.use_lines(L"solid");
-		dcs_memory_serie.set_color(0, 1, 0);
-		brute_memory_serie.use_lines(L"solid");
-		brute_memory_serie.set_color(0, 0, 1);
-
-		canvas.add(dcs_memory_serie);
-		canvas.add(brute_memory_serie);
-
-		canvas.draw_plot();
-		canvas.save_as("../imgs/dcs/memory_test/epsilon_" + to_string(error) + ".png");*/
 	}
 	
 }

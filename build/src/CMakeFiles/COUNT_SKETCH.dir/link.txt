@@ -1,2 +1,2 @@
-/usr/bin/ar qc ../lib/libCOUNT_SKETCH.a  CMakeFiles/COUNT_SKETCH.dir/count_sketch/count_sketch.cpp.o
-/usr/bin/ranlib ../lib/libCOUNT_SKETCH.a
+/bin/ar qc ../lib/libCOUNT_SKETCH.a  CMakeFiles/COUNT_SKETCH.dir/count_sketch/count_sketch.cpp.o
+/bin/ranlib ../lib/libCOUNT_SKETCH.a

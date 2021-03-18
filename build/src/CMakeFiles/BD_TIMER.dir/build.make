@@ -60,15 +60,15 @@ include src/CMakeFiles/BD_TIMER.dir/flags.make
 src/CMakeFiles/BD_TIMER.dir/bd_timer/bd_timer.cpp.o: src/CMakeFiles/BD_TIMER.dir/flags.make
 src/CMakeFiles/BD_TIMER.dir/bd_timer/bd_timer.cpp.o: ../src/bd_timer/bd_timer.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/CMakeFiles/BD_TIMER.dir/bd_timer/bd_timer.cpp.o"
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src" && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/BD_TIMER.dir/bd_timer/bd_timer.cpp.o -c "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/bd_timer/bd_timer.cpp"
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src" && /bin/x86_64-linux-gnu-g++-9  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/BD_TIMER.dir/bd_timer/bd_timer.cpp.o -c "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/bd_timer/bd_timer.cpp"
 
 src/CMakeFiles/BD_TIMER.dir/bd_timer/bd_timer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/BD_TIMER.dir/bd_timer/bd_timer.cpp.i"
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/bd_timer/bd_timer.cpp" > CMakeFiles/BD_TIMER.dir/bd_timer/bd_timer.cpp.i
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src" && /bin/x86_64-linux-gnu-g++-9 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/bd_timer/bd_timer.cpp" > CMakeFiles/BD_TIMER.dir/bd_timer/bd_timer.cpp.i
 
 src/CMakeFiles/BD_TIMER.dir/bd_timer/bd_timer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/BD_TIMER.dir/bd_timer/bd_timer.cpp.s"
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/bd_timer/bd_timer.cpp" -o CMakeFiles/BD_TIMER.dir/bd_timer/bd_timer.cpp.s
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src" && /bin/x86_64-linux-gnu-g++-9 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/bd_timer/bd_timer.cpp" -o CMakeFiles/BD_TIMER.dir/bd_timer/bd_timer.cpp.s
 
 # Object files for target BD_TIMER
 BD_TIMER_OBJECTS = \

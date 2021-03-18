@@ -80,30 +80,6 @@ add_library(
 )
 
 add_library(
-    PBPLOTS_LIB
-    "pbplots/pbPlots.hpp"
-    "pbplots/pbPlots.cpp"
-)
-
-add_library(
-    PBPLOTS_SUPPORT_LIB
-    "pbplots/supportLib.hpp"
-    "pbplots/supportLib.cpp"
-)
-
-add_library(
-    PBPLOTS_PBPLOTTER
-    "pbplots/pbPlotter.h"
-    "pbplots/pbPlotter.cpp"
-)
-
-add_library(
-    PMQ
-    "pmq/pmq.h"
-    "pmq/pmq.cpp"
-)
-
-add_library(
     POINT
     "point/point.hpp"
     "point/point.cpp"
@@ -178,10 +154,6 @@ set(BD_LIBS
     GK_FACTORY
     Q_DIGEST
     Q_DIGEST_FACTORY
-    PBPLOTS_LIB
-    PBPLOTS_SUPPORT_LIB
-    PBPLOTS_PBPLOTTER
-    PMQ
     AABB
     POINT
     QUADTREE
@@ -217,9 +189,6 @@ target_link_libraries(GK PUBLIC GLOBAL_GEN)
 target_link_libraries(Q_DIGEST PUBLIC QUANTILE_SKETCH)
 target_link_libraries(Q_DIGEST PUBLIC COMMUM_HEADER)
 target_link_libraries(Q_DIGEST PUBLIC GLOBAL_GEN)
-
-target_link_libraries(PBPLOTS_PBPLOTTER PUBLIC PBPLOTS_LIB)
-target_link_libraries(PBPLOTS_PBPLOTTER PUBLIC PBPLOTS_SUPPORT_LIB)
 
 target_link_libraries(POINT PUBLIC COMMUM_HEADER)
 

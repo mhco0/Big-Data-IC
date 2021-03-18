@@ -246,19 +246,6 @@ K_WISE_FAMILY/fast:
 .PHONY : K_WISE_FAMILY/fast
 
 #=============================================================================
-# Target rules for targets named CONFIG
-
-# Build rule for target.
-CONFIG: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 CONFIG
-.PHONY : CONFIG
-
-# fast build rule for target.
-CONFIG/fast:
-	$(MAKE) -f src/CMakeFiles/CONFIG.dir/build.make src/CMakeFiles/CONFIG.dir/build
-.PHONY : CONFIG/fast
-
-#=============================================================================
 # Target rules for targets named GK
 
 # Build rule for target.
@@ -270,19 +257,6 @@ GK: cmake_check_build_system
 GK/fast:
 	$(MAKE) -f src/CMakeFiles/GK.dir/build.make src/CMakeFiles/GK.dir/build
 .PHONY : GK/fast
-
-#=============================================================================
-# Target rules for targets named PBPLOTS_PBPLOTTER
-
-# Build rule for target.
-PBPLOTS_PBPLOTTER: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 PBPLOTS_PBPLOTTER
-.PHONY : PBPLOTS_PBPLOTTER
-
-# fast build rule for target.
-PBPLOTS_PBPLOTTER/fast:
-	$(MAKE) -f src/CMakeFiles/PBPLOTS_PBPLOTTER.dir/build.make src/CMakeFiles/PBPLOTS_PBPLOTTER.dir/build
-.PHONY : PBPLOTS_PBPLOTTER/fast
 
 #=============================================================================
 # Target rules for targets named KLL
@@ -402,32 +376,6 @@ Q_DIGEST/fast:
 .PHONY : Q_DIGEST/fast
 
 #=============================================================================
-# Target rules for targets named AABB
-
-# Build rule for target.
-AABB: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 AABB
-.PHONY : AABB
-
-# fast build rule for target.
-AABB/fast:
-	$(MAKE) -f src/CMakeFiles/AABB.dir/build.make src/CMakeFiles/AABB.dir/build
-.PHONY : AABB/fast
-
-#=============================================================================
-# Target rules for targets named PMQ
-
-# Build rule for target.
-PMQ: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 PMQ
-.PHONY : PMQ
-
-# fast build rule for target.
-PMQ/fast:
-	$(MAKE) -f src/CMakeFiles/PMQ.dir/build.make src/CMakeFiles/PMQ.dir/build
-.PHONY : PMQ/fast
-
-#=============================================================================
 # Target rules for targets named DCS_FACTORY
 
 # Build rule for target.
@@ -480,19 +428,6 @@ SKETCH_FACTORY/fast:
 .PHONY : SKETCH_FACTORY/fast
 
 #=============================================================================
-# Target rules for targets named QUANTILE_SKETCH
-
-# Build rule for target.
-QUANTILE_SKETCH: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 QUANTILE_SKETCH
-.PHONY : QUANTILE_SKETCH
-
-# fast build rule for target.
-QUANTILE_SKETCH/fast:
-	$(MAKE) -f src/CMakeFiles/QUANTILE_SKETCH.dir/build.make src/CMakeFiles/QUANTILE_SKETCH.dir/build
-.PHONY : QUANTILE_SKETCH/fast
-
-#=============================================================================
 # Target rules for targets named STREAM_MAKER
 
 # Build rule for target.
@@ -506,19 +441,6 @@ STREAM_MAKER/fast:
 .PHONY : STREAM_MAKER/fast
 
 #=============================================================================
-# Target rules for targets named PBPLOTS_LIB
-
-# Build rule for target.
-PBPLOTS_LIB: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 PBPLOTS_LIB
-.PHONY : PBPLOTS_LIB
-
-# fast build rule for target.
-PBPLOTS_LIB/fast:
-	$(MAKE) -f src/CMakeFiles/PBPLOTS_LIB.dir/build.make src/CMakeFiles/PBPLOTS_LIB.dir/build
-.PHONY : PBPLOTS_LIB/fast
-
-#=============================================================================
 # Target rules for targets named KLL_FACTORY
 
 # Build rule for target.
@@ -530,32 +452,6 @@ KLL_FACTORY: cmake_check_build_system
 KLL_FACTORY/fast:
 	$(MAKE) -f src/CMakeFiles/KLL_FACTORY.dir/build.make src/CMakeFiles/KLL_FACTORY.dir/build
 .PHONY : KLL_FACTORY/fast
-
-#=============================================================================
-# Target rules for targets named Q_DIGEST_FACTORY
-
-# Build rule for target.
-Q_DIGEST_FACTORY: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Q_DIGEST_FACTORY
-.PHONY : Q_DIGEST_FACTORY
-
-# fast build rule for target.
-Q_DIGEST_FACTORY/fast:
-	$(MAKE) -f src/CMakeFiles/Q_DIGEST_FACTORY.dir/build.make src/CMakeFiles/Q_DIGEST_FACTORY.dir/build
-.PHONY : Q_DIGEST_FACTORY/fast
-
-#=============================================================================
-# Target rules for targets named PBPLOTS_SUPPORT_LIB
-
-# Build rule for target.
-PBPLOTS_SUPPORT_LIB: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 PBPLOTS_SUPPORT_LIB
-.PHONY : PBPLOTS_SUPPORT_LIB
-
-# fast build rule for target.
-PBPLOTS_SUPPORT_LIB/fast:
-	$(MAKE) -f src/CMakeFiles/PBPLOTS_SUPPORT_LIB.dir/build.make src/CMakeFiles/PBPLOTS_SUPPORT_LIB.dir/build
-.PHONY : PBPLOTS_SUPPORT_LIB/fast
 
 #=============================================================================
 # Target rules for targets named GLOBAL_GEN
@@ -582,6 +478,58 @@ GK_FACTORY: cmake_check_build_system
 GK_FACTORY/fast:
 	$(MAKE) -f src/CMakeFiles/GK_FACTORY.dir/build.make src/CMakeFiles/GK_FACTORY.dir/build
 .PHONY : GK_FACTORY/fast
+
+#=============================================================================
+# Target rules for targets named AABB
+
+# Build rule for target.
+AABB: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 AABB
+.PHONY : AABB
+
+# fast build rule for target.
+AABB/fast:
+	$(MAKE) -f src/CMakeFiles/AABB.dir/build.make src/CMakeFiles/AABB.dir/build
+.PHONY : AABB/fast
+
+#=============================================================================
+# Target rules for targets named CONFIG
+
+# Build rule for target.
+CONFIG: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 CONFIG
+.PHONY : CONFIG
+
+# fast build rule for target.
+CONFIG/fast:
+	$(MAKE) -f src/CMakeFiles/CONFIG.dir/build.make src/CMakeFiles/CONFIG.dir/build
+.PHONY : CONFIG/fast
+
+#=============================================================================
+# Target rules for targets named QUANTILE_SKETCH
+
+# Build rule for target.
+QUANTILE_SKETCH: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 QUANTILE_SKETCH
+.PHONY : QUANTILE_SKETCH
+
+# fast build rule for target.
+QUANTILE_SKETCH/fast:
+	$(MAKE) -f src/CMakeFiles/QUANTILE_SKETCH.dir/build.make src/CMakeFiles/QUANTILE_SKETCH.dir/build
+.PHONY : QUANTILE_SKETCH/fast
+
+#=============================================================================
+# Target rules for targets named Q_DIGEST_FACTORY
+
+# Build rule for target.
+Q_DIGEST_FACTORY: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Q_DIGEST_FACTORY
+.PHONY : Q_DIGEST_FACTORY
+
+# fast build rule for target.
+Q_DIGEST_FACTORY/fast:
+	$(MAKE) -f src/CMakeFiles/Q_DIGEST_FACTORY.dir/build.make src/CMakeFiles/Q_DIGEST_FACTORY.dir/build
+.PHONY : Q_DIGEST_FACTORY/fast
 
 #=============================================================================
 # Target rules for targets named test_stream_maker
@@ -739,19 +687,6 @@ test_gk/fast:
 	$(MAKE) -f test/CMakeFiles/test_gk.dir/build.make test/CMakeFiles/test_gk.dir/build
 .PHONY : test_gk/fast
 
-#=============================================================================
-# Target rules for targets named test_pbplotter
-
-# Build rule for target.
-test_pbplotter: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test_pbplotter
-.PHONY : test_pbplotter
-
-# fast build rule for target.
-test_pbplotter/fast:
-	$(MAKE) -f test/CMakeFiles/test_pbplotter.dir/build.make test/CMakeFiles/test_pbplotter.dir/build
-.PHONY : test_pbplotter/fast
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -771,9 +706,7 @@ help:
 	@echo "... gtest"
 	@echo "... COUNT_SKETCH"
 	@echo "... K_WISE_FAMILY"
-	@echo "... CONFIG"
 	@echo "... GK"
-	@echo "... PBPLOTS_PBPLOTTER"
 	@echo "... KLL"
 	@echo "... QUANTILE_QUADTREE"
 	@echo "... BD_DEBUG"
@@ -783,20 +716,18 @@ help:
 	@echo "... BD_TIMER"
 	@echo "... MEMORY_TRACKER"
 	@echo "... Q_DIGEST"
-	@echo "... AABB"
-	@echo "... PMQ"
 	@echo "... DCS_FACTORY"
 	@echo "... POINT"
 	@echo "... QUADTREE"
 	@echo "... SKETCH_FACTORY"
-	@echo "... QUANTILE_SKETCH"
 	@echo "... STREAM_MAKER"
-	@echo "... PBPLOTS_LIB"
 	@echo "... KLL_FACTORY"
-	@echo "... Q_DIGEST_FACTORY"
-	@echo "... PBPLOTS_SUPPORT_LIB"
 	@echo "... GLOBAL_GEN"
 	@echo "... GK_FACTORY"
+	@echo "... AABB"
+	@echo "... CONFIG"
+	@echo "... QUANTILE_SKETCH"
+	@echo "... Q_DIGEST_FACTORY"
 	@echo "... test_stream_maker"
 	@echo "... test_memory_tracker"
 	@echo "... test_kll"
@@ -809,7 +740,6 @@ help:
 	@echo "... test_q_digest"
 	@echo "... test_config"
 	@echo "... test_gk"
-	@echo "... test_pbplotter"
 .PHONY : help
 
 

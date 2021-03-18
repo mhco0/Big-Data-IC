@@ -60,15 +60,15 @@ include src/CMakeFiles/PBPLOTS_LIB.dir/flags.make
 src/CMakeFiles/PBPLOTS_LIB.dir/pbplots/pbPlots.cpp.o: src/CMakeFiles/PBPLOTS_LIB.dir/flags.make
 src/CMakeFiles/PBPLOTS_LIB.dir/pbplots/pbPlots.cpp.o: ../src/pbplots/pbPlots.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/CMakeFiles/PBPLOTS_LIB.dir/pbplots/pbPlots.cpp.o"
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src" && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PBPLOTS_LIB.dir/pbplots/pbPlots.cpp.o -c "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/pbplots/pbPlots.cpp"
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src" && /bin/x86_64-linux-gnu-g++-9  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PBPLOTS_LIB.dir/pbplots/pbPlots.cpp.o -c "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/pbplots/pbPlots.cpp"
 
 src/CMakeFiles/PBPLOTS_LIB.dir/pbplots/pbPlots.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PBPLOTS_LIB.dir/pbplots/pbPlots.cpp.i"
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/pbplots/pbPlots.cpp" > CMakeFiles/PBPLOTS_LIB.dir/pbplots/pbPlots.cpp.i
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src" && /bin/x86_64-linux-gnu-g++-9 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/pbplots/pbPlots.cpp" > CMakeFiles/PBPLOTS_LIB.dir/pbplots/pbPlots.cpp.i
 
 src/CMakeFiles/PBPLOTS_LIB.dir/pbplots/pbPlots.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PBPLOTS_LIB.dir/pbplots/pbPlots.cpp.s"
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/pbplots/pbPlots.cpp" -o CMakeFiles/PBPLOTS_LIB.dir/pbplots/pbPlots.cpp.s
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src" && /bin/x86_64-linux-gnu-g++-9 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/pbplots/pbPlots.cpp" -o CMakeFiles/PBPLOTS_LIB.dir/pbplots/pbPlots.cpp.s
 
 # Object files for target PBPLOTS_LIB
 PBPLOTS_LIB_OBJECTS = \

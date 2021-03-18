@@ -1,2 +1,2 @@
-/usr/bin/ar qc ../lib/libDCS.a  CMakeFiles/DCS.dir/dcs/dcs.cpp.o
-/usr/bin/ranlib ../lib/libDCS.a
+/bin/ar qc ../lib/libDCS.a  CMakeFiles/DCS.dir/dcs/dcs.cpp.o
+/bin/ranlib ../lib/libDCS.a

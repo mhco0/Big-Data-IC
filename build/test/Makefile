@@ -68,6 +68,18 @@ install/strip/fast: preinstall/fast
 	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
 
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -90,6 +102,16 @@ edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
 
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
+
 # Special rule for the target test
 test:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
@@ -100,16 +122,6 @@ test:
 test/fast: test
 
 .PHONY : test/fast
-
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
-
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-
-.PHONY : list_install_components/fast
 
 # Special rule for the target install
 install: preinstall
@@ -122,18 +134,6 @@ install/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
 	/usr/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
-
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
-
-# Special rule for the target install/local
-install/local/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -347,21 +347,6 @@ test_gk/fast:
 	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_gk.dir/build.make test/CMakeFiles/test_gk.dir/build
 .PHONY : test_gk/fast
 
-# Convenience name for target.
-test/CMakeFiles/test_pbplotter.dir/rule:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_pbplotter.dir/rule
-.PHONY : test/CMakeFiles/test_pbplotter.dir/rule
-
-# Convenience name for target.
-test_pbplotter: test/CMakeFiles/test_pbplotter.dir/rule
-
-.PHONY : test_pbplotter
-
-# fast build rule for target.
-test_pbplotter/fast:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_pbplotter.dir/build.make test/CMakeFiles/test_pbplotter.dir/build
-.PHONY : test_pbplotter/fast
-
 test_config.o: test_config.cpp.o
 
 .PHONY : test_config.o
@@ -551,33 +536,6 @@ test_memory_tracker.cpp.s:
 	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_memory_tracker.dir/build.make test/CMakeFiles/test_memory_tracker.dir/test_memory_tracker.cpp.s
 .PHONY : test_memory_tracker.cpp.s
 
-test_pbplotter.o: test_pbplotter.cpp.o
-
-.PHONY : test_pbplotter.o
-
-# target to build an object file
-test_pbplotter.cpp.o:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_pbplotter.dir/build.make test/CMakeFiles/test_pbplotter.dir/test_pbplotter.cpp.o
-.PHONY : test_pbplotter.cpp.o
-
-test_pbplotter.i: test_pbplotter.cpp.i
-
-.PHONY : test_pbplotter.i
-
-# target to preprocess a source file
-test_pbplotter.cpp.i:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_pbplotter.dir/build.make test/CMakeFiles/test_pbplotter.dir/test_pbplotter.cpp.i
-.PHONY : test_pbplotter.cpp.i
-
-test_pbplotter.s: test_pbplotter.cpp.s
-
-.PHONY : test_pbplotter.s
-
-# target to generate assembly for a file
-test_pbplotter.cpp.s:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_pbplotter.dir/build.make test/CMakeFiles/test_pbplotter.dir/test_pbplotter.cpp.s
-.PHONY : test_pbplotter.cpp.s
-
 test_q_digest.o: test_q_digest.cpp.o
 
 .PHONY : test_q_digest.o
@@ -720,9 +678,9 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... install/strip"
+	@echo "... install/local"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... test"
 	@echo "... test_stream_maker"
 	@echo "... test_memory_tracker"
 	@echo "... test_kll"
@@ -730,6 +688,7 @@ help:
 	@echo "... test_k_wise_family"
 	@echo "... list_install_components"
 	@echo "... tester"
+	@echo "... test"
 	@echo "... test_quadtree"
 	@echo "... test_dcs"
 	@echo "... install"
@@ -737,8 +696,6 @@ help:
 	@echo "... test_q_digest"
 	@echo "... test_config"
 	@echo "... test_gk"
-	@echo "... install/local"
-	@echo "... test_pbplotter"
 	@echo "... test_config.o"
 	@echo "... test_config.i"
 	@echo "... test_config.s"
@@ -760,9 +717,6 @@ help:
 	@echo "... test_memory_tracker.o"
 	@echo "... test_memory_tracker.i"
 	@echo "... test_memory_tracker.s"
-	@echo "... test_pbplotter.o"
-	@echo "... test_pbplotter.i"
-	@echo "... test_pbplotter.s"
 	@echo "... test_q_digest.o"
 	@echo "... test_q_digest.i"
 	@echo "... test_q_digest.s"

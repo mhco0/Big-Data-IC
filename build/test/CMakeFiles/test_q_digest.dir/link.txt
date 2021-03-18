@@ -1,1 +1,1 @@
-/usr/bin/c++     CMakeFiles/test_q_digest.dir/test_q_digest.cpp.o  -o ../bin/test_q_digest  ../lib/libgtest_main.a ../lib/libQ_DIGEST.a ../lib/libgtest.a -lpthread ../lib/libQUANTILE_SKETCH.a ../lib/libCOMMUM_HEADER.a ../lib/libGLOBAL_GEN.a 
+/bin/x86_64-linux-gnu-g++-9  -g   CMakeFiles/test_q_digest.dir/test_q_digest.cpp.o  -o ../bin/test_q_digest  ../lib/libgtest_maind.a ../lib/libQ_DIGEST.a ../lib/libgtestd.a -lpthread ../lib/libQUANTILE_SKETCH.a ../lib/libCOMMUM_HEADER.a ../lib/libGLOBAL_GEN.a 

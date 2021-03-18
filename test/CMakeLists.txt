@@ -2,7 +2,7 @@
 set(LIBS_SOURCE "${CMAKE_SOURCE_DIR}/src")
 
 add_executable(test_stream_maker test_stream_maker.cpp)
-target_link_libraries(test_stream_maker PRIVATE gtest_main STREAM_MAKER GLOBAL_GEN COMMUM_HEADER PBPLOTS_PBPLOTTER)
+target_link_libraries(test_stream_maker PRIVATE gtest_main STREAM_MAKER GLOBAL_GEN COMMUM_HEADER)
 target_include_directories(test_stream_maker PRIVATE ${LIBS_SOURCE})
 add_test(NAME test_stream_maker COMMAND test_stream_maker)
 
@@ -32,7 +32,7 @@ target_include_directories(test_count_sketch PRIVATE ${LIBS_SOURCE})
 add_test(NAME test_count_sketch COMMAND test_count_sketch)
 
 add_executable(test_dcs test_dcs.cpp)
-target_link_libraries(test_dcs PRIVATE gtest_main DCS STREAM_MAKER PBPLOTS_PBPLOTTER DCS_FACTORY)
+target_link_libraries(test_dcs PRIVATE gtest_main DCS STREAM_MAKER DCS_FACTORY)
 target_include_directories(test_dcs PRIVATE ${LIBS_SOURCE})
 add_test(NAME test_dcs COMMAND test_dcs)
 
@@ -45,11 +45,6 @@ add_executable(test_q_digest test_q_digest.cpp)
 target_link_libraries(test_q_digest PRIVATE gtest_main Q_DIGEST)
 target_include_directories(test_q_digest PRIVATE ${LIBS_SOURCE})
 add_test(NAME test_q_digest COMMAND test_q_digest)
-
-add_executable(test_pbplotter test_pbplotter.cpp)
-target_link_libraries(test_pbplotter PRIVATE gtest_main PBPLOTS_PBPLOTTER COMMUM_HEADER)
-target_include_directories(test_pbplotter PRIVATE ${LIBS_SOURCE})
-add_test(NAME test_pbplotter COMMAND test_pbplotter)
 
 add_executable(test_quadtree test_quadtree.cpp)
 target_link_libraries(test_quadtree PRIVATE gtest_main QUADTREE STREAM_MAKER)

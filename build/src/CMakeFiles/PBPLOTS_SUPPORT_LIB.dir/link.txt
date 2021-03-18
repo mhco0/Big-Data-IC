@@ -1,2 +1,2 @@
-/usr/bin/ar qc ../lib/libPBPLOTS_SUPPORT_LIB.a  CMakeFiles/PBPLOTS_SUPPORT_LIB.dir/pbplots/supportLib.cpp.o
-/usr/bin/ranlib ../lib/libPBPLOTS_SUPPORT_LIB.a
+/bin/ar qc ../lib/libPBPLOTS_SUPPORT_LIB.a  CMakeFiles/PBPLOTS_SUPPORT_LIB.dir/pbplots/supportLib.cpp.o
+/bin/ranlib ../lib/libPBPLOTS_SUPPORT_LIB.a

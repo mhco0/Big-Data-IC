@@ -23,9 +23,6 @@ test/CMakeFiles/test_stream_maker.dir/test_stream_maker.cpp.o: ../googletest/goo
 test/CMakeFiles/test_stream_maker.dir/test_stream_maker.cpp.o: ../googletest/googletest/include/gtest/internal/gtest-type-util.h
 test/CMakeFiles/test_stream_maker.dir/test_stream_maker.cpp.o: ../src/commum_header/commum_header.h
 test/CMakeFiles/test_stream_maker.dir/test_stream_maker.cpp.o: ../src/global_generator/global_generator.h
-test/CMakeFiles/test_stream_maker.dir/test_stream_maker.cpp.o: ../src/pbplots/pbPlots.hpp
-test/CMakeFiles/test_stream_maker.dir/test_stream_maker.cpp.o: ../src/pbplots/pbPlotter.h
-test/CMakeFiles/test_stream_maker.dir/test_stream_maker.cpp.o: ../src/pbplots/supportLib.hpp
 test/CMakeFiles/test_stream_maker.dir/test_stream_maker.cpp.o: ../src/stream_maker/stream_maker.h
 test/CMakeFiles/test_stream_maker.dir/test_stream_maker.cpp.o: ../test/test_stream_maker.cpp
 

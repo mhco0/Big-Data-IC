@@ -1,2 +1,2 @@
-/usr/bin/ar qc ../lib/libQUADTREE.a  CMakeFiles/QUADTREE.dir/quadtree/quadtree.cpp.o
-/usr/bin/ranlib ../lib/libQUADTREE.a
+/bin/ar qc ../lib/libQUADTREE.a  CMakeFiles/QUADTREE.dir/quadtree/quadtree.cpp.o
+/bin/ranlib ../lib/libQUADTREE.a

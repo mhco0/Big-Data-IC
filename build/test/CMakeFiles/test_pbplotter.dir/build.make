@@ -60,15 +60,15 @@ include test/CMakeFiles/test_pbplotter.dir/flags.make
 test/CMakeFiles/test_pbplotter.dir/test_pbplotter.cpp.o: test/CMakeFiles/test_pbplotter.dir/flags.make
 test/CMakeFiles/test_pbplotter.dir/test_pbplotter.cpp.o: ../test/test_pbplotter.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object test/CMakeFiles/test_pbplotter.dir/test_pbplotter.cpp.o"
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/test_pbplotter.dir/test_pbplotter.cpp.o -c "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_pbplotter.cpp"
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && /bin/x86_64-linux-gnu-g++-9  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/test_pbplotter.dir/test_pbplotter.cpp.o -c "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_pbplotter.cpp"
 
 test/CMakeFiles/test_pbplotter.dir/test_pbplotter.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test_pbplotter.dir/test_pbplotter.cpp.i"
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_pbplotter.cpp" > CMakeFiles/test_pbplotter.dir/test_pbplotter.cpp.i
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && /bin/x86_64-linux-gnu-g++-9 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_pbplotter.cpp" > CMakeFiles/test_pbplotter.dir/test_pbplotter.cpp.i
 
 test/CMakeFiles/test_pbplotter.dir/test_pbplotter.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test_pbplotter.dir/test_pbplotter.cpp.s"
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_pbplotter.cpp" -o CMakeFiles/test_pbplotter.dir/test_pbplotter.cpp.s
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && /bin/x86_64-linux-gnu-g++-9 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_pbplotter.cpp" -o CMakeFiles/test_pbplotter.dir/test_pbplotter.cpp.s
 
 # Object files for target test_pbplotter
 test_pbplotter_OBJECTS = \
@@ -79,10 +79,10 @@ test_pbplotter_EXTERNAL_OBJECTS =
 
 bin/test_pbplotter: test/CMakeFiles/test_pbplotter.dir/test_pbplotter.cpp.o
 bin/test_pbplotter: test/CMakeFiles/test_pbplotter.dir/build.make
-bin/test_pbplotter: lib/libgtest_main.a
+bin/test_pbplotter: lib/libgtest_maind.a
 bin/test_pbplotter: lib/libPBPLOTS_PBPLOTTER.a
 bin/test_pbplotter: lib/libCOMMUM_HEADER.a
-bin/test_pbplotter: lib/libgtest.a
+bin/test_pbplotter: lib/libgtestd.a
 bin/test_pbplotter: lib/libPBPLOTS_LIB.a
 bin/test_pbplotter: lib/libPBPLOTS_SUPPORT_LIB.a
 bin/test_pbplotter: test/CMakeFiles/test_pbplotter.dir/link.txt

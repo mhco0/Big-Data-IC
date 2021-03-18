@@ -21,10 +21,7 @@ set(CMAKE_TARGET_LINKED_INFO_FILES
   "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/STREAM_MAKER.dir/DependInfo.cmake"
   "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/GLOBAL_GEN.dir/DependInfo.cmake"
   "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/COMMUM_HEADER.dir/DependInfo.cmake"
-  "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/PBPLOTS_PBPLOTTER.dir/DependInfo.cmake"
   "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/googletest/googletest/CMakeFiles/gtest.dir/DependInfo.cmake"
-  "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/PBPLOTS_LIB.dir/DependInfo.cmake"
-  "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/PBPLOTS_SUPPORT_LIB.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

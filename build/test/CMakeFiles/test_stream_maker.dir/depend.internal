@@ -24,8 +24,5 @@ test/CMakeFiles/test_stream_maker.dir/test_stream_maker.cpp.o
  ../googletest/googletest/include/gtest/internal/gtest-type-util.h
  ../src/commum_header/commum_header.h
  ../src/global_generator/global_generator.h
- ../src/pbplots/pbPlots.hpp
- ../src/pbplots/pbPlotter.h
- ../src/pbplots/supportLib.hpp
  ../src/stream_maker/stream_maker.h
  /mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_stream_maker.cpp

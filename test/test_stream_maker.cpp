@@ -1,7 +1,5 @@
 #include <gtest/gtest.h>
 #include <stream_maker/stream_maker.h>
-#include <pbplots/pbPlotter.h>
-//#include <fstream>
 
 using namespace std;
 
@@ -27,17 +25,6 @@ TEST(StreamTest, TestNormalStream){
 		xs.push_back((double) it.first);
 		ys.push_back((double) it.second);
 	}
-
-	pbplotter_serie sample(xs, ys);
-	pbplotter canvas(600, 480);
-
-	canvas.set_title(L"Normal distribution");
-	canvas.set_x_label(L"Itens");
-	canvas.set_y_label(L"Weight");
-	canvas.add(sample);
-	canvas.draw_plot();
-
-	canvas.save_as("../imgs/stream_maker/normal_dist/normal_dist.png");
 }
 
 TEST(StreamTest, TestRanksFromNormalStream){
@@ -50,17 +37,6 @@ TEST(StreamTest, TestRanksFromNormalStream){
 		xs.push_back((double) it.first);
 		ys.push_back((double) ranks[it.first]);
 	}
-
-	pbplotter_serie sample(xs, ys);
-	pbplotter canvas(600, 480);
-
-	canvas.set_title(L"Normal distribution ranks");
-	canvas.set_x_label(L"Itens");
-	canvas.set_y_label(L"Ranks");
-	canvas.add(sample);
-	canvas.draw_plot();
-
-	canvas.save_as("../imgs/stream_maker/normal_dist/normal_ranks.png");
 }
 
 TEST(StreamTest, TestRandomStream){

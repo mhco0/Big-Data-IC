@@ -60,15 +60,15 @@ include test/CMakeFiles/test_k_wise_family.dir/flags.make
 test/CMakeFiles/test_k_wise_family.dir/test_k_wise_family.cpp.o: test/CMakeFiles/test_k_wise_family.dir/flags.make
 test/CMakeFiles/test_k_wise_family.dir/test_k_wise_family.cpp.o: ../test/test_k_wise_family.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object test/CMakeFiles/test_k_wise_family.dir/test_k_wise_family.cpp.o"
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/test_k_wise_family.dir/test_k_wise_family.cpp.o -c "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_k_wise_family.cpp"
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && /bin/x86_64-linux-gnu-g++-9  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/test_k_wise_family.dir/test_k_wise_family.cpp.o -c "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_k_wise_family.cpp"
 
 test/CMakeFiles/test_k_wise_family.dir/test_k_wise_family.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test_k_wise_family.dir/test_k_wise_family.cpp.i"
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_k_wise_family.cpp" > CMakeFiles/test_k_wise_family.dir/test_k_wise_family.cpp.i
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && /bin/x86_64-linux-gnu-g++-9 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_k_wise_family.cpp" > CMakeFiles/test_k_wise_family.dir/test_k_wise_family.cpp.i
 
 test/CMakeFiles/test_k_wise_family.dir/test_k_wise_family.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test_k_wise_family.dir/test_k_wise_family.cpp.s"
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_k_wise_family.cpp" -o CMakeFiles/test_k_wise_family.dir/test_k_wise_family.cpp.s
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && /bin/x86_64-linux-gnu-g++-9 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_k_wise_family.cpp" -o CMakeFiles/test_k_wise_family.dir/test_k_wise_family.cpp.s
 
 # Object files for target test_k_wise_family
 test_k_wise_family_OBJECTS = \
@@ -79,11 +79,11 @@ test_k_wise_family_EXTERNAL_OBJECTS =
 
 bin/test_k_wise_family: test/CMakeFiles/test_k_wise_family.dir/test_k_wise_family.cpp.o
 bin/test_k_wise_family: test/CMakeFiles/test_k_wise_family.dir/build.make
-bin/test_k_wise_family: lib/libgtest_main.a
+bin/test_k_wise_family: lib/libgtest_maind.a
 bin/test_k_wise_family: lib/libK_WISE_FAMILY.a
 bin/test_k_wise_family: lib/libGLOBAL_GEN.a
 bin/test_k_wise_family: lib/libCOMMUM_HEADER.a
-bin/test_k_wise_family: lib/libgtest.a
+bin/test_k_wise_family: lib/libgtestd.a
 bin/test_k_wise_family: test/CMakeFiles/test_k_wise_family.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ../bin/test_k_wise_family"
 	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/test_k_wise_family.dir/link.txt --verbose=$(VERBOSE)

@@ -364,32 +364,6 @@ chrono
 random
 -
 
-../src/pbplots/pbPlots.hpp
-cmath
--
-cstring
--
-vector
--
-cwchar
--
-
-../src/pbplots/pbPlotter.h
-pbPlots.hpp
-../src/pbplots/pbPlots.hpp
-supportLib.hpp
-../src/pbplots/supportLib.hpp
-
-../src/pbplots/supportLib.hpp
-vector
--
-string
--
-iostream
--
-fstream
--
-
 ../src/stream_maker/stream_maker.h
 ../commum_header/commum_header.h
 ../src/commum_header/commum_header.h
@@ -400,7 +374,5 @@ fstream
 gtest/gtest.h
 -
 stream_maker/stream_maker.h
--
-pbplots/pbPlotter.h
 -
 

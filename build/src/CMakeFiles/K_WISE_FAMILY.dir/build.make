@@ -60,15 +60,15 @@ include src/CMakeFiles/K_WISE_FAMILY.dir/flags.make
 src/CMakeFiles/K_WISE_FAMILY.dir/k_wise_family/k_wise_family.cpp.o: src/CMakeFiles/K_WISE_FAMILY.dir/flags.make
 src/CMakeFiles/K_WISE_FAMILY.dir/k_wise_family/k_wise_family.cpp.o: ../src/k_wise_family/k_wise_family.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/CMakeFiles/K_WISE_FAMILY.dir/k_wise_family/k_wise_family.cpp.o"
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src" && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/K_WISE_FAMILY.dir/k_wise_family/k_wise_family.cpp.o -c "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/k_wise_family/k_wise_family.cpp"
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src" && /bin/x86_64-linux-gnu-g++-9  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/K_WISE_FAMILY.dir/k_wise_family/k_wise_family.cpp.o -c "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/k_wise_family/k_wise_family.cpp"
 
 src/CMakeFiles/K_WISE_FAMILY.dir/k_wise_family/k_wise_family.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/K_WISE_FAMILY.dir/k_wise_family/k_wise_family.cpp.i"
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/k_wise_family/k_wise_family.cpp" > CMakeFiles/K_WISE_FAMILY.dir/k_wise_family/k_wise_family.cpp.i
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src" && /bin/x86_64-linux-gnu-g++-9 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/k_wise_family/k_wise_family.cpp" > CMakeFiles/K_WISE_FAMILY.dir/k_wise_family/k_wise_family.cpp.i
 
 src/CMakeFiles/K_WISE_FAMILY.dir/k_wise_family/k_wise_family.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/K_WISE_FAMILY.dir/k_wise_family/k_wise_family.cpp.s"
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/k_wise_family/k_wise_family.cpp" -o CMakeFiles/K_WISE_FAMILY.dir/k_wise_family/k_wise_family.cpp.s
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src" && /bin/x86_64-linux-gnu-g++-9 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/k_wise_family/k_wise_family.cpp" -o CMakeFiles/K_WISE_FAMILY.dir/k_wise_family/k_wise_family.cpp.s
 
 # Object files for target K_WISE_FAMILY
 K_WISE_FAMILY_OBJECTS = \
