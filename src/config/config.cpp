@@ -24,11 +24,11 @@ void configurator::set_path(const string& path){
 }
 
 configurator::options configurator::map(const string& command){
-    if(not command.rfind("--args= ", 0)) return options::ARGS;
-    else if(not command.rfind("--test= ", 0)) return options::TEST_FILE;
-    else if(not command.rfind("--output= ", 0)) return options::OUTPUT_FILE;
-    else if(not command.rfind("--data= ", 0)) return options::DATA_FILE;
-    else if(not command.rfind("--debug= ", 0)) return options::BD_DEBUG_FLAG;
+    if(not command.rfind("args=", 0)) return options::ARGS;
+    else if(not command.rfind("test=", 0)) return options::TEST_FILE;
+    else if(not command.rfind("output=", 0)) return options::OUTPUT_FILE;
+    else if(not command.rfind("data=", 0)) return options::DATA_FILE;
+    else if(not command.rfind("debug=", 0)) return options::BD_DEBUG_FLAG;
     else return options::UNDEF;
 }
 
@@ -37,7 +37,7 @@ void configurator::analisy_command(const string& command){
 
     switch (map(command)){
         case options::ARGS:{
-            string values = command.substr(8);
+            string values = command.substr(5);
 
             values = erase_special_characters(values, " .");
 
@@ -45,20 +45,20 @@ void configurator::analisy_command(const string& command){
             break;
         }
         case options::TEST_FILE:{
-            test_name = erase_special_characters(command.substr(8), "_.");
+            test_name = erase_special_characters(command.substr(5), "_.");
             break;
         }
         case options::OUTPUT_FILE:{
-            output_file_name = erase_special_characters(command.substr(10), "_.");
+            output_file_name = erase_special_characters(command.substr(7), "_.");
             break;
         }
         case options::DATA_FILE:{
-            data_file_name = erase_special_characters(command.substr(8), "_.");
+            data_file_name = erase_special_characters(command.substr(5), "_.");
             break;
         }
         case options::BD_DEBUG_FLAG:{
 
-            string dbo = erase_special_characters(command.substr(9));
+            string dbo = erase_special_characters(command.substr(6));
 
             if(dbo == "false" or dbo == "0") debug_enable = false;
 
