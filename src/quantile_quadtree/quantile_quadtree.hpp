@@ -30,9 +30,9 @@ namespace qsbd {
         sketch_factory<ObjType> * factory;
         quantile_quadtree<ObjType>::node * root;
 
-        int direction(const quantile_quadtree<ObjType>::node& root, const point<double>& pos){
+        int direction(const quantile_quadtree<ObjType>::node& root, const point<int>& pos){
             aabb box = root.box;
-            point<double> center((box.bounds().first.x() + box.bounds().second.x()) / 2.0, (box.bounds().first.y() + box.bounds().second.y()) / 2.0);
+            point<int> center((box.bounds().first.x() + box.bounds().second.x()) / 2, (box.bounds().first.y() + box.bounds().second.y()) / 2);
 
             if(pos.x() > center.x() and pos.y() > center.y()) return 0;
             else if(pos.x() < center.x() and pos.y() > center.y()) return 1;
@@ -106,7 +106,7 @@ namespace qsbd {
             delete_tree(this->root);
         }
 
-        bool update(const point<double>& pos, const ObjType& value){
+        bool update(const point<int>& pos, const ObjType& value){
             quantile_quadtree<ObjType>::node * cur = this->root;
             int cur_deep = 0;
             int what_child = direction(*cur, pos);
@@ -119,7 +119,7 @@ namespace qsbd {
                 if(cur->childs[what_child] == nullptr){
                     //needs to create a new node
 
-                    point<double> center((cur->box.bounds().second.x() + cur->box.bounds().first.x()) / 2.0, (cur->box.bounds().second.y() + cur->box.bounds().first.y()) / 2.0);
+                    point<int> center((cur->box.bounds().second.x() + cur->box.bounds().first.x()) / 2, (cur->box.bounds().second.y() + cur->box.bounds().first.y()) / 2);
                     aabb bound_region;
                     switch (what_child) {
                         case 0:
@@ -153,7 +153,7 @@ namespace qsbd {
             return true;
         }
 
-        bool update(const point<double>& pos, const ObjType& value, int weight){
+        bool update(const point<int>& pos, const ObjType& value, int weight){
             quantile_quadtree< ObjType>::node * cur = this->root;
             int cur_deep = 0;
             int what_child = direction(*cur, pos);
@@ -166,7 +166,7 @@ namespace qsbd {
                 if(cur->childs[what_child] == nullptr){
                     //needs to create a new node
 
-                    point<double> center((cur->box.bounds().second.x() + cur->box.bounds().first.x()) / 2.0, (cur->box.bounds().second.y() + cur->box.bounds().first.y()) / 2.0);
+                    point<int> center((cur->box.bounds().second.x() + cur->box.bounds().first.x()) / 2, (cur->box.bounds().second.y() + cur->box.bounds().first.y()) / 2);
                     aabb bound_region;
                     switch (what_child) {
                         case 0:

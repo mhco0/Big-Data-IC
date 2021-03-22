@@ -110,7 +110,7 @@ TEST(QuantileQuadtreeTest, TestUpdateAndQueryWithKll){
 
         counter.start();
 		for(auto& it : stream){
-            test.update(point<double>(it.second.first, it.second.second), it.first);
+            test.update(point<int>(it.second.first, it.second.second), it.first);
         }
         counter.end();
 
