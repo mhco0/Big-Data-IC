@@ -2,8 +2,9 @@
 #include <stream_maker/stream_maker.h>
 #include <dcs/dcs.h>
 #include <dcs_factory/dcs_factory.h>
-
 using namespace std;
+using namespace qsbd;
+using namespace qsbd::stream_maker;
 
 TEST(DcsTest, TestInit){
     int universe = 64;

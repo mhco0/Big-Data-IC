@@ -1,2 +1,2 @@
-/bin/ar qc ../lib/libQUANTILE_QUADTREE.a  
-/bin/ranlib ../lib/libQUANTILE_QUADTREE.a
+/usr/bin/ar qc ../lib/libQUANTILE_QUADTREE.a  
+/usr/bin/ranlib ../lib/libQUANTILE_QUADTREE.a

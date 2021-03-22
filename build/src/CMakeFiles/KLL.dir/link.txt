@@ -1,2 +1,2 @@
-/bin/ar qc ../lib/libKLL.a  CMakeFiles/KLL.dir/kll/kll.cpp.o
-/bin/ranlib ../lib/libKLL.a
+/usr/bin/ar qc ../lib/libKLL.a  CMakeFiles/KLL.dir/kll/kll.cpp.o
+/usr/bin/ranlib ../lib/libKLL.a

@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
 #include <k_wise_family/k_wise_family.h>
-
 using namespace std;
+using namespace qsbd;
 using ll = long long int;
 
 /*

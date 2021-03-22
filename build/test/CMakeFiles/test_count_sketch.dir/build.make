@@ -60,15 +60,15 @@ include test/CMakeFiles/test_count_sketch.dir/flags.make
 test/CMakeFiles/test_count_sketch.dir/test_count_sketch.cpp.o: test/CMakeFiles/test_count_sketch.dir/flags.make
 test/CMakeFiles/test_count_sketch.dir/test_count_sketch.cpp.o: ../test/test_count_sketch.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object test/CMakeFiles/test_count_sketch.dir/test_count_sketch.cpp.o"
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && /bin/x86_64-linux-gnu-g++-9  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/test_count_sketch.dir/test_count_sketch.cpp.o -c "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_count_sketch.cpp"
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/test_count_sketch.dir/test_count_sketch.cpp.o -c "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_count_sketch.cpp"
 
 test/CMakeFiles/test_count_sketch.dir/test_count_sketch.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test_count_sketch.dir/test_count_sketch.cpp.i"
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && /bin/x86_64-linux-gnu-g++-9 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_count_sketch.cpp" > CMakeFiles/test_count_sketch.dir/test_count_sketch.cpp.i
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_count_sketch.cpp" > CMakeFiles/test_count_sketch.dir/test_count_sketch.cpp.i
 
 test/CMakeFiles/test_count_sketch.dir/test_count_sketch.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test_count_sketch.dir/test_count_sketch.cpp.s"
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && /bin/x86_64-linux-gnu-g++-9 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_count_sketch.cpp" -o CMakeFiles/test_count_sketch.dir/test_count_sketch.cpp.s
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_count_sketch.cpp" -o CMakeFiles/test_count_sketch.dir/test_count_sketch.cpp.s
 
 # Object files for target test_count_sketch
 test_count_sketch_OBJECTS = \
@@ -79,13 +79,14 @@ test_count_sketch_EXTERNAL_OBJECTS =
 
 bin/test_count_sketch: test/CMakeFiles/test_count_sketch.dir/test_count_sketch.cpp.o
 bin/test_count_sketch: test/CMakeFiles/test_count_sketch.dir/build.make
-bin/test_count_sketch: lib/libgtest_maind.a
-bin/test_count_sketch: lib/libCOUNT_SKETCH.a
-bin/test_count_sketch: lib/libSTREAM_MAKER.a
-bin/test_count_sketch: lib/libgtestd.a
-bin/test_count_sketch: lib/libK_WISE_FAMILY.a
-bin/test_count_sketch: lib/libCOMMUM_HEADER.a
-bin/test_count_sketch: lib/libGLOBAL_GEN.a
+bin/test_count_sketch: lib/libgtest_main.a
+bin/test_count_sketch: lib/libQSBD_COUNT_SKETCH.a
+bin/test_count_sketch: lib/libQSBD_STREAM_MAKER.a
+bin/test_count_sketch: lib/libgtest.a
+bin/test_count_sketch: lib/libQSBD_K_WISE_FAMILY.a
+bin/test_count_sketch: lib/libQSBD_UTILS.a
+bin/test_count_sketch: lib/libQSBD_COMMUM_HEADER.a
+bin/test_count_sketch: lib/libQSBD_GLOBAL_GEN.a
 bin/test_count_sketch: test/CMakeFiles/test_count_sketch.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ../bin/test_count_sketch"
 	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/test_count_sketch.dir/link.txt --verbose=$(VERBOSE)

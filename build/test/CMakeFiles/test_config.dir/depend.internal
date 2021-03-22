@@ -22,7 +22,7 @@ test/CMakeFiles/test_config.dir/test_config.cpp.o
  ../googletest/googletest/include/gtest/internal/gtest-port.h
  ../googletest/googletest/include/gtest/internal/gtest-string.h
  ../googletest/googletest/include/gtest/internal/gtest-type-util.h
- ../src/bd_debug/bd_debug.h
  ../src/config/config.h
+ ../src/qsbd_debug/qsbd_debug.h
  ../src/utils/utils.h
  /mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_config.cpp

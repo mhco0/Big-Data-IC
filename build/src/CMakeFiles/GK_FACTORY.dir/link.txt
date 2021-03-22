@@ -1,2 +1,2 @@
-/bin/ar qc ../lib/libGK_FACTORY.a  
-/bin/ranlib ../lib/libGK_FACTORY.a
+/usr/bin/ar qc ../lib/libGK_FACTORY.a  
+/usr/bin/ranlib ../lib/libGK_FACTORY.a

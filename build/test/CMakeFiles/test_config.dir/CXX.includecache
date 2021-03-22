@@ -326,10 +326,6 @@ cxxabi.h
 acxx_demangle.h
 -
 
-../src/bd_debug/bd_debug.h
-iostream
--
-
 ../src/config/config.h
 string
 -
@@ -341,10 +337,14 @@ iostream
 -
 algorithm
 -
-../bd_debug/bd_debug.h
-../src/bd_debug/bd_debug.h
+../qsbd_debug/qsbd_debug.h
+../src/qsbd_debug/qsbd_debug.h
 ../utils/utils.h
 ../src/utils/utils.h
+
+../src/qsbd_debug/qsbd_debug.h
+iostream
+-
 
 ../src/utils/utils.h
 algorithm

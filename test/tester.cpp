@@ -1,8 +1,9 @@
 #include <config/config.h>
 #include <utils/utils.h>
-#include <bd_debug/bd_debug.h>
+#include <qsbd_debug/qsbd_debug.h>
 #include <cstdlib>
 using namespace std;
+using namespace qsbd;
 
 int main(int argc, char * argv[]){
     deque<string> args = process_args(argc, argv);

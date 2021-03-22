@@ -1,8 +1,8 @@
 #include <gtest/gtest.h>
 #include <q_digest/q_digest.h>
 #include <q_digest_factory/q_digest_factory.h>
-
 using namespace std;
+using namespace qsbd;
 
 /*
 	Calculates the rank(x), for a given stream

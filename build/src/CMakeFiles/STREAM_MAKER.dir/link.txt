@@ -1,2 +1,2 @@
-/bin/ar qc ../lib/libSTREAM_MAKER.a  CMakeFiles/STREAM_MAKER.dir/stream_maker/stream_maker.cpp.o
-/bin/ranlib ../lib/libSTREAM_MAKER.a
+/usr/bin/ar qc ../lib/libSTREAM_MAKER.a  CMakeFiles/STREAM_MAKER.dir/stream_maker/stream_maker.cpp.o
+/usr/bin/ranlib ../lib/libSTREAM_MAKER.a

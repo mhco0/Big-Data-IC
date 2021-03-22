@@ -1,9 +1,11 @@
-#ifndef GLOBAL_GEN_H
-#define GLOBAL_GEN_H
+#ifndef QSBD_GLOBAL_GEN_H
+#define QSBD_GLOBAL_GEN_H
 #include <chrono>
 #include <random>
 
-extern unsigned seed;
-extern std::default_random_engine generator;
+namespace qsbd{
+    extern unsigned seed;
+    extern std::default_random_engine generator;
+}
 
 #endif

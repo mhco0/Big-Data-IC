@@ -1,2 +1,2 @@
-/bin/ar qc ../lib/libSKETCH_FACTORY.a  
-/bin/ranlib ../lib/libSKETCH_FACTORY.a
+/usr/bin/ar qc ../lib/libSKETCH_FACTORY.a  
+/usr/bin/ranlib ../lib/libSKETCH_FACTORY.a

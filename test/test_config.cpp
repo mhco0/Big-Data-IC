@@ -1,6 +1,7 @@
 #include <gtest/gtest.h>
 #include <config/config.h>
 using namespace std;
+using namespace qsbd;
 
 TEST(ConfiguratorTest, TestingLoad){
     configurator::load("config.cfg");

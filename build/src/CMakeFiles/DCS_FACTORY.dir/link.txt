@@ -1,2 +1,2 @@
-/bin/ar qc ../lib/libDCS_FACTORY.a  
-/bin/ranlib ../lib/libDCS_FACTORY.a
+/usr/bin/ar qc ../lib/libDCS_FACTORY.a  
+/usr/bin/ranlib ../lib/libDCS_FACTORY.a

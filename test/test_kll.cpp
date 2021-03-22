@@ -2,8 +2,9 @@
 #include <kll/kll.hpp>
 #include <stream_maker/stream_maker.h>
 #include <kll_factory/kll_factory.hpp>
-
 using namespace std;
+using namespace qsbd;
+using namespace qsbd::stream_maker;
 
 TEST(KllTest, TestInsertSorted){
 	vector<int> random_input;

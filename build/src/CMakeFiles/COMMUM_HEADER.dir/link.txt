@@ -1,2 +1,2 @@
-/bin/ar qc ../lib/libCOMMUM_HEADER.a  
-/bin/ranlib ../lib/libCOMMUM_HEADER.a
+/usr/bin/ar qc ../lib/libCOMMUM_HEADER.a  
+/usr/bin/ranlib ../lib/libCOMMUM_HEADER.a

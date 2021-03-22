@@ -60,15 +60,15 @@ include src/CMakeFiles/Q_DIGEST.dir/flags.make
 src/CMakeFiles/Q_DIGEST.dir/q_digest/q_digest.cpp.o: src/CMakeFiles/Q_DIGEST.dir/flags.make
 src/CMakeFiles/Q_DIGEST.dir/q_digest/q_digest.cpp.o: ../src/q_digest/q_digest.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/CMakeFiles/Q_DIGEST.dir/q_digest/q_digest.cpp.o"
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src" && /bin/x86_64-linux-gnu-g++-9  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Q_DIGEST.dir/q_digest/q_digest.cpp.o -c "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/q_digest/q_digest.cpp"
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src" && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Q_DIGEST.dir/q_digest/q_digest.cpp.o -c "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/q_digest/q_digest.cpp"
 
 src/CMakeFiles/Q_DIGEST.dir/q_digest/q_digest.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Q_DIGEST.dir/q_digest/q_digest.cpp.i"
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src" && /bin/x86_64-linux-gnu-g++-9 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/q_digest/q_digest.cpp" > CMakeFiles/Q_DIGEST.dir/q_digest/q_digest.cpp.i
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/q_digest/q_digest.cpp" > CMakeFiles/Q_DIGEST.dir/q_digest/q_digest.cpp.i
 
 src/CMakeFiles/Q_DIGEST.dir/q_digest/q_digest.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Q_DIGEST.dir/q_digest/q_digest.cpp.s"
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src" && /bin/x86_64-linux-gnu-g++-9 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/q_digest/q_digest.cpp" -o CMakeFiles/Q_DIGEST.dir/q_digest/q_digest.cpp.s
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/q_digest/q_digest.cpp" -o CMakeFiles/Q_DIGEST.dir/q_digest/q_digest.cpp.s
 
 # Object files for target Q_DIGEST
 Q_DIGEST_OBJECTS = \

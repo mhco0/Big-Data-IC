@@ -1,5 +1,5 @@
-#ifndef COMMUM_HEADER_H
-#define COMMUM_HEADER_H
+#ifndef QSBD_COMMUM_HEADER_H
+#define QSBD_COMMUM_HEADER_H
 #include <iostream>
 #include <fstream>
 #include <algorithm>

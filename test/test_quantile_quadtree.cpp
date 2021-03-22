@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
 #include <memory_tracker/memory_tracker.h>
-#include <bd_debug/bd_debug.h>
-#include <bd_timer/bd_timer.h>
+#include <qsbd_debug/qsbd_debug.h>
+#include <timer/timer.h>
 #include <stream_maker/stream_maker.h>
 #include <quantile_quadtree/quantile_quadtree.hpp>
 #include <kll_factory/kll_factory.hpp>
@@ -10,6 +10,8 @@
 #include <dcs_factory/dcs_factory.h>
 #include <utils/utils.h>
 using namespace std;
+using namespace qsbd;
+using namespace qsbd::stream_maker;
 
 deque<string> g_args;
 

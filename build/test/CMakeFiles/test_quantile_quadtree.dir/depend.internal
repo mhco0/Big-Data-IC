@@ -23,8 +23,6 @@ test/CMakeFiles/test_quantile_quadtree.dir/test_quantile_quadtree.cpp.o
  ../googletest/googletest/include/gtest/internal/gtest-string.h
  ../googletest/googletest/include/gtest/internal/gtest-type-util.h
  ../src/aabb/aabb.h
- ../src/bd_debug/bd_debug.h
- ../src/bd_timer/bd_timer.h
  ../src/commum_header/commum_header.h
  ../src/count_sketch/count_sketch.h
  ../src/dcs/dcs.h
@@ -39,9 +37,11 @@ test/CMakeFiles/test_quantile_quadtree.dir/test_quantile_quadtree.cpp.o
  ../src/point/point.hpp
  ../src/q_digest/q_digest.h
  ../src/q_digest_factory/q_digest_factory.h
+ ../src/qsbd_debug/qsbd_debug.h
  ../src/quantile_quadtree/quantile_quadtree.hpp
  ../src/quantile_sketch/quantile_sketch.hpp
  ../src/sketch_factory/sketch_factory.hpp
  ../src/stream_maker/stream_maker.h
+ ../src/timer/timer.h
  ../src/utils/utils.h
  /mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_quantile_quadtree.cpp

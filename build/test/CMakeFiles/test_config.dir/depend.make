@@ -21,8 +21,8 @@ test/CMakeFiles/test_config.dir/test_config.cpp.o: ../googletest/googletest/incl
 test/CMakeFiles/test_config.dir/test_config.cpp.o: ../googletest/googletest/include/gtest/internal/gtest-port.h
 test/CMakeFiles/test_config.dir/test_config.cpp.o: ../googletest/googletest/include/gtest/internal/gtest-string.h
 test/CMakeFiles/test_config.dir/test_config.cpp.o: ../googletest/googletest/include/gtest/internal/gtest-type-util.h
-test/CMakeFiles/test_config.dir/test_config.cpp.o: ../src/bd_debug/bd_debug.h
 test/CMakeFiles/test_config.dir/test_config.cpp.o: ../src/config/config.h
+test/CMakeFiles/test_config.dir/test_config.cpp.o: ../src/qsbd_debug/qsbd_debug.h
 test/CMakeFiles/test_config.dir/test_config.cpp.o: ../src/utils/utils.h
 test/CMakeFiles/test_config.dir/test_config.cpp.o: ../test/test_config.cpp
 

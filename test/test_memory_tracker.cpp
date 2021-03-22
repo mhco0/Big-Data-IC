@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <memory_tracker/memory_tracker.h>
 using namespace std;
+using namespace qsbd;
 
 class simple_object{
     int att1;

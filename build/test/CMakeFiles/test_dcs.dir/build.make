@@ -60,15 +60,15 @@ include test/CMakeFiles/test_dcs.dir/flags.make
 test/CMakeFiles/test_dcs.dir/test_dcs.cpp.o: test/CMakeFiles/test_dcs.dir/flags.make
 test/CMakeFiles/test_dcs.dir/test_dcs.cpp.o: ../test/test_dcs.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object test/CMakeFiles/test_dcs.dir/test_dcs.cpp.o"
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && /bin/x86_64-linux-gnu-g++-9  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/test_dcs.dir/test_dcs.cpp.o -c "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_dcs.cpp"
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/test_dcs.dir/test_dcs.cpp.o -c "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_dcs.cpp"
 
 test/CMakeFiles/test_dcs.dir/test_dcs.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test_dcs.dir/test_dcs.cpp.i"
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && /bin/x86_64-linux-gnu-g++-9 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_dcs.cpp" > CMakeFiles/test_dcs.dir/test_dcs.cpp.i
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_dcs.cpp" > CMakeFiles/test_dcs.dir/test_dcs.cpp.i
 
 test/CMakeFiles/test_dcs.dir/test_dcs.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test_dcs.dir/test_dcs.cpp.s"
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && /bin/x86_64-linux-gnu-g++-9 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_dcs.cpp" -o CMakeFiles/test_dcs.dir/test_dcs.cpp.s
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_dcs.cpp" -o CMakeFiles/test_dcs.dir/test_dcs.cpp.s
 
 # Object files for target test_dcs
 test_dcs_OBJECTS = \
@@ -79,18 +79,19 @@ test_dcs_EXTERNAL_OBJECTS =
 
 bin/test_dcs: test/CMakeFiles/test_dcs.dir/test_dcs.cpp.o
 bin/test_dcs: test/CMakeFiles/test_dcs.dir/build.make
-bin/test_dcs: lib/libgtest_maind.a
-bin/test_dcs: lib/libDCS.a
-bin/test_dcs: lib/libSTREAM_MAKER.a
-bin/test_dcs: lib/libDCS_FACTORY.a
-bin/test_dcs: lib/libgtestd.a
-bin/test_dcs: lib/libDCS.a
-bin/test_dcs: lib/libQUANTILE_SKETCH.a
-bin/test_dcs: lib/libCOUNT_SKETCH.a
-bin/test_dcs: lib/libCOMMUM_HEADER.a
-bin/test_dcs: lib/libK_WISE_FAMILY.a
-bin/test_dcs: lib/libGLOBAL_GEN.a
-bin/test_dcs: lib/libSKETCH_FACTORY.a
+bin/test_dcs: lib/libgtest_main.a
+bin/test_dcs: lib/libQSBD_DCS.a
+bin/test_dcs: lib/libQSBD_STREAM_MAKER.a
+bin/test_dcs: lib/libQSBD_DCS_FACTORY.a
+bin/test_dcs: lib/libgtest.a
+bin/test_dcs: lib/libQSBD_DCS.a
+bin/test_dcs: lib/libQSBD_QUANTILE_SKETCH.a
+bin/test_dcs: lib/libQSBD_COUNT_SKETCH.a
+bin/test_dcs: lib/libQSBD_COMMUM_HEADER.a
+bin/test_dcs: lib/libQSBD_K_WISE_FAMILY.a
+bin/test_dcs: lib/libQSBD_GLOBAL_GEN.a
+bin/test_dcs: lib/libQSBD_UTILS.a
+bin/test_dcs: lib/libQSBD_SKETCH_FACTORY.a
 bin/test_dcs: test/CMakeFiles/test_dcs.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ../bin/test_dcs"
 	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/test_dcs.dir/link.txt --verbose=$(VERBOSE)

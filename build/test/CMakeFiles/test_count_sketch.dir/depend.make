@@ -26,5 +26,6 @@ test/CMakeFiles/test_count_sketch.dir/test_count_sketch.cpp.o: ../src/count_sket
 test/CMakeFiles/test_count_sketch.dir/test_count_sketch.cpp.o: ../src/global_generator/global_generator.h
 test/CMakeFiles/test_count_sketch.dir/test_count_sketch.cpp.o: ../src/k_wise_family/k_wise_family.h
 test/CMakeFiles/test_count_sketch.dir/test_count_sketch.cpp.o: ../src/stream_maker/stream_maker.h
+test/CMakeFiles/test_count_sketch.dir/test_count_sketch.cpp.o: ../src/utils/utils.h
 test/CMakeFiles/test_count_sketch.dir/test_count_sketch.cpp.o: ../test/test_count_sketch.cpp
 

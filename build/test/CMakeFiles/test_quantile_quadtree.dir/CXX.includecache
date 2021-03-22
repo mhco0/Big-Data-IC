@@ -332,14 +332,6 @@ acxx_demangle.h
 iostream
 -
 
-../src/bd_debug/bd_debug.h
-iostream
--
-
-../src/bd_timer/bd_timer.h
-chrono
--
-
 ../src/commum_header/commum_header.h
 iostream
 -
@@ -421,6 +413,8 @@ random
 ../src/commum_header/commum_header.h
 ../global_generator/global_generator.h
 ../src/global_generator/global_generator.h
+../utils/utils.h
+../src/utils/utils.h
 
 ../src/kll/kll.hpp
 ../commum_header/commum_header.h
@@ -470,6 +464,10 @@ new
 ../q_digest/q_digest.h
 ../src/q_digest/q_digest.h
 
+../src/qsbd_debug/qsbd_debug.h
+iostream
+-
+
 ../src/quantile_quadtree/quantile_quadtree.hpp
 ../quantile_sketch/quantile_sketch.hpp
 ../src/quantile_sketch/quantile_sketch.hpp
@@ -490,6 +488,10 @@ new
 ../global_generator/global_generator.h
 ../src/global_generator/global_generator.h
 
+../src/timer/timer.h
+chrono
+-
+
 ../src/utils/utils.h
 algorithm
 -
@@ -505,9 +507,9 @@ gtest/gtest.h
 -
 memory_tracker/memory_tracker.h
 -
-bd_debug/bd_debug.h
+qsbd_debug/qsbd_debug.h
 -
-bd_timer/bd_timer.h
+timer/timer.h
 -
 stream_maker/stream_maker.h
 -

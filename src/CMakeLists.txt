@@ -1,212 +1,213 @@
 add_library(
-    GLOBAL_GEN 
+    QSBD_GLOBAL_GEN 
     "global_generator/global_generator.h" 
     "global_generator/global_generator.cpp"
 )
 
 add_library(
-    COMMUM_HEADER
+    QSBD_COMMUM_HEADER
     "commum_header/commum_header.h"
 )
 
 add_library(
-    UTILS
+    QSBD_UTILS
     "utils/utils.h"
     "utils/utils.cpp"
 )
 
 add_library(
-    BD_DEBUG
-    "bd_debug/bd_debug.h"   
+    QSBD_DEBUG
+    "qsbd_debug/qsbd_debug.h"   
 )
 
 add_library(
-    BD_TIMER
-    "bd_timer/bd_timer.h"
-    "bd_timer/bd_timer.cpp"
+    QSBD_TIMER
+    "timer/timer.h"
+    "timer/timer.cpp"
 )
 
 add_library(
-    STREAM_MAKER
+    QSBD_STREAM_MAKER
     "stream_maker/stream_maker.h"
     "stream_maker/stream_maker.cpp"
 )
 
 add_library(
-    CONFIG
+    QSBD_CONFIG
     "config/config.h"
     "config/config.cpp"
 )
 
 add_library(
-    MEMORY_TRACKER
+    QSBD_MEMORY_TRACKER
     "memory_tracker/memory_tracker.h"
     "memory_tracker/memory_tracker.cpp"
 )
 
 add_library(
-    K_WISE_FAMILY
+    QSBD_K_WISE_FAMILY
     "k_wise_family/k_wise_family.h"
     "k_wise_family/k_wise_family.cpp"    
 )
 
 add_library(
-    COUNT_SKETCH
+    QSBD_COUNT_SKETCH
     "count_sketch/count_sketch.h"
     "count_sketch/count_sketch.cpp"
 )
 
 add_library(
-    KLL 
+    QSBD_KLL 
     "kll/kll.hpp" 
     "kll/kll.cpp"
 )
 
 add_library(
-    DCS
+    QSBD_DCS
     "dcs/dcs.h"
     "dcs/dcs.cpp"
 )
 
 add_library(
-    GK 
+    QSBD_GK 
     "gk/gk.hpp"
 )
 
 add_library(
-    Q_DIGEST
+    QSBD_Q_DIGEST
     "q_digest/q_digest.h"
     "q_digest/q_digest.cpp"
 )
 
 add_library(
-    POINT
+    QSBD_POINT
     "point/point.hpp"
     "point/point.cpp"
 )
 
 add_library(
-    AABB
+    QSBD_AABB
     "aabb/aabb.h"
     "aabb/aabb.cpp"
 )
 
 add_library(
-    QUADTREE
+    QSBD_QUADTREE
     "quadtree/quadtree.h"
     "quadtree/quadtree.cpp"
 )
 
 add_library(
-    QUANTILE_SKETCH
+    QSBD_QUANTILE_SKETCH
     "quantile_sketch/quantile_sketch.hpp"
 )
 
 add_library(
-    QUANTILE_QUADTREE
+    QSBD_QUANTILE_QUADTREE
     "quantile_quadtree/quantile_quadtree.hpp"
 )
 
 add_library(
-    SKETCH_FACTORY
+    QSBD_SKETCH_FACTORY
     "sketch_factory/sketch_factory.hpp"
 )
 
 add_library(
-    KLL_FACTORY
+    QSBD_KLL_FACTORY
     "kll_factory/kll_factory.hpp"
 )
 
 add_library(
-    Q_DIGEST_FACTORY
+    QSBD_Q_DIGEST_FACTORY
     "q_digest_factory/q_digest_factory.h"
 )
 
 add_library(
-    GK_FACTORY
+    QSBD_GK_FACTORY
     "gk_factory/gk_factory.hpp"
 )
 
 add_library(
-    DCS_FACTORY
+    QSBD_DCS_FACTORY
     "dcs_factory/dcs_factory.h"
 )
 
-set(BD_LIBS
+set(QSBD_LIBS
 
-    GLOBAL_GEN
-    COMMUM_HEADER
-    UTILS
-    BD_DEBUG
-    BD_TIMER
-    STREAM_MAKER
-    CONFIG
-    MEMORY_TRACKER
-    K_WISE_FAMILY
-    COUNT_SKETCH
-    QUANTILE_SKETCH
-    SKETCH_FACTORY
-    KLL
-    KLL_FACTORY
-    DCS
-    DCS_FACTORY
-    GK
-    GK_FACTORY
-    Q_DIGEST
-    Q_DIGEST_FACTORY
-    AABB
-    POINT
-    QUADTREE
-    QUANTILE_QUADTREE
+    QSBD_GLOBAL_GEN
+    QSBD_COMMUM_HEADER
+    QSBD_UTILS
+    QSBD_DEBUG
+    QSBD_TIMER
+    QSBD_STREAM_MAKER
+    QSBD_CONFIG
+    QSBD_MEMORY_TRACKER
+    QSBD_K_WISE_FAMILY
+    QSBD_COUNT_SKETCH
+    QSBD_QUANTILE_SKETCH
+    QSBD_SKETCH_FACTORY
+    QSBD_KLL
+    QSBD_KLL_FACTORY
+    QSBD_DCS
+    QSBD_DCS_FACTORY
+    QSBD_GK
+    QSBD_GK_FACTORY
+    QSBD_Q_DIGEST
+    QSBD_Q_DIGEST_FACTORY
+    QSBD_AABB
+    QSBD_POINT
+    QSBD_QUADTREE
+    QSBD_QUANTILE_QUADTREE
 )
 
 
-foreach(BD_LIB ${BD_LIBS})
-    set_target_properties(${BD_LIB} PROPERTIES LINKER_LANGUAGE CXX)
+foreach(QSBD_LIB ${QSBD_LIBS})
+    set_target_properties(${QSBD_LIB} PROPERTIES LINKER_LANGUAGE CXX)
 endforeach()
 
-target_link_libraries(K_WISE_FAMILY PUBLIC GLOBAL_GEN)
+target_link_libraries(QSBD_K_WISE_FAMILY PUBLIC QSBD_GLOBAL_GEN)
+target_link_libraries(QSBD_K_WISE_FAMILY PUBLIC QSBD_UTILS)
 
-target_link_libraries(STREAM_MAKER PUBLIC COMMUM_HEADER)
-target_link_libraries(STREAM_MAKER PUBLIC GLOBAL_GEN)
+target_link_libraries(QSBD_STREAM_MAKER PUBLIC QSBD_COMMUM_HEADER)
+target_link_libraries(QSBD_STREAM_MAKER PUBLIC QSBD_GLOBAL_GEN)
 
-target_link_libraries(COUNT_SKETCH PUBLIC K_WISE_FAMILY)
-target_link_libraries(COUNT_SKETCH PUBLIC COMMUM_HEADER)
-target_link_libraries(COUNT_SKETCH PUBLIC GLOBAL_GEN)
+target_link_libraries(QSBD_COUNT_SKETCH PUBLIC QSBD_K_WISE_FAMILY)
+target_link_libraries(QSBD_COUNT_SKETCH PUBLIC QSBD_COMMUM_HEADER)
+target_link_libraries(QSBD_COUNT_SKETCH PUBLIC QSBD_GLOBAL_GEN)
 
-target_link_libraries(KLL PUBLIC COMMUM_HEADER)
-target_link_libraries(KLL PUBLIC GLOBAL_GEN)
+target_link_libraries(QSBD_KLL PUBLIC QSBD_COMMUM_HEADER)
+target_link_libraries(QSBD_KLL PUBLIC QSBD_GLOBAL_GEN)
 
-target_link_libraries(DCS PUBLIC QUANTILE_SKETCH)
-target_link_libraries(DCS PUBLIC COMMUM_HEADER)
-target_link_libraries(DCS PUBLIC GLOBAL_GEN)
-target_link_libraries(DCS PUBLIC COUNT_SKETCH)
+target_link_libraries(QSBD_DCS PUBLIC QSBD_QUANTILE_SKETCH)
+target_link_libraries(QSBD_DCS PUBLIC QSBD_COMMUM_HEADER)
+target_link_libraries(QSBD_DCS PUBLIC QSBD_GLOBAL_GEN)
+target_link_libraries(QSBD_DCS PUBLIC QSBD_COUNT_SKETCH)
 
-target_link_libraries(GK PUBLIC QUANTILE_SKETCH)
-target_link_libraries(GK PUBLIC COMMUM_HEADER)
-target_link_libraries(GK PUBLIC GLOBAL_GEN)
+target_link_libraries(QSBD_GK PUBLIC QSBD_QUANTILE_SKETCH)
+target_link_libraries(QSBD_GK PUBLIC QSBD_COMMUM_HEADER)
+target_link_libraries(QSBD_GK PUBLIC QSBD_GLOBAL_GEN)
 
-target_link_libraries(Q_DIGEST PUBLIC QUANTILE_SKETCH)
-target_link_libraries(Q_DIGEST PUBLIC COMMUM_HEADER)
-target_link_libraries(Q_DIGEST PUBLIC GLOBAL_GEN)
+target_link_libraries(QSBD_Q_DIGEST PUBLIC QSBD_QUANTILE_SKETCH)
+target_link_libraries(QSBD_Q_DIGEST PUBLIC QSBD_COMMUM_HEADER)
+target_link_libraries(QSBD_Q_DIGEST PUBLIC QSBD_GLOBAL_GEN)
 
-target_link_libraries(POINT PUBLIC COMMUM_HEADER)
+target_link_libraries(QSBD_POINT PUBLIC QSBD_COMMUM_HEADER)
 
-target_link_libraries(AABB PUBLIC POINT)
+target_link_libraries(QSBD_AABB PUBLIC QSBD_POINT)
 
-target_link_libraries(QUADTREE PUBLIC AABB)
+target_link_libraries(QSBD_QUADTREE PUBLIC QSBD_AABB)
 
-target_link_libraries(QUANTILE_QUADTREE PUBLIC QUANTILE_SKETCH)
-target_link_libraries(QUANTILE_QUADTREE PUBLIC AABB)
+target_link_libraries(QSBD_QUANTILE_QUADTREE PUBLIC QSBD_QUANTILE_SKETCH)
+target_link_libraries(QSBD_QUANTILE_QUADTREE PUBLIC QSBD_AABB)
 
-target_link_libraries(KLL_FACTORY PUBLIC SKETCH_FACTORY)
-target_link_libraries(KLL_FACTORY PUBLIC KLL)
+target_link_libraries(QSBD_KLL_FACTORY PUBLIC QSBD_SKETCH_FACTORY)
+target_link_libraries(QSBD_KLL_FACTORY PUBLIC QSBD_KLL)
 
-target_link_libraries(Q_DIGEST_FACTORY PUBLIC SKETCH_FACTORY)
-target_link_libraries(Q_DIGEST_FACTORY PUBLIC Q_DIGEST)
+target_link_libraries(QSBD_Q_DIGEST_FACTORY PUBLIC QSBD_SKETCH_FACTORY)
+target_link_libraries(QSBD_Q_DIGEST_FACTORY PUBLIC QSBD_Q_DIGEST)
 
-target_link_libraries(GK_FACTORY PUBLIC SKETCH_FACTORY)
-target_link_libraries(GK_FACTORY PUBLIC GK)
+target_link_libraries(QSBD_GK_FACTORY PUBLIC QSBD_SKETCH_FACTORY)
+target_link_libraries(QSBD_GK_FACTORY PUBLIC QSBD_GK)
 
-target_link_libraries(DCS_FACTORY PUBLIC SKETCH_FACTORY)
-target_link_libraries(DCS_FACTORY PUBLIC DCS)
+target_link_libraries(QSBD_DCS_FACTORY PUBLIC QSBD_SKETCH_FACTORY)
+target_link_libraries(QSBD_DCS_FACTORY PUBLIC QSBD_DCS)

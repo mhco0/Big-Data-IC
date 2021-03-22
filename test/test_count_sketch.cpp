@@ -1,8 +1,10 @@
 #include <gtest/gtest.h>
 #include <count_sketch/count_sketch.h>
 #include <stream_maker/stream_maker.h>
-
 using namespace std;
+using namespace qsbd;
+using namespace qsbd::stream_maker;
+
 
 TEST(CountScketchTest, TestAuxVariables){
     count_sketch cs(0.1, 0.3);

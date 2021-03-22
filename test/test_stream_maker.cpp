@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
 #include <stream_maker/stream_maker.h>
-
 using namespace std;
+using namespace qsbd::stream_maker;
 
 TEST(StreamTest, TestSortAndMergeWeights){
 	vector<pair<int,int>> stream = random_int_stream_with_weight(3, 1, 1, 0, 5);

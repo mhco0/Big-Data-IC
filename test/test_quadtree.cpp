@@ -1,8 +1,9 @@
 #include <gtest/gtest.h>
 #include <quadtree/quadtree.h>
 #include <stream_maker/stream_maker.h>
-
 using namespace std;
+using namespace qsbd;
+using namespace qsbd::stream_maker;
 
 vector<int> brute_force_search(const vector<pair<int, pair<double, double>>>& stream, const aabb& region){
     vector<int> ans;

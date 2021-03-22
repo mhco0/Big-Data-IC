@@ -30,5 +30,6 @@ test/CMakeFiles/test_dcs.dir/test_dcs.cpp.o: ../src/k_wise_family/k_wise_family.
 test/CMakeFiles/test_dcs.dir/test_dcs.cpp.o: ../src/quantile_sketch/quantile_sketch.hpp
 test/CMakeFiles/test_dcs.dir/test_dcs.cpp.o: ../src/sketch_factory/sketch_factory.hpp
 test/CMakeFiles/test_dcs.dir/test_dcs.cpp.o: ../src/stream_maker/stream_maker.h
+test/CMakeFiles/test_dcs.dir/test_dcs.cpp.o: ../src/utils/utils.h
 test/CMakeFiles/test_dcs.dir/test_dcs.cpp.o: ../test/test_dcs.cpp
 

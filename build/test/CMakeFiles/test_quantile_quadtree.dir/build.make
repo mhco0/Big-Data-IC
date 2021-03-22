@@ -60,15 +60,15 @@ include test/CMakeFiles/test_quantile_quadtree.dir/flags.make
 test/CMakeFiles/test_quantile_quadtree.dir/test_quantile_quadtree.cpp.o: test/CMakeFiles/test_quantile_quadtree.dir/flags.make
 test/CMakeFiles/test_quantile_quadtree.dir/test_quantile_quadtree.cpp.o: ../test/test_quantile_quadtree.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object test/CMakeFiles/test_quantile_quadtree.dir/test_quantile_quadtree.cpp.o"
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && /bin/x86_64-linux-gnu-g++-9  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/test_quantile_quadtree.dir/test_quantile_quadtree.cpp.o -c "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_quantile_quadtree.cpp"
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/test_quantile_quadtree.dir/test_quantile_quadtree.cpp.o -c "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_quantile_quadtree.cpp"
 
 test/CMakeFiles/test_quantile_quadtree.dir/test_quantile_quadtree.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test_quantile_quadtree.dir/test_quantile_quadtree.cpp.i"
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && /bin/x86_64-linux-gnu-g++-9 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_quantile_quadtree.cpp" > CMakeFiles/test_quantile_quadtree.dir/test_quantile_quadtree.cpp.i
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_quantile_quadtree.cpp" > CMakeFiles/test_quantile_quadtree.dir/test_quantile_quadtree.cpp.i
 
 test/CMakeFiles/test_quantile_quadtree.dir/test_quantile_quadtree.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test_quantile_quadtree.dir/test_quantile_quadtree.cpp.s"
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && /bin/x86_64-linux-gnu-g++-9 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_quantile_quadtree.cpp" -o CMakeFiles/test_quantile_quadtree.dir/test_quantile_quadtree.cpp.s
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_quantile_quadtree.cpp" -o CMakeFiles/test_quantile_quadtree.dir/test_quantile_quadtree.cpp.s
 
 # Object files for target test_quantile_quadtree
 test_quantile_quadtree_OBJECTS = \
@@ -79,31 +79,32 @@ test_quantile_quadtree_EXTERNAL_OBJECTS =
 
 bin/test_quantile_quadtree: test/CMakeFiles/test_quantile_quadtree.dir/test_quantile_quadtree.cpp.o
 bin/test_quantile_quadtree: test/CMakeFiles/test_quantile_quadtree.dir/build.make
-bin/test_quantile_quadtree: lib/libgtest_maind.a
-bin/test_quantile_quadtree: lib/libQUANTILE_QUADTREE.a
-bin/test_quantile_quadtree: lib/libSTREAM_MAKER.a
-bin/test_quantile_quadtree: lib/libCOUNT_SKETCH.a
-bin/test_quantile_quadtree: lib/libKLL_FACTORY.a
-bin/test_quantile_quadtree: lib/libGK_FACTORY.a
-bin/test_quantile_quadtree: lib/libQ_DIGEST_FACTORY.a
-bin/test_quantile_quadtree: lib/libDCS_FACTORY.a
-bin/test_quantile_quadtree: lib/libMEMORY_TRACKER.a
-bin/test_quantile_quadtree: lib/libBD_TIMER.a
-bin/test_quantile_quadtree: lib/libBD_DEBUG.a
-bin/test_quantile_quadtree: lib/libUTILS.a
-bin/test_quantile_quadtree: lib/libgtestd.a
-bin/test_quantile_quadtree: lib/libAABB.a
-bin/test_quantile_quadtree: lib/libPOINT.a
-bin/test_quantile_quadtree: lib/libKLL.a
-bin/test_quantile_quadtree: lib/libGK.a
-bin/test_quantile_quadtree: lib/libQ_DIGEST.a
-bin/test_quantile_quadtree: lib/libSKETCH_FACTORY.a
-bin/test_quantile_quadtree: lib/libDCS.a
-bin/test_quantile_quadtree: lib/libCOUNT_SKETCH.a
-bin/test_quantile_quadtree: lib/libK_WISE_FAMILY.a
-bin/test_quantile_quadtree: lib/libQUANTILE_SKETCH.a
-bin/test_quantile_quadtree: lib/libCOMMUM_HEADER.a
-bin/test_quantile_quadtree: lib/libGLOBAL_GEN.a
+bin/test_quantile_quadtree: lib/libgtest_main.a
+bin/test_quantile_quadtree: lib/libQSBD_QUANTILE_QUADTREE.a
+bin/test_quantile_quadtree: lib/libQSBD_STREAM_MAKER.a
+bin/test_quantile_quadtree: lib/libQSBD_COUNT_SKETCH.a
+bin/test_quantile_quadtree: lib/libQSBD_KLL_FACTORY.a
+bin/test_quantile_quadtree: lib/libQSBD_GK_FACTORY.a
+bin/test_quantile_quadtree: lib/libQSBD_Q_DIGEST_FACTORY.a
+bin/test_quantile_quadtree: lib/libQSBD_DCS_FACTORY.a
+bin/test_quantile_quadtree: lib/libQSBD_MEMORY_TRACKER.a
+bin/test_quantile_quadtree: lib/libQSBD_TIMER.a
+bin/test_quantile_quadtree: lib/libQSBD_DEBUG.a
+bin/test_quantile_quadtree: lib/libQSBD_UTILS.a
+bin/test_quantile_quadtree: lib/libgtest.a
+bin/test_quantile_quadtree: lib/libQSBD_AABB.a
+bin/test_quantile_quadtree: lib/libQSBD_POINT.a
+bin/test_quantile_quadtree: lib/libQSBD_KLL.a
+bin/test_quantile_quadtree: lib/libQSBD_GK.a
+bin/test_quantile_quadtree: lib/libQSBD_Q_DIGEST.a
+bin/test_quantile_quadtree: lib/libQSBD_SKETCH_FACTORY.a
+bin/test_quantile_quadtree: lib/libQSBD_DCS.a
+bin/test_quantile_quadtree: lib/libQSBD_COUNT_SKETCH.a
+bin/test_quantile_quadtree: lib/libQSBD_K_WISE_FAMILY.a
+bin/test_quantile_quadtree: lib/libQSBD_UTILS.a
+bin/test_quantile_quadtree: lib/libQSBD_QUANTILE_SKETCH.a
+bin/test_quantile_quadtree: lib/libQSBD_COMMUM_HEADER.a
+bin/test_quantile_quadtree: lib/libQSBD_GLOBAL_GEN.a
 bin/test_quantile_quadtree: test/CMakeFiles/test_quantile_quadtree.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ../bin/test_quantile_quadtree"
 	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/test_quantile_quadtree.dir/link.txt --verbose=$(VERBOSE)

@@ -220,316 +220,316 @@ gtest/fast:
 .PHONY : gtest/fast
 
 #=============================================================================
-# Target rules for targets named COUNT_SKETCH
+# Target rules for targets named QSBD_DCS
 
 # Build rule for target.
-COUNT_SKETCH: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 COUNT_SKETCH
-.PHONY : COUNT_SKETCH
+QSBD_DCS: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 QSBD_DCS
+.PHONY : QSBD_DCS
 
 # fast build rule for target.
-COUNT_SKETCH/fast:
-	$(MAKE) -f src/CMakeFiles/COUNT_SKETCH.dir/build.make src/CMakeFiles/COUNT_SKETCH.dir/build
-.PHONY : COUNT_SKETCH/fast
+QSBD_DCS/fast:
+	$(MAKE) -f src/CMakeFiles/QSBD_DCS.dir/build.make src/CMakeFiles/QSBD_DCS.dir/build
+.PHONY : QSBD_DCS/fast
 
 #=============================================================================
-# Target rules for targets named K_WISE_FAMILY
+# Target rules for targets named QSBD_KLL
 
 # Build rule for target.
-K_WISE_FAMILY: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 K_WISE_FAMILY
-.PHONY : K_WISE_FAMILY
+QSBD_KLL: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 QSBD_KLL
+.PHONY : QSBD_KLL
 
 # fast build rule for target.
-K_WISE_FAMILY/fast:
-	$(MAKE) -f src/CMakeFiles/K_WISE_FAMILY.dir/build.make src/CMakeFiles/K_WISE_FAMILY.dir/build
-.PHONY : K_WISE_FAMILY/fast
+QSBD_KLL/fast:
+	$(MAKE) -f src/CMakeFiles/QSBD_KLL.dir/build.make src/CMakeFiles/QSBD_KLL.dir/build
+.PHONY : QSBD_KLL/fast
 
 #=============================================================================
-# Target rules for targets named GK
+# Target rules for targets named QSBD_K_WISE_FAMILY
 
 # Build rule for target.
-GK: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 GK
-.PHONY : GK
+QSBD_K_WISE_FAMILY: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 QSBD_K_WISE_FAMILY
+.PHONY : QSBD_K_WISE_FAMILY
 
 # fast build rule for target.
-GK/fast:
-	$(MAKE) -f src/CMakeFiles/GK.dir/build.make src/CMakeFiles/GK.dir/build
-.PHONY : GK/fast
+QSBD_K_WISE_FAMILY/fast:
+	$(MAKE) -f src/CMakeFiles/QSBD_K_WISE_FAMILY.dir/build.make src/CMakeFiles/QSBD_K_WISE_FAMILY.dir/build
+.PHONY : QSBD_K_WISE_FAMILY/fast
 
 #=============================================================================
-# Target rules for targets named KLL
+# Target rules for targets named QSBD_CONFIG
 
 # Build rule for target.
-KLL: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 KLL
-.PHONY : KLL
+QSBD_CONFIG: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 QSBD_CONFIG
+.PHONY : QSBD_CONFIG
 
 # fast build rule for target.
-KLL/fast:
-	$(MAKE) -f src/CMakeFiles/KLL.dir/build.make src/CMakeFiles/KLL.dir/build
-.PHONY : KLL/fast
+QSBD_CONFIG/fast:
+	$(MAKE) -f src/CMakeFiles/QSBD_CONFIG.dir/build.make src/CMakeFiles/QSBD_CONFIG.dir/build
+.PHONY : QSBD_CONFIG/fast
 
 #=============================================================================
-# Target rules for targets named QUANTILE_QUADTREE
+# Target rules for targets named QSBD_GK
 
 # Build rule for target.
-QUANTILE_QUADTREE: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 QUANTILE_QUADTREE
-.PHONY : QUANTILE_QUADTREE
+QSBD_GK: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 QSBD_GK
+.PHONY : QSBD_GK
 
 # fast build rule for target.
-QUANTILE_QUADTREE/fast:
-	$(MAKE) -f src/CMakeFiles/QUANTILE_QUADTREE.dir/build.make src/CMakeFiles/QUANTILE_QUADTREE.dir/build
-.PHONY : QUANTILE_QUADTREE/fast
+QSBD_GK/fast:
+	$(MAKE) -f src/CMakeFiles/QSBD_GK.dir/build.make src/CMakeFiles/QSBD_GK.dir/build
+.PHONY : QSBD_GK/fast
 
 #=============================================================================
-# Target rules for targets named BD_DEBUG
+# Target rules for targets named QSBD_TIMER
 
 # Build rule for target.
-BD_DEBUG: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 BD_DEBUG
-.PHONY : BD_DEBUG
+QSBD_TIMER: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 QSBD_TIMER
+.PHONY : QSBD_TIMER
 
 # fast build rule for target.
-BD_DEBUG/fast:
-	$(MAKE) -f src/CMakeFiles/BD_DEBUG.dir/build.make src/CMakeFiles/BD_DEBUG.dir/build
-.PHONY : BD_DEBUG/fast
+QSBD_TIMER/fast:
+	$(MAKE) -f src/CMakeFiles/QSBD_TIMER.dir/build.make src/CMakeFiles/QSBD_TIMER.dir/build
+.PHONY : QSBD_TIMER/fast
 
 #=============================================================================
-# Target rules for targets named COMMUM_HEADER
+# Target rules for targets named QSBD_COUNT_SKETCH
 
 # Build rule for target.
-COMMUM_HEADER: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 COMMUM_HEADER
-.PHONY : COMMUM_HEADER
+QSBD_COUNT_SKETCH: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 QSBD_COUNT_SKETCH
+.PHONY : QSBD_COUNT_SKETCH
 
 # fast build rule for target.
-COMMUM_HEADER/fast:
-	$(MAKE) -f src/CMakeFiles/COMMUM_HEADER.dir/build.make src/CMakeFiles/COMMUM_HEADER.dir/build
-.PHONY : COMMUM_HEADER/fast
+QSBD_COUNT_SKETCH/fast:
+	$(MAKE) -f src/CMakeFiles/QSBD_COUNT_SKETCH.dir/build.make src/CMakeFiles/QSBD_COUNT_SKETCH.dir/build
+.PHONY : QSBD_COUNT_SKETCH/fast
 
 #=============================================================================
-# Target rules for targets named DCS
+# Target rules for targets named QSBD_Q_DIGEST
 
 # Build rule for target.
-DCS: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 DCS
-.PHONY : DCS
+QSBD_Q_DIGEST: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 QSBD_Q_DIGEST
+.PHONY : QSBD_Q_DIGEST
 
 # fast build rule for target.
-DCS/fast:
-	$(MAKE) -f src/CMakeFiles/DCS.dir/build.make src/CMakeFiles/DCS.dir/build
-.PHONY : DCS/fast
+QSBD_Q_DIGEST/fast:
+	$(MAKE) -f src/CMakeFiles/QSBD_Q_DIGEST.dir/build.make src/CMakeFiles/QSBD_Q_DIGEST.dir/build
+.PHONY : QSBD_Q_DIGEST/fast
 
 #=============================================================================
-# Target rules for targets named UTILS
+# Target rules for targets named QSBD_DEBUG
 
 # Build rule for target.
-UTILS: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 UTILS
-.PHONY : UTILS
+QSBD_DEBUG: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 QSBD_DEBUG
+.PHONY : QSBD_DEBUG
 
 # fast build rule for target.
-UTILS/fast:
-	$(MAKE) -f src/CMakeFiles/UTILS.dir/build.make src/CMakeFiles/UTILS.dir/build
-.PHONY : UTILS/fast
+QSBD_DEBUG/fast:
+	$(MAKE) -f src/CMakeFiles/QSBD_DEBUG.dir/build.make src/CMakeFiles/QSBD_DEBUG.dir/build
+.PHONY : QSBD_DEBUG/fast
 
 #=============================================================================
-# Target rules for targets named BD_TIMER
+# Target rules for targets named QSBD_UTILS
 
 # Build rule for target.
-BD_TIMER: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 BD_TIMER
-.PHONY : BD_TIMER
+QSBD_UTILS: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 QSBD_UTILS
+.PHONY : QSBD_UTILS
 
 # fast build rule for target.
-BD_TIMER/fast:
-	$(MAKE) -f src/CMakeFiles/BD_TIMER.dir/build.make src/CMakeFiles/BD_TIMER.dir/build
-.PHONY : BD_TIMER/fast
+QSBD_UTILS/fast:
+	$(MAKE) -f src/CMakeFiles/QSBD_UTILS.dir/build.make src/CMakeFiles/QSBD_UTILS.dir/build
+.PHONY : QSBD_UTILS/fast
 
 #=============================================================================
-# Target rules for targets named MEMORY_TRACKER
+# Target rules for targets named QSBD_COMMUM_HEADER
 
 # Build rule for target.
-MEMORY_TRACKER: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 MEMORY_TRACKER
-.PHONY : MEMORY_TRACKER
+QSBD_COMMUM_HEADER: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 QSBD_COMMUM_HEADER
+.PHONY : QSBD_COMMUM_HEADER
 
 # fast build rule for target.
-MEMORY_TRACKER/fast:
-	$(MAKE) -f src/CMakeFiles/MEMORY_TRACKER.dir/build.make src/CMakeFiles/MEMORY_TRACKER.dir/build
-.PHONY : MEMORY_TRACKER/fast
+QSBD_COMMUM_HEADER/fast:
+	$(MAKE) -f src/CMakeFiles/QSBD_COMMUM_HEADER.dir/build.make src/CMakeFiles/QSBD_COMMUM_HEADER.dir/build
+.PHONY : QSBD_COMMUM_HEADER/fast
 
 #=============================================================================
-# Target rules for targets named Q_DIGEST
+# Target rules for targets named QSBD_POINT
 
 # Build rule for target.
-Q_DIGEST: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Q_DIGEST
-.PHONY : Q_DIGEST
+QSBD_POINT: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 QSBD_POINT
+.PHONY : QSBD_POINT
 
 # fast build rule for target.
-Q_DIGEST/fast:
-	$(MAKE) -f src/CMakeFiles/Q_DIGEST.dir/build.make src/CMakeFiles/Q_DIGEST.dir/build
-.PHONY : Q_DIGEST/fast
+QSBD_POINT/fast:
+	$(MAKE) -f src/CMakeFiles/QSBD_POINT.dir/build.make src/CMakeFiles/QSBD_POINT.dir/build
+.PHONY : QSBD_POINT/fast
 
 #=============================================================================
-# Target rules for targets named DCS_FACTORY
+# Target rules for targets named QSBD_GK_FACTORY
 
 # Build rule for target.
-DCS_FACTORY: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 DCS_FACTORY
-.PHONY : DCS_FACTORY
+QSBD_GK_FACTORY: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 QSBD_GK_FACTORY
+.PHONY : QSBD_GK_FACTORY
 
 # fast build rule for target.
-DCS_FACTORY/fast:
-	$(MAKE) -f src/CMakeFiles/DCS_FACTORY.dir/build.make src/CMakeFiles/DCS_FACTORY.dir/build
-.PHONY : DCS_FACTORY/fast
+QSBD_GK_FACTORY/fast:
+	$(MAKE) -f src/CMakeFiles/QSBD_GK_FACTORY.dir/build.make src/CMakeFiles/QSBD_GK_FACTORY.dir/build
+.PHONY : QSBD_GK_FACTORY/fast
 
 #=============================================================================
-# Target rules for targets named POINT
+# Target rules for targets named QSBD_STREAM_MAKER
 
 # Build rule for target.
-POINT: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 POINT
-.PHONY : POINT
+QSBD_STREAM_MAKER: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 QSBD_STREAM_MAKER
+.PHONY : QSBD_STREAM_MAKER
 
 # fast build rule for target.
-POINT/fast:
-	$(MAKE) -f src/CMakeFiles/POINT.dir/build.make src/CMakeFiles/POINT.dir/build
-.PHONY : POINT/fast
+QSBD_STREAM_MAKER/fast:
+	$(MAKE) -f src/CMakeFiles/QSBD_STREAM_MAKER.dir/build.make src/CMakeFiles/QSBD_STREAM_MAKER.dir/build
+.PHONY : QSBD_STREAM_MAKER/fast
 
 #=============================================================================
-# Target rules for targets named QUADTREE
+# Target rules for targets named QSBD_MEMORY_TRACKER
 
 # Build rule for target.
-QUADTREE: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 QUADTREE
-.PHONY : QUADTREE
+QSBD_MEMORY_TRACKER: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 QSBD_MEMORY_TRACKER
+.PHONY : QSBD_MEMORY_TRACKER
 
 # fast build rule for target.
-QUADTREE/fast:
-	$(MAKE) -f src/CMakeFiles/QUADTREE.dir/build.make src/CMakeFiles/QUADTREE.dir/build
-.PHONY : QUADTREE/fast
+QSBD_MEMORY_TRACKER/fast:
+	$(MAKE) -f src/CMakeFiles/QSBD_MEMORY_TRACKER.dir/build.make src/CMakeFiles/QSBD_MEMORY_TRACKER.dir/build
+.PHONY : QSBD_MEMORY_TRACKER/fast
 
 #=============================================================================
-# Target rules for targets named SKETCH_FACTORY
+# Target rules for targets named QSBD_GLOBAL_GEN
 
 # Build rule for target.
-SKETCH_FACTORY: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 SKETCH_FACTORY
-.PHONY : SKETCH_FACTORY
+QSBD_GLOBAL_GEN: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 QSBD_GLOBAL_GEN
+.PHONY : QSBD_GLOBAL_GEN
 
 # fast build rule for target.
-SKETCH_FACTORY/fast:
-	$(MAKE) -f src/CMakeFiles/SKETCH_FACTORY.dir/build.make src/CMakeFiles/SKETCH_FACTORY.dir/build
-.PHONY : SKETCH_FACTORY/fast
+QSBD_GLOBAL_GEN/fast:
+	$(MAKE) -f src/CMakeFiles/QSBD_GLOBAL_GEN.dir/build.make src/CMakeFiles/QSBD_GLOBAL_GEN.dir/build
+.PHONY : QSBD_GLOBAL_GEN/fast
 
 #=============================================================================
-# Target rules for targets named STREAM_MAKER
+# Target rules for targets named QSBD_QUADTREE
 
 # Build rule for target.
-STREAM_MAKER: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 STREAM_MAKER
-.PHONY : STREAM_MAKER
+QSBD_QUADTREE: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 QSBD_QUADTREE
+.PHONY : QSBD_QUADTREE
 
 # fast build rule for target.
-STREAM_MAKER/fast:
-	$(MAKE) -f src/CMakeFiles/STREAM_MAKER.dir/build.make src/CMakeFiles/STREAM_MAKER.dir/build
-.PHONY : STREAM_MAKER/fast
+QSBD_QUADTREE/fast:
+	$(MAKE) -f src/CMakeFiles/QSBD_QUADTREE.dir/build.make src/CMakeFiles/QSBD_QUADTREE.dir/build
+.PHONY : QSBD_QUADTREE/fast
 
 #=============================================================================
-# Target rules for targets named KLL_FACTORY
+# Target rules for targets named QSBD_SKETCH_FACTORY
 
 # Build rule for target.
-KLL_FACTORY: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 KLL_FACTORY
-.PHONY : KLL_FACTORY
+QSBD_SKETCH_FACTORY: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 QSBD_SKETCH_FACTORY
+.PHONY : QSBD_SKETCH_FACTORY
 
 # fast build rule for target.
-KLL_FACTORY/fast:
-	$(MAKE) -f src/CMakeFiles/KLL_FACTORY.dir/build.make src/CMakeFiles/KLL_FACTORY.dir/build
-.PHONY : KLL_FACTORY/fast
+QSBD_SKETCH_FACTORY/fast:
+	$(MAKE) -f src/CMakeFiles/QSBD_SKETCH_FACTORY.dir/build.make src/CMakeFiles/QSBD_SKETCH_FACTORY.dir/build
+.PHONY : QSBD_SKETCH_FACTORY/fast
 
 #=============================================================================
-# Target rules for targets named GLOBAL_GEN
+# Target rules for targets named QSBD_QUANTILE_SKETCH
 
 # Build rule for target.
-GLOBAL_GEN: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 GLOBAL_GEN
-.PHONY : GLOBAL_GEN
+QSBD_QUANTILE_SKETCH: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 QSBD_QUANTILE_SKETCH
+.PHONY : QSBD_QUANTILE_SKETCH
 
 # fast build rule for target.
-GLOBAL_GEN/fast:
-	$(MAKE) -f src/CMakeFiles/GLOBAL_GEN.dir/build.make src/CMakeFiles/GLOBAL_GEN.dir/build
-.PHONY : GLOBAL_GEN/fast
+QSBD_QUANTILE_SKETCH/fast:
+	$(MAKE) -f src/CMakeFiles/QSBD_QUANTILE_SKETCH.dir/build.make src/CMakeFiles/QSBD_QUANTILE_SKETCH.dir/build
+.PHONY : QSBD_QUANTILE_SKETCH/fast
 
 #=============================================================================
-# Target rules for targets named GK_FACTORY
+# Target rules for targets named QSBD_QUANTILE_QUADTREE
 
 # Build rule for target.
-GK_FACTORY: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 GK_FACTORY
-.PHONY : GK_FACTORY
+QSBD_QUANTILE_QUADTREE: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 QSBD_QUANTILE_QUADTREE
+.PHONY : QSBD_QUANTILE_QUADTREE
 
 # fast build rule for target.
-GK_FACTORY/fast:
-	$(MAKE) -f src/CMakeFiles/GK_FACTORY.dir/build.make src/CMakeFiles/GK_FACTORY.dir/build
-.PHONY : GK_FACTORY/fast
+QSBD_QUANTILE_QUADTREE/fast:
+	$(MAKE) -f src/CMakeFiles/QSBD_QUANTILE_QUADTREE.dir/build.make src/CMakeFiles/QSBD_QUANTILE_QUADTREE.dir/build
+.PHONY : QSBD_QUANTILE_QUADTREE/fast
 
 #=============================================================================
-# Target rules for targets named AABB
+# Target rules for targets named QSBD_KLL_FACTORY
 
 # Build rule for target.
-AABB: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 AABB
-.PHONY : AABB
+QSBD_KLL_FACTORY: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 QSBD_KLL_FACTORY
+.PHONY : QSBD_KLL_FACTORY
 
 # fast build rule for target.
-AABB/fast:
-	$(MAKE) -f src/CMakeFiles/AABB.dir/build.make src/CMakeFiles/AABB.dir/build
-.PHONY : AABB/fast
+QSBD_KLL_FACTORY/fast:
+	$(MAKE) -f src/CMakeFiles/QSBD_KLL_FACTORY.dir/build.make src/CMakeFiles/QSBD_KLL_FACTORY.dir/build
+.PHONY : QSBD_KLL_FACTORY/fast
 
 #=============================================================================
-# Target rules for targets named CONFIG
+# Target rules for targets named QSBD_Q_DIGEST_FACTORY
 
 # Build rule for target.
-CONFIG: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 CONFIG
-.PHONY : CONFIG
+QSBD_Q_DIGEST_FACTORY: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 QSBD_Q_DIGEST_FACTORY
+.PHONY : QSBD_Q_DIGEST_FACTORY
 
 # fast build rule for target.
-CONFIG/fast:
-	$(MAKE) -f src/CMakeFiles/CONFIG.dir/build.make src/CMakeFiles/CONFIG.dir/build
-.PHONY : CONFIG/fast
+QSBD_Q_DIGEST_FACTORY/fast:
+	$(MAKE) -f src/CMakeFiles/QSBD_Q_DIGEST_FACTORY.dir/build.make src/CMakeFiles/QSBD_Q_DIGEST_FACTORY.dir/build
+.PHONY : QSBD_Q_DIGEST_FACTORY/fast
 
 #=============================================================================
-# Target rules for targets named QUANTILE_SKETCH
+# Target rules for targets named QSBD_AABB
 
 # Build rule for target.
-QUANTILE_SKETCH: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 QUANTILE_SKETCH
-.PHONY : QUANTILE_SKETCH
+QSBD_AABB: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 QSBD_AABB
+.PHONY : QSBD_AABB
 
 # fast build rule for target.
-QUANTILE_SKETCH/fast:
-	$(MAKE) -f src/CMakeFiles/QUANTILE_SKETCH.dir/build.make src/CMakeFiles/QUANTILE_SKETCH.dir/build
-.PHONY : QUANTILE_SKETCH/fast
+QSBD_AABB/fast:
+	$(MAKE) -f src/CMakeFiles/QSBD_AABB.dir/build.make src/CMakeFiles/QSBD_AABB.dir/build
+.PHONY : QSBD_AABB/fast
 
 #=============================================================================
-# Target rules for targets named Q_DIGEST_FACTORY
+# Target rules for targets named QSBD_DCS_FACTORY
 
 # Build rule for target.
-Q_DIGEST_FACTORY: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Q_DIGEST_FACTORY
-.PHONY : Q_DIGEST_FACTORY
+QSBD_DCS_FACTORY: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 QSBD_DCS_FACTORY
+.PHONY : QSBD_DCS_FACTORY
 
 # fast build rule for target.
-Q_DIGEST_FACTORY/fast:
-	$(MAKE) -f src/CMakeFiles/Q_DIGEST_FACTORY.dir/build.make src/CMakeFiles/Q_DIGEST_FACTORY.dir/build
-.PHONY : Q_DIGEST_FACTORY/fast
+QSBD_DCS_FACTORY/fast:
+	$(MAKE) -f src/CMakeFiles/QSBD_DCS_FACTORY.dir/build.make src/CMakeFiles/QSBD_DCS_FACTORY.dir/build
+.PHONY : QSBD_DCS_FACTORY/fast
 
 #=============================================================================
 # Target rules for targets named test_stream_maker
@@ -704,30 +704,30 @@ help:
 	@echo "... gmock"
 	@echo "... gtest_main"
 	@echo "... gtest"
-	@echo "... COUNT_SKETCH"
-	@echo "... K_WISE_FAMILY"
-	@echo "... GK"
-	@echo "... KLL"
-	@echo "... QUANTILE_QUADTREE"
-	@echo "... BD_DEBUG"
-	@echo "... COMMUM_HEADER"
-	@echo "... DCS"
-	@echo "... UTILS"
-	@echo "... BD_TIMER"
-	@echo "... MEMORY_TRACKER"
-	@echo "... Q_DIGEST"
-	@echo "... DCS_FACTORY"
-	@echo "... POINT"
-	@echo "... QUADTREE"
-	@echo "... SKETCH_FACTORY"
-	@echo "... STREAM_MAKER"
-	@echo "... KLL_FACTORY"
-	@echo "... GLOBAL_GEN"
-	@echo "... GK_FACTORY"
-	@echo "... AABB"
-	@echo "... CONFIG"
-	@echo "... QUANTILE_SKETCH"
-	@echo "... Q_DIGEST_FACTORY"
+	@echo "... QSBD_DCS"
+	@echo "... QSBD_KLL"
+	@echo "... QSBD_K_WISE_FAMILY"
+	@echo "... QSBD_CONFIG"
+	@echo "... QSBD_GK"
+	@echo "... QSBD_TIMER"
+	@echo "... QSBD_COUNT_SKETCH"
+	@echo "... QSBD_Q_DIGEST"
+	@echo "... QSBD_DEBUG"
+	@echo "... QSBD_UTILS"
+	@echo "... QSBD_COMMUM_HEADER"
+	@echo "... QSBD_POINT"
+	@echo "... QSBD_GK_FACTORY"
+	@echo "... QSBD_STREAM_MAKER"
+	@echo "... QSBD_MEMORY_TRACKER"
+	@echo "... QSBD_GLOBAL_GEN"
+	@echo "... QSBD_QUADTREE"
+	@echo "... QSBD_SKETCH_FACTORY"
+	@echo "... QSBD_QUANTILE_SKETCH"
+	@echo "... QSBD_QUANTILE_QUADTREE"
+	@echo "... QSBD_KLL_FACTORY"
+	@echo "... QSBD_Q_DIGEST_FACTORY"
+	@echo "... QSBD_AABB"
+	@echo "... QSBD_DCS_FACTORY"
 	@echo "... test_stream_maker"
 	@echo "... test_memory_tracker"
 	@echo "... test_kll"
