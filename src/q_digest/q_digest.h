@@ -29,8 +29,9 @@ namespace qsbd{
 			void print_subtree_weights();
 
 			//DEBUG
-			friend q_digest tree_on_paper_ex1();
+			/*friend q_digest tree_on_paper_ex1();
 			friend q_digest tree_on_paper_ex2();
+			*/
 		};
 
 		class merge_error: public std::exception {
@@ -62,7 +63,7 @@ namespace qsbd{
 		q_digest(const q_digest& other) = delete;
 		~q_digest();
 
-		q_digest operator=(const q_digest& other) = delete;
+		q_digest& operator=(const q_digest& other) = delete;
 
 		//DEBUG
 		q_digest(q_digest::node* root, double error, int universe);
@@ -76,13 +77,14 @@ namespace qsbd{
 		int weight_total();
 
 		//DEBUG
-		friend q_digest tree_on_paper_ex1();
+		/*friend q_digest tree_on_paper_ex1();
 		friend q_digest tree_on_paper_ex2();
-		friend void compress_tree_from_ex1();
+		friend void compress_tree_from_ex1();*/
 	};
-
+	/*
 	q_digest tree_on_paper_ex1();
 	q_digest tree_on_paper_ex2();
 	void compress_tree_from_ex1();
+	*/
 }
 #endif

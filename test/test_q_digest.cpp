@@ -20,7 +20,7 @@ int rank_from_stream(vector<pair<int,int>>& stream, int x){
 
 /*
 	Prints the tree and the subtree sum from ex1
-*/
+*//*
 void print_q_digest_tree_ex1(){
 	q_digest qdst = tree_on_paper_ex1();
 
@@ -31,11 +31,12 @@ void print_q_digest_tree_ex1(){
 	cout << "----------------------------------------" <<endl;
 	cout << "Subtree Sum: " << endl;
 	qdst.print_subtree_weights();
-}
+}*/
 
 /*
 	Prints the tree and the subtree sum from ex2
 */
+/*
 void print_q_digest_tree_ex2(){
 	q_digest qdst = tree_on_paper_ex2();
 
@@ -47,10 +48,12 @@ void print_q_digest_tree_ex2(){
 	cout << "Subtree Sum: " << endl;
 	qdst.print_subtree_weights();
 }
+*/
 
 /*
 	Prints all the querys from the tree in the ex1
 */
+/*
 void test_query_from_ex1(){
 	q_digest qdst = tree_on_paper_ex1();
 
@@ -59,11 +62,12 @@ void test_query_from_ex1(){
 		cout << "query(" << x << "): ";
 		cout << qdst.query(x) << endl;
 	}
-}
+}*/
 
 /*
 	Test the update method explained in the ex
 */
+/*
 void test_update_from_ex1(){
 	q_digest qdst = tree_on_paper_ex1();
 
@@ -74,11 +78,12 @@ void test_update_from_ex1(){
 
 	cout << "After update: " << endl;
 	qdst.print();
-}
+}*/
 
 /*
 	Merge the two trees from the examples and print the result
 */
+/*
 void test_merge_from_ex1_and_ex2(){
 	q_digest qdst1 = tree_on_paper_ex1();
 	q_digest qdst2 = tree_on_paper_ex2();
@@ -98,7 +103,7 @@ void test_merge_from_ex1_and_ex2(){
 	cout << "Sub tree from merge :" << endl;
 	merged_qdst->print_subtree_weights();
 	cout << endl;
-}
+}*/
 
 /*
 	Test the update method from my whiteboard

@@ -1,21 +1,21 @@
 Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
 Change Dir: /mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_1997d/fast && /usr/bin/make -f CMakeFiles/cmTC_1997d.dir/build.make CMakeFiles/cmTC_1997d.dir/build
+Run Build Command(s):/usr/bin/make cmTC_8f279/fast && /usr/bin/make -f CMakeFiles/cmTC_8f279.dir/build.make CMakeFiles/cmTC_8f279.dir/build
 make[1]: Entering directory '/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_1997d.dir/src.c.o
-/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD -fPIE   -std=gnu99 -o CMakeFiles/cmTC_1997d.dir/src.c.o   -c "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/CMakeTmp/src.c"
-Linking C executable cmTC_1997d
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1997d.dir/link.txt --verbose=1
-/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD    CMakeFiles/cmTC_1997d.dir/src.c.o  -o cmTC_1997d 
-/usr/bin/ld: CMakeFiles/cmTC_1997d.dir/src.c.o: in function `main':
+Building C object CMakeFiles/cmTC_8f279.dir/src.c.o
+/bin/x86_64-linux-gnu-gcc-9   -DCMAKE_HAVE_LIBC_PTHREAD -fPIE   -std=gnu99 -o CMakeFiles/cmTC_8f279.dir/src.c.o   -c "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/CMakeTmp/src.c"
+Linking C executable cmTC_8f279
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8f279.dir/link.txt --verbose=1
+/bin/x86_64-linux-gnu-gcc-9  -DCMAKE_HAVE_LIBC_PTHREAD    CMakeFiles/cmTC_8f279.dir/src.c.o  -o cmTC_8f279 
+/usr/bin/ld: CMakeFiles/cmTC_8f279.dir/src.c.o: in function `main':
 src.c:(.text+0x46): undefined reference to `pthread_create'
 /usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
 /usr/bin/ld: src.c:(.text+0x63): undefined reference to `pthread_join'
 collect2: error: ld returned 1 exit status
-make[1]: *** [CMakeFiles/cmTC_1997d.dir/build.make:87: cmTC_1997d] Error 1
+make[1]: *** [CMakeFiles/cmTC_8f279.dir/build.make:87: cmTC_8f279] Error 1
 make[1]: Leaving directory '/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/CMakeTmp'
-make: *** [Makefile:121: cmTC_1997d/fast] Error 2
+make: *** [Makefile:121: cmTC_8f279/fast] Error 2
 
 
 Source file was:
@@ -41,224 +41,18 @@ int main(void)
 Determining if the function pthread_create exists in the pthreads failed with the following output:
 Change Dir: /mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_cd837/fast && /usr/bin/make -f CMakeFiles/cmTC_cd837.dir/build.make CMakeFiles/cmTC_cd837.dir/build
+Run Build Command(s):/usr/bin/make cmTC_bdc4a/fast && /usr/bin/make -f CMakeFiles/cmTC_bdc4a.dir/build.make CMakeFiles/cmTC_bdc4a.dir/build
 make[1]: Entering directory '/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_cd837.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create -fPIE   -std=gnu99 -o CMakeFiles/cmTC_cd837.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
-Linking C executable cmTC_cd837
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_cd837.dir/link.txt --verbose=1
-/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_cd837.dir/CheckFunctionExists.c.o  -o cmTC_cd837  -lpthreads 
+Building C object CMakeFiles/cmTC_bdc4a.dir/CheckFunctionExists.c.o
+/bin/x86_64-linux-gnu-gcc-9   -DCHECK_FUNCTION_EXISTS=pthread_create -fPIE   -std=gnu99 -o CMakeFiles/cmTC_bdc4a.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_bdc4a
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bdc4a.dir/link.txt --verbose=1
+/bin/x86_64-linux-gnu-gcc-9  -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_bdc4a.dir/CheckFunctionExists.c.o  -o cmTC_bdc4a  -lpthreads 
 /usr/bin/ld: cannot find -lpthreads
 collect2: error: ld returned 1 exit status
-make[1]: *** [CMakeFiles/cmTC_cd837.dir/build.make:87: cmTC_cd837] Error 1
+make[1]: *** [CMakeFiles/cmTC_bdc4a.dir/build.make:87: cmTC_bdc4a] Error 1
 make[1]: Leaving directory '/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/CMakeTmp'
-make: *** [Makefile:121: cmTC_cd837/fast] Error 2
-
-
-
-Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
-Change Dir: /mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/CMakeTmp
-
-Run Build Command(s):/usr/bin/make cmTC_b0e26/fast && /usr/bin/make -f CMakeFiles/cmTC_b0e26.dir/build.make CMakeFiles/cmTC_b0e26.dir/build
-make[1]: Entering directory '/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_b0e26.dir/src.c.o
-/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD -fPIE   -std=gnu99 -o CMakeFiles/cmTC_b0e26.dir/src.c.o   -c "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/CMakeTmp/src.c"
-Linking C executable cmTC_b0e26
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b0e26.dir/link.txt --verbose=1
-/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD    CMakeFiles/cmTC_b0e26.dir/src.c.o  -o cmTC_b0e26 
-/usr/bin/ld: CMakeFiles/cmTC_b0e26.dir/src.c.o: in function `main':
-src.c:(.text+0x46): undefined reference to `pthread_create'
-/usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
-/usr/bin/ld: src.c:(.text+0x63): undefined reference to `pthread_join'
-collect2: error: ld returned 1 exit status
-make[1]: *** [CMakeFiles/cmTC_b0e26.dir/build.make:87: cmTC_b0e26] Error 1
-make[1]: Leaving directory '/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/CMakeTmp'
-make: *** [Makefile:121: cmTC_b0e26/fast] Error 2
-
-
-Source file was:
-#include <pthread.h>
-
-void* test_func(void* data)
-{
-  return data;
-}
-
-int main(void)
-{
-  pthread_t thread;
-  pthread_create(&thread, NULL, test_func, NULL);
-  pthread_detach(thread);
-  pthread_join(thread, NULL);
-  pthread_atfork(NULL, NULL, NULL);
-  pthread_exit(NULL);
-
-  return 0;
-}
-
-Determining if the function pthread_create exists in the pthreads failed with the following output:
-Change Dir: /mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/CMakeTmp
-
-Run Build Command(s):/usr/bin/make cmTC_1402f/fast && /usr/bin/make -f CMakeFiles/cmTC_1402f.dir/build.make CMakeFiles/cmTC_1402f.dir/build
-make[1]: Entering directory '/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_1402f.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create -fPIE   -std=gnu99 -o CMakeFiles/cmTC_1402f.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
-Linking C executable cmTC_1402f
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1402f.dir/link.txt --verbose=1
-/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_1402f.dir/CheckFunctionExists.c.o  -o cmTC_1402f  -lpthreads 
-/usr/bin/ld: cannot find -lpthreads
-collect2: error: ld returned 1 exit status
-make[1]: *** [CMakeFiles/cmTC_1402f.dir/build.make:87: cmTC_1402f] Error 1
-make[1]: Leaving directory '/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/CMakeTmp'
-make: *** [Makefile:121: cmTC_1402f/fast] Error 2
-
-
-
-Determining if the include file pthread.h exists failed with the following output:
-Change Dir: C:/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/CMakeTmp
-
-Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2017/Enterprise/MSBuild/15.0/Bin/MSBuild.exe cmTC_aeeb2.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=15.0 /v:m && Microsoft(R) Build Engine versão 15.5.180.51428 para .NET Framework 
-Copyright (C) Microsoft Corporation. Todos os direitos reservados.
-
-  Microsoft (R) C/C++ Optimizing Compiler Versão 19.12.25834 para x64
-  Copyright (C) Microsoft Corporation. Todos os direitos reservados.
-  
-  cl /c /Zi /W1 /WX- /diagnostics:classic /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_aeeb2.dir\Debug\\" /Fd"cmTC_aeeb2.dir\Debug\vc141.pdb" /Gd /TC /errorReport:queue "C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
-  CheckIncludeFile.c
-  
-C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c(1): fatal error C1083: Não é possível abrir arquivo incluir: 'pthread.h': No such file or directory [C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\build\CMakeFiles\CMakeTmp\cmTC_aeeb2.vcxproj]
-
-
-
-Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
-Change Dir: /mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/CMakeTmp
-
-Run Build Command(s):/usr/bin/make cmTC_25e58/fast && /usr/bin/make -f CMakeFiles/cmTC_25e58.dir/build.make CMakeFiles/cmTC_25e58.dir/build
-make[1]: Entering directory '/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_25e58.dir/src.c.o
-/bin/x86_64-linux-gnu-gcc-9   -DCMAKE_HAVE_LIBC_PTHREAD -fPIE   -std=gnu99 -o CMakeFiles/cmTC_25e58.dir/src.c.o   -c "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/CMakeTmp/src.c"
-Linking C executable cmTC_25e58
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_25e58.dir/link.txt --verbose=1
-/bin/x86_64-linux-gnu-gcc-9  -DCMAKE_HAVE_LIBC_PTHREAD    CMakeFiles/cmTC_25e58.dir/src.c.o  -o cmTC_25e58 
-/usr/bin/ld: CMakeFiles/cmTC_25e58.dir/src.c.o: in function `main':
-src.c:(.text+0x46): undefined reference to `pthread_create'
-/usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
-/usr/bin/ld: src.c:(.text+0x63): undefined reference to `pthread_join'
-collect2: error: ld returned 1 exit status
-make[1]: *** [CMakeFiles/cmTC_25e58.dir/build.make:87: cmTC_25e58] Error 1
-make[1]: Leaving directory '/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/CMakeTmp'
-make: *** [Makefile:121: cmTC_25e58/fast] Error 2
-
-
-Source file was:
-#include <pthread.h>
-
-void* test_func(void* data)
-{
-  return data;
-}
-
-int main(void)
-{
-  pthread_t thread;
-  pthread_create(&thread, NULL, test_func, NULL);
-  pthread_detach(thread);
-  pthread_join(thread, NULL);
-  pthread_atfork(NULL, NULL, NULL);
-  pthread_exit(NULL);
-
-  return 0;
-}
-
-Determining if the function pthread_create exists in the pthreads failed with the following output:
-Change Dir: /mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/CMakeTmp
-
-Run Build Command(s):/usr/bin/make cmTC_7e74d/fast && /usr/bin/make -f CMakeFiles/cmTC_7e74d.dir/build.make CMakeFiles/cmTC_7e74d.dir/build
-make[1]: Entering directory '/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_7e74d.dir/CheckFunctionExists.c.o
-/bin/x86_64-linux-gnu-gcc-9   -DCHECK_FUNCTION_EXISTS=pthread_create -fPIE   -std=gnu99 -o CMakeFiles/cmTC_7e74d.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
-Linking C executable cmTC_7e74d
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7e74d.dir/link.txt --verbose=1
-/bin/x86_64-linux-gnu-gcc-9  -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_7e74d.dir/CheckFunctionExists.c.o  -o cmTC_7e74d  -lpthreads 
-/usr/bin/ld: cannot find -lpthreads
-collect2: error: ld returned 1 exit status
-make[1]: *** [CMakeFiles/cmTC_7e74d.dir/build.make:87: cmTC_7e74d] Error 1
-make[1]: Leaving directory '/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/CMakeTmp'
-make: *** [Makefile:121: cmTC_7e74d/fast] Error 2
-
-
-
-Determining if the include file pthread.h exists failed with the following output:
-Change Dir: C:/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/CMakeTmp
-
-Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2017/Enterprise/MSBuild/15.0/Bin/MSBuild.exe cmTC_ba61e.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=15.0 /v:m && Microsoft(R) Build Engine versão 15.5.180.51428 para .NET Framework 
-Copyright (C) Microsoft Corporation. Todos os direitos reservados.
-
-  Microsoft (R) C/C++ Optimizing Compiler Versão 19.12.25834 para x64
-  Copyright (C) Microsoft Corporation. Todos os direitos reservados.
-  
-  cl /c /Zi /W1 /WX- /diagnostics:classic /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_ba61e.dir\Debug\\" /Fd"cmTC_ba61e.dir\Debug\vc141.pdb" /Gd /TC /errorReport:queue "C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
-  CheckIncludeFile.c
-  
-C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c(1): fatal error C1083: Não é possível abrir arquivo incluir: 'pthread.h': No such file or directory [C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\build\CMakeFiles\CMakeTmp\cmTC_ba61e.vcxproj]
-
-
-
-Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
-Change Dir: /mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/CMakeTmp
-
-Run Build Command(s):/usr/bin/make cmTC_b5eac/fast && /usr/bin/make -f CMakeFiles/cmTC_b5eac.dir/build.make CMakeFiles/cmTC_b5eac.dir/build
-make[1]: Entering directory '/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_b5eac.dir/src.c.o
-/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD -fPIE   -std=gnu99 -o CMakeFiles/cmTC_b5eac.dir/src.c.o   -c "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/CMakeTmp/src.c"
-Linking C executable cmTC_b5eac
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b5eac.dir/link.txt --verbose=1
-/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD    CMakeFiles/cmTC_b5eac.dir/src.c.o  -o cmTC_b5eac 
-/usr/bin/ld: CMakeFiles/cmTC_b5eac.dir/src.c.o: in function `main':
-src.c:(.text+0x46): undefined reference to `pthread_create'
-/usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
-/usr/bin/ld: src.c:(.text+0x63): undefined reference to `pthread_join'
-collect2: error: ld returned 1 exit status
-make[1]: *** [CMakeFiles/cmTC_b5eac.dir/build.make:87: cmTC_b5eac] Error 1
-make[1]: Leaving directory '/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/CMakeTmp'
-make: *** [Makefile:121: cmTC_b5eac/fast] Error 2
-
-
-Source file was:
-#include <pthread.h>
-
-void* test_func(void* data)
-{
-  return data;
-}
-
-int main(void)
-{
-  pthread_t thread;
-  pthread_create(&thread, NULL, test_func, NULL);
-  pthread_detach(thread);
-  pthread_join(thread, NULL);
-  pthread_atfork(NULL, NULL, NULL);
-  pthread_exit(NULL);
-
-  return 0;
-}
-
-Determining if the function pthread_create exists in the pthreads failed with the following output:
-Change Dir: /mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/CMakeTmp
-
-Run Build Command(s):/usr/bin/make cmTC_0dccf/fast && /usr/bin/make -f CMakeFiles/cmTC_0dccf.dir/build.make CMakeFiles/cmTC_0dccf.dir/build
-make[1]: Entering directory '/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_0dccf.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create -fPIE   -std=gnu99 -o CMakeFiles/cmTC_0dccf.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
-Linking C executable cmTC_0dccf
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0dccf.dir/link.txt --verbose=1
-/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_0dccf.dir/CheckFunctionExists.c.o  -o cmTC_0dccf  -lpthreads 
-/usr/bin/ld: cannot find -lpthreads
-collect2: error: ld returned 1 exit status
-make[1]: *** [CMakeFiles/cmTC_0dccf.dir/build.make:87: cmTC_0dccf] Error 1
-make[1]: Leaving directory '/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/CMakeTmp'
-make: *** [Makefile:121: cmTC_0dccf/fast] Error 2
+make: *** [Makefile:121: cmTC_bdc4a/fast] Error 2
 
 
 

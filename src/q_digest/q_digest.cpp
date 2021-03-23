@@ -345,7 +345,7 @@ namespace qsbd {
         return total_weight;
     }
 
-
+    /*
     q_digest tree_on_paper_ex1(){
         q_digest::node* root = new q_digest::node(2);
         root->left = new q_digest::node(2);
@@ -379,7 +379,7 @@ namespace qsbd {
 
 
     void compress_tree_from_ex1(){
-        q_digest qdst = tree_on_paper_ex1();
+        q_digest& qdst = tree_on_paper_ex1();
 
         qdst.capacity = 3;
 
@@ -389,5 +389,5 @@ namespace qsbd {
         cout << "After : " << endl;
         qdst.print(); 
     }
-
+    */
 }
