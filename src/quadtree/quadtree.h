@@ -31,6 +31,8 @@ namespace qsbd {
         quadtree();
         ~quadtree();
 
+        quadtree(const quadtree<T>& other) = delete;
+        quadtree<T>& operator=(const quadtree& other) = delete;
         bool insert(const point<double>& pos, T value);
         std::vector<T> query(const aabb& region);
 

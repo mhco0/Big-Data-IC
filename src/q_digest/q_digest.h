@@ -59,9 +59,13 @@ namespace qsbd{
 
 	public:
 		q_digest(double error, int universe);
+		q_digest(const q_digest& other) = delete;
+		~q_digest();
+
+		q_digest operator=(const q_digest& other) = delete;
+
 		//DEBUG
 		q_digest(q_digest::node* root, double error, int universe);
-		~q_digest();
 
 		void print(int indent = 0);
 		void print_subtree_weights();
