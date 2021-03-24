@@ -20,6 +20,7 @@ set(CMAKE_TARGET_LINKED_INFO_FILES
   "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/googletest/googletest/CMakeFiles/gtest_main.dir/DependInfo.cmake"
   "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/QSBD_QUADTREE.dir/DependInfo.cmake"
   "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/QSBD_STREAM_MAKER.dir/DependInfo.cmake"
+  "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/QSBD_UTILS.dir/DependInfo.cmake"
   "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/googletest/googletest/CMakeFiles/gtest.dir/DependInfo.cmake"
   "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/QSBD_AABB.dir/DependInfo.cmake"
   "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/QSBD_POINT.dir/DependInfo.cmake"

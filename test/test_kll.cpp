@@ -2,9 +2,13 @@
 #include <kll/kll.hpp>
 #include <stream_maker/stream_maker.h>
 #include <kll_factory/kll_factory.hpp>
+#include <utils/utils.h>
 using namespace std;
 using namespace qsbd;
 using namespace qsbd::stream_maker;
+
+deque<string> g_args;
+// error stream_size attempts stream_merge_sz1 stream_merge_sz2 stream_weight_min stream_weight_max
 
 TEST(KllTest, TestInsertSorted){
 	vector<int> random_input;
@@ -78,10 +82,10 @@ TEST(KllTest, TestQuery){
 }
 
 TEST(KllTest, TestBounds){
-	int N = 20000;
-	double error = 0.01;
-	int attempts = 100;
-	vector<int> stream = random_int_stream(N, 20, 1000);
+	int N = stoi(g_args[1]);
+	double error = stod(g_args[0]);
+	int attempts = stoi(g_args[2]);
+	vector<int> stream = random_int_stream(N, stoi(g_args[5]), stoi(g_args[6]));
 	vector<int> real_ranks = real_ranks_from_stream(stream);
 	vector<int> fails(real_ranks.size(), 0);
 
@@ -108,11 +112,11 @@ TEST(KllTest, TestBounds){
 }
 
 TEST(KllTest, TestMerge){
-	int N1 = 100;
-	int N2 = 300;
+	int N1 = stoi(g_args[3]);
+	int N2 = stoi(g_args[4]);
 	int N_total = N1 + N2;
-	double error = 0.3;
-	int attempts = 1000;
+	double error = stod(g_args[0]);
+	int attempts = stoi(g_args[2]);
 	vector<int> stream1 = random_int_stream(N1, 0, 100);
 	vector<int> stream2 = random_int_stream(N2, 100, 200);
 	vector<int> merged_stream = merge_stream<int>(stream1, stream2);
@@ -151,10 +155,10 @@ TEST(KllTest, TestMerge){
 }
 
 TEST(KllTest, TestFactory){
-	int N = 20000;
-	double error = 0.01;
-	int attempts = 100;
-	vector<int> stream = random_int_stream(N, 20, 1000);
+	int N = stoi(g_args[1]);
+	double error = stod(g_args[0]);
+	int attempts = stoi(g_args[2]);
+	vector<int> stream = random_int_stream(N, stoi(g_args[5]), stoi(g_args[6]));
 	vector<int> real_ranks = real_ranks_from_stream(stream);
 	vector<int> fails(real_ranks.size(), 0);
 
@@ -179,4 +183,15 @@ TEST(KllTest, TestFactory){
 	for(int i = 0; i < fails.size(); i++){
 		EXPECT_LT((fails[i]/(double) attempts), error);
 	}
+}
+
+
+int main(int argc, char* argv[]){
+    testing::InitGoogleTest(&argc, argv);
+
+    g_args = process_args(argc, argv);
+
+    cout << fixed;
+
+    return RUN_ALL_TESTS();
 }

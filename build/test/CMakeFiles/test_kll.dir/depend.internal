@@ -29,4 +29,5 @@ test/CMakeFiles/test_kll.dir/test_kll.cpp.o
  ../src/quantile_sketch/quantile_sketch.hpp
  ../src/sketch_factory/sketch_factory.hpp
  ../src/stream_maker/stream_maker.h
+ ../src/utils/utils.h
  /mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_kll.cpp

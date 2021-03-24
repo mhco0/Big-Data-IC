@@ -27,5 +27,6 @@ test/CMakeFiles/test_q_digest.dir/test_q_digest.cpp.o: ../src/q_digest/q_digest.
 test/CMakeFiles/test_q_digest.dir/test_q_digest.cpp.o: ../src/q_digest_factory/q_digest_factory.h
 test/CMakeFiles/test_q_digest.dir/test_q_digest.cpp.o: ../src/quantile_sketch/quantile_sketch.hpp
 test/CMakeFiles/test_q_digest.dir/test_q_digest.cpp.o: ../src/sketch_factory/sketch_factory.hpp
+test/CMakeFiles/test_q_digest.dir/test_q_digest.cpp.o: ../src/utils/utils.h
 test/CMakeFiles/test_q_digest.dir/test_q_digest.cpp.o: ../test/test_q_digest.cpp
 

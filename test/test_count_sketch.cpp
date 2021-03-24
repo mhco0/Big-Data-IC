@@ -1,10 +1,13 @@
 #include <gtest/gtest.h>
 #include <count_sketch/count_sketch.h>
 #include <stream_maker/stream_maker.h>
+#include <utils/utils.h>
 using namespace std;
 using namespace qsbd;
 using namespace qsbd::stream_maker;
 
+deque<string> g_args;
+// error delta stream_size attempts stream_merge_size1 stream_merge_size2
 
 TEST(CountScketchTest, TestAuxVariables){
     count_sketch cs(0.1, 0.3);
@@ -47,10 +50,10 @@ TEST(CountScketchTest, TestUpdate){
 }
 
 TEST(CountScketchTest, TestQueryAndBounds){
-    int stream_size = 10000;
-    int attempts = 1000;
-    double error = 0.1;
-    double delta = 0.3;
+    int stream_size = stoi(g_args[2]);
+    int attempts = stoi(g_args[3]);
+    double error = stod(g_args[0]);
+    double delta = stod(g_args[1]);
     vector<pair<int, int>> stream = random_int_stream_with_weight(stream_size, 0, 100, -20, 20);
     map<int, int> frequency = frequency_counter(stream);
     map<int, int> fails;
@@ -79,11 +82,11 @@ TEST(CountScketchTest, TestQueryAndBounds){
 }
 
 TEST(CountScketchTest, TestMerge){
-    int S1 = 300;
-    int S2 = 200;
-    int attempts = 100;
-    double error = 0.1;
-    double delta = 0.3;
+    int S1 = stoi(g_args[4]);
+    int S2 = stoi(g_args[5]);
+    int attempts = stoi(g_args[3]);
+    double error = stod(g_args[0]);
+    double delta = stod(g_args[1]);
     int d = ceil(48 * log(1.0 / delta));
     int t = 3.0 / error;
     vector<pair<int, int>> stream1 = random_int_stream_with_weight(S1, 0, 100, -50, 50);
@@ -127,3 +130,13 @@ TEST(CountScketchTest, TestMerge){
     }
 }
 
+
+int main(int argc, char* argv[]){
+    testing::InitGoogleTest(&argc, argv);
+
+    g_args = process_args(argc, argv);
+
+    cout << fixed;
+
+    return RUN_ALL_TESTS();
+}

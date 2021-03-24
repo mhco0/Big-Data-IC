@@ -14,6 +14,7 @@ using namespace qsbd;
 using namespace qsbd::stream_maker;
 
 deque<string> g_args;
+// aabb[0-3] deep error stream_size attempts
 
 vector<int> real_ranks_from_stream_gk(const vector<int>& stream, int min_v,int max_v){
     vector<int> weights(max_v + 1, 0);

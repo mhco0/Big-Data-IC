@@ -370,9 +370,21 @@ random
 ../global_generator/global_generator.h
 ../src/global_generator/global_generator.h
 
+../src/utils/utils.h
+algorithm
+-
+string
+-
+vector
+-
+deque
+-
+
 /mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_stream_maker.cpp
 gtest/gtest.h
 -
 stream_maker/stream_maker.h
+-
+utils/utils.h
 -
 

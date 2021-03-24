@@ -16,7 +16,6 @@ TEST(ConfiguratorTest, TestingLoad){
 
     ASSERT_TRUE(args.size() == 8);
 
-
     EXPECT_EQ(args[0], "0.0");
     EXPECT_EQ(args[1], "0.0");
     EXPECT_EQ(args[2], "1280.0");

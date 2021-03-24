@@ -2,9 +2,13 @@
 #include <stream_maker/stream_maker.h>
 #include <dcs/dcs.h>
 #include <dcs_factory/dcs_factory.h>
+#include <utils/utils.h>
 using namespace std;
 using namespace qsbd;
 using namespace qsbd::stream_maker;
+
+deque<string> g_args;
+// error universe [2^some integer] stream_size attempts stream_weight_min stream_weight_max
 
 TEST(DcsTest, TestInit){
     int universe = 64;
@@ -20,11 +24,11 @@ TEST(DcsTest, TestInit){
 }
 
 TEST(DcsTest, TestUpdate){
-	int N = 1000;
-	int universe = 16384;
-	vector<pair<int, int>> stream = random_int_stream_with_weight(N, 0, universe - 1, 0, 50);
+	int N = stoi(g_args[2]);
+	int universe = stoi(g_args[1]);
+	vector<pair<int, int>> stream = random_int_stream_with_weight(N, 0, universe - 1, stoi(g_args[4]), stoi(g_args[5]));
 	int total_weight = weight_from_stream(stream, false);
-	dcs test(0.3, universe);
+	dcs test(stod(g_args[0]), universe);
 
 	for(auto& it : stream){
 		test.update(it.first, it.second);
@@ -34,14 +38,14 @@ TEST(DcsTest, TestUpdate){
 }
 
 TEST(DcsTest, TestQueryAndBounds){
-    int N = 1000;
-	double error = 0.1;
-	int attempts = 100;
-    int universe = 16384;
+    int N = stoi(g_args[2]);
+	double error = stod(g_args[0]);
+	int attempts = stoi(g_args[3]);
+    int universe = stoi(g_args[1]);
 	// fazer funções mais distribuidas da entrada e verificar como fica a saida do algortimo
 	// se tem haver com a função da entrada
 	// testar tambem se as saidas do algoritmo são parecidas pro que ta sendo mostrado
-	vector<pair<int, int>> stream = random_int_stream_with_weight(N, 0, universe - 1, -10, 30);
+	vector<pair<int, int>> stream = random_int_stream_with_weight(N, 0, universe - 1, stoi(g_args[4]), stoi(g_args[5]));
 	vector<int> real_ranks = real_ranks_from_stream_with_weight(stream);
 	vector<int> fails(real_ranks.size(), 0);
     int total_weight = weight_from_stream(stream, false);
@@ -74,11 +78,11 @@ TEST(DcsTest, TestQueryAndBounds){
 }
 
 TEST(DcsTest, TestQuantile){
-	int N = 1000;
-	double error = 0.1;
-	int attempts = 100;
-    int universe = 16384;
-	vector<pair<int, int>> stream = random_int_stream_with_weight(N, 0, universe - 1, -10, 30);
+	int N = stoi(g_args[2]);
+	double error = stod(g_args[0]);
+	int attempts = stoi(g_args[3]);
+    int universe = stoi(g_args[1]);
+	vector<pair<int, int>> stream = random_int_stream_with_weight(N, 0, universe - 1, stoi(g_args[4]), stoi(g_args[5]));
 	vector<int> fails(10, 0);// [0.0, 1.0] adding 0.1
     int total_weight = weight_from_stream(stream, false);
 
@@ -106,15 +110,15 @@ TEST(DcsTest, TestQuantile){
 
 
 TEST(DcsTest, TestErrorFromRandomStream){
-	int N = 1000;
-	double error = 0.1;
-	int attempts = 100;
-    int universe = 16384;
+	int N = stoi(g_args[2]);
+	double error = stod(g_args[0]);
+	int attempts = stoi(g_args[3]);
+    int universe = stoi(g_args[1]);
 	double max_diff = -1;
 	double most_fail = -1;
 	double max_mean_error = 0;
 	int item_with_most_fail = -1;
-	vector<pair<int, int>> stream = random_int_stream_with_weight(N, 0, universe - 1, -10, 50);
+	vector<pair<int, int>> stream = random_int_stream_with_weight(N, 0, universe - 1, stoi(g_args[4]), stoi(g_args[5]));
 	stream = sort_and_merge_weight(stream);
 	vector<int> real_ranks = real_ranks_from_stream_with_weight(stream);
 	vector<int> fails(real_ranks.size(), 0);
@@ -184,13 +188,13 @@ TEST(DcsTest, TestErrorFromRandomStream){
 }
 
 TEST(DcsTest, TestErrorSimilarities){
-	int N = 1000;
+	int N = stoi(g_args[2]);
 	vector<double> errors = {0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9};
-	int attempts = 100;
-    int universe = 4096;
+	int attempts = stoi(g_args[3]);
+    int universe = stoi(g_args[1]);
 
 	for(auto& error : errors){
-		vector<pair<int, int>> stream = random_int_stream_with_weight(N, 0, universe - 1, -10, 30);
+		vector<pair<int, int>> stream = random_int_stream_with_weight(N, 0, universe - 1, stoi(g_args[4]), stoi(g_args[5]));
 		stream = sort_and_merge_weight(stream);
 		vector<int> real_ranks = real_ranks_from_stream_with_weight(stream);
 		vector<int> fails(real_ranks.size(), 0);
@@ -244,15 +248,15 @@ TEST(DcsTest, TestErrorSimilarities){
 }
 
 TEST(DcsTest, TestErrorFromNormalStream){
-	int N = 1000;
-	double error = 0.3;
-	int attempts = 100;
-    int universe = 16384;
+	int N = stoi(g_args[2]);
+	double error = stod(g_args[0]);
+	int attempts = stoi(g_args[3]);
+    int universe = stoi(g_args[1]);
 	double max_diff = -1;
 	double most_fail = -1;
 	double max_mean_error = 0;
 	int item_with_most_fail = -1;
-	vector<pair<int, int>> stream = normal_int_stream_with_weight(N, universe / 2, 100, -10, 50);
+	vector<pair<int, int>> stream = normal_int_stream_with_weight(N, universe / 2, 100, stoi(g_args[4]), stoi(g_args[5]));
 	stream = sort_and_merge_weight(stream);
 	vector<int> real_ranks = real_ranks_from_stream_with_weight(stream);
 	vector<int> fails(real_ranks.size(), 0);
@@ -322,13 +326,13 @@ TEST(DcsTest, TestErrorFromNormalStream){
 }
 
 TEST(DcsTest, TestFailPlot){
-	int N = 1000;
+	int N = stoi(g_args[2]);
 	vector<double> errors = {0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9};
-	int attempts = 100;
-    int universe = 16384;
+	int attempts = stoi(g_args[3]);
+    int universe = stoi(g_args[1]);
 
 	for(auto& error : errors){
-		vector<pair<int, int>> stream = random_int_stream_with_weight(N, 0, universe - 1, -100, 100);
+		vector<pair<int, int>> stream = random_int_stream_with_weight(N, 0, universe - 1, stoi(g_args[4]), stoi(g_args[5]));
 		stream = sort_and_merge_weight(stream);
 		vector<int> real_ranks = real_ranks_from_stream_with_weight(stream);
 		vector<int> fails(real_ranks.size(), 0);
@@ -379,13 +383,13 @@ TEST(DcsTest, TestFailPlot){
 }
 
 TEST(DcsTest, TestFailCondition){
-	int N = 1000;
+	int N = stoi(g_args[2]);
 	vector<double> errors = {0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9};
-	int attempts = 100;
-    int universe = 16384;
+	int attempts = stoi(g_args[3]);
+    int universe = stoi(g_args[1]);
 
 	for(auto& error : errors){
-		vector<pair<int, int>> stream = random_int_stream_with_weight(N, 0, universe - 1, -100, 100);
+		vector<pair<int, int>> stream = random_int_stream_with_weight(N, 0, universe - 1, stoi(g_args[4]), stoi(g_args[5]));
 		stream = sort_and_merge_weight(stream);
 		vector<int> real_ranks = real_ranks_from_stream_with_weight(stream);
 		vector<int> fails(real_ranks.size(), 0);
@@ -440,7 +444,7 @@ TEST(DcsTest, TestFailCondition){
 }
 
 TEST(DcsTest, MemoryTest){
-	int first_universe = 4096;
+	int first_universe = stoi(g_args[2]);
 	vector<double> errors = {0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9};
 	vector<int> universes;
 	vector<double> values;
@@ -466,4 +470,14 @@ TEST(DcsTest, MemoryTest){
 		EXPECT_EQ(memory_brute.size(), values.size());
 	}
 	
+}
+
+int main(int argc, char* argv[]){
+    testing::InitGoogleTest(&argc, argv);
+
+    g_args = process_args(argc, argv);
+
+    cout << fixed;
+
+    return RUN_ALL_TESTS();
 }

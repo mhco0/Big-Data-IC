@@ -1,8 +1,12 @@
 #include <gtest/gtest.h>
 #include <q_digest/q_digest.h>
 #include <q_digest_factory/q_digest_factory.h>
+#include <utils/utils.h>
 using namespace std;
 using namespace qsbd;
+
+deque<string> g_args;
+// error vector_size #updates #querys
 
 /*
 	Calculates the rank(x), for a given stream
@@ -16,6 +20,38 @@ int rank_from_stream(vector<pair<int,int>>& stream, int x){
 	}
 
 	return rank;
+}
+
+
+/*
+	Makes the stream commands by the args, the stream comes from [vector_size] with number_of_update commands and number_of_query commands.
+	The query command goes if a -1 on the first element.
+	if the shuffle arg is true, the command to the stream is shuffled.
+*/
+vector<pair<int, int>> make_stream_commands(int vector_size, int number_of_updates, int number_of_query, bool shuffle = false){
+	uniform_int_distribution<int> who_pick(0, vector_size - 1);
+	uniform_int_distribution<int> how_many_give(0, 100);
+	vector<pair<int, int>> commands_to_stream;
+
+
+	for(int i = 0; i < number_of_updates; i++){
+		int random_element = who_pick(generator);
+		
+		int weight = how_many_give(generator);
+
+		commands_to_stream.push_back({random_element, weight});
+	}
+
+	for(int i = 0; i < number_of_query; i++){
+		int random_element = who_pick(generator);
+
+		// -1 -> mask to say that this is a query command
+		commands_to_stream.push_back({-1, random_element});
+	}
+
+	if(shuffle) random_shuffle(commands_to_stream.begin(), commands_to_stream.end());
+
+	return commands_to_stream;
 }
 
 /*
@@ -108,7 +144,7 @@ void test_merge_from_ex1_and_ex2(){
 /*
 	Test the update method from my whiteboard
 */
-void test_update_from_scratch(){
+TEST(QDigestTest, TestUpdate){
 	vector<pair<int, int>> stream = {{0, 5}, {1, 3}, {2, 4}, {1, 4}, {4, 2}, {2, 1}, {3, 5}};
 	int total_weight = 0;
 	q_digest qdst(0.25, 5);
@@ -145,43 +181,11 @@ void test_update_from_scratch(){
 	cout << endl;
 }
 
-/*
-	Makes the stream commands by the args, the stream comes from [vector_size] with number_of_update commands and number_of_query commands.
-	The query command goes if a -1 on the first element.
-	if the shuffle arg is true, the command to the stream is shuffled.
-*/
-vector<pair<int, int>> make_stream_commands(int vector_size, int number_of_updates, int number_of_query, bool shuffle = false){
-	uniform_int_distribution<int> who_pick(0, vector_size - 1);
-	uniform_int_distribution<int> how_many_give(0, 100);
-	vector<pair<int, int>> commands_to_stream;
-
-
-	for(int i = 0; i < number_of_updates; i++){
-		int random_element = who_pick(generator);
-		
-		int weight = how_many_give(generator);
-
-		commands_to_stream.push_back({random_element, weight});
-	}
-
-	for(int i = 0; i < number_of_query; i++){
-		int random_element = who_pick(generator);
-
-		// -1 -> mask to say that this is a query command
-		commands_to_stream.push_back({-1, random_element});
-	}
-
-	if(shuffle) random_shuffle(commands_to_stream.begin(), commands_to_stream.end());
-
-	return commands_to_stream;
-}
-
-
 TEST(QDigestTest, TestUpdateAndQuery){
-    double epsilon = 0.3;
-    int vector_size = 1000;
-    int number_of_updates = 100;
-    int number_of_query = 100;
+    double epsilon = stod(g_args[0]);
+    int vector_size = stoi(g_args[1]);
+    int number_of_updates = stoi(g_args[2]);
+    int number_of_query = stoi(g_args[3]);
     bool shuffle = false;
     bool print_tree_on_query = true;
     vector<pair<int,int>> commands = make_stream_commands(vector_size, number_of_updates, number_of_query, shuffle);
@@ -203,17 +207,62 @@ TEST(QDigestTest, TestUpdateAndQuery){
 			}
 			int query = qdst.query(command.second);
 			cout << "Query(" << command.second << "): " << query << endl;
-			int real_rank = rank_from_stream(stream,command.second);
+			int real_rank = rank_from_stream(stream, command.second);
 			cout << "Range to approximated rank -> ("<< query << " [r] <= " << real_rank << " [rank(x)] <= " << (query*1.0 + epsilon*qdst.weight_total()) << " [r + e*W] )" << endl;  
 			cout << "----------------------------------------------------------------" << endl;
 			cout << endl;
 		}else{
-			qdst.update(command.first,command.second);
+			qdst.update(command.first, command.second);
 			stream.push_back(command);
 		}
 	}
 }
 
 TEST(QDigestTest, TestFactory){
+	double error = stod(g_args[0]);
+    int vector_size = stoi(g_args[1]);
+    int number_of_updates = stoi(g_args[2]);
+    int number_of_query = stoi(g_args[3]);
+    bool shuffle = false;
+    bool print_tree_on_query = true;
+    vector<pair<int,int>> commands = make_stream_commands(vector_size, number_of_updates, number_of_query, shuffle);
+	vector<pair<int,int>> stream;
 
+	q_digest_factory factory(error, vector_size);
+	q_digest* qdst = dynamic_cast<q_digest *>(factory.instance());
+
+	for(auto& command : commands){
+		if(command.first == -1){
+			cout << endl;
+			cout << "----------------------------------------------------------------" << endl;
+			if(print_tree_on_query){
+				cout << "Tree Print :" << endl;
+				qdst->print();
+				cout << endl;
+
+				cout << "Subtree Print : " << endl;
+				qdst->print_subtree_weights();
+				cout << endl;
+			}
+			int query = qdst->query(command.second);
+			cout << "Query(" << command.second << "): " << query << endl;
+			int real_rank = rank_from_stream(stream, command.second);
+			cout << "Range to approximated rank -> ("<< query << " [r] <= " << real_rank << " [rank(x)] <= " << (query * 1.0 + error * qdst->weight_total()) << " [r + e*W] )" << endl;  
+			cout << "----------------------------------------------------------------" << endl;
+			cout << endl;
+		}else{
+			qdst->update(command.first, command.second);
+			stream.push_back(command);
+		}
+	}
+}
+
+int main(int argc, char* argv[]){
+    testing::InitGoogleTest(&argc, argv);
+
+    g_args = process_args(argc, argv);
+
+    cout << fixed;
+
+    return RUN_ALL_TESTS();
 }

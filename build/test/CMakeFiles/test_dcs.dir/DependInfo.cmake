@@ -21,13 +21,13 @@ set(CMAKE_TARGET_LINKED_INFO_FILES
   "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/QSBD_DCS.dir/DependInfo.cmake"
   "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/QSBD_STREAM_MAKER.dir/DependInfo.cmake"
   "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/QSBD_DCS_FACTORY.dir/DependInfo.cmake"
+  "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/QSBD_UTILS.dir/DependInfo.cmake"
   "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/googletest/googletest/CMakeFiles/gtest.dir/DependInfo.cmake"
   "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/QSBD_QUANTILE_SKETCH.dir/DependInfo.cmake"
   "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/QSBD_COUNT_SKETCH.dir/DependInfo.cmake"
   "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/QSBD_COMMUM_HEADER.dir/DependInfo.cmake"
   "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/QSBD_K_WISE_FAMILY.dir/DependInfo.cmake"
   "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/QSBD_GLOBAL_GEN.dir/DependInfo.cmake"
-  "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/QSBD_UTILS.dir/DependInfo.cmake"
   "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/QSBD_SKETCH_FACTORY.dir/DependInfo.cmake"
   )
 

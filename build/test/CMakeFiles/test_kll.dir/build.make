@@ -60,15 +60,15 @@ include test/CMakeFiles/test_kll.dir/flags.make
 test/CMakeFiles/test_kll.dir/test_kll.cpp.o: test/CMakeFiles/test_kll.dir/flags.make
 test/CMakeFiles/test_kll.dir/test_kll.cpp.o: ../test/test_kll.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object test/CMakeFiles/test_kll.dir/test_kll.cpp.o"
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && /bin/x86_64-linux-gnu-g++-9  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/test_kll.dir/test_kll.cpp.o -c "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_kll.cpp"
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/test_kll.dir/test_kll.cpp.o -c "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_kll.cpp"
 
 test/CMakeFiles/test_kll.dir/test_kll.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test_kll.dir/test_kll.cpp.i"
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && /bin/x86_64-linux-gnu-g++-9 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_kll.cpp" > CMakeFiles/test_kll.dir/test_kll.cpp.i
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_kll.cpp" > CMakeFiles/test_kll.dir/test_kll.cpp.i
 
 test/CMakeFiles/test_kll.dir/test_kll.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test_kll.dir/test_kll.cpp.s"
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && /bin/x86_64-linux-gnu-g++-9 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_kll.cpp" -o CMakeFiles/test_kll.dir/test_kll.cpp.s
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_kll.cpp" -o CMakeFiles/test_kll.dir/test_kll.cpp.s
 
 # Object files for target test_kll
 test_kll_OBJECTS = \
@@ -83,6 +83,7 @@ bin/test_kll: lib/libgtest_main.a
 bin/test_kll: lib/libQSBD_KLL.a
 bin/test_kll: lib/libQSBD_STREAM_MAKER.a
 bin/test_kll: lib/libQSBD_KLL_FACTORY.a
+bin/test_kll: lib/libQSBD_UTILS.a
 bin/test_kll: lib/libgtest.a
 bin/test_kll: lib/libQSBD_KLL.a
 bin/test_kll: lib/libQSBD_COMMUM_HEADER.a

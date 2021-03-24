@@ -1,9 +1,11 @@
 #include <gtest/gtest.h>
 #include <gk/gk.hpp>
 #include <gk_factory/gk_factory.hpp>
+#include <utils/utils.h>
 using namespace std;
 using namespace qsbd;
 
+deque<string> g_args;
 
 /*
     Tests tuple insertion on multimap
@@ -253,9 +255,10 @@ void test_gk_summary(double epsilon, int vector_size, int min_v, int max_v, bool
     }
 }
 
+
 /*
 	This function process the args for the program and check if they size match.
-*/
+*//*
 deque<string> process_args(int argc, char* argv[]){
 	deque<string> args;
 
@@ -273,7 +276,7 @@ deque<string> process_args(int argc, char* argv[]){
 	assert(check_parameters);
 
 	return args;
-}
+}*/
 
 /*
 	Show the help guide.
@@ -295,8 +298,8 @@ void help(){
 	cout << "5. --print (optional) : print the histogram for the gk summary. " << endl;
 	cout << endl;
 }
-
-int main(int argc, char* argv[]){
+/*
+int main2(int argc, char* argv[]){
     ios::sync_with_stdio(false);
     cin.tie(0);
 
@@ -322,8 +325,18 @@ int main(int argc, char* argv[]){
         test_gk_summary(epsilon, vector_size, min_v, max_v, print);
     }
     return 0;
-}
+}*/
 
 TEST(GkTest, TestFactory){
 
 }
+
+int main(int argc, char* argv[]){
+    testing::InitGoogleTest(&argc, argv);
+
+    g_args = process_args(argc, argv);
+
+    cout << fixed;
+
+    return RUN_ALL_TESTS();
+}   

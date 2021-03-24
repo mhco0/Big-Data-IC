@@ -27,5 +27,6 @@ test/CMakeFiles/test_gk.dir/test_gk.cpp.o: ../src/gk_factory/gk_factory.hpp
 test/CMakeFiles/test_gk.dir/test_gk.cpp.o: ../src/global_generator/global_generator.h
 test/CMakeFiles/test_gk.dir/test_gk.cpp.o: ../src/quantile_sketch/quantile_sketch.hpp
 test/CMakeFiles/test_gk.dir/test_gk.cpp.o: ../src/sketch_factory/sketch_factory.hpp
+test/CMakeFiles/test_gk.dir/test_gk.cpp.o: ../src/utils/utils.h
 test/CMakeFiles/test_gk.dir/test_gk.cpp.o: ../test/test_gk.cpp
 
