@@ -33,6 +33,7 @@ test/CMakeFiles/test_quantile_quadtree.dir/test_quantile_quadtree.cpp.o
  ../src/k_wise_family/k_wise_family.h
  ../src/kll/kll.hpp
  ../src/kll_factory/kll_factory.hpp
+ ../src/logger/logger.h
  ../src/memory_tracker/memory_tracker.h
  ../src/point/point.hpp
  ../src/q_digest/q_digest.h

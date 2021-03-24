@@ -52,9 +52,14 @@ target_include_directories(test_quadtree PRIVATE ${QSBD_DIR_SOURCE})
 add_test(NAME test_quadtree COMMAND test_quadtree)
 
 add_executable(test_quantile_quadtree test_quantile_quadtree.cpp)
-target_link_libraries(test_quantile_quadtree PRIVATE gtest_main QSBD_QUANTILE_QUADTREE QSBD_STREAM_MAKER QSBD_COUNT_SKETCH QSBD_KLL_FACTORY QSBD_GK_FACTORY QSBD_Q_DIGEST_FACTORY QSBD_DCS_FACTORY QSBD_MEMORY_TRACKER QSBD_TIMER QSBD_DEBUG QSBD_UTILS)
+target_link_libraries(test_quantile_quadtree PRIVATE gtest_main QSBD_QUANTILE_QUADTREE QSBD_STREAM_MAKER QSBD_COUNT_SKETCH QSBD_KLL_FACTORY QSBD_GK_FACTORY QSBD_Q_DIGEST_FACTORY QSBD_DCS_FACTORY QSBD_MEMORY_TRACKER QSBD_TIMER QSBD_DEBUG QSBD_UTILS QSBD_LOG)
 target_include_directories(test_quantile_quadtree PRIVATE ${QSBD_DIR_SOURCE})
 add_test(NAME test_quantile_quadtree COMMAND test_quantile_quadtree)
+
+add_executable(test_log test_log.cpp)
+target_link_libraries(test_log PRIVATE gtest_main QSBD_LOG)
+target_include_directories(test_log PRIVATE ${QSBD_DIR_SOURCE})
+add_test(NAME test_log COMMAND test_log)
 
 add_executable(tester tester.cpp)
 target_link_libraries(tester PRIVATE QSBD_CONFIG QSBD_UTILS QSBD_DEBUG)

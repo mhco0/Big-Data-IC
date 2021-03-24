@@ -29,10 +29,13 @@ int main(int argc, char * argv[]){
         command += sub_arg;
     }
 
+    command += " ";
+    command += configurator::get_data_file();
+    command += " ";
+    command += configurator::get_output_file();
+
     if (not configurator::debug_mode()) command += " -DDISABLE_DEBUG";
 
-    command += " > ";
-    command += configurator::get_output_file();
 
     cout << "compiling... " << compile << endl;
     system(compile.c_str());

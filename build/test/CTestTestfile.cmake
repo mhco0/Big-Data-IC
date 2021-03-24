@@ -26,5 +26,7 @@ add_test(test_quadtree "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/bu
 set_tests_properties(test_quadtree PROPERTIES  _BACKTRACE_TRIPLES "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/CMakeLists.txt;52;add_test;/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/CMakeLists.txt;0;")
 add_test(test_quantile_quadtree "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/bin/test_quantile_quadtree")
 set_tests_properties(test_quantile_quadtree PROPERTIES  _BACKTRACE_TRIPLES "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/CMakeLists.txt;57;add_test;/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/CMakeLists.txt;0;")
+add_test(test_log "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/bin/test_log")
+set_tests_properties(test_log PROPERTIES  _BACKTRACE_TRIPLES "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/CMakeLists.txt;62;add_test;/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/CMakeLists.txt;0;")
 add_test(tester "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/bin/tester")
-set_tests_properties(tester PROPERTIES  _BACKTRACE_TRIPLES "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/CMakeLists.txt;62;add_test;/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/CMakeLists.txt;0;")
+set_tests_properties(tester PROPERTIES  _BACKTRACE_TRIPLES "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/CMakeLists.txt;67;add_test;/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/CMakeLists.txt;0;")

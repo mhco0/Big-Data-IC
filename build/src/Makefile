@@ -68,6 +68,18 @@ install/local/fast: preinstall/fast
 	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local/fast
 
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -112,18 +124,6 @@ test:
 test/fast: test
 
 .PHONY : test/fast
-
-# Special rule for the target install
-install: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/bin/cmake -P cmake_install.cmake
-.PHONY : install
-
-# Special rule for the target install
-install/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/bin/cmake -P cmake_install.cmake
-.PHONY : install/fast
 
 # Special rule for the target list_install_components
 list_install_components:
@@ -181,6 +181,21 @@ QSBD_DCS: src/CMakeFiles/QSBD_DCS.dir/rule
 QSBD_DCS/fast:
 	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f src/CMakeFiles/QSBD_DCS.dir/build.make src/CMakeFiles/QSBD_DCS.dir/build
 .PHONY : QSBD_DCS/fast
+
+# Convenience name for target.
+src/CMakeFiles/QSBD_LOG.dir/rule:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/QSBD_LOG.dir/rule
+.PHONY : src/CMakeFiles/QSBD_LOG.dir/rule
+
+# Convenience name for target.
+QSBD_LOG: src/CMakeFiles/QSBD_LOG.dir/rule
+
+.PHONY : QSBD_LOG
+
+# fast build rule for target.
+QSBD_LOG/fast:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f src/CMakeFiles/QSBD_LOG.dir/build.make src/CMakeFiles/QSBD_LOG.dir/build
+.PHONY : QSBD_LOG/fast
 
 # Convenience name for target.
 src/CMakeFiles/QSBD_KLL.dir/rule:
@@ -716,6 +731,33 @@ kll/kll.cpp.s:
 	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f src/CMakeFiles/QSBD_KLL.dir/build.make src/CMakeFiles/QSBD_KLL.dir/kll/kll.cpp.s
 .PHONY : kll/kll.cpp.s
 
+logger/logger.o: logger/logger.cpp.o
+
+.PHONY : logger/logger.o
+
+# target to build an object file
+logger/logger.cpp.o:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f src/CMakeFiles/QSBD_LOG.dir/build.make src/CMakeFiles/QSBD_LOG.dir/logger/logger.cpp.o
+.PHONY : logger/logger.cpp.o
+
+logger/logger.i: logger/logger.cpp.i
+
+.PHONY : logger/logger.i
+
+# target to preprocess a source file
+logger/logger.cpp.i:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f src/CMakeFiles/QSBD_LOG.dir/build.make src/CMakeFiles/QSBD_LOG.dir/logger/logger.cpp.i
+.PHONY : logger/logger.cpp.i
+
+logger/logger.s: logger/logger.cpp.s
+
+.PHONY : logger/logger.s
+
+# target to generate assembly for a file
+logger/logger.cpp.s:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f src/CMakeFiles/QSBD_LOG.dir/build.make src/CMakeFiles/QSBD_LOG.dir/logger/logger.cpp.s
+.PHONY : logger/logger.cpp.s
+
 memory_tracker/memory_tracker.o: memory_tracker/memory_tracker.cpp.o
 
 .PHONY : memory_tracker/memory_tracker.o
@@ -912,7 +954,9 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... install/local"
+	@echo "... install"
 	@echo "... QSBD_DCS"
+	@echo "... QSBD_LOG"
 	@echo "... QSBD_KLL"
 	@echo "... QSBD_K_WISE_FAMILY"
 	@echo "... QSBD_CONFIG"
@@ -933,7 +977,6 @@ help:
 	@echo "... QSBD_MEMORY_TRACKER"
 	@echo "... QSBD_GLOBAL_GEN"
 	@echo "... QSBD_QUADTREE"
-	@echo "... install"
 	@echo "... QSBD_SKETCH_FACTORY"
 	@echo "... QSBD_QUANTILE_SKETCH"
 	@echo "... QSBD_QUANTILE_QUADTREE"
@@ -963,6 +1006,9 @@ help:
 	@echo "... kll/kll.o"
 	@echo "... kll/kll.i"
 	@echo "... kll/kll.s"
+	@echo "... logger/logger.o"
+	@echo "... logger/logger.i"
+	@echo "... logger/logger.s"
 	@echo "... memory_tracker/memory_tracker.o"
 	@echo "... memory_tracker/memory_tracker.i"
 	@echo "... memory_tracker/memory_tracker.s"

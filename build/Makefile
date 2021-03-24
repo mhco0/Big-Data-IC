@@ -233,6 +233,19 @@ QSBD_DCS/fast:
 .PHONY : QSBD_DCS/fast
 
 #=============================================================================
+# Target rules for targets named QSBD_LOG
+
+# Build rule for target.
+QSBD_LOG: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 QSBD_LOG
+.PHONY : QSBD_LOG
+
+# fast build rule for target.
+QSBD_LOG/fast:
+	$(MAKE) -f src/CMakeFiles/QSBD_LOG.dir/build.make src/CMakeFiles/QSBD_LOG.dir/build
+.PHONY : QSBD_LOG/fast
+
+#=============================================================================
 # Target rules for targets named QSBD_KLL
 
 # Build rule for target.
@@ -571,6 +584,19 @@ test_kll/fast:
 .PHONY : test_kll/fast
 
 #=============================================================================
+# Target rules for targets named test_log
+
+# Build rule for target.
+test_log: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_log
+.PHONY : test_log
+
+# fast build rule for target.
+test_log/fast:
+	$(MAKE) -f test/CMakeFiles/test_log.dir/build.make test/CMakeFiles/test_log.dir/build
+.PHONY : test_log/fast
+
+#=============================================================================
 # Target rules for targets named test_quantile_quadtree
 
 # Build rule for target.
@@ -705,6 +731,7 @@ help:
 	@echo "... gtest_main"
 	@echo "... gtest"
 	@echo "... QSBD_DCS"
+	@echo "... QSBD_LOG"
 	@echo "... QSBD_KLL"
 	@echo "... QSBD_K_WISE_FAMILY"
 	@echo "... QSBD_CONFIG"
@@ -731,6 +758,7 @@ help:
 	@echo "... test_stream_maker"
 	@echo "... test_memory_tracker"
 	@echo "... test_kll"
+	@echo "... test_log"
 	@echo "... test_quantile_quadtree"
 	@echo "... test_k_wise_family"
 	@echo "... tester"

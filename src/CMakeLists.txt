@@ -132,6 +132,12 @@ add_library(
     "dcs_factory/dcs_factory.h"
 )
 
+add_library(
+    QSBD_LOG
+    "logger/logger.h"
+    "logger/logger.cpp"
+)
+
 set(QSBD_LIBS
 
     QSBD_GLOBAL_GEN
@@ -158,6 +164,7 @@ set(QSBD_LIBS
     QSBD_POINT
     QSBD_QUADTREE
     QSBD_QUANTILE_QUADTREE
+    QSBD_LOG
 )
 
 
@@ -211,3 +218,5 @@ target_link_libraries(QSBD_GK_FACTORY PUBLIC QSBD_GK)
 
 target_link_libraries(QSBD_DCS_FACTORY PUBLIC QSBD_SKETCH_FACTORY)
 target_link_libraries(QSBD_DCS_FACTORY PUBLIC QSBD_DCS)
+
+target_link_libraries(QSBD_LOG PUBLIC QSBD_DEBUG)

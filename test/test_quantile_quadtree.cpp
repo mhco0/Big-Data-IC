@@ -9,12 +9,15 @@
 #include <q_digest_factory/q_digest_factory.h>
 #include <dcs_factory/dcs_factory.h>
 #include <utils/utils.h>
+#include <logger/logger.h>
 using namespace std;
 using namespace qsbd;
 using namespace qsbd::stream_maker;
 
 deque<string> g_args;
-// aabb[0-3] deep error stream_size attempts
+logger data_output;
+logger memtime_output;
+// aabb[0-3] deep error stream_size attempts data_file output_file
 
 vector<int> real_ranks_from_stream_gk(const vector<int>& stream, int min_v,int max_v){
     vector<int> weights(max_v + 1, 0);
@@ -76,17 +79,27 @@ TEST(QuantileQuadtreeTest, TestConstructWithKll){
     kll_factory<int> factory(error);
     int deep = stoi(g_args[4]);
 
+    data_output << "==========================================" << "\n";
+    data_output << "\tConstruction Test : " << "\n";
+    data_output << "==========================================" << "\n";
+    data_output << ".Deep of Quantile Quadtree (int deep): " << deep << "\n";
+    data_output << ".Resolution (aabb resolution): " << resolution << "\n";
+    data_output << ".Error used: " << error << "\n"; 
+
     timer counter;
     counter.start();
     quantile_quadtree<int> test(resolution, deep, &factory);
     counter.end();
 
-    cout << "Timer for construct " << counter.count() << "s." << endl;
-    cout << endl;
-
+    
+    memtime_output << "==========================================" << "\n";
+    memtime_output << "\tConstruction Test : " << "\n";
+    memtime_output << "==========================================" << "\n";
+    memtime_output << ".Timer for construct " << counter.count() << "s." << "\n";
+    memtime_output << "\n";
 
     mem_track::track_list_memory_usage();
-    cout << endl;
+    memtime_output << "\n";
 }
 
 TEST(QuantileQuadtreeTest, TestUpdateAndQueryWithKll){
@@ -97,11 +110,26 @@ TEST(QuantileQuadtreeTest, TestUpdateAndQueryWithKll){
     aabb resolution(stod(g_args[0]), stod(g_args[1]), stod(g_args[2]), stod(g_args[3]));
     aabb search_region = construct_aabb_from_random_region(stod(g_args[0]), stod(g_args[1]), stod(g_args[2]), stod(g_args[3]));
     
+    data_output << "==========================================" << "\n";
+    data_output << "\tUpdate And Query With KLL Test : " << "\n";
+    data_output << "==========================================" << "\n";
+    data_output << ".Deep of Quantile Quadtree (int deep): " << deep << "\n";
+    data_output << ".Resolution (aabb resolution): " << resolution << "\n";
+    data_output << ".Stream size (int N): " << N << "\n";
+    data_output << ".Error used: " << error << "\n"; 
+
 	
 	vector<pair<int, pair<double, double>>> stream =  random_stream_city(N, stod(g_args[0]), stod(g_args[1]), stod(g_args[2]), stod(g_args[3]), 0, N, 15, 5.0);
     vector<int> stream_in_region = brute_force_search(stream, search_region);
 	vector<int> real_ranks = real_ranks_from_stream(stream_in_region);
 	vector<int> fails(real_ranks.size(), 0);
+
+    data_output << ".Stream used : " << "\n";
+    data_output << stream << "\n";
+
+    memtime_output << "==========================================" << "\n";
+    memtime_output << "\tUpdate And Query With KLL Test : " << "\n";
+    memtime_output << "==========================================" << "\n";
 
 	for(int i = 0; i < attempts; i++){
 		kll_factory<int> factory(error);
@@ -115,8 +143,8 @@ TEST(QuantileQuadtreeTest, TestUpdateAndQueryWithKll){
         }
         counter.end();
 
-        cout << "Avg update time : " << counter.count() / stream.size() << "s" << endl;
-        cout << endl;
+        memtime_output << ".Avg update time : " << counter.count() / stream.size() << "s" << "\n";
+        memtime_output << "\n";
 
         counter.start();
 		for(int j = 0; j < real_ranks.size(); j++){
@@ -129,12 +157,12 @@ TEST(QuantileQuadtreeTest, TestUpdateAndQueryWithKll){
 		}
         counter.end();
 
-        cout << "Avg query time : " << counter.count() / stream.size() << "s" << endl;
-        cout << endl;
+        memtime_output << ".Avg query time : " << counter.count() / stream.size() << "s" << "\n";
+        memtime_output << "\n";
 
-        cout << "Memory Used for iteration " << i << ": " << endl;
+        memtime_output << ".Memory Used in iteration " << i << ": " << "\n";
         mem_track::track_list_memory_usage();
-        cout << endl;
+        memtime_output << "\n";
 	}
 
 	for(int i = 0; i < fails.size(); i++){
@@ -241,6 +269,8 @@ int main(int argc, char* argv[]){
     testing::InitGoogleTest(&argc, argv);
 
     g_args = process_args(argc, argv);
+    data_output.set(g_args[8]);
+    memtime_output.set(g_args[9]);
 
     cout << fixed;
 

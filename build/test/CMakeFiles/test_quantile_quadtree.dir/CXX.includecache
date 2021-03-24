@@ -430,6 +430,18 @@ random
 ../kll/kll.hpp
 ../src/kll/kll.hpp
 
+../src/logger/logger.h
+fstream
+-
+string
+-
+vector
+-
+map
+-
+../qsbd_debug/qsbd_debug.h
+../src/qsbd_debug/qsbd_debug.h
+
 ../src/memory_tracker/memory_tracker.h
 typeinfo
 -
@@ -524,5 +536,7 @@ q_digest_factory/q_digest_factory.h
 dcs_factory/dcs_factory.h
 -
 utils/utils.h
+-
+logger/logger.h
 -
 

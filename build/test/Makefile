@@ -102,16 +102,6 @@ edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
 
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
-
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-
-.PHONY : list_install_components/fast
-
 # Special rule for the target test
 test:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
@@ -122,6 +112,16 @@ test:
 test/fast: test
 
 .PHONY : test/fast
+
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
 
 # Special rule for the target install
 install: preinstall
@@ -211,6 +211,21 @@ test_kll: test/CMakeFiles/test_kll.dir/rule
 test_kll/fast:
 	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_kll.dir/build.make test/CMakeFiles/test_kll.dir/build
 .PHONY : test_kll/fast
+
+# Convenience name for target.
+test/CMakeFiles/test_log.dir/rule:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_log.dir/rule
+.PHONY : test/CMakeFiles/test_log.dir/rule
+
+# Convenience name for target.
+test_log: test/CMakeFiles/test_log.dir/rule
+
+.PHONY : test_log
+
+# fast build rule for target.
+test_log/fast:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_log.dir/build.make test/CMakeFiles/test_log.dir/build
+.PHONY : test_log/fast
 
 # Convenience name for target.
 test/CMakeFiles/test_quantile_quadtree.dir/rule:
@@ -509,6 +524,33 @@ test_kll.cpp.s:
 	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_kll.dir/build.make test/CMakeFiles/test_kll.dir/test_kll.cpp.s
 .PHONY : test_kll.cpp.s
 
+test_log.o: test_log.cpp.o
+
+.PHONY : test_log.o
+
+# target to build an object file
+test_log.cpp.o:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_log.dir/build.make test/CMakeFiles/test_log.dir/test_log.cpp.o
+.PHONY : test_log.cpp.o
+
+test_log.i: test_log.cpp.i
+
+.PHONY : test_log.i
+
+# target to preprocess a source file
+test_log.cpp.i:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_log.dir/build.make test/CMakeFiles/test_log.dir/test_log.cpp.i
+.PHONY : test_log.cpp.i
+
+test_log.s: test_log.cpp.s
+
+.PHONY : test_log.s
+
+# target to generate assembly for a file
+test_log.cpp.s:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_log.dir/build.make test/CMakeFiles/test_log.dir/test_log.cpp.s
+.PHONY : test_log.cpp.s
+
 test_memory_tracker.o: test_memory_tracker.cpp.o
 
 .PHONY : test_memory_tracker.o
@@ -681,14 +723,15 @@ help:
 	@echo "... install/local"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... test"
 	@echo "... test_stream_maker"
 	@echo "... test_memory_tracker"
 	@echo "... test_kll"
+	@echo "... test_log"
 	@echo "... test_quantile_quadtree"
 	@echo "... test_k_wise_family"
 	@echo "... list_install_components"
 	@echo "... tester"
-	@echo "... test"
 	@echo "... test_quadtree"
 	@echo "... test_dcs"
 	@echo "... install"
@@ -714,6 +757,9 @@ help:
 	@echo "... test_kll.o"
 	@echo "... test_kll.i"
 	@echo "... test_kll.s"
+	@echo "... test_log.o"
+	@echo "... test_log.i"
+	@echo "... test_log.s"
 	@echo "... test_memory_tracker.o"
 	@echo "... test_memory_tracker.i"
 	@echo "... test_memory_tracker.s"

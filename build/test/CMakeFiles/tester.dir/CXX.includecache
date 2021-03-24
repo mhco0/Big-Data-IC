@@ -6,3 +6,43 @@
 
 #IncludeRegexTransform: 
 
+../src/config/config.h
+string
+-
+vector
+-
+fstream
+-
+iostream
+-
+algorithm
+-
+../qsbd_debug/qsbd_debug.h
+../src/qsbd_debug/qsbd_debug.h
+../utils/utils.h
+../src/utils/utils.h
+
+../src/qsbd_debug/qsbd_debug.h
+iostream
+-
+
+../src/utils/utils.h
+algorithm
+-
+string
+-
+vector
+-
+deque
+-
+
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/tester.cpp
+config/config.h
+-
+utils/utils.h
+-
+qsbd_debug/qsbd_debug.h
+-
+cstdlib
+-
+

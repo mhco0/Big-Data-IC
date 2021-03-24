@@ -40,21 +40,21 @@ namespace qsbd {
             case options::ARGS:{
                 string values = command.substr(5);
 
-                values = erase_special_characters(values, " .");
+                values = erase_special_characters(values, " ./\\");
 
                 args = parse_string(values);
                 break;
             }
             case options::TEST_FILE:{
-                test_name = erase_special_characters(command.substr(5), "_.");
+                test_name = erase_special_characters(command.substr(5), "_./\\");
                 break;
             }
             case options::OUTPUT_FILE:{
-                output_file_name = erase_special_characters(command.substr(7), "_.");
+                output_file_name = erase_special_characters(command.substr(7), "_./\\");
                 break;
             }
             case options::DATA_FILE:{
-                data_file_name = erase_special_characters(command.substr(5), "_.");
+                data_file_name = erase_special_characters(command.substr(5), "_./\\");
                 break;
             }
             case options::BD_DEBUG_FLAG:{

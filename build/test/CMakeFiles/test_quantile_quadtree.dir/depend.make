@@ -32,6 +32,7 @@ test/CMakeFiles/test_quantile_quadtree.dir/test_quantile_quadtree.cpp.o: ../src/
 test/CMakeFiles/test_quantile_quadtree.dir/test_quantile_quadtree.cpp.o: ../src/k_wise_family/k_wise_family.h
 test/CMakeFiles/test_quantile_quadtree.dir/test_quantile_quadtree.cpp.o: ../src/kll/kll.hpp
 test/CMakeFiles/test_quantile_quadtree.dir/test_quantile_quadtree.cpp.o: ../src/kll_factory/kll_factory.hpp
+test/CMakeFiles/test_quantile_quadtree.dir/test_quantile_quadtree.cpp.o: ../src/logger/logger.h
 test/CMakeFiles/test_quantile_quadtree.dir/test_quantile_quadtree.cpp.o: ../src/memory_tracker/memory_tracker.h
 test/CMakeFiles/test_quantile_quadtree.dir/test_quantile_quadtree.cpp.o: ../src/point/point.hpp
 test/CMakeFiles/test_quantile_quadtree.dir/test_quantile_quadtree.cpp.o: ../src/q_digest/q_digest.h
