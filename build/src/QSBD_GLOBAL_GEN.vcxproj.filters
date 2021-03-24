@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\src\global_generator\global_generator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\src\global_generator\global_generator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\src\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{5E269741-3B75-32E1-8D48-CD2452F43845}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{7F0E980B-99AE-3630-BD78-D88402ACE6C7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

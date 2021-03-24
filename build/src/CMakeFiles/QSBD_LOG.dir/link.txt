@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../lib/libQSBD_LOG.a  CMakeFiles/QSBD_LOG.dir/logger/logger.cpp.o
+/usr/bin/ranlib ../lib/libQSBD_LOG.a

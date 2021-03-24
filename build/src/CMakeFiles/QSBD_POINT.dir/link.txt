@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../lib/libQSBD_POINT.a  CMakeFiles/QSBD_POINT.dir/point/point.cpp.o
+/usr/bin/ranlib ../lib/libQSBD_POINT.a

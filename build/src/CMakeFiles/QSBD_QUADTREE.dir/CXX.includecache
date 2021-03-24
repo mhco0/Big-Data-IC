@@ -1,0 +1,58 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/aabb/aabb.h
+../point/point.hpp
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/point/point.hpp
+iostream
+-
+
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/commum_header/commum_header.h
+iostream
+-
+fstream
+-
+algorithm
+-
+vector
+-
+deque
+-
+random
+-
+chrono
+-
+map
+-
+set
+-
+cassert
+-
+functional
+-
+utility
+-
+iomanip
+-
+exception
+-
+limits
+-
+
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/point/point.hpp
+../commum_header/commum_header.h
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/commum_header/commum_header.h
+
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/quadtree/quadtree.cpp
+quadtree.h
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/quadtree/quadtree.h
+
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/quadtree/quadtree.h
+../aabb/aabb.h
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/aabb/aabb.h
+

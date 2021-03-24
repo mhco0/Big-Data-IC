@@ -58,6 +58,8 @@
         "typeinfo": "cpp",
         "variant": "cpp",
         "xstring": "cpp",
-        "xtree": "cpp"
+        "xtree": "cpp",
+        "ios": "cpp",
+        "xiosbase": "cpp"
     }
 }

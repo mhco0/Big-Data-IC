@@ -1,0 +1,48 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/logger/logger.h
+../qsbd_debug/qsbd_debug.h
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/qsbd_debug/qsbd_debug.h
+fstream
+-
+iomanip
+-
+string
+-
+vector
+-
+map
+-
+
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/memory_tracker/memory_tracker.cpp
+memory_tracker.h
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/memory_tracker/memory_tracker.h
+
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/memory_tracker/memory_tracker.h
+../logger/logger.h
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/logger/logger.h
+typeinfo
+-
+assert.h
+-
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+algorithm
+-
+new
+-
+
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/qsbd_debug/qsbd_debug.h
+iostream
+-
+

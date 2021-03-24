@@ -1,0 +1,54 @@
+
+-----------------------
+Memory Usage Statistics
+-----------------------
+
+allocated type                                    blocks     bytes       
+--------------                                    ------     -----       
+[unknown]                                          27    9e+01% 10384   1e+02%
+i                                                  2     6    % 96      0.9  %
+N7testing8internal15TestFactoryImplI39MemoryTrackerTest_TestSimpleStruct_TestEE 1     3    % 8       0.08 %
+N7testing8internal15TestFactoryImplI36MemoryTrackerTest_TestSimpleNew_TestEE 1     3    % 8       0.08 %
+--------------                                    ------     -----       
+[totals]                                          31         10496        
+
+deleting..
+
+-----------------------
+Memory Usage Statistics
+-----------------------
+
+allocated type                                    blocks     bytes       
+--------------                                    ------     -----       
+[unknown]                                          27    9e+01% 10384   1e+02%
+N7testing8internal15TestFactoryImplI39MemoryTrackerTest_TestSimpleStruct_TestEE 1     3    % 8       0.08 %
+N7testing8internal15TestFactoryImplI36MemoryTrackerTest_TestSimpleNew_TestEE 1     3    % 8       0.08 %
+--------------                                    ------     -----       
+[totals]                                          29         10400        
+
+-----------------------
+Memory Usage Statistics
+-----------------------
+
+allocated type                                    blocks     bytes       
+--------------                                    ------     -----       
+[unknown]                                          27    9e+01% 10384   1e+02%
+13simple_object                                    1     3    % 16      0.2  %
+N7testing8internal15TestFactoryImplI39MemoryTrackerTest_TestSimpleStruct_TestEE 1     3    % 8       0.08 %
+N7testing8internal15TestFactoryImplI36MemoryTrackerTest_TestSimpleNew_TestEE 1     3    % 8       0.08 %
+--------------                                    ------     -----       
+[totals]                                          30         10416        
+
+deleting..
+
+-----------------------
+Memory Usage Statistics
+-----------------------
+
+allocated type                                    blocks     bytes       
+--------------                                    ------     -----       
+[unknown]                                          27    9e+01% 10384   1e+02%
+N7testing8internal15TestFactoryImplI39MemoryTrackerTest_TestSimpleStruct_TestEE 1     3    % 8       0.08 %
+N7testing8internal15TestFactoryImplI36MemoryTrackerTest_TestSimpleNew_TestEE 1     3    % 8       0.08 %
+--------------                                    ------     -----       
+[totals]                                          29         10400        

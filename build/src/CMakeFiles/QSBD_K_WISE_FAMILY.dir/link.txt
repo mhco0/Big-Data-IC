@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../lib/libQSBD_K_WISE_FAMILY.a  CMakeFiles/QSBD_K_WISE_FAMILY.dir/k_wise_family/k_wise_family.cpp.o
+/usr/bin/ranlib ../lib/libQSBD_K_WISE_FAMILY.a

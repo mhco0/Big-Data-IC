@@ -4,6 +4,8 @@
 using namespace std;
 using namespace qsbd;
 
+logger out("out/mem_track_test.txt");
+
 class simple_object{
     int att1;
     double att2;
@@ -21,27 +23,27 @@ TEST(MemoryTrackerTest, TestSimpleNew){
     int * value = new int(83);
     int * array = new int[23];
 
-    mem_track::track_list_memory_usage();
+    mem_track::track_list_memory_usage(out);
     
-    cout << endl;
-    cout << "deleting.." << endl;
+    out << endl;
+    out << "deleting.." << endl;
 
     delete value;
     delete[] array;
 
-    mem_track::track_list_memory_usage();
+    mem_track::track_list_memory_usage(out);
 }
 
 
 TEST(MemoryTrackerTest, TestSimpleStruct){
     simple_object * test = new simple_object(2, 0.4);
 
-    mem_track::track_list_memory_usage();
+    mem_track::track_list_memory_usage(out);
 
-    cout << endl;
-    cout << "deleting.." << endl;
+    out << endl;
+    out << "deleting.." << endl;
 
     delete test;
 
-    mem_track::track_list_memory_usage();
+    mem_track::track_list_memory_usage(out);
 }

@@ -195,18 +195,18 @@ namespace qsbd {
             p_header->stamp(stamp.file_name, stamp.line_num, type_name);
         }
 
-        void track_dump_blocks(){
+        void track_dump_blocks(logger& out){
             // Get an array of pointers to all extant blocks.
             size_t num_blocks = block_header::count_blocks();
             block_header ** pp_block_header = (block_header **) calloc(num_blocks, sizeof(*pp_block_header));
             block_header::get_blocks(pp_block_header);
 
             // Dump information about the memory blocks.
-            printf("\n");
-            printf("=====================\n");
-            printf("Current Memory Blocks\n");
-            printf("=====================\n");
-            printf("\n");
+            out << std::endl;
+            out << "=====================" << std::endl;
+            out << "Current Memory Blocks" << std::endl;
+            out << "=====================" << std::endl;
+            out << std::endl;
 
             for (size_t i = 0; i < num_blocks; i++){
                 block_header * p_block_header = pp_block_header[i];
@@ -214,8 +214,22 @@ namespace qsbd {
                 size_t size = p_block_header->get_requested_size();
                 char const * file_name = p_block_header->get_file_name();
                 int line_num = p_block_header->get_line_num();
-                printf("*** #%-6ld %5ld bytes %-50s\n", i, size, type_name);
-                printf("... %s:%d\n", file_name, line_num);
+
+                out << "*** #";
+                out.setf(std::ios::ios_base::left);
+                out.fill(' ');
+                out.width(6);
+                out << i;
+                out << " ";
+                out.width(5);
+                out << size;
+                out << " bytes ";
+                out.setf(std::ios::ios_base::left);
+                out.width(50);
+                out << type_name;
+                out << std::endl;
+
+                out << "... " << file_name << ":" << line_num << std::endl;
             }
 
             // Clean up.
@@ -234,7 +248,7 @@ namespace qsbd {
             }
         }
 
-        void track_list_memory_usage(){
+        void track_list_memory_usage(logger& out){
             // If there are no allocated blocks, then return now.
             size_t num_blocks = block_header::count_blocks();
             if (num_blocks == 0) return;
@@ -286,14 +300,38 @@ namespace qsbd {
             }
 
             // Dump the memory usage statistics.
-            printf("\n");
-            printf("-----------------------\n");
-            printf("Memory Usage Statistics\n");
-            printf("-----------------------\n");
-            printf("\n");
-            printf("%-50s%5s  %5s %7s %s \n", "allocated type", "blocks", "", "bytes", "");
-            printf("%-50s%5s  %5s %7s %s \n", "--------------", "------", "", "-----", "");
+            out << std::endl;
+            out << "-----------------------" << std::endl;
+            out << "Memory Usage Statistics" << std::endl;
+            out << "-----------------------" << std::endl;
+            out << std::endl;
 
+            out.fill(' ');
+            out.setf(std::ios::ios_base::left);
+            out.width(50);
+            out << "allocated type";
+            out.width(5);
+            out << "blocks";
+            out.width(5); 
+            out << "";
+            out.width(7);
+            out << "bytes";
+            out.width(5);
+            out << "";
+            out << std::endl; 
+
+            out.setf(std::ios::ios_base::left);
+            out.width(50);
+            out << "--------------";
+            out.width(5);
+            out <<  "------";
+            out.width(5);
+            out << "";
+            out.width(7);
+            out << "-----";
+            out.width(5);
+            out << "" << std::endl;
+           
             for (size_t i = 0; i < num_unique_types; i++){
                 mem_digest *pMD = p_mem_digest_array + i;
                 size_t block_count = pMD->block_count;
@@ -301,10 +339,43 @@ namespace qsbd {
                 size_t total_size = pMD->total_size;
                 double total_size_pct = 100.0 * total_size / grand_total_size;
 
-                printf("%-50s %5ld %5.1f%% %7ld %5.1f%%\n", pMD->type_name, block_count, block_countPct, total_size, total_size_pct);
+                out.precision(1);
+                out.setf(std::ios::ios_base::left);
+                out.width(50);
+                out << pMD->type_name << " ";
+                out.width(5);
+                out << block_count << " ";
+                out.width(5);
+                out << block_countPct << "% ";
+                out.width(7);
+                out << total_size << " ";
+                out.width(5);
+                out << total_size_pct << "%" << std::endl; 
             }
-            printf("%-50s %5s %5s  %7s %s \n", "--------", "-----", "", "-------", "");
-            printf("%-50s %5ld %5s  %7ld %s \n", "[totals]", grand_total_num_blocks, "", grand_total_size, "");
+            
+            out.setf(std::ios::ios_base::left);
+            out.width(50);
+            out << "--------------";
+            out.width(5);
+            out <<  "------";
+            out.width(5);
+            out << "";
+            out.width(7);
+            out << "-----";
+            out.width(5);
+            out << "" << std::endl;
+           
+            out.setf(std::ios::ios_base::left);
+            out.width(50);
+            out << "[totals] ";
+            out.width(5);
+            out <<  grand_total_num_blocks << " ";
+            out.width(5);
+            out << "";
+            out.width(7);
+            out << grand_total_size << " ";
+            out.width(5);
+            out << "" << std::endl;
 
             // Clean up.
             free(pp_block_header);

@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../lib/libQSBD_CONFIG.a  CMakeFiles/QSBD_CONFIG.dir/config/config.cpp.o
+/usr/bin/ranlib ../lib/libQSBD_CONFIG.a

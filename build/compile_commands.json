@@ -1,0 +1,152 @@
+[
+{
+  "directory": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/googletest/googlemock",
+  "command": "/bin/x86_64-linux-gnu-g++-9   -isystem \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/googletest/googlemock/include\" -isystem \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/googletest/googlemock\" -isystem \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/googletest/googletest/include\" -isystem \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/googletest/googletest\"  -g -fPIC   -Wall -Wshadow -Werror -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -std=c++11 -o CMakeFiles/gmock_main.dir/src/gmock_main.cc.o -c \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/googletest/googlemock/src/gmock_main.cc\"",
+  "file": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/googletest/googlemock/src/gmock_main.cc"
+},
+{
+  "directory": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/googletest/googlemock",
+  "command": "/bin/x86_64-linux-gnu-g++-9   -I\"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/googletest/googlemock/include\" -I\"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/googletest/googlemock\" -isystem \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/googletest/googletest/include\" -isystem \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/googletest/googletest\"  -g -fPIC   -Wall -Wshadow -Werror -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -std=c++11 -o CMakeFiles/gmock.dir/src/gmock-all.cc.o -c \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/googletest/googlemock/src/gmock-all.cc\"",
+  "file": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/googletest/googlemock/src/gmock-all.cc"
+},
+{
+  "directory": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/googletest/googletest",
+  "command": "/bin/x86_64-linux-gnu-g++-9   -isystem \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/googletest/googletest/include\" -isystem \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/googletest/googletest\"  -g -fPIC   -Wall -Wshadow -Werror -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -std=c++11 -o CMakeFiles/gtest_main.dir/src/gtest_main.cc.o -c \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/googletest/googletest/src/gtest_main.cc\"",
+  "file": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/googletest/googletest/src/gtest_main.cc"
+},
+{
+  "directory": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/googletest/googletest",
+  "command": "/bin/x86_64-linux-gnu-g++-9   -I\"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/googletest/googletest/include\" -I\"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/googletest/googletest\"  -g -fPIC   -Wall -Wshadow -Werror -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -std=c++11 -o CMakeFiles/gtest.dir/src/gtest-all.cc.o -c \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/googletest/googletest/src/gtest-all.cc\"",
+  "file": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/googletest/googletest/src/gtest-all.cc"
+},
+{
+  "directory": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src",
+  "command": "/bin/x86_64-linux-gnu-g++-9    -g -fPIC   -std=gnu++11 -o CMakeFiles/COUNT_SKETCH.dir/count_sketch/count_sketch.cpp.o -c \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/count_sketch/count_sketch.cpp\"",
+  "file": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/count_sketch/count_sketch.cpp"
+},
+{
+  "directory": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src",
+  "command": "/bin/x86_64-linux-gnu-g++-9    -g -fPIC   -std=gnu++11 -o CMakeFiles/K_WISE_FAMILY.dir/k_wise_family/k_wise_family.cpp.o -c \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/k_wise_family/k_wise_family.cpp\"",
+  "file": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/k_wise_family/k_wise_family.cpp"
+},
+{
+  "directory": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src",
+  "command": "/bin/x86_64-linux-gnu-g++-9    -g -fPIC   -std=gnu++11 -o CMakeFiles/KLL.dir/kll/kll.cpp.o -c \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/kll/kll.cpp\"",
+  "file": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/kll/kll.cpp"
+},
+{
+  "directory": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src",
+  "command": "/bin/x86_64-linux-gnu-g++-9    -g -fPIC   -std=gnu++11 -o CMakeFiles/DCS.dir/dcs/dcs.cpp.o -c \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/dcs/dcs.cpp\"",
+  "file": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/dcs/dcs.cpp"
+},
+{
+  "directory": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src",
+  "command": "/bin/x86_64-linux-gnu-g++-9    -g -fPIC   -std=gnu++11 -o CMakeFiles/UTILS.dir/utils/utils.cpp.o -c \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/utils/utils.cpp\"",
+  "file": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/utils/utils.cpp"
+},
+{
+  "directory": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src",
+  "command": "/bin/x86_64-linux-gnu-g++-9    -g -fPIC   -std=gnu++11 -o CMakeFiles/BD_TIMER.dir/bd_timer/bd_timer.cpp.o -c \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/bd_timer/bd_timer.cpp\"",
+  "file": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/bd_timer/bd_timer.cpp"
+},
+{
+  "directory": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src",
+  "command": "/bin/x86_64-linux-gnu-g++-9    -g -fPIC   -std=gnu++11 -o CMakeFiles/MEMORY_TRACKER.dir/memory_tracker/memory_tracker.cpp.o -c \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/memory_tracker/memory_tracker.cpp\"",
+  "file": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/memory_tracker/memory_tracker.cpp"
+},
+{
+  "directory": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src",
+  "command": "/bin/x86_64-linux-gnu-g++-9    -g -fPIC   -std=gnu++11 -o CMakeFiles/Q_DIGEST.dir/q_digest/q_digest.cpp.o -c \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/q_digest/q_digest.cpp\"",
+  "file": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/q_digest/q_digest.cpp"
+},
+{
+  "directory": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src",
+  "command": "/bin/x86_64-linux-gnu-g++-9    -g -fPIC   -std=gnu++11 -o CMakeFiles/POINT.dir/point/point.cpp.o -c \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/point/point.cpp\"",
+  "file": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/point/point.cpp"
+},
+{
+  "directory": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src",
+  "command": "/bin/x86_64-linux-gnu-g++-9    -g -fPIC   -std=gnu++11 -o CMakeFiles/QUADTREE.dir/quadtree/quadtree.cpp.o -c \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/quadtree/quadtree.cpp\"",
+  "file": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/quadtree/quadtree.cpp"
+},
+{
+  "directory": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src",
+  "command": "/bin/x86_64-linux-gnu-g++-9    -g -fPIC   -std=gnu++11 -o CMakeFiles/STREAM_MAKER.dir/stream_maker/stream_maker.cpp.o -c \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/stream_maker/stream_maker.cpp\"",
+  "file": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/stream_maker/stream_maker.cpp"
+},
+{
+  "directory": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src",
+  "command": "/bin/x86_64-linux-gnu-g++-9    -g -fPIC   -std=gnu++11 -o CMakeFiles/GLOBAL_GEN.dir/global_generator/global_generator.cpp.o -c \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/global_generator/global_generator.cpp\"",
+  "file": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/global_generator/global_generator.cpp"
+},
+{
+  "directory": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src",
+  "command": "/bin/x86_64-linux-gnu-g++-9    -g -fPIC   -std=gnu++11 -o CMakeFiles/AABB.dir/aabb/aabb.cpp.o -c \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/aabb/aabb.cpp\"",
+  "file": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/aabb/aabb.cpp"
+},
+{
+  "directory": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src",
+  "command": "/bin/x86_64-linux-gnu-g++-9    -g -fPIC   -std=gnu++11 -o CMakeFiles/CONFIG.dir/config/config.cpp.o -c \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/config/config.cpp\"",
+  "file": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/config/config.cpp"
+},
+{
+  "directory": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test",
+  "command": "/bin/x86_64-linux-gnu-g++-9   -I\"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src\" -isystem \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/googletest/googletest/include\" -isystem \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/googletest/googletest\"  -g -fPIE   -std=gnu++11 -o CMakeFiles/test_stream_maker.dir/test_stream_maker.cpp.o -c \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_stream_maker.cpp\"",
+  "file": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_stream_maker.cpp"
+},
+{
+  "directory": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test",
+  "command": "/bin/x86_64-linux-gnu-g++-9   -I\"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src\" -isystem \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/googletest/googletest/include\" -isystem \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/googletest/googletest\"  -g -fPIE   -std=gnu++11 -o CMakeFiles/test_memory_tracker.dir/test_memory_tracker.cpp.o -c \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_memory_tracker.cpp\"",
+  "file": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_memory_tracker.cpp"
+},
+{
+  "directory": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test",
+  "command": "/bin/x86_64-linux-gnu-g++-9   -I\"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src\" -isystem \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/googletest/googletest/include\" -isystem \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/googletest/googletest\"  -g -fPIE   -std=gnu++11 -o CMakeFiles/test_kll.dir/test_kll.cpp.o -c \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_kll.cpp\"",
+  "file": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_kll.cpp"
+},
+{
+  "directory": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test",
+  "command": "/bin/x86_64-linux-gnu-g++-9   -I\"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src\" -isystem \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/googletest/googletest/include\" -isystem \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/googletest/googletest\"  -g -fPIE   -std=gnu++11 -o CMakeFiles/test_quantile_quadtree.dir/test_quantile_quadtree.cpp.o -c \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_quantile_quadtree.cpp\"",
+  "file": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_quantile_quadtree.cpp"
+},
+{
+  "directory": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test",
+  "command": "/bin/x86_64-linux-gnu-g++-9   -I\"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src\" -isystem \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/googletest/googletest/include\" -isystem \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/googletest/googletest\"  -g -fPIE   -std=gnu++11 -o CMakeFiles/test_k_wise_family.dir/test_k_wise_family.cpp.o -c \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_k_wise_family.cpp\"",
+  "file": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_k_wise_family.cpp"
+},
+{
+  "directory": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test",
+  "command": "/bin/x86_64-linux-gnu-g++-9   -I\"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src\"  -g -fPIE   -std=gnu++11 -o CMakeFiles/tester.dir/tester.cpp.o -c \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/tester.cpp\"",
+  "file": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/tester.cpp"
+},
+{
+  "directory": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test",
+  "command": "/bin/x86_64-linux-gnu-g++-9   -I\"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src\" -isystem \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/googletest/googletest/include\" -isystem \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/googletest/googletest\"  -g -fPIE   -std=gnu++11 -o CMakeFiles/test_quadtree.dir/test_quadtree.cpp.o -c \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_quadtree.cpp\"",
+  "file": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_quadtree.cpp"
+},
+{
+  "directory": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test",
+  "command": "/bin/x86_64-linux-gnu-g++-9   -I\"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src\" -isystem \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/googletest/googletest/include\" -isystem \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/googletest/googletest\"  -g -fPIE   -std=gnu++11 -o CMakeFiles/test_dcs.dir/test_dcs.cpp.o -c \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_dcs.cpp\"",
+  "file": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_dcs.cpp"
+},
+{
+  "directory": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test",
+  "command": "/bin/x86_64-linux-gnu-g++-9   -I\"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src\" -isystem \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/googletest/googletest/include\" -isystem \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/googletest/googletest\"  -g -fPIE   -std=gnu++11 -o CMakeFiles/test_count_sketch.dir/test_count_sketch.cpp.o -c \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_count_sketch.cpp\"",
+  "file": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_count_sketch.cpp"
+},
+{
+  "directory": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test",
+  "command": "/bin/x86_64-linux-gnu-g++-9   -I\"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src\" -isystem \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/googletest/googletest/include\" -isystem \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/googletest/googletest\"  -g -fPIE   -std=gnu++11 -o CMakeFiles/test_q_digest.dir/test_q_digest.cpp.o -c \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_q_digest.cpp\"",
+  "file": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_q_digest.cpp"
+},
+{
+  "directory": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test",
+  "command": "/bin/x86_64-linux-gnu-g++-9   -I\"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src\" -isystem \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/googletest/googletest/include\" -isystem \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/googletest/googletest\"  -g -fPIE   -std=gnu++11 -o CMakeFiles/test_config.dir/test_config.cpp.o -c \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_config.cpp\"",
+  "file": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_config.cpp"
+},
+{
+  "directory": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test",
+  "command": "/bin/x86_64-linux-gnu-g++-9   -I\"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src\" -isystem \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/googletest/googletest/include\" -isystem \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/googletest/googletest\"  -g -fPIE   -std=gnu++11 -o CMakeFiles/test_gk.dir/test_gk.cpp.o -c \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_gk.cpp\"",
+  "file": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_gk.cpp"
+}
+]

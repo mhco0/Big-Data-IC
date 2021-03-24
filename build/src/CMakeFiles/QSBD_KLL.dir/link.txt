@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../lib/libQSBD_KLL.a  CMakeFiles/QSBD_KLL.dir/kll/kll.cpp.o
+/usr/bin/ranlib ../lib/libQSBD_KLL.a

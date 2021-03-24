@@ -1,6 +1,2 @@
-String test
-2
-0.3
-1
-9
-0.001
+
+String test20.3190.001

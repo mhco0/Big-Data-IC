@@ -778,7 +778,8 @@ src/CMakeFiles/QSBD_STREAM_MAKER.dir/clean:
 # Target rules for target src/CMakeFiles/QSBD_MEMORY_TRACKER.dir
 
 # All Build rule for target.
-src/CMakeFiles/QSBD_MEMORY_TRACKER.dir/all:
+src/CMakeFiles/QSBD_MEMORY_TRACKER.dir/all: src/CMakeFiles/QSBD_LOG.dir/all
+src/CMakeFiles/QSBD_MEMORY_TRACKER.dir/all: src/CMakeFiles/QSBD_DEBUG.dir/all
 	$(MAKE) -f src/CMakeFiles/QSBD_MEMORY_TRACKER.dir/build.make src/CMakeFiles/QSBD_MEMORY_TRACKER.dir/depend
 	$(MAKE) -f src/CMakeFiles/QSBD_MEMORY_TRACKER.dir/build.make src/CMakeFiles/QSBD_MEMORY_TRACKER.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=23,24 "Built target QSBD_MEMORY_TRACKER"
@@ -786,7 +787,7 @@ src/CMakeFiles/QSBD_MEMORY_TRACKER.dir/all:
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/QSBD_MEMORY_TRACKER.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 2
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 5
 	$(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/QSBD_MEMORY_TRACKER.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : src/CMakeFiles/QSBD_MEMORY_TRACKER.dir/rule
@@ -1102,6 +1103,8 @@ test/CMakeFiles/test_stream_maker.dir/clean:
 # All Build rule for target.
 test/CMakeFiles/test_memory_tracker.dir/all: googletest/googletest/CMakeFiles/gtest_main.dir/all
 test/CMakeFiles/test_memory_tracker.dir/all: googletest/googletest/CMakeFiles/gtest.dir/all
+test/CMakeFiles/test_memory_tracker.dir/all: src/CMakeFiles/QSBD_LOG.dir/all
+test/CMakeFiles/test_memory_tracker.dir/all: src/CMakeFiles/QSBD_DEBUG.dir/all
 test/CMakeFiles/test_memory_tracker.dir/all: src/CMakeFiles/QSBD_UTILS.dir/all
 test/CMakeFiles/test_memory_tracker.dir/all: src/CMakeFiles/QSBD_MEMORY_TRACKER.dir/all
 	$(MAKE) -f test/CMakeFiles/test_memory_tracker.dir/build.make test/CMakeFiles/test_memory_tracker.dir/depend
@@ -1111,7 +1114,7 @@ test/CMakeFiles/test_memory_tracker.dir/all: src/CMakeFiles/QSBD_MEMORY_TRACKER.
 
 # Build rule for subdir invocation for target.
 test/CMakeFiles/test_memory_tracker.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 10
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 13
 	$(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_memory_tracker.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : test/CMakeFiles/test_memory_tracker.dir/rule

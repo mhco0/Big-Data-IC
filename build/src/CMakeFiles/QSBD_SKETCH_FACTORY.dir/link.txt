@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../lib/libQSBD_SKETCH_FACTORY.a  
+/usr/bin/ranlib ../lib/libQSBD_SKETCH_FACTORY.a
