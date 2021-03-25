@@ -262,6 +262,14 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
+    <ProjectReference Include="C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\build\src\QSBD_DEBUG.vcxproj">
+      <Project>{3FE1F193-8808-3688-8EB2-8F4D3CE19297}</Project>
+      <Name>QSBD_DEBUG</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\build\src\QSBD_LOG.vcxproj">
+      <Project>{68EEE99C-1095-38BC-95A0-A0A081214249}</Project>
+      <Name>QSBD_LOG</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

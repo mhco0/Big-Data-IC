@@ -8,10 +8,20 @@ namespace qsbd {
         this->max_bound.xy(maxx, maxy);
     }
 
+    aabb::aabb(const aabb& other) : min_bound(other.min_bound), max_bound(other.max_bound){
+    }
+
     aabb::aabb(){
     }
 
     aabb::~aabb(){
+    }
+
+    aabb& aabb::operator=(const aabb& other){
+        this->min_bound = other.min_bound;
+        this->max_bound = other.max_bound;
+
+        return (*this);
     }
 
     bool aabb::contains(const point<double>& pos) const{

@@ -113,7 +113,7 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>..\lib\Debug\gtest_maind.lib;..\lib\Debug\QSBD_MEMORY_TRACKER.lib;..\lib\Debug\QSBD_UTILS.lib;..\lib\Debug\gtestd.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>..\lib\Debug\gtest_maind.lib;..\lib\Debug\QSBD_MEMORY_TRACKER.lib;..\lib\Debug\QSBD_UTILS.lib;..\lib\Debug\gtestd.lib;..\lib\Debug\QSBD_LOG.lib;..\lib\Debug\QSBD_DEBUG.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -155,7 +155,7 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>..\lib\Release\gtest_main.lib;..\lib\Release\QSBD_MEMORY_TRACKER.lib;..\lib\Release\QSBD_UTILS.lib;..\lib\Release\gtest.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>..\lib\Release\gtest_main.lib;..\lib\Release\QSBD_MEMORY_TRACKER.lib;..\lib\Release\QSBD_UTILS.lib;..\lib\Release\gtest.lib;..\lib\Release\QSBD_LOG.lib;..\lib\Release\QSBD_DEBUG.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
@@ -197,7 +197,7 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>..\lib\MinSizeRel\gtest_main.lib;..\lib\MinSizeRel\QSBD_MEMORY_TRACKER.lib;..\lib\MinSizeRel\QSBD_UTILS.lib;..\lib\MinSizeRel\gtest.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>..\lib\MinSizeRel\gtest_main.lib;..\lib\MinSizeRel\QSBD_MEMORY_TRACKER.lib;..\lib\MinSizeRel\QSBD_UTILS.lib;..\lib\MinSizeRel\gtest.lib;..\lib\MinSizeRel\QSBD_LOG.lib;..\lib\MinSizeRel\QSBD_DEBUG.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
@@ -238,7 +238,7 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>..\lib\RelWithDebInfo\gtest_main.lib;..\lib\RelWithDebInfo\QSBD_MEMORY_TRACKER.lib;..\lib\RelWithDebInfo\QSBD_UTILS.lib;..\lib\RelWithDebInfo\gtest.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>..\lib\RelWithDebInfo\gtest_main.lib;..\lib\RelWithDebInfo\QSBD_MEMORY_TRACKER.lib;..\lib\RelWithDebInfo\QSBD_UTILS.lib;..\lib\RelWithDebInfo\gtest.lib;..\lib\RelWithDebInfo\QSBD_LOG.lib;..\lib\RelWithDebInfo\QSBD_DEBUG.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -316,6 +316,14 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <Name>ZERO_CHECK</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\build\src\QSBD_DEBUG.vcxproj">
+      <Project>{3FE1F193-8808-3688-8EB2-8F4D3CE19297}</Project>
+      <Name>QSBD_DEBUG</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\build\src\QSBD_LOG.vcxproj">
+      <Project>{68EEE99C-1095-38BC-95A0-A0A081214249}</Project>
+      <Name>QSBD_LOG</Name>
     </ProjectReference>
     <ProjectReference Include="C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\build\src\QSBD_MEMORY_TRACKER.vcxproj">
       <Project>{8150D429-6D4B-3CB0-A242-0625F9F43C17}</Project>

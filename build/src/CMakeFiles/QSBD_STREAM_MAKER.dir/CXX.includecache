@@ -44,6 +44,10 @@ chrono
 random
 -
 
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/qsbd_debug/qsbd_debug.h
+iostream
+-
+
 /mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/stream_maker/stream_maker.cpp
 stream_maker.h
 /mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/stream_maker/stream_maker.h
@@ -53,4 +57,6 @@ stream_maker.h
 /mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/commum_header/commum_header.h
 ../global_generator/global_generator.h
 /mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/global_generator/global_generator.h
+../qsbd_debug/qsbd_debug.h
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/qsbd_debug/qsbd_debug.h
 

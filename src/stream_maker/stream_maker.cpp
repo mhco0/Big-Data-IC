@@ -86,8 +86,9 @@ namespace qsbd{
 		}
 
 		vector<int> real_ranks_from_stream(vector<int>& stream){
+			ASSERT(stream.size() > 0);
+			
 			sort(stream.begin(), stream.end());
-
 			int max_elem = stream[stream.size() - 1];
 			vector<int> ranks(max_elem + 1, 0);
 

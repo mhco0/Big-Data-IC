@@ -269,6 +269,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <Project>{3FB85DE4-3141-32B0-890F-79C61A3E5186}</Project>
       <Name>QSBD_COMMUM_HEADER</Name>
     </ProjectReference>
+    <ProjectReference Include="C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\build\src\QSBD_DEBUG.vcxproj">
+      <Project>{3FE1F193-8808-3688-8EB2-8F4D3CE19297}</Project>
+      <Name>QSBD_DEBUG</Name>
+    </ProjectReference>
     <ProjectReference Include="C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\build\src\QSBD_POINT.vcxproj">
       <Project>{A23ABB9C-7A77-3E47-B899-7124A8B908A3}</Project>
       <Name>QSBD_POINT</Name>

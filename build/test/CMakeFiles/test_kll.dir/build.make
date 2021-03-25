@@ -85,6 +85,7 @@ bin/test_kll: lib/libQSBD_STREAM_MAKER.a
 bin/test_kll: lib/libQSBD_KLL_FACTORY.a
 bin/test_kll: lib/libQSBD_UTILS.a
 bin/test_kll: lib/libgtest.a
+bin/test_kll: lib/libQSBD_DEBUG.a
 bin/test_kll: lib/libQSBD_KLL.a
 bin/test_kll: lib/libQSBD_COMMUM_HEADER.a
 bin/test_kll: lib/libQSBD_GLOBAL_GEN.a

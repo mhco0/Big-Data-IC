@@ -1,0 +1,92 @@
+{
+	"archive" : {},
+	"artifacts" : 
+	[
+		{
+			"path" : "lib/libQSBD_KLL_FACTORY.a"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_library",
+			"target_link_libraries"
+		],
+		"files" : 
+		[
+			"src/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 115,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 213,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 212,
+				"parent" : 0
+			}
+		]
+	},
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 2,
+			"id" : "QSBD_KLL::@145eef247bfb46b6828c"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "QSBD_COMMUM_HEADER::@145eef247bfb46b6828c"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "QSBD_GLOBAL_GEN::@145eef247bfb46b6828c"
+		},
+		{
+			"backtrace" : 3,
+			"id" : "QSBD_SKETCH_FACTORY::@145eef247bfb46b6828c"
+		}
+	],
+	"id" : "QSBD_KLL_FACTORY::@145eef247bfb46b6828c",
+	"name" : "QSBD_KLL_FACTORY",
+	"nameOnDisk" : "libQSBD_KLL_FACTORY.a",
+	"paths" : 
+	{
+		"build" : "src",
+		"source" : "src"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Header Files",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 1,
+			"path" : "src/kll_factory/kll_factory.hpp",
+			"sourceGroupIndex" : 0
+		}
+	],
+	"type" : "STATIC_LIBRARY"
+}

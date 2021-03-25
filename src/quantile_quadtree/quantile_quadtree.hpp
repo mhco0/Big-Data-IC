@@ -3,6 +3,7 @@
 #include "../quantile_sketch/quantile_sketch.hpp"
 #include "../sketch_factory/sketch_factory.hpp"
 #include "../aabb/aabb.h"
+#include "../qsbd_debug/qsbd_debug.h"
 
 namespace qsbd {
     template<class ObjType>
@@ -11,17 +12,14 @@ namespace qsbd {
         class node{
         public:
             aabb box;
+            int ne_child_pos;
 
             quantile_sketch<ObjType> * payload;
-            quantile_quadtree<ObjType>::node * childs[4];
 
-            node(const aabb& bound){
+            node(const aabb& bound, int childs_pos){
                 this->box = bound;
                 this->payload = nullptr;
-
-                for(int i = 0; i < 4; i++){
-                    this->childs[i] = nullptr;
-                }
+                this->ne_child_pos = childs_pos;
             }
         };
 
@@ -29,8 +27,9 @@ namespace qsbd {
         int max_deep;
         sketch_factory<ObjType> * factory;
         quantile_quadtree<ObjType>::node * root;
+        std::vector<quantile_quadtree<ObjType>::node> tree;
 
-        int direction(const quantile_quadtree<ObjType>::node& root, const point<int>& pos){
+        short direction(const quantile_quadtree<ObjType>::node& root, const point<int>& pos){
             aabb box = root.box;
             point<int> center((box.bounds().first.x() + box.bounds().second.x()) / 2, (box.bounds().first.y() + box.bounds().second.y()) / 2);
 
@@ -38,25 +37,62 @@ namespace qsbd {
             else if(pos.x() < center.x() and pos.y() > center.y()) return 1;
             else if(pos.x() < center.x() and pos.y() < center.y()) return 2;
             else if(pos.x() > center.x() and pos.y() < center.y()) return 3;
-            else if(fabs(pos.x() - center.x()) <= 1e-6 and pos.y() > center.y()) return 0;
-            else if(fabs(pos.x() - center.x()) <= 1e-6 and pos.y() < center.y()) return 1;
-            else if(pos.x() < center.x() and fabs(pos.y() - center.y()) <= 1e-6) return 2;
-            else if(pos.x() > center.x() and fabs(pos.y() - center.y()) <= 1e-6) return 3;
-            else return -1;
+            else if(pos.x() == center.x() and pos.y() > center.y()) return 0;
+            else if(pos.x() < center.x() and pos.y() == center.y()) return 1;
+            else if(pos.x() == center.x() and pos.y() < center.y()) return 2;
+            else if(pos.x() > center.x() and pos.y() == center.y()) return 3;
+            else return 0;
         }
 
-        quantile_sketch<ObjType> * search_region(const quantile_quadtree<ObjType>::node& root, const aabb& region, int deep){
-            if(deep == this->max_deep or root.box.is_inside(region)){ // leaf 
-            return root.payload;
+        bool unit_box(const aabb& region){
+            point<int> dimension(region.bounds().second.x() - region.bounds().first.x(), region.bounds().second.y() - region.bounds().first.y());
+            return not (dimension.x() > 1 || dimension.y() > 1);
+        }
+
+        int alloc_childs(const aabb& region){
+            point<int> center((region.bounds().second.x() + region.bounds().first.x()) / 2, (region.bounds().second.y() + region.bounds().first.y()) / 2);
+
+            int ne_child_pos = this->tree.size();
+
+            // ne
+            aabb bound_region_ne(center.x(), center.y(), region.bounds().second.x(), region.bounds().second.y());
+            this->tree.push_back(quantile_quadtree<ObjType>::node(bound_region_ne, -1));
+
+            // nw
+            aabb bound_region_nw(region.bounds().first.x(), center.y(), center.x(), region.bounds().second.y());
+
+            this->tree.push_back(quantile_quadtree<ObjType>::node(bound_region_nw, -1));
+
+            // sw
+            aabb bound_region_sw(region.bounds().first.x(), region.bounds().first.y(), center.x(), center.y());
+            this->tree.push_back(quantile_quadtree<ObjType>::node(bound_region_sw, -1));
+
+            // se
+            aabb bound_region_se(center.x(), region.bounds().first.y(), region.bounds().second.x(), center.y());
+            this->tree.push_back(quantile_quadtree<ObjType>::node(bound_region_se, -1));
+ 
+            return ne_child_pos;
+        }
+
+        quantile_sketch<ObjType> * search_region(int parent, const aabb& region, int deep){
+            if(parent == -1){
+                if (this->root->box.is_inside(region) or deep == this->max_deep or unit_box(this->tree[parent].box)){
+                    return this->root->payload;
+                }
+            }else{
+                if(this->tree[parent].box.is_inside(region) or deep == this->max_deep or unit_box(this->tree[parent].box)){
+                    return this->tree[parent].payload;
+                }
             }
+
+            int ne_child_pos = (parent == -1) ? this->root->ne_child_pos : this->tree[parent].ne_child_pos;
 
             quantile_sketch<ObjType> * to_merge[4] = {nullptr, nullptr, nullptr, nullptr};
 
             for(int i = 0; i < 4; i++){
-                if (root.childs[i] != nullptr){
-                    if (region.intersects(root.childs[i]->box)){
-                        to_merge[i] = search_region(*root.childs[i], region, deep + 1);
-                    }
+                int cur_pos = ne_child_pos + i;
+                if (region.intersects(this->tree[cur_pos].box)){
+                    to_merge[i] = search_region(cur_pos, region, deep + 1);
                 }
             }
 
@@ -73,29 +109,30 @@ namespace qsbd {
             return merged;
         }
 
-        void delete_tree(quantile_quadtree<ObjType>::node* root){
-            for(int i = 0; i < 4; i++){
-                if (root->childs[i] != nullptr){
-                    delete_tree(root->childs[i]);
+        void delete_tree(){
+            if(this->root->payload != nullptr){
+                delete this->root->payload;
+            }
+
+            delete this->root;
+
+            for(int i = 0; i < this->tree.size(); i++){
+                if(this->tree[i].payload != nullptr){
+                    delete this->tree[i].payload;
                 }
             }
-
-            if(root->payload != nullptr){
-                delete root->payload;
-            }
-
-            delete root;
         }
 
     public:
-        
-
         quantile_quadtree(const aabb& region, const int& deep_length, sketch_factory<ObjType>* fact){
+            ASSERT((fact != nullptr));
+            
             this->boundarys = region;
             this->max_deep = deep_length;
             this->factory = fact;
-            this->root = new quantile_quadtree<ObjType>::node(this->boundarys);
+            this->root = new quantile_quadtree<ObjType>::node(region, 0);
             this->root->payload = this->factory->instance();
+            this->alloc_childs(region);
         }
 
         quantile_quadtree(const quantile_quadtree& other) = delete;
@@ -103,105 +140,65 @@ namespace qsbd {
         quantile_quadtree<ObjType>& operator=(const quantile_quadtree& other) = delete;
 
         ~quantile_quadtree(){
-            delete_tree(this->root);
+            this->delete_tree();
         }
 
         bool update(const point<int>& pos, const ObjType& value){
-            quantile_quadtree<ObjType>::node * cur = this->root;
+            int what_child = direction(*this->root, pos);
+
+            this->root->payload->update(value);
             int cur_deep = 0;
-            int what_child = direction(*cur, pos);
+            int cur_pos = this->root->ne_child_pos + what_child;
 
-            if (what_child == -1) return false;
+            while(cur_deep <= this->max_deep and not unit_box(this->tree[cur_pos].box)){
+                if(this->tree[cur_pos].ne_child_pos == -1){ // leaf
+                    //needs to create four new nodes
 
-            cur->payload->update(value);
+                    int ne_child_pos = alloc_childs(this->tree[cur_pos].box);
 
-            while(cur_deep <= this->max_deep){ // leaf case
-                if(cur->childs[what_child] == nullptr){
-                    //needs to create a new node
-
-                    point<int> center((cur->box.bounds().second.x() + cur->box.bounds().first.x()) / 2, (cur->box.bounds().second.y() + cur->box.bounds().first.y()) / 2);
-                    aabb bound_region;
-                    switch (what_child) {
-                        case 0:
-                            bound_region.bounds(center.x(), center.y(), cur->box.bounds().second.x(), cur->box.bounds().second.y());
-                            break;
-                        case 1:
-                            bound_region.bounds(cur->box.bounds().first.x(), center.y(), center.x(), cur->box.bounds().second.y());
-                            break;
-                        case 2:
-                            bound_region.bounds(cur->box.bounds().first.x(), cur->box.bounds().first.y(), center.x(), center.y());
-                            break;
-                        case 3:
-                            bound_region.bounds(center.x(), cur->box.bounds().first.y(), cur->box.bounds().second.x(), center.y());
-                            break;
-                        default:
-                            break;
-                    }
-
-                    cur->childs[what_child] = new quantile_quadtree<ObjType>::node(bound_region);
-                    cur->childs[what_child]->payload = this->factory->instance();
+                    this->tree[cur_pos].ne_child_pos = ne_child_pos;
+                    this->tree[cur_pos].payload = this->factory->instance();
                 }
 
-                cur->childs[what_child]->payload->update(value);
-                cur = cur->childs[what_child];
+                this->tree[cur_pos].payload->update(value);
+                
+                what_child = direction(this->tree[cur_pos], pos);
+                cur_pos = this->tree[cur_pos].ne_child_pos + what_child;
                 cur_deep++;
-
-                what_child = direction(*cur, pos);
-                if (what_child == -1) return false;
             }
 
             return true;
         }
 
         bool update(const point<int>& pos, const ObjType& value, int weight){
-            quantile_quadtree< ObjType>::node * cur = this->root;
+            int what_child = direction(*this->root, pos);
+
+            this->root->payload->update(value, weight);
             int cur_deep = 0;
-            int what_child = direction(*cur, pos);
+            int cur_pos = this->root->ne_child_pos + what_child;
 
-            if (what_child == -1) return false;
+            while(cur_deep <= this->max_deep and not unit_box(this->tree[cur_pos].box)){ 
+                if(this->tree[cur_pos].ne_child_pos == -1){ // leaf
+                    //needs to create four new nodes
 
-            cur->payload->update(value, weight);
+                    int ne_child_pos = alloc_childs(this->tree[cur_pos].box);
 
-            while(cur_deep <= this->max_deep){ // leaf case
-                if(cur->childs[what_child] == nullptr){
-                    //needs to create a new node
-
-                    point<int> center((cur->box.bounds().second.x() + cur->box.bounds().first.x()) / 2, (cur->box.bounds().second.y() + cur->box.bounds().first.y()) / 2);
-                    aabb bound_region;
-                    switch (what_child) {
-                        case 0:
-                            bound_region.bounds(center.x(), center.y(), cur->box.bounds().second.x(), cur->box.bounds().second.y());
-                            break;
-                        case 1:
-                            bound_region.bounds(cur->box.bounds().first.x(), center.y(), center.x(), cur->box.bounds().second.y());
-                            break;
-                        case 2:
-                            bound_region.bounds(cur->box.bounds().first.x(), cur->box.bounds().first.y(), center.x(), center.y());
-                            break;
-                        case 3:
-                            bound_region.bounds(center.x(), cur->box.bounds().first.y(), cur->box.bounds().second.x(), center.y());
-                            break;
-                        default:
-                            break;
-                    }
-
-                    cur->childs[what_child] = new quantile_quadtree<ObjType>::node(bound_region);
-                    cur->childs[what_child]->payload = this->factory->instance();
+                    this->tree[cur_pos].ne_child_pos = ne_child_pos;
+                    this->tree[cur_pos].payload = this->factory->instance();
                 }
 
-                cur->childs[what_child]->payload->update(value, weight);
-                cur = cur->childs[what_child];
+                this->tree[cur_pos].payload->update(value, weight);
+                
+                what_child = direction(this->tree[cur_pos], pos);
+                cur_pos = this->tree[cur_pos].ne_child_pos + what_child;
                 cur_deep++;
-
-                what_child = direction(*cur, pos);
-                if (what_child == -1) return false;
             }
 
             return true;
         }
 
         int query(const aabb& region, const ObjType& value){
-            quantile_sketch<ObjType> * sketch = search_region(*this->root, region, 0);
+            quantile_sketch<ObjType> * sketch = search_region(-1, region, 0);
 
             if(sketch == nullptr) return -1;
             else{
