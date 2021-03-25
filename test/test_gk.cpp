@@ -59,7 +59,7 @@ vector<int> ranks_from_stream(vector<int> stream, int min_v,int max_v){
 */
 void histogram_print(const vector<double>& samples, int scale = 1){
     for(int i = 0; i < samples.size(); i++){
-        cout << i << ":\t" << string(floor(samples[i] / scale), '*') << endl;
+        cout << i << ":\t" << string(floor((samples[i] + 1) / scale), '*') << endl;
     }
 }
 
@@ -121,6 +121,27 @@ void test_stream_creation(int vector_size, int min_v, int max_v){
 }
 
 /*
+	Show the help guide.
+*/
+void help(){
+	cout << "gk.exe [--help] [args...]" << endl;
+	cout << endl;
+	cout << "1o arg (optional): " << endl;
+	cout << "=> --help: Show this guide." << endl;
+	cout << endl;
+	cout << "2o arg (required): " << endl;
+	cout << "=> [--help] (optional) : No argument is required." << endl;
+	cout << endl;
+	cout << "=> epsilon vector_size range_min_value range_max_value [--print]: " << endl;
+	cout << "1. epsilon (required) : epsilon error used to the algorithm." << endl;
+	cout << "2. vector_size (required) : vector size in the test." << endl;
+    cout << "3. range_min_value (required) : the min range for the stream vector (values from [range_min_value..range_max_value])." << endl;
+    cout << "4. range_max_value (required) : the max range for the stream vector (values from [range_min_value..range_max_value])." << endl;
+	cout << "5. --print (optional) : print the histogram for the gk summary. " << endl;
+	cout << endl;
+}
+
+/*
     Tests tuple insertion on multimap
 */
 TEST(GkTest, TestTupleInsert){
@@ -157,7 +178,7 @@ TEST(GkTest, TestTupleInsert){
 /*
     Tests the merge from two summarys
 */
-void test_merge(){
+TEST(GKTest, TestMerge){
     vector<int> input1 = {1, 4, 2, 8, 5, 7, 6, 7, 6, 7, 2, 1, 3, 5, 6, 9, 9, 10};
     vector<int> input2 = {10, 11, 14, 12, 18, 15, 17, 16, 17, 16, 17, 12, 11, 13, 15, 16, 19, 19};
     vector<double> samples(20, 0);
@@ -169,7 +190,7 @@ void test_merge(){
     }
 
     for(int i = 0; i < 20; i++){
-        samples[i] = summary1.query(i);
+        samples[i] = (double) summary1.query(i);
     }
 
     cout << "Histogram ranks 1:" << endl;
@@ -180,7 +201,7 @@ void test_merge(){
     }
 
     for(int i = 0; i < 20; i++){
-        samples[i] = summary2.query(i);
+        samples[i] = (double) summary2.query(i);
     }
 
     cout << "Histogram ranks 2:" << endl;
@@ -259,77 +280,6 @@ void test_gk_summary(double epsilon, int vector_size, int min_v, int max_v, bool
     }
 }
 
-
-/*
-	This function process the args for the program and check if they size match.
-*//*
-deque<string> process_args(int argc, char* argv[]){
-	deque<string> args;
-
-	for(int i=1;i<argc;i++){
-		string arg(argv[i]);
-
-		args.push_back(arg);
-	}
-
-	//see how to use test
-	bool check_parameters = (args.size() == 1 and (args[0] == "--help" or args[0] == "--test"));
-	check_parameters = check_parameters or (args.size() == 4);
-	check_parameters = check_parameters or (args.size() == 5 and (args[args.size() - 1] == "--print"));
-
-	assert(check_parameters);
-
-	return args;
-}*/
-
-/*
-	Show the help guide.
-*/
-void help(){
-	cout << "gk.exe [--help] [args...]" << endl;
-	cout << endl;
-	cout << "1o arg (optional): " << endl;
-	cout << "=> --help: Show this guide." << endl;
-	cout << endl;
-	cout << "2o arg (required): " << endl;
-	cout << "=> [--help] (optional) : No argument is required." << endl;
-	cout << endl;
-	cout << "=> epsilon vector_size range_min_value range_max_value [--print]: " << endl;
-	cout << "1. epsilon (required) : epsilon error used to the algorithm." << endl;
-	cout << "2. vector_size (required) : vector size in the test." << endl;
-    cout << "3. range_min_value (required) : the min range for the stream vector (values from [range_min_value..range_max_value])." << endl;
-    cout << "4. range_max_value (required) : the max range for the stream vector (values from [range_min_value..range_max_value])." << endl;
-	cout << "5. --print (optional) : print the histogram for the gk summary. " << endl;
-	cout << endl;
-}
-/*
-int main2(int argc, char* argv[]){
-    ios::sync_with_stdio(false);
-    cin.tie(0);
-
-    auto args = process_args(argc, argv);
-    if(args[0] == "--help"){
-        help();
-    }else if(args[0] == "--test"){
-        test_update_and_query();
-        //test_tuple_insert();
-        //test_stream_creation(100,0,100);
-        //test_stream_creation(200,8,8);
-        //cout << endl;
-        //test_real_ranks();
-        //cout << endl;
-        //test_real_ranks2(20,8,9);
-    }else{
-        double epsilon = stod(args[0]);
-        int vector_size = stoi(args[1]);
-        int min_v = stoi(args[2]);
-        int max_v = stoi(args[3]);
-        bool print = args.size() == 5;
-
-        test_gk_summary(epsilon, vector_size, min_v, max_v, print);
-    }
-    return 0;
-}*/
 
 TEST(GkTest, TestFactory){
 
