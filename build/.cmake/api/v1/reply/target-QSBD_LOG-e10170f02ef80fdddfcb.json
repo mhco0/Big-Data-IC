@@ -3,7 +3,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "lib/libQSBD_MEMORY_TRACKER.a"
+			"path" : "lib/libQSBD_LOG.a"
 		}
 	],
 	"backtrace" : 1,
@@ -26,13 +26,13 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 41,
+				"line" : 135,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 224,
+				"line" : 223,
 				"parent" : 0
 			}
 		]
@@ -60,16 +60,12 @@
 	[
 		{
 			"backtrace" : 2,
-			"id" : "QSBD_LOG::@145eef247bfb46b6828c"
-		},
-		{
-			"backtrace" : 2,
 			"id" : "QSBD_DEBUG::@145eef247bfb46b6828c"
 		}
 	],
-	"id" : "QSBD_MEMORY_TRACKER::@145eef247bfb46b6828c",
-	"name" : "QSBD_MEMORY_TRACKER",
-	"nameOnDisk" : "libQSBD_MEMORY_TRACKER.a",
+	"id" : "QSBD_LOG::@145eef247bfb46b6828c",
+	"name" : "QSBD_LOG",
+	"nameOnDisk" : "libQSBD_LOG.a",
 	"paths" : 
 	{
 		"build" : "src",
@@ -96,13 +92,13 @@
 	[
 		{
 			"backtrace" : 1,
-			"path" : "src/memory_tracker/memory_tracker.h",
+			"path" : "src/logger/logger.h",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/memory_tracker/memory_tracker.cpp",
+			"path" : "src/logger/logger.cpp",
 			"sourceGroupIndex" : 1
 		}
 	],

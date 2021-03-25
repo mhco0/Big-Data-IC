@@ -3,7 +3,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "lib/libQSBD_QUANTILE_QUADTREE.a"
+			"path" : "lib/libQSBD_GK.a"
 		}
 	],
 	"backtrace" : 1,
@@ -26,19 +26,31 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 105,
+				"line" : 71,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 208,
+				"line" : 196,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 207,
+				"line" : 194,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 195,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 193,
 				"parent" : 0
 			}
 		]
@@ -47,24 +59,24 @@
 	[
 		{
 			"backtrace" : 2,
-			"id" : "QSBD_COMMUM_HEADER::@145eef247bfb46b6828c"
-		},
-		{
-			"backtrace" : 2,
-			"id" : "QSBD_POINT::@145eef247bfb46b6828c"
+			"id" : "QSBD_DEBUG::@145eef247bfb46b6828c"
 		},
 		{
 			"backtrace" : 3,
-			"id" : "QSBD_QUANTILE_SKETCH::@145eef247bfb46b6828c"
+			"id" : "QSBD_COMMUM_HEADER::@145eef247bfb46b6828c"
 		},
 		{
-			"backtrace" : 2,
-			"id" : "QSBD_AABB::@145eef247bfb46b6828c"
+			"backtrace" : 4,
+			"id" : "QSBD_GLOBAL_GEN::@145eef247bfb46b6828c"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "QSBD_QUANTILE_SKETCH::@145eef247bfb46b6828c"
 		}
 	],
-	"id" : "QSBD_QUANTILE_QUADTREE::@145eef247bfb46b6828c",
-	"name" : "QSBD_QUANTILE_QUADTREE",
-	"nameOnDisk" : "libQSBD_QUANTILE_QUADTREE.a",
+	"id" : "QSBD_GK::@145eef247bfb46b6828c",
+	"name" : "QSBD_GK",
+	"nameOnDisk" : "libQSBD_GK.a",
 	"paths" : 
 	{
 		"build" : "src",
@@ -84,7 +96,7 @@
 	[
 		{
 			"backtrace" : 1,
-			"path" : "src/quantile_quadtree/quantile_quadtree.hpp",
+			"path" : "src/gk/gk.hpp",
 			"sourceGroupIndex" : 0
 		}
 	],

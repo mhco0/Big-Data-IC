@@ -6,36 +6,6 @@ using namespace std;
 using namespace qsbd;
 
 deque<string> g_args;
-
-/*
-    Tests tuple insertion on multimap
-*/
-void test_tuple_insert(){
-    multimap<int, pair<int, int>> tuple_list;
-    vector<int> input = {1, 4, 2, 8, 5, 7, 6, 7, 6, 7, 2, 1};
-
-    for(auto& it : input){
-        tuple_list.insert({it, {1, 10}});
-    }
-
-    for(auto& it : tuple_list){
-        cout << "(" << it.first << "," << it.second.first << "," << it.second.second << ") ";
-    }
-    cout << endl;
-
-    auto up_it = tuple_list.upper_bound(7);
-
-    cout << "(" << (*up_it).first << "," << (*up_it).second.first << "," << (*up_it).second.second << ") ";
-    cout << endl;
-
-    tuple_list.insert(up_it, {7, {1, 0}});
-
-    for(auto& it : tuple_list){
-        cout << "(" << it.first << "," << it.second.first << "," << it.second.second << ") ";
-    }
-    cout << endl;
-}
-
 /*
 	Makes a random stream with length vector_size using elements from [min_v..max_v]
 */
@@ -151,6 +121,40 @@ void test_stream_creation(int vector_size, int min_v, int max_v){
 }
 
 /*
+    Tests tuple insertion on multimap
+*/
+TEST(GkTest, TestTupleInsert){
+    vector<pair<int, pair<int, int>>> tuple_list;
+    vector<int> input = {1, 4, 2, 8, 5, 7, 6, 7, 6, 7, 2, 1};
+
+    for(auto& it : input){
+        insert_sorted(tuple_list, {it, {1, 10}});
+    }
+
+    for(auto& it : tuple_list){
+        cout << "(" << it.first << "," << it.second.first << "," << it.second.second << ") ";
+    }
+    cout << endl;
+
+    auto up_it = upper_bound(tuple_list.begin(), tuple_list.end(), 7, [](const int& data, std::pair<int, std::pair<int, int>> value){
+        return (data < value.first);
+    });
+
+    int index = distance(tuple_list.begin(), up_it);
+
+    cout << "(" << tuple_list[index].first << "," << tuple_list[index].second.first << "," << tuple_list[index].second.second << ") ";
+    cout << endl;
+
+    insert_sorted(tuple_list, std::make_pair(8, std::make_pair(0, 10)));
+
+    for(auto& it : tuple_list){
+        cout << "(" << it.first << "," << it.second.first << "," << it.second.second << ") ";
+    }
+    cout << endl;
+}
+
+
+/*
     Tests the merge from two summarys
 */
 void test_merge(){
@@ -195,7 +199,7 @@ void test_merge(){
 /*
     Testing updates and querys from the paper
 */
-void test_update_and_query(){
+TEST(GkTest, TestUpdateAndQuery){
     vector<int> input = {1, 4, 2, 8, 5, 7, 6, 7, 6, 7, 2, 1};
     vector<int> querys = {1, 2, 4, 5, 6, 7, 8};
     vector<int> real_ranks = {0, 2, 4, 5, 6, 8, 11};

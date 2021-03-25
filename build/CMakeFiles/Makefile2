@@ -496,6 +496,7 @@ src/CMakeFiles/QSBD_CONFIG.dir/clean:
 # Target rules for target src/CMakeFiles/QSBD_GK.dir
 
 # All Build rule for target.
+src/CMakeFiles/QSBD_GK.dir/all: src/CMakeFiles/QSBD_DEBUG.dir/all
 src/CMakeFiles/QSBD_GK.dir/all: src/CMakeFiles/QSBD_COMMUM_HEADER.dir/all
 src/CMakeFiles/QSBD_GK.dir/all: src/CMakeFiles/QSBD_GLOBAL_GEN.dir/all
 src/CMakeFiles/QSBD_GK.dir/all: src/CMakeFiles/QSBD_QUANTILE_SKETCH.dir/all
@@ -506,7 +507,7 @@ src/CMakeFiles/QSBD_GK.dir/all: src/CMakeFiles/QSBD_QUANTILE_SKETCH.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/QSBD_GK.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 5
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 6
 	$(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/QSBD_GK.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : src/CMakeFiles/QSBD_GK.dir/rule
@@ -720,6 +721,7 @@ src/CMakeFiles/QSBD_POINT.dir/clean:
 
 # All Build rule for target.
 src/CMakeFiles/QSBD_GK_FACTORY.dir/all: src/CMakeFiles/QSBD_GK.dir/all
+src/CMakeFiles/QSBD_GK_FACTORY.dir/all: src/CMakeFiles/QSBD_DEBUG.dir/all
 src/CMakeFiles/QSBD_GK_FACTORY.dir/all: src/CMakeFiles/QSBD_COMMUM_HEADER.dir/all
 src/CMakeFiles/QSBD_GK_FACTORY.dir/all: src/CMakeFiles/QSBD_GLOBAL_GEN.dir/all
 src/CMakeFiles/QSBD_GK_FACTORY.dir/all: src/CMakeFiles/QSBD_SKETCH_FACTORY.dir/all
@@ -731,7 +733,7 @@ src/CMakeFiles/QSBD_GK_FACTORY.dir/all: src/CMakeFiles/QSBD_QUANTILE_SKETCH.dir/
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/QSBD_GK_FACTORY.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 7
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 8
 	$(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/QSBD_GK_FACTORY.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : src/CMakeFiles/QSBD_GK_FACTORY.dir/rule
@@ -1484,6 +1486,7 @@ test/CMakeFiles/test_config.dir/clean:
 test/CMakeFiles/test_gk.dir/all: googletest/googletest/CMakeFiles/gtest_main.dir/all
 test/CMakeFiles/test_gk.dir/all: googletest/googletest/CMakeFiles/gtest.dir/all
 test/CMakeFiles/test_gk.dir/all: src/CMakeFiles/QSBD_GK.dir/all
+test/CMakeFiles/test_gk.dir/all: src/CMakeFiles/QSBD_DEBUG.dir/all
 test/CMakeFiles/test_gk.dir/all: src/CMakeFiles/QSBD_UTILS.dir/all
 test/CMakeFiles/test_gk.dir/all: src/CMakeFiles/QSBD_COMMUM_HEADER.dir/all
 test/CMakeFiles/test_gk.dir/all: src/CMakeFiles/QSBD_GLOBAL_GEN.dir/all
@@ -1495,7 +1498,7 @@ test/CMakeFiles/test_gk.dir/all: src/CMakeFiles/QSBD_QUANTILE_SKETCH.dir/all
 
 # Build rule for subdir invocation for target.
 test/CMakeFiles/test_gk.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 13
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 14
 	$(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_gk.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : test/CMakeFiles/test_gk.dir/rule

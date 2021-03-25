@@ -104,12 +104,13 @@ TEST(QuantileQuadtreeTest, TestConstructWithKll){
 
 TEST(QuantileQuadtreeTest, TestUpdateAndQueryWithKll){
     int N = stoi(g_args[6]);
+    int points_guarantee = 100;
     int attempts = stoi(g_args[7]);
     int deep = stoi(g_args[4]);
     double error = stod(g_args[5]);
     aabb resolution(stod(g_args[0]), stod(g_args[1]), stod(g_args[2]), stod(g_args[3]));
     aabb search_region = construct_aabb_from_random_region(stod(g_args[0]), stod(g_args[1]), stod(g_args[2]), stod(g_args[3]));
-    
+
     data_output << "==========================================" << endl;
     data_output << "\tUpdate And Query With KLL Test : " << endl;
     data_output << "==========================================" << endl;
@@ -117,15 +118,20 @@ TEST(QuantileQuadtreeTest, TestUpdateAndQueryWithKll){
     data_output << ".Resolution (aabb resolution): " << resolution << endl;
     data_output << ".Stream size (int N): " << N << endl;
     data_output << ".Error used: " << error << endl; 
+    data_output << ".Point_quarantee: " << points_guarantee << endl;
 
-	
 	vector<pair<int, pair<double, double>>> stream =  random_stream_city(N, stod(g_args[0]), stod(g_args[1]), stod(g_args[2]), stod(g_args[3]), 0, N, 15, 5.0);
+    vector<pair<int, pair<double, double>>> guarantee_stream = random_stream_in_region(points_guarantee, search_region.bounds().first.x(), search_region.bounds().first.y(), search_region.bounds().second.x(), search_region.bounds().second.y());
+    for(auto& it : guarantee_stream){
+        stream.push_back(it);
+    }
     vector<int> stream_in_region = brute_force_search(stream, search_region);
 	vector<int> real_ranks = real_ranks_from_stream(stream_in_region);
 	vector<int> fails(real_ranks.size(), 0);
 
-    data_output << ".Stream used : " << endl;
-    data_output << stream << endl;
+    data_output << ".Search region" << search_region << endl;
+    data_output << ".Stream used : " << stream << endl;
+    data_output << ".Points in Stream in the region to search :" << stream_in_region << endl;
 
     memtime_output << "==========================================" << endl;
     memtime_output << "\tUpdate And Query With KLL Test : " << endl;
@@ -143,6 +149,7 @@ TEST(QuantileQuadtreeTest, TestUpdateAndQueryWithKll){
         }
         counter.end();
 
+
         memtime_output << ".Avg update time : " << counter.count() / stream.size() << "s" << endl;
         memtime_output << endl;
 
@@ -151,7 +158,7 @@ TEST(QuantileQuadtreeTest, TestUpdateAndQueryWithKll){
 			int approximated_rank = test.query(search_region, j);
 			int real_rank = real_ranks[j];
 
-			if(abs(approximated_rank - real_rank) > (error * stream_in_region.size())){
+			if(abs(approximated_rank - real_rank) > (error * (N + points_guarantee))){
 				fails[j]++;
 			}
 		}

@@ -3,7 +3,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "lib/libQSBD_GK_FACTORY.a"
+			"path" : "lib/libQSBD_POINT.a"
 		}
 	],
 	"backtrace" : 1,
@@ -26,49 +26,46 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 125,
+				"line" : 82,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 217,
-				"parent" : 0
-			},
-			{
-				"command" : 1,
-				"file" : 0,
-				"line" : 216,
+				"line" : 202,
 				"parent" : 0
 			}
 		]
 	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-fPIC  "
+				},
+				{
+					"fragment" : "-std=gnu++11"
+				}
+			],
+			"language" : "CXX",
+			"sourceIndexes" : 
+			[
+				1
+			]
+		}
+	],
 	"dependencies" : 
 	[
 		{
 			"backtrace" : 2,
-			"id" : "QSBD_GK::@145eef247bfb46b6828c"
-		},
-		{
-			"backtrace" : 2,
 			"id" : "QSBD_COMMUM_HEADER::@145eef247bfb46b6828c"
-		},
-		{
-			"backtrace" : 2,
-			"id" : "QSBD_GLOBAL_GEN::@145eef247bfb46b6828c"
-		},
-		{
-			"backtrace" : 3,
-			"id" : "QSBD_SKETCH_FACTORY::@145eef247bfb46b6828c"
-		},
-		{
-			"backtrace" : 2,
-			"id" : "QSBD_QUANTILE_SKETCH::@145eef247bfb46b6828c"
 		}
 	],
-	"id" : "QSBD_GK_FACTORY::@145eef247bfb46b6828c",
-	"name" : "QSBD_GK_FACTORY",
-	"nameOnDisk" : "libQSBD_GK_FACTORY.a",
+	"id" : "QSBD_POINT::@145eef247bfb46b6828c",
+	"name" : "QSBD_POINT",
+	"nameOnDisk" : "libQSBD_POINT.a",
 	"paths" : 
 	{
 		"build" : "src",
@@ -82,14 +79,27 @@
 			[
 				0
 			]
+		},
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				1
+			]
 		}
 	],
 	"sources" : 
 	[
 		{
 			"backtrace" : 1,
-			"path" : "src/gk_factory/gk_factory.hpp",
+			"path" : "src/point/point.hpp",
 			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/point/point.cpp",
+			"sourceGroupIndex" : 1
 		}
 	],
 	"type" : "STATIC_LIBRARY"

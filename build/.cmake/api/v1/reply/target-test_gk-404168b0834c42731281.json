@@ -95,6 +95,10 @@
 		},
 		{
 			"backtrace" : 2,
+			"id" : "QSBD_DEBUG::@145eef247bfb46b6828c"
+		},
+		{
+			"backtrace" : 2,
 			"id" : "QSBD_UTILS::@145eef247bfb46b6828c"
 		},
 		{
@@ -152,6 +156,10 @@
 			},
 			{
 				"fragment" : "../lib/libQSBD_GLOBAL_GEN.a",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "../lib/libQSBD_DEBUG.a",
 				"role" : "libraries"
 			}
 		],

@@ -193,6 +193,7 @@ target_link_libraries(QSBD_DCS PUBLIC QSBD_COUNT_SKETCH)
 target_link_libraries(QSBD_GK PUBLIC QSBD_QUANTILE_SKETCH)
 target_link_libraries(QSBD_GK PUBLIC QSBD_COMMUM_HEADER)
 target_link_libraries(QSBD_GK PUBLIC QSBD_GLOBAL_GEN)
+target_link_libraries(QSBD_GK PUBLIC QSBD_DEBUG)
 
 target_link_libraries(QSBD_Q_DIGEST PUBLIC QSBD_QUANTILE_SKETCH)
 target_link_libraries(QSBD_Q_DIGEST PUBLIC QSBD_COMMUM_HEADER)

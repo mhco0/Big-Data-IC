@@ -1,23 +1,32 @@
 #ifndef QSBD_GK_H
 #define QSBD_GK_H
-#include "../commum_header/commum_header.h"
 #include "../global_generator/global_generator.h"
 #include "../quantile_sketch/quantile_sketch.hpp"
+#include "../qsbd_debug/qsbd_debug.h"
+#include "../utils/utils.h"
 
 namespace qsbd {
     template <class T>
     class gk : public quantile_sketch<T> {
     private:
-        std::multimap<T, std::pair<int, int>> tuple_list;
+        std::vector<std::pair<T, std::pair<int, int>>> tuple_list;
         int N;
         double epsilon;
+
+        int find_smallest_i(const std::vector<std::pair<T, std::pair<int, int>>>& vec, const T& data){
+            auto up_it = std::upper_bound(vec.begin(), vec.end(), data, [](const T& data, std::pair<T, std::pair<int, int>> value){
+                return (data < value.first);
+            });
+
+            return std::distance(vec.begin(), up_it);
+        }
 
     public:
         gk(double eps){
             N = 0;
             epsilon = eps;
 
-            tuple_list.insert({std::numeric_limits<T>::max(), {1, 0}});
+            insert_sorted(tuple_list, std::make_pair(std::numeric_limits<T>::max(), std::make_pair(1, 0)));
         }
 
         ~gk(){}
@@ -26,24 +35,23 @@ namespace qsbd {
             N += 1;
 
             //find smallest i such x[i] > value
-            auto up_it = tuple_list.upper_bound(value);
+            int index = find_smallest_i(tuple_list, value);
 
-            int weight = (*up_it).second.first;
-            int uncertainty = (*up_it).second.second;
-            double capacity = (2.0 * epsilon * N);
+            int weight = tuple_list[index].second.first;
+            int uncertainty = tuple_list[index].second.second;
+            int capacity = (int) (2.0 * epsilon * N);
 
             if((capacity - (weight * 1.0 + uncertainty * 1.0 + 1.0)) > 1e-8){
-                (*up_it).second.first += 1;
+                tuple_list[index].second.first += 1;
             }else{
-            
-                tuple_list.insert(up_it, {value, {1, weight + uncertainty - 1}});
 
-                for(auto it = tuple_list.begin(), it2 = next(it); it2 != tuple_list.end(); it++, it2++){
-                    if ((capacity - ((*it).second.first * 1.0 + (*it2).second.first * 1.0 + (*it2).second.second * 1.0)) > 1e-8){
-                        (*it2).second.first += (*it).second.first;
+                insert_sorted(tuple_list, {value, {1, weight + uncertainty - 1}});
 
-                        
-                        tuple_list.erase(it);
+                for(int i = 0, j = 1; j < tuple_list.size(); i++, j++){
+                    if ((tuple_list[i].second.first + tuple_list[j].second.first + tuple_list[j].second.second) < capacity){
+                        tuple_list[j].second.first += tuple_list[i].second.first;
+
+                        tuple_list.erase(tuple_list.begin() + i);
 
                         break;
                     }
@@ -54,86 +62,79 @@ namespace qsbd {
         }
 
         quantile_sketch<T>* merge(const quantile_sketch<T>& rhs) override {
-            std::cout << "init merge" << std::endl;
             const gk<T>& rhs_cv = dynamic_cast<const gk<T>&>(rhs); 
-            std::cout << 1 << std::endl;
+            
             if(&rhs_cv == nullptr){
-                std::cerr << "Error in gk cast" << std::endl;
+                DEBUG_ERR("Error in gk cast");
                 return nullptr;
             }
 
-            assert((rhs_cv.epsilon - this->epsilon) < 1e-6);
+            //ASSERT(((rhs_cv.epsilon - this->epsilon) < 1e-6));
 
-
-            std::cout << 2 << std::endl;
-            auto left_it = tuple_list.begin();
-            auto right_it = rhs_cv.tuple_list.begin(); 
+            int left_index = 0;
+            int right_index = 0; 
             gk<T>* merged_summary = new gk<T>(epsilon);
 
-
-            while(left_it != tuple_list.end() and right_it != rhs_cv.tuple_list.end()){
+            while(left_index < tuple_list.size() and right_index < rhs_cv.tuple_list.size()){
                 merged_summary->N += 1;
 
-                if((*left_it).first < (*right_it).first){
-                    T value = (*left_it).first;
-                    int weight = (*left_it).second.first;
-                    int uncertainty = (*left_it).second.second + (*right_it).second.first + (*right_it).second.second - 1; 
+                if(tuple_list[left_index].first < rhs_cv.tuple_list[right_index].first){
+                    T value = tuple_list[left_index].first;
+                    int weight = tuple_list[left_index].second.first;
+                    int uncertainty = tuple_list[left_index].second.second + rhs_cv.tuple_list[right_index].second.first + rhs_cv.tuple_list[right_index].second.second - 1; 
                     
-                    merged_summary->tuple_list.insert({value, {weight, uncertainty}});
+                    insert_sorted(merged_summary->tuple_list, {value, {weight, uncertainty}});
 
-                    left_it = next(left_it);
+                    left_index++;
                 }else{
-                    T value = (*right_it).first;
-                    int weight = (*right_it).second.first;
-                    int uncertainty = (*right_it).second.second + (*left_it).second.first + (*left_it).second.second - 1; 
+                    T value = rhs_cv.tuple_list[right_index].first;
+                    int weight = rhs_cv.tuple_list[right_index].second.first;
+                    int uncertainty = rhs_cv.tuple_list[right_index].second.second + rhs_cv.tuple_list[right_index].second.first + tuple_list[left_index].second.second - 1; 
 
-                    merged_summary->tuple_list.insert({value, {weight, uncertainty}});
+                    insert_sorted(merged_summary->tuple_list, {value, {weight, uncertainty}});
 
-                    right_it = next(right_it);
+                    right_index++;
                 }
             }
 
-            std::cout << 3 << std::endl;
-            while(left_it != tuple_list.end()){
+            while(left_index < tuple_list.size()){
                 merged_summary->N += 1;
-                merged_summary->tuple_list.insert(*left_it);
+                insert_sorted(merged_summary->tuple_list, tuple_list[left_index]);
 
-                left_it = next(left_it);
+                left_index++;
             }
 
-            std::cout << 4 << std::endl;
-            while(right_it != rhs_cv.tuple_list.end()){
+            while(right_index < rhs_cv.tuple_list.size()){
                 merged_summary->N += 1;
-                merged_summary->tuple_list.insert(*right_it);
+                insert_sorted(merged_summary->tuple_list, rhs_cv.tuple_list[right_index]);
 
-                right_it = next(right_it);
+                right_index++;
             }
 
-            std::cout << 5 << std::endl;
-            double capacity = 2.0 * epsilon * merged_summary->get_N();
-            for(auto it = merged_summary->tuple_list.begin(), it2 = next(it); it2 != merged_summary->tuple_list.end(); it++, it2++){
-                if ((capacity - ((*it).second.first * 1.0 + (*it2).second.first * 1.0 + (*it2).second.second * 1.0)) > 1e-8){
-                    (*it2).second.first += (*it).second.first;
+            int capacity = (int) (2.0 * epsilon * merged_summary->get_N());
+            for(int i = 0, j = 1; j < merged_summary->tuple_list.size(); i++, j++){
+                if ((merged_summary->tuple_list[i].second.first + merged_summary->tuple_list[j].second.first + merged_summary->tuple_list[j].second.second) < capacity){
+                    merged_summary->tuple_list[j].second.first += merged_summary->tuple_list[i].second.first;
 
-                    // seg fault going here
-                    merged_summary->tuple_list.erase(it);
+                    // test if here is ok now
+                    merged_summary->tuple_list.erase(merged_summary->tuple_list.begin() + i);
                 }
             } 
-            std::cout << "finish merge" << std::endl;
+
 
             return merged_summary;
         }
 
         int query(T value) override {
-            double weight_sum = 0.0;
-            auto it = tuple_list.begin();
+            int weight_sum = 0;
+            int index = 0;
 
-            while(value >= (*it).first){
-                weight_sum += (*it).second.first;
-                it = next(it);
+            while(value >= tuple_list[index].first){
+                weight_sum += tuple_list[index].second.first;
+                index++;
             }
 
-            return (int) (weight_sum - 1.0 + (1.0 * ((*it).second.first + (*it).second.second) / 2.0));
+            return (weight_sum - 1 + ((tuple_list[index].second.first + tuple_list[index].second.second) / 2));
         }
 
         //DEBUG
