@@ -60,15 +60,15 @@ include test/CMakeFiles/test_q_digest.dir/flags.make
 test/CMakeFiles/test_q_digest.dir/test_q_digest.cpp.o: test/CMakeFiles/test_q_digest.dir/flags.make
 test/CMakeFiles/test_q_digest.dir/test_q_digest.cpp.o: ../test/test_q_digest.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object test/CMakeFiles/test_q_digest.dir/test_q_digest.cpp.o"
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/test_q_digest.dir/test_q_digest.cpp.o -c "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_q_digest.cpp"
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && /bin/x86_64-linux-gnu-g++-9  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/test_q_digest.dir/test_q_digest.cpp.o -c "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_q_digest.cpp"
 
 test/CMakeFiles/test_q_digest.dir/test_q_digest.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test_q_digest.dir/test_q_digest.cpp.i"
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_q_digest.cpp" > CMakeFiles/test_q_digest.dir/test_q_digest.cpp.i
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && /bin/x86_64-linux-gnu-g++-9 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_q_digest.cpp" > CMakeFiles/test_q_digest.dir/test_q_digest.cpp.i
 
 test/CMakeFiles/test_q_digest.dir/test_q_digest.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test_q_digest.dir/test_q_digest.cpp.s"
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_q_digest.cpp" -o CMakeFiles/test_q_digest.dir/test_q_digest.cpp.s
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && /bin/x86_64-linux-gnu-g++-9 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_q_digest.cpp" -o CMakeFiles/test_q_digest.dir/test_q_digest.cpp.s
 
 # Object files for target test_q_digest
 test_q_digest_OBJECTS = \
@@ -79,10 +79,10 @@ test_q_digest_EXTERNAL_OBJECTS =
 
 bin/test_q_digest: test/CMakeFiles/test_q_digest.dir/test_q_digest.cpp.o
 bin/test_q_digest: test/CMakeFiles/test_q_digest.dir/build.make
-bin/test_q_digest: lib/libgtest_main.a
+bin/test_q_digest: lib/libgtest_maind.a
 bin/test_q_digest: lib/libQSBD_Q_DIGEST.a
 bin/test_q_digest: lib/libQSBD_UTILS.a
-bin/test_q_digest: lib/libgtest.a
+bin/test_q_digest: lib/libgtestd.a
 bin/test_q_digest: lib/libQSBD_QUANTILE_SKETCH.a
 bin/test_q_digest: lib/libQSBD_COMMUM_HEADER.a
 bin/test_q_digest: lib/libQSBD_GLOBAL_GEN.a

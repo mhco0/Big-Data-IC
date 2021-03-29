@@ -121,27 +121,6 @@ void test_stream_creation(int vector_size, int min_v, int max_v){
 }
 
 /*
-	Show the help guide.
-*/
-void help(){
-	cout << "gk.exe [--help] [args...]" << endl;
-	cout << endl;
-	cout << "1o arg (optional): " << endl;
-	cout << "=> --help: Show this guide." << endl;
-	cout << endl;
-	cout << "2o arg (required): " << endl;
-	cout << "=> [--help] (optional) : No argument is required." << endl;
-	cout << endl;
-	cout << "=> epsilon vector_size range_min_value range_max_value [--print]: " << endl;
-	cout << "1. epsilon (required) : epsilon error used to the algorithm." << endl;
-	cout << "2. vector_size (required) : vector size in the test." << endl;
-    cout << "3. range_min_value (required) : the min range for the stream vector (values from [range_min_value..range_max_value])." << endl;
-    cout << "4. range_max_value (required) : the max range for the stream vector (values from [range_min_value..range_max_value])." << endl;
-	cout << "5. --print (optional) : print the histogram for the gk summary. " << endl;
-	cout << endl;
-}
-
-/*
     Tests tuple insertion on multimap
 */
 TEST(GkTest, TestTupleInsert){
@@ -250,6 +229,8 @@ TEST(GkTest, TestUpdateAndQuery){
     Testing the gk summary for int numbers
 */
 void test_gk_summary(double epsilon, int vector_size, int min_v, int max_v, bool print){
+
+    double epsilon, int vector_size, int min_v, int max_v, bool print
     vector<int> stream = make_random_int_stream(vector_size, min_v, max_v);
     vector<int> real_ranks = ranks_from_stream(stream, min_v, max_v);
     vector<double> samples(real_ranks.size(),0);
@@ -259,14 +240,7 @@ void test_gk_summary(double epsilon, int vector_size, int min_v, int max_v, bool
         summary.update(it);
     }
 
-    cout << "gk summary: " << endl;
-
-    summary.print();
-
-    cout << endl;
-
-    cout << "x\trank(x)\t~r(x)\terror\t interval" << endl;
-    for(int i=min_v;i<=max_v;i++){
+    for(int i = min_v; i <= max_v; i++){
         double app_rank = summary.query(i);
         samples[i] = app_rank;
 
@@ -274,15 +248,38 @@ void test_gk_summary(double epsilon, int vector_size, int min_v, int max_v, bool
         cout << "[" << (app_rank - summary.get_N() * epsilon) << " <= " << real_ranks[i] << " <= " << (app_rank + summary.get_N() * epsilon) << "]" << endl;
         assert((app_rank - summary.get_N() * epsilon) <= real_ranks[i] and real_ranks[i] <= (app_rank + summary.get_N() * epsilon));
     }
-
-    if(print){
-        histogram_print(samples, 5);
-    }
 }
 
 
 TEST(GkTest, TestFactory){
+    int N = stoi(g_args[1]);
+	double error = stod(g_args[0]);
+	int attempts = stoi(g_args[2]);
+	vector<int> stream = random_int_stream(N, stoi(g_args[5]), stoi(g_args[6]));
+	vector<int> real_ranks = real_ranks_from_stream(stream);
+	vector<int> fails(real_ranks.size(), 0);
 
+	for(int i = 0; i < attempts; i++){
+		kll_factory<int> factory(error);
+		kll<int>* test = dynamic_cast<kll<int> *>(factory.instance());
+
+		for(auto& it : stream){
+			test->update(it);
+		}
+
+		for(int j = 0; j < real_ranks.size(); j++){
+			int approximated_rank = test->query(j);
+			int real_rank = real_ranks[j];
+
+			if(abs(approximated_rank - real_rank) > (error * N)){
+				fails[j]++;
+			}
+		}
+	}
+
+	for(int i = 0; i < fails.size(); i++){
+		EXPECT_LT((fails[i]/(double) attempts), error);
+	}
 }
 
 int main(int argc, char* argv[]){

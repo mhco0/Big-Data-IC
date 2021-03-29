@@ -60,15 +60,15 @@ include test/CMakeFiles/test_stream_maker.dir/flags.make
 test/CMakeFiles/test_stream_maker.dir/test_stream_maker.cpp.o: test/CMakeFiles/test_stream_maker.dir/flags.make
 test/CMakeFiles/test_stream_maker.dir/test_stream_maker.cpp.o: ../test/test_stream_maker.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object test/CMakeFiles/test_stream_maker.dir/test_stream_maker.cpp.o"
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/test_stream_maker.dir/test_stream_maker.cpp.o -c "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_stream_maker.cpp"
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && /bin/x86_64-linux-gnu-g++-9  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/test_stream_maker.dir/test_stream_maker.cpp.o -c "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_stream_maker.cpp"
 
 test/CMakeFiles/test_stream_maker.dir/test_stream_maker.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test_stream_maker.dir/test_stream_maker.cpp.i"
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_stream_maker.cpp" > CMakeFiles/test_stream_maker.dir/test_stream_maker.cpp.i
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && /bin/x86_64-linux-gnu-g++-9 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_stream_maker.cpp" > CMakeFiles/test_stream_maker.dir/test_stream_maker.cpp.i
 
 test/CMakeFiles/test_stream_maker.dir/test_stream_maker.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test_stream_maker.dir/test_stream_maker.cpp.s"
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_stream_maker.cpp" -o CMakeFiles/test_stream_maker.dir/test_stream_maker.cpp.s
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && /bin/x86_64-linux-gnu-g++-9 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_stream_maker.cpp" -o CMakeFiles/test_stream_maker.dir/test_stream_maker.cpp.s
 
 # Object files for target test_stream_maker
 test_stream_maker_OBJECTS = \
@@ -79,12 +79,12 @@ test_stream_maker_EXTERNAL_OBJECTS =
 
 bin/test_stream_maker: test/CMakeFiles/test_stream_maker.dir/test_stream_maker.cpp.o
 bin/test_stream_maker: test/CMakeFiles/test_stream_maker.dir/build.make
-bin/test_stream_maker: lib/libgtest_main.a
+bin/test_stream_maker: lib/libgtest_maind.a
 bin/test_stream_maker: lib/libQSBD_STREAM_MAKER.a
 bin/test_stream_maker: lib/libQSBD_GLOBAL_GEN.a
 bin/test_stream_maker: lib/libQSBD_COMMUM_HEADER.a
 bin/test_stream_maker: lib/libQSBD_UTILS.a
-bin/test_stream_maker: lib/libgtest.a
+bin/test_stream_maker: lib/libgtestd.a
 bin/test_stream_maker: test/CMakeFiles/test_stream_maker.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ../bin/test_stream_maker"
 	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/test_stream_maker.dir/link.txt --verbose=$(VERBOSE)

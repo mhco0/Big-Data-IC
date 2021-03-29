@@ -60,15 +60,15 @@ include test/CMakeFiles/test_log.dir/flags.make
 test/CMakeFiles/test_log.dir/test_log.cpp.o: test/CMakeFiles/test_log.dir/flags.make
 test/CMakeFiles/test_log.dir/test_log.cpp.o: ../test/test_log.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object test/CMakeFiles/test_log.dir/test_log.cpp.o"
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/test_log.dir/test_log.cpp.o -c "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_log.cpp"
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && /bin/x86_64-linux-gnu-g++-9  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/test_log.dir/test_log.cpp.o -c "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_log.cpp"
 
 test/CMakeFiles/test_log.dir/test_log.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test_log.dir/test_log.cpp.i"
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_log.cpp" > CMakeFiles/test_log.dir/test_log.cpp.i
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && /bin/x86_64-linux-gnu-g++-9 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_log.cpp" > CMakeFiles/test_log.dir/test_log.cpp.i
 
 test/CMakeFiles/test_log.dir/test_log.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test_log.dir/test_log.cpp.s"
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_log.cpp" -o CMakeFiles/test_log.dir/test_log.cpp.s
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && /bin/x86_64-linux-gnu-g++-9 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_log.cpp" -o CMakeFiles/test_log.dir/test_log.cpp.s
 
 # Object files for target test_log
 test_log_OBJECTS = \
@@ -79,9 +79,9 @@ test_log_EXTERNAL_OBJECTS =
 
 bin/test_log: test/CMakeFiles/test_log.dir/test_log.cpp.o
 bin/test_log: test/CMakeFiles/test_log.dir/build.make
-bin/test_log: lib/libgtest_main.a
+bin/test_log: lib/libgtest_maind.a
 bin/test_log: lib/libQSBD_LOG.a
-bin/test_log: lib/libgtest.a
+bin/test_log: lib/libgtestd.a
 bin/test_log: lib/libQSBD_DEBUG.a
 bin/test_log: test/CMakeFiles/test_log.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ../bin/test_log"
