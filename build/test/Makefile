@@ -168,6 +168,36 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+test/CMakeFiles/tester.dir/rule:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/tester.dir/rule
+.PHONY : test/CMakeFiles/tester.dir/rule
+
+# Convenience name for target.
+tester: test/CMakeFiles/tester.dir/rule
+
+.PHONY : tester
+
+# fast build rule for target.
+tester/fast:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/tester.dir/build.make test/CMakeFiles/tester.dir/build
+.PHONY : tester/fast
+
+# Convenience name for target.
+test/CMakeFiles/test_json.dir/rule:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_json.dir/rule
+.PHONY : test/CMakeFiles/test_json.dir/rule
+
+# Convenience name for target.
+test_json: test/CMakeFiles/test_json.dir/rule
+
+.PHONY : test_json
+
+# fast build rule for target.
+test_json/fast:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_json.dir/build.make test/CMakeFiles/test_json.dir/build
+.PHONY : test_json/fast
+
+# Convenience name for target.
 test/CMakeFiles/test_stream_maker.dir/rule:
 	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_stream_maker.dir/rule
 .PHONY : test/CMakeFiles/test_stream_maker.dir/rule
@@ -256,21 +286,6 @@ test_k_wise_family: test/CMakeFiles/test_k_wise_family.dir/rule
 test_k_wise_family/fast:
 	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_k_wise_family.dir/build.make test/CMakeFiles/test_k_wise_family.dir/build
 .PHONY : test_k_wise_family/fast
-
-# Convenience name for target.
-test/CMakeFiles/tester.dir/rule:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/tester.dir/rule
-.PHONY : test/CMakeFiles/tester.dir/rule
-
-# Convenience name for target.
-tester: test/CMakeFiles/tester.dir/rule
-
-.PHONY : tester
-
-# fast build rule for target.
-tester/fast:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/tester.dir/build.make test/CMakeFiles/tester.dir/build
-.PHONY : tester/fast
 
 # Convenience name for target.
 test/CMakeFiles/test_quadtree.dir/rule:
@@ -469,6 +484,33 @@ test_gk.s: test_gk.cpp.s
 test_gk.cpp.s:
 	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_gk.dir/build.make test/CMakeFiles/test_gk.dir/test_gk.cpp.s
 .PHONY : test_gk.cpp.s
+
+test_json.o: test_json.cpp.o
+
+.PHONY : test_json.o
+
+# target to build an object file
+test_json.cpp.o:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_json.dir/build.make test/CMakeFiles/test_json.dir/test_json.cpp.o
+.PHONY : test_json.cpp.o
+
+test_json.i: test_json.cpp.i
+
+.PHONY : test_json.i
+
+# target to preprocess a source file
+test_json.cpp.i:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_json.dir/build.make test/CMakeFiles/test_json.dir/test_json.cpp.i
+.PHONY : test_json.cpp.i
+
+test_json.s: test_json.cpp.s
+
+.PHONY : test_json.s
+
+# target to generate assembly for a file
+test_json.cpp.s:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_json.dir/build.make test/CMakeFiles/test_json.dir/test_json.cpp.s
+.PHONY : test_json.cpp.s
 
 test_k_wise_family.o: test_k_wise_family.cpp.o
 
@@ -724,14 +766,15 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... test"
+	@echo "... list_install_components"
+	@echo "... tester"
+	@echo "... test_json"
 	@echo "... test_stream_maker"
 	@echo "... test_memory_tracker"
 	@echo "... test_kll"
 	@echo "... test_log"
 	@echo "... test_quantile_quadtree"
 	@echo "... test_k_wise_family"
-	@echo "... list_install_components"
-	@echo "... tester"
 	@echo "... test_quadtree"
 	@echo "... test_dcs"
 	@echo "... install"
@@ -751,6 +794,9 @@ help:
 	@echo "... test_gk.o"
 	@echo "... test_gk.i"
 	@echo "... test_gk.s"
+	@echo "... test_json.o"
+	@echo "... test_json.i"
+	@echo "... test_json.s"
 	@echo "... test_k_wise_family.o"
 	@echo "... test_k_wise_family.i"
 	@echo "... test_k_wise_family.s"

@@ -220,6 +220,19 @@ gtest/fast:
 .PHONY : gtest/fast
 
 #=============================================================================
+# Target rules for targets named nlohmann_json
+
+# Build rule for target.
+nlohmann_json: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 nlohmann_json
+.PHONY : nlohmann_json
+
+# fast build rule for target.
+nlohmann_json/fast:
+	$(MAKE) -f thirdparty/CMakeFiles/nlohmann_json.dir/build.make thirdparty/CMakeFiles/nlohmann_json.dir/build
+.PHONY : nlohmann_json/fast
+
+#=============================================================================
 # Target rules for targets named QSBD_DCS
 
 # Build rule for target.
@@ -545,6 +558,32 @@ QSBD_DCS_FACTORY/fast:
 .PHONY : QSBD_DCS_FACTORY/fast
 
 #=============================================================================
+# Target rules for targets named tester
+
+# Build rule for target.
+tester: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 tester
+.PHONY : tester
+
+# fast build rule for target.
+tester/fast:
+	$(MAKE) -f test/CMakeFiles/tester.dir/build.make test/CMakeFiles/tester.dir/build
+.PHONY : tester/fast
+
+#=============================================================================
+# Target rules for targets named test_json
+
+# Build rule for target.
+test_json: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_json
+.PHONY : test_json
+
+# fast build rule for target.
+test_json/fast:
+	$(MAKE) -f test/CMakeFiles/test_json.dir/build.make test/CMakeFiles/test_json.dir/build
+.PHONY : test_json/fast
+
+#=============================================================================
 # Target rules for targets named test_stream_maker
 
 # Build rule for target.
@@ -621,19 +660,6 @@ test_k_wise_family: cmake_check_build_system
 test_k_wise_family/fast:
 	$(MAKE) -f test/CMakeFiles/test_k_wise_family.dir/build.make test/CMakeFiles/test_k_wise_family.dir/build
 .PHONY : test_k_wise_family/fast
-
-#=============================================================================
-# Target rules for targets named tester
-
-# Build rule for target.
-tester: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 tester
-.PHONY : tester
-
-# fast build rule for target.
-tester/fast:
-	$(MAKE) -f test/CMakeFiles/tester.dir/build.make test/CMakeFiles/tester.dir/build
-.PHONY : tester/fast
 
 #=============================================================================
 # Target rules for targets named test_quadtree
@@ -730,6 +756,7 @@ help:
 	@echo "... gmock"
 	@echo "... gtest_main"
 	@echo "... gtest"
+	@echo "... nlohmann_json"
 	@echo "... QSBD_DCS"
 	@echo "... QSBD_LOG"
 	@echo "... QSBD_KLL"
@@ -755,13 +782,14 @@ help:
 	@echo "... QSBD_Q_DIGEST_FACTORY"
 	@echo "... QSBD_AABB"
 	@echo "... QSBD_DCS_FACTORY"
+	@echo "... tester"
+	@echo "... test_json"
 	@echo "... test_stream_maker"
 	@echo "... test_memory_tracker"
 	@echo "... test_kll"
 	@echo "... test_log"
 	@echo "... test_quantile_quadtree"
 	@echo "... test_k_wise_family"
-	@echo "... tester"
 	@echo "... test_quadtree"
 	@echo "... test_dcs"
 	@echo "... test_count_sketch"

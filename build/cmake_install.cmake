@@ -44,6 +44,11 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
+  include("/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/thirdparty/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
   include("/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/cmake_install.cmake")
 endif()
 

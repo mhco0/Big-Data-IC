@@ -1,5 +1,11 @@
 
 set(QSBD_DIR_SOURCE "${CMAKE_SOURCE_DIR}/src")
+set(THIRD_PARTY_DIR_SOURCE "${CMAKE_SOURCE_DIR}/thirdparty")
+
+add_executable(test_json test_json.cpp)
+target_link_libraries(test_json PRIVATE gtest_main nlohmann_json)
+target_include_directories(test_json PRIVATE ${THIRD_PARTY_DIR_SOURCE})
+add_test(NAME test_json COMMAND test_json)
 
 add_executable(test_stream_maker test_stream_maker.cpp)
 target_link_libraries(test_stream_maker PRIVATE gtest_main QSBD_STREAM_MAKER QSBD_GLOBAL_GEN QSBD_COMMUM_HEADER QSBD_UTILS)

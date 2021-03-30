@@ -1,7 +1,7 @@
 ==========================================
 	Construction Test : 
 ==========================================
-.Timer for construct 1.87e-05s.
+.Timer for construct 3.33e-05s.
 
 
 -----------------------
@@ -10,18 +10,20 @@ Memory Usage Statistics
 
 allocated type                                    blocks     bytes       
 --------------                                    ------     -----       
-[unknown]                                          35    9e+01% 19788   1e+02%
-N4qsbd3kllIiEE                                     1     3    % 72      0.4  %
-N4qsbd17quantile_quadtreeIiE4nodeE                 1     3    % 72      0.4  %
-N7testing8internal15TestFactoryImplI51QuantileQuadtreeTest_TestUpdateAndQueryWithKll_TestEE 1     3    % 8       0.04 %
-N7testing8internal15TestFactoryImplI46QuantileQuadtreeTest_TestConstructWithKll_TestEE 1     3    % 8       0.04 %
+[unknown]                                          43    9e+01% 20615   1e+02%
+N4qsbd3kllIiEE                                     1     2    % 72      0.3  %
+N4qsbd17quantile_quadtreeIiE4nodeE                 1     2    % 72      0.3  %
+N7testing8internal15TestFactoryImplI51QuantileQuadtreeTest_TestUpdateAndQueryWithKll_TestEE 1     2    % 8       0.04 %
+N7testing8internal15TestFactoryImplI50QuantileQuadtreeTest_TestUpdateAndQueryWithGK_TestEE 1     2    % 8       0.04 %
+N7testing8internal15TestFactoryImplI46QuantileQuadtreeTest_TestConstructWithKll_TestEE 1     2    % 8       0.04 %
+N7testing8internal15TestFactoryImplI45QuantileQuadtreeTest_TestConstructWithGK_TestEE 1     2    % 8       0.04 %
 --------------                                    ------     -----       
-[totals]                                          39         19948        
+[totals]                                          49         20791        
 
 ==========================================
 	Update And Query With KLL Test : 
 ==========================================
-.Avg update time : 1e-05s
+.Avg update time : 2e-05s
 
 .Avg query time : 0.0003s
 
@@ -33,17 +35,19 @@ Memory Usage Statistics
 
 allocated type                                    blocks     bytes       
 --------------                                    ------     -----       
-[unknown]                                          1889896 1e+02% 107088900 1e+02%
-N4qsbd3kllIiEE                                     3265  0.2  % 235080  0.2  %
-N4qsbd17quantile_quadtreeIiE4nodeE                 3265  0.2  % 235080  0.2  %
-N7testing8internal15TestFactoryImplI51QuantileQuadtreeTest_TestUpdateAndQueryWithKll_TestEE 1     5e-05% 8       7e-06%
-N7testing8internal15TestFactoryImplI46QuantileQuadtreeTest_TestConstructWithKll_TestEE 1     5e-05% 8       7e-06%
+[unknown]                                          1614055 1e+02% 90535051 1e+02%
+N4qsbd3kllIiEE                                     3245  0.2  % 233640  0.3  %
+N4qsbd17quantile_quadtreeIiE4nodeE                 3245  0.2  % 233640  0.3  %
+N7testing8internal15TestFactoryImplI51QuantileQuadtreeTest_TestUpdateAndQueryWithKll_TestEE 1     6e-05% 8       9e-06%
+N7testing8internal15TestFactoryImplI50QuantileQuadtreeTest_TestUpdateAndQueryWithGK_TestEE 1     6e-05% 8       9e-06%
+N7testing8internal15TestFactoryImplI46QuantileQuadtreeTest_TestConstructWithKll_TestEE 1     6e-05% 8       9e-06%
+N7testing8internal15TestFactoryImplI45QuantileQuadtreeTest_TestConstructWithGK_TestEE 1     6e-05% 8       9e-06%
 --------------                                    ------     -----       
-[totals]                                          1896428      107559076      
+[totals]                                          1620549      91002363      
 
-.Avg update time : 9e-06s
+.Avg update time : 1e-05s
 
-.Avg query time : 0.0002s
+.Avg query time : 0.0003s
 
 .Memory Used in iteration 1: 
 
@@ -53,17 +57,19 @@ Memory Usage Statistics
 
 allocated type                                    blocks     bytes       
 --------------                                    ------     -----       
-[unknown]                                          3770275 1e+02% 209746148 1e+02%
-N4qsbd3kllIiEE                                     3265  0.09 % 235080  0.1  %
-N4qsbd17quantile_quadtreeIiE4nodeE                 3265  0.09 % 235080  0.1  %
+[unknown]                                          3269411 1e+02% 181355479 1e+02%
+N4qsbd3kllIiEE                                     3245  0.1  % 233640  0.1  %
+N4qsbd17quantile_quadtreeIiE4nodeE                 3245  0.1  % 233640  0.1  %
 N7testing8internal15TestFactoryImplI51QuantileQuadtreeTest_TestUpdateAndQueryWithKll_TestEE 1     3e-05% 8       4e-06%
+N7testing8internal15TestFactoryImplI50QuantileQuadtreeTest_TestUpdateAndQueryWithGK_TestEE 1     3e-05% 8       4e-06%
 N7testing8internal15TestFactoryImplI46QuantileQuadtreeTest_TestConstructWithKll_TestEE 1     3e-05% 8       4e-06%
+N7testing8internal15TestFactoryImplI45QuantileQuadtreeTest_TestConstructWithGK_TestEE 1     3e-05% 8       4e-06%
 --------------                                    ------     -----       
-[totals]                                          3776807      210216324      
+[totals]                                          3275905      181822791      
 
-.Avg update time : 9e-06s
+.Avg update time : 1e-05s
 
-.Avg query time : 0.0002s
+.Avg query time : 0.0003s
 
 .Memory Used in iteration 2: 
 
@@ -73,15 +79,17 @@ Memory Usage Statistics
 
 allocated type                                    blocks     bytes       
 --------------                                    ------     -----       
-[unknown]                                          5661956 1e+02% 314933624 1e+02%
-N4qsbd3kllIiEE                                     3265  0.06 % 235080  0.07 %
-N4qsbd17quantile_quadtreeIiE4nodeE                 3265  0.06 % 235080  0.07 %
+[unknown]                                          4823218 1e+02% 270573191 1e+02%
+N4qsbd3kllIiEE                                     3245  0.07 % 233640  0.09 %
+N4qsbd17quantile_quadtreeIiE4nodeE                 3245  0.07 % 233640  0.09 %
 N7testing8internal15TestFactoryImplI51QuantileQuadtreeTest_TestUpdateAndQueryWithKll_TestEE 1     2e-05% 8       3e-06%
+N7testing8internal15TestFactoryImplI50QuantileQuadtreeTest_TestUpdateAndQueryWithGK_TestEE 1     2e-05% 8       3e-06%
 N7testing8internal15TestFactoryImplI46QuantileQuadtreeTest_TestConstructWithKll_TestEE 1     2e-05% 8       3e-06%
+N7testing8internal15TestFactoryImplI45QuantileQuadtreeTest_TestConstructWithGK_TestEE 1     2e-05% 8       3e-06%
 --------------                                    ------     -----       
-[totals]                                          5668488      315403800      
+[totals]                                          4829712      271040503      
 
-.Avg update time : 9e-06s
+.Avg update time : 1e-05s
 
 .Avg query time : 0.0003s
 
@@ -93,17 +101,19 @@ Memory Usage Statistics
 
 allocated type                                    blocks     bytes       
 --------------                                    ------     -----       
-[unknown]                                          7569757 1e+02% 420685788 1e+02%
-N4qsbd3kllIiEE                                     3265  0.04 % 235080  0.06 %
-N4qsbd17quantile_quadtreeIiE4nodeE                 3265  0.04 % 235080  0.06 %
-N7testing8internal15TestFactoryImplI51QuantileQuadtreeTest_TestUpdateAndQueryWithKll_TestEE 1     1e-05% 8       2e-06%
-N7testing8internal15TestFactoryImplI46QuantileQuadtreeTest_TestConstructWithKll_TestEE 1     1e-05% 8       2e-06%
+[unknown]                                          6406407 1e+02% 362449511 1e+02%
+N4qsbd3kllIiEE                                     3245  0.05 % 233640  0.06 %
+N4qsbd17quantile_quadtreeIiE4nodeE                 3245  0.05 % 233640  0.06 %
+N7testing8internal15TestFactoryImplI51QuantileQuadtreeTest_TestUpdateAndQueryWithKll_TestEE 1     2e-05% 8       2e-06%
+N7testing8internal15TestFactoryImplI50QuantileQuadtreeTest_TestUpdateAndQueryWithGK_TestEE 1     2e-05% 8       2e-06%
+N7testing8internal15TestFactoryImplI46QuantileQuadtreeTest_TestConstructWithKll_TestEE 1     2e-05% 8       2e-06%
+N7testing8internal15TestFactoryImplI45QuantileQuadtreeTest_TestConstructWithGK_TestEE 1     2e-05% 8       2e-06%
 --------------                                    ------     -----       
-[totals]                                          7576289      421155964      
+[totals]                                          6412901      362916823      
 
-.Avg update time : 9e-06s
+.Avg update time : 1e-05s
 
-.Avg query time : 0.0002s
+.Avg query time : 0.0003s
 
 .Memory Used in iteration 4: 
 
@@ -113,17 +123,19 @@ Memory Usage Statistics
 
 allocated type                                    blocks     bytes       
 --------------                                    ------     -----       
-[unknown]                                          9422487 1e+02% 521931884 1e+02%
-N4qsbd3kllIiEE                                     3265  0.03 % 235080  0.04 %
-N4qsbd17quantile_quadtreeIiE4nodeE                 3265  0.03 % 235080  0.04 %
+[unknown]                                          7998202 1e+02% 453837923 1e+02%
+N4qsbd3kllIiEE                                     3245  0.04 % 233640  0.05 %
+N4qsbd17quantile_quadtreeIiE4nodeE                 3245  0.04 % 233640  0.05 %
 N7testing8internal15TestFactoryImplI51QuantileQuadtreeTest_TestUpdateAndQueryWithKll_TestEE 1     1e-05% 8       2e-06%
+N7testing8internal15TestFactoryImplI50QuantileQuadtreeTest_TestUpdateAndQueryWithGK_TestEE 1     1e-05% 8       2e-06%
 N7testing8internal15TestFactoryImplI46QuantileQuadtreeTest_TestConstructWithKll_TestEE 1     1e-05% 8       2e-06%
+N7testing8internal15TestFactoryImplI45QuantileQuadtreeTest_TestConstructWithGK_TestEE 1     1e-05% 8       2e-06%
 --------------                                    ------     -----       
-[totals]                                          9429019      522402060      
+[totals]                                          8004696      454305235      
 
-.Avg update time : 9e-06s
+.Avg update time : 1e-05s
 
-.Avg query time : 0.0003s
+.Avg query time : 0.0004s
 
 .Memory Used in iteration 5: 
 
@@ -133,17 +145,19 @@ Memory Usage Statistics
 
 allocated type                                    blocks     bytes       
 --------------                                    ------     -----       
-[unknown]                                          11295476 1e+02% 627523844 1e+02%
-N4qsbd3kllIiEE                                     3265  0.03 % 235080  0.04 %
-N4qsbd17quantile_quadtreeIiE4nodeE                 3265  0.03 % 235080  0.04 %
-N7testing8internal15TestFactoryImplI51QuantileQuadtreeTest_TestUpdateAndQueryWithKll_TestEE 1     9e-06% 8       1e-06%
-N7testing8internal15TestFactoryImplI46QuantileQuadtreeTest_TestConstructWithKll_TestEE 1     9e-06% 8       1e-06%
+[unknown]                                          9579751 1e+02% 544644083 1e+02%
+N4qsbd3kllIiEE                                     3245  0.03 % 233640  0.04 %
+N4qsbd17quantile_quadtreeIiE4nodeE                 3245  0.03 % 233640  0.04 %
+N7testing8internal15TestFactoryImplI51QuantileQuadtreeTest_TestUpdateAndQueryWithKll_TestEE 1     1e-05% 8       1e-06%
+N7testing8internal15TestFactoryImplI50QuantileQuadtreeTest_TestUpdateAndQueryWithGK_TestEE 1     1e-05% 8       1e-06%
+N7testing8internal15TestFactoryImplI46QuantileQuadtreeTest_TestConstructWithKll_TestEE 1     1e-05% 8       1e-06%
+N7testing8internal15TestFactoryImplI45QuantileQuadtreeTest_TestConstructWithGK_TestEE 1     1e-05% 8       1e-06%
 --------------                                    ------     -----       
-[totals]                                          11302008      627994020      
+[totals]                                          9586245      545111395      
 
-.Avg update time : 9e-06s
+.Avg update time : 1e-05s
 
-.Avg query time : 0.0002s
+.Avg query time : 0.0004s
 
 .Memory Used in iteration 6: 
 
@@ -153,15 +167,17 @@ Memory Usage Statistics
 
 allocated type                                    blocks     bytes       
 --------------                                    ------     -----       
-[unknown]                                          13224275 1e+02% 731889868 1e+02%
-N4qsbd3kllIiEE                                     3265  0.02 % 235080  0.03 %
-N4qsbd17quantile_quadtreeIiE4nodeE                 3265  0.02 % 235080  0.03 %
-N7testing8internal15TestFactoryImplI51QuantileQuadtreeTest_TestUpdateAndQueryWithKll_TestEE 1     8e-06% 8       1e-06%
-N7testing8internal15TestFactoryImplI46QuantileQuadtreeTest_TestConstructWithKll_TestEE 1     8e-06% 8       1e-06%
+[unknown]                                          11229470 1e+02% 637518767 1e+02%
+N4qsbd3kllIiEE                                     3245  0.03 % 233640  0.04 %
+N4qsbd17quantile_quadtreeIiE4nodeE                 3245  0.03 % 233640  0.04 %
+N7testing8internal15TestFactoryImplI51QuantileQuadtreeTest_TestUpdateAndQueryWithKll_TestEE 1     9e-06% 8       1e-06%
+N7testing8internal15TestFactoryImplI50QuantileQuadtreeTest_TestUpdateAndQueryWithGK_TestEE 1     9e-06% 8       1e-06%
+N7testing8internal15TestFactoryImplI46QuantileQuadtreeTest_TestConstructWithKll_TestEE 1     9e-06% 8       1e-06%
+N7testing8internal15TestFactoryImplI45QuantileQuadtreeTest_TestConstructWithGK_TestEE 1     9e-06% 8       1e-06%
 --------------                                    ------     -----       
-[totals]                                          13230807      732360044      
+[totals]                                          11235964      637986079      
 
-.Avg update time : 9e-06s
+.Avg update time : 1e-05s
 
 .Avg query time : 0.0003s
 
@@ -173,13 +189,15 @@ Memory Usage Statistics
 
 allocated type                                    blocks     bytes       
 --------------                                    ------     -----       
-[unknown]                                          15099561 1e+02% 837796412 1e+02%
-N4qsbd3kllIiEE                                     3265  0.02 % 235080  0.03 %
-N4qsbd17quantile_quadtreeIiE4nodeE                 3265  0.02 % 235080  0.03 %
-N7testing8internal15TestFactoryImplI51QuantileQuadtreeTest_TestUpdateAndQueryWithKll_TestEE 1     7e-06% 8       1e-06%
-N7testing8internal15TestFactoryImplI46QuantileQuadtreeTest_TestConstructWithKll_TestEE 1     7e-06% 8       1e-06%
+[unknown]                                          12827474 1e+02% 728767375 1e+02%
+N4qsbd3kllIiEE                                     3245  0.03 % 233640  0.03 %
+N4qsbd17quantile_quadtreeIiE4nodeE                 3245  0.03 % 233640  0.03 %
+N7testing8internal15TestFactoryImplI51QuantileQuadtreeTest_TestUpdateAndQueryWithKll_TestEE 1     8e-06% 8       1e-06%
+N7testing8internal15TestFactoryImplI50QuantileQuadtreeTest_TestUpdateAndQueryWithGK_TestEE 1     8e-06% 8       1e-06%
+N7testing8internal15TestFactoryImplI46QuantileQuadtreeTest_TestConstructWithKll_TestEE 1     8e-06% 8       1e-06%
+N7testing8internal15TestFactoryImplI45QuantileQuadtreeTest_TestConstructWithGK_TestEE 1     8e-06% 8       1e-06%
 --------------                                    ------     -----       
-[totals]                                          15106093      838266588      
+[totals]                                          12833968      729234687      
 
 .Avg update time : 1e-05s
 
@@ -193,13 +211,15 @@ Memory Usage Statistics
 
 allocated type                                    blocks     bytes       
 --------------                                    ------     -----       
-[unknown]                                          17009735 1e+02% 943542120 1e+02%
-N4qsbd3kllIiEE                                     3265  0.02 % 235080  0.02 %
-N4qsbd17quantile_quadtreeIiE4nodeE                 3265  0.02 % 235080  0.02 %
-N7testing8internal15TestFactoryImplI51QuantileQuadtreeTest_TestUpdateAndQueryWithKll_TestEE 1     6e-06% 8       8e-07%
-N7testing8internal15TestFactoryImplI46QuantileQuadtreeTest_TestConstructWithKll_TestEE 1     6e-06% 8       8e-07%
+[unknown]                                          14349402 1e+02% 816116847 1e+02%
+N4qsbd3kllIiEE                                     3245  0.02 % 233640  0.03 %
+N4qsbd17quantile_quadtreeIiE4nodeE                 3245  0.02 % 233640  0.03 %
+N7testing8internal15TestFactoryImplI51QuantileQuadtreeTest_TestUpdateAndQueryWithKll_TestEE 1     7e-06% 8       1e-06%
+N7testing8internal15TestFactoryImplI50QuantileQuadtreeTest_TestUpdateAndQueryWithGK_TestEE 1     7e-06% 8       1e-06%
+N7testing8internal15TestFactoryImplI46QuantileQuadtreeTest_TestConstructWithKll_TestEE 1     7e-06% 8       1e-06%
+N7testing8internal15TestFactoryImplI45QuantileQuadtreeTest_TestConstructWithGK_TestEE 1     7e-06% 8       1e-06%
 --------------                                    ------     -----       
-[totals]                                          17016267      944012296      
+[totals]                                          14355896      816584159      
 
 .Avg update time : 1e-05s
 
@@ -213,11 +233,13 @@ Memory Usage Statistics
 
 allocated type                                    blocks     bytes       
 --------------                                    ------     -----       
-[unknown]                                          18845121 1e+02% 1047582508 1e+02%
-N4qsbd3kllIiEE                                     3265  0.02 % 235080  0.02 %
-N4qsbd17quantile_quadtreeIiE4nodeE                 3265  0.02 % 235080  0.02 %
-N7testing8internal15TestFactoryImplI51QuantileQuadtreeTest_TestUpdateAndQueryWithKll_TestEE 1     5e-06% 8       8e-07%
-N7testing8internal15TestFactoryImplI46QuantileQuadtreeTest_TestConstructWithKll_TestEE 1     5e-06% 8       8e-07%
+[unknown]                                          15984290 1e+02% 904901107 1e+02%
+N4qsbd3kllIiEE                                     3245  0.02 % 233640  0.03 %
+N4qsbd17quantile_quadtreeIiE4nodeE                 3245  0.02 % 233640  0.03 %
+N7testing8internal15TestFactoryImplI51QuantileQuadtreeTest_TestUpdateAndQueryWithKll_TestEE 1     6e-06% 8       9e-07%
+N7testing8internal15TestFactoryImplI50QuantileQuadtreeTest_TestUpdateAndQueryWithGK_TestEE 1     6e-06% 8       9e-07%
+N7testing8internal15TestFactoryImplI46QuantileQuadtreeTest_TestConstructWithKll_TestEE 1     6e-06% 8       9e-07%
+N7testing8internal15TestFactoryImplI45QuantileQuadtreeTest_TestConstructWithGK_TestEE 1     6e-06% 8       9e-07%
 --------------                                    ------     -----       
-[totals]                                          18851653      1048052684      
+[totals]                                          15990784      905368419      
 

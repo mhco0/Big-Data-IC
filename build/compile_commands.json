@@ -96,6 +96,16 @@
 },
 {
   "directory": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test",
+  "command": "/bin/x86_64-linux-gnu-g++-9   -I\"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src\"  -g -fPIE   -std=gnu++11 -o CMakeFiles/tester.dir/tester.cpp.o -c \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/tester.cpp\"",
+  "file": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/tester.cpp"
+},
+{
+  "directory": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test",
+  "command": "/bin/x86_64-linux-gnu-g++-9   -I\"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/thirdparty\" -isystem \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/googletest/googletest/include\" -isystem \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/googletest/googletest\"  -g -fPIE   -std=gnu++11 -o CMakeFiles/test_json.dir/test_json.cpp.o -c \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_json.cpp\"",
+  "file": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_json.cpp"
+},
+{
+  "directory": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test",
   "command": "/bin/x86_64-linux-gnu-g++-9   -I\"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src\" -isystem \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/googletest/googletest/include\" -isystem \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/googletest/googletest\"  -g -fPIE   -std=gnu++11 -o CMakeFiles/test_stream_maker.dir/test_stream_maker.cpp.o -c \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_stream_maker.cpp\"",
   "file": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_stream_maker.cpp"
 },
@@ -123,11 +133,6 @@
   "directory": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test",
   "command": "/bin/x86_64-linux-gnu-g++-9   -I\"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src\" -isystem \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/googletest/googletest/include\" -isystem \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/googletest/googletest\"  -g -fPIE   -std=gnu++11 -o CMakeFiles/test_k_wise_family.dir/test_k_wise_family.cpp.o -c \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_k_wise_family.cpp\"",
   "file": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_k_wise_family.cpp"
-},
-{
-  "directory": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test",
-  "command": "/bin/x86_64-linux-gnu-g++-9   -I\"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src\"  -g -fPIE   -std=gnu++11 -o CMakeFiles/tester.dir/tester.cpp.o -c \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/tester.cpp\"",
-  "file": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/tester.cpp"
 },
 {
   "directory": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test",
