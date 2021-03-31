@@ -163,5 +163,10 @@
   "directory": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test",
   "command": "/bin/x86_64-linux-gnu-g++-9   -I\"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src\" -isystem \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/googletest/googletest/include\" -isystem \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/googletest/googletest\"  -g -fPIE   -std=gnu++11 -o CMakeFiles/test_gk.dir/test_gk.cpp.o -c \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_gk.cpp\"",
   "file": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_gk.cpp"
+},
+{
+  "directory": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/app",
+  "command": "/bin/x86_64-linux-gnu-g++-9   -I\"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src\" -I\"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/thirdparty\"  -g -fPIE   -std=gnu++11 -o CMakeFiles/stream_creator.dir/stream_creator/stream_creator.cpp.o -c \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/app/stream_creator/stream_creator.cpp\"",
+  "file": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/app/stream_creator/stream_creator.cpp"
 }
 ]

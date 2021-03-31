@@ -1,0 +1,11 @@
+{
+    "method": "random_stream_in_region",
+    "args": {
+        "vector_size":  10000,
+        "minx": 0.0,
+        "miny": 0.0,
+        "maxx": 1280.0,
+        "maxy": 780.0
+    },
+    "output": "out/stream_test0.json"
+}

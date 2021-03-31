@@ -35,7 +35,6 @@ namespace qsbd {
 
     void configurator::analisy_command(const string& command){
         
-
         switch (map(command)){
             case options::ARGS:{
                 string values = command.substr(5);

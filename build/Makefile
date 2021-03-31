@@ -739,6 +739,19 @@ test_gk/fast:
 	$(MAKE) -f test/CMakeFiles/test_gk.dir/build.make test/CMakeFiles/test_gk.dir/build
 .PHONY : test_gk/fast
 
+#=============================================================================
+# Target rules for targets named stream_creator
+
+# Build rule for target.
+stream_creator: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 stream_creator
+.PHONY : stream_creator
+
+# fast build rule for target.
+stream_creator/fast:
+	$(MAKE) -f app/CMakeFiles/stream_creator.dir/build.make app/CMakeFiles/stream_creator.dir/build
+.PHONY : stream_creator/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -796,6 +809,7 @@ help:
 	@echo "... test_q_digest"
 	@echo "... test_config"
 	@echo "... test_gk"
+	@echo "... stream_creator"
 .PHONY : help
 
 

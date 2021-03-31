@@ -20,5 +20,8 @@ TEST(JsonTest, TestCreateJson){
     j["list"] = { 1, 0, 2 };
     // add another object (using an initializer list of pairs)
     j["object"] = { {"currency", "USD"}, {"value", 42.99} };
-    cout << j.dump(4) << endl;
+    
+    string output = "{\"answer\":{\"everything\":42},\"happy\":true,\"list\":[1,0,2],\"name\":\"Niels\",\"nothing\":null,\"object\":{\"currency\":\"USD\",\"value\":42.99},\"pi\":3.141}";
+
+    EXPECT_TRUE(j.dump() == output);
 }

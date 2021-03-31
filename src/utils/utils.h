@@ -11,6 +11,7 @@ namespace qsbd{
     std::vector<std::string> parse_string(const std::string& sample, const std::string& delimiter = " ");
     std::string erase_special_characters(const std::string& sample, const std::string& except = {});
     std::deque<std::string> process_args(int argc, char* argv[]);
+    bool ends_with(std::string const& value, std::string const& ending);
 
     template<class T>
     void insert_sorted(std::vector<T>& vec,const T& data){

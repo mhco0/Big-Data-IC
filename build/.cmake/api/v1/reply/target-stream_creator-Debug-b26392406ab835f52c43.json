@@ -1,0 +1,198 @@
+{
+	"artifacts" : 
+	[
+		{
+			"path" : "bin/stream_creator"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_executable",
+			"target_link_libraries",
+			"target_include_directories"
+		],
+		"files" : 
+		[
+			"app/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 4,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 7,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 5,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 6,
+				"parent" : 0
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-g -fPIE  "
+				},
+				{
+					"fragment" : "-std=gnu++11"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 3,
+					"path" : "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src"
+				},
+				{
+					"backtrace" : 4,
+					"path" : "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/thirdparty"
+				}
+			],
+			"language" : "CXX",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		}
+	],
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 2,
+			"id" : "nlohmann_json::@90d16ed2915c72dcc9c2"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "QSBD_LOG::@145eef247bfb46b6828c"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "QSBD_CONFIG::@145eef247bfb46b6828c"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "QSBD_DEBUG::@145eef247bfb46b6828c"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "QSBD_UTILS::@145eef247bfb46b6828c"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "QSBD_COMMUM_HEADER::@145eef247bfb46b6828c"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "QSBD_STREAM_MAKER::@145eef247bfb46b6828c"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "QSBD_GLOBAL_GEN::@145eef247bfb46b6828c"
+		}
+	],
+	"id" : "stream_creator::@5f5a17c01335469806cb",
+	"link" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "-g",
+				"role" : "flags"
+			},
+			{
+				"fragment" : "",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "../lib/libnlohmann_json.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "../lib/libQSBD_STREAM_MAKER.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "../lib/libQSBD_UTILS.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "../lib/libQSBD_LOG.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "../lib/libQSBD_CONFIG.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "../lib/libQSBD_DEBUG.a",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "../lib/libQSBD_COMMUM_HEADER.a",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "../lib/libQSBD_GLOBAL_GEN.a",
+				"role" : "libraries"
+			}
+		],
+		"language" : "CXX"
+	},
+	"name" : "stream_creator",
+	"nameOnDisk" : "stream_creator",
+	"paths" : 
+	{
+		"build" : "app",
+		"source" : "app"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "app/stream_creator/stream_creator.cpp",
+			"sourceGroupIndex" : 0
+		}
+	],
+	"type" : "EXECUTABLE"
+}
