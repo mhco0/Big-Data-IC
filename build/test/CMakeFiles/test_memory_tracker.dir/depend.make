@@ -21,8 +21,7 @@ test/CMakeFiles/test_memory_tracker.dir/test_memory_tracker.cpp.o: ../googletest
 test/CMakeFiles/test_memory_tracker.dir/test_memory_tracker.cpp.o: ../googletest/googletest/include/gtest/internal/gtest-port.h
 test/CMakeFiles/test_memory_tracker.dir/test_memory_tracker.cpp.o: ../googletest/googletest/include/gtest/internal/gtest-string.h
 test/CMakeFiles/test_memory_tracker.dir/test_memory_tracker.cpp.o: ../googletest/googletest/include/gtest/internal/gtest-type-util.h
-test/CMakeFiles/test_memory_tracker.dir/test_memory_tracker.cpp.o: ../src/logger/logger.h
 test/CMakeFiles/test_memory_tracker.dir/test_memory_tracker.cpp.o: ../src/memory_tracker/memory_tracker.h
-test/CMakeFiles/test_memory_tracker.dir/test_memory_tracker.cpp.o: ../src/qsbd_debug/qsbd_debug.h
+test/CMakeFiles/test_memory_tracker.dir/test_memory_tracker.cpp.o: ../thirdparty/nlohmann/json.hpp
 test/CMakeFiles/test_memory_tracker.dir/test_memory_tracker.cpp.o: ../test/test_memory_tracker.cpp
 

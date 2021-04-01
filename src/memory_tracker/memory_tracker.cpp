@@ -195,18 +195,15 @@ namespace qsbd {
             p_header->stamp(stamp.file_name, stamp.line_num, type_name);
         }
 
-        void track_dump_blocks(logger& out){
+        void track_dump_blocks(nlohmann::json& out){
             // Get an array of pointers to all extant blocks.
             size_t num_blocks = block_header::count_blocks();
             block_header ** pp_block_header = (block_header **) calloc(num_blocks, sizeof(*pp_block_header));
             block_header::get_blocks(pp_block_header);
 
-            // Dump information about the memory blocks.
-            out << std::endl;
-            out << "=====================" << std::endl;
-            out << "Current Memory Blocks" << std::endl;
-            out << "=====================" << std::endl;
-            out << std::endl;
+            nlohmann::json temp;
+
+            temp["memory_blocks"] = nlohmann::json::array();
 
             for (size_t i = 0; i < num_blocks; i++){
                 block_header * p_block_header = pp_block_header[i];
@@ -214,23 +211,19 @@ namespace qsbd {
                 size_t size = p_block_header->get_requested_size();
                 char const * file_name = p_block_header->get_file_name();
                 int line_num = p_block_header->get_line_num();
+                
+                nlohmann::json memory_obj = {};
 
-                out << "*** #";
-                out.setf(std::ios::ios_base::left);
-                out.fill(' ');
-                out.width(6);
-                out << i;
-                out << " ";
-                out.width(5);
-                out << size;
-                out << " bytes ";
-                out.setf(std::ios::ios_base::left);
-                out.width(50);
-                out << type_name;
-                out << std::endl;
-
-                out << "... " << file_name << ":" << line_num << std::endl;
+                memory_obj["block"] = i;
+                memory_obj["bytes"] = size;
+                memory_obj["type_name"] = type_name;
+                memory_obj["file_name"] = file_name;
+                memory_obj["line_num"] = line_num;
+    
+                temp.push_back(memory_obj);
             }
+
+            out.push_back(temp);
 
             // Clean up.
             free(pp_block_header);
@@ -248,7 +241,7 @@ namespace qsbd {
             }
         }
 
-        void track_list_memory_usage(logger& out){
+        void track_list_memory_usage(nlohmann::json& out){
             // If there are no allocated blocks, then return now.
             size_t num_blocks = block_header::count_blocks();
             if (num_blocks == 0) return;
@@ -298,39 +291,10 @@ namespace qsbd {
                 grand_total_num_blocks += p_mem_digest_array[i].block_count;
                 grand_total_size += p_mem_digest_array[i].total_size;
             }
-
+            nlohmann::json temp = {};
             // Dump the memory usage statistics.
-            out << std::endl;
-            out << "-----------------------" << std::endl;
-            out << "Memory Usage Statistics" << std::endl;
-            out << "-----------------------" << std::endl;
-            out << std::endl;
 
-            out.fill(' ');
-            out.setf(std::ios::ios_base::left);
-            out.width(50);
-            out << "allocated type";
-            out.width(5);
-            out << "blocks";
-            out.width(5); 
-            out << "";
-            out.width(7);
-            out << "bytes";
-            out.width(5);
-            out << "";
-            out << std::endl; 
-
-            out.setf(std::ios::ios_base::left);
-            out.width(50);
-            out << "--------------";
-            out.width(5);
-            out <<  "------";
-            out.width(5);
-            out << "";
-            out.width(7);
-            out << "-----";
-            out.width(5);
-            out << "" << std::endl;
+            temp["memory_used"] = nlohmann::json::array();
            
             for (size_t i = 0; i < num_unique_types; i++){
                 mem_digest *pMD = p_mem_digest_array + i;
@@ -339,43 +303,21 @@ namespace qsbd {
                 size_t total_size = pMD->total_size;
                 double total_size_pct = 100.0 * total_size / grand_total_size;
 
-                out.precision(1);
-                out.setf(std::ios::ios_base::left);
-                out.width(50);
-                out << pMD->type_name << " ";
-                out.width(5);
-                out << block_count << " ";
-                out.width(5);
-                out << block_countPct << "% ";
-                out.width(7);
-                out << total_size << " ";
-                out.width(5);
-                out << total_size_pct << "%" << std::endl; 
+                nlohmann::json memory_obj = {};
+
+                memory_obj["allocated_type"] = pMD->type_name;
+                memory_obj["blocks"] = block_count;
+                memory_obj["blocks_pct"] = block_countPct;
+                memory_obj["bytes"] = total_size;
+                memory_obj["bytes_pct"] = total_size_pct; 
+
+                temp["memory_used"].push_back(memory_obj);
             }
-            
-            out.setf(std::ios::ios_base::left);
-            out.width(50);
-            out << "--------------";
-            out.width(5);
-            out <<  "------";
-            out.width(5);
-            out << "";
-            out.width(7);
-            out << "-----";
-            out.width(5);
-            out << "" << std::endl;
            
-            out.setf(std::ios::ios_base::left);
-            out.width(50);
-            out << "[totals] ";
-            out.width(5);
-            out <<  grand_total_num_blocks << " ";
-            out.width(5);
-            out << "";
-            out.width(7);
-            out << grand_total_size << " ";
-            out.width(5);
-            out << "" << std::endl;
+            temp["totals"]["blocks"] = grand_total_num_blocks;
+            temp["totals"]["bytes"] = grand_total_size;
+
+            out.push_back(temp);
 
             // Clean up.
             free(pp_block_header);

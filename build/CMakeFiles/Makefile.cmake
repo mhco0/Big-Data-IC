@@ -122,5 +122,7 @@ set(CMAKE_DEPEND_INFO_FILES
   "test/CMakeFiles/test_q_digest.dir/DependInfo.cmake"
   "test/CMakeFiles/test_config.dir/DependInfo.cmake"
   "test/CMakeFiles/test_gk.dir/DependInfo.cmake"
+  "app/CMakeFiles/quantile_quadtree_experiment.dir/DependInfo.cmake"
+  "app/CMakeFiles/query_creator.dir/DependInfo.cmake"
   "app/CMakeFiles/stream_creator.dir/DependInfo.cmake"
   )

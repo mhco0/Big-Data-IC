@@ -68,18 +68,6 @@ install/strip/fast: preinstall/fast
 	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
 
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
-
-# Special rule for the target install/local
-install/local/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local/fast
-
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
@@ -135,6 +123,18 @@ test/fast: test
 
 .PHONY : test/fast
 
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
 # The main all target
 all: cmake_check_build_system
 	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/app/CMakeFiles/progress.marks"
@@ -168,6 +168,36 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+app/CMakeFiles/quantile_quadtree_experiment.dir/rule:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/quantile_quadtree_experiment.dir/rule
+.PHONY : app/CMakeFiles/quantile_quadtree_experiment.dir/rule
+
+# Convenience name for target.
+quantile_quadtree_experiment: app/CMakeFiles/quantile_quadtree_experiment.dir/rule
+
+.PHONY : quantile_quadtree_experiment
+
+# fast build rule for target.
+quantile_quadtree_experiment/fast:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/quantile_quadtree_experiment.dir/build.make app/CMakeFiles/quantile_quadtree_experiment.dir/build
+.PHONY : quantile_quadtree_experiment/fast
+
+# Convenience name for target.
+app/CMakeFiles/query_creator.dir/rule:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/query_creator.dir/rule
+.PHONY : app/CMakeFiles/query_creator.dir/rule
+
+# Convenience name for target.
+query_creator: app/CMakeFiles/query_creator.dir/rule
+
+.PHONY : query_creator
+
+# fast build rule for target.
+query_creator/fast:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/query_creator.dir/build.make app/CMakeFiles/query_creator.dir/build
+.PHONY : query_creator/fast
+
+# Convenience name for target.
 app/CMakeFiles/stream_creator.dir/rule:
 	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/stream_creator.dir/rule
 .PHONY : app/CMakeFiles/stream_creator.dir/rule
@@ -181,6 +211,60 @@ stream_creator: app/CMakeFiles/stream_creator.dir/rule
 stream_creator/fast:
 	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/stream_creator.dir/build.make app/CMakeFiles/stream_creator.dir/build
 .PHONY : stream_creator/fast
+
+quantile_quadtree_experiment/quantile_quadtree_experiment.o: quantile_quadtree_experiment/quantile_quadtree_experiment.cpp.o
+
+.PHONY : quantile_quadtree_experiment/quantile_quadtree_experiment.o
+
+# target to build an object file
+quantile_quadtree_experiment/quantile_quadtree_experiment.cpp.o:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/quantile_quadtree_experiment.dir/build.make app/CMakeFiles/quantile_quadtree_experiment.dir/quantile_quadtree_experiment/quantile_quadtree_experiment.cpp.o
+.PHONY : quantile_quadtree_experiment/quantile_quadtree_experiment.cpp.o
+
+quantile_quadtree_experiment/quantile_quadtree_experiment.i: quantile_quadtree_experiment/quantile_quadtree_experiment.cpp.i
+
+.PHONY : quantile_quadtree_experiment/quantile_quadtree_experiment.i
+
+# target to preprocess a source file
+quantile_quadtree_experiment/quantile_quadtree_experiment.cpp.i:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/quantile_quadtree_experiment.dir/build.make app/CMakeFiles/quantile_quadtree_experiment.dir/quantile_quadtree_experiment/quantile_quadtree_experiment.cpp.i
+.PHONY : quantile_quadtree_experiment/quantile_quadtree_experiment.cpp.i
+
+quantile_quadtree_experiment/quantile_quadtree_experiment.s: quantile_quadtree_experiment/quantile_quadtree_experiment.cpp.s
+
+.PHONY : quantile_quadtree_experiment/quantile_quadtree_experiment.s
+
+# target to generate assembly for a file
+quantile_quadtree_experiment/quantile_quadtree_experiment.cpp.s:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/quantile_quadtree_experiment.dir/build.make app/CMakeFiles/quantile_quadtree_experiment.dir/quantile_quadtree_experiment/quantile_quadtree_experiment.cpp.s
+.PHONY : quantile_quadtree_experiment/quantile_quadtree_experiment.cpp.s
+
+query_creator/query_creator.o: query_creator/query_creator.cpp.o
+
+.PHONY : query_creator/query_creator.o
+
+# target to build an object file
+query_creator/query_creator.cpp.o:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/query_creator.dir/build.make app/CMakeFiles/query_creator.dir/query_creator/query_creator.cpp.o
+.PHONY : query_creator/query_creator.cpp.o
+
+query_creator/query_creator.i: query_creator/query_creator.cpp.i
+
+.PHONY : query_creator/query_creator.i
+
+# target to preprocess a source file
+query_creator/query_creator.cpp.i:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/query_creator.dir/build.make app/CMakeFiles/query_creator.dir/query_creator/query_creator.cpp.i
+.PHONY : query_creator/query_creator.cpp.i
+
+query_creator/query_creator.s: query_creator/query_creator.cpp.s
+
+.PHONY : query_creator/query_creator.s
+
+# target to generate assembly for a file
+query_creator/query_creator.cpp.s:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/query_creator.dir/build.make app/CMakeFiles/query_creator.dir/query_creator/query_creator.cpp.s
+.PHONY : query_creator/query_creator.cpp.s
 
 stream_creator/stream_creator.o: stream_creator/stream_creator.cpp.o
 
@@ -216,13 +300,21 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... install/strip"
-	@echo "... install/local"
 	@echo "... install"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... test"
+	@echo "... install/local"
+	@echo "... quantile_quadtree_experiment"
+	@echo "... query_creator"
 	@echo "... stream_creator"
+	@echo "... quantile_quadtree_experiment/quantile_quadtree_experiment.o"
+	@echo "... quantile_quadtree_experiment/quantile_quadtree_experiment.i"
+	@echo "... quantile_quadtree_experiment/quantile_quadtree_experiment.s"
+	@echo "... query_creator/query_creator.o"
+	@echo "... query_creator/query_creator.i"
+	@echo "... query_creator/query_creator.s"
 	@echo "... stream_creator/stream_creator.o"
 	@echo "... stream_creator/stream_creator.i"
 	@echo "... stream_creator/stream_creator.s"

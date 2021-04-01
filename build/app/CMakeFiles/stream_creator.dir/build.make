@@ -83,7 +83,6 @@ bin/stream_creator: lib/libnlohmann_json.a
 bin/stream_creator: lib/libQSBD_STREAM_MAKER.a
 bin/stream_creator: lib/libQSBD_UTILS.a
 bin/stream_creator: lib/libQSBD_LOG.a
-bin/stream_creator: lib/libQSBD_CONFIG.a
 bin/stream_creator: lib/libQSBD_DEBUG.a
 bin/stream_creator: lib/libQSBD_COMMUM_HEADER.a
 bin/stream_creator: lib/libQSBD_GLOBAL_GEN.a

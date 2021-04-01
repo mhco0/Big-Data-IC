@@ -740,6 +740,32 @@ test_gk/fast:
 .PHONY : test_gk/fast
 
 #=============================================================================
+# Target rules for targets named quantile_quadtree_experiment
+
+# Build rule for target.
+quantile_quadtree_experiment: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 quantile_quadtree_experiment
+.PHONY : quantile_quadtree_experiment
+
+# fast build rule for target.
+quantile_quadtree_experiment/fast:
+	$(MAKE) -f app/CMakeFiles/quantile_quadtree_experiment.dir/build.make app/CMakeFiles/quantile_quadtree_experiment.dir/build
+.PHONY : quantile_quadtree_experiment/fast
+
+#=============================================================================
+# Target rules for targets named query_creator
+
+# Build rule for target.
+query_creator: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 query_creator
+.PHONY : query_creator
+
+# fast build rule for target.
+query_creator/fast:
+	$(MAKE) -f app/CMakeFiles/query_creator.dir/build.make app/CMakeFiles/query_creator.dir/build
+.PHONY : query_creator/fast
+
+#=============================================================================
 # Target rules for targets named stream_creator
 
 # Build rule for target.
@@ -809,6 +835,8 @@ help:
 	@echo "... test_q_digest"
 	@echo "... test_config"
 	@echo "... test_gk"
+	@echo "... quantile_quadtree_experiment"
+	@echo "... query_creator"
 	@echo "... stream_creator"
 .PHONY : help
 

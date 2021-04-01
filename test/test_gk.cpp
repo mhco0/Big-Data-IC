@@ -260,8 +260,8 @@ TEST(GkTest, TestFactory){
 	vector<int> fails(real_ranks.size(), 0);
 
 	for(int i = 0; i < attempts; i++){
-		kll_factory<int> factory(error);
-		kll<int>* test = dynamic_cast<kll<int> *>(factory.instance());
+		gk_factory<int> factory(error);
+		gk<int>* test = dynamic_cast<gk<int> *>(factory.instance());
 
 		for(auto& it : stream){
 			test->update(it);

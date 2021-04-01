@@ -1,6 +1,6 @@
 #ifndef QSBD_MEMORY_TRACKER_H
 #define QSBD_MEMORY_TRACKER_H
-#include "../logger/logger.h" 
+#include "../../thirdparty/nlohmann/json.hpp"
 #include <typeinfo>
 #include <assert.h>
 #include <stdio.h>
@@ -36,8 +36,8 @@ namespace qsbd{
         void * track_malloc(size_t size);
         void track_free(void * address);
         void track_stamp(void * address, const mem_stamp& stamp, char const * type_name);
-        void track_dump_blocks(logger& out);
-        void track_list_memory_usage(logger& out);
+        void track_dump_blocks(nlohmann::json& out);
+        void track_list_memory_usage(nlohmann::json& out);
 
         class block_header{
         private:

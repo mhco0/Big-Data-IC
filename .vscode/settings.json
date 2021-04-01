@@ -60,6 +60,7 @@
         "xstring": "cpp",
         "xtree": "cpp",
         "ios": "cpp",
-        "xiosbase": "cpp"
+        "xiosbase": "cpp",
+        "valarray": "cpp"
     }
 }

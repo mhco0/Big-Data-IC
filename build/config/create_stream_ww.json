@@ -1,0 +1,15 @@
+{
+    "method": "random_stream_in_region_with_weight",
+    "args": {
+        "vector_size":  100,
+        "minx": 0.0,
+        "miny": 0.0,
+        "maxx": 1280.0,
+        "maxy": 780.0,
+        "min_v": 0,
+        "max_v": 10000,
+        "min_w": 1,
+        "max_w": 70
+    },
+    "output": "data/qq_stream_ww.json"
+}

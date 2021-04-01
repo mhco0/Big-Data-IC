@@ -22,7 +22,6 @@ test/CMakeFiles/test_memory_tracker.dir/test_memory_tracker.cpp.o
  ../googletest/googletest/include/gtest/internal/gtest-port.h
  ../googletest/googletest/include/gtest/internal/gtest-string.h
  ../googletest/googletest/include/gtest/internal/gtest-type-util.h
- ../src/logger/logger.h
  ../src/memory_tracker/memory_tracker.h
- ../src/qsbd_debug/qsbd_debug.h
+ ../thirdparty/nlohmann/json.hpp
  /mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_memory_tracker.cpp

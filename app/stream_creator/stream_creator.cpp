@@ -1,6 +1,5 @@
-#include <nlohmann/json.hpp>
 #include <stream_maker/stream_maker.cpp>
-#include <config/config.h>
+#include <nlohmann/json.hpp>
 #include <logger/logger.h>
 #include <utils/utils.h>
 #include <qsbd_debug/qsbd_debug.h>
@@ -10,10 +9,6 @@
 #include <functional>
 using namespace std;
 using json = nlohmann::json;
-
-/*
-    std::pair<std::pair<double, double>, std::pair<double, double>> random_rectangle_in_region(double minx, double miny, double maxx, double maxy);
-*/
 
 void generate_stream(const json& config, ofstream& out){
     string method = config["method"].get<string>();
@@ -65,6 +60,7 @@ void generate_stream(const json& config, ofstream& out){
         int max_w = config["args"]["max_w"].get<int>();
 
         auto stream = qsbd::stream_maker::random_stream_in_region_with_weight(vector_size, minx, miny, maxx, maxy, min_v, max_v, min_w, max_w);
+        
         temp["stream"] = stream;
     }else if(method == "random_stream_city"){
         int vector_size = config["args"]["vector_size"].get<int>();
@@ -79,18 +75,9 @@ void generate_stream(const json& config, ofstream& out){
 
         auto stream = qsbd::stream_maker::random_stream_city(vector_size, minx, miny, maxx, maxy, min_v, max_v, citys, max_radius);
         temp["stream"] = stream;
-    }else if(method == "random_rectangle_in_region"){
-        double minx = config["args"]["minx"].get<double>();
-        double miny = config["args"]["miny"].get<double>();
-        double maxx = config["args"]["maxx"].get<double>();
-        double maxy = config["args"]["maxy"].get<double>();
-
-        auto stream = qsbd::stream_maker::random_rectangle_in_region(minx, miny, maxx, maxy);
-        temp["stream"] = stream;
     }else{
         DEBUG_ERR("Method not supported");
     }
-
 
     out << temp.dump(4);
     return;
@@ -105,7 +92,7 @@ int main(int argc, char* argv[]){
     }
 
     if (not qsbd::ends_with(args[0], ".json")){
-        DEBUG_ERR("The file needs to be a json with the json extension");
+        DEBUG("The file needs to be a json with the json extension");
     }
 
     ifstream config_file(args[0]);
@@ -117,6 +104,9 @@ int main(int argc, char* argv[]){
 
         if(out_log.is_open()){
             generate_stream(config, out_log);
+        }else{
+            DEBUG_ERR("Coundn't open/create output file");
+            return -1;
         }
 
         config_file.close();

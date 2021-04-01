@@ -222,4 +222,4 @@ target_link_libraries(QSBD_DCS_FACTORY PUBLIC QSBD_DCS)
 
 target_link_libraries(QSBD_LOG PUBLIC QSBD_DEBUG)
 
-target_link_libraries(QSBD_MEMORY_TRACKER PUBLIC QSBD_LOG)
+target_link_libraries(QSBD_MEMORY_TRACKER PUBLIC nlohmann_json)
