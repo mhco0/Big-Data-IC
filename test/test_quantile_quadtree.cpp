@@ -137,6 +137,7 @@ TEST(QuantileQuadtreeTest, TestUpdateAndQueryWithKll){
     memtime_output << "\tUpdate And Query With KLL Test : " << endl;
     memtime_output << "==========================================" << endl;
 
+    
 	for(int i = 0; i < attempts; i++){
 		kll_factory<int> factory(error);
         quantile_quadtree<int> test(resolution, deep, &factory);
@@ -148,7 +149,6 @@ TEST(QuantileQuadtreeTest, TestUpdateAndQueryWithKll){
             test.update(point<int>(it.second.first, it.second.second), it.first);
         }
         counter.end();
-
 
         memtime_output << ".Avg update time : " << counter.count() / stream.size() << "s" << endl;
         memtime_output << endl;
