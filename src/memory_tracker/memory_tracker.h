@@ -27,7 +27,7 @@ namespace qsbd{
 
         template <class T> 
         inline T* operator*(const mem_stamp& stamp, T * address){
-            track_stamp(address, stamp, typeid(T).name());
+            track_stamp(address, stamp, typeid(decltype(address)).name());
 
             return address;
         }
