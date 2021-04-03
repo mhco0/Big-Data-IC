@@ -86,8 +86,8 @@ void generate_stream(const json& config, ofstream& out){
 int main(int argc, char* argv[]){
     deque<string> args = qsbd::process_args(argc, argv);
 
-    if (args.size() != 1) {
-        DEBUG_ERR("You need to pass one json file configuration.");
+    if (args.size() != 2) {
+        DEBUG_ERR("You need to pass one json file configuration and one output file json.");
         return -1;
     }
 
@@ -99,7 +99,12 @@ int main(int argc, char* argv[]){
     json config = json::parse(config_file);
 
     if(config_file.is_open()) {
-        string output_file = config["output"].get<string>();
+        string output_file = args[1];
+
+        if (not qsbd::ends_with(args[0], ".json")){
+            DEBUG("The output file needs to be a json with the json extension");
+        }
+
         qsbd::logger out_log(output_file);
 
         if(out_log.is_open()){
@@ -111,7 +116,7 @@ int main(int argc, char* argv[]){
 
         config_file.close();
     }else{
-        DEBUG_ERR("Couldn't open the file");
+        DEBUG_ERR("Couldn't open the config file");
         return -1;
     }
 

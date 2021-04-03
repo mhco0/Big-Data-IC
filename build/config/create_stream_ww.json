@@ -10,6 +10,5 @@
         "max_v": 10000,
         "min_w": 1,
         "max_w": 70
-    },
-    "output": "data/qq_stream_ww.json"
+    }
 }

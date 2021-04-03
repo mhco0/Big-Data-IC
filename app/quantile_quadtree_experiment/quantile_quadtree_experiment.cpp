@@ -395,12 +395,12 @@ json gk_test(const json& stream_file, const json& query_file, const json& test_f
 int main(int argc, char * argv[]){
     deque<string> args = qsbd::process_args(argc, argv);
 
-    if(args.size() != 3){
-        DEBUG_ERR("You need to pass 3 json files.");
+    if(args.size() != 4){
+        DEBUG_ERR("You need to pass 3 json files and 1 output file. ex: [stream] [querys] [config] [output]");
         return -1;
     }
 
-    for(int i = 0; i < 3; i++){
+    for(int i = 0; i < 4; i++){
         if(not qsbd::ends_with(args[i], ".json")){
             DEBUG_ERR("All files passed need to be a json");
         }
@@ -418,7 +418,7 @@ int main(int argc, char * argv[]){
     cout << "Done." << endl;
 
     string sketch_to_test = test_file["sketch"]["type"].get<string>();
-    qsbd::logger out_file(test_file["output"].get<string>());
+    qsbd::logger out_file(args[3]);
 
     cout << "Sketch used : " << sketch_to_test << endl;
 
