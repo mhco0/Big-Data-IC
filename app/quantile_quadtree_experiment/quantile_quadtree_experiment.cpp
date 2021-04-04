@@ -14,9 +14,14 @@
 using namespace std;
 using json = nlohmann::json;
 
+/*
+* TODO : cdf queries and quantile queries
+*
+*/
+
 json q_digest_test(const json& stream_file, const json& query_file, const json& test_file){
     vector<pair<pair<int, int>, pair<double, double>>> stream = stream_file["stream"];
-    vector<vector<double>> regions_to_search = query_file["queries"].get<vector<vector<double>>>();
+    vector<pair<int, vector<double>>> regions_to_search = query_file["queries"]["rank"].get<vector<pair<int, vector<double>>>>();
     double error = test_file["sketch"]["error"].get<double>();
     int universe = test_file["sketch"]["universe"].get<int>();
     int attempts = test_file["attempts"].get<int>();
@@ -62,32 +67,33 @@ json q_digest_test(const json& stream_file, const json& query_file, const json& 
 
         loop_info["time"]["queries"] = json::array();
 
+        qsbd::timer query_overall;
+        double query_time_acc = 0.0;
+
+        query_overall.start();
         for(int j = 0; j < regions_to_search.size(); j++){
-            qsbd::aabb region(regions_to_search[j][0], regions_to_search[j][1], regions_to_search[j][2], regions_to_search[j][3]);
-            qsbd::timer query_overall;
+            qsbd::aabb region(regions_to_search[j].second[0], regions_to_search[j].second[1], regions_to_search[j].second[2], regions_to_search[j].second[3]);
+            qsbd::timer query_once;
             json region_info;
-            double query_time_acc = 0.0;
+            int rank = -1;
 
-            query_overall.start();
-            for(auto& it : stream){
-                qsbd::timer query_once;
+            query_once.start();
+            rank = qq_test.query(region, regions_to_search[j].first);
+            query_once.end();
 
-                query_once.start();
-                auto ans = qq_test.query(region, it.first.first);
-                query_once.end();
+            query_time_acc += (double) query_once.count();
 
-                query_time_acc += (double) query_once.count();
-            }
-            query_overall.end();
-
-            double avg_query_time = query_time_acc / stream.size();
-
-            region_info["region"] = regions_to_search[j];
-            region_info["avg_query_time"] = avg_query_time;
-            region_info["query_time_overall"] = query_overall.count();
+            region_info["region"] = regions_to_search[j].second;
+            region_info["value"] = regions_to_search[j].first;
+            region_info["query_time"] = query_overall.count();
 
             loop_info["time"]["queries"].push_back(region_info);
         }
+        query_overall.end();
+
+        double avg_query_time = query_time_acc / regions_to_search.size();
+
+        loop_info["time"]["avg_query_time"] = avg_query_time;
 
         loop_info["memory"] = {};
 
@@ -111,7 +117,7 @@ json q_digest_test(const json& stream_file, const json& query_file, const json& 
 
 json kll_test(const json& stream_file, const json& query_file, const json& test_file){
     vector<pair<int, pair<double, double>>> stream = stream_file["stream"];
-    vector<vector<double>> regions_to_search = query_file["queries"].get<vector<vector<double>>>();
+    vector<pair<int, vector<double>>> regions_to_search = query_file["queries"]["rank"].get<vector<pair<int, vector<double>>>>();
     double error = test_file["sketch"]["error"].get<double>();
     int attempts = test_file["attempts"].get<int>();
     int deep = test_file["deep"].get<int>();
@@ -156,32 +162,36 @@ json kll_test(const json& stream_file, const json& query_file, const json& test_
 
         loop_info["time"]["queries"] = json::array();
 
+        qsbd::timer query_overall;
+        double query_time_acc = 0.0;
+
+        query_overall.start();
         for(int j = 0; j < regions_to_search.size(); j++){
-            qsbd::aabb region(regions_to_search[j][0], regions_to_search[j][1], regions_to_search[j][2], regions_to_search[j][3]);
-            qsbd::timer query_overall;
+            qsbd::aabb region(regions_to_search[j].second[0], regions_to_search[j].second[1], regions_to_search[j].second[2], regions_to_search[j].second[3]);
+            qsbd::timer query_once;
             json region_info;
-            double query_time_acc = 0.0;
 
-            query_overall.start();
-            for(auto& it : stream){
-                qsbd::timer query_once;
 
-                query_once.start();
-                auto ans = qq_test.query(region, it.first);
-                query_once.end();
+            query_once.start();
+            int rank = qq_test.query(region, regions_to_search[j].first);
+            query_once.end();
 
-                query_time_acc += (double) query_once.count();
-            }
-            query_overall.end();
+            query_time_acc += (double) query_once.count();
+            
 
-            double avg_query_time = query_time_acc / stream.size();
-
-            region_info["region"] = regions_to_search[j];
-            region_info["avg_query_time"] = avg_query_time;
-            region_info["query_time_overall"] = query_overall.count();
+            region_info["region"] = regions_to_search[j].second;
+            region_info["value"] = regions_to_search[j].first;
+            region_info["rank"] = rank;
+            region_info["query_time"] = query_overall.count();
 
             loop_info["time"]["queries"].push_back(region_info);
         }
+
+        query_overall.end();
+
+        double avg_query_time = query_time_acc / regions_to_search.size();
+
+        loop_info["time"]["avg_query_time"] = avg_query_time;
 
         loop_info["memory"] = {};
 
@@ -205,7 +215,7 @@ json kll_test(const json& stream_file, const json& query_file, const json& test_
 
 json dcs_test(const json& stream_file, const json& query_file, const json& test_file){
     vector<pair<int, pair<double, double>>> stream = stream_file["stream"];
-    vector<vector<double>> regions_to_search = query_file["queries"].get<vector<vector<double>>>();
+    vector<pair<int, vector<double>>> regions_to_search = query_file["queries"]["rank"].get<vector<pair<int, vector<double>>>>();
     double error = test_file["sketch"]["error"].get<double>();
     int universe = test_file["sketch"]["universe"].get<int>();
     int attempts = test_file["attempts"].get<int>();
@@ -251,32 +261,36 @@ json dcs_test(const json& stream_file, const json& query_file, const json& test_
 
         loop_info["time"]["queries"] = json::array();
 
+        qsbd::timer query_overall;
+        double query_time_acc = 0.0;
+
+        query_overall.start();
         for(int j = 0; j < regions_to_search.size(); j++){
-            qsbd::aabb region(regions_to_search[j][0], regions_to_search[j][1], regions_to_search[j][2], regions_to_search[j][3]);
-            qsbd::timer query_overall;
+            qsbd::aabb region(regions_to_search[j].second[0], regions_to_search[j].second[1], regions_to_search[j].second[2], regions_to_search[j].second[3]);
+            qsbd::timer query_once;
             json region_info;
-            double query_time_acc = 0.0;
 
-            query_overall.start();
-            for(auto& it : stream){
-                qsbd::timer query_once;
 
-                query_once.start();
-                auto ans = qq_test.query(region, it.first);
-                query_once.end();
+            query_once.start();
+            int rank = qq_test.query(region, regions_to_search[j].first);
+            query_once.end();
 
-                query_time_acc += (double) query_once.count();
-            }
-            query_overall.end();
+            query_time_acc += (double) query_once.count();
+            
 
-            double avg_query_time = query_time_acc / stream.size();
-
-            region_info["region"] = regions_to_search[j];
-            region_info["avg_query_time"] = avg_query_time;
-            region_info["query_time_overall"] = query_overall.count();
+            region_info["region"] = regions_to_search[j].second;
+            region_info["value"] = regions_to_search[j].first;
+            region_info["rank"] = rank;
+            region_info["query_time"] = query_overall.count();
 
             loop_info["time"]["queries"].push_back(region_info);
         }
+
+        query_overall.end();
+
+        double avg_query_time = query_time_acc / regions_to_search.size();
+
+        loop_info["time"]["avg_query_time"] = avg_query_time;
 
         loop_info["memory"] = {};
 
@@ -300,7 +314,7 @@ json dcs_test(const json& stream_file, const json& query_file, const json& test_
 
 json gk_test(const json& stream_file, const json& query_file, const json& test_file){
     vector<pair<int, pair<double, double>>> stream = stream_file["stream"];
-    vector<vector<double>> regions_to_search = query_file["queries"].get<vector<vector<double>>>();
+    vector<pair<int, vector<double>>> regions_to_search = query_file["queries"]["rank"].get<vector<pair<int, vector<double>>>>();
     double error = test_file["sketch"]["error"].get<double>();
     int attempts = test_file["attempts"].get<int>();
     int deep = test_file["deep"].get<int>();
@@ -345,33 +359,35 @@ json gk_test(const json& stream_file, const json& query_file, const json& test_f
 
         loop_info["time"]["queries"] = json::array();
 
+        qsbd::timer query_overall;
+        double query_time_acc = 0.0;
+
+        query_overall.start();
         for(int j = 0; j < regions_to_search.size(); j++){
-            qsbd::aabb region(regions_to_search[j][0], regions_to_search[j][1], regions_to_search[j][2], regions_to_search[j][3]);
-            qsbd::timer query_overall;
+            qsbd::aabb region(regions_to_search[j].second[0], regions_to_search[j].second[1], regions_to_search[j].second[2], regions_to_search[j].second[3]);
+            qsbd::timer query_once;
             json region_info;
-            double query_time_acc = 0.0;
 
-            query_overall.start();
-            for(auto& it : stream){
-                qsbd::timer query_once;
 
-                query_once.start();
-                auto ans = qq_test.query(region, it.first);
-                query_once.end();
+            query_once.start();
+            int rank = qq_test.query(region, regions_to_search[j].first);
+            query_once.end();
 
-                query_time_acc += (double) query_once.count();
-            }
-            query_overall.end();
-
-            double avg_query_time = query_time_acc / stream.size();
-
-            region_info["region"] = regions_to_search[j];
-            region_info["avg_query_time"] = avg_query_time;
-            region_info["query_time_overall"] = query_overall.count();
+            query_time_acc += (double) query_once.count();
+            
+            region_info["region"] = regions_to_search[j].second;
+            region_info["value"] = regions_to_search[j].first;
+            region_info["rank"] = rank;
+            region_info["query_time"] = query_overall.count();
 
             loop_info["time"]["queries"].push_back(region_info);
         }
 
+        query_overall.end();
+
+        double avg_query_time = query_time_acc / regions_to_search.size();
+
+        loop_info["time"]["avg_query_time"] = avg_query_time;
         loop_info["memory"] = {};
 
         qsbd::mem_track::track_list_memory_usage(loop_info["memory"]);

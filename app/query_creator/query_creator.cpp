@@ -10,27 +10,86 @@ using namespace std;
 using json = nlohmann::json;
 
 void generate_query(const json& stream_file, ofstream& output){
-    int queries_number = stream_file["queries"].get<int>();
+    bool query_ranks = (stream_file["queries"].find("rank") != stream_file["queries"].end());
+    bool query_quantiles = (stream_file["queries"].find("quantile") != stream_file["queries"].end());
+    bool query_cdf = (stream_file["queries"].find("cdf") != stream_file["queries"].end());
+    int n_rank = -1;
+    int n_quantile = -1;
+    int n_cdf = -1;
     double bounds[4] = {0, 0, 0, 0};
+
     for(auto& it : stream_file["search_bound"].items()){
         bounds[stoi(it.key())] = it.value();
     }
 
     json temp;
 
-    temp["queries"] = json::array();
+    temp["queries"] = json::object();
 
-    for(int i = 0; i < queries_number; i++){
-        auto query_bound = qsbd::stream_maker::random_rectangle_in_region(bounds[0], bounds[1], bounds[2], bounds[3]);
-        vector<double> rect;
+    if(query_ranks){
+        temp["queries"]["rank"] = json::array();
 
-        rect.push_back(query_bound.first.first);
-        rect.push_back(query_bound.first.second);
-        rect.push_back(query_bound.second.first);
-        rect.push_back(query_bound.second.second);
+        int initial_value = stream_file["queries"]["rank"]["initial_value"].get<int>();
+        int final_value = stream_file["queries"]["rank"]["final_value"].get<int>();
+        int step = stream_file["queries"]["rank"]["step"].get<int>();
 
-        temp["queries"].push_back(rect);
+        for(int i = initial_value; i < final_value; i += step){
+            auto query_bound = qsbd::stream_maker::random_rectangle_in_region(bounds[0], bounds[1], bounds[2], bounds[3]);
+            vector<double> rect;
+            pair<int, vector<double>> rank_query;
 
+            rect.push_back(query_bound.first.first);
+            rect.push_back(query_bound.first.second);
+            rect.push_back(query_bound.second.first);
+            rect.push_back(query_bound.second.second);
+
+            rank_query = make_pair(i, rect);
+            temp["queries"]["rank"].push_back(rank_query);
+        }
+    }
+
+    if(query_quantiles){
+        temp["queries"]["quantile"] = json::array();
+
+        double initial_value = stream_file["queries"]["quantile"]["initial_value"].get<double>();
+        double final_value = stream_file["queries"]["quantile"]["final_value"].get<double>();
+        double step = stream_file["queries"]["quantile"]["step"].get<double>();
+
+        for(double i = initial_value; i < final_value; i += step){
+            auto query_bound = qsbd::stream_maker::random_rectangle_in_region(bounds[0], bounds[1], bounds[2], bounds[3]);
+            vector<double> rect;
+            pair<double, vector<double>> quantile_query;
+
+            rect.push_back(query_bound.first.first);
+            rect.push_back(query_bound.first.second);
+            rect.push_back(query_bound.second.first);
+            rect.push_back(query_bound.second.second);
+
+            quantile_query = make_pair(i, rect);
+            temp["queries"]["quantile"].push_back(quantile_query);
+        }
+    }
+
+    if(query_cdf){
+        temp["queries"]["cdf"] = json::array();
+
+        double initial_value = stream_file["queries"]["cdf"]["initial_value"].get<double>();
+        double final_value = stream_file["queries"]["cdf"]["final_value"].get<double>();
+        double step = stream_file["queries"]["cdf"]["step"].get<double>();
+
+        for(double i = initial_value; i < final_value; i += step){
+            auto query_bound = qsbd::stream_maker::random_rectangle_in_region(bounds[0], bounds[1], bounds[2], bounds[3]);
+            vector<double> rect;
+            pair<double, vector<double>> cdf_query;
+
+            rect.push_back(query_bound.first.first);
+            rect.push_back(query_bound.first.second);
+            rect.push_back(query_bound.second.first);
+            rect.push_back(query_bound.second.second);
+
+            cdf_query = make_pair(i, rect);
+            temp["queries"]["cdf"].push_back(cdf_query);
+        }
     }
 
     output << temp.dump(4);

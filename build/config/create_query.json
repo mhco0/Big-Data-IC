@@ -1,4 +1,10 @@
 {
-    "queries" : 10,
+    "queries" : {
+        "rank": {
+            "initial_value" : 0,
+            "final_value" : 1000,
+            "step" : 1
+        }
+    },
     "search_bound": [0.0, 0.0, 1280.0, 720.0]
 }
