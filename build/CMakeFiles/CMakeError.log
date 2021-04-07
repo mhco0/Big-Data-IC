@@ -1,21 +1,21 @@
 Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
 Change Dir: /mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_652cd/fast && /usr/bin/make -f CMakeFiles/cmTC_652cd.dir/build.make CMakeFiles/cmTC_652cd.dir/build
+Run Build Command(s):/usr/bin/make cmTC_13fcc/fast && /usr/bin/make -f CMakeFiles/cmTC_13fcc.dir/build.make CMakeFiles/cmTC_13fcc.dir/build
 make[1]: Entering directory '/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_652cd.dir/src.c.o
-/bin/x86_64-linux-gnu-gcc-9   -DCMAKE_HAVE_LIBC_PTHREAD -fPIE   -std=gnu99 -o CMakeFiles/cmTC_652cd.dir/src.c.o   -c "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/CMakeTmp/src.c"
-Linking C executable cmTC_652cd
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_652cd.dir/link.txt --verbose=1
-/bin/x86_64-linux-gnu-gcc-9  -DCMAKE_HAVE_LIBC_PTHREAD    CMakeFiles/cmTC_652cd.dir/src.c.o  -o cmTC_652cd 
-/usr/bin/ld: CMakeFiles/cmTC_652cd.dir/src.c.o: in function `main':
+Building C object CMakeFiles/cmTC_13fcc.dir/src.c.o
+/bin/x86_64-linux-gnu-gcc-9   -DCMAKE_HAVE_LIBC_PTHREAD -fPIE   -std=gnu99 -o CMakeFiles/cmTC_13fcc.dir/src.c.o   -c "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/CMakeTmp/src.c"
+Linking C executable cmTC_13fcc
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_13fcc.dir/link.txt --verbose=1
+/bin/x86_64-linux-gnu-gcc-9  -DCMAKE_HAVE_LIBC_PTHREAD    CMakeFiles/cmTC_13fcc.dir/src.c.o  -o cmTC_13fcc 
+/usr/bin/ld: CMakeFiles/cmTC_13fcc.dir/src.c.o: in function `main':
 src.c:(.text+0x46): undefined reference to `pthread_create'
 /usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
 /usr/bin/ld: src.c:(.text+0x63): undefined reference to `pthread_join'
 collect2: error: ld returned 1 exit status
-make[1]: *** [CMakeFiles/cmTC_652cd.dir/build.make:87: cmTC_652cd] Error 1
+make[1]: *** [CMakeFiles/cmTC_13fcc.dir/build.make:87: cmTC_13fcc] Error 1
 make[1]: Leaving directory '/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/CMakeTmp'
-make: *** [Makefile:121: cmTC_652cd/fast] Error 2
+make: *** [Makefile:121: cmTC_13fcc/fast] Error 2
 
 
 Source file was:
@@ -41,96 +41,18 @@ int main(void)
 Determining if the function pthread_create exists in the pthreads failed with the following output:
 Change Dir: /mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_6ba69/fast && /usr/bin/make -f CMakeFiles/cmTC_6ba69.dir/build.make CMakeFiles/cmTC_6ba69.dir/build
+Run Build Command(s):/usr/bin/make cmTC_cc650/fast && /usr/bin/make -f CMakeFiles/cmTC_cc650.dir/build.make CMakeFiles/cmTC_cc650.dir/build
 make[1]: Entering directory '/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_6ba69.dir/CheckFunctionExists.c.o
-/bin/x86_64-linux-gnu-gcc-9   -DCHECK_FUNCTION_EXISTS=pthread_create -fPIE   -std=gnu99 -o CMakeFiles/cmTC_6ba69.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
-Linking C executable cmTC_6ba69
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6ba69.dir/link.txt --verbose=1
-/bin/x86_64-linux-gnu-gcc-9  -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_6ba69.dir/CheckFunctionExists.c.o  -o cmTC_6ba69  -lpthreads 
+Building C object CMakeFiles/cmTC_cc650.dir/CheckFunctionExists.c.o
+/bin/x86_64-linux-gnu-gcc-9   -DCHECK_FUNCTION_EXISTS=pthread_create -fPIE   -std=gnu99 -o CMakeFiles/cmTC_cc650.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_cc650
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_cc650.dir/link.txt --verbose=1
+/bin/x86_64-linux-gnu-gcc-9  -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_cc650.dir/CheckFunctionExists.c.o  -o cmTC_cc650  -lpthreads 
 /usr/bin/ld: cannot find -lpthreads
 collect2: error: ld returned 1 exit status
-make[1]: *** [CMakeFiles/cmTC_6ba69.dir/build.make:87: cmTC_6ba69] Error 1
+make[1]: *** [CMakeFiles/cmTC_cc650.dir/build.make:87: cmTC_cc650] Error 1
 make[1]: Leaving directory '/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/CMakeTmp'
-make: *** [Makefile:121: cmTC_6ba69/fast] Error 2
-
-
-
-Determining if the include file pthread.h exists failed with the following output:
-Change Dir: C:/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/CMakeTmp
-
-Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2017/Enterprise/MSBuild/15.0/Bin/MSBuild.exe cmTC_6e044.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=15.0 /v:m && Microsoft(R) Build Engine versão 15.5.180.51428 para .NET Framework 
-Copyright (C) Microsoft Corporation. Todos os direitos reservados.
-
-  Microsoft (R) C/C++ Optimizing Compiler Versão 19.12.25834 para x64
-  Copyright (C) Microsoft Corporation. Todos os direitos reservados.
-  
-  cl /c /Zi /W1 /WX- /diagnostics:classic /Od /Ob0 /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_6e044.dir\Debug\\" /Fd"cmTC_6e044.dir\Debug\vc141.pdb" /Gd /TC /errorReport:queue "C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
-  CheckIncludeFile.c
-  
-C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c(1): fatal error C1083: Não é possível abrir arquivo incluir: 'pthread.h': No such file or directory [C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\build\CMakeFiles\CMakeTmp\cmTC_6e044.vcxproj]
-
-
-
-Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
-Change Dir: /mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/CMakeTmp
-
-Run Build Command(s):/usr/bin/make cmTC_15bc9/fast && make: Warning: File 'Makefile' has modification time 0.2 s in the future
-/usr/bin/make -f CMakeFiles/cmTC_15bc9.dir/build.make CMakeFiles/cmTC_15bc9.dir/build
-make[1]: Entering directory '/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/CMakeTmp'
-make[1]: Warning: File 'CMakeFiles/cmTC_15bc9.dir/flags.make' has modification time 0.17 s in the future
-Building C object CMakeFiles/cmTC_15bc9.dir/src.c.o
-/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD -fPIE   -std=gnu99 -o CMakeFiles/cmTC_15bc9.dir/src.c.o   -c "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/CMakeTmp/src.c"
-Linking C executable cmTC_15bc9
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_15bc9.dir/link.txt --verbose=1
-/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD    CMakeFiles/cmTC_15bc9.dir/src.c.o  -o cmTC_15bc9 
-/usr/bin/ld: CMakeFiles/cmTC_15bc9.dir/src.c.o: in function `main':
-src.c:(.text+0x46): undefined reference to `pthread_create'
-/usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
-/usr/bin/ld: src.c:(.text+0x63): undefined reference to `pthread_join'
-collect2: error: ld returned 1 exit status
-make[1]: *** [CMakeFiles/cmTC_15bc9.dir/build.make:87: cmTC_15bc9] Error 1
-make[1]: Leaving directory '/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/CMakeTmp'
-make: *** [Makefile:121: cmTC_15bc9/fast] Error 2
-
-
-Source file was:
-#include <pthread.h>
-
-void* test_func(void* data)
-{
-  return data;
-}
-
-int main(void)
-{
-  pthread_t thread;
-  pthread_create(&thread, NULL, test_func, NULL);
-  pthread_detach(thread);
-  pthread_join(thread, NULL);
-  pthread_atfork(NULL, NULL, NULL);
-  pthread_exit(NULL);
-
-  return 0;
-}
-
-Determining if the function pthread_create exists in the pthreads failed with the following output:
-Change Dir: /mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/CMakeTmp
-
-Run Build Command(s):/usr/bin/make cmTC_97a36/fast && make: Warning: File 'Makefile' has modification time 0.2 s in the future
-/usr/bin/make -f CMakeFiles/cmTC_97a36.dir/build.make CMakeFiles/cmTC_97a36.dir/build
-make[1]: Entering directory '/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/CMakeTmp'
-make[1]: Warning: File 'CMakeFiles/cmTC_97a36.dir/flags.make' has modification time 0.17 s in the future
-Building C object CMakeFiles/cmTC_97a36.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create -fPIE   -std=gnu99 -o CMakeFiles/cmTC_97a36.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
-Linking C executable cmTC_97a36
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_97a36.dir/link.txt --verbose=1
-/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_97a36.dir/CheckFunctionExists.c.o  -o cmTC_97a36  -lpthreads 
-/usr/bin/ld: cannot find -lpthreads
-collect2: error: ld returned 1 exit status
-make[1]: *** [CMakeFiles/cmTC_97a36.dir/build.make:87: cmTC_97a36] Error 1
-make[1]: Leaving directory '/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/CMakeTmp'
-make: *** [Makefile:121: cmTC_97a36/fast] Error 2
+make: *** [Makefile:121: cmTC_cc650/fast] Error 2
 
 
 

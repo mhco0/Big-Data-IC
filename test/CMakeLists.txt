@@ -1,4 +1,7 @@
 
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pg -fno-omit-frame-pointer -g -O2 -ggdb -fstrict-aliasing")
+set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -pg -fno-omit-frame-pointer -g -O2 -ggdb -fstrict-aliasing")
+set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -pg -fno-omit-frame-pointer -g -O2 -ggdb -fstrict-aliasing")
 set(QSBD_DIR_SOURCE "${CMAKE_SOURCE_DIR}/src")
 
 add_executable(test_stream_maker test_stream_maker.cpp)
@@ -52,7 +55,7 @@ target_include_directories(test_quadtree PRIVATE ${QSBD_DIR_SOURCE})
 add_test(NAME test_quadtree COMMAND test_quadtree)
 
 add_executable(test_quantile_quadtree test_quantile_quadtree.cpp)
-target_link_libraries(test_quantile_quadtree PRIVATE gtest_main QSBD_QUANTILE_QUADTREE QSBD_STREAM_MAKER QSBD_COUNT_SKETCH QSBD_KLL_FACTORY QSBD_GK_FACTORY QSBD_Q_DIGEST_FACTORY QSBD_DCS_FACTORY QSBD_MEMORY_TRACKER QSBD_TIMER QSBD_DEBUG QSBD_UTILS QSBD_LOG)
+target_link_libraries(test_quantile_quadtree PRIVATE gtest_main QSBD_QUANTILE_QUADTREE QSBD_STREAM_MAKER QSBD_COUNT_SKETCH QSBD_KLL_FACTORY QSBD_GK_FACTORY QSBD_Q_DIGEST_FACTORY QSBD_DCS_FACTORY QSBD_MEMORY_TRACKER QSBD_TIMER QSBD_DEBUG QSBD_UTILS)
 target_include_directories(test_quantile_quadtree PRIVATE ${QSBD_DIR_SOURCE})
 add_test(NAME test_quantile_quadtree COMMAND test_quantile_quadtree)
 

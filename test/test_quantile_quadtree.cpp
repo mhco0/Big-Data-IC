@@ -9,15 +9,12 @@
 #include <q_digest_factory/q_digest_factory.h>
 #include <dcs_factory/dcs_factory.h>
 #include <utils/utils.h>
-#include <logger/logger.h>
 using namespace std;
 using namespace qsbd;
 using namespace qsbd::stream_maker;
 
 deque<string> g_args;
-logger data_output;
-logger memtime_output;
-// aabb[0-3] deep error stream_size attempts data_file output_file
+// aabb[0-3] deep error stream_size attempts 
 
 vector<int> real_ranks_from_stream_gk(const vector<int>& stream, int min_v,int max_v){
     vector<int> weights(max_v + 1, 0);
@@ -79,27 +76,10 @@ TEST(QuantileQuadtreeTest, TestConstructWithKll){
     kll_factory<int> factory(error);
     int deep = stoi(g_args[4]);
 
-    data_output << "==========================================" << endl;
-    data_output << "\tConstruction Test : " << endl;
-    data_output << "==========================================" << endl;
-    data_output << ".Deep of Quantile Quadtree (int deep): " << deep << endl;
-    data_output << ".Resolution (aabb resolution): " << resolution << endl;
-    data_output << ".Error used: " << error << endl; 
-
     timer counter;
     counter.start();
     quantile_quadtree<int> test(resolution, deep, &factory);
     counter.end();
-
-    
-    memtime_output << "==========================================" << endl;
-    memtime_output << "\tConstruction Test : " << endl;
-    memtime_output << "==========================================" << endl;
-    memtime_output << ".Timer for construct " << counter.count() << "s." << endl;
-    memtime_output << endl;
-
-    mem_track::track_list_memory_usage(memtime_output);
-    memtime_output << endl;
 }
 
 TEST(QuantileQuadtreeTest, TestUpdateAndQueryWithKll){
@@ -111,15 +91,6 @@ TEST(QuantileQuadtreeTest, TestUpdateAndQueryWithKll){
     aabb resolution(stod(g_args[0]), stod(g_args[1]), stod(g_args[2]), stod(g_args[3]));
     aabb search_region = construct_aabb_from_random_region(stod(g_args[0]), stod(g_args[1]), stod(g_args[2]), stod(g_args[3]));
 
-    data_output << "==========================================" << endl;
-    data_output << "\tUpdate And Query With KLL Test : " << endl;
-    data_output << "==========================================" << endl;
-    data_output << ".Deep of Quantile Quadtree (int deep): " << deep << endl;
-    data_output << ".Resolution (aabb resolution): " << resolution << endl;
-    data_output << ".Stream size (int N): " << N << endl;
-    data_output << ".Error used: " << error << endl; 
-    data_output << ".Point_quarantee: " << points_guarantee << endl;
-
 	vector<pair<int, pair<double, double>>> stream =  random_stream_city(N, stod(g_args[0]), stod(g_args[1]), stod(g_args[2]), stod(g_args[3]), 0, N, 15, 5.0);
     vector<pair<int, pair<double, double>>> guarantee_stream = random_stream_in_region(points_guarantee, search_region.bounds().first.x(), search_region.bounds().first.y(), search_region.bounds().second.x(), search_region.bounds().second.y());
     for(auto& it : guarantee_stream){
@@ -128,15 +99,6 @@ TEST(QuantileQuadtreeTest, TestUpdateAndQueryWithKll){
     vector<int> stream_in_region = brute_force_search(stream, search_region);
 	vector<int> real_ranks = real_ranks_from_stream(stream_in_region);
 	vector<int> fails(real_ranks.size(), 0);
-
-    data_output << ".Search region" << search_region << endl;
-    data_output << ".Stream used : " << stream << endl;
-    data_output << ".Points in Stream in the region to search :" << stream_in_region << endl;
-
-    memtime_output << "==========================================" << endl;
-    memtime_output << "\tUpdate And Query With KLL Test : " << endl;
-    memtime_output << "==========================================" << endl;
-
     
 	for(int i = 0; i < attempts; i++){
 		kll_factory<int> factory(error);
@@ -150,9 +112,6 @@ TEST(QuantileQuadtreeTest, TestUpdateAndQueryWithKll){
         }
         counter.end();
 
-        memtime_output << ".Avg update time : " << counter.count() / stream.size() << "s" << endl;
-        memtime_output << endl;
-
         counter.start();
 		for(int j = 0; j < real_ranks.size(); j++){
 			int approximated_rank = test.query(search_region, j);
@@ -163,13 +122,6 @@ TEST(QuantileQuadtreeTest, TestUpdateAndQueryWithKll){
 			}
 		}
         counter.end();
-
-        memtime_output << ".Avg query time : " << counter.count() / stream.size() << "s" << endl;
-        memtime_output << endl;
-
-        memtime_output << ".Memory Used in iteration " << i << ": " << endl;
-        mem_track::track_list_memory_usage(memtime_output);
-        memtime_output << endl;
 	}
 
 	for(int i = 0; i < fails.size(); i++){
@@ -276,8 +228,6 @@ int main(int argc, char* argv[]){
     testing::InitGoogleTest(&argc, argv);
 
     g_args = process_args(argc, argv);
-    data_output.open(g_args[8]);
-    memtime_output.open(g_args[9]);
 
     cout << fixed;
 
