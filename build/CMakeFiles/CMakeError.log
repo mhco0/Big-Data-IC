@@ -1,6 +1,7 @@
 Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
 Change Dir: /mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/CMakeTmp
 
+<<<<<<< HEAD
 Run Build Command(s):/usr/bin/make cmTC_37233/fast && /usr/bin/make -f CMakeFiles/cmTC_37233.dir/build.make CMakeFiles/cmTC_37233.dir/build
 make[1]: Entering directory '/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/CMakeTmp'
 Building C object CMakeFiles/cmTC_37233.dir/src.c.o
@@ -9,13 +10,29 @@ Linking C executable cmTC_37233
 /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_37233.dir/link.txt --verbose=1
 /bin/x86_64-linux-gnu-gcc-9  -DCMAKE_HAVE_LIBC_PTHREAD    CMakeFiles/cmTC_37233.dir/src.c.o  -o cmTC_37233 
 /usr/bin/ld: CMakeFiles/cmTC_37233.dir/src.c.o: in function `main':
+=======
+Run Build Command(s):/usr/bin/make cmTC_13fcc/fast && /usr/bin/make -f CMakeFiles/cmTC_13fcc.dir/build.make CMakeFiles/cmTC_13fcc.dir/build
+make[1]: Entering directory '/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_13fcc.dir/src.c.o
+/bin/x86_64-linux-gnu-gcc-9   -DCMAKE_HAVE_LIBC_PTHREAD -fPIE   -std=gnu99 -o CMakeFiles/cmTC_13fcc.dir/src.c.o   -c "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/CMakeTmp/src.c"
+Linking C executable cmTC_13fcc
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_13fcc.dir/link.txt --verbose=1
+/bin/x86_64-linux-gnu-gcc-9  -DCMAKE_HAVE_LIBC_PTHREAD    CMakeFiles/cmTC_13fcc.dir/src.c.o  -o cmTC_13fcc 
+/usr/bin/ld: CMakeFiles/cmTC_13fcc.dir/src.c.o: in function `main':
+>>>>>>> Quantile_Quadtree_Opt
 src.c:(.text+0x46): undefined reference to `pthread_create'
 /usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
 /usr/bin/ld: src.c:(.text+0x63): undefined reference to `pthread_join'
 collect2: error: ld returned 1 exit status
+<<<<<<< HEAD
 make[1]: *** [CMakeFiles/cmTC_37233.dir/build.make:87: cmTC_37233] Error 1
 make[1]: Leaving directory '/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/CMakeTmp'
 make: *** [Makefile:121: cmTC_37233/fast] Error 2
+=======
+make[1]: *** [CMakeFiles/cmTC_13fcc.dir/build.make:87: cmTC_13fcc] Error 1
+make[1]: Leaving directory '/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_13fcc/fast] Error 2
+>>>>>>> Quantile_Quadtree_Opt
 
 
 Source file was:
@@ -41,6 +58,7 @@ int main(void)
 Determining if the function pthread_create exists in the pthreads failed with the following output:
 Change Dir: /mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/CMakeTmp
 
+<<<<<<< HEAD
 Run Build Command(s):/usr/bin/make cmTC_d5dbe/fast && /usr/bin/make -f CMakeFiles/cmTC_d5dbe.dir/build.make CMakeFiles/cmTC_d5dbe.dir/build
 make[1]: Entering directory '/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/CMakeTmp'
 Building C object CMakeFiles/cmTC_d5dbe.dir/CheckFunctionExists.c.o
@@ -53,6 +71,20 @@ collect2: error: ld returned 1 exit status
 make[1]: *** [CMakeFiles/cmTC_d5dbe.dir/build.make:87: cmTC_d5dbe] Error 1
 make[1]: Leaving directory '/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/CMakeTmp'
 make: *** [Makefile:121: cmTC_d5dbe/fast] Error 2
+=======
+Run Build Command(s):/usr/bin/make cmTC_cc650/fast && /usr/bin/make -f CMakeFiles/cmTC_cc650.dir/build.make CMakeFiles/cmTC_cc650.dir/build
+make[1]: Entering directory '/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_cc650.dir/CheckFunctionExists.c.o
+/bin/x86_64-linux-gnu-gcc-9   -DCHECK_FUNCTION_EXISTS=pthread_create -fPIE   -std=gnu99 -o CMakeFiles/cmTC_cc650.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_cc650
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_cc650.dir/link.txt --verbose=1
+/bin/x86_64-linux-gnu-gcc-9  -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_cc650.dir/CheckFunctionExists.c.o  -o cmTC_cc650  -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_cc650.dir/build.make:87: cmTC_cc650] Error 1
+make[1]: Leaving directory '/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_cc650/fast] Error 2
+>>>>>>> Quantile_Quadtree_Opt
 
 
 

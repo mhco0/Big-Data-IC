@@ -28,6 +28,7 @@ test/CMakeFiles/test_dcs.dir/test_dcs.cpp.o
  ../src/dcs_factory/dcs_factory.h
  ../src/global_generator/global_generator.h
  ../src/k_wise_family/k_wise_family.h
+ ../src/qsbd_debug/qsbd_debug.h
  ../src/quantile_sketch/quantile_sketch.hpp
  ../src/sketch_factory/sketch_factory.hpp
  ../src/stream_maker/stream_maker.h

@@ -7,11 +7,23 @@ namespace qsbd{
     }
 
     template<class T>
+    point<T>::point(const point<T>& other) : coord(other.coord){
+    }
+
+    template<class T>
     point<T>::point(){
     }
 
     template<class T>
     point<T>::~point(){
+    }
+
+    template<class T>
+    point<T>& point<T>::operator=(const point<T>& other){
+        this->coord.first = other.coord.first;
+        this->coord.second = other.coord.second;
+        
+        return (*this);
     }
 
     template<class T>

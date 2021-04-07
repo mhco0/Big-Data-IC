@@ -25,6 +25,7 @@ test/CMakeFiles/test_quadtree.dir/test_quadtree.cpp.o: ../src/aabb/aabb.h
 test/CMakeFiles/test_quadtree.dir/test_quadtree.cpp.o: ../src/commum_header/commum_header.h
 test/CMakeFiles/test_quadtree.dir/test_quadtree.cpp.o: ../src/global_generator/global_generator.h
 test/CMakeFiles/test_quadtree.dir/test_quadtree.cpp.o: ../src/point/point.hpp
+test/CMakeFiles/test_quadtree.dir/test_quadtree.cpp.o: ../src/qsbd_debug/qsbd_debug.h
 test/CMakeFiles/test_quadtree.dir/test_quadtree.cpp.o: ../src/quadtree/quadtree.h
 test/CMakeFiles/test_quadtree.dir/test_quadtree.cpp.o: ../src/stream_maker/stream_maker.h
 test/CMakeFiles/test_quadtree.dir/test_quadtree.cpp.o: ../test/test_quadtree.cpp

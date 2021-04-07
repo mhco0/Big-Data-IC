@@ -85,6 +85,7 @@ bin/test_dcs: lib/libQSBD_STREAM_MAKER.a
 bin/test_dcs: lib/libQSBD_DCS_FACTORY.a
 bin/test_dcs: lib/libQSBD_UTILS.a
 bin/test_dcs: lib/libgtestd.a
+bin/test_dcs: lib/libQSBD_DEBUG.a
 bin/test_dcs: lib/libQSBD_DCS.a
 bin/test_dcs: lib/libQSBD_QUANTILE_SKETCH.a
 bin/test_dcs: lib/libQSBD_COUNT_SKETCH.a

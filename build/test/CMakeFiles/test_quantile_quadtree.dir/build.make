@@ -91,12 +91,12 @@ bin/test_quantile_quadtree: lib/libQSBD_MEMORY_TRACKER.a
 bin/test_quantile_quadtree: lib/libQSBD_TIMER.a
 bin/test_quantile_quadtree: lib/libQSBD_DEBUG.a
 bin/test_quantile_quadtree: lib/libQSBD_UTILS.a
-bin/test_quantile_quadtree: lib/libQSBD_LOG.a
 bin/test_quantile_quadtree: lib/libgtestd.a
 bin/test_quantile_quadtree: lib/libQSBD_AABB.a
 bin/test_quantile_quadtree: lib/libQSBD_POINT.a
 bin/test_quantile_quadtree: lib/libQSBD_KLL.a
 bin/test_quantile_quadtree: lib/libQSBD_GK.a
+bin/test_quantile_quadtree: lib/libQSBD_DEBUG.a
 bin/test_quantile_quadtree: lib/libQSBD_Q_DIGEST.a
 bin/test_quantile_quadtree: lib/libQSBD_SKETCH_FACTORY.a
 bin/test_quantile_quadtree: lib/libQSBD_DCS.a
@@ -107,7 +107,6 @@ bin/test_quantile_quadtree: lib/libQSBD_QUANTILE_SKETCH.a
 bin/test_quantile_quadtree: lib/libQSBD_COMMUM_HEADER.a
 bin/test_quantile_quadtree: lib/libQSBD_GLOBAL_GEN.a
 bin/test_quantile_quadtree: lib/libnlohmann_json.a
-bin/test_quantile_quadtree: lib/libQSBD_DEBUG.a
 bin/test_quantile_quadtree: test/CMakeFiles/test_quantile_quadtree.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ../bin/test_quantile_quadtree"
 	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/test_quantile_quadtree.dir/link.txt --verbose=$(VERBOSE)

@@ -9,8 +9,11 @@ namespace qsbd{
         std::pair<T, T> coord;
     public:
         point(T x, T y);
+        point(const point<T>& other);
         point();
         ~point();
+
+        point<T>& operator=(const point<T>& other);
 
         void x(const T& val);
         void y(const T& val);

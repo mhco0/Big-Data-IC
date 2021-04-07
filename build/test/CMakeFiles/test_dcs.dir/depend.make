@@ -27,6 +27,7 @@ test/CMakeFiles/test_dcs.dir/test_dcs.cpp.o: ../src/dcs/dcs.h
 test/CMakeFiles/test_dcs.dir/test_dcs.cpp.o: ../src/dcs_factory/dcs_factory.h
 test/CMakeFiles/test_dcs.dir/test_dcs.cpp.o: ../src/global_generator/global_generator.h
 test/CMakeFiles/test_dcs.dir/test_dcs.cpp.o: ../src/k_wise_family/k_wise_family.h
+test/CMakeFiles/test_dcs.dir/test_dcs.cpp.o: ../src/qsbd_debug/qsbd_debug.h
 test/CMakeFiles/test_dcs.dir/test_dcs.cpp.o: ../src/quantile_sketch/quantile_sketch.hpp
 test/CMakeFiles/test_dcs.dir/test_dcs.cpp.o: ../src/sketch_factory/sketch_factory.hpp
 test/CMakeFiles/test_dcs.dir/test_dcs.cpp.o: ../src/stream_maker/stream_maker.h

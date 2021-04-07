@@ -2,6 +2,7 @@
 #define QSBD_STREAM_MAKER_H
 #include "../commum_header/commum_header.h"
 #include "../global_generator/global_generator.h"
+#include "../qsbd_debug/qsbd_debug.h"
 
 namespace qsbd{
 	namespace stream_maker{

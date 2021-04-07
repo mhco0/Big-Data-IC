@@ -173,6 +173,8 @@ iostream
 ../src/sketch_factory/sketch_factory.hpp
 ../aabb/aabb.h
 ../src/aabb/aabb.h
+../qsbd_debug/qsbd_debug.h
+../src/qsbd_debug/qsbd_debug.h
 
 ../src/quantile_sketch/quantile_sketch.hpp
 

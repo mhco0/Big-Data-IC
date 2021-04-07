@@ -230,7 +230,7 @@ TEST(GkTest, TestUpdateAndQuery){
 */
 void test_gk_summary(double epsilon, int vector_size, int min_v, int max_v, bool print){
 
-    double epsilon, int vector_size, int min_v, int max_v, bool print
+    //double epsilon, int vector_size, int min_v, int max_v, bool print
     vector<int> stream = make_random_int_stream(vector_size, min_v, max_v);
     vector<int> real_ranks = ranks_from_stream(stream, min_v, max_v);
     vector<double> samples(real_ranks.size(),0);
@@ -255,8 +255,8 @@ TEST(GkTest, TestFactory){
     int N = stoi(g_args[1]);
 	double error = stod(g_args[0]);
 	int attempts = stoi(g_args[2]);
-	vector<int> stream = random_int_stream(N, stoi(g_args[5]), stoi(g_args[6]));
-	vector<int> real_ranks = real_ranks_from_stream(stream);
+	vector<int> stream = make_random_int_stream(N, stoi(g_args[5]), stoi(g_args[6]));
+	vector<int> real_ranks = ranks_from_stream(stream, stoi(g_args[5]), stoi(g_args[6]));
 	vector<int> fails(real_ranks.size(), 0);
 
 	for(int i = 0; i < attempts; i++){
