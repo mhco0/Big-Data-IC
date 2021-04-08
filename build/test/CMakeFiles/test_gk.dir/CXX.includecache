@@ -326,6 +326,38 @@ cxxabi.h
 acxx_demangle.h
 -
 
+../src/commum_header/commum_header.h
+iostream
+-
+fstream
+-
+algorithm
+-
+vector
+-
+deque
+-
+random
+-
+chrono
+-
+map
+-
+set
+-
+cassert
+-
+functional
+-
+utility
+-
+iomanip
+-
+exception
+-
+limits
+-
+
 ../src/gk/gk.hpp
 ../global_generator/global_generator.h
 ../src/global_generator/global_generator.h
@@ -358,6 +390,14 @@ iostream
 ../quantile_sketch/quantile_sketch.hpp
 ../src/quantile_sketch/quantile_sketch.hpp
 
+../src/stream_maker/stream_maker.h
+../commum_header/commum_header.h
+../src/commum_header/commum_header.h
+../global_generator/global_generator.h
+../src/global_generator/global_generator.h
+../qsbd_debug/qsbd_debug.h
+../src/qsbd_debug/qsbd_debug.h
+
 ../src/utils/utils.h
 algorithm
 -
@@ -370,6 +410,8 @@ deque
 
 /mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_gk.cpp
 gtest/gtest.h
+-
+stream_maker/stream_maker.h
 -
 gk/gk.hpp
 -

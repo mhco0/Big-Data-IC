@@ -21,12 +21,14 @@ test/CMakeFiles/test_gk.dir/test_gk.cpp.o: ../googletest/googletest/include/gtes
 test/CMakeFiles/test_gk.dir/test_gk.cpp.o: ../googletest/googletest/include/gtest/internal/gtest-port.h
 test/CMakeFiles/test_gk.dir/test_gk.cpp.o: ../googletest/googletest/include/gtest/internal/gtest-string.h
 test/CMakeFiles/test_gk.dir/test_gk.cpp.o: ../googletest/googletest/include/gtest/internal/gtest-type-util.h
+test/CMakeFiles/test_gk.dir/test_gk.cpp.o: ../src/commum_header/commum_header.h
 test/CMakeFiles/test_gk.dir/test_gk.cpp.o: ../src/gk/gk.hpp
 test/CMakeFiles/test_gk.dir/test_gk.cpp.o: ../src/gk_factory/gk_factory.hpp
 test/CMakeFiles/test_gk.dir/test_gk.cpp.o: ../src/global_generator/global_generator.h
 test/CMakeFiles/test_gk.dir/test_gk.cpp.o: ../src/qsbd_debug/qsbd_debug.h
 test/CMakeFiles/test_gk.dir/test_gk.cpp.o: ../src/quantile_sketch/quantile_sketch.hpp
 test/CMakeFiles/test_gk.dir/test_gk.cpp.o: ../src/sketch_factory/sketch_factory.hpp
+test/CMakeFiles/test_gk.dir/test_gk.cpp.o: ../src/stream_maker/stream_maker.h
 test/CMakeFiles/test_gk.dir/test_gk.cpp.o: ../src/utils/utils.h
 test/CMakeFiles/test_gk.dir/test_gk.cpp.o: ../test/test_gk.cpp
 

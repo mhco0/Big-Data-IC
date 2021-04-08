@@ -82,6 +82,7 @@ bin/test_gk: test/CMakeFiles/test_gk.dir/build.make
 bin/test_gk: lib/libgtest_maind.a
 bin/test_gk: lib/libQSBD_GK.a
 bin/test_gk: lib/libQSBD_UTILS.a
+bin/test_gk: lib/libQSBD_STREAM_MAKER.a
 bin/test_gk: lib/libgtestd.a
 bin/test_gk: lib/libQSBD_QUANTILE_SKETCH.a
 bin/test_gk: lib/libQSBD_COMMUM_HEADER.a

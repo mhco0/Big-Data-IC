@@ -1,29 +1,17 @@
 #include <gtest/gtest.h>
+#include <stream_maker/stream_maker.h>
 #include <gk/gk.hpp>
 #include <gk_factory/gk_factory.hpp>
 #include <utils/utils.h>
 using namespace std;
 using namespace qsbd;
+using namespace qsbd::stream_maker;
 
 deque<string> g_args;
 /*
-	Makes a random stream with length vector_size using elements from [min_v..max_v]
-*/
-vector<int> make_random_int_stream(int vector_size, int min_v, int max_v){
-	uniform_int_distribution<int> who_pick(min_v, max_v);
-	vector<int> random_stream;
-
-	for(int i=0;i<vector_size;i++){
-		random_stream.push_back(who_pick(generator));
-	}
-
-	return random_stream;
-}
-
-/*
 	Calculates the rank(x), for a given positive stream
 */
-vector<int> ranks_from_stream(vector<int> stream, int min_v,int max_v){
+vector<int> ranks_from_stream(vector<int> stream, int min_v, int max_v){
     vector<int> weights(max_v + 1, 0);
     vector<int> ranks(max_v + 1, 0);
 
@@ -31,7 +19,7 @@ vector<int> ranks_from_stream(vector<int> stream, int min_v,int max_v){
         weights[stream[i]]++;    
 	}
 
-    for(int i = 0, j = 1;j <= max_v; i++, j++){
+    for(int i = 0, j = 1; j <= max_v; i++, j++){
         ranks[j] = weights[i] + ranks[i];
     }
 
@@ -88,40 +76,7 @@ void test_real_ranks(){
 
 
 /*
-    Second test to see if the ranks_from_stream is working   
-*/
-void test_real_ranks2(int vector_size, int min_v, int max_v){
-    vector<int> stream = make_random_int_stream(vector_size, min_v, max_v);  
-    vector<int> real_ranks = ranks_from_stream(stream, min_v, max_v);
-
-    sort(stream.begin(),stream.end());
-
-    for(auto& it: stream){
-        cout << it << " ";
-    }
-    cout << endl;
-    cout << endl;
-
-    for(int i = 0; i < real_ranks.size(); i++){
-        cout << i << " : " << real_ranks[i] << endl;
-    }
-    cout << endl;
-}
-
-/*
-    Tests the make_random_int_stream function
-*/
-void test_stream_creation(int vector_size, int min_v, int max_v){
-    vector<int> stream = make_random_int_stream(vector_size, min_v, max_v);
-
-    for(auto& it : stream){
-        cout << it << " ";
-    }
-    cout << endl;
-}
-
-/*
-    Tests tuple insertion on multimap
+    Tests tuple insertion on vector
 */
 TEST(GkTest, TestTupleInsert){
     vector<pair<int, pair<int, int>>> tuple_list;
@@ -228,10 +183,13 @@ TEST(GkTest, TestUpdateAndQuery){
 /*
     Testing the gk summary for int numbers
 */
-void test_gk_summary(double epsilon, int vector_size, int min_v, int max_v, bool print){
-
-    //double epsilon, int vector_size, int min_v, int max_v, bool print
-    vector<int> stream = make_random_int_stream(vector_size, min_v, max_v);
+TEST(GkTest, TestBounds){
+    double epsilon = stod(g_args[0]);
+    int vector_size = stoi(g_args[1]);
+    int min_v = stoi(g_args[3]);
+    int max_v = stoi(g_args[4]);
+    bool print = true;
+    vector<int> stream = random_int_stream(vector_size, min_v, max_v);
     vector<int> real_ranks = ranks_from_stream(stream, min_v, max_v);
     vector<double> samples(real_ranks.size(),0);
     gk<int> summary(epsilon);
@@ -246,7 +204,7 @@ void test_gk_summary(double epsilon, int vector_size, int min_v, int max_v, bool
 
         cout << i << "\t" << real_ranks[i] << "\t" << app_rank << "\t" << abs(app_rank - real_ranks[i]) << "\t";
         cout << "[" << (app_rank - summary.get_N() * epsilon) << " <= " << real_ranks[i] << " <= " << (app_rank + summary.get_N() * epsilon) << "]" << endl;
-        assert((app_rank - summary.get_N() * epsilon) <= real_ranks[i] and real_ranks[i] <= (app_rank + summary.get_N() * epsilon));
+        ASSERT((app_rank - summary.get_N() * epsilon) <= real_ranks[i] and real_ranks[i] <= (app_rank + summary.get_N() * epsilon));
     }
 }
 
@@ -255,9 +213,11 @@ TEST(GkTest, TestFactory){
     int N = stoi(g_args[1]);
 	double error = stod(g_args[0]);
 	int attempts = stoi(g_args[2]);
-	vector<int> stream = make_random_int_stream(N, stoi(g_args[5]), stoi(g_args[6]));
-	vector<int> real_ranks = ranks_from_stream(stream, stoi(g_args[5]), stoi(g_args[6]));
+	vector<int> stream = random_int_stream(N, stoi(g_args[3]), stoi(g_args[4]));
+	vector<int> real_ranks = ranks_from_stream(stream, stoi(g_args[3]), stoi(g_args[4]));
 	vector<int> fails(real_ranks.size(), 0);
+
+    DEBUG("got here");
 
 	for(int i = 0; i < attempts; i++){
 		gk_factory<int> factory(error);

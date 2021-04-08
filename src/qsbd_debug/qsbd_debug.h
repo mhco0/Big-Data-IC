@@ -15,10 +15,14 @@ namespace qsbd{
 #define VDEBUG(x) do { if(qsbd::debug::debug_enable) std::cout << #x << " := " << x << std::endl;} while(0)
 #define DEBUG_ERR(x) do{ if(qsbd::debug::debug_enable) std::cerr << x << std::endl;} while(0)
 #define ASSERT(cond) do {if(qsbd::debug::debug_enable){if(not (cond)){\
-                        DEBUG_ERR("Assertion Fail On :");\
+                        DEBUG_ERR("===============================");\
+                        DEBUG_ERR("Assertion: ");\
+                        DEBUG_ERR(#cond);\
+                        DEBUG_ERR("Failed On: ");\
                         DEBUG_ERR(__FILE__);\
-                        DEBUG_ERR("In line :");\
+                        DEBUG_ERR("In line: ");\
                         DEBUG_ERR(__LINE__);\
+                        DEBUG_ERR("===============================");\
                         }}} while(0)
 }
 

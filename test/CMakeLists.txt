@@ -46,7 +46,7 @@ target_include_directories(test_dcs PRIVATE ${QSBD_DIR_SOURCE})
 add_test(NAME test_dcs COMMAND test_dcs)
 
 add_executable(test_gk test_gk.cpp)
-target_link_libraries(test_gk PRIVATE gtest_main QSBD_GK QSBD_UTILS)
+target_link_libraries(test_gk PRIVATE gtest_main QSBD_GK QSBD_UTILS QSBD_STREAM_MAKER)
 target_include_directories(test_gk PRIVATE ${QSBD_DIR_SOURCE})
 add_test(NAME test_gk COMMAND test_gk)
 

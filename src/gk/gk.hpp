@@ -39,9 +39,9 @@ namespace qsbd {
 
             int weight = tuple_list[index].second.first;
             int uncertainty = tuple_list[index].second.second;
-            int capacity = (int) (2.0 * epsilon * N);
+            int capacity = (int) ceil(2.0 * epsilon * N);
 
-            if((capacity - (weight * 1.0 + uncertainty * 1.0 + 1.0)) > 1e-8){
+            if((weight + uncertainty + 1) < capacity){
                 tuple_list[index].second.first += 1;
             }else{
 
@@ -69,7 +69,7 @@ namespace qsbd {
                 return nullptr;
             }
 
-            //ASSERT(((rhs_cv.epsilon - this->epsilon) < 1e-6));
+            ASSERT(rhs_cv.epsilon - this->epsilon < 1e-6);
 
             int left_index = 0;
             int right_index = 0; 
@@ -111,7 +111,7 @@ namespace qsbd {
                 right_index++;
             }
 
-            int capacity = (int) (2.0 * epsilon * merged_summary->get_N());
+            int capacity = (int) ceil(2.0 * epsilon * merged_summary->get_N());
             for(int i = 0, j = 1; j < merged_summary->tuple_list.size(); i++, j++){
                 if ((merged_summary->tuple_list[i].second.first + merged_summary->tuple_list[j].second.first + merged_summary->tuple_list[j].second.second) < capacity){
                     merged_summary->tuple_list[j].second.first += merged_summary->tuple_list[i].second.first;
@@ -133,7 +133,7 @@ namespace qsbd {
                 weight_sum += tuple_list[index].second.first;
                 index++;
             }
-
+            
             return (weight_sum - 1 + ((tuple_list[index].second.first + tuple_list[index].second.second) / 2));
         }
 
