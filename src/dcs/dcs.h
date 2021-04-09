@@ -6,8 +6,13 @@
 #include "../quantile_sketch/quantile_sketch.hpp"
 
 namespace qsbd{
+
+    class dcs_factory;
+
     class dcs : public quantile_sketch<int>{
     private: 
+        friend class qsbd::dcs_factory;
+
         int universe;
         double error;
         // for initialize count sketch
@@ -19,6 +24,9 @@ namespace qsbd{
         std::vector<std::vector<int>> frequency_counters;
         std::vector<count_sketch> estimators;
 
+        dcs(double err, int universe, const std::vector<count_sketch>& other_est);
+
+        std::vector<count_sketch> get_estimators() const;
     public:
         dcs(double err, int universe);
         ~dcs();

@@ -11,7 +11,7 @@ deque<string> g_args;
 /*
 	Calculates the rank(x), for a given stream
 */
-int rank_from_stream(vector<pair<int,int>>& stream, int x){
+int rank_from_stream(vector<pair<int, int>>& stream, int x){
 	sort(stream.begin(), stream.end());
 
 	int rank = 0;

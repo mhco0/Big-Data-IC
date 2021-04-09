@@ -1,4 +1,3 @@
-
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pg -fno-omit-frame-pointer -g -O2 -ggdb -fstrict-aliasing")
 set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -pg -fno-omit-frame-pointer -g -O2 -ggdb -fstrict-aliasing")
 set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -pg -fno-omit-frame-pointer -g -O2 -ggdb -fstrict-aliasing")

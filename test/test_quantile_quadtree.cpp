@@ -136,15 +136,6 @@ TEST(QuantileQuadtreeTest, TestConstructWithGK){
     int deep = 8;
     quantile_quadtree<int> test(resolution, deep, &factory);
 }
-/*
-TEST(QuantileQuadtreeTest, TestConstructWithQDigest){
-    double error = 0.3;
-    aabb resolution(0.0, 0.0, 1280.0, 720.0);
-    q_digest_factory factory(error, 1000);
-    int deep = 8;
-    quantile_quadtree<int> test(resolution, deep, &factory);
-}
-*/
 
 TEST(QuantileQuadtreeTest, TestUpdateAndQueryWithGK){
     int N = 1000;
@@ -162,6 +153,7 @@ TEST(QuantileQuadtreeTest, TestUpdateAndQueryWithGK){
     }
     vector<int> stream_in_region = brute_force_search(stream, search_region);
 	vector<int> real_ranks = real_ranks_from_stream_gk(stream_in_region, 0, N);
+    vector<int> fails(real_ranks.size(), 0);
 
 	for(int i = 0; i < attempts; i++){
 		gk_factory<int> factory(error);
@@ -175,11 +167,25 @@ TEST(QuantileQuadtreeTest, TestUpdateAndQueryWithGK){
 			int approximated_rank = test.query(search_region, j);
 			int real_rank = real_ranks[j];
 
-            EXPECT_GE(real_rank, approximated_rank - N * error);
-            EXPECT_LE(real_rank, approximated_rank + N * error);
+            if(abs(approximated_rank - real_rank) > (error * (N + points_guarantee))){
+				fails[j]++;
+			}
 		}
 	}
+
+    for(int i = 0; i < fails.size(); i++){
+		EXPECT_LT((fails[i]/(double) attempts), error);
+	}
 }
+/*
+TEST(QuantileQuadtreeTest, TestConstructWithQDigest){
+    double error = 0.3;
+    aabb resolution(0.0, 0.0, 1280.0, 720.0);
+    q_digest_factory factory(error, 1000);
+    int deep = 8;
+    quantile_quadtree<int> test(resolution, deep, &factory);
+}
+*/
 
 /*
 TEST(QuantileQuadtreeTest, TestUpdateAndQueryWithQDigest){
@@ -220,6 +226,69 @@ TEST(QuantileQuadtreeTest, TestUpdateAndQueryWithQDigest){
 	}
 
 }*/
+
+TEST(QuantileQuadtreeTest, TestConstructWithDcs){
+    double error = stod(g_args[5]);
+    int universe = 1024;
+    int deep = stoi(g_args[4]);
+    aabb resolution(stod(g_args[0]), stod(g_args[1]), stod(g_args[2]), stod(g_args[3]));
+    dcs_factory factory(error, universe);
+
+    timer counter;
+    counter.start();
+    quantile_quadtree<int> test(resolution, deep, &factory);
+    counter.end();
+}
+
+TEST(QuantileQuadtreeTest, TestUpdateAndQueryWithDcs){
+    int N = stoi(g_args[6]);
+    int points_guarantee = 100;
+    int attempts = stoi(g_args[7]);
+    int deep = stoi(g_args[4]);
+    int universe = 1024;
+    double error = stod(g_args[5]);
+    aabb resolution(stod(g_args[0]), stod(g_args[1]), stod(g_args[2]), stod(g_args[3]));
+    aabb search_region = construct_aabb_from_random_region(stod(g_args[0]), stod(g_args[1]), stod(g_args[2]), stod(g_args[3]));
+
+	vector<pair<pair<int, int>, pair<double, double>>> stream =  random_stream_in_region_with_weight(N, stod(g_args[0]), stod(g_args[1]), stod(g_args[2]), stod(g_args[3]), 0, N, 1, 50);
+    vector<pair<pair<int, int>, pair<double, double>>> guarantee_stream = random_stream_in_region_with_weight(points_guarantee, search_region.bounds().first.x(), search_region.bounds().first.y(), search_region.bounds().second.x(), search_region.bounds().second.y(), 0, N, 1, 50);
+    for(auto& it : guarantee_stream){
+        stream.push_back(it);
+    }
+    vector<pair<int, int>> stream_in_region = brute_force_search(stream, search_region);
+	vector<int> real_ranks = real_ranks_from_stream_with_weight(stream_in_region);
+	vector<int> fails(real_ranks.size(), 0);
+    int total_weight = weight_from_stream(stream_in_region, false);
+    
+	for(int i = 0; i < attempts; i++){
+		dcs_factory factory(error, universe);
+        quantile_quadtree<int> test(resolution, deep, &factory);
+
+        timer counter;
+
+        counter.start();
+		for(auto& it : stream){
+            test.update(point<int>(it.second.first, it.second.second), it.first.first, it.first.second);
+        }
+        counter.end();
+
+        counter.start();
+		for(int j = 0; j < real_ranks.size(); j++){
+			int approximated_rank = test.query(search_region, j);
+			int real_rank = real_ranks[j];
+
+			if(abs(approximated_rank - real_rank) > (error * total_weight)){
+				fails[j]++;
+			}
+		}
+        counter.end();
+	}
+
+	for(int i = 0; i < fails.size(); i++){
+		EXPECT_LT((fails[i]/(double) attempts), error);
+	}
+}
+
 
 int main(int argc, char* argv[]){
     testing::InitGoogleTest(&argc, argv);

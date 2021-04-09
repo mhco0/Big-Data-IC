@@ -25,7 +25,7 @@ namespace qsbd {
         }
     }
 
-    count_sketch::count_sketch(double err, double delt, std::vector<k_wise_family> hashs){
+    count_sketch::count_sketch(double err, double delt, const std::vector<k_wise_family>& hashs){
         this->error = err;
         this->delta = delt;
 
@@ -45,7 +45,7 @@ namespace qsbd {
         this->hash_functions = hashs;
     }
 
-    count_sketch::count_sketch(double err, double delt, std::vector<k_wise_family> hashs, std::vector<std::vector<int>> est){
+    count_sketch::count_sketch(double err, double delt, const std::vector<k_wise_family>& hashs, const std::vector<std::vector<int>>& est){
         this->error = err;
         this->delta = delt;
 
@@ -66,7 +66,7 @@ namespace qsbd {
         this->t = fixt;
 
         this->error = 3.0 / this->t;
-        this->delta = exp(-this->d / 48);
+        this->delta = exp(-this->d / 48.0);
 
         this->g = [](int random_bit){
             if(random_bit & 1) return 1;
@@ -83,6 +83,26 @@ namespace qsbd {
 
             this->hash_functions.push_back(h);
         }
+    }
+
+    count_sketch::count_sketch(int fixd, int fixt, const std::vector<k_wise_family>& hashs){
+        this->d = fixd;
+        this->t = fixt;
+
+        this->error = 3.0 / this->t;
+        this->delta = exp(-this->d / 48.0);
+
+        this->g = [](int random_bit){
+            if(random_bit & 1) return 1;
+            else return -1;
+        };
+
+        this->estimators.assign(this->d, {});
+        for(int i = 0; i < this->d; i++){
+            this->estimators[i].assign(this->t, 0);
+        }
+
+        this->hash_functions = hashs;
     }
 
     count_sketch::~count_sketch(){
@@ -109,6 +129,9 @@ namespace qsbd {
 
         std::sort(ranks.begin(), ranks.end());
         int size = ranks.size();
+
+        if (size == 0) return -1;
+
         if ((size & 1)) return ranks[size / 2];
         else return (ranks[size/2 - 1] + ranks[size / 2]) / 2;
     }
@@ -128,7 +151,7 @@ namespace qsbd {
         for(int i = 0; i < this->d; i++){
             merged_v[i].assign(this->t, 0);
 
-            for(int j = 0; j< this->t; j++){
+            for(int j = 0; j < this->t; j++){
                 merged_v[i][j] =  this->estimators[i][j] + rhs.estimators[i][j];
             }
         }

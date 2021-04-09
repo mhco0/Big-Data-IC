@@ -226,7 +226,7 @@ namespace qsbd {
 
         // do one binary_search
 
-        int index = small_buffer.size()-1;
+        int index = small_buffer.size() - 1;
 
         for(int i = small_buffer.size() - 2; i >= 0; i--){
             if (small_buffer[i].first > small_buffer[index].first){
@@ -234,14 +234,6 @@ namespace qsbd {
                 index = i;
             }
         }
-
-        /*
-        DEBUG PRINT
-        for(auto &it :small_buffer){
-            cout << it.first << "," << it.second << " ";
-        }
-        cout << endl;
-        */
     }
 
     void q_digest::transfer_buffer_to_tree(){
@@ -295,7 +287,7 @@ namespace qsbd {
     }
 
     void q_digest::update(int x, int weight){
-        if(total_weight < (log2(universe)/error)){
+        if(total_weight < (log2(universe) / error)){
             insert_in_buffer(x, weight);
 
             if(total_weight >= (log2(universe) / error)) transfer_buffer_to_tree();

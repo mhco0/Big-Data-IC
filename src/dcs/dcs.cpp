@@ -1,6 +1,36 @@
 #include "dcs.h"
 
 namespace qsbd {
+
+    dcs::dcs(double err, int universe, const std::vector<count_sketch>& other_est){
+        this->universe = universe;
+        this->error = err;
+        this->total_weight = 0;
+        this->w = (int) (sqrt(log2(universe) * log(log2(universe) / err)) / err);
+        this->d = (int) log(log2(universe) / err);
+        this->s = std::max((int) floor(log2(universe / (double) (this->w * this->d))), 0);
+        this->lvls = ceil(log2(universe));
+
+        frequency_counters.assign(this->lvls - (this->s + 1), {});
+
+        for(int i = this->s + 1; i < this->lvls; i++){
+            int dyadic_interval = 1 << i;
+
+            frequency_counters[i - (this->s + 1)].assign(universe / dyadic_interval, 0);
+        }
+
+        for(int i = 0; i <= this->s; i++){
+            count_sketch cs(this->d, this->w, other_est[i].get_hash_functions());
+
+            estimators.push_back(cs);
+        }
+    }
+
+    std::vector<count_sketch> dcs::get_estimators() const {
+        return this->estimators;
+    }
+
+
     dcs::dcs(double err, int universe){
         this->universe = universe;
         this->error = err;
@@ -19,7 +49,7 @@ namespace qsbd {
         }
 
         for(int i = 0; i <= this->s; i++){
-            count_sketch cs(this->d, this->w);
+            count_sketch cs(this->d, this->w);  
 
             estimators.push_back(cs);
         }
@@ -56,6 +86,7 @@ namespace qsbd {
 
             x = x / 2;
         }
+
 
         return rank;
     }

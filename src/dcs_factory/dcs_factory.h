@@ -8,14 +8,19 @@ namespace qsbd{
     private:
         double error;
         int universe;
+        std::vector<count_sketch> estimators;
     public:
         dcs_factory(double err, int univ){
             this->error = err;
             this->universe = univ;
+
+            dcs dummy(this->error, this->universe);
+
+            this->estimators = dummy.get_estimators();
         }
 
         quantile_sketch<int> * instance() override {
-            quantile_sketch<int> * ret  = new dcs(this->error, this->universe);
+            quantile_sketch<int> * ret  = new dcs(this->error, this->universe, this->estimators);
 
             return ret;
         }

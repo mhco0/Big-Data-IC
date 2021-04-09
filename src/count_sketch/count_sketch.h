@@ -15,9 +15,10 @@ namespace qsbd {
         std::vector<std::vector<int>> estimators;
     public:
         count_sketch(double err, double delt);
-        count_sketch(double err, double delt, std::vector<k_wise_family> hashs);
-        count_sketch(double err, double delt, std::vector<k_wise_family> hashs, std::vector<std::vector<int>> est);
+        count_sketch(double err, double delt, const std::vector<k_wise_family>& hashs);
+        count_sketch(double err, double delt, const std::vector<k_wise_family>& hashs, const std::vector<std::vector<int>>& est);
         count_sketch(int fixd, int fixt);
+        count_sketch(int fixd, int fixt, const std::vector<k_wise_family>& hashs);
         ~count_sketch();
 
         void update(int elem, int weight);

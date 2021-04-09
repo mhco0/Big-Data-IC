@@ -217,8 +217,6 @@ TEST(GkTest, TestFactory){
 	vector<int> real_ranks = ranks_from_stream(stream, stoi(g_args[3]), stoi(g_args[4]));
 	vector<int> fails(real_ranks.size(), 0);
 
-    DEBUG("got here");
-
 	for(int i = 0; i < attempts; i++){
 		gk_factory<int> factory(error);
 		gk<int>* test = dynamic_cast<gk<int> *>(factory.instance());
