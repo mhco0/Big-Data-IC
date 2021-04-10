@@ -177,7 +177,7 @@ TEST(QuantileQuadtreeTest, TestUpdateAndQueryWithGK){
 		EXPECT_LT((fails[i]/(double) attempts), error);
 	}
 }
-/*
+
 TEST(QuantileQuadtreeTest, TestConstructWithQDigest){
     double error = 0.3;
     aabb resolution(0.0, 0.0, 1280.0, 720.0);
@@ -185,19 +185,23 @@ TEST(QuantileQuadtreeTest, TestConstructWithQDigest){
     int deep = 8;
     quantile_quadtree<int> test(resolution, deep, &factory);
 }
-*/
 
-/*
+
 TEST(QuantileQuadtreeTest, TestUpdateAndQueryWithQDigest){
     int N = 1000;
+    int points_guarantee = 100;
     int universe = 1000;
-    int attempts = 100;
+    int attempts = 10;
     int deep = 8;
     double error = 0.3;
     aabb resolution(0.0, 0.0, 1280.0, 720.0);
     aabb search_region = construct_aabb_from_random_region(0.0, 0.0, 1280.0, 720.0);
     
 	vector<pair<pair<int, int>, pair<double, double>>> stream =  random_stream_in_region_with_weight(N, 0.0, 0.0, 1280.0, 720.0, 0, N, 1, 50);
+    vector<pair<pair<int, int>, pair<double, double>>> guarantee_stream = random_stream_in_region_with_weight(points_guarantee, search_region.bounds().first.x(), search_region.bounds().first.y(), search_region.bounds().second.x(), search_region.bounds().second.y(), 0, N, 1, 50);
+    for(auto& it : guarantee_stream){
+        stream.push_back(it);
+    }
     vector<pair<int, int>> stream_in_region = brute_force_search(stream, search_region);
 	vector<int> real_ranks = real_ranks_from_stream_with_weight(stream_in_region);
 
@@ -213,7 +217,7 @@ TEST(QuantileQuadtreeTest, TestUpdateAndQueryWithQDigest){
         quantile_quadtree<int> test(resolution, deep, &factory);
 
 		for(auto& it : stream){
-            test.update(point<double>(it.second.first, it.second.second), it.first.first, it.first.second);
+            test.update(point<int>(it.second.first, it.second.second), it.first.first, it.first.second);
         }
 
 		for(int j = 0; j < real_ranks.size(); j++){
@@ -224,8 +228,7 @@ TEST(QuantileQuadtreeTest, TestUpdateAndQueryWithQDigest){
             EXPECT_LE(real_rank, approximated_rank + total_weight * error);
 		}
 	}
-
-}*/
+}
 
 TEST(QuantileQuadtreeTest, TestConstructWithDcs){
     double error = stod(g_args[5]);

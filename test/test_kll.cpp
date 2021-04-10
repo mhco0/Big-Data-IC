@@ -146,6 +146,8 @@ TEST(KllTest, TestMerge){
 			}
 		}
 
+		delete merged_kll;
+
 	}
 
 	for(int i = 0; i < fails.size(); i++){

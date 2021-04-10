@@ -255,6 +255,8 @@ TEST(QDigestTest, TestFactory){
 			stream.push_back(command);
 		}
 	}
+
+	delete qdst;
 }
 
 int main(int argc, char* argv[]){
