@@ -23,6 +23,8 @@ namespace qsbd{
 		ll operator() (ll elem);
 
 		std::vector<ll> get_constants() const;
+		unsigned long long int get_universe() const;
+		int get_k() const;
 	};
 }
 #endif

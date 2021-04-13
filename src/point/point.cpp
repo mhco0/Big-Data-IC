@@ -3,7 +3,7 @@ using namespace std;
 
 namespace qsbd{
     template<class T>
-    point<T>::point(T x, T y) : coord{x, y}{
+    point<T>::point(const T& x, const T& y) : coord{x, y}{
     }
 
     template<class T>
@@ -37,7 +37,7 @@ namespace qsbd{
     }
 
     template<class T>
-    void point<T>::xy(const T& xval, const T& yval){
+    inline void point<T>::xy(const T& xval, const T& yval){
         this->coord.first = xval;
         this->coord.second = yval;
     }

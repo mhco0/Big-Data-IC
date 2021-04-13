@@ -11,18 +11,18 @@ namespace qsbd {
         this->s = std::max((int) floor(log2(universe / (double) (this->w * this->d))), 0);
         this->lvls = ceil(log2(universe));
 
-        frequency_counters.assign(this->lvls - (this->s + 1), {});
+        this->frequency_counters.assign(this->lvls - (this->s + 1), {});
 
         for(int i = this->s + 1; i < this->lvls; i++){
             int dyadic_interval = 1 << i;
 
-            frequency_counters[i - (this->s + 1)].assign(universe / dyadic_interval, 0);
+            this->frequency_counters[i - (this->s + 1)].assign(universe / dyadic_interval, 0);
         }
 
         for(int i = 0; i <= this->s; i++){
             count_sketch cs(this->d, this->w, other_est[i].get_hash_functions());
 
-            estimators.push_back(cs);
+            this->estimators.push_back(cs);
         }
     }
 
@@ -40,18 +40,18 @@ namespace qsbd {
         this->s = std::max((int) floor(log2(universe / (double) (this->w * this->d))), 0);
         this->lvls = ceil(log2(universe));
 
-        frequency_counters.assign(this->lvls - (this->s + 1), {});
+        this->frequency_counters.assign(this->lvls - (this->s + 1), {});
 
         for(int i = this->s + 1; i < this->lvls; i++){
             int dyadic_interval = 1 << i;
 
-            frequency_counters[i - (this->s + 1)].assign(universe / dyadic_interval, 0);
+            this->frequency_counters[i - (this->s + 1)].assign(universe / dyadic_interval, 0);
         }
 
         for(int i = 0; i <= this->s; i++){
             count_sketch cs(this->d, this->w);  
 
-            estimators.push_back(cs);
+            this->estimators.push_back(cs);
         }
     }
 
@@ -63,9 +63,9 @@ namespace qsbd {
 
         for(int i = 0; i < this->lvls; i++){
             if(i > this->s){
-                frequency_counters[i - (this->s + 1)][x] += weight;
+                this->frequency_counters[i - (this->s + 1)][x] += weight;
             }else{
-                estimators[i].update(x, weight);
+                this->estimators[i].update(x, weight);
             }
 
             x = x / 2;
@@ -78,9 +78,9 @@ namespace qsbd {
         for(int i = 0; i < this->lvls; i++){
             if(x & 1){
                 if(i > this->s){
-                    rank += frequency_counters[i - (this->s + 1)][x - 1];
+                    rank += this->frequency_counters[i - (this->s + 1)][x - 1];
                 }else{
-                    rank += estimators[i].query(x - 1);
+                    rank += this->estimators[i].query(x - 1);
                 }
             }
 
@@ -103,9 +103,9 @@ namespace qsbd {
             x = 2 * x;
 
             if(i > this->s){
-                M = frequency_counters[i - (this->s + 1)][x];
+                M = this->frequency_counters[i - (this->s + 1)][x];
             }else{
-                M = estimators[i].query(x);
+                M = this->estimators[i].query(x);
             }
 
             if(parse_quant + M < weight){

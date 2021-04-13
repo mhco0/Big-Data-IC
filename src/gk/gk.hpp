@@ -116,7 +116,6 @@ namespace qsbd {
                 if ((merged_summary->tuple_list[i].second.first + merged_summary->tuple_list[j].second.first + merged_summary->tuple_list[j].second.second) < capacity){
                     merged_summary->tuple_list[j].second.first += merged_summary->tuple_list[i].second.first;
 
-                    // test if here is ok now
                     merged_summary->tuple_list.erase(merged_summary->tuple_list.begin() + i);
                 }
             } 

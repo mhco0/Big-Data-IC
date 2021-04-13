@@ -27,22 +27,24 @@ namespace qsbd {
         std::vector<quantile_quadtree<ObjType>::node> tree;
 
         short direction(const aabb& box, const point<int>& pos){
-            point<int> center((box.bounds().first.x() + box.bounds().second.x()) / 2, (box.bounds().first.y() + box.bounds().second.y()) / 2);
+            int center_x = (box.bounds().first.x() + box.bounds().second.x()) / 2;
+            int center_y = (box.bounds().first.y() + box.bounds().second.y()) / 2;
 
-            if(pos.x() > center.x() and pos.y() > center.y()) return 0;
-            else if(pos.x() < center.x() and pos.y() > center.y()) return 1;
-            else if(pos.x() < center.x() and pos.y() < center.y()) return 2;
-            else if(pos.x() > center.x() and pos.y() < center.y()) return 3;
-            else if(pos.x() == center.x() and pos.y() > center.y()) return 0;
-            else if(pos.x() < center.x() and pos.y() == center.y()) return 1;
-            else if(pos.x() == center.x() and pos.y() < center.y()) return 2;
-            else if(pos.x() > center.x() and pos.y() == center.y()) return 3;
+            if(pos.x() > center_x and pos.y() > center_y) return 0;
+            else if(pos.x() < center_x and pos.y() > center_y) return 1;
+            else if(pos.x() < center_x and pos.y() < center_y) return 2;
+            else if(pos.x() > center_x and pos.y() < center_y) return 3;
+            else if(pos.x() == center_x and pos.y() > center_y) return 0;
+            else if(pos.x() < center_x and pos.y() == center_y) return 1;
+            else if(pos.x() == center_x and pos.y() < center_y) return 2;
+            else if(pos.x() > center_x and pos.y() == center_y) return 3;
             else return 0;
         }
 
         bool unit_box(const aabb& region){
-            point<int> dimension(region.bounds().second.x() - region.bounds().first.x(), region.bounds().second.y() - region.bounds().first.y());
-            return not (dimension.x() > 1 || dimension.y() > 1);
+            int width = region.bounds().second.x() - region.bounds().first.x();
+            int height = region.bounds().second.y() - region.bounds().first.y();
+            return not (width > 1 || height > 1);
         }
 
         int alloc_childs(){
@@ -60,39 +62,36 @@ namespace qsbd {
             return ne_child_pos;
         }
 
-        aabb change_box(const aabb& cur_box, short direction){
-            aabb dummy(0, 0, 0, 0);
-            point<int> center((cur_box.bounds().second.x() + cur_box.bounds().first.x()) / 2, (cur_box.bounds().second.y() + cur_box.bounds().first.y()) / 2);
+        void change_box(aabb& cur_box, short direction){
+            int center_x = (cur_box.bounds().second.x() + cur_box.bounds().first.x()) / 2;
+            int center_y = (cur_box.bounds().second.y() + cur_box.bounds().first.y()) / 2;
 
             switch (direction){
                 case 0 : {
-                    aabb bound_ne(center.x(), center.y(), cur_box.bounds().second.x(), cur_box.bounds().second.y());
-                    return bound_ne;
+                    // ne
+                    cur_box.bounds(center_x, center_y, cur_box.bounds().second.x(), cur_box.bounds().second.y());
                 }
                 break;
                 case 1 : {
-                    aabb bound_nw(cur_box.bounds().first.x(), center.y(), center.x(), cur_box.bounds().second.y());
-                    return bound_nw;
+                    // nw
+                    cur_box.bounds(cur_box.bounds().first.x(), center_y, center_x, cur_box.bounds().second.y());
                 }
                 break;
                 case 2 : {
-                    aabb bound_sw(cur_box.bounds().first.x(), cur_box.bounds().first.y(), center.x(), center.y());
-                    return bound_sw;
+                    // sw
+                    cur_box.bounds(cur_box.bounds().first.x(), cur_box.bounds().first.y(), center_x, center_y);
                 }
                 break;
                 case 3 : {
-                    aabb bound_se(center.x(), cur_box.bounds().first.y(), cur_box.bounds().second.x(), center.y());
-                    return bound_se;
+                    // se
+                    cur_box.bounds(center_x, cur_box.bounds().first.y(), cur_box.bounds().second.x(), center_y);
                 }
                 break;
                 default:{
                     DEBUG_ERR("Invalid direction on quantile_quadtree::change_box");
-                    return dummy;
                 }
                 break;
             }
-
-            return dummy;
         }
 
 
@@ -117,12 +116,14 @@ namespace qsbd {
 
             for(int i = 0; i < 4; i++){
                 int cur_pos = ne_child_pos + i;
-                aabb child_box = change_box(box, i);
+                aabb child_box(box);
+                change_box(child_box, i);
                 if (region.intersects(child_box)){
-                    aabb parent_box(box);
-                    box = change_box(box, i);
-                    to_merge[i] = search_region(cur_pos, region, deep + 1, box);
-                    box = parent_box;
+                    //aabb parent_box(box);
+
+                    //change_box(box, i);
+                    to_merge[i] = search_region(cur_pos, region, deep + 1, child_box);
+                    //box = parent_box;
                 }
             }
 
@@ -192,7 +193,7 @@ namespace qsbd {
 
                 this->tree[cur_pos].payload->update(value);
                 
-                cur_box = change_box(cur_box, what_child);
+                change_box(cur_box, what_child);
                 what_child = direction(cur_box, pos);
                 cur_pos = this->tree[cur_pos].ne_child_pos + what_child;
                 cur_deep++;
@@ -221,7 +222,7 @@ namespace qsbd {
 
                 this->tree[cur_pos].payload->update(value, weight);
                 
-                cur_box = change_box(cur_box, what_child);
+                change_box(cur_box, what_child);
                 what_child = direction(cur_box, pos);
                 cur_pos = this->tree[cur_pos].ne_child_pos + what_child;
                 cur_deep++;

@@ -378,7 +378,7 @@ TEST(DcsTest, TestFailPlot){
 			big_fail = max(big_fail, failure[i]);
 		}
 
-		cout << big_fail << endl;	
+		//cout << big_fail << endl;	
 	}
 }
 

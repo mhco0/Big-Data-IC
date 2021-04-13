@@ -778,6 +778,19 @@ stream_creator/fast:
 	$(MAKE) -f app/CMakeFiles/stream_creator.dir/build.make app/CMakeFiles/stream_creator.dir/build
 .PHONY : stream_creator/fast
 
+#=============================================================================
+# Target rules for targets named profiler
+
+# Build rule for target.
+profiler: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 profiler
+.PHONY : profiler
+
+# fast build rule for target.
+profiler/fast:
+	$(MAKE) -f app/CMakeFiles/profiler.dir/build.make app/CMakeFiles/profiler.dir/build
+.PHONY : profiler/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -838,6 +851,7 @@ help:
 	@echo "... quantile_quadtree_experiment"
 	@echo "... query_creator"
 	@echo "... stream_creator"
+	@echo "... profiler"
 .PHONY : help
 
 

@@ -3,7 +3,7 @@ using namespace std;
 
 namespace qsbd {
 
-    aabb::aabb(double minx, double miny, double maxx, double maxy){
+    aabb::aabb(const double& minx, const double& miny, const double& maxx, const double& maxy){
         this->min_bound.xy(minx, miny);
         this->max_bound.xy(maxx, maxy);
     }
@@ -28,7 +28,7 @@ namespace qsbd {
         return (pos.x() >= min_bound.x() and pos.x() <= max_bound.x() and pos.y() >= min_bound.y() and pos.y() <= max_bound.y());
     }
 
-    bool aabb::intersects(aabb rhs) const{
+    bool aabb::intersects(const aabb& rhs) const{
         auto bounds = rhs.bounds();
 
         double left = bounds.first.x();

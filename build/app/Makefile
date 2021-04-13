@@ -212,6 +212,48 @@ stream_creator/fast:
 	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/stream_creator.dir/build.make app/CMakeFiles/stream_creator.dir/build
 .PHONY : stream_creator/fast
 
+# Convenience name for target.
+app/CMakeFiles/profiler.dir/rule:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/profiler.dir/rule
+.PHONY : app/CMakeFiles/profiler.dir/rule
+
+# Convenience name for target.
+profiler: app/CMakeFiles/profiler.dir/rule
+
+.PHONY : profiler
+
+# fast build rule for target.
+profiler/fast:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/profiler.dir/build.make app/CMakeFiles/profiler.dir/build
+.PHONY : profiler/fast
+
+profiler/profiler.o: profiler/profiler.cpp.o
+
+.PHONY : profiler/profiler.o
+
+# target to build an object file
+profiler/profiler.cpp.o:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/profiler.dir/build.make app/CMakeFiles/profiler.dir/profiler/profiler.cpp.o
+.PHONY : profiler/profiler.cpp.o
+
+profiler/profiler.i: profiler/profiler.cpp.i
+
+.PHONY : profiler/profiler.i
+
+# target to preprocess a source file
+profiler/profiler.cpp.i:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/profiler.dir/build.make app/CMakeFiles/profiler.dir/profiler/profiler.cpp.i
+.PHONY : profiler/profiler.cpp.i
+
+profiler/profiler.s: profiler/profiler.cpp.s
+
+.PHONY : profiler/profiler.s
+
+# target to generate assembly for a file
+profiler/profiler.cpp.s:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/profiler.dir/build.make app/CMakeFiles/profiler.dir/profiler/profiler.cpp.s
+.PHONY : profiler/profiler.cpp.s
+
 quantile_quadtree_experiment/quantile_quadtree_experiment.o: quantile_quadtree_experiment/quantile_quadtree_experiment.cpp.o
 
 .PHONY : quantile_quadtree_experiment/quantile_quadtree_experiment.o
@@ -309,6 +351,10 @@ help:
 	@echo "... quantile_quadtree_experiment"
 	@echo "... query_creator"
 	@echo "... stream_creator"
+	@echo "... profiler"
+	@echo "... profiler/profiler.o"
+	@echo "... profiler/profiler.i"
+	@echo "... profiler/profiler.s"
 	@echo "... quantile_quadtree_experiment/quantile_quadtree_experiment.o"
 	@echo "... quantile_quadtree_experiment/quantile_quadtree_experiment.i"
 	@echo "... quantile_quadtree_experiment/quantile_quadtree_experiment.s"

@@ -50,4 +50,12 @@ namespace qsbd {
     std::vector<unsigned long long int> k_wise_family::get_constants() const {
         return this->constants;
     }
+
+    unsigned long long int k_wise_family::get_universe() const {
+        return this->universe;
+    }
+
+    int k_wise_family::get_k() const {
+        return this->k_indepent;
+    }
 }

@@ -16,11 +16,16 @@ namespace qsbd{
 
             dcs dummy(this->error, this->universe);
 
-            this->estimators = dummy.get_estimators();
+            auto est = dummy.get_estimators();
+
+            for(auto& it : est){
+                estimators.push_back(it);
+            }
         }
 
         quantile_sketch<int> * instance() override {
             quantile_sketch<int> * ret  = new dcs(this->error, this->universe, this->estimators);
+
 
             return ret;
         }

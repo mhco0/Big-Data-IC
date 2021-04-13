@@ -187,7 +187,7 @@ TEST(QDigestTest, TestUpdateAndQuery){
     int number_of_updates = stoi(g_args[2]);
     int number_of_query = stoi(g_args[3]);
     bool shuffle = false;
-    bool print_tree_on_query = true;
+    bool print_tree_on_query = false;
     vector<pair<int,int>> commands = make_stream_commands(vector_size, number_of_updates, number_of_query, shuffle);
 	vector<pair<int,int>> stream;
 	q_digest qdst(epsilon, vector_size);
@@ -224,7 +224,7 @@ TEST(QDigestTest, TestFactory){
     int number_of_updates = stoi(g_args[2]);
     int number_of_query = stoi(g_args[3]);
     bool shuffle = false;
-    bool print_tree_on_query = true;
+    bool print_tree_on_query = false;
     vector<pair<int,int>> commands = make_stream_commands(vector_size, number_of_updates, number_of_query, shuffle);
 	vector<pair<int,int>> stream;
 

@@ -8,7 +8,7 @@ namespace qsbd{
     private:
         std::pair<T, T> coord;
     public:
-        point(T x, T y);
+        point(const T& x, const T& y);
         point(const point<T>& other);
         point();
         ~point();
@@ -17,7 +17,7 @@ namespace qsbd{
 
         void x(const T& val);
         void y(const T& val);
-        void xy(const T& xval, const T& yval);
+        inline void xy(const T& xval, const T& yval);
 
         T x() const;
         T y() const;

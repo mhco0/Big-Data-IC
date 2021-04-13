@@ -10,14 +10,14 @@ namespace qsbd{
         point<double> min_bound;
         point<double> max_bound;
     public:
-        aabb(double minx, double miny, double maxx, double maxy);
+        aabb(const double& minx, const double& miny, const double& maxx, const double& maxy);
         aabb(const aabb& other);
         aabb();
         ~aabb();
         
         aabb& operator=(const aabb& other);
 
-        bool intersects(aabb rhs) const;
+        bool intersects(const aabb& rhs) const;
         
         void bounds(const double& minx, const double& miny, const double& maxx, const double& maxy);
         bool contains(const point<double>& pos) const;

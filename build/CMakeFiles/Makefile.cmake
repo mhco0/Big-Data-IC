@@ -125,4 +125,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "app/CMakeFiles/quantile_quadtree_experiment.dir/DependInfo.cmake"
   "app/CMakeFiles/query_creator.dir/DependInfo.cmake"
   "app/CMakeFiles/stream_creator.dir/DependInfo.cmake"
+  "app/CMakeFiles/profiler.dir/DependInfo.cmake"
   )

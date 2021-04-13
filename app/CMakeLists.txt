@@ -1,5 +1,13 @@
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pg -fno-omit-frame-pointer -g -O2 -ggdb -fstrict-aliasing")
+set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -pg -fno-omit-frame-pointer -g -O2 -ggdb -fstrict-aliasing")
+set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -pg -fno-omit-frame-pointer -g -O2 -ggdb -fstrict-aliasing")
 set(QSBD_DIR_SOURCE "${CMAKE_SOURCE_DIR}/src")
 set(THIRD_PARTY_DIR_SOURCE "${CMAKE_SOURCE_DIR}/thirdparty")
+
+add_executable(profiler "profiler/profiler.cpp")
+target_include_directories(profiler PRIVATE ${QSBD_DIR_SOURCE})
+target_include_directories(profiler PRIVATE ${THIRD_PARTY_DIR_SOURCE})
+target_link_libraries(profiler PRIVATE QSBD_QUANTILE_QUADTREE QSBD_GK_FACTORY QSBD_KLL_FACTORY QSBD_DCS_FACTORY QSBD_Q_DIGEST_FACTORY QSBD_UTILS QSBD_LOG QSBD_DEBUG QSBD_STREAM_MAKER)
 
 add_executable(stream_creator "stream_creator/stream_creator.cpp")
 target_include_directories(stream_creator PRIVATE ${QSBD_DIR_SOURCE})

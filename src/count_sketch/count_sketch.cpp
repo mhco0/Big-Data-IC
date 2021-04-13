@@ -42,7 +42,13 @@ namespace qsbd {
         }
 
         // the hash should map to 2 * t
-        this->hash_functions = hashs;
+        //this->hash_functions = hashs;
+
+        for(int i = 0; i < this->d; i++){
+            k_wise_family h(hashs[i].get_k(), hashs[i].get_universe(), hashs[i].get_constants());
+
+            this->hash_functions.push_back(h);
+        }
     }
 
     count_sketch::count_sketch(double err, double delt, const std::vector<k_wise_family>& hashs, const std::vector<std::vector<int>>& est){
@@ -102,7 +108,13 @@ namespace qsbd {
             this->estimators[i].assign(this->t, 0);
         }
 
-        this->hash_functions = hashs;
+
+        //this->hash_functions = hashs;
+        for(int i = 0; i < this->d; i++){
+            k_wise_family h(hashs[i].get_k(), hashs[i].get_universe(), hashs[i].get_constants());
+
+            this->hash_functions.push_back(h);
+        }
     }
 
     count_sketch::~count_sketch(){
@@ -141,7 +153,7 @@ namespace qsbd {
         assert(this->d == rhs.d);
 
         for(int i = 0; i < this->d; i++){
-            assert(this->hash_functions[i].get_constants() ==  rhs.hash_functions[i].get_constants());
+            assert(this->hash_functions[i].get_constants() == rhs.hash_functions[i].get_constants());
         }
 
         std::vector<std::vector<int>> merged_v;
