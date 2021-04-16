@@ -80,12 +80,14 @@ test_q_digest_EXTERNAL_OBJECTS =
 bin/test_q_digest: test/CMakeFiles/test_q_digest.dir/test_q_digest.cpp.o
 bin/test_q_digest: test/CMakeFiles/test_q_digest.dir/build.make
 bin/test_q_digest: lib/libgtest_maind.a
+bin/test_q_digest: lib/libQSBD_GLOBAL_GEN.a
+bin/test_q_digest: lib/libQSBD_Q_DIGEST_FACTORY.a
 bin/test_q_digest: lib/libQSBD_Q_DIGEST.a
 bin/test_q_digest: lib/libQSBD_UTILS.a
 bin/test_q_digest: lib/libgtestd.a
 bin/test_q_digest: lib/libQSBD_QUANTILE_SKETCH.a
-bin/test_q_digest: lib/libQSBD_COMMUM_HEADER.a
-bin/test_q_digest: lib/libQSBD_GLOBAL_GEN.a
+bin/test_q_digest: lib/libQSBD_DEBUG.a
+bin/test_q_digest: lib/libQSBD_SKETCH_FACTORY.a
 bin/test_q_digest: test/CMakeFiles/test_q_digest.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ../bin/test_q_digest"
 	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/test_q_digest.dir/link.txt --verbose=$(VERBOSE)

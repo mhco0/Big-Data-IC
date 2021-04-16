@@ -2,6 +2,7 @@
 #include <q_digest/q_digest.h>
 #include <q_digest_factory/q_digest_factory.h>
 #include <utils/utils.h>
+#include <global_generator/global_generator.h>
 using namespace std;
 using namespace qsbd;
 
@@ -175,7 +176,7 @@ TEST(QDigestTest, TestUpdate){
 		int query = qdst.query(i);
 		cout << "query(" << i << "): " << query << endl;
 		int real_rank = rank_from_stream(stream, i);
-		cout << "Range to approximated rank -> ("<< query << " [r] <= " << real_rank << " [rank(x)] <= " << (query * 1.0 + 0.25 * qdst.weight_total()) << " [r + e * W] )" << endl; 
+		cout << "Range to approximated rank -> ("<< query << " [r] <= " << real_rank << " [rank(x)] <= " << (query * 1.0 + 0.25 * qdst.get_total_weight()) << " [r + e * W] )" << endl; 
 	}
 
 	cout << endl;
@@ -208,7 +209,7 @@ TEST(QDigestTest, TestUpdateAndQuery){
 			int query = qdst.query(command.second);
 			cout << "Query(" << command.second << "): " << query << endl;
 			int real_rank = rank_from_stream(stream, command.second);
-			cout << "Range to approximated rank -> ("<< query << " [r] <= " << real_rank << " [rank(x)] <= " << (query*1.0 + epsilon*qdst.weight_total()) << " [r + e*W] )" << endl;  
+			cout << "Range to approximated rank -> ("<< query << " [r] <= " << real_rank << " [rank(x)] <= " << (query*1.0 + epsilon*qdst.get_total_weight()) << " [r + e*W] )" << endl;  
 			cout << "----------------------------------------------------------------" << endl;
 			cout << endl;
 		}else{
@@ -247,7 +248,7 @@ TEST(QDigestTest, TestFactory){
 			int query = qdst->query(command.second);
 			cout << "Query(" << command.second << "): " << query << endl;
 			int real_rank = rank_from_stream(stream, command.second);
-			cout << "Range to approximated rank -> ("<< query << " [r] <= " << real_rank << " [rank(x)] <= " << (query * 1.0 + error * qdst->weight_total()) << " [r + e*W] )" << endl;  
+			cout << "Range to approximated rank -> ("<< query << " [r] <= " << real_rank << " [rank(x)] <= " << (query * 1.0 + error * qdst->get_total_weight()) << " [r + e*W] )" << endl;  
 			cout << "----------------------------------------------------------------" << endl;
 			cout << endl;
 		}else{

@@ -50,7 +50,7 @@ target_include_directories(test_gk PRIVATE ${QSBD_DIR_SOURCE})
 add_test(NAME test_gk COMMAND test_gk)
 
 add_executable(test_q_digest test_q_digest.cpp)
-target_link_libraries(test_q_digest PRIVATE gtest_main QSBD_Q_DIGEST QSBD_UTILS)
+target_link_libraries(test_q_digest PRIVATE gtest_main QSBD_GLOBAL_GEN QSBD_Q_DIGEST_FACTORY QSBD_Q_DIGEST QSBD_UTILS)
 target_include_directories(test_q_digest PRIVATE ${QSBD_DIR_SOURCE})
 add_test(NAME test_q_digest COMMAND test_q_digest)
 

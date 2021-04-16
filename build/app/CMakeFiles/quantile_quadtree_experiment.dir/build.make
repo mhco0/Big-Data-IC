@@ -95,13 +95,13 @@ bin/quantile_quadtree_experiment: lib/libQSBD_GK.a
 bin/quantile_quadtree_experiment: lib/libQSBD_KLL.a
 bin/quantile_quadtree_experiment: lib/libQSBD_DCS.a
 bin/quantile_quadtree_experiment: lib/libQSBD_COUNT_SKETCH.a
+bin/quantile_quadtree_experiment: lib/libQSBD_COMMUM_HEADER.a
 bin/quantile_quadtree_experiment: lib/libQSBD_K_WISE_FAMILY.a
-bin/quantile_quadtree_experiment: lib/libQSBD_UTILS.a
+bin/quantile_quadtree_experiment: lib/libQSBD_GLOBAL_GEN.a
 bin/quantile_quadtree_experiment: lib/libQSBD_SKETCH_FACTORY.a
 bin/quantile_quadtree_experiment: lib/libQSBD_Q_DIGEST.a
+bin/quantile_quadtree_experiment: lib/libQSBD_UTILS.a
 bin/quantile_quadtree_experiment: lib/libQSBD_QUANTILE_SKETCH.a
-bin/quantile_quadtree_experiment: lib/libQSBD_COMMUM_HEADER.a
-bin/quantile_quadtree_experiment: lib/libQSBD_GLOBAL_GEN.a
 bin/quantile_quadtree_experiment: lib/libQSBD_DEBUG.a
 bin/quantile_quadtree_experiment: lib/libnlohmann_json.a
 bin/quantile_quadtree_experiment: app/CMakeFiles/quantile_quadtree_experiment.dir/link.txt

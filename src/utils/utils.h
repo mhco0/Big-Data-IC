@@ -14,7 +14,7 @@ namespace qsbd{
     bool ends_with(std::string const& value, std::string const& ending);
 
     template<class T>
-    void insert_sorted(std::vector<T>& vec,const T& data){
+    void insert_sorted(std::vector<T>& vec, const T& data){
         // The vector must be sorted
 
         typename std::vector<T>::iterator insert_position;

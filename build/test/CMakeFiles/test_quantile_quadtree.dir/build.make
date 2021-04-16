@@ -96,8 +96,8 @@ bin/test_quantile_quadtree: lib/libQSBD_AABB.a
 bin/test_quantile_quadtree: lib/libQSBD_POINT.a
 bin/test_quantile_quadtree: lib/libQSBD_KLL.a
 bin/test_quantile_quadtree: lib/libQSBD_GK.a
-bin/test_quantile_quadtree: lib/libQSBD_DEBUG.a
 bin/test_quantile_quadtree: lib/libQSBD_Q_DIGEST.a
+bin/test_quantile_quadtree: lib/libQSBD_DEBUG.a
 bin/test_quantile_quadtree: lib/libQSBD_SKETCH_FACTORY.a
 bin/test_quantile_quadtree: lib/libQSBD_DCS.a
 bin/test_quantile_quadtree: lib/libQSBD_COUNT_SKETCH.a

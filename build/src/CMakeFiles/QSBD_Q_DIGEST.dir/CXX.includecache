@@ -6,55 +6,35 @@
 
 #IncludeRegexTransform: 
 
-/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/commum_header/commum_header.h
-iostream
--
-fstream
--
-algorithm
--
-vector
--
-deque
--
-random
--
-chrono
--
-map
--
-set
--
-cassert
--
-functional
--
-utility
--
-iomanip
--
-exception
--
-limits
--
-
-/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/global_generator/global_generator.h
-chrono
--
-random
--
-
 /mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/q_digest/q_digest.cpp
 q_digest.h
 /mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/q_digest/q_digest.h
 
 /mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/q_digest/q_digest.h
-../commum_header/commum_header.h
-/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/commum_header/commum_header.h
-../global_generator/global_generator.h
-/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/global_generator/global_generator.h
 ../quantile_sketch/quantile_sketch.hpp
 /mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/quantile_sketch/quantile_sketch.hpp
+../qsbd_debug/qsbd_debug.h
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/qsbd_debug/qsbd_debug.h
+../utils/utils.h
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/utils/utils.h
+cmath
+-
+iomanip
+-
+
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/qsbd_debug/qsbd_debug.h
+iostream
+-
 
 /mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/quantile_sketch/quantile_sketch.hpp
+
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/utils/utils.h
+algorithm
+-
+string
+-
+vector
+-
+deque
+-
 
