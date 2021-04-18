@@ -148,7 +148,9 @@ void test_merge_from_ex1_and_ex2(){
 TEST(QDigestTest, TestUpdate){
 	vector<pair<int, int>> stream = {{0, 5}, {1, 3}, {2, 4}, {1, 4}, {4, 2}, {2, 1}, {3, 5}};
 	int total_weight = 0;
-	q_digest qdst(0.25, 5);
+	double error = 0.25;
+	int universe = 5;
+	q_digest qdst(error, universe);
 
 	for(auto& it : stream){
 		qdst.update(it.first, it.second);
@@ -172,11 +174,13 @@ TEST(QDigestTest, TestUpdate){
 	cout << endl;
 
 	cout << "Querys[5] : " << endl;
-	for(int i = 0; i < 5; i++){
+	for(int i = 0; i < universe; i++){
 		int query = qdst.query(i);
 		cout << "query(" << i << "): " << query << endl;
 		int real_rank = rank_from_stream(stream, i);
-		cout << "Range to approximated rank -> ("<< query << " [r] <= " << real_rank << " [rank(x)] <= " << (query * 1.0 + 0.25 * qdst.get_total_weight()) << " [r + e * W] )" << endl; 
+		cout << "Range to approximated rank -> ("<< query << " [r] <= " << real_rank << " [rank(x)] <= " << (query * 1.0 + error * qdst.get_total_weight()) << " [r + e * W] )" << endl; 
+		EXPECT_LE(real_rank, (query * 1.0 + error * qdst.get_total_weight()));
+		EXPECT_GE(real_rank, query);
 	}
 
 	cout << endl;
@@ -209,7 +213,9 @@ TEST(QDigestTest, TestUpdateAndQuery){
 			int query = qdst.query(command.second);
 			cout << "Query(" << command.second << "): " << query << endl;
 			int real_rank = rank_from_stream(stream, command.second);
-			cout << "Range to approximated rank -> ("<< query << " [r] <= " << real_rank << " [rank(x)] <= " << (query*1.0 + epsilon*qdst.get_total_weight()) << " [r + e*W] )" << endl;  
+			cout << "Range to approximated rank -> ("<< query << " [r] <= " << real_rank << " [rank(x)] <= " << (query*1.0 + epsilon * qdst.get_total_weight()) << " [r + e*W] )" << endl; 
+			EXPECT_LE(real_rank, (query * 1.0 + epsilon * qdst.get_total_weight()));
+			EXPECT_GE(real_rank, query); 
 			cout << "----------------------------------------------------------------" << endl;
 			cout << endl;
 		}else{
@@ -249,6 +255,8 @@ TEST(QDigestTest, TestFactory){
 			cout << "Query(" << command.second << "): " << query << endl;
 			int real_rank = rank_from_stream(stream, command.second);
 			cout << "Range to approximated rank -> ("<< query << " [r] <= " << real_rank << " [rank(x)] <= " << (query * 1.0 + error * qdst->get_total_weight()) << " [r + e*W] )" << endl;  
+			EXPECT_LE(real_rank, (query * 1.0 + error * qdst->get_total_weight()));
+			EXPECT_GE(real_rank, query);
 			cout << "----------------------------------------------------------------" << endl;
 			cout << endl;
 		}else{

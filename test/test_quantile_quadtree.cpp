@@ -188,10 +188,10 @@ TEST(QuantileQuadtreeTest, TestConstructWithQDigest){
 
 
 TEST(QuantileQuadtreeTest, TestUpdateAndQueryWithQDigest){
-    int N = 1000;
+    int N = 100000;
     int points_guarantee = 100;
-    int universe = 1000;
-    int attempts = 10;
+    int universe = 1024;
+    int attempts = 1;
     int deep = 8;
     double error = 0.3;
     aabb resolution(0.0, 0.0, 1280.0, 720.0);

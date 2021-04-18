@@ -9,33 +9,6 @@
 namespace qsbd{
 	class q_digest : public quantile_sketch<int> {
 	private:
-		/*class node{
-		private:
-			friend class q_digest;
-			int weight;
-			q_digest::node * left;
-			q_digest::node * right;
-
-			void private_print(q_digest::node* rt, int indent = 0);
-			void private_sub_tree_weights_print(q_digest::node* rt, int indent);
-			int sub_tree_weight_from(q_digest::node * rt);
-			void delete_tree(q_digest::node * rt);
-			void set_subtree_weight_to_zero(q_digest::node * rt);
-
-		public:
-			node(int weight);
-			~node();
-
-			bool is_leaf();
-			void print(int indent = 0);
-			void print_subtree_weights();
-
-			//DEBUG
-			/*friend q_digest tree_on_paper_ex1();
-			friend q_digest tree_on_paper_ex2();
-			*/
-		/*};
-		*/
 
 		class merge_error: public std::exception {
 		public:
@@ -70,9 +43,6 @@ namespace qsbd{
 		~q_digest();
 
 		q_digest& operator=(const q_digest& other) = delete;
-
-		//DEBUG
-		//q_digest(q_digest::node* root, double error, int universe);
 
 		void print(int indent = 0);
 		void print_subtree_weights();
