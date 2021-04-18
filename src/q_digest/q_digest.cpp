@@ -1,6 +1,7 @@
 #include "q_digest.h"
 using namespace std;
 
+// file merged
 namespace qsbd {
 
     void q_digest::private_print(int cur_node, int indent){
