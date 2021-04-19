@@ -61,6 +61,8 @@
         "xtree": "cpp",
         "ios": "cpp",
         "xiosbase": "cpp",
-        "valarray": "cpp"
+        "valarray": "cpp",
+        "cstring": "cpp",
+        "cinttypes": "cpp"
     }
 }

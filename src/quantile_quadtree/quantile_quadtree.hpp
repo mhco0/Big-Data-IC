@@ -95,6 +95,47 @@ namespace qsbd {
         }
 
 
+        quantile_sketch<ObjType> * search_region2(int cur_node, const aabb& region, int deep, aabb& box, quantile_sketch<ObjType> *& final_sketch){
+            if(cur_node == -1){
+                if (this->boundarys.is_inside(region) or deep == this->max_deep or unit_box(box)){
+                    return this->root->payload;
+                }
+            }else{
+                if(box.is_inside(region) or deep == this->max_deep or unit_box(box)){
+                    return this->tree[cur_node].payload;
+                }
+            }
+
+            int ne_child_pos = (cur_node == -1) ? this->root->ne_child_pos : this->tree[cur_node].ne_child_pos;
+            if(ne_child_pos == -1){
+                if(cur_node == -1) return this->root->payload;
+                else return this->tree[cur_node].payload;
+            }
+
+            quantile_sketch<ObjType> * to_merge[4] = {nullptr, nullptr, nullptr, nullptr};
+
+            for(int i = 0; i < 4; i++){
+                int cur_pos = ne_child_pos + i;
+                aabb child_box(box);
+                change_box(child_box, i);
+                if (region.intersects(child_box)){
+                    to_merge[i] = search_region2(cur_pos, region, deep + 1, child_box, final_sketch);
+                }
+            }
+
+            for(int i = 0; i < 4; i++){
+                if(to_merge[i] != nullptr){
+                    quantile_sketch<ObjType> * old_ref = final_sketch;
+
+                    final_sketch = final_sketch->merge(*to_merge[i]);
+
+                    delete old_ref;
+                }
+            }
+
+            return nullptr;
+        }
+
         quantile_sketch<ObjType> * search_region(int cur_node, const aabb& region, int deep, aabb& box){
             if(cur_node == -1){
                 if (this->boundarys.is_inside(region) or deep == this->max_deep or unit_box(box)){
@@ -174,7 +215,7 @@ namespace qsbd {
             this->delete_tree();
         }
 
-        bool update(const point<int>& pos, const ObjType& value){
+        bool update(const point<int>& pos, ObjType value){
             aabb cur_box(this->boundarys);
             int cur_deep = 0;
             int what_child = direction(this->boundarys, pos);
@@ -203,12 +244,12 @@ namespace qsbd {
             else return false;
         }
 
-        bool update(const point<int>& pos, const ObjType& value, int weight){
+        bool update(const point<int>& pos, ObjType value, int weight){
             aabb cur_box(this->boundarys);
             int cur_deep = 0;
             int what_child = direction(this->boundarys, pos);
             int cur_pos = this->root->ne_child_pos + what_child;
-            this->root->payload->update(value);
+            this->root->payload->update(value, weight);
 
             while(cur_deep <= this->max_deep and not unit_box(cur_box)){
                 if(this->tree[cur_pos].ne_child_pos == -1){ // leaf
@@ -232,14 +273,17 @@ namespace qsbd {
             else return false;
         }
 
-        int query(const aabb& region, const ObjType& value){
+        int query(const aabb& region, ObjType value){
             aabb cur_box(this->boundarys);
-            quantile_sketch<ObjType> * sketch = search_region(-1, region, 0, cur_box);
+            quantile_sketch<ObjType> * sketch = this->factory->instance();
+            
+            search_region2(-1, region, 0, cur_box, sketch);
 
-            if(sketch == nullptr) return -1;
-            else{
-                return sketch->query(value);
-            }
+            int ret = sketch->query(value);
+
+            delete sketch;
+
+            return ret;
         }
     };
 }

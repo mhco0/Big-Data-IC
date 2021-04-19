@@ -1,6 +1,13 @@
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pg -fno-omit-frame-pointer -g -O2 -ggdb -fstrict-aliasing")
-set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -pg -fno-omit-frame-pointer -g -O2 -ggdb -fstrict-aliasing")
-set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -pg -fno-omit-frame-pointer -g -O2 -ggdb -fstrict-aliasing")
+#[[
+    Flags used before:
+    -fno-omit-frame-pointer -g -O2 -ggdb -fstrict-aliasing
+    -fno-omit-frame-pointer -g -O2 -ggdb -fstrict-aliasing
+    -fno-omit-frame-pointer -g -O2 -ggdb -fstrict-aliasing
+]]
+
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pg")
+set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -pg")
+set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -pg")
 set(QSBD_DIR_SOURCE "${CMAKE_SOURCE_DIR}/src")
 set(THIRD_PARTY_DIR_SOURCE "${CMAKE_SOURCE_DIR}/thirdparty")
 

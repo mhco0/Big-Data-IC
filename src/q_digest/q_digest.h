@@ -9,6 +9,13 @@
 namespace qsbd{
 	class q_digest : public quantile_sketch<int> {
 	private:
+		class node{
+		public:
+			int weight;
+			int left_child;
+
+			node(int w, int lc);
+		};
 
 		class merge_error: public std::exception {
 		public:
@@ -16,13 +23,15 @@ namespace qsbd{
 		};
 
 		std::vector<std::pair<int, int>> small_buffer;
-		std::vector<int> tree;
+		std::vector<q_digest::node> tree;
+		bool transfered_buffer;
 		int total_weight;
 		int ceil_weight;
 		int capacity;
 		int universe;
 		double error;
 
+		int alloc_childs();
 		void private_print(int cur_node, int indent = 0);
 		void private_print_subtree_weights(int cur_node, int indent = 0);
 		int subtree_weight_from(int cur_node);
@@ -30,7 +39,7 @@ namespace qsbd{
 		bool in_range(const int& x, const int& l, const int& r);
 		bool is_leaf(const int& x, const int& l, const int& r);
 		void private_compress(int cur_node, int debt, int left_range, int right_range);
-		void private_merge(const std::vector<int>& left, const std::vector<int>& right_tree);
+		void private_merge(const std::vector<q_digest::node>& left, const std::vector<q_digest::node>& right_tree, int cur_node, int left_node, int right_node);
 		void private_update(int x, int weight);
 		int private_query(int x);
 		void insert_in_buffer(const int& x, const int& weight);

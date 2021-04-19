@@ -26,7 +26,7 @@ namespace qsbd {
                     buffers_array.push_back({});
                 }
 
-                for(auto i = buffers_array[l].begin() + coin(generator); i < buffers_array[l].end(); i = next(i,2)){
+                for(auto i = buffers_array[l].begin() + coin(generator); i < buffers_array[l].end(); i = next(i, 2)){
                     kll<T>::insert_sorted(buffers_array[l + 1], (*i));
                 }
                 
@@ -52,7 +52,7 @@ namespace qsbd {
         for(int i = 0; i <= height; i++){
             auto it = upper_bound(buffers_array[i].begin(), buffers_array[i].end(), elem);
 
-            rank += (it - buffers_array[i].begin())*(1 << i);
+            rank += (it - buffers_array[i].begin()) * (1 << i);
         }
 
         return rank;
