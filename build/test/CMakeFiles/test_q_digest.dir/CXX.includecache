@@ -369,6 +369,8 @@ vector
 -
 deque
 -
+stdint.h
+-
 
 /mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_q_digest.cpp
 gtest/gtest.h

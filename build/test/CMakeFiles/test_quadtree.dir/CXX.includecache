@@ -326,7 +326,7 @@ cxxabi.h
 acxx_demangle.h
 -
 
-../src/aabb/aabb.h
+../src/aabb/aabb.hpp
 ../point/point.hpp
 ../src/point/point.hpp
 iostream
@@ -379,8 +379,8 @@ iostream
 -
 
 ../src/quadtree/quadtree.h
-../aabb/aabb.h
-../src/aabb/aabb.h
+../aabb/aabb.hpp
+../src/aabb/aabb.hpp
 
 ../src/stream_maker/stream_maker.h
 ../commum_header/commum_header.h

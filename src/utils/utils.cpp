@@ -18,7 +18,7 @@ namespace qsbd{
             return false;  
         
         return true;  
-    }  
+    }
 
     // Function to return the smallest 
     // prime number greater than N 

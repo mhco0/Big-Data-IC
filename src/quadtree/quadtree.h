@@ -1,6 +1,6 @@
 #ifndef QSBD_QUADTREE_H
 #define QSBD_QUADTREE_H
-#include "../aabb/aabb.h"
+#include "../aabb/aabb.hpp"
 
 namespace qsbd {
     template<class T>
@@ -19,11 +19,11 @@ namespace qsbd {
             static typename quadtree<T>::node* create(const point<double>& pos, T value);
         };
 
-        aabb tree_bounds;
+        aabb<double> tree_bounds;
         
 
         int direction(const quadtree<T>::node& head, const point<double>& pos);
-        void search_region(const quadtree<T>::node& head, aabb tree_region, const aabb& region_to_search, std::vector<T>& ret);
+        void search_region(const quadtree<T>::node& head, aabb<double> tree_region, const aabb<double>& region_to_search, std::vector<T>& ret);
         void delete_tree(quadtree<T>::node* head);
     public:
 
@@ -34,9 +34,9 @@ namespace qsbd {
         quadtree(const quadtree<T>& other) = delete;
         quadtree<T>& operator=(const quadtree& other) = delete;
         bool insert(const point<double>& pos, T value);
-        std::vector<T> query(const aabb& region);
+        std::vector<T> query(const aabb<double>& region);
 
-        aabb bounds() const;
+        aabb<double> bounds() const;
 
         void show_root_tree();
     };

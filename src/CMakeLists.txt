@@ -87,7 +87,7 @@ add_library(
 
 add_library(
     QSBD_AABB
-    "aabb/aabb.h"
+    "aabb/aabb.hpp"
     "aabb/aabb.cpp"
 )
 

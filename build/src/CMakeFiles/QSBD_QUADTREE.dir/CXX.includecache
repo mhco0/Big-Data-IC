@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/aabb/aabb.h
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/aabb/aabb.hpp
 ../point/point.hpp
 /mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/point/point.hpp
 iostream
@@ -53,6 +53,6 @@ quadtree.h
 /mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/quadtree/quadtree.h
 
 /mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/quadtree/quadtree.h
-../aabb/aabb.h
-/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/aabb/aabb.h
+../aabb/aabb.hpp
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/aabb/aabb.hpp
 

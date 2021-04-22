@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include <deque>
+#include <stdint.h>
 
 namespace qsbd{
     bool isPrime(int n);

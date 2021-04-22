@@ -5,7 +5,7 @@ using namespace std;
 using namespace qsbd;
 using namespace qsbd::stream_maker;
 
-vector<int> brute_force_search(const vector<pair<int, pair<double, double>>>& stream, const aabb& region){
+vector<int> brute_force_search(const vector<pair<int, pair<double, double>>>& stream, const aabb<double>& region){
     vector<int> ans;
 
     for(auto&it : stream){
@@ -36,7 +36,7 @@ TEST(PointTest, TestAll){
 }
 
 TEST(AABBTest, TestConstruction){
-    aabb collider(0.0, 0.0, 4.0, 4.0);
+    aabb<double> collider(0.0, 0.0, 4.0, 4.0);
     auto bounds = collider.bounds();
     point<double> minp = bounds.first;
     point<double> maxp = bounds.second;
@@ -49,10 +49,10 @@ TEST(AABBTest, TestConstruction){
 }
 
 TEST(AABBTest, TestOverlap){
-    aabb region1(0.0, 0.0, 6.0, 6.0);
-    aabb region2(1.0, 1.0, 3.0, 3.0);
-    aabb region3(5.0, 5.0, 10.0, 10.0);
-    aabb region4(0.5, 0.5, 6.0, 6.0);
+    aabb<double> region1(0.0, 0.0, 6.0, 6.0);
+    aabb<double> region2(1.0, 1.0, 3.0, 3.0);
+    aabb<double> region3(5.0, 5.0, 10.0, 10.0);
+    aabb<double> region4(0.5, 0.5, 6.0, 6.0);
 
     EXPECT_TRUE(region1.intersects(region1));
     EXPECT_TRUE(region1.intersects(region2));
@@ -76,10 +76,10 @@ TEST(AABBTest, TestOverlap){
 }
 
 TEST(AABBTest, TestIfIsInside){
-    aabb region1(0.0, 0.0, 5.0, 5.0);
-    aabb region2(1.0, 1.0, 3.0, 4.0);
-    aabb region3(3.0, 4.0, 7.0, 8.0);
-    aabb region4(1.0, 1.0, 3.0, 3.0);
+    aabb<double> region1(0.0, 0.0, 5.0, 5.0);
+    aabb<double> region2(1.0, 1.0, 3.0, 4.0);
+    aabb<double> region3(3.0, 4.0, 7.0, 8.0);
+    aabb<double> region4(1.0, 1.0, 3.0, 3.0);
 
     EXPECT_TRUE(region1.is_inside(region1));
     EXPECT_FALSE(region1.is_inside(region2));
@@ -111,7 +111,7 @@ TEST(QuadtreeTest, TestInsertion){
         test.insert(points[i], values[i]);
     }
 
-    auto ret_points = test.query(aabb(0.0, 0.0, 6.0, 6.0));
+    auto ret_points = test.query(aabb<double>(0.0, 0.0, 6.0, 6.0));
 
     EXPECT_EQ(ret_points.size(), values.size());
 
@@ -129,9 +129,9 @@ TEST(QuadtreeTest, TestInsertion){
 TEST(QuadtreeTest, TestQuery){
     vector<pair<int, pair<double, double>>> stream = random_stream_in_region(1000000, 0.0, 0.0, 100.0, 100.0);
     quadtree<int> test;
-    aabb region1(0.0, 0.0, 50.0, 50.0);
-    aabb region2(10.0, 20.0, 40.0, 70.0);
-    aabb region3(50.0, 60.0, 80.0, 70.0);
+    aabb<double> region1(0.0, 0.0, 50.0, 50.0);
+    aabb<double> region2(10.0, 20.0, 40.0, 70.0);
+    aabb<double> region3(50.0, 60.0, 80.0, 70.0);
 
     for(auto&it : stream){
         point<double> p(it.second.first, it.second.second);

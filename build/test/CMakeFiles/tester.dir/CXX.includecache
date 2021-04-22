@@ -35,6 +35,8 @@ vector
 -
 deque
 -
+stdint.h
+-
 
 /mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/tester.cpp
 config/config.h

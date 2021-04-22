@@ -32,7 +32,7 @@ json q_digest_test(const json& stream_file, const json& query_file, const json& 
         bounds[stoi(it.key())] = it.value();
     }
 
-    qsbd::aabb resolution(bounds[0], bounds[1], bounds[2], bounds[3]);
+    qsbd::aabb<int> resolution(bounds[0], bounds[1], bounds[2], bounds[3]);
     
     json out_info = json::object();
     out_info["q_digest_test"] = json::array();
@@ -72,7 +72,7 @@ json q_digest_test(const json& stream_file, const json& query_file, const json& 
 
         query_overall.start();
         for(int j = 0; j < regions_to_search.size(); j++){
-            qsbd::aabb region(regions_to_search[j].second[0], regions_to_search[j].second[1], regions_to_search[j].second[2], regions_to_search[j].second[3]);
+            qsbd::aabb<int> region(regions_to_search[j].second[0], regions_to_search[j].second[1], regions_to_search[j].second[2], regions_to_search[j].second[3]);
             qsbd::timer query_once;
             json region_info;
             int rank = -1;
@@ -127,7 +127,7 @@ json kll_test(const json& stream_file, const json& query_file, const json& test_
         bounds[stoi(it.key())] = it.value();
     }
 
-    qsbd::aabb resolution(bounds[0], bounds[1], bounds[2], bounds[3]);
+    qsbd::aabb<int> resolution(bounds[0], bounds[1], bounds[2], bounds[3]);
     
     json out_info = json::object();
     out_info["kll_test"] = json::array();
@@ -167,7 +167,7 @@ json kll_test(const json& stream_file, const json& query_file, const json& test_
 
         query_overall.start();
         for(int j = 0; j < regions_to_search.size(); j++){
-            qsbd::aabb region(regions_to_search[j].second[0], regions_to_search[j].second[1], regions_to_search[j].second[2], regions_to_search[j].second[3]);
+            qsbd::aabb<int> region(regions_to_search[j].second[0], regions_to_search[j].second[1], regions_to_search[j].second[2], regions_to_search[j].second[3]);
             qsbd::timer query_once;
             json region_info;
 
@@ -226,7 +226,7 @@ json dcs_test(const json& stream_file, const json& query_file, const json& test_
         bounds[stoi(it.key())] = it.value();
     }
 
-    qsbd::aabb resolution(bounds[0], bounds[1], bounds[2], bounds[3]);
+    qsbd::aabb<int> resolution(bounds[0], bounds[1], bounds[2], bounds[3]);
     
     json out_info = json::object();
     out_info["dcs_test"] = json::array();
@@ -266,7 +266,7 @@ json dcs_test(const json& stream_file, const json& query_file, const json& test_
 
         query_overall.start();
         for(int j = 0; j < regions_to_search.size(); j++){
-            qsbd::aabb region(regions_to_search[j].second[0], regions_to_search[j].second[1], regions_to_search[j].second[2], regions_to_search[j].second[3]);
+            qsbd::aabb<int> region(regions_to_search[j].second[0], regions_to_search[j].second[1], regions_to_search[j].second[2], regions_to_search[j].second[3]);
             qsbd::timer query_once;
             json region_info;
 
@@ -324,7 +324,7 @@ json gk_test(const json& stream_file, const json& query_file, const json& test_f
         bounds[stoi(it.key())] = it.value();
     }
 
-    qsbd::aabb resolution(bounds[0], bounds[1], bounds[2], bounds[3]);
+    qsbd::aabb<int> resolution(bounds[0], bounds[1], bounds[2], bounds[3]);
     
     json out_info = json::object();
     out_info["gk_test"] = json::array();
@@ -364,7 +364,7 @@ json gk_test(const json& stream_file, const json& query_file, const json& test_f
 
         query_overall.start();
         for(int j = 0; j < regions_to_search.size(); j++){
-            qsbd::aabb region(regions_to_search[j].second[0], regions_to_search[j].second[1], regions_to_search[j].second[2], regions_to_search[j].second[3]);
+            qsbd::aabb<int> region(regions_to_search[j].second[0], regions_to_search[j].second[1], regions_to_search[j].second[2], regions_to_search[j].second[3]);
             qsbd::timer query_once;
             json region_info;
 

@@ -2,7 +2,7 @@
 #define QSBD_QUANTILE_QUADTREE_H
 #include "../quantile_sketch/quantile_sketch.hpp"
 #include "../sketch_factory/sketch_factory.hpp"
-#include "../aabb/aabb.h"
+#include "../aabb/aabb.hpp"
 #include "../qsbd_debug/qsbd_debug.h"
 
 namespace qsbd {
@@ -20,13 +20,13 @@ namespace qsbd {
             }
         };
 
-        aabb boundarys;
+        aabb<int> boundarys;
         int max_deep;
         sketch_factory<ObjType> * factory;
         quantile_quadtree<ObjType>::node * root;
         std::vector<quantile_quadtree<ObjType>::node> tree;
 
-        short direction(const aabb& box, const point<int>& pos){
+        short direction(const aabb<int>& box, const point<int>& pos){
             int center_x = (box.bounds().first.x() + box.bounds().second.x()) / 2;
             int center_y = (box.bounds().first.y() + box.bounds().second.y()) / 2;
 
@@ -41,7 +41,7 @@ namespace qsbd {
             else return 0;
         }
 
-        bool unit_box(const aabb& region){
+        bool unit_box(const aabb<int>& region){
             int width = region.bounds().second.x() - region.bounds().first.x();
             int height = region.bounds().second.y() - region.bounds().first.y();
             return not (width > 1 || height > 1);
@@ -62,7 +62,7 @@ namespace qsbd {
             return ne_child_pos;
         }
 
-        void change_box(aabb& cur_box, short direction){
+        void change_box(aabb<int>& cur_box, short direction){
             int center_x = (cur_box.bounds().second.x() + cur_box.bounds().first.x()) / 2;
             int center_y = (cur_box.bounds().second.y() + cur_box.bounds().first.y()) / 2;
 
@@ -95,7 +95,7 @@ namespace qsbd {
         }
 
 
-        quantile_sketch<ObjType> * search_region2(int cur_node, const aabb& region, int deep, aabb& box, quantile_sketch<ObjType> *& final_sketch){
+        quantile_sketch<ObjType> * search_region2(int cur_node, const aabb<int>& region, int deep, aabb<int>& box, quantile_sketch<ObjType> *& final_sketch){
             if(cur_node == -1){
                 if (this->boundarys.is_inside(region) or deep == this->max_deep or unit_box(box)){
                     return this->root->payload;
@@ -116,7 +116,7 @@ namespace qsbd {
 
             for(int i = 0; i < 4; i++){
                 int cur_pos = ne_child_pos + i;
-                aabb child_box(box);
+                aabb<int> child_box(box);
                 change_box(child_box, i);
                 if (region.intersects(child_box)){
                     to_merge[i] = search_region2(cur_pos, region, deep + 1, child_box, final_sketch);
@@ -136,7 +136,7 @@ namespace qsbd {
             return nullptr;
         }
 
-        quantile_sketch<ObjType> * search_region(int cur_node, const aabb& region, int deep, aabb& box){
+        quantile_sketch<ObjType> * search_region(int cur_node, const aabb<int>& region, int deep, aabb<int>& box){
             if(cur_node == -1){
                 if (this->boundarys.is_inside(region) or deep == this->max_deep or unit_box(box)){
                     return this->root->payload;
@@ -157,10 +157,10 @@ namespace qsbd {
 
             for(int i = 0; i < 4; i++){
                 int cur_pos = ne_child_pos + i;
-                aabb child_box(box);
+                aabb<int> child_box(box);
                 change_box(child_box, i);
                 if (region.intersects(child_box)){
-                    //aabb parent_box(box);
+                    //aabb<int> parent_box(box);
 
                     //change_box(box, i);
                     to_merge[i] = search_region(cur_pos, region, deep + 1, child_box);
@@ -196,7 +196,7 @@ namespace qsbd {
         }
 
     public:
-        quantile_quadtree(const aabb& region, const int& deep_length, sketch_factory<ObjType>* fact){
+        quantile_quadtree(const aabb<int>& region, const int& deep_length, sketch_factory<ObjType>* fact){
             assert(fact != nullptr);
             
             this->boundarys = region;
@@ -216,7 +216,7 @@ namespace qsbd {
         }
 
         bool update(const point<int>& pos, ObjType value){
-            aabb cur_box(this->boundarys);
+            aabb<int> cur_box(this->boundarys);
             int cur_deep = 0;
             int what_child = direction(this->boundarys, pos);
             int cur_pos = this->root->ne_child_pos + what_child;
@@ -245,7 +245,7 @@ namespace qsbd {
         }
 
         bool update(const point<int>& pos, ObjType value, int weight){
-            aabb cur_box(this->boundarys);
+            aabb<int> cur_box(this->boundarys);
             int cur_deep = 0;
             int what_child = direction(this->boundarys, pos);
             int cur_pos = this->root->ne_child_pos + what_child;
@@ -273,8 +273,8 @@ namespace qsbd {
             else return false;
         }
 
-        int query(const aabb& region, ObjType value){
-            aabb cur_box(this->boundarys);
+        int query(const aabb<int>& region, ObjType value){
+            aabb<int> cur_box(this->boundarys);
             quantile_sketch<ObjType> * sketch = this->factory->instance();
             
             search_region2(-1, region, 0, cur_box, sketch);

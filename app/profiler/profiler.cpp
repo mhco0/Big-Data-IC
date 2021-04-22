@@ -12,9 +12,9 @@ using namespace std;
 
 void gk_run(bool only_update){
     // STREAM
-    int vector_size = 10000; 
+    int vector_size = 100000; 
     int min_v = 0;
-    int max_v = 10000;
+    int max_v = 1000;
     double minx = 0.0;
     double miny = 0.0;
     double maxx = 1280.0;
@@ -35,7 +35,7 @@ void gk_run(bool only_update){
     vector<pair<int, pair<double, double>>> stream = qsbd::stream_maker::random_stream_city(vector_size, minx, miny, maxx, maxy, min_v, max_v, citys, max_radius);
     vector<pair<int, vector<double>>> regions_to_search;
     
-    qsbd::aabb resolution(bounds[0], bounds[1], bounds[2], bounds[3]);
+    qsbd::aabb<int> resolution(bounds[0], bounds[1], bounds[2], bounds[3]);
     
      for(int i = initial_value; i < final_value; i += step){
         auto query_bound = qsbd::stream_maker::random_rectangle_in_region(bounds[0], bounds[1], bounds[2], bounds[3]);
@@ -89,7 +89,7 @@ void gk_run(bool only_update){
     cout.flush();
 
     for(int j = 0; j < regions_to_search.size(); j++){
-        qsbd::aabb region(regions_to_search[j].second[0], regions_to_search[j].second[1], regions_to_search[j].second[2], regions_to_search[j].second[3]);
+        qsbd::aabb<int> region(regions_to_search[j].second[0], regions_to_search[j].second[1], regions_to_search[j].second[2], regions_to_search[j].second[3]);
 
         int rank = qq_test.query(region, regions_to_search[j].first);
 
@@ -111,7 +111,7 @@ void gk_run(bool only_update){
 
 void q_digest_run(bool only_update){
     // STREAM
-    int vector_size = 10000; 
+    int vector_size = 100000; 
     int min_v = 0;
     int max_v = 1000;
     double minx = 0.0;
@@ -135,7 +135,7 @@ void q_digest_run(bool only_update){
     vector<pair<pair<int, int>, pair<double, double>>> stream = qsbd::stream_maker::random_stream_in_region_with_weight(vector_size, minx, miny, maxx, maxy, min_v, max_v, min_w, max_w);
     vector<pair<int, vector<double>>> regions_to_search;
     
-    qsbd::aabb resolution(bounds[0], bounds[1], bounds[2], bounds[3]);
+    qsbd::aabb<int> resolution(bounds[0], bounds[1], bounds[2], bounds[3]);
     
     for(int i = initial_value; i < final_value; i += step){
         auto query_bound = qsbd::stream_maker::random_rectangle_in_region(bounds[0], bounds[1], bounds[2], bounds[3]);
@@ -190,7 +190,7 @@ void q_digest_run(bool only_update){
     cout.flush();
 
     for(int j = 0; j < regions_to_search.size(); j++){
-        qsbd::aabb region(regions_to_search[j].second[0], regions_to_search[j].second[1], regions_to_search[j].second[2], regions_to_search[j].second[3]);
+        qsbd::aabb<int> region(regions_to_search[j].second[0], regions_to_search[j].second[1], regions_to_search[j].second[2], regions_to_search[j].second[3]);
 
         int rank = qq_test.query(region, regions_to_search[j].first);
 
@@ -212,7 +212,7 @@ void q_digest_run(bool only_update){
 
 void dcs_run(bool only_update){
     // STREAM
-    int vector_size = 10000; 
+    int vector_size = 100000; 
     int min_v = 0;
     int max_v = 1000;
     double minx = 0.0;
@@ -236,7 +236,7 @@ void dcs_run(bool only_update){
     vector<pair<pair<int, int>, pair<double, double>>> stream = qsbd::stream_maker::random_stream_in_region_with_weight(vector_size, minx, miny, maxx, maxy, min_v, max_v, min_w, max_w);
     vector<pair<int, vector<double>>> regions_to_search;
     
-    qsbd::aabb resolution(bounds[0], bounds[1], bounds[2], bounds[3]);
+    qsbd::aabb<int> resolution(bounds[0], bounds[1], bounds[2], bounds[3]);
     
     for(int i = initial_value; i < final_value; i += step){
         auto query_bound = qsbd::stream_maker::random_rectangle_in_region(bounds[0], bounds[1], bounds[2], bounds[3]);
@@ -289,7 +289,7 @@ void dcs_run(bool only_update){
     cout.flush();
 
     for(int j = 0; j < regions_to_search.size(); j++){
-        qsbd::aabb region(regions_to_search[j].second[0], regions_to_search[j].second[1], regions_to_search[j].second[2], regions_to_search[j].second[3]);
+        qsbd::aabb<int> region(regions_to_search[j].second[0], regions_to_search[j].second[1], regions_to_search[j].second[2], regions_to_search[j].second[3]);
 
         int rank = qq_test.query(region, regions_to_search[j].first);
 
@@ -311,9 +311,9 @@ void dcs_run(bool only_update){
 
 void kll_run(bool only_update){
     // STREAM
-    int vector_size = 10000; 
+    int vector_size = 100000; 
     int min_v = 0;
-    int max_v = 10000;
+    int max_v = 1000;
     double minx = 0.0;
     double miny = 0.0;
     double maxx = 1280.0;
@@ -334,7 +334,7 @@ void kll_run(bool only_update){
     vector<pair<int, pair<double, double>>> stream = qsbd::stream_maker::random_stream_city(vector_size, minx, miny, maxx, maxy, min_v, max_v, citys, max_radius);
     vector<pair<int, vector<double>>> regions_to_search;
     
-    qsbd::aabb resolution(bounds[0], bounds[1], bounds[2], bounds[3]);
+    qsbd::aabb<int> resolution(bounds[0], bounds[1], bounds[2], bounds[3]);
     
     for(int i = initial_value; i < final_value; i += step){
         auto query_bound = qsbd::stream_maker::random_rectangle_in_region(bounds[0], bounds[1], bounds[2], bounds[3]);
@@ -386,7 +386,7 @@ void kll_run(bool only_update){
     cout.flush();
 
     for(int j = 0; j < regions_to_search.size(); j++){
-        qsbd::aabb region(regions_to_search[j].second[0], regions_to_search[j].second[1], regions_to_search[j].second[2], regions_to_search[j].second[3]);
+        qsbd::aabb<int> region(regions_to_search[j].second[0], regions_to_search[j].second[1], regions_to_search[j].second[2], regions_to_search[j].second[3]);
 
         int rank = qq_test.query(region, regions_to_search[j].first);
 
@@ -442,8 +442,8 @@ int main(int argc, char* argv[]){
         return -1;
     }
 
-
-    cout << "Seed used : " << qsbd::seed << endl;
-    
+    if(args.size() == 1 or (args.size() == 2 and only_update)){
+        cout << "Seed used : " << qsbd::seed << endl;
+    }
     return 0;
 }

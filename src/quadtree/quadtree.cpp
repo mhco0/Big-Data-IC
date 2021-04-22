@@ -27,7 +27,7 @@ namespace qsbd {
     }
 
     template<class T>
-    void quadtree<T>::search_region(const quadtree<T>::node& head, aabb tree_region, const aabb& region_to_search, vector<T>& ret){
+    void quadtree<T>::search_region(const quadtree<T>::node& head, aabb<double> tree_region, const aabb<double>& region_to_search, vector<T>& ret){
         auto reg_bounds = tree_region.bounds();
         double left = reg_bounds.first.x();
         double right = reg_bounds.second.x();
@@ -43,7 +43,7 @@ namespace qsbd {
         }
 
         if (head.childs[0] != nullptr){
-            aabb sub_region(x_center, y_center, right, top);
+            aabb<double> sub_region(x_center, y_center, right, top);
 
             if (region_to_search.intersects(sub_region)){
                 search_region(*head.childs[0], sub_region, region_to_search, ret);
@@ -51,7 +51,7 @@ namespace qsbd {
         }
 
         if(head.childs[1] != nullptr){
-            aabb sub_region(left, y_center, x_center, top);
+            aabb<double> sub_region(left, y_center, x_center, top);
 
             if (region_to_search.intersects(sub_region)){
                 search_region(*head.childs[1], sub_region, region_to_search, ret);
@@ -59,7 +59,7 @@ namespace qsbd {
         }
 
         if(head.childs[2] != nullptr){
-            aabb sub_region(left, bottom, x_center, y_center);
+            aabb<double> sub_region(left, bottom, x_center, y_center);
 
             if (region_to_search.intersects(sub_region)){
                 search_region(*head.childs[2], sub_region, region_to_search, ret);
@@ -67,7 +67,7 @@ namespace qsbd {
         }
 
         if (head.childs[3] != nullptr){
-            aabb sub_region(x_center, bottom, right, y_center);
+            aabb<double> sub_region(x_center, bottom, right, y_center);
 
             if (region_to_search.intersects(sub_region)){
                 search_region(*head.childs[3], sub_region, region_to_search, ret);
@@ -147,7 +147,7 @@ namespace qsbd {
     }
 
     template<class T>
-    vector<T> quadtree<T>::query(const aabb& region){
+    vector<T> quadtree<T>::query(const aabb<double>& region){
         vector<T> values;
 
         search_region(*this->root, this->tree_bounds, region, values);
@@ -156,7 +156,7 @@ namespace qsbd {
     }
 
     template<class T>
-    aabb quadtree<T>::bounds() const {
+    aabb<double> quadtree<T>::bounds() const {
         return this->tree_bounds;
     }
 

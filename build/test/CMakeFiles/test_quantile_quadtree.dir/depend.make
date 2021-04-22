@@ -21,7 +21,7 @@ test/CMakeFiles/test_quantile_quadtree.dir/test_quantile_quadtree.cpp.o: ../goog
 test/CMakeFiles/test_quantile_quadtree.dir/test_quantile_quadtree.cpp.o: ../googletest/googletest/include/gtest/internal/gtest-port.h
 test/CMakeFiles/test_quantile_quadtree.dir/test_quantile_quadtree.cpp.o: ../googletest/googletest/include/gtest/internal/gtest-string.h
 test/CMakeFiles/test_quantile_quadtree.dir/test_quantile_quadtree.cpp.o: ../googletest/googletest/include/gtest/internal/gtest-type-util.h
-test/CMakeFiles/test_quantile_quadtree.dir/test_quantile_quadtree.cpp.o: ../src/aabb/aabb.h
+test/CMakeFiles/test_quantile_quadtree.dir/test_quantile_quadtree.cpp.o: ../src/aabb/aabb.hpp
 test/CMakeFiles/test_quantile_quadtree.dir/test_quantile_quadtree.cpp.o: ../src/commum_header/commum_header.h
 test/CMakeFiles/test_quantile_quadtree.dir/test_quantile_quadtree.cpp.o: ../src/count_sketch/count_sketch.h
 test/CMakeFiles/test_quantile_quadtree.dir/test_quantile_quadtree.cpp.o: ../src/dcs/dcs.h

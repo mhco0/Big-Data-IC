@@ -326,7 +326,7 @@ cxxabi.h
 acxx_demangle.h
 -
 
-../src/aabb/aabb.h
+../src/aabb/aabb.hpp
 ../point/point.hpp
 ../src/point/point.hpp
 iostream
@@ -495,8 +495,8 @@ iostream
 ../src/quantile_sketch/quantile_sketch.hpp
 ../sketch_factory/sketch_factory.hpp
 ../src/sketch_factory/sketch_factory.hpp
-../aabb/aabb.h
-../src/aabb/aabb.h
+../aabb/aabb.hpp
+../src/aabb/aabb.hpp
 ../qsbd_debug/qsbd_debug.h
 ../src/qsbd_debug/qsbd_debug.h
 
@@ -526,6 +526,8 @@ string
 vector
 -
 deque
+-
+stdint.h
 -
 
 /mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_quantile_quadtree.cpp

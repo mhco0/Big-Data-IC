@@ -21,7 +21,7 @@ test/CMakeFiles/test_quadtree.dir/test_quadtree.cpp.o: ../googletest/googletest/
 test/CMakeFiles/test_quadtree.dir/test_quadtree.cpp.o: ../googletest/googletest/include/gtest/internal/gtest-port.h
 test/CMakeFiles/test_quadtree.dir/test_quadtree.cpp.o: ../googletest/googletest/include/gtest/internal/gtest-string.h
 test/CMakeFiles/test_quadtree.dir/test_quadtree.cpp.o: ../googletest/googletest/include/gtest/internal/gtest-type-util.h
-test/CMakeFiles/test_quadtree.dir/test_quadtree.cpp.o: ../src/aabb/aabb.h
+test/CMakeFiles/test_quadtree.dir/test_quadtree.cpp.o: ../src/aabb/aabb.hpp
 test/CMakeFiles/test_quadtree.dir/test_quadtree.cpp.o: ../src/commum_header/commum_header.h
 test/CMakeFiles/test_quadtree.dir/test_quadtree.cpp.o: ../src/global_generator/global_generator.h
 test/CMakeFiles/test_quadtree.dir/test_quadtree.cpp.o: ../src/point/point.hpp
