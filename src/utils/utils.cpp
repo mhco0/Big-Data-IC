@@ -100,4 +100,7 @@ namespace qsbd{
         return std::equal(ending.rbegin(), ending.rend(), value.rbegin());
     }
     
+    int map_coord(double coord, double min_coord, double max_coord, int resolution){
+        return ((coord - min_coord) * (1 << resolution)) / (max_coord - min_coord); 
+    }
 }
