@@ -117,8 +117,8 @@ namespace qsbd {
         return x;
     }
 
-    quantile_sketch<int> * dcs::merge(const quantile_sketch<int>& rhs){
-        const dcs& rhs_cv = dynamic_cast<const dcs&> (rhs);
+    quantile_sketch<int> * dcs::merge(quantile_sketch<int>& rhs){
+        dcs& rhs_cv = dynamic_cast<dcs&> (rhs);
 
         if(&rhs_cv == nullptr){
             std::cerr << "Error in dcs cast" << std::endl;

@@ -79,9 +79,9 @@ test_log_EXTERNAL_OBJECTS =
 
 bin/test_log: test/CMakeFiles/test_log.dir/test_log.cpp.o
 bin/test_log: test/CMakeFiles/test_log.dir/build.make
-bin/test_log: lib/libgtest_maind.a
+bin/test_log: lib/libgtest_main.a
 bin/test_log: lib/libQSBD_LOG.a
-bin/test_log: lib/libgtestd.a
+bin/test_log: lib/libgtest.a
 bin/test_log: lib/libQSBD_DEBUG.a
 bin/test_log: test/CMakeFiles/test_log.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ../bin/test_log"

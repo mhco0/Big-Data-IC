@@ -59,8 +59,8 @@ namespace qsbd {
     }
 
     template<class T>
-    quantile_sketch<T>* kll<T>::merge(const quantile_sketch<T>& rhs){
-        const kll<T>& rhs_cv = dynamic_cast<const kll<T>&> (rhs);
+    quantile_sketch<T>* kll<T>::merge(quantile_sketch<T>& rhs){
+        kll<T>& rhs_cv = dynamic_cast<kll<T>&> (rhs);
         if(&rhs_cv == nullptr){
             std::cerr << "Error in kll cast" << std::endl;
             return nullptr;

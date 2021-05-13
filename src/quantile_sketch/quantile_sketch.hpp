@@ -13,7 +13,7 @@ namespace qsbd {
         virtual void update(Type elem, int weight){}
         virtual Type quantile(double quant){Type dummy; return dummy;}
         virtual int query(Type elem){return 0;}
-        virtual quantile_sketch<Type>* merge(const quantile_sketch<Type>& rhs) = 0;
+        virtual quantile_sketch<Type>* merge(quantile_sketch<Type>& rhs) = 0;
     };
 }
 

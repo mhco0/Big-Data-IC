@@ -61,8 +61,8 @@ namespace qsbd {
             return;
         }
 
-        quantile_sketch<T>* merge(const quantile_sketch<T>& rhs) override {
-            const gk<T>& rhs_cv = dynamic_cast<const gk<T>&>(rhs); 
+        quantile_sketch<T>* merge(quantile_sketch<T>& rhs) override {
+            gk<T>& rhs_cv = dynamic_cast<gk<T>&>(rhs); 
             
             if(&rhs_cv == nullptr){
                 DEBUG_ERR("Error in gk cast");

@@ -180,6 +180,8 @@ TEST(KllTest, TestFactory){
 				fails[j]++;
 			}
 		}
+
+		delete test;
 	}
 
 	for(int i = 0; i < fails.size(); i++){

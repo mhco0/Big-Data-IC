@@ -75,6 +75,21 @@ void generate_stream(const json& config, ofstream& out){
 
         auto stream = qsbd::stream_maker::random_stream_city(vector_size, minx, miny, maxx, maxy, min_v, max_v, citys, max_radius);
         temp["stream"] = stream;
+    }else if(method == "random_stream_city_with_weight"){
+        int vector_size = config["args"]["vector_size"].get<int>();
+        double minx = config["args"]["minx"].get<double>();
+        double miny = config["args"]["miny"].get<double>();
+        double maxx = config["args"]["maxx"].get<double>();
+        double maxy = config["args"]["maxy"].get<double>();
+        int min_v = config["args"]["min_v"].get<int>();
+        int max_v = config["args"]["max_v"].get<int>();
+        int min_w = config["args"]["min_w"].get<int>();
+        int max_w = config["args"]["max_w"].get<int>();
+        int citys = config["args"]["citys"].get<int>();
+        double max_radius = config["args"]["max_radius"].get<double>();
+
+        auto stream = qsbd::stream_maker::random_stream_city_with_weight(vector_size, minx, miny, maxx, maxy, min_v, max_v, min_w, max_w, citys, max_radius);
+        temp["stream"] = stream;
     }else{
         DEBUG_ERR("Method not supported");
     }

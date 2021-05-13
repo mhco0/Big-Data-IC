@@ -6,7 +6,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\src\aabb\aabb.h">
+    <ClInclude Include="C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\src\aabb\aabb.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

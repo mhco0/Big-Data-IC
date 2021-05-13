@@ -23,7 +23,7 @@ namespace qsbd {
         void compress();
         void update(T elem) override;
         int query(T elem) override;
-        quantile_sketch<T>* merge(const quantile_sketch<T>& rhs) override;
+        quantile_sketch<T>* merge(quantile_sketch<T>& rhs) override;
 
         //DEBUG
         void print();

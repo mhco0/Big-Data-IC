@@ -18,7 +18,7 @@ namespace qsbd {
         return left_child_pos;
     }
 
-    void q_digest::private_print(int cur_node, int indent){
+    void q_digest::private_print(int cur_node, int indent) const {
         if(cur_node != -1){
             if(tree[cur_node].left_child != -1) this->private_print(tree[cur_node].left_child + 1, indent + 4);
             if (indent) cout << setw(indent) << ' ';
@@ -289,7 +289,7 @@ namespace qsbd {
     q_digest::~q_digest(){
     }
 
-    void q_digest::print(int indent){
+    void q_digest::print(int indent) const {
         this->private_print(0, indent);
     }
 
@@ -304,7 +304,7 @@ namespace qsbd {
             return;
         }
 
-        if(total_weight < (log2(universe) / error) and not transfered_buffer){
+        if((total_weight < (log2(universe) / error)) and not transfered_buffer){
             insert_in_buffer(x, weight);
 
             if(total_weight >= (log2(universe) / error)) transfer_buffer_to_tree();
@@ -317,10 +317,10 @@ namespace qsbd {
         if (x >= universe){
             DEBUG_ERR("On q_digest::update value first parameter 'x' is greater then the universe range");
 
-            return 0;
+            return -1;
         }
 
-        if(total_weight < (log2(universe) / error) and not transfered_buffer) return query_from_buffer(x);
+        if((total_weight < (log2(universe) / error)) and not transfered_buffer) return query_from_buffer(x);
         else return private_query(x);
     }
 
@@ -329,8 +329,8 @@ namespace qsbd {
         private_compress(0, 0, 0, universe - 1);
     }
 
-   quantile_sketch<int>* q_digest::merge(const quantile_sketch<int>& rhs){
-        const q_digest& rhs_cv = dynamic_cast<const q_digest&> (rhs);
+   quantile_sketch<int>* q_digest::merge(quantile_sketch<int>& rhs){
+        q_digest& rhs_cv = dynamic_cast<q_digest&> (rhs);
 
         if(&rhs_cv == nullptr){
             DEBUG_ERR("Error in q_digest cast");
@@ -347,7 +347,7 @@ namespace qsbd {
         merged_qdst->capacity = (merged_qdst->error * merged_qdst->total_weight) / log2(merged_qdst->universe);
 
         this->transfer_buffer_to_tree();
-        merged_qdst->transfer_buffer_to_tree();
+        rhs_cv.transfer_buffer_to_tree();
 
         merged_qdst->private_merge(this->tree, rhs_cv.tree, 0, 0, 0);
 

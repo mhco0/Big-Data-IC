@@ -79,12 +79,12 @@ test_kll_EXTERNAL_OBJECTS =
 
 bin/test_kll: test/CMakeFiles/test_kll.dir/test_kll.cpp.o
 bin/test_kll: test/CMakeFiles/test_kll.dir/build.make
-bin/test_kll: lib/libgtest_maind.a
+bin/test_kll: lib/libgtest_main.a
 bin/test_kll: lib/libQSBD_KLL.a
 bin/test_kll: lib/libQSBD_STREAM_MAKER.a
 bin/test_kll: lib/libQSBD_KLL_FACTORY.a
 bin/test_kll: lib/libQSBD_UTILS.a
-bin/test_kll: lib/libgtestd.a
+bin/test_kll: lib/libgtest.a
 bin/test_kll: lib/libQSBD_DEBUG.a
 bin/test_kll: lib/libQSBD_KLL.a
 bin/test_kll: lib/libQSBD_COMMUM_HEADER.a

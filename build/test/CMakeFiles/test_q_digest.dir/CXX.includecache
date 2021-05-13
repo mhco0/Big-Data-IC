@@ -326,6 +326,38 @@ cxxabi.h
 acxx_demangle.h
 -
 
+../src/commum_header/commum_header.h
+iostream
+-
+fstream
+-
+algorithm
+-
+vector
+-
+deque
+-
+random
+-
+chrono
+-
+map
+-
+set
+-
+cassert
+-
+functional
+-
+utility
+-
+iomanip
+-
+exception
+-
+limits
+-
+
 ../src/global_generator/global_generator.h
 chrono
 -
@@ -360,6 +392,14 @@ iostream
 ../quantile_sketch/quantile_sketch.hpp
 ../src/quantile_sketch/quantile_sketch.hpp
 
+../src/stream_maker/stream_maker.h
+../commum_header/commum_header.h
+../src/commum_header/commum_header.h
+../global_generator/global_generator.h
+../src/global_generator/global_generator.h
+../qsbd_debug/qsbd_debug.h
+../src/qsbd_debug/qsbd_debug.h
+
 ../src/utils/utils.h
 algorithm
 -
@@ -382,5 +422,7 @@ q_digest_factory/q_digest_factory.h
 utils/utils.h
 -
 global_generator/global_generator.h
+-
+stream_maker/stream_maker.h
 -
 

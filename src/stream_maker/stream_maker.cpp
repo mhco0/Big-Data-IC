@@ -260,6 +260,45 @@ namespace qsbd{
 			return stream;
 		}
 
+		vector<pair<pair<int, int>, pair<double, double>>> random_stream_city_with_weight(int vector_size, double minx, double miny, double maxx, double maxy, int min_v, int max_v, int min_w, int max_w, int citys, double max_radius){
+			minx += max_radius;
+			miny += max_radius;
+			maxx -= max_radius;
+			maxy -= max_radius;
+
+			uniform_real_distribution<double> x_distribution(minx, maxx);
+			uniform_real_distribution<double> y_distribution(miny, maxy);
+			uniform_real_distribution<double> radius_dist(0.0, max_radius);
+			uniform_real_distribution<double> angle_dist(0.0, 2 * M_PI);
+			uniform_int_distribution<int> who_pick(min_v, max_v);
+			uniform_int_distribution<int> what_weight(min_w, max_w);
+			vector<pair<pair<int, int>,  pair<double, double>>> stream;
+			int same_points = vector_size / citys;
+			int rest_points = vector_size % citys;
+
+			for(int i = 0; i < citys; i++){
+				int points = same_points;
+
+				if (i == citys - 1){
+					points += rest_points;
+				}
+
+				double base_x = x_distribution(generator);
+				double base_y = y_distribution(generator);
+
+				for(int j = 0; j < points; j++){
+					double radius = radius_dist(generator);
+					double angle = angle_dist(generator);
+					int pick = who_pick(generator);
+					int weight = what_weight(generator);
+
+					stream.push_back({{pick, weight}, {base_x + radius * cos(angle), base_y + radius * sin(angle)}});
+				}
+			}
+
+			return stream;
+		}
+
 		pair<pair<double, double>, pair<double, double>> random_rectangle_in_region(double minx, double miny, double maxx, double maxy){
 			uniform_real_distribution<double> x_distribution(minx, maxx);
 			uniform_real_distribution<double> y_distribution(miny, maxy);

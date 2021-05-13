@@ -35,7 +35,7 @@ namespace qsbd{
         int query(int x) override;
         int quantile(double quant) override;
 
-        quantile_sketch<int> * merge(const quantile_sketch<int>& rhs) override;
+        quantile_sketch<int> * merge(quantile_sketch<int>& rhs) override;
 
         int get_tree_lvl() const;
         int get_w() const;

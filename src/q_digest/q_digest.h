@@ -32,7 +32,7 @@ namespace qsbd{
 		double error;
 
 		int alloc_childs();
-		void private_print(int cur_node, int indent = 0);
+		void private_print(int cur_node, int indent = 0) const;
 		void private_print_subtree_weights(int cur_node, int indent = 0);
 		int subtree_weight_from(int cur_node);
 		void set_subtree_weight_to_zero(int cur_node);
@@ -53,12 +53,12 @@ namespace qsbd{
 
 		q_digest& operator=(const q_digest& other) = delete;
 
-		void print(int indent = 0);
+		void print(int indent = 0) const;
 		void print_subtree_weights();
 		void update(int x, int weight) override;
 		int query(int x) override;
 		void compress();
-		quantile_sketch<int>* merge(const quantile_sketch<int>& rhs) override;
+		quantile_sketch<int>* merge(quantile_sketch<int>& rhs) override;
 		int get_total_weight();
 
 	};

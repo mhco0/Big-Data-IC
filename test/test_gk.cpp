@@ -191,7 +191,7 @@ TEST(GkTest, TestBounds){
     bool print = true;
     vector<int> stream = random_int_stream(vector_size, min_v, max_v);
     vector<int> real_ranks = ranks_from_stream(stream, min_v, max_v);
-    vector<double> samples(real_ranks.size(),0);
+    vector<double> samples(real_ranks.size(), 0);
     gk<int> summary(epsilon);
 
     for(auto &it : stream){

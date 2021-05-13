@@ -740,30 +740,56 @@ test_gk/fast:
 .PHONY : test_gk/fast
 
 #=============================================================================
-# Target rules for targets named quantile_quadtree_experiment
+# Target rules for targets named coletor
 
 # Build rule for target.
-quantile_quadtree_experiment: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 quantile_quadtree_experiment
-.PHONY : quantile_quadtree_experiment
+coletor: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 coletor
+.PHONY : coletor
 
 # fast build rule for target.
-quantile_quadtree_experiment/fast:
-	$(MAKE) -f app/CMakeFiles/quantile_quadtree_experiment.dir/build.make app/CMakeFiles/quantile_quadtree_experiment.dir/build
-.PHONY : quantile_quadtree_experiment/fast
+coletor/fast:
+	$(MAKE) -f app/CMakeFiles/coletor.dir/build.make app/CMakeFiles/coletor.dir/build
+.PHONY : coletor/fast
 
 #=============================================================================
-# Target rules for targets named query_creator
+# Target rules for targets named comparator
 
 # Build rule for target.
-query_creator: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 query_creator
-.PHONY : query_creator
+comparator: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 comparator
+.PHONY : comparator
 
 # fast build rule for target.
-query_creator/fast:
-	$(MAKE) -f app/CMakeFiles/query_creator.dir/build.make app/CMakeFiles/query_creator.dir/build
-.PHONY : query_creator/fast
+comparator/fast:
+	$(MAKE) -f app/CMakeFiles/comparator.dir/build.make app/CMakeFiles/comparator.dir/build
+.PHONY : comparator/fast
+
+#=============================================================================
+# Target rules for targets named profiler
+
+# Build rule for target.
+profiler: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 profiler
+.PHONY : profiler
+
+# fast build rule for target.
+profiler/fast:
+	$(MAKE) -f app/CMakeFiles/profiler.dir/build.make app/CMakeFiles/profiler.dir/build
+.PHONY : profiler/fast
+
+#=============================================================================
+# Target rules for targets named build_streams
+
+# Build rule for target.
+build_streams: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 build_streams
+.PHONY : build_streams
+
+# fast build rule for target.
+build_streams/fast:
+	$(MAKE) -f app/CMakeFiles/build_streams.dir/build.make app/CMakeFiles/build_streams.dir/build
+.PHONY : build_streams/fast
 
 #=============================================================================
 # Target rules for targets named stream_creator
@@ -779,17 +805,82 @@ stream_creator/fast:
 .PHONY : stream_creator/fast
 
 #=============================================================================
-# Target rules for targets named profiler
+# Target rules for targets named brute_force
 
 # Build rule for target.
-profiler: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 profiler
-.PHONY : profiler
+brute_force: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 brute_force
+.PHONY : brute_force
 
 # fast build rule for target.
-profiler/fast:
-	$(MAKE) -f app/CMakeFiles/profiler.dir/build.make app/CMakeFiles/profiler.dir/build
-.PHONY : profiler/fast
+brute_force/fast:
+	$(MAKE) -f app/CMakeFiles/brute_force.dir/build.make app/CMakeFiles/brute_force.dir/build
+.PHONY : brute_force/fast
+
+#=============================================================================
+# Target rules for targets named query_creator
+
+# Build rule for target.
+query_creator: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 query_creator
+.PHONY : query_creator
+
+# fast build rule for target.
+query_creator/fast:
+	$(MAKE) -f app/CMakeFiles/query_creator.dir/build.make app/CMakeFiles/query_creator.dir/build
+.PHONY : query_creator/fast
+
+#=============================================================================
+# Target rules for targets named experiment_all
+
+# Build rule for target.
+experiment_all: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 experiment_all
+.PHONY : experiment_all
+
+# fast build rule for target.
+experiment_all/fast:
+	$(MAKE) -f app/CMakeFiles/experiment_all.dir/build.make app/CMakeFiles/experiment_all.dir/build
+.PHONY : experiment_all/fast
+
+#=============================================================================
+# Target rules for targets named build_brute_force
+
+# Build rule for target.
+build_brute_force: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 build_brute_force
+.PHONY : build_brute_force
+
+# fast build rule for target.
+build_brute_force/fast:
+	$(MAKE) -f app/CMakeFiles/build_brute_force.dir/build.make app/CMakeFiles/build_brute_force.dir/build
+.PHONY : build_brute_force/fast
+
+#=============================================================================
+# Target rules for targets named build_queries
+
+# Build rule for target.
+build_queries: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 build_queries
+.PHONY : build_queries
+
+# fast build rule for target.
+build_queries/fast:
+	$(MAKE) -f app/CMakeFiles/build_queries.dir/build.make app/CMakeFiles/build_queries.dir/build
+.PHONY : build_queries/fast
+
+#=============================================================================
+# Target rules for targets named quantile_quadtree_experiment
+
+# Build rule for target.
+quantile_quadtree_experiment: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 quantile_quadtree_experiment
+.PHONY : quantile_quadtree_experiment
+
+# fast build rule for target.
+quantile_quadtree_experiment/fast:
+	$(MAKE) -f app/CMakeFiles/quantile_quadtree_experiment.dir/build.make app/CMakeFiles/quantile_quadtree_experiment.dir/build
+.PHONY : quantile_quadtree_experiment/fast
 
 # Help Target
 help:
@@ -848,10 +939,17 @@ help:
 	@echo "... test_q_digest"
 	@echo "... test_config"
 	@echo "... test_gk"
-	@echo "... quantile_quadtree_experiment"
-	@echo "... query_creator"
-	@echo "... stream_creator"
+	@echo "... coletor"
+	@echo "... comparator"
 	@echo "... profiler"
+	@echo "... build_streams"
+	@echo "... stream_creator"
+	@echo "... brute_force"
+	@echo "... query_creator"
+	@echo "... experiment_all"
+	@echo "... build_brute_force"
+	@echo "... build_queries"
+	@echo "... quantile_quadtree_experiment"
 .PHONY : help
 
 

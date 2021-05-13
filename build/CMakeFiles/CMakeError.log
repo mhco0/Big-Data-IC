@@ -1,21 +1,21 @@
 Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
 Change Dir: /mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_700c3/fast && /usr/bin/make -f CMakeFiles/cmTC_700c3.dir/build.make CMakeFiles/cmTC_700c3.dir/build
+Run Build Command(s):/usr/bin/make cmTC_5b57a/fast && /usr/bin/make -f CMakeFiles/cmTC_5b57a.dir/build.make CMakeFiles/cmTC_5b57a.dir/build
 make[1]: Entering directory '/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_700c3.dir/src.c.o
-/bin/x86_64-linux-gnu-gcc-9   -DCMAKE_HAVE_LIBC_PTHREAD -fPIE   -std=gnu99 -o CMakeFiles/cmTC_700c3.dir/src.c.o   -c "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/CMakeTmp/src.c"
-Linking C executable cmTC_700c3
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_700c3.dir/link.txt --verbose=1
-/bin/x86_64-linux-gnu-gcc-9  -DCMAKE_HAVE_LIBC_PTHREAD    CMakeFiles/cmTC_700c3.dir/src.c.o  -o cmTC_700c3 
-/usr/bin/ld: CMakeFiles/cmTC_700c3.dir/src.c.o: in function `main':
+Building C object CMakeFiles/cmTC_5b57a.dir/src.c.o
+/bin/x86_64-linux-gnu-gcc-9   -DCMAKE_HAVE_LIBC_PTHREAD -fPIE   -std=gnu99 -o CMakeFiles/cmTC_5b57a.dir/src.c.o   -c "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/CMakeTmp/src.c"
+Linking C executable cmTC_5b57a
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5b57a.dir/link.txt --verbose=1
+/bin/x86_64-linux-gnu-gcc-9  -DCMAKE_HAVE_LIBC_PTHREAD    CMakeFiles/cmTC_5b57a.dir/src.c.o  -o cmTC_5b57a 
+/usr/bin/ld: CMakeFiles/cmTC_5b57a.dir/src.c.o: in function `main':
 src.c:(.text+0x46): undefined reference to `pthread_create'
 /usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
 /usr/bin/ld: src.c:(.text+0x63): undefined reference to `pthread_join'
 collect2: error: ld returned 1 exit status
-make[1]: *** [CMakeFiles/cmTC_700c3.dir/build.make:87: cmTC_700c3] Error 1
+make[1]: *** [CMakeFiles/cmTC_5b57a.dir/build.make:87: cmTC_5b57a] Error 1
 make[1]: Leaving directory '/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/CMakeTmp'
-make: *** [Makefile:121: cmTC_700c3/fast] Error 2
+make: *** [Makefile:121: cmTC_5b57a/fast] Error 2
 
 
 Source file was:
@@ -41,19 +41,18 @@ int main(void)
 Determining if the function pthread_create exists in the pthreads failed with the following output:
 Change Dir: /mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_7d081/fast && /usr/bin/make -f CMakeFiles/cmTC_7d081.dir/build.make CMakeFiles/cmTC_7d081.dir/build
+Run Build Command(s):/usr/bin/make cmTC_bcaa9/fast && /usr/bin/make -f CMakeFiles/cmTC_bcaa9.dir/build.make CMakeFiles/cmTC_bcaa9.dir/build
 make[1]: Entering directory '/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/CMakeTmp'
-make[1]: Warning: File 'CMakeFiles/cmTC_7d081.dir/progress.make' has modification time 0.023 s in the future
-Building C object CMakeFiles/cmTC_7d081.dir/CheckFunctionExists.c.o
-/bin/x86_64-linux-gnu-gcc-9   -DCHECK_FUNCTION_EXISTS=pthread_create -fPIE   -std=gnu99 -o CMakeFiles/cmTC_7d081.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
-Linking C executable cmTC_7d081
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7d081.dir/link.txt --verbose=1
-/bin/x86_64-linux-gnu-gcc-9  -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_7d081.dir/CheckFunctionExists.c.o  -o cmTC_7d081  -lpthreads 
+Building C object CMakeFiles/cmTC_bcaa9.dir/CheckFunctionExists.c.o
+/bin/x86_64-linux-gnu-gcc-9   -DCHECK_FUNCTION_EXISTS=pthread_create -fPIE   -std=gnu99 -o CMakeFiles/cmTC_bcaa9.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_bcaa9
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bcaa9.dir/link.txt --verbose=1
+/bin/x86_64-linux-gnu-gcc-9  -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_bcaa9.dir/CheckFunctionExists.c.o  -o cmTC_bcaa9  -lpthreads 
 /usr/bin/ld: cannot find -lpthreads
 collect2: error: ld returned 1 exit status
-make[1]: *** [CMakeFiles/cmTC_7d081.dir/build.make:87: cmTC_7d081] Error 1
+make[1]: *** [CMakeFiles/cmTC_bcaa9.dir/build.make:87: cmTC_bcaa9] Error 1
 make[1]: Leaving directory '/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/CMakeTmp'
-make: *** [Makefile:121: cmTC_7d081/fast] Error 2
+make: *** [Makefile:121: cmTC_bcaa9/fast] Error 2
 
 
 

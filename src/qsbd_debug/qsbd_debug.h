@@ -10,10 +10,11 @@ namespace qsbd{
             const bool debug_enable = false;
         #endif
     }
+}
 
-#define DEBUG(x) do { if(qsbd::debug::debug_enable) std::cout << x << std::endl;} while(0)
-#define VDEBUG(x) do { if(qsbd::debug::debug_enable) std::cout << #x << " := " << x << std::endl;} while(0)
-#define DEBUG_ERR(x) do{ if(qsbd::debug::debug_enable) std::cerr << x << std::endl;} while(0)
+#define DEBUG(x) do {if(qsbd::debug::debug_enable) std::cout << x << std::endl;} while(0)
+#define VDEBUG(x) do {if(qsbd::debug::debug_enable) std::cout << #x << " := " << x << std::endl;} while(0)
+#define DEBUG_ERR(x) do {if(qsbd::debug::debug_enable) std::cerr << x << std::endl;} while(0)
 #define ASSERT(cond) do {if(qsbd::debug::debug_enable){if(not (cond)){\
                         DEBUG_ERR("===============================");\
                         DEBUG_ERR("Assertion: ");\
@@ -24,7 +25,5 @@ namespace qsbd{
                         DEBUG_ERR(__LINE__);\
                         DEBUG_ERR("===============================");\
                         }}} while(0)
-}
-
 
 #endif

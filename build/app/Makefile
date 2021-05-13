@@ -68,6 +68,39 @@ install/strip/fast: preinstall/fast
 	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
 
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
+
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
+
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
@@ -79,16 +112,6 @@ install/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
 	/usr/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
-
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
-
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-
-.PHONY : list_install_components/fast
 
 # Special rule for the target rebuild_cache
 rebuild_cache:
@@ -111,29 +134,6 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
-
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-
-.PHONY : test/fast
-
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
-
-# Special rule for the target install/local
-install/local/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -168,34 +168,64 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-app/CMakeFiles/quantile_quadtree_experiment.dir/rule:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/quantile_quadtree_experiment.dir/rule
-.PHONY : app/CMakeFiles/quantile_quadtree_experiment.dir/rule
+app/CMakeFiles/coletor.dir/rule:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/coletor.dir/rule
+.PHONY : app/CMakeFiles/coletor.dir/rule
 
 # Convenience name for target.
-quantile_quadtree_experiment: app/CMakeFiles/quantile_quadtree_experiment.dir/rule
+coletor: app/CMakeFiles/coletor.dir/rule
 
-.PHONY : quantile_quadtree_experiment
+.PHONY : coletor
 
 # fast build rule for target.
-quantile_quadtree_experiment/fast:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/quantile_quadtree_experiment.dir/build.make app/CMakeFiles/quantile_quadtree_experiment.dir/build
-.PHONY : quantile_quadtree_experiment/fast
+coletor/fast:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/coletor.dir/build.make app/CMakeFiles/coletor.dir/build
+.PHONY : coletor/fast
 
 # Convenience name for target.
-app/CMakeFiles/query_creator.dir/rule:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/query_creator.dir/rule
-.PHONY : app/CMakeFiles/query_creator.dir/rule
+app/CMakeFiles/comparator.dir/rule:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/comparator.dir/rule
+.PHONY : app/CMakeFiles/comparator.dir/rule
 
 # Convenience name for target.
-query_creator: app/CMakeFiles/query_creator.dir/rule
+comparator: app/CMakeFiles/comparator.dir/rule
 
-.PHONY : query_creator
+.PHONY : comparator
 
 # fast build rule for target.
-query_creator/fast:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/query_creator.dir/build.make app/CMakeFiles/query_creator.dir/build
-.PHONY : query_creator/fast
+comparator/fast:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/comparator.dir/build.make app/CMakeFiles/comparator.dir/build
+.PHONY : comparator/fast
+
+# Convenience name for target.
+app/CMakeFiles/profiler.dir/rule:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/profiler.dir/rule
+.PHONY : app/CMakeFiles/profiler.dir/rule
+
+# Convenience name for target.
+profiler: app/CMakeFiles/profiler.dir/rule
+
+.PHONY : profiler
+
+# fast build rule for target.
+profiler/fast:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/profiler.dir/build.make app/CMakeFiles/profiler.dir/build
+.PHONY : profiler/fast
+
+# Convenience name for target.
+app/CMakeFiles/build_streams.dir/rule:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/build_streams.dir/rule
+.PHONY : app/CMakeFiles/build_streams.dir/rule
+
+# Convenience name for target.
+build_streams: app/CMakeFiles/build_streams.dir/rule
+
+.PHONY : build_streams
+
+# fast build rule for target.
+build_streams/fast:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/build_streams.dir/build.make app/CMakeFiles/build_streams.dir/build
+.PHONY : build_streams/fast
 
 # Convenience name for target.
 app/CMakeFiles/stream_creator.dir/rule:
@@ -213,19 +243,202 @@ stream_creator/fast:
 .PHONY : stream_creator/fast
 
 # Convenience name for target.
-app/CMakeFiles/profiler.dir/rule:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/profiler.dir/rule
-.PHONY : app/CMakeFiles/profiler.dir/rule
+app/CMakeFiles/brute_force.dir/rule:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/brute_force.dir/rule
+.PHONY : app/CMakeFiles/brute_force.dir/rule
 
 # Convenience name for target.
-profiler: app/CMakeFiles/profiler.dir/rule
+brute_force: app/CMakeFiles/brute_force.dir/rule
 
-.PHONY : profiler
+.PHONY : brute_force
 
 # fast build rule for target.
-profiler/fast:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/profiler.dir/build.make app/CMakeFiles/profiler.dir/build
-.PHONY : profiler/fast
+brute_force/fast:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/brute_force.dir/build.make app/CMakeFiles/brute_force.dir/build
+.PHONY : brute_force/fast
+
+# Convenience name for target.
+app/CMakeFiles/query_creator.dir/rule:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/query_creator.dir/rule
+.PHONY : app/CMakeFiles/query_creator.dir/rule
+
+# Convenience name for target.
+query_creator: app/CMakeFiles/query_creator.dir/rule
+
+.PHONY : query_creator
+
+# fast build rule for target.
+query_creator/fast:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/query_creator.dir/build.make app/CMakeFiles/query_creator.dir/build
+.PHONY : query_creator/fast
+
+# Convenience name for target.
+app/CMakeFiles/experiment_all.dir/rule:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/experiment_all.dir/rule
+.PHONY : app/CMakeFiles/experiment_all.dir/rule
+
+# Convenience name for target.
+experiment_all: app/CMakeFiles/experiment_all.dir/rule
+
+.PHONY : experiment_all
+
+# fast build rule for target.
+experiment_all/fast:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/experiment_all.dir/build.make app/CMakeFiles/experiment_all.dir/build
+.PHONY : experiment_all/fast
+
+# Convenience name for target.
+app/CMakeFiles/build_brute_force.dir/rule:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/build_brute_force.dir/rule
+.PHONY : app/CMakeFiles/build_brute_force.dir/rule
+
+# Convenience name for target.
+build_brute_force: app/CMakeFiles/build_brute_force.dir/rule
+
+.PHONY : build_brute_force
+
+# fast build rule for target.
+build_brute_force/fast:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/build_brute_force.dir/build.make app/CMakeFiles/build_brute_force.dir/build
+.PHONY : build_brute_force/fast
+
+# Convenience name for target.
+app/CMakeFiles/build_queries.dir/rule:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/build_queries.dir/rule
+.PHONY : app/CMakeFiles/build_queries.dir/rule
+
+# Convenience name for target.
+build_queries: app/CMakeFiles/build_queries.dir/rule
+
+.PHONY : build_queries
+
+# fast build rule for target.
+build_queries/fast:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/build_queries.dir/build.make app/CMakeFiles/build_queries.dir/build
+.PHONY : build_queries/fast
+
+# Convenience name for target.
+app/CMakeFiles/quantile_quadtree_experiment.dir/rule:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/quantile_quadtree_experiment.dir/rule
+.PHONY : app/CMakeFiles/quantile_quadtree_experiment.dir/rule
+
+# Convenience name for target.
+quantile_quadtree_experiment: app/CMakeFiles/quantile_quadtree_experiment.dir/rule
+
+.PHONY : quantile_quadtree_experiment
+
+# fast build rule for target.
+quantile_quadtree_experiment/fast:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/quantile_quadtree_experiment.dir/build.make app/CMakeFiles/quantile_quadtree_experiment.dir/build
+.PHONY : quantile_quadtree_experiment/fast
+
+brute_force/brute_force.o: brute_force/brute_force.cpp.o
+
+.PHONY : brute_force/brute_force.o
+
+# target to build an object file
+brute_force/brute_force.cpp.o:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/brute_force.dir/build.make app/CMakeFiles/brute_force.dir/brute_force/brute_force.cpp.o
+.PHONY : brute_force/brute_force.cpp.o
+
+brute_force/brute_force.i: brute_force/brute_force.cpp.i
+
+.PHONY : brute_force/brute_force.i
+
+# target to preprocess a source file
+brute_force/brute_force.cpp.i:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/brute_force.dir/build.make app/CMakeFiles/brute_force.dir/brute_force/brute_force.cpp.i
+.PHONY : brute_force/brute_force.cpp.i
+
+brute_force/brute_force.s: brute_force/brute_force.cpp.s
+
+.PHONY : brute_force/brute_force.s
+
+# target to generate assembly for a file
+brute_force/brute_force.cpp.s:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/brute_force.dir/build.make app/CMakeFiles/brute_force.dir/brute_force/brute_force.cpp.s
+.PHONY : brute_force/brute_force.cpp.s
+
+brute_force/build_brute_force.o: brute_force/build_brute_force.cpp.o
+
+.PHONY : brute_force/build_brute_force.o
+
+# target to build an object file
+brute_force/build_brute_force.cpp.o:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/build_brute_force.dir/build.make app/CMakeFiles/build_brute_force.dir/brute_force/build_brute_force.cpp.o
+.PHONY : brute_force/build_brute_force.cpp.o
+
+brute_force/build_brute_force.i: brute_force/build_brute_force.cpp.i
+
+.PHONY : brute_force/build_brute_force.i
+
+# target to preprocess a source file
+brute_force/build_brute_force.cpp.i:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/build_brute_force.dir/build.make app/CMakeFiles/build_brute_force.dir/brute_force/build_brute_force.cpp.i
+.PHONY : brute_force/build_brute_force.cpp.i
+
+brute_force/build_brute_force.s: brute_force/build_brute_force.cpp.s
+
+.PHONY : brute_force/build_brute_force.s
+
+# target to generate assembly for a file
+brute_force/build_brute_force.cpp.s:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/build_brute_force.dir/build.make app/CMakeFiles/build_brute_force.dir/brute_force/build_brute_force.cpp.s
+.PHONY : brute_force/build_brute_force.cpp.s
+
+coletor/coletor.o: coletor/coletor.cpp.o
+
+.PHONY : coletor/coletor.o
+
+# target to build an object file
+coletor/coletor.cpp.o:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/coletor.dir/build.make app/CMakeFiles/coletor.dir/coletor/coletor.cpp.o
+.PHONY : coletor/coletor.cpp.o
+
+coletor/coletor.i: coletor/coletor.cpp.i
+
+.PHONY : coletor/coletor.i
+
+# target to preprocess a source file
+coletor/coletor.cpp.i:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/coletor.dir/build.make app/CMakeFiles/coletor.dir/coletor/coletor.cpp.i
+.PHONY : coletor/coletor.cpp.i
+
+coletor/coletor.s: coletor/coletor.cpp.s
+
+.PHONY : coletor/coletor.s
+
+# target to generate assembly for a file
+coletor/coletor.cpp.s:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/coletor.dir/build.make app/CMakeFiles/coletor.dir/coletor/coletor.cpp.s
+.PHONY : coletor/coletor.cpp.s
+
+comparator/comparator.o: comparator/comparator.cpp.o
+
+.PHONY : comparator/comparator.o
+
+# target to build an object file
+comparator/comparator.cpp.o:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/comparator.dir/build.make app/CMakeFiles/comparator.dir/comparator/comparator.cpp.o
+.PHONY : comparator/comparator.cpp.o
+
+comparator/comparator.i: comparator/comparator.cpp.i
+
+.PHONY : comparator/comparator.i
+
+# target to preprocess a source file
+comparator/comparator.cpp.i:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/comparator.dir/build.make app/CMakeFiles/comparator.dir/comparator/comparator.cpp.i
+.PHONY : comparator/comparator.cpp.i
+
+comparator/comparator.s: comparator/comparator.cpp.s
+
+.PHONY : comparator/comparator.s
+
+# target to generate assembly for a file
+comparator/comparator.cpp.s:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/comparator.dir/build.make app/CMakeFiles/comparator.dir/comparator/comparator.cpp.s
+.PHONY : comparator/comparator.cpp.s
 
 profiler/profiler.o: profiler/profiler.cpp.o
 
@@ -254,6 +467,33 @@ profiler/profiler.cpp.s:
 	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/profiler.dir/build.make app/CMakeFiles/profiler.dir/profiler/profiler.cpp.s
 .PHONY : profiler/profiler.cpp.s
 
+quantile_quadtree_experiment/experiment_all.o: quantile_quadtree_experiment/experiment_all.cpp.o
+
+.PHONY : quantile_quadtree_experiment/experiment_all.o
+
+# target to build an object file
+quantile_quadtree_experiment/experiment_all.cpp.o:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/experiment_all.dir/build.make app/CMakeFiles/experiment_all.dir/quantile_quadtree_experiment/experiment_all.cpp.o
+.PHONY : quantile_quadtree_experiment/experiment_all.cpp.o
+
+quantile_quadtree_experiment/experiment_all.i: quantile_quadtree_experiment/experiment_all.cpp.i
+
+.PHONY : quantile_quadtree_experiment/experiment_all.i
+
+# target to preprocess a source file
+quantile_quadtree_experiment/experiment_all.cpp.i:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/experiment_all.dir/build.make app/CMakeFiles/experiment_all.dir/quantile_quadtree_experiment/experiment_all.cpp.i
+.PHONY : quantile_quadtree_experiment/experiment_all.cpp.i
+
+quantile_quadtree_experiment/experiment_all.s: quantile_quadtree_experiment/experiment_all.cpp.s
+
+.PHONY : quantile_quadtree_experiment/experiment_all.s
+
+# target to generate assembly for a file
+quantile_quadtree_experiment/experiment_all.cpp.s:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/experiment_all.dir/build.make app/CMakeFiles/experiment_all.dir/quantile_quadtree_experiment/experiment_all.cpp.s
+.PHONY : quantile_quadtree_experiment/experiment_all.cpp.s
+
 quantile_quadtree_experiment/quantile_quadtree_experiment.o: quantile_quadtree_experiment/quantile_quadtree_experiment.cpp.o
 
 .PHONY : quantile_quadtree_experiment/quantile_quadtree_experiment.o
@@ -281,6 +521,33 @@ quantile_quadtree_experiment/quantile_quadtree_experiment.cpp.s:
 	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/quantile_quadtree_experiment.dir/build.make app/CMakeFiles/quantile_quadtree_experiment.dir/quantile_quadtree_experiment/quantile_quadtree_experiment.cpp.s
 .PHONY : quantile_quadtree_experiment/quantile_quadtree_experiment.cpp.s
 
+query_creator/build_queries.o: query_creator/build_queries.cpp.o
+
+.PHONY : query_creator/build_queries.o
+
+# target to build an object file
+query_creator/build_queries.cpp.o:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/build_queries.dir/build.make app/CMakeFiles/build_queries.dir/query_creator/build_queries.cpp.o
+.PHONY : query_creator/build_queries.cpp.o
+
+query_creator/build_queries.i: query_creator/build_queries.cpp.i
+
+.PHONY : query_creator/build_queries.i
+
+# target to preprocess a source file
+query_creator/build_queries.cpp.i:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/build_queries.dir/build.make app/CMakeFiles/build_queries.dir/query_creator/build_queries.cpp.i
+.PHONY : query_creator/build_queries.cpp.i
+
+query_creator/build_queries.s: query_creator/build_queries.cpp.s
+
+.PHONY : query_creator/build_queries.s
+
+# target to generate assembly for a file
+query_creator/build_queries.cpp.s:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/build_queries.dir/build.make app/CMakeFiles/build_queries.dir/query_creator/build_queries.cpp.s
+.PHONY : query_creator/build_queries.cpp.s
+
 query_creator/query_creator.o: query_creator/query_creator.cpp.o
 
 .PHONY : query_creator/query_creator.o
@@ -307,6 +574,33 @@ query_creator/query_creator.s: query_creator/query_creator.cpp.s
 query_creator/query_creator.cpp.s:
 	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/query_creator.dir/build.make app/CMakeFiles/query_creator.dir/query_creator/query_creator.cpp.s
 .PHONY : query_creator/query_creator.cpp.s
+
+stream_creator/build_streams.o: stream_creator/build_streams.cpp.o
+
+.PHONY : stream_creator/build_streams.o
+
+# target to build an object file
+stream_creator/build_streams.cpp.o:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/build_streams.dir/build.make app/CMakeFiles/build_streams.dir/stream_creator/build_streams.cpp.o
+.PHONY : stream_creator/build_streams.cpp.o
+
+stream_creator/build_streams.i: stream_creator/build_streams.cpp.i
+
+.PHONY : stream_creator/build_streams.i
+
+# target to preprocess a source file
+stream_creator/build_streams.cpp.i:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/build_streams.dir/build.make app/CMakeFiles/build_streams.dir/stream_creator/build_streams.cpp.i
+.PHONY : stream_creator/build_streams.cpp.i
+
+stream_creator/build_streams.s: stream_creator/build_streams.cpp.s
+
+.PHONY : stream_creator/build_streams.s
+
+# target to generate assembly for a file
+stream_creator/build_streams.cpp.s:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/build_streams.dir/build.make app/CMakeFiles/build_streams.dir/stream_creator/build_streams.cpp.s
+.PHONY : stream_creator/build_streams.cpp.s
 
 stream_creator/stream_creator.o: stream_creator/stream_creator.cpp.o
 
@@ -342,25 +636,53 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... install/strip"
-	@echo "... install"
+	@echo "... install/local"
 	@echo "... list_install_components"
+	@echo "... coletor"
+	@echo "... comparator"
+	@echo "... profiler"
+	@echo "... build_streams"
+	@echo "... stream_creator"
+	@echo "... brute_force"
+	@echo "... test"
+	@echo "... install"
+	@echo "... query_creator"
+	@echo "... experiment_all"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... test"
-	@echo "... install/local"
+	@echo "... build_brute_force"
+	@echo "... build_queries"
 	@echo "... quantile_quadtree_experiment"
-	@echo "... query_creator"
-	@echo "... stream_creator"
-	@echo "... profiler"
+	@echo "... brute_force/brute_force.o"
+	@echo "... brute_force/brute_force.i"
+	@echo "... brute_force/brute_force.s"
+	@echo "... brute_force/build_brute_force.o"
+	@echo "... brute_force/build_brute_force.i"
+	@echo "... brute_force/build_brute_force.s"
+	@echo "... coletor/coletor.o"
+	@echo "... coletor/coletor.i"
+	@echo "... coletor/coletor.s"
+	@echo "... comparator/comparator.o"
+	@echo "... comparator/comparator.i"
+	@echo "... comparator/comparator.s"
 	@echo "... profiler/profiler.o"
 	@echo "... profiler/profiler.i"
 	@echo "... profiler/profiler.s"
+	@echo "... quantile_quadtree_experiment/experiment_all.o"
+	@echo "... quantile_quadtree_experiment/experiment_all.i"
+	@echo "... quantile_quadtree_experiment/experiment_all.s"
 	@echo "... quantile_quadtree_experiment/quantile_quadtree_experiment.o"
 	@echo "... quantile_quadtree_experiment/quantile_quadtree_experiment.i"
 	@echo "... quantile_quadtree_experiment/quantile_quadtree_experiment.s"
+	@echo "... query_creator/build_queries.o"
+	@echo "... query_creator/build_queries.i"
+	@echo "... query_creator/build_queries.s"
 	@echo "... query_creator/query_creator.o"
 	@echo "... query_creator/query_creator.i"
 	@echo "... query_creator/query_creator.s"
+	@echo "... stream_creator/build_streams.o"
+	@echo "... stream_creator/build_streams.i"
+	@echo "... stream_creator/build_streams.s"
 	@echo "... stream_creator/stream_creator.o"
 	@echo "... stream_creator/stream_creator.i"
 	@echo "... stream_creator/stream_creator.s"

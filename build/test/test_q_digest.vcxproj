@@ -1,48 +1,51 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
   <ItemGroup Label="ProjectConfigurations">
-    <ProjectConfiguration Include="Debug|Win32">
+    <ProjectConfiguration Include="Debug|x64">
       <Configuration>Debug</Configuration>
-      <Platform>Win32</Platform>
+      <Platform>x64</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Release|Win32">
+    <ProjectConfiguration Include="Release|x64">
       <Configuration>Release</Configuration>
-      <Platform>Win32</Platform>
+      <Platform>x64</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="MinSizeRel|Win32">
+    <ProjectConfiguration Include="MinSizeRel|x64">
       <Configuration>MinSizeRel</Configuration>
-      <Platform>Win32</Platform>
+      <Platform>x64</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="RelWithDebInfo|Win32">
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
       <Configuration>RelWithDebInfo</Configuration>
-      <Platform>Win32</Platform>
+      <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{CECBB069-04E9-3C90-93E7-A96DD623BB02}</ProjectGuid>
     <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
     <Keyword>Win32Proj</Keyword>
-    <Platform>Win32</Platform>
+    <Platform>x64</Platform>
     <ProjectName>test_q_digest</ProjectName>
     <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
     <PlatformToolset>v141</PlatformToolset>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
     <PlatformToolset>v141</PlatformToolset>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
     <PlatformToolset>v141</PlatformToolset>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
     <PlatformToolset>v141</PlatformToolset>
@@ -56,32 +59,32 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\build\bin\Debug\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">test_q_digest.dir\Debug\</IntDir>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">test_q_digest</TargetName>
-    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.exe</TargetExt>
-    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
-    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\build\bin\Release\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">test_q_digest.dir\Release\</IntDir>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">test_q_digest</TargetName>
-    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.exe</TargetExt>
-    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
-    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\build\bin\MinSizeRel\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">test_q_digest.dir\MinSizeRel\</IntDir>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">test_q_digest</TargetName>
-    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">.exe</TargetExt>
-    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkIncremental>
-    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\build\bin\RelWithDebInfo\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">test_q_digest.dir\RelWithDebInfo\</IntDir>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">test_q_digest</TargetName>
-    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">.exe</TargetExt>
-    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">true</LinkIncremental>
-    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\build\bin\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">test_q_digest.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">test_q_digest</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\build\bin\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">test_q_digest.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">test_q_digest</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\build\bin\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">test_q_digest.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">test_q_digest</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\build\bin\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">test_q_digest.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">test_q_digest</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</GenerateManifest>
   </PropertyGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\src;C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\googletest\googletest\include;C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\googletest\googletest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) -pg -fno-omit-frame-pointer -g -ggdb -fstrict-aliasing</AdditionalOptions>
@@ -111,9 +114,9 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>..\lib\Debug\gtest_maind.lib;..\lib\Debug\QSBD_Q_DIGEST.lib;..\lib\Debug\QSBD_UTILS.lib;..\lib\Debug\gtestd.lib;..\lib\Debug\QSBD_QUANTILE_SKETCH.lib;..\lib\Debug\QSBD_COMMUM_HEADER.lib;..\lib\Debug\QSBD_GLOBAL_GEN.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>..\lib\Debug\gtest_maind.lib;..\lib\Debug\QSBD_GLOBAL_GEN.lib;..\lib\Debug\QSBD_Q_DIGEST_FACTORY.lib;..\lib\Debug\QSBD_Q_DIGEST.lib;..\lib\Debug\QSBD_UTILS.lib;..\lib\Debug\gtestd.lib;..\lib\Debug\QSBD_QUANTILE_SKETCH.lib;..\lib\Debug\QSBD_DEBUG.lib;..\lib\Debug\QSBD_SKETCH_FACTORY.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalOptions>%(AdditionalOptions) /machine:X86 -pg -fno-omit-frame-pointer -g -O2 -ggdb -fstrict-aliasing</AdditionalOptions>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64 -pg -fno-omit-frame-pointer -g -O2 -ggdb -fstrict-aliasing</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <ImportLibrary>C:/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/lib/Debug/test_q_digest.lib</ImportLibrary>
@@ -124,7 +127,7 @@
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
     </ProjectReference>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\src;C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\googletest\googletest\include;C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\googletest\googletest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) -pg -fno-omit-frame-pointer -g -ggdb -fstrict-aliasing</AdditionalOptions>
@@ -154,9 +157,9 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>..\lib\Release\gtest_main.lib;..\lib\Release\QSBD_Q_DIGEST.lib;..\lib\Release\QSBD_UTILS.lib;..\lib\Release\gtest.lib;..\lib\Release\QSBD_QUANTILE_SKETCH.lib;..\lib\Release\QSBD_COMMUM_HEADER.lib;..\lib\Release\QSBD_GLOBAL_GEN.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>..\lib\Release\gtest_main.lib;..\lib\Release\QSBD_GLOBAL_GEN.lib;..\lib\Release\QSBD_Q_DIGEST_FACTORY.lib;..\lib\Release\QSBD_Q_DIGEST.lib;..\lib\Release\QSBD_UTILS.lib;..\lib\Release\gtest.lib;..\lib\Release\QSBD_QUANTILE_SKETCH.lib;..\lib\Release\QSBD_DEBUG.lib;..\lib\Release\QSBD_SKETCH_FACTORY.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalOptions>%(AdditionalOptions) /machine:X86 -pg -fno-omit-frame-pointer -g -O2 -ggdb -fstrict-aliasing</AdditionalOptions>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64 -pg -fno-omit-frame-pointer -g -O2 -ggdb -fstrict-aliasing</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <ImportLibrary>C:/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/lib/Release/test_q_digest.lib</ImportLibrary>
@@ -167,7 +170,7 @@
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
     </ProjectReference>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\src;C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\googletest\googletest\include;C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\googletest\googletest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) -pg -fno-omit-frame-pointer -g -ggdb -fstrict-aliasing</AdditionalOptions>
@@ -197,9 +200,9 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>..\lib\MinSizeRel\gtest_main.lib;..\lib\MinSizeRel\QSBD_Q_DIGEST.lib;..\lib\MinSizeRel\QSBD_UTILS.lib;..\lib\MinSizeRel\gtest.lib;..\lib\MinSizeRel\QSBD_QUANTILE_SKETCH.lib;..\lib\MinSizeRel\QSBD_COMMUM_HEADER.lib;..\lib\MinSizeRel\QSBD_GLOBAL_GEN.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>..\lib\MinSizeRel\gtest_main.lib;..\lib\MinSizeRel\QSBD_GLOBAL_GEN.lib;..\lib\MinSizeRel\QSBD_Q_DIGEST_FACTORY.lib;..\lib\MinSizeRel\QSBD_Q_DIGEST.lib;..\lib\MinSizeRel\QSBD_UTILS.lib;..\lib\MinSizeRel\gtest.lib;..\lib\MinSizeRel\QSBD_QUANTILE_SKETCH.lib;..\lib\MinSizeRel\QSBD_DEBUG.lib;..\lib\MinSizeRel\QSBD_SKETCH_FACTORY.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalOptions>%(AdditionalOptions) /machine:X86 -pg -fno-omit-frame-pointer -g -O2 -ggdb -fstrict-aliasing</AdditionalOptions>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64 -pg -fno-omit-frame-pointer -g -O2 -ggdb -fstrict-aliasing</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <ImportLibrary>C:/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/lib/MinSizeRel/test_q_digest.lib</ImportLibrary>
@@ -210,7 +213,7 @@
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
     </ProjectReference>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\src;C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\googletest\googletest\include;C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\googletest\googletest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) -pg -fno-omit-frame-pointer -g -ggdb -fstrict-aliasing</AdditionalOptions>
@@ -239,9 +242,9 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>..\lib\RelWithDebInfo\gtest_main.lib;..\lib\RelWithDebInfo\QSBD_Q_DIGEST.lib;..\lib\RelWithDebInfo\QSBD_UTILS.lib;..\lib\RelWithDebInfo\gtest.lib;..\lib\RelWithDebInfo\QSBD_QUANTILE_SKETCH.lib;..\lib\RelWithDebInfo\QSBD_COMMUM_HEADER.lib;..\lib\RelWithDebInfo\QSBD_GLOBAL_GEN.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>..\lib\RelWithDebInfo\gtest_main.lib;..\lib\RelWithDebInfo\QSBD_GLOBAL_GEN.lib;..\lib\RelWithDebInfo\QSBD_Q_DIGEST_FACTORY.lib;..\lib\RelWithDebInfo\QSBD_Q_DIGEST.lib;..\lib\RelWithDebInfo\QSBD_UTILS.lib;..\lib\RelWithDebInfo\gtest.lib;..\lib\RelWithDebInfo\QSBD_QUANTILE_SKETCH.lib;..\lib\RelWithDebInfo\QSBD_DEBUG.lib;..\lib\RelWithDebInfo\QSBD_SKETCH_FACTORY.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalOptions>%(AdditionalOptions) /machine:X86 -pg -fno-omit-frame-pointer -g -O2 -ggdb -fstrict-aliasing</AdditionalOptions>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64 -pg -fno-omit-frame-pointer -g -O2 -ggdb -fstrict-aliasing</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <ImportLibrary>C:/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/lib/RelWithDebInfo/test_q_digest.lib</ImportLibrary>
@@ -254,8 +257,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <CustomBuild Include="C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\test\CMakeLists.txt">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule C:/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/CMakeLists.txt</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
 "C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/Marcos/Desktop/Meus projetos/Big-Data-IC" "-BC:/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" --check-stamp-file "C:/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test/CMakeFiles/generate.stamp"
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
@@ -264,11 +267,11 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\build\test\CMakeFiles\generate.stamp</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule C:/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/CMakeLists.txt</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\build\test\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
 "C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/Marcos/Desktop/Meus projetos/Big-Data-IC" "-BC:/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" --check-stamp-file "C:/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test/CMakeFiles/generate.stamp"
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
@@ -277,11 +280,11 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\build\test\CMakeFiles\generate.stamp</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Building Custom Rule C:/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/CMakeLists.txt</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\build\test\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
 "C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/Marcos/Desktop/Meus projetos/Big-Data-IC" "-BC:/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" --check-stamp-file "C:/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test/CMakeFiles/generate.stamp"
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
@@ -290,11 +293,11 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\build\test\CMakeFiles\generate.stamp</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building Custom Rule C:/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/CMakeLists.txt</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\build\test\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
 "C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/Marcos/Desktop/Meus projetos/Big-Data-IC" "-BC:/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" --check-stamp-file "C:/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test/CMakeFiles/generate.stamp"
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
@@ -303,9 +306,9 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\build\test\CMakeFiles\generate.stamp</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\build\test\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
@@ -318,9 +321,9 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\build\src\QSBD_COMMUM_HEADER.vcxproj">
-      <Project>{3FB85DE4-3141-32B0-890F-79C61A3E5186}</Project>
-      <Name>QSBD_COMMUM_HEADER</Name>
+    <ProjectReference Include="C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\build\src\QSBD_DEBUG.vcxproj">
+      <Project>{3FE1F193-8808-3688-8EB2-8F4D3CE19297}</Project>
+      <Name>QSBD_DEBUG</Name>
     </ProjectReference>
     <ProjectReference Include="C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\build\src\QSBD_GLOBAL_GEN.vcxproj">
       <Project>{C7364047-4FCD-31FF-998C-96CAC4FB05BD}</Project>
@@ -333,6 +336,14 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ProjectReference Include="C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\build\src\QSBD_Q_DIGEST.vcxproj">
       <Project>{17FAE051-AEC5-3442-907C-D92A0530E579}</Project>
       <Name>QSBD_Q_DIGEST</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\build\src\QSBD_Q_DIGEST_FACTORY.vcxproj">
+      <Project>{76467E3C-AE23-327E-B910-BFF791BCCB12}</Project>
+      <Name>QSBD_Q_DIGEST_FACTORY</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\build\src\QSBD_SKETCH_FACTORY.vcxproj">
+      <Project>{97726D92-CBCE-3934-9A75-8DAC5F0D09E7}</Project>
+      <Name>QSBD_SKETCH_FACTORY</Name>
     </ProjectReference>
     <ProjectReference Include="C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\build\src\QSBD_UTILS.vcxproj">
       <Project>{A1227CE1-0CCB-3655-8AF9-CEA83EBE85D3}</Project>

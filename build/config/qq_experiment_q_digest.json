@@ -4,7 +4,6 @@
         "error" : 0.3,
         "universe": 1024
     },
-    "resolution" : [0.0, 0.0, 1280.0, 720.0],
-    "deep" : 8,
-    "attempts" : 100
+    "bound_box" : [0.0, 0.0, 1280.0, 720.0],
+    "deep" : 8
 }
