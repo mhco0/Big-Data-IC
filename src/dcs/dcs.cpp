@@ -92,7 +92,7 @@ namespace qsbd {
     }
 
     int dcs::quantile(double quant){
-        // quant must be in [0,1]
+        // quant must be in [0, 1]
 
         int weight = (int) total_weight * quant;
         int x = 0;

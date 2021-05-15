@@ -79,12 +79,12 @@ test_dcs_EXTERNAL_OBJECTS =
 
 bin/test_dcs: test/CMakeFiles/test_dcs.dir/test_dcs.cpp.o
 bin/test_dcs: test/CMakeFiles/test_dcs.dir/build.make
-bin/test_dcs: lib/libgtest_main.a
+bin/test_dcs: lib/libgtest_maind.a
 bin/test_dcs: lib/libQSBD_DCS.a
 bin/test_dcs: lib/libQSBD_STREAM_MAKER.a
 bin/test_dcs: lib/libQSBD_DCS_FACTORY.a
 bin/test_dcs: lib/libQSBD_UTILS.a
-bin/test_dcs: lib/libgtest.a
+bin/test_dcs: lib/libgtestd.a
 bin/test_dcs: lib/libQSBD_DEBUG.a
 bin/test_dcs: lib/libQSBD_DCS.a
 bin/test_dcs: lib/libQSBD_QUANTILE_SKETCH.a

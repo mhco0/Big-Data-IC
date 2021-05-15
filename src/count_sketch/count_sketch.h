@@ -23,7 +23,7 @@ namespace qsbd {
 
         void update(int elem, int weight);
         int query(int elem);
-        count_sketch* merge(const count_sketch& rhs);
+        count_sketch* merge(count_sketch& rhs);
 
         int get_d() const;
         int get_t() const;

@@ -6,35 +6,30 @@ namespace qsbd {
 
         std::uniform_int_distribution<unsigned long long int> distribution(1LL, this->big_prim - 1);
 
-        this->k_indepent = k;
+        this->_k = k;
         this->universe = universe;
 
-
-        this->constants.assign(k_indepent, 0);
-
-        for(auto& it : constants){
-            it = distribution(generator);
+        for(int i = 0; i < _k; i++){
+            constants.push_back(distribution(generator));
         }
     }
 
-    k_wise_family::k_wise_family(int k, unsigned long long int universe, std::vector<ll> conf){
+    k_wise_family::k_wise_family(int k, unsigned long long int universe, const std::vector<ll>& conf){
         this->big_prim = nextPrime(universe);
-        this->k_indepent = k;
+        this->_k = k;
         this->universe = universe;
-        this->constants.assign(k_indepent, 0);
 
-        assert(conf.size() == constants.size());
+        assert(conf.size() == _k);
 
         for(int i = 0; i < conf.size(); i++){
-            constants[i] = conf[i];
+            constants.push_back(conf[i]);
         }
-
     }
 
     unsigned long long int k_wise_family::operator() (unsigned long long int elem){
         unsigned long long int parse_sum = 0LL;
 
-        for(int i = 0; i < this->k_indepent; i++){
+        for(int i = 0; i < this->_k; i++){
             unsigned long long int exp_x = 1LL;
 
             for(int j = 0; j < i; j++){
@@ -56,6 +51,6 @@ namespace qsbd {
     }
 
     int k_wise_family::get_k() const {
-        return this->k_indepent;
+        return this->_k;
     }
 }

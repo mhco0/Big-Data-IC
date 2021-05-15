@@ -148,7 +148,7 @@ namespace qsbd {
         else return (ranks[size/2 - 1] + ranks[size / 2]) / 2;
     }
 
-    count_sketch* count_sketch::merge(const count_sketch& rhs){
+    count_sketch* count_sketch::merge(count_sketch& rhs){
         assert(this->t == rhs.t);
         assert(this->d == rhs.d);
 

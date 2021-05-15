@@ -79,9 +79,9 @@ test_json_EXTERNAL_OBJECTS =
 
 bin/test_json: test/CMakeFiles/test_json.dir/test_json.cpp.o
 bin/test_json: test/CMakeFiles/test_json.dir/build.make
-bin/test_json: lib/libgtest_main.a
+bin/test_json: lib/libgtest_maind.a
 bin/test_json: lib/libnlohmann_json.a
-bin/test_json: lib/libgtest.a
+bin/test_json: lib/libgtestd.a
 bin/test_json: test/CMakeFiles/test_json.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ../bin/test_json"
 	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/test_json.dir/link.txt --verbose=$(VERBOSE)

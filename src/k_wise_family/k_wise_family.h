@@ -12,11 +12,11 @@ namespace qsbd{
 		ll big_prim = 2LL;
 		std::vector<ll> constants;
 		ll universe;
-		int k_indepent;
+		int _k;
 	public:
 		k_wise_family(int k, ll universe);
 
-		k_wise_family(int k, ll universe, std::vector<ll> conf);
+		k_wise_family(int k, ll universe, const std::vector<ll>& conf);
 
 		~k_wise_family(){}
 		

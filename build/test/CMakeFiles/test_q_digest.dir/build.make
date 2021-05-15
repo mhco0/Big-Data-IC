@@ -79,13 +79,13 @@ test_q_digest_EXTERNAL_OBJECTS =
 
 bin/test_q_digest: test/CMakeFiles/test_q_digest.dir/test_q_digest.cpp.o
 bin/test_q_digest: test/CMakeFiles/test_q_digest.dir/build.make
-bin/test_q_digest: lib/libgtest_main.a
+bin/test_q_digest: lib/libgtest_maind.a
 bin/test_q_digest: lib/libQSBD_STREAM_MAKER.a
 bin/test_q_digest: lib/libQSBD_GLOBAL_GEN.a
 bin/test_q_digest: lib/libQSBD_Q_DIGEST_FACTORY.a
 bin/test_q_digest: lib/libQSBD_Q_DIGEST.a
 bin/test_q_digest: lib/libQSBD_UTILS.a
-bin/test_q_digest: lib/libgtest.a
+bin/test_q_digest: lib/libgtestd.a
 bin/test_q_digest: lib/libQSBD_COMMUM_HEADER.a
 bin/test_q_digest: lib/libQSBD_DEBUG.a
 bin/test_q_digest: lib/libQSBD_QUANTILE_SKETCH.a
