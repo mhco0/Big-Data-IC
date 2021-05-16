@@ -24,6 +24,7 @@ test/CMakeFiles/test_k_wise_family.dir/test_k_wise_family.cpp.o: ../googletest/g
 test/CMakeFiles/test_k_wise_family.dir/test_k_wise_family.cpp.o: ../src/commum_header/commum_header.h
 test/CMakeFiles/test_k_wise_family.dir/test_k_wise_family.cpp.o: ../src/global_generator/global_generator.h
 test/CMakeFiles/test_k_wise_family.dir/test_k_wise_family.cpp.o: ../src/k_wise_family/k_wise_family.h
+test/CMakeFiles/test_k_wise_family.dir/test_k_wise_family.cpp.o: ../src/qsbd_debug/qsbd_debug.h
 test/CMakeFiles/test_k_wise_family.dir/test_k_wise_family.cpp.o: ../src/utils/utils.h
 test/CMakeFiles/test_k_wise_family.dir/test_k_wise_family.cpp.o: ../test/test_k_wise_family.cpp
 

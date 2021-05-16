@@ -39,6 +39,8 @@ limits
 -
 
 /mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/count_sketch/count_sketch.h
+../qsbd_debug/qsbd_debug.h
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/qsbd_debug/qsbd_debug.h
 ../global_generator/global_generator.h
 /mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/global_generator/global_generator.h
 ../commum_header/commum_header.h
@@ -73,6 +75,12 @@ random
 /mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/global_generator/global_generator.h
 ../utils/utils.h
 /mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/utils/utils.h
+../qsbd_debug/qsbd_debug.h
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/qsbd_debug/qsbd_debug.h
+
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/qsbd_debug/qsbd_debug.h
+iostream
+-
 
 /mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/quantile_sketch/quantile_sketch.hpp
 

@@ -5,5 +5,6 @@ src/CMakeFiles/QSBD_K_WISE_FAMILY.dir/k_wise_family/k_wise_family.cpp.o: ../src/
 src/CMakeFiles/QSBD_K_WISE_FAMILY.dir/k_wise_family/k_wise_family.cpp.o: ../src/global_generator/global_generator.h
 src/CMakeFiles/QSBD_K_WISE_FAMILY.dir/k_wise_family/k_wise_family.cpp.o: ../src/k_wise_family/k_wise_family.cpp
 src/CMakeFiles/QSBD_K_WISE_FAMILY.dir/k_wise_family/k_wise_family.cpp.o: ../src/k_wise_family/k_wise_family.h
+src/CMakeFiles/QSBD_K_WISE_FAMILY.dir/k_wise_family/k_wise_family.cpp.o: ../src/qsbd_debug/qsbd_debug.h
 src/CMakeFiles/QSBD_K_WISE_FAMILY.dir/k_wise_family/k_wise_family.cpp.o: ../src/utils/utils.h
 

@@ -2,7 +2,8 @@
 
 
 namespace qsbd {
-    count_sketch::count_sketch(double err, double delt){
+
+    void count_sketch::set_param_double(double err, double delt){
         this->error = err;
         this->delta = delt;
 
@@ -12,6 +13,23 @@ namespace qsbd {
             if(random_bit & 1) return 1;
             else return -1;
         };
+    }
+
+    void count_sketch::set_param_int(int fixd, int fixt){
+        this->d = fixd;
+        this->t = fixt;
+
+        this->error = 3.0 / this->t;
+        this->delta = exp(-this->d / 48.0);
+
+        this->g = [](int random_bit){
+            if(random_bit & 1) return 1;
+            else return -1;
+        };
+    }
+
+    count_sketch::count_sketch(double err, double delt){
+        this->set_param_double(err, delt);
 
         this->estimators.assign(this->d, {});
         for(int i = 0; i < this->d; i++){
@@ -26,15 +44,7 @@ namespace qsbd {
     }
 
     count_sketch::count_sketch(double err, double delt, const std::vector<k_wise_family>& hashs){
-        this->error = err;
-        this->delta = delt;
-
-        this->d = ceil(48 * log(1.0 / delta));
-        this->t = 3.0 / error;
-        this->g = [](int random_bit){
-            if(random_bit & 1) return 1;
-            else return -1;
-        };
+        this->set_param_double(err, delt);
 
         this->estimators.assign(this->d, {});
         for(int i = 0; i < this->d; i++){
@@ -42,42 +52,16 @@ namespace qsbd {
         }
 
         // the hash should map to 2 * t
-        //this->hash_functions = hashs;
 
         for(int i = 0; i < this->d; i++){
-            k_wise_family h(hashs[i].get_k(), hashs[i].get_universe(), hashs[i].get_constants());
+            k_wise_family h(hashs[i]);
 
             this->hash_functions.push_back(h);
         }
     }
 
-    count_sketch::count_sketch(double err, double delt, const std::vector<k_wise_family>& hashs, const std::vector<std::vector<int>>& est){
-        this->error = err;
-        this->delta = delt;
-
-        this->d = ceil(48 * log(1.0 / delta));
-        this->t = 3.0 / error;
-        this->g = [](int random_bit){
-            if(random_bit & 1) return 1;
-            else return -1;
-        };
-
-        this->estimators = est;
-        // The hash should map to 2 * t
-        this->hash_functions = hashs;
-    }
-
     count_sketch::count_sketch(int fixd, int fixt){
-        this->d = fixd;
-        this->t = fixt;
-
-        this->error = 3.0 / this->t;
-        this->delta = exp(-this->d / 48.0);
-
-        this->g = [](int random_bit){
-            if(random_bit & 1) return 1;
-            else return -1;
-        };
+        this->set_param_int(fixd, fixt);
 
         this->estimators.assign(this->d, {});
         for(int i = 0; i < this->d; i++){
@@ -92,26 +76,15 @@ namespace qsbd {
     }
 
     count_sketch::count_sketch(int fixd, int fixt, const std::vector<k_wise_family>& hashs){
-        this->d = fixd;
-        this->t = fixt;
-
-        this->error = 3.0 / this->t;
-        this->delta = exp(-this->d / 48.0);
-
-        this->g = [](int random_bit){
-            if(random_bit & 1) return 1;
-            else return -1;
-        };
+        this->set_param_int(fixd, fixt);
 
         this->estimators.assign(this->d, {});
         for(int i = 0; i < this->d; i++){
             this->estimators[i].assign(this->t, 0);
         }
 
-
-        //this->hash_functions = hashs;
         for(int i = 0; i < this->d; i++){
-            k_wise_family h(hashs[i].get_k(), hashs[i].get_universe(), hashs[i].get_constants());
+            k_wise_family h(hashs[i]);
 
             this->hash_functions.push_back(h);
         }
@@ -149,26 +122,20 @@ namespace qsbd {
     }
 
     count_sketch* count_sketch::merge(count_sketch& rhs){
-        assert(this->t == rhs.t);
-        assert(this->d == rhs.d);
+        ASSERT(this->t == rhs.t);
+        ASSERT(this->d == rhs.d);
 
         for(int i = 0; i < this->d; i++){
-            assert(this->hash_functions[i].get_constants() == rhs.hash_functions[i].get_constants());
+            ASSERT(this->hash_functions[i].get_constants() == rhs.hash_functions[i].get_constants());
         }
 
-        std::vector<std::vector<int>> merged_v;
+        count_sketch* merged_cs = new count_sketch(this->error, this->delta, this->hash_functions);
 
-        merged_v.assign(this->d, {});
-
-        for(int i = 0; i < this->d; i++){
-            merged_v[i].assign(this->t, 0);
-
-            for(int j = 0; j < this->t; j++){
-                merged_v[i][j] =  this->estimators[i][j] + rhs.estimators[i][j];
+        for(int i = 0; i < merged_cs->d; i++){
+            for(int j = 0; j < merged_cs->t; j++){
+                merged_cs->estimators[i][j] = this->estimators[i][j] + rhs.estimators[i][j];
             }
         }
-
-        count_sketch* merged_cs = new count_sketch(this->error, this->delta, this->hash_functions, merged_v);
 
         return merged_cs;
     }

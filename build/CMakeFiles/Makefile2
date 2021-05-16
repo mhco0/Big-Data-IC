@@ -447,6 +447,7 @@ thirdparty/CMakeFiles/nlohmann_json.dir/clean:
 # All Build rule for target.
 src/CMakeFiles/QSBD_DCS.dir/all: src/CMakeFiles/QSBD_K_WISE_FAMILY.dir/all
 src/CMakeFiles/QSBD_DCS.dir/all: src/CMakeFiles/QSBD_COUNT_SKETCH.dir/all
+src/CMakeFiles/QSBD_DCS.dir/all: src/CMakeFiles/QSBD_DEBUG.dir/all
 src/CMakeFiles/QSBD_DCS.dir/all: src/CMakeFiles/QSBD_UTILS.dir/all
 src/CMakeFiles/QSBD_DCS.dir/all: src/CMakeFiles/QSBD_COMMUM_HEADER.dir/all
 src/CMakeFiles/QSBD_DCS.dir/all: src/CMakeFiles/QSBD_GLOBAL_GEN.dir/all
@@ -458,7 +459,7 @@ src/CMakeFiles/QSBD_DCS.dir/all: src/CMakeFiles/QSBD_QUANTILE_SKETCH.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/QSBD_DCS.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 12
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 13
 	$(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/QSBD_DCS.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : src/CMakeFiles/QSBD_DCS.dir/rule
@@ -532,6 +533,7 @@ src/CMakeFiles/QSBD_KLL.dir/clean:
 # Target rules for target src/CMakeFiles/QSBD_K_WISE_FAMILY.dir
 
 # All Build rule for target.
+src/CMakeFiles/QSBD_K_WISE_FAMILY.dir/all: src/CMakeFiles/QSBD_DEBUG.dir/all
 src/CMakeFiles/QSBD_K_WISE_FAMILY.dir/all: src/CMakeFiles/QSBD_UTILS.dir/all
 src/CMakeFiles/QSBD_K_WISE_FAMILY.dir/all: src/CMakeFiles/QSBD_GLOBAL_GEN.dir/all
 	$(MAKE) -f src/CMakeFiles/QSBD_K_WISE_FAMILY.dir/build.make src/CMakeFiles/QSBD_K_WISE_FAMILY.dir/depend
@@ -541,7 +543,7 @@ src/CMakeFiles/QSBD_K_WISE_FAMILY.dir/all: src/CMakeFiles/QSBD_GLOBAL_GEN.dir/al
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/QSBD_K_WISE_FAMILY.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 6
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 7
 	$(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/QSBD_K_WISE_FAMILY.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : src/CMakeFiles/QSBD_K_WISE_FAMILY.dir/rule
@@ -645,6 +647,7 @@ src/CMakeFiles/QSBD_TIMER.dir/clean:
 
 # All Build rule for target.
 src/CMakeFiles/QSBD_COUNT_SKETCH.dir/all: src/CMakeFiles/QSBD_K_WISE_FAMILY.dir/all
+src/CMakeFiles/QSBD_COUNT_SKETCH.dir/all: src/CMakeFiles/QSBD_DEBUG.dir/all
 src/CMakeFiles/QSBD_COUNT_SKETCH.dir/all: src/CMakeFiles/QSBD_UTILS.dir/all
 src/CMakeFiles/QSBD_COUNT_SKETCH.dir/all: src/CMakeFiles/QSBD_COMMUM_HEADER.dir/all
 src/CMakeFiles/QSBD_COUNT_SKETCH.dir/all: src/CMakeFiles/QSBD_GLOBAL_GEN.dir/all
@@ -655,7 +658,7 @@ src/CMakeFiles/QSBD_COUNT_SKETCH.dir/all: src/CMakeFiles/QSBD_GLOBAL_GEN.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/QSBD_COUNT_SKETCH.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 9
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 10
 	$(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/QSBD_COUNT_SKETCH.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : src/CMakeFiles/QSBD_COUNT_SKETCH.dir/rule
@@ -1132,6 +1135,7 @@ src/CMakeFiles/QSBD_AABB.dir/clean:
 src/CMakeFiles/QSBD_DCS_FACTORY.dir/all: src/CMakeFiles/QSBD_DCS.dir/all
 src/CMakeFiles/QSBD_DCS_FACTORY.dir/all: src/CMakeFiles/QSBD_K_WISE_FAMILY.dir/all
 src/CMakeFiles/QSBD_DCS_FACTORY.dir/all: src/CMakeFiles/QSBD_COUNT_SKETCH.dir/all
+src/CMakeFiles/QSBD_DCS_FACTORY.dir/all: src/CMakeFiles/QSBD_DEBUG.dir/all
 src/CMakeFiles/QSBD_DCS_FACTORY.dir/all: src/CMakeFiles/QSBD_UTILS.dir/all
 src/CMakeFiles/QSBD_DCS_FACTORY.dir/all: src/CMakeFiles/QSBD_COMMUM_HEADER.dir/all
 src/CMakeFiles/QSBD_DCS_FACTORY.dir/all: src/CMakeFiles/QSBD_GLOBAL_GEN.dir/all
@@ -1144,7 +1148,7 @@ src/CMakeFiles/QSBD_DCS_FACTORY.dir/all: src/CMakeFiles/QSBD_QUANTILE_SKETCH.dir
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/QSBD_DCS_FACTORY.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 14
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 15
 	$(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/QSBD_DCS_FACTORY.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : src/CMakeFiles/QSBD_DCS_FACTORY.dir/rule
@@ -1405,6 +1409,7 @@ test/CMakeFiles/test_quantile_quadtree.dir/clean:
 test/CMakeFiles/test_k_wise_family.dir/all: googletest/googletest/CMakeFiles/gtest_main.dir/all
 test/CMakeFiles/test_k_wise_family.dir/all: googletest/googletest/CMakeFiles/gtest.dir/all
 test/CMakeFiles/test_k_wise_family.dir/all: src/CMakeFiles/QSBD_K_WISE_FAMILY.dir/all
+test/CMakeFiles/test_k_wise_family.dir/all: src/CMakeFiles/QSBD_DEBUG.dir/all
 test/CMakeFiles/test_k_wise_family.dir/all: src/CMakeFiles/QSBD_UTILS.dir/all
 test/CMakeFiles/test_k_wise_family.dir/all: src/CMakeFiles/QSBD_COMMUM_HEADER.dir/all
 test/CMakeFiles/test_k_wise_family.dir/all: src/CMakeFiles/QSBD_GLOBAL_GEN.dir/all
@@ -1415,7 +1420,7 @@ test/CMakeFiles/test_k_wise_family.dir/all: src/CMakeFiles/QSBD_GLOBAL_GEN.dir/a
 
 # Build rule for subdir invocation for target.
 test/CMakeFiles/test_k_wise_family.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 13
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 14
 	$(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_k_wise_family.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : test/CMakeFiles/test_k_wise_family.dir/rule

@@ -10,7 +10,7 @@ namespace qsbd {
         this->universe = universe;
 
         for(int i = 0; i < _k; i++){
-            constants.push_back(distribution(generator));
+            this->constants.push_back(distribution(generator));
         }
     }
 
@@ -19,14 +19,27 @@ namespace qsbd {
         this->_k = k;
         this->universe = universe;
 
-        assert(conf.size() == _k);
+        ASSERT(conf.size() == this->_k);
 
         for(int i = 0; i < conf.size(); i++){
-            constants.push_back(conf[i]);
+            this->constants.push_back(conf[i]);
         }
     }
 
-    unsigned long long int k_wise_family::operator() (unsigned long long int elem){
+    k_wise_family::k_wise_family(const k_wise_family& rhs){
+        this->big_prim = rhs.big_prim;
+        this->_k = rhs._k;
+        this->universe = rhs.universe;
+
+        for(int i = 0; i < rhs.constants.size(); i++){
+            this->constants.push_back(rhs.constants[i]);
+        }
+    }
+
+    k_wise_family::~k_wise_family(){
+    }
+
+    unsigned long long int k_wise_family::operator() (unsigned long long int elem) {
         unsigned long long int parse_sum = 0LL;
 
         for(int i = 0; i < this->_k; i++){

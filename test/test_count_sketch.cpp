@@ -67,7 +67,6 @@ TEST(CountScketchTest, TestQueryAndBounds){
             cs.update(it.first, it.second);
         }
 
-
         for(auto& it : frequency){
             int approx_f = cs.query(it.first);
             int real_f = it.second;
