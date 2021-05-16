@@ -1,7 +1,11 @@
 #include "count_sketch.h"
 
-
 namespace qsbd {
+
+    int count_sketch::g(int random_bit){
+        if(random_bit & 1) return 1;
+        else return -1;
+    }
 
     void count_sketch::set_param_double(double err, double delt){
         this->error = err;
@@ -9,10 +13,6 @@ namespace qsbd {
 
         this->d = (int) ceil(48 * log(1.0 / delta));
         this->t = (int) (3.0 / error);
-        this->g = [](int random_bit){
-            if(random_bit & 1) return 1;
-            else return -1;
-        };
     }
 
     void count_sketch::set_param_int(int fixd, int fixt){
@@ -21,11 +21,6 @@ namespace qsbd {
 
         this->error = 3.0 / this->t;
         this->delta = exp(-this->d / 48.0);
-
-        this->g = [](int random_bit){
-            if(random_bit & 1) return 1;
-            else return -1;
-        };
     }
 
     count_sketch::count_sketch(double err, double delt){

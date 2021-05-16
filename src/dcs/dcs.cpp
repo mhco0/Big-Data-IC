@@ -1,15 +1,8 @@
 #include "dcs.h"
 
 namespace qsbd {
-
-    dcs::dcs(double err, int universe, const std::vector<count_sketch>& other_est){
-        this->universe = universe;
-        this->error = err;
-        this->total_weight = 0;
-        this->w = (int) (sqrt(log2(universe) * log(log2(universe) / err)) / err);
-        this->d = (int) log(log2(universe) / err);
-        this->s = std::max((int) floor(log2(universe / (double) (this->w * this->d))), 0);
-        this->lvls = ceil(log2(universe));
+    dcs::dcs(double err, int univ, const std::vector<count_sketch>& other_est){
+        this->set_params(err, univ);
 
         this->frequency_counters.assign(this->lvls - (this->s + 1), {});
 
@@ -26,19 +19,23 @@ namespace qsbd {
         }
     }
 
-    std::vector<count_sketch> dcs::get_estimators() const {
-        return this->estimators;
-    }
-
-
-    dcs::dcs(double err, int universe){
-        this->universe = universe;
+    void dcs::set_params(double err, int univ){
+        this->universe = univ;
         this->error = err;
         this->total_weight = 0;
         this->w = (int) (sqrt(log2(universe) * log(log2(universe) / err)) / err);
         this->d = (int) log(log2(universe) / err);
         this->s = std::max((int) floor(log2(universe / (double) (this->w * this->d))), 0);
         this->lvls = ceil(log2(universe));
+    }
+
+    std::vector<count_sketch> dcs::get_estimators() const {
+        return this->estimators;
+    }
+
+
+    dcs::dcs(double err, int univ){
+        this->set_params(err, univ);
 
         this->frequency_counters.assign(this->lvls - (this->s + 1), {});
 
@@ -121,17 +118,17 @@ namespace qsbd {
         dcs& rhs_cv = dynamic_cast<dcs&> (rhs);
 
         if(&rhs_cv == nullptr){
-            std::cerr << "Error in dcs cast" << std::endl;
+            DEBUG_ERR("Error in dcs cast");
             return nullptr;
         }
 
         if(this->error - rhs_cv.error > 1e-6){
-            std::cerr << "dcs's error need to match" << std::endl;
+            DEBUG_ERR("dcs's error need to match");
             return nullptr;
         }
 
         if(this->universe != rhs_cv.universe){
-            std::cerr << "dcs's universe need to match" << std::endl;
+            DEBUG_ERR("dcs's universe need to match");
             return nullptr;
         }
 

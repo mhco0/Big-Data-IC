@@ -3,6 +3,7 @@
 #include "../commum_header/commum_header.h"
 #include "../global_generator/global_generator.h"
 #include "../quantile_sketch/quantile_sketch.hpp"
+#include "../qsbd_debug/qsbd_debug.h"
 
 namespace qsbd {
     template<class T>

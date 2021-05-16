@@ -62,12 +62,12 @@ namespace qsbd {
     quantile_sketch<T>* kll<T>::merge(quantile_sketch<T>& rhs){
         kll<T>& rhs_cv = dynamic_cast<kll<T>&> (rhs);
         if(&rhs_cv == nullptr){
-            std::cerr << "Error in kll cast" << std::endl;
+            DEBUG_ERR("Error in kll cast");
             return nullptr;
         }
 
         if((rhs_cv.error - this->error) > 1e-6){
-            std::cerr << "kll's error need to match" << std::endl;
+            DEBUG_ERR("kll's error need to match");
             return nullptr;
         }
 
@@ -118,7 +118,7 @@ namespace qsbd {
     void kll<T>::print(){
         for(int l = 0; l <= height; l++){
             std::cout << "height [" << l << "]: ";
-            for(auto i:buffers_array[l]){
+            for(auto& i : buffers_array[l]){
                 std::cout << i << " ";
             }
             std::cout << std::endl;

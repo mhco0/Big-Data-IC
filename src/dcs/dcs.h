@@ -4,6 +4,7 @@
 #include "../global_generator/global_generator.h"
 #include "../count_sketch/count_sketch.h"
 #include "../quantile_sketch/quantile_sketch.hpp"
+#include "../qsbd_debug/qsbd_debug.h"
 
 namespace qsbd{
 
@@ -11,7 +12,7 @@ namespace qsbd{
 
     class dcs : public quantile_sketch<int>{
     private: 
-        friend class qsbd::dcs_factory;
+        friend class dcs_factory;
 
         int universe;
         double error;
@@ -24,11 +25,11 @@ namespace qsbd{
         std::vector<std::vector<int>> frequency_counters;
         std::vector<count_sketch> estimators;
 
-        dcs(double err, int universe, const std::vector<count_sketch>& other_est);
-
+        dcs(double err, int univ, const std::vector<count_sketch>& other_est);
+        void set_params(double err, int univ);
         std::vector<count_sketch> get_estimators() const;
     public:
-        dcs(double err, int universe);
+        dcs(double err, int univ);
         ~dcs();
 
         void update(int x, int weight) override;

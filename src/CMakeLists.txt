@@ -187,6 +187,7 @@ target_link_libraries(QSBD_COUNT_SKETCH PUBLIC QSBD_GLOBAL_GEN)
 
 target_link_libraries(QSBD_KLL PUBLIC QSBD_COMMUM_HEADER)
 target_link_libraries(QSBD_KLL PUBLIC QSBD_GLOBAL_GEN)
+target_link_libraries(QSBD_KLL PUBLIC QSBD_DEBUG)
 
 target_link_libraries(QSBD_DCS PUBLIC QSBD_QUANTILE_SKETCH)
 target_link_libraries(QSBD_DCS PUBLIC QSBD_COMMUM_HEADER)

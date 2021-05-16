@@ -85,10 +85,10 @@ bin/test_kll: lib/libQSBD_STREAM_MAKER.a
 bin/test_kll: lib/libQSBD_KLL_FACTORY.a
 bin/test_kll: lib/libQSBD_UTILS.a
 bin/test_kll: lib/libgtestd.a
-bin/test_kll: lib/libQSBD_DEBUG.a
 bin/test_kll: lib/libQSBD_KLL.a
 bin/test_kll: lib/libQSBD_COMMUM_HEADER.a
 bin/test_kll: lib/libQSBD_GLOBAL_GEN.a
+bin/test_kll: lib/libQSBD_DEBUG.a
 bin/test_kll: lib/libQSBD_SKETCH_FACTORY.a
 bin/test_kll: test/CMakeFiles/test_kll.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ../bin/test_kll"

@@ -15,13 +15,13 @@ namespace qsbd {
         double error, delta;
         // d is the number of rows and t is the number of collums for the estimator matrix
         int d, t;
-        std::function<int(int)> g;
         std::vector<k_wise_family> hash_functions;
         std::vector<std::vector<int>> estimators;
 
         void set_param_double(double err, double delt);
         void set_param_int(int fixd, int fixt);
 
+        int g(int random_bit);
         count_sketch(int fixd, int fixt);
         count_sketch(int fixd, int fixt, const std::vector<k_wise_family>& hashs);
     public:

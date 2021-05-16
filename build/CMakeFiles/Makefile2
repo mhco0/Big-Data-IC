@@ -505,6 +505,7 @@ src/CMakeFiles/QSBD_LOG.dir/clean:
 # Target rules for target src/CMakeFiles/QSBD_KLL.dir
 
 # All Build rule for target.
+src/CMakeFiles/QSBD_KLL.dir/all: src/CMakeFiles/QSBD_DEBUG.dir/all
 src/CMakeFiles/QSBD_KLL.dir/all: src/CMakeFiles/QSBD_COMMUM_HEADER.dir/all
 src/CMakeFiles/QSBD_KLL.dir/all: src/CMakeFiles/QSBD_GLOBAL_GEN.dir/all
 	$(MAKE) -f src/CMakeFiles/QSBD_KLL.dir/build.make src/CMakeFiles/QSBD_KLL.dir/depend
@@ -514,7 +515,7 @@ src/CMakeFiles/QSBD_KLL.dir/all: src/CMakeFiles/QSBD_GLOBAL_GEN.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/QSBD_KLL.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 5
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 6
 	$(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/QSBD_KLL.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : src/CMakeFiles/QSBD_KLL.dir/rule
@@ -1044,6 +1045,7 @@ src/CMakeFiles/QSBD_QUANTILE_QUADTREE.dir/clean:
 
 # All Build rule for target.
 src/CMakeFiles/QSBD_KLL_FACTORY.dir/all: src/CMakeFiles/QSBD_KLL.dir/all
+src/CMakeFiles/QSBD_KLL_FACTORY.dir/all: src/CMakeFiles/QSBD_DEBUG.dir/all
 src/CMakeFiles/QSBD_KLL_FACTORY.dir/all: src/CMakeFiles/QSBD_COMMUM_HEADER.dir/all
 src/CMakeFiles/QSBD_KLL_FACTORY.dir/all: src/CMakeFiles/QSBD_GLOBAL_GEN.dir/all
 src/CMakeFiles/QSBD_KLL_FACTORY.dir/all: src/CMakeFiles/QSBD_SKETCH_FACTORY.dir/all
@@ -1054,7 +1056,7 @@ src/CMakeFiles/QSBD_KLL_FACTORY.dir/all: src/CMakeFiles/QSBD_SKETCH_FACTORY.dir/
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/QSBD_KLL_FACTORY.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 7
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 8
 	$(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/QSBD_KLL_FACTORY.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : src/CMakeFiles/QSBD_KLL_FACTORY.dir/rule

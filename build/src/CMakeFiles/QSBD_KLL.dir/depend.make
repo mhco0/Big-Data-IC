@@ -5,5 +5,6 @@ src/CMakeFiles/QSBD_KLL.dir/kll/kll.cpp.o: ../src/commum_header/commum_header.h
 src/CMakeFiles/QSBD_KLL.dir/kll/kll.cpp.o: ../src/global_generator/global_generator.h
 src/CMakeFiles/QSBD_KLL.dir/kll/kll.cpp.o: ../src/kll/kll.cpp
 src/CMakeFiles/QSBD_KLL.dir/kll/kll.cpp.o: ../src/kll/kll.hpp
+src/CMakeFiles/QSBD_KLL.dir/kll/kll.cpp.o: ../src/qsbd_debug/qsbd_debug.h
 src/CMakeFiles/QSBD_KLL.dir/kll/kll.cpp.o: ../src/quantile_sketch/quantile_sketch.hpp
 
