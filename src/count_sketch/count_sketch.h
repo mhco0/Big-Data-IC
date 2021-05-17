@@ -22,16 +22,20 @@ namespace qsbd {
         void set_param_int(int fixd, int fixt);
 
         int g(int random_bit);
+
         count_sketch(int fixd, int fixt);
         count_sketch(int fixd, int fixt, const std::vector<k_wise_family>& hashs);
     public:
         count_sketch(double err, double delt);
         count_sketch(double err, double delt, const std::vector<k_wise_family>& hashs);
+        count_sketch(const count_sketch& other);
         ~count_sketch();
 
         void update(int elem, int weight);
         int query(int elem);
         count_sketch* merge(count_sketch& rhs);
+
+        count_sketch& operator=(const count_sketch& other);
 
         int get_d() const;
         int get_t() const;

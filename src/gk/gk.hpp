@@ -63,11 +63,6 @@ namespace qsbd {
 
         quantile_sketch<T>* merge(quantile_sketch<T>& rhs) override {
             gk<T>& rhs_cv = dynamic_cast<gk<T>&>(rhs); 
-            
-            if(&rhs_cv == nullptr){
-                DEBUG_ERR("Error in gk cast");
-                return nullptr;
-            }
 
             ASSERT(rhs_cv.epsilon - this->epsilon < 1e-6);
 

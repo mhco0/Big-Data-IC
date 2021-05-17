@@ -377,6 +377,8 @@ limits
 ../src/count_sketch/count_sketch.h
 ../quantile_sketch/quantile_sketch.hpp
 ../src/quantile_sketch/quantile_sketch.hpp
+../qsbd_debug/qsbd_debug.h
+../src/qsbd_debug/qsbd_debug.h
 
 ../src/dcs_factory/dcs_factory.h
 ../sketch_factory/sketch_factory.hpp

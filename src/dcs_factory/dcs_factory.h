@@ -24,10 +24,7 @@ namespace qsbd{
         }
 
         quantile_sketch<int> * instance() override {
-            quantile_sketch<int> * ret  = new dcs(this->error, this->universe, this->estimators);
-
-
-            return ret;
+            return new dcs(this->error, this->universe, this->estimators);
         }
     };
 }

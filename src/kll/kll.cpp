@@ -14,8 +14,7 @@ namespace qsbd {
 
     template<class T>
     void kll<T>::insert_sorted(std::vector<T>& buffer, const T& elem){
-
-        buffer.insert( upper_bound(buffer.begin(), buffer.end(), elem), elem);
+        buffer.insert(upper_bound(buffer.begin(), buffer.end(), elem), elem);
     }
 
     template<class T>

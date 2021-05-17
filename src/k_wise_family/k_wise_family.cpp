@@ -1,6 +1,7 @@
 #include "k_wise_family.h"
 
 namespace qsbd {
+
     k_wise_family::k_wise_family(int k, unsigned long long int universe){
         this->big_prim = nextPrime(universe);
 
@@ -53,6 +54,21 @@ namespace qsbd {
         }
 
         return (parse_sum % this->big_prim);
+    }
+
+    k_wise_family& k_wise_family::operator=(const k_wise_family& other){
+        if(this != &other){
+            this->big_prim = other.big_prim;
+            this->_k = other._k;
+            this->universe = other.universe;
+            this->constants.resize(other.constants.size());
+
+            for(int i = 0; i < other.constants.size(); i++){
+                this->constants[i] = other.constants[i];
+            }
+        }
+
+        return *this;
     }
 
     std::vector<unsigned long long int> k_wise_family::get_constants() const {

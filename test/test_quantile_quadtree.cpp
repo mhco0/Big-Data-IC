@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include <memory_tracker/memory_tracker.h>
+//#include <memory_tracker/memory_tracker.h>
 #include <qsbd_debug/qsbd_debug.h>
 #include <timer/timer.h>
 #include <stream_maker/stream_maker.h>
@@ -188,7 +188,7 @@ TEST(QuantileQuadtreeTest, TestConstructWithQDigest){
 
 
 TEST(QuantileQuadtreeTest, TestUpdateAndQueryWithQDigest){
-    int N = 100000;
+    int N = 1000;
     int points_guarantee = 100;
     int universe = 1024;
     int attempts = 1;
@@ -253,7 +253,8 @@ TEST(QuantileQuadtreeTest, TestUpdateAndQueryWithDcs){
     aabb<int> resolution(stod(g_args[0]), stod(g_args[1]), stod(g_args[2]), stod(g_args[3]));
     aabb<int> search_region = construct_aabb_from_random_region(stod(g_args[0]), stod(g_args[1]), stod(g_args[2]), stod(g_args[3]));
 
-	vector<pair<pair<int, int>, pair<double, double>>> stream =  random_stream_in_region_with_weight(N, stod(g_args[0]), stod(g_args[1]), stod(g_args[2]), stod(g_args[3]), 0, N, 1, 50);
+
+	vector<pair<pair<int, int>, pair<double, double>>> stream = random_stream_in_region_with_weight(N, stod(g_args[0]), stod(g_args[1]), stod(g_args[2]), stod(g_args[3]), 0, N, 1, 50);
     vector<pair<pair<int, int>, pair<double, double>>> guarantee_stream = random_stream_in_region_with_weight(points_guarantee, search_region.bounds().first.x(), search_region.bounds().first.y(), search_region.bounds().second.x(), search_region.bounds().second.y(), 0, N, 1, 50);
     for(auto& it : guarantee_stream){
         stream.push_back(it);

@@ -15,9 +15,7 @@ namespace qsbd{
         }
 
         quantile_sketch<int> * instance() override {
-            quantile_sketch<int> * ret  = new q_digest(this->error, this->universe);
-
-            return ret;
+            return new q_digest(this->error, this->universe);
         }
     };
 }

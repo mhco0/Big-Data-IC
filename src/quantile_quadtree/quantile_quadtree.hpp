@@ -197,7 +197,7 @@ namespace qsbd {
 
     public:
         quantile_quadtree(const aabb<int>& region, const int& deep_length, sketch_factory<ObjType>* fact){
-            assert(fact != nullptr);
+            ASSERT(fact != nullptr);
             
             this->boundarys = region;
             this->max_deep = deep_length;
@@ -254,7 +254,6 @@ namespace qsbd {
             while(cur_deep <= this->max_deep and not unit_box(cur_box)){
                 if(this->tree[cur_pos].ne_child_pos == -1){ // leaf
                     //needs to create four new nodes
-
                     int ne_child_pos = alloc_childs();
 
                     this->tree[cur_pos].ne_child_pos = ne_child_pos;
@@ -262,13 +261,13 @@ namespace qsbd {
                 }
 
                 this->tree[cur_pos].payload->update(value, weight);
-                
+
                 change_box(cur_box, what_child);
                 what_child = direction(cur_box, pos);
                 cur_pos = this->tree[cur_pos].ne_child_pos + what_child;
                 cur_deep++;
             }
-
+            
             if(cur_deep == this->max_deep) return true;
             else return false;
         }

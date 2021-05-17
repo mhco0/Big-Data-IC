@@ -18,6 +18,8 @@ int main(int argc, char* argv[]){
     vector<double> bounds = {0.0, 0.0, 1280.0, 720.0};
     int max_deep = 25;
     int stream_sizes = 10000000;
+    double error = 0.3;
+    int universe = 131072;
     
     if(args.size() != 2){
         DEBUG_ERR("You need to pass the test name and the option for the stream\n Ex [gk/ kll/ q_digest/ dcs] [-c/ -cw/ -u/ -uw]");
@@ -55,10 +57,10 @@ int main(int argc, char* argv[]){
         }
 
         config["sketch"]["type"] = args[0];
-        config["sketch"]["error"] = 0.3;
+        config["sketch"]["error"] = error;
 
         if(args[0] == "dcs" or args[0] == "q_digest"){
-            config["sketch"]["universe"] = 131072;
+            config["sketch"]["universe"] = universe;
         }
 
         config["bound_box"] = bounds;

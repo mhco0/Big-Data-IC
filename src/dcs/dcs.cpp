@@ -1,6 +1,16 @@
 #include "dcs.h"
 
 namespace qsbd {
+    void dcs::set_params(double err, int univ){
+        this->universe = univ;
+        this->error = err;
+        this->total_weight = 0;
+        this->w = (int) (sqrt(log2(universe) * log(log2(universe) / err)) / err);
+        this->d = (int) log(log2(universe) / err);
+        this->s = std::max((int) floor(log2(universe / (double) (this->w * this->d))), 0);
+        this->lvls = ceil(log2(universe));
+    }
+
     dcs::dcs(double err, int univ, const std::vector<count_sketch>& other_est){
         this->set_params(err, univ);
 
@@ -13,20 +23,10 @@ namespace qsbd {
         }
 
         for(int i = 0; i <= this->s; i++){
-            count_sketch cs(this->d, this->w, other_est[i].get_hash_functions());
+            count_sketch cs(other_est[i]);
 
             this->estimators.push_back(cs);
         }
-    }
-
-    void dcs::set_params(double err, int univ){
-        this->universe = univ;
-        this->error = err;
-        this->total_weight = 0;
-        this->w = (int) (sqrt(log2(universe) * log(log2(universe) / err)) / err);
-        this->d = (int) log(log2(universe) / err);
-        this->s = std::max((int) floor(log2(universe / (double) (this->w * this->d))), 0);
-        this->lvls = ceil(log2(universe));
     }
 
     std::vector<count_sketch> dcs::get_estimators() const {
@@ -84,7 +84,6 @@ namespace qsbd {
             x = x / 2;
         }
 
-
         return rank;
     }
 
@@ -117,11 +116,6 @@ namespace qsbd {
     quantile_sketch<int> * dcs::merge(quantile_sketch<int>& rhs){
         dcs& rhs_cv = dynamic_cast<dcs&> (rhs);
 
-        if(&rhs_cv == nullptr){
-            DEBUG_ERR("Error in dcs cast");
-            return nullptr;
-        }
-
         if(this->error - rhs_cv.error > 1e-6){
             DEBUG_ERR("dcs's error need to match");
             return nullptr;
@@ -134,13 +128,23 @@ namespace qsbd {
 
         dcs* merged = new dcs(this->error, this->universe);
 
+        merged->total_weight = this->total_weight + rhs_cv.total_weight;
+
         for(int i = 0; i < merged->lvls; i++){
             if(i > merged->s){
                 for(int j = 0; j < merged->frequency_counters[i - (merged->s + 1)].size(); j++){
                     merged->frequency_counters[i - (merged->s + 1)][j] = this->frequency_counters[i - (this->s + 1)][j] + rhs_cv.frequency_counters[i - (rhs_cv.s + 1)][j];
                 }
             }else{
-                merged->estimators[i] = *(this->estimators[i].merge(rhs_cv.estimators[i]));
+                count_sketch * ref = this->estimators[i].merge(rhs_cv.estimators[i]);
+
+                if(ref == nullptr){
+                    DEBUG_ERR("in dcs merge, count_sketch merge fail.");
+                    return nullptr;
+                }
+
+                merged->estimators[i] = *ref;
+                delete ref;
             }
         }
 

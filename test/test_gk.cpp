@@ -147,6 +147,7 @@ TEST(GKTest, TestMerge){
         samples[i] = merged->query(i);
     }
 
+    delete merged;
     cout << "Histogram ranks merged:" << endl;
     histogram_print(samples);
 }
@@ -219,7 +220,7 @@ TEST(GkTest, TestFactory){
 
 	for(int i = 0; i < attempts; i++){
 		gk_factory<int> factory(error);
-		gk<int>* test = dynamic_cast<gk<int> *>(factory.instance());
+		gk<int>* test = dynamic_cast<gk<int>*>(factory.instance());
 
 		for(auto& it : stream){
 			test->update(it);

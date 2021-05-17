@@ -12,7 +12,7 @@ using namespace std;
 
 void gk_run(bool only_update){
     // STREAM
-    int vector_size = 100000; 
+    int vector_size = 1000; 
     int min_v = 0;
     int max_v = 1000;
     double minx = 0.0;
@@ -212,7 +212,7 @@ void q_digest_run(bool only_update){
 
 void dcs_run(bool only_update){
     // STREAM
-    int vector_size = 100000; 
+    int vector_size = 100; 
     int min_v = 0;
     int max_v = 1000;
     double minx = 0.0;

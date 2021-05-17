@@ -15,12 +15,14 @@ namespace qsbd{
 		ll universe;
 		int _k;
 	public:
+		k_wise_family() = default;
 		k_wise_family(int k, ll universe);
 		k_wise_family(int k, ll universe, const std::vector<ll>& conf);
 		k_wise_family(const k_wise_family& rhs);
 		~k_wise_family();
 		
 		ll operator() (ll elem);
+		k_wise_family& operator=(const k_wise_family& other);
 
 		std::vector<ll> get_constants() const;
 		unsigned long long int get_universe() const;

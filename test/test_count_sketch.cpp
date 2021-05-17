@@ -122,6 +122,8 @@ TEST(CountScketchTest, TestMerge){
             
             if(fabs(approx_f - real_f) > (error * total_weight)) fails[it.first]++;
         }
+
+        delete merged_cs;
     }
 
     for(auto& it : fails){

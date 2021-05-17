@@ -332,11 +332,6 @@ namespace qsbd {
    quantile_sketch<int>* q_digest::merge(quantile_sketch<int>& rhs){
         q_digest& rhs_cv = dynamic_cast<q_digest&> (rhs);
 
-        if(&rhs_cv == nullptr){
-            DEBUG_ERR("Error in q_digest cast");
-            return nullptr;
-        }
-
         if (this->universe != rhs_cv.universe or (this->error - rhs_cv.error > 1e-6)){
             throw merge_error();
         }

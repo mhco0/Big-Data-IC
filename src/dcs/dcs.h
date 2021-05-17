@@ -25,11 +25,10 @@ namespace qsbd{
         std::vector<std::vector<int>> frequency_counters;
         std::vector<count_sketch> estimators;
 
-        dcs(double err, int univ, const std::vector<count_sketch>& other_est);
         void set_params(double err, int univ);
-        std::vector<count_sketch> get_estimators() const;
     public:
         dcs(double err, int univ);
+        dcs(double err, int univ, const std::vector<count_sketch>& other_est);
         ~dcs();
 
         void update(int x, int weight) override;
@@ -38,6 +37,7 @@ namespace qsbd{
 
         quantile_sketch<int> * merge(quantile_sketch<int>& rhs) override;
 
+        std::vector<count_sketch> get_estimators() const;
         int get_tree_lvl() const;
         int get_w() const;
         int get_d() const;

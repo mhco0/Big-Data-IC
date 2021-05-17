@@ -239,7 +239,7 @@ TEST(QDigestTest, TestFactory){
 	vector<pair<int,int>> stream;
 
 	q_digest_factory factory(error, vector_size);
-	q_digest* qdst = dynamic_cast<q_digest *>(factory.instance());
+	q_digest* qdst = dynamic_cast<q_digest*>(factory.instance());
 
 	for(auto& command : commands){
 		if(command.first == -1){
@@ -333,7 +333,7 @@ TEST(QDigestTest, TestMerge){
 		cout << endl;
 	}
 
-	q_digest* merged = dynamic_cast<q_digest *>(qdstl.merge(qdstr));
+	q_digest* merged = dynamic_cast<q_digest*>(qdstl.merge(qdstr));
 
 	merged->print();
 

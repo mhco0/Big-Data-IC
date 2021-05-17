@@ -14,7 +14,7 @@ int main(){
     string output_path = "data/";
     string temp_file = "config_temp.json";
 
-    double minx = 0.0, miny = 0.0, maxx = 1280.0, maxy = 780.0;
+    double minx = 0.0, miny = 0.0, maxx = 1280.0, maxy = 720.0;
     int min_v = 0, max_v = 10000;
     int min_w = 1, max_w = 100; 
     int citys = 100;

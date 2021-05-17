@@ -14,9 +14,7 @@ namespace qsbd {
         }
 
         quantile_sketch<Type> * instance() override {
-            quantile_sketch<Type> * ret  = new gk<Type>(this->error);
-
-            return ret;
+            return new gk<Type>(this->error);
         }
     };
 }
