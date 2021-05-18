@@ -351,7 +351,25 @@ namespace qsbd {
         return merged_qdst;
     }
 
-    int q_digest::get_total_weight(){
+    void q_digest::inner_merge(quantile_sketch<int>& rhs){
+        q_digest& rhs_cv = dynamic_cast<q_digest&> (rhs);
+
+        if (this->universe != rhs_cv.universe or (this->error - rhs_cv.error > 1e-6)){
+            throw merge_error();
+        }
+
+        this->total_weight += rhs_cv.total_weight;
+        this->capacity = (this->error * this->total_weight) / log2(this->universe);
+
+        this->transfer_buffer_to_tree();
+        rhs_cv.transfer_buffer_to_tree();
+
+        this->private_merge(this->tree, rhs_cv.tree, 0, 0, 0);
+
+        this->compress();
+    }
+
+    int q_digest::get_total_weight() const {
         return total_weight;
     }
 }

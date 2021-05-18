@@ -36,6 +36,7 @@ namespace qsbd{
         int quantile(double quant) override;
 
         quantile_sketch<int> * merge(quantile_sketch<int>& rhs) override;
+        void inner_merge(quantile_sketch<int>& rhs) override;
 
         std::vector<count_sketch> get_estimators() const;
         int get_tree_lvl() const;

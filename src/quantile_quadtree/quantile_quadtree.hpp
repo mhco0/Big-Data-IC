@@ -136,7 +136,7 @@ namespace qsbd {
             return nullptr;
         }
 
-        quantile_sketch<ObjType> * search_region(int cur_node, const aabb<int>& region, int deep, aabb<int>& box){
+        quantile_sketch<ObjType> * search_region(int cur_node, const aabb<int>& region, int deep, aabb<int>& box, quantile_sketch<ObjType> *& final_sketch){
             if(cur_node == -1){
                 if (this->boundarys.is_inside(region) or deep == this->max_deep or unit_box(box)){
                     return this->root->payload;
@@ -160,25 +160,17 @@ namespace qsbd {
                 aabb<int> child_box(box);
                 change_box(child_box, i);
                 if (region.intersects(child_box)){
-                    //aabb<int> parent_box(box);
-
-                    //change_box(box, i);
-                    to_merge[i] = search_region(cur_pos, region, deep + 1, child_box);
-                    //box = parent_box;
+                    to_merge[i] = search_region(cur_pos, region, deep + 1, child_box, final_sketch);
                 }
             }
 
-            quantile_sketch<ObjType> * merged = to_merge[0];
-
-            for(int i = 1; i < 4; i++){
-                if(merged == nullptr and to_merge[i] != nullptr){
-                    merged = to_merge[i];
-                }else if(merged != nullptr and to_merge[i] != nullptr){
-                    merged = merged->merge(*to_merge[i]);
+            for(int i = 0; i < 4; i++){
+                if(to_merge[i] != nullptr){
+                    final_sketch->inner_merge(*to_merge[i]);
                 }
             }
 
-            return merged;
+            return nullptr;
         }
 
         void delete_tree(){
@@ -276,7 +268,7 @@ namespace qsbd {
             aabb<int> cur_box(this->boundarys);
             quantile_sketch<ObjType> * sketch = this->factory->instance();
             
-            search_region2(-1, region, 0, cur_box, sketch);
+            search_region(-1, region, 0, cur_box, sketch);
 
             int ret = sketch->query(value);
 

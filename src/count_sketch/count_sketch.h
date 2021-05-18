@@ -34,6 +34,7 @@ namespace qsbd {
         void update(int elem, int weight);
         int query(int elem);
         count_sketch* merge(count_sketch& rhs);
+        void inner_merge(count_sketch& rhs);
 
         count_sketch& operator=(const count_sketch& other);
 

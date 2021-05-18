@@ -59,8 +59,9 @@ namespace qsbd{
 		int query(int x) override;
 		void compress();
 		quantile_sketch<int>* merge(quantile_sketch<int>& rhs) override;
-		int get_total_weight();
+		void inner_merge(quantile_sketch<int>& rhs) override;
 
+		int get_total_weight() const;
 	};
 }
 #endif

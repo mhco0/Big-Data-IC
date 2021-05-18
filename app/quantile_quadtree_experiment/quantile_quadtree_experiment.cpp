@@ -47,14 +47,21 @@ json q_digest_test(const json& stream_file, const json& query_file, const json& 
     qsbd::timer update_overall;
 
     update_overall.start();
-    for(auto& it : stream){
+    for(int i = 0, j = 10; i < stream.size(); i++){
         qsbd::timer update_once;
 
         update_once.start();
-        qq_test.update(qsbd::point<int>(it.second.first, it.second.second), it.first.first, it.first.second);
+        qq_test.update(qsbd::point<int>(stream[i].second.first, stream[i].second.second), stream[i].first.first, stream[i].first.second);
         update_once.end();
 
         update_time_acc += (double) update_once.count();
+        if (i == (j - 1) or i == ((j - 1) / 2)){
+            loop_info["time"][string("update_time_acc_") + to_string(j)] = update_time_acc;
+
+            if(i == (j - 1)){
+                j *= 10;
+            }
+        }
     }
     update_overall.end();
 
@@ -141,14 +148,21 @@ json kll_test(const json& stream_file, const json& query_file, const json& test_
     qsbd::timer update_overall;
 
     update_overall.start();
-    for(auto& it : stream){
+    for(int i = 0, j = 10; i < stream.size(); i++){
         qsbd::timer update_once;
 
         update_once.start();
-        qq_test.update(qsbd::point<int>(it.second.first, it.second.second), it.first);
+        qq_test.update(qsbd::point<int>(stream[i].second.first, stream[i].second.second), stream[i].first);
         update_once.end();
 
         update_time_acc += (double) update_once.count();
+        if (i == (j - 1) or i == ((j - 1) / 2)){
+            loop_info["time"][string("update_time_acc_") + to_string(j)] = update_time_acc;
+
+            if(i == (j - 1)){
+                j *= 10;
+            }
+        }
     }
     update_overall.end();
 
@@ -236,14 +250,21 @@ json dcs_test(const json& stream_file, const json& query_file, const json& test_
     qsbd::timer update_overall;
 
     update_overall.start();
-    for(auto& it : stream){
+    for(int i = 0, j = 10; i < stream.size(); i++){
         qsbd::timer update_once;
 
         update_once.start();
-        qq_test.update(qsbd::point<int>(it.second.first, it.second.second), it.first.first, it.first.second);
+        qq_test.update(qsbd::point<int>(stream[i].second.first, stream[i].second.second), stream[i].first.first, stream[i].first.second);
         update_once.end();
 
         update_time_acc += (double) update_once.count();
+        if (i == (j - 1) or i == ((j - 1) / 2)){
+            loop_info["time"][string("update_time_acc_") + to_string(j)] = update_time_acc;
+
+            if(i == (j - 1)){
+                j *= 10;
+            }
+        }
     }
     update_overall.end();
 
@@ -329,14 +350,21 @@ json gk_test(const json& stream_file, const json& query_file, const json& test_f
     qsbd::timer update_overall;
 
     update_overall.start();
-    for(auto& it : stream){
+    for(int i = 0, j = 10; i < stream.size(); i++){
         qsbd::timer update_once;
 
         update_once.start();
-        qq_test.update(qsbd::point<int>(it.second.first, it.second.second), it.first);
+        qq_test.update(qsbd::point<int>(stream[i].second.first, stream[i].second.second), stream[i].first);
         update_once.end();
 
         update_time_acc += (double) update_once.count();
+        if (i == (j - 1) or i == ((j - 1) / 2)){
+            loop_info["time"][string("update_time_acc_") + to_string(j)] = update_time_acc;
+
+            if(i == (j - 1)){
+                j *= 10;
+            }
+        }
     }
     update_overall.end();
 

@@ -57,9 +57,17 @@ namespace qsbd {
 
     void dcs::update(int x, int weight){
         this->total_weight += weight;
-
         for(int i = 0; i < this->lvls; i++){
             if(i > this->s){
+                if(((i - (this->s + 1)) < 0) or x >= this->frequency_counters[i - (this->s + 1)].size()){
+                    VDEBUG(this->d);
+                    VDEBUG(this->w);
+                    VDEBUG(this->s);
+                    VDEBUG(this->lvls);
+                    VDEBUG(this->frequency_counters[i - (this->s + 1)].size());
+                    VDEBUG(i);
+                    VDEBUG(x);
+                }
                 this->frequency_counters[i - (this->s + 1)][x] += weight;
             }else{
                 this->estimators[i].update(x, weight);
@@ -149,6 +157,30 @@ namespace qsbd {
         }
 
         return merged;
+    }
+
+    void dcs::inner_merge(quantile_sketch<int>& rhs){
+        dcs& rhs_cv = dynamic_cast<dcs&> (rhs);
+
+        if(this->error - rhs_cv.error > 1e-6){
+            DEBUG_ERR("dcs's error need to match");
+        }
+
+        if(this->universe != rhs_cv.universe){
+            DEBUG_ERR("dcs's universe need to match");
+        }
+
+        this->total_weight += rhs_cv.total_weight;
+
+        for(int i = 0; i < this->lvls; i++){
+            if(i > this->s){
+                for(int j = 0; j < this->frequency_counters[i - (this->s + 1)].size(); j++){
+                    this->frequency_counters[i - (this->s + 1)][j] += rhs_cv.frequency_counters[i - (rhs_cv.s + 1)][j];
+                }
+            }else{
+                this->estimators[i].inner_merge(rhs_cv.estimators[i]);
+            }
+        }
     }
 
     int dcs::get_tree_lvl() const {

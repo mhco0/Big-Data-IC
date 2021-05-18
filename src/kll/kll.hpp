@@ -25,6 +25,7 @@ namespace qsbd {
         void update(T elem) override;
         int query(T elem) override;
         quantile_sketch<T>* merge(quantile_sketch<T>& rhs) override;
+        void inner_merge(quantile_sketch<T>& rhs) override;
 
         //DEBUG
         void print();

@@ -166,6 +166,21 @@ namespace qsbd {
         return merged_cs;
     }
 
+    void count_sketch::inner_merge(count_sketch& rhs){
+        ASSERT(this->t == rhs.t);
+        ASSERT(this->d == rhs.d);
+
+        for(int i = 0; i < this->d; i++){
+            ASSERT(this->hash_functions[i].get_constants() == rhs.hash_functions[i].get_constants());
+        }
+
+        for(int i = 0; i < this->d; i++){
+            for(int j = 0; j < this->t; j++){
+                this->estimators[i][j] += rhs.estimators[i][j];
+            }
+        }
+    }
+
     count_sketch& count_sketch::operator=(const count_sketch& other){
         if(this != &other){
             this->error = other.error;

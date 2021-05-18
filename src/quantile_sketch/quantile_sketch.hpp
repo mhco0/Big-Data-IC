@@ -15,6 +15,7 @@ namespace qsbd {
         virtual Type quantile(double quant){return Type();}
         virtual int query(Type elem){return 0;}
         virtual quantile_sketch<Type>* merge(quantile_sketch<Type>& rhs) = 0;
+        virtual void inner_merge(quantile_sketch<Type>& rhs) = 0;
     };
 }
 

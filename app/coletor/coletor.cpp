@@ -24,13 +24,16 @@ int memory_summary(const string& test_name, const json& info){
     return total_bytes;
 }
 
-double standard_deviation(const string& test_name, const json& info){
+double standard_deviation(const string& test_name, const json& info, vector<int>& sample_values, vector<double>& sample_queries){
     double avg_query_time = info[test_name]["time"]["avg_query_time"].get<double>();
     double variance = 0;
     int queries_size = info[test_name]["time"]["queries"].size();
 
     for(auto& it : info[test_name]["time"]["queries"].items()){
         double query_time = it.value()["query_time"].get<double>();
+        int value = it.value()["value"].get<int>();
+        sample_queries.push_back(query_time);
+        sample_values.push_back(value);
 
         variance += (query_time - avg_query_time) * (query_time - avg_query_time);
     }
@@ -42,7 +45,8 @@ double standard_deviation(const string& test_name, const json& info){
 
 int main(int argc, char* argv[]){
     deque<string> args = qsbd::process_args(argc, argv);
-    vector<string> types_of_plots = {"update_time", "construct_time", "query_time", "memory", "query_std_dev"};
+    //"update_time", "construct_time", "query_time", "memory", 
+    vector<string> types_of_plots = {"query_std_dev"};
     vector<string> streams_files;
     string file_prefix = "out/";
     string test_name;
@@ -96,7 +100,7 @@ int main(int argc, char* argv[]){
                 int x_label = i;
                 double y_label = 0.0;
                 
-                if (it == "update_time"){
+                if (it == "update_time"){   
                     y_label = all_infos[test_name]["time"]["avg_update_time"].get<double>();
                 }else if(it == "construct_time"){
                     y_label = all_infos[test_name]["time"]["update_time_overall"].get<double>();
@@ -105,7 +109,12 @@ int main(int argc, char* argv[]){
                 }else if(it == "memory"){
                     y_label = memory_summary(test_name, all_infos);
                 }else if(it == "query_std_dev"){
-                    y_label = standard_deviation(test_name, all_infos);
+                    vector<int> values;
+                    vector<double> queries_time;
+                    y_label = standard_deviation(test_name, all_infos, values, queries_time);
+
+                    out << x_label << " " << all_infos[test_name]["time"]["avg_query_time"].get<double>() << " " << y_label << endl;
+                    continue;
                 }else{
                     DEBUG_ERR("Option to build y_label not found");
                     return -1;

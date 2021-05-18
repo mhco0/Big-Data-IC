@@ -138,8 +138,8 @@ TEST(QuantileQuadtreeTest, TestConstructWithGK){
 }
 
 TEST(QuantileQuadtreeTest, TestUpdateAndQueryWithGK){
-    int N = 1000;
-    int attempts = 10;
+    int N = 10000;
+    int attempts = 1;
     int deep = 8;
     double error = 0.3;
     int points_guarantee = 100;
@@ -188,9 +188,9 @@ TEST(QuantileQuadtreeTest, TestConstructWithQDigest){
 
 
 TEST(QuantileQuadtreeTest, TestUpdateAndQueryWithQDigest){
-    int N = 1000;
+    int N = 10000;
     int points_guarantee = 100;
-    int universe = 1024;
+    int universe = 16384;
     int attempts = 1;
     int deep = 8;
     double error = 0.3;
@@ -248,11 +248,10 @@ TEST(QuantileQuadtreeTest, TestUpdateAndQueryWithDcs){
     int points_guarantee = 100;
     int attempts = stoi(g_args[7]);
     int deep = stoi(g_args[4]);
-    int universe = 1024;
+    int universe = 131072;
     double error = stod(g_args[5]);
     aabb<int> resolution(stod(g_args[0]), stod(g_args[1]), stod(g_args[2]), stod(g_args[3]));
     aabb<int> search_region = construct_aabb_from_random_region(stod(g_args[0]), stod(g_args[1]), stod(g_args[2]), stod(g_args[3]));
-
 
 	vector<pair<pair<int, int>, pair<double, double>>> stream = random_stream_in_region_with_weight(N, stod(g_args[0]), stod(g_args[1]), stod(g_args[2]), stod(g_args[3]), 0, N, 1, 50);
     vector<pair<pair<int, int>, pair<double, double>>> guarantee_stream = random_stream_in_region_with_weight(points_guarantee, search_region.bounds().first.x(), search_region.bounds().first.y(), search_region.bounds().second.x(), search_region.bounds().second.y(), 0, N, 1, 50);
