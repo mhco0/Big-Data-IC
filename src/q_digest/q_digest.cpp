@@ -129,46 +129,46 @@ namespace qsbd {
 
     void q_digest::private_merge(const std::vector<q_digest::node>& left_tree, const std::vector<q_digest::node>& right_tree, int cur_node, int left_node, int right_node){    
         if(cur_node != -1 and left_node != -1 and right_node != -1){
-            if(tree[cur_node].left_child == -1 and left_tree[left_node].left_child != -1 and right_tree[right_node].left_child != -1){
+            if(this->tree[cur_node].left_child == -1 and left_tree[left_node].left_child != -1 and right_tree[right_node].left_child != -1){
                 int left_child_pos = this->alloc_childs();
-                tree[cur_node].left_child = left_child_pos;
+                this->tree[cur_node].left_child = left_child_pos;
             }
 
-            tree[cur_node].weight = left_tree[left_node].weight + right_tree[right_node].weight;
+            this->tree[cur_node].weight = left_tree[left_node].weight + right_tree[right_node].weight;
 
             if(left_tree[left_node].left_child != -1 and right_tree[right_node].left_child != -1){
-                this->private_merge(left_tree, right_tree, tree[cur_node].left_child, left_tree[left_node].left_child, right_tree[right_node].left_child);
-                this->private_merge(left_tree, right_tree, tree[cur_node].left_child + 1, left_tree[left_node].left_child + 1, right_tree[right_node].left_child + 1);
+                this->private_merge(left_tree, right_tree, this->tree[cur_node].left_child, left_tree[left_node].left_child, right_tree[right_node].left_child);
+                this->private_merge(left_tree, right_tree, this->tree[cur_node].left_child + 1, left_tree[left_node].left_child + 1, right_tree[right_node].left_child + 1);
             }else if(left_tree[left_node].left_child != -1){
-                this->private_merge(left_tree, right_tree, tree[cur_node].left_child, left_tree[left_node].left_child, -1);
-                this->private_merge(left_tree, right_tree, tree[cur_node].left_child + 1, left_tree[left_node].left_child + 1, -1);
+                this->private_merge(left_tree, right_tree, this->tree[cur_node].left_child, left_tree[left_node].left_child, -1);
+                this->private_merge(left_tree, right_tree, this->tree[cur_node].left_child + 1, left_tree[left_node].left_child + 1, -1);
             }else if(right_tree[right_node].left_child != -1){
-                this->private_merge(left_tree, right_tree, tree[cur_node].left_child, -1, right_tree[right_node].left_child);
-                this->private_merge(left_tree, right_tree, tree[cur_node].left_child + 1, -1, right_tree[right_node].left_child + 1);
+                this->private_merge(left_tree, right_tree, this->tree[cur_node].left_child, -1, right_tree[right_node].left_child);
+                this->private_merge(left_tree, right_tree, this->tree[cur_node].left_child + 1, -1, right_tree[right_node].left_child + 1);
             }
         }else if(cur_node != -1 and left_node != -1){
-            if(tree[cur_node].left_child == -1 and left_tree[left_node].left_child != -1){
+            if(this->tree[cur_node].left_child == -1 and left_tree[left_node].left_child != -1){
                 int left_child_pos = this->alloc_childs();
-                tree[cur_node].left_child = left_child_pos;
+                this->tree[cur_node].left_child = left_child_pos;
             }
 
-            tree[cur_node].weight = left_tree[left_node].weight;
+            this->tree[cur_node].weight = left_tree[left_node].weight;
 
             if(left_tree[left_node].left_child != -1){
-                this->private_merge(left_tree, right_tree, tree[cur_node].left_child, left_tree[left_node].left_child, -1);
-                this->private_merge(left_tree, right_tree, tree[cur_node].left_child + 1, left_tree[left_node].left_child + 1, -1);
+                this->private_merge(left_tree, right_tree, this->tree[cur_node].left_child, left_tree[left_node].left_child, -1);
+                this->private_merge(left_tree, right_tree, this->tree[cur_node].left_child + 1, left_tree[left_node].left_child + 1, -1);
             }
         }else if(cur_node != -1 and right_node != -1){
-            if(tree[cur_node].left_child == -1 and right_tree[right_node].left_child != -1){
+            if(this->tree[cur_node].left_child == -1 and right_tree[right_node].left_child != -1){
                 int left_child_pos = this->alloc_childs();
-                tree[cur_node].left_child = left_child_pos;
+                this->tree[cur_node].left_child = left_child_pos;
             }
 
-            tree[cur_node].weight = right_tree[right_node].weight;
+            this->tree[cur_node].weight = right_tree[right_node].weight;
             
             if(right_tree[right_node].left_child != -1){
-                this->private_merge(left_tree, right_tree, tree[cur_node].left_child, -1, right_tree[right_node].left_child);
-                this->private_merge(left_tree, right_tree, tree[cur_node].left_child + 1, -1, right_tree[right_node].left_child + 1);
+                this->private_merge(left_tree, right_tree, this->tree[cur_node].left_child, -1, right_tree[right_node].left_child);
+                this->private_merge(left_tree, right_tree, this->tree[cur_node].left_child + 1, -1, right_tree[right_node].left_child + 1);
             }
         }
         
@@ -253,15 +253,17 @@ namespace qsbd {
     }
 
     void q_digest::transfer_buffer_to_tree(){
-        total_weight = 0;
+        if(not transfered_buffer){
+            total_weight = 0;
 
-        for(auto& it : small_buffer){
-            private_update(it.first, it.second);
+            for(auto& it : small_buffer){
+                private_update(it.first, it.second);
+            }
+
+            small_buffer.clear();
+
+            transfered_buffer = true;
         }
-
-        small_buffer.clear();
-
-        transfered_buffer = true;
     }
 
     int q_digest::query_from_buffer(const int& x){
@@ -340,6 +342,8 @@ namespace qsbd {
 
         merged_qdst->total_weight = this->total_weight + rhs_cv.total_weight;
         merged_qdst->capacity = (merged_qdst->error * merged_qdst->total_weight) / log2(merged_qdst->universe);
+        merged_qdst->transfered_buffer = true;
+        merged_qdst->ceil_weight = 2 * merged_qdst->total_weight;
 
         this->transfer_buffer_to_tree();
         rhs_cv.transfer_buffer_to_tree();
@@ -358,13 +362,16 @@ namespace qsbd {
             throw merge_error();
         }
 
-        this->total_weight += rhs_cv.total_weight;
-        this->capacity = (this->error * this->total_weight) / log2(this->universe);
-
-        this->transfer_buffer_to_tree();
+        this->transfer_buffer_to_tree(); 
         rhs_cv.transfer_buffer_to_tree();
 
         this->private_merge(this->tree, rhs_cv.tree, 0, 0, 0);
+
+        this->total_weight += rhs_cv.total_weight;
+
+        this->capacity = (this->error * this->total_weight) / log2(this->universe);
+        this->transfered_buffer = true;
+        this->ceil_weight = 2 * this->total_weight;
 
         this->compress();
     }

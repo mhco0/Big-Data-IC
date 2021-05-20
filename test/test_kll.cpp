@@ -156,6 +156,47 @@ TEST(KllTest, TestMerge){
 	
 }
 
+TEST(KllTest, TestInnerMerge){
+	int N1 = stoi(g_args[3]);
+	int N2 = stoi(g_args[4]);
+	int N_total = N1 + N2;
+	double error = stod(g_args[0]);
+	int attempts = stoi(g_args[2]);
+	vector<int> stream1 = random_int_stream(N1, 0, 100);
+	vector<int> stream2 = random_int_stream(N2, 100, 200);
+	vector<int> merged_stream = merge_stream<int>(stream1, stream2);
+	vector<int> real_ranks = real_ranks_from_stream(merged_stream);
+	vector<int> fails(real_ranks.size(), 0);
+
+	for(int i = 0; i < attempts; i++){
+		kll<int> kl(error);
+		kll<int> kr(error);
+
+		for(auto& it : stream1){
+			kl.update(it);
+		}
+
+		for(auto& it : stream2){
+			kr.update(it);
+		}
+
+		kl.inner_merge(kr);
+
+		for(int j = 0; j < real_ranks.size(); j++){
+			int approximated_rank = kl.query(j);
+			int real_rank = real_ranks[j];
+
+			if(abs(approximated_rank - real_rank) > (error * N_total)){
+				fails[j]++;
+			}
+		}
+	}
+
+	for(int i = 0; i < fails.size(); i++){
+		EXPECT_LT((fails[i]/(double) attempts), error) << "fails : " << fails[i];
+	}
+}
+
 TEST(KllTest, TestFactory){
 	int N = stoi(g_args[1]);
 	double error = stod(g_args[0]);

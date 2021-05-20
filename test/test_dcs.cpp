@@ -57,9 +57,6 @@ TEST(DcsTest, TestQueryAndBounds){
 			test.update(it.first, it.second);
 		}
 
-		VDEBUG(test.get_tree_lvl());
-		VDEBUG(test.get_s());
-		VDEBUG(i);
 		for(int j = 0; j < real_ranks.size(); j++){
 			int approximated_rank = test.query(j);
 			int real_rank = real_ranks[j];
@@ -71,7 +68,6 @@ TEST(DcsTest, TestQueryAndBounds){
 				fails[j]++;
 			}
 		}
-		DEBUG("finish query");
 	}
 
 	for(int i = 0; i < fails.size(); i++){
@@ -515,6 +511,52 @@ TEST(DcsTest, TestMerge){
 		}
 
 		delete merged;
+	}
+
+	for(int i = 0; i < fails.size(); i++){
+		EXPECT_LT((fails[i]/(double) attempts), error / log2(universe));
+		cout << setprecision(7);
+		cout << (fails[i]/(double) attempts) << endl;
+	}
+}
+
+TEST(DcsTest, TestInnerMerge){
+	int N = stoi(g_args[2]);
+	double error = stod(g_args[0]);
+	int attempts = stoi(g_args[3]);
+    int universe = stoi(g_args[1]);
+	// fazer funções mais distribuidas da entrada e verificar como fica a saida do algortimo
+	// se tem haver com a função da entrada
+	// testar tambem se as saidas do algoritmo são parecidas pro que ta sendo mostrado
+	vector<pair<int, int>> stream1 = random_int_stream_with_weight(N, 0, universe - 1, stoi(g_args[4]), stoi(g_args[5]));
+	vector<pair<int, int>> stream2 = random_int_stream_with_weight(N, 0, universe - 1, stoi(g_args[4]), stoi(g_args[5]));
+	vector<pair<int, int>> merged_stream = merge_stream(stream1, stream2);
+	vector<int> real_ranks = real_ranks_from_stream_with_weight(merged_stream);
+	vector<int> fails(real_ranks.size(), 0);
+    int total_weight = weight_from_stream(merged_stream, false);
+
+	for(int i = 0; i < attempts; i++){
+		dcs test1(error, universe);
+		dcs test2(error, universe, test1.get_estimators());
+
+		for(auto& it : stream1){
+			test1.update(it.first, it.second);
+		}
+
+		for(auto& it : stream2){
+			test2.update(it.first, it.second);
+		}
+
+		test1.inner_merge(test2);
+
+		for(int j = 0; j < real_ranks.size(); j++){
+			int approximated_rank = test1.query(j);
+			int real_rank = real_ranks[j];
+
+			if(fabs(approximated_rank - real_rank) > (error * total_weight)){
+				fails[j]++;
+			}
+		}
 	}
 
 	for(int i = 0; i < fails.size(); i++){

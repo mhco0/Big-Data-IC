@@ -131,6 +131,55 @@ TEST(CountScketchTest, TestMerge){
     }
 }
 
+TEST(CountScketchTest, TestInnerMerge){
+    int S1 = stoi(g_args[4]);
+    int S2 = stoi(g_args[5]);
+    int attempts = stoi(g_args[3]);
+    double error = stod(g_args[0]);
+    double delta = stod(g_args[1]);
+    int d = ceil(48 * log(1.0 / delta));
+    int t = 3.0 / error;
+    vector<pair<int, int>> stream1 = random_int_stream_with_weight(S1, 0, 100, -50, 50);
+    vector<pair<int, int>> stream2 = random_int_stream_with_weight(S2, 0, 100, 0, 60);
+    vector<pair<int, int>> merged_stream = merge_stream(stream1, stream2);
+    int total_weight = weight_from_stream(merged_stream);
+    map<int, int> frequency = frequency_counter(merged_stream);
+    map<int, int> fails;
+    vector<k_wise_family> hash_functions;
+
+    for(int i = 0; i < d; i++){
+        k_wise_family h(2, 2 * t);
+
+        hash_functions.push_back(h);
+    }
+
+    for(int i = 0; i < attempts; i++){
+        count_sketch cs1 (error, delta, hash_functions);
+        count_sketch cs2 (error, delta, hash_functions);
+
+        for(auto& it : stream1){   
+            cs1.update(it.first, it.second);
+        }
+
+        for(auto& it : stream2){
+            cs2.update(it.first, it.second);
+        }
+
+        cs1.inner_merge(cs2);
+
+        for(auto & it : frequency){
+            int approx_f = cs1.query(it.first);
+            int real_f = it.second;
+            
+            if(fabs(approx_f - real_f) > (error * total_weight)) fails[it.first]++;
+        }
+    }
+
+    for(auto& it : fails){
+        EXPECT_LE((it.second / (double) attempts), delta) << it.second;
+    }
+}
+
 
 int main(int argc, char* argv[]){
     testing::InitGoogleTest(&argc, argv);

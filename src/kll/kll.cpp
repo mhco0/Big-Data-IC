@@ -62,7 +62,7 @@ namespace qsbd {
         kll<T>& rhs_cv = dynamic_cast<kll<T>&> (rhs);
 
         if((rhs_cv.error - this->error) > 1e-6){
-            DEBUG_ERR("kll's error need to match");
+            DEBUG_ERR("in kll::merge kll's error need to match");
             return nullptr;
         }
 
@@ -112,7 +112,7 @@ namespace qsbd {
         kll<T>& rhs_cv = dynamic_cast<kll<T>&> (rhs);
 
         if((rhs_cv.error - this->error) > 1e-6){
-            DEBUG_ERR("kll's error need to match");
+            DEBUG_ERR("in kll::inner_merge kll's error need to match");
         }
 
         int merged_height = std::max(rhs_cv.height, this->height);

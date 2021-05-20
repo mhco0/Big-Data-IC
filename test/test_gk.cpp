@@ -152,6 +152,46 @@ TEST(GKTest, TestMerge){
     histogram_print(samples);
 }
 
+TEST(GKTest, TestInnerMerge){
+    vector<int> input1 = {1, 4, 2, 8, 5, 7, 6, 7, 6, 7, 2, 1, 3, 5, 6, 9, 9, 10};
+    vector<int> input2 = {10, 11, 14, 12, 18, 15, 17, 16, 17, 16, 17, 12, 11, 13, 15, 16, 19, 19};
+    vector<double> samples(20, 0);
+    gk<int> summary1(0.2);
+    gk<int> summary2(0.2);
+
+    for(auto& it : input1){
+        summary1.update(it);
+    }
+
+    for(int i = 0; i < 20; i++){
+        samples[i] = (double) summary1.query(i);
+    }
+
+    cout << "Histogram ranks 1:" << endl;
+    histogram_print(samples);
+
+    for(auto& it : input2){
+        summary2.update(it);
+    }
+
+    for(int i = 0; i < 20; i++){
+        samples[i] = (double) summary2.query(i);
+    }
+
+    cout << "Histogram ranks 2:" << endl;
+    histogram_print(samples);
+
+    summary1.inner_merge(summary2);
+
+    for(int i = 0; i < 20; i++){
+        samples[i] = summary1.query(i);
+    }
+
+    cout << "Histogram ranks merged:" << endl;
+    histogram_print(samples);
+}
+
+
 /*
     Testing updates and querys from the paper
 */

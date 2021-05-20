@@ -23,7 +23,9 @@ namespace qsbd {
         }
 
         for(int i = 0; i <= this->s; i++){
-            count_sketch cs(other_est[i]);
+            // do not do a deep copy here
+            // the estimators NEED to be empty, a deep copy here will be wrong
+            count_sketch cs(other_est[i].error, other_est[i].delta, other_est[i].hash_functions);
 
             this->estimators.push_back(cs);
         }
@@ -56,6 +58,12 @@ namespace qsbd {
     }
 
     void dcs::update(int x, int weight){
+        if(x >= this->universe){
+            DEBUG_ERR("On dcs::update value first parameter 'x' is greater then the universe range");
+
+            return;
+        }
+
         this->total_weight += weight;
         for(int i = 0; i < this->lvls; i++){
             if(i > this->s){
@@ -78,6 +86,12 @@ namespace qsbd {
     }
 
     int dcs::query(int x){
+        if(x >= this->universe){
+            DEBUG_ERR("On dcs::query value first parameter 'x' is greater then the universe range");
+
+            return -1;
+        }
+
         int rank = 0;
 
         for(int i = 0; i < this->lvls; i++){
@@ -134,7 +148,7 @@ namespace qsbd {
             return nullptr;
         }
 
-        dcs* merged = new dcs(this->error, this->universe);
+        dcs* merged = new dcs(this->error, this->universe, this->estimators);
 
         merged->total_weight = this->total_weight + rhs_cv.total_weight;
 

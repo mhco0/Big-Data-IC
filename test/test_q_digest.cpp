@@ -276,7 +276,7 @@ TEST(QDigestTest, TestMerge){
 	double epsilon = stod(g_args[0]);
     int stream_size = stoi(g_args[1]);
     bool print_tree_on_query = false;
-	vector<pair<int, int>> stream = stream_maker::random_int_stream_with_weight(stream_size, 0, stream_size, 0, 100);
+	vector<pair<int, int>> stream = stream_maker::random_int_stream_with_weight(stream_size, 0, stream_size - 1, 0, 100);
 	vector<pair<int, int>> merged_stream = stream_maker::merge_stream(stream, stream);
 	vector<int> real_ranks = stream_maker::real_ranks_from_stream_with_weight(stream);
 	vector<int> real_ranks_merge = stream_maker::real_ranks_from_stream_with_weight(merged_stream);
@@ -361,6 +361,93 @@ TEST(QDigestTest, TestMerge){
 
 
 	delete merged;
+}
+
+TEST(QDigestTest, TestInnerMerge){
+	double epsilon = stod(g_args[0]);
+    int stream_size = stoi(g_args[1]);
+    bool print_tree_on_query = false;
+	vector<pair<int, int>> stream = stream_maker::random_int_stream_with_weight(stream_size, 0, stream_size - 1, 0, 100);
+	vector<pair<int, int>> merged_stream = stream_maker::merge_stream(stream, stream);
+	vector<int> real_ranks = stream_maker::real_ranks_from_stream_with_weight(stream);
+	vector<int> real_ranks_merge = stream_maker::real_ranks_from_stream_with_weight(merged_stream);
+	q_digest qdstl(epsilon, stream_size);
+	q_digest qdstr(epsilon, stream_size);
+
+
+	for(auto& it : stream){
+		qdstl.update(it.first, it.second);
+		qdstr.update(it.first, it.second);
+	}
+
+	for(int i = 0; i < real_ranks.size(); i++){
+		cout << endl;
+		cout << "----------------------------------------------------------------" << endl;
+		if(print_tree_on_query){
+			cout << "Tree Print :" << endl;
+			qdstl.print();
+			cout << endl;
+
+			cout << "Subtree Print : " << endl;
+			qdstl.print_subtree_weights();
+			cout << endl;
+		}
+		int query = qdstl.query(i);
+		cout << "LQuery(" << i << "): " << query << endl;
+		int real_rank = real_ranks[i];
+		cout << "Range to approximated rank -> ("<< query << " [r] <= " << real_rank << " [rank(x)] <= " << (query * 1.0 + epsilon * qdstl.get_total_weight()) << " [r + e*W] )" << endl; 
+		EXPECT_LE(real_rank, (query * 1.0 + epsilon * qdstl.get_total_weight()));
+		EXPECT_GE(real_rank, query); 
+		cout << "----------------------------------------------------------------" << endl;
+		cout << endl;
+	}
+
+	for(int i = 0; i < real_ranks.size(); i++){
+		cout << endl;
+		cout << "----------------------------------------------------------------" << endl;
+		if(print_tree_on_query){
+			cout << "Tree Print :" << endl;
+			qdstr.print();
+			cout << endl;
+
+			cout << "Subtree Print : " << endl;
+			qdstr.print_subtree_weights();
+			cout << endl;
+		}
+		int query = qdstr.query(i);
+		cout << "RQuery(" << i << "): " << query << endl;
+		int real_rank = real_ranks[i];
+		cout << "Range to approximated rank -> ("<< query << " [r] <= " << real_rank << " [rank(x)] <= " << (query * 1.0 + epsilon * qdstr.get_total_weight()) << " [r + e*W] )" << endl; 
+		EXPECT_LE(real_rank, (query * 1.0 + epsilon * qdstr.get_total_weight()));
+		EXPECT_GE(real_rank, query); 
+		cout << "----------------------------------------------------------------" << endl;
+		cout << endl;
+	}
+
+	qdstl.inner_merge(qdstr);
+
+	for(int i = 0; i < real_ranks_merge.size(); i++){
+		cout << endl;
+		cout << "----------------------------------------------------------------" << endl;
+		if(print_tree_on_query){
+			cout << "Tree Print :" << endl;
+			qdstl.print();
+			cout << endl;
+
+			cout << "Subtree Print : " << endl;
+			qdstl.print_subtree_weights();
+			cout << endl;
+		}
+		int query = qdstl.query(i);
+		cout << "MQuery(" << i << "): " << query << endl;
+		int real_rank = real_ranks_merge[i];
+		cout << "Range to approximated rank -> ("<< query << " [r] <= " << real_rank << " [rank(x)] <= " << (query * 1.0 + epsilon * qdstl.get_total_weight()) << " [r + e*W] )" << endl; 
+		EXPECT_LE(real_rank, (query * 1.0 + epsilon * qdstl.get_total_weight()));
+		EXPECT_GE(real_rank, query); 
+		cout << "----------------------------------------------------------------" << endl;
+		cout << endl;
+	}
+
 }
 
 int main(int argc, char* argv[]){
