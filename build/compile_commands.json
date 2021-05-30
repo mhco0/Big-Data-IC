@@ -181,6 +181,21 @@
 },
 {
   "directory": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/app",
+  "command": "/bin/x86_64-linux-gnu-g++-9   -I\"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src\" -I\"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/thirdparty\"   -pg -g -O0 -Wall -g -fPIE   -std=gnu++11 -o CMakeFiles/convert_stream.dir/convert_stream/convert_stream.cpp.o -c \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/app/convert_stream/convert_stream.cpp\"",
+  "file": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/app/convert_stream/convert_stream.cpp"
+},
+{
+  "directory": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/app",
+  "command": "/bin/x86_64-linux-gnu-g++-9   -I\"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src\" -I\"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/thirdparty\"   -pg -g -O0 -Wall -g -fPIE   -std=gnu++11 -o CMakeFiles/query_creator.dir/query_creator/query_creator.cpp.o -c \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/app/query_creator/query_creator.cpp\"",
+  "file": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/app/query_creator/query_creator.cpp"
+},
+{
+  "directory": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/app",
+  "command": "/bin/x86_64-linux-gnu-g++-9   -I\"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src\" -I\"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/thirdparty\"   -pg -g -O0 -Wall -g -fPIE   -std=gnu++11 -o CMakeFiles/experiment_all.dir/quantile_quadtree_experiment/experiment_all.cpp.o -c \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/app/quantile_quadtree_experiment/experiment_all.cpp\"",
+  "file": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/app/quantile_quadtree_experiment/experiment_all.cpp"
+},
+{
+  "directory": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/app",
   "command": "/bin/x86_64-linux-gnu-g++-9   -I\"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src\" -I\"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/thirdparty\"   -pg -g -O0 -Wall -g -fPIE   -std=gnu++11 -o CMakeFiles/build_streams.dir/stream_creator/build_streams.cpp.o -c \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/app/stream_creator/build_streams.cpp\"",
   "file": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/app/stream_creator/build_streams.cpp"
 },
@@ -193,16 +208,6 @@
   "directory": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/app",
   "command": "/bin/x86_64-linux-gnu-g++-9   -I\"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src\" -I\"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/thirdparty\"   -pg -g -O0 -Wall -g -fPIE   -std=gnu++11 -o CMakeFiles/brute_force.dir/brute_force/brute_force.cpp.o -c \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/app/brute_force/brute_force.cpp\"",
   "file": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/app/brute_force/brute_force.cpp"
-},
-{
-  "directory": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/app",
-  "command": "/bin/x86_64-linux-gnu-g++-9   -I\"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src\" -I\"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/thirdparty\"   -pg -g -O0 -Wall -g -fPIE   -std=gnu++11 -o CMakeFiles/query_creator.dir/query_creator/query_creator.cpp.o -c \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/app/query_creator/query_creator.cpp\"",
-  "file": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/app/query_creator/query_creator.cpp"
-},
-{
-  "directory": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/app",
-  "command": "/bin/x86_64-linux-gnu-g++-9   -I\"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src\" -I\"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/thirdparty\"   -pg -g -O0 -Wall -g -fPIE   -std=gnu++11 -o CMakeFiles/experiment_all.dir/quantile_quadtree_experiment/experiment_all.cpp.o -c \"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/app/quantile_quadtree_experiment/experiment_all.cpp\"",
-  "file": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/app/quantile_quadtree_experiment/experiment_all.cpp"
 },
 {
   "directory": "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/app",

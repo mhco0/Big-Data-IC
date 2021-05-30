@@ -16,7 +16,7 @@ int main(int argc, char* argv[]){
     int initial_value = 0;
     int final_value = 10000;
     int step = 100;
-    int stream_sizes = 10000000;
+    int stream_sizes = 100000000;
 
     json config = json::object();
 

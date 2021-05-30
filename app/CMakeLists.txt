@@ -27,6 +27,11 @@ target_include_directories(profiler PRIVATE ${QSBD_DIR_SOURCE})
 target_include_directories(profiler PRIVATE ${THIRD_PARTY_DIR_SOURCE})
 target_link_libraries(profiler PRIVATE QSBD_QUANTILE_QUADTREE QSBD_GK_FACTORY QSBD_KLL_FACTORY QSBD_DCS_FACTORY QSBD_Q_DIGEST_FACTORY QSBD_UTILS QSBD_LOG QSBD_DEBUG QSBD_STREAM_MAKER)
 
+add_executable(convert_stream "convert_stream/convert_stream.cpp")
+target_include_directories(convert_stream PRIVATE ${QSBD_DIR_SOURCE})
+target_include_directories(convert_stream PRIVATE ${THIRD_PARTY_DIR_SOURCE})
+target_link_libraries(convert_stream PRIVATE nlohmann_json QSBD_STREAM_MAKER QSBD_UTILS QSBD_LOG QSBD_DEBUG)
+
 add_executable(build_streams "stream_creator/build_streams.cpp")
 target_include_directories(build_streams PRIVATE ${QSBD_DIR_SOURCE})
 target_include_directories(build_streams PRIVATE ${THIRD_PARTY_DIR_SOURCE})

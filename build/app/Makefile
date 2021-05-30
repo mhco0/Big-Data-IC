@@ -68,6 +68,16 @@ install/strip/fast: preinstall/fast
 	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
 
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
+
 # Special rule for the target install/local
 install/local: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
@@ -80,27 +90,6 @@ install/local/fast: preinstall/fast
 	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local/fast
 
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
-
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-
-.PHONY : list_install_components/fast
-
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-
-.PHONY : test/fast
-
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
@@ -112,6 +101,17 @@ install/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
 	/usr/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
+
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
 
 # Special rule for the target rebuild_cache
 rebuild_cache:
@@ -213,6 +213,51 @@ profiler/fast:
 .PHONY : profiler/fast
 
 # Convenience name for target.
+app/CMakeFiles/convert_stream.dir/rule:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/convert_stream.dir/rule
+.PHONY : app/CMakeFiles/convert_stream.dir/rule
+
+# Convenience name for target.
+convert_stream: app/CMakeFiles/convert_stream.dir/rule
+
+.PHONY : convert_stream
+
+# fast build rule for target.
+convert_stream/fast:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/convert_stream.dir/build.make app/CMakeFiles/convert_stream.dir/build
+.PHONY : convert_stream/fast
+
+# Convenience name for target.
+app/CMakeFiles/query_creator.dir/rule:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/query_creator.dir/rule
+.PHONY : app/CMakeFiles/query_creator.dir/rule
+
+# Convenience name for target.
+query_creator: app/CMakeFiles/query_creator.dir/rule
+
+.PHONY : query_creator
+
+# fast build rule for target.
+query_creator/fast:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/query_creator.dir/build.make app/CMakeFiles/query_creator.dir/build
+.PHONY : query_creator/fast
+
+# Convenience name for target.
+app/CMakeFiles/experiment_all.dir/rule:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/experiment_all.dir/rule
+.PHONY : app/CMakeFiles/experiment_all.dir/rule
+
+# Convenience name for target.
+experiment_all: app/CMakeFiles/experiment_all.dir/rule
+
+.PHONY : experiment_all
+
+# fast build rule for target.
+experiment_all/fast:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/experiment_all.dir/build.make app/CMakeFiles/experiment_all.dir/build
+.PHONY : experiment_all/fast
+
+# Convenience name for target.
 app/CMakeFiles/build_streams.dir/rule:
 	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/build_streams.dir/rule
 .PHONY : app/CMakeFiles/build_streams.dir/rule
@@ -256,36 +301,6 @@ brute_force: app/CMakeFiles/brute_force.dir/rule
 brute_force/fast:
 	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/brute_force.dir/build.make app/CMakeFiles/brute_force.dir/build
 .PHONY : brute_force/fast
-
-# Convenience name for target.
-app/CMakeFiles/query_creator.dir/rule:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/query_creator.dir/rule
-.PHONY : app/CMakeFiles/query_creator.dir/rule
-
-# Convenience name for target.
-query_creator: app/CMakeFiles/query_creator.dir/rule
-
-.PHONY : query_creator
-
-# fast build rule for target.
-query_creator/fast:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/query_creator.dir/build.make app/CMakeFiles/query_creator.dir/build
-.PHONY : query_creator/fast
-
-# Convenience name for target.
-app/CMakeFiles/experiment_all.dir/rule:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/experiment_all.dir/rule
-.PHONY : app/CMakeFiles/experiment_all.dir/rule
-
-# Convenience name for target.
-experiment_all: app/CMakeFiles/experiment_all.dir/rule
-
-.PHONY : experiment_all
-
-# fast build rule for target.
-experiment_all/fast:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/experiment_all.dir/build.make app/CMakeFiles/experiment_all.dir/build
-.PHONY : experiment_all/fast
 
 # Convenience name for target.
 app/CMakeFiles/build_brute_force.dir/rule:
@@ -439,6 +454,33 @@ comparator/comparator.s: comparator/comparator.cpp.s
 comparator/comparator.cpp.s:
 	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/comparator.dir/build.make app/CMakeFiles/comparator.dir/comparator/comparator.cpp.s
 .PHONY : comparator/comparator.cpp.s
+
+convert_stream/convert_stream.o: convert_stream/convert_stream.cpp.o
+
+.PHONY : convert_stream/convert_stream.o
+
+# target to build an object file
+convert_stream/convert_stream.cpp.o:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/convert_stream.dir/build.make app/CMakeFiles/convert_stream.dir/convert_stream/convert_stream.cpp.o
+.PHONY : convert_stream/convert_stream.cpp.o
+
+convert_stream/convert_stream.i: convert_stream/convert_stream.cpp.i
+
+.PHONY : convert_stream/convert_stream.i
+
+# target to preprocess a source file
+convert_stream/convert_stream.cpp.i:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/convert_stream.dir/build.make app/CMakeFiles/convert_stream.dir/convert_stream/convert_stream.cpp.i
+.PHONY : convert_stream/convert_stream.cpp.i
+
+convert_stream/convert_stream.s: convert_stream/convert_stream.cpp.s
+
+.PHONY : convert_stream/convert_stream.s
+
+# target to generate assembly for a file
+convert_stream/convert_stream.cpp.s:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/convert_stream.dir/build.make app/CMakeFiles/convert_stream.dir/convert_stream/convert_stream.cpp.s
+.PHONY : convert_stream/convert_stream.cpp.s
 
 profiler/profiler.o: profiler/profiler.cpp.o
 
@@ -636,18 +678,19 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... install/strip"
-	@echo "... install/local"
 	@echo "... list_install_components"
 	@echo "... coletor"
 	@echo "... comparator"
 	@echo "... profiler"
+	@echo "... install/local"
+	@echo "... convert_stream"
+	@echo "... install"
+	@echo "... query_creator"
+	@echo "... experiment_all"
 	@echo "... build_streams"
 	@echo "... stream_creator"
 	@echo "... brute_force"
 	@echo "... test"
-	@echo "... install"
-	@echo "... query_creator"
-	@echo "... experiment_all"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... build_brute_force"
@@ -665,6 +708,9 @@ help:
 	@echo "... comparator/comparator.o"
 	@echo "... comparator/comparator.i"
 	@echo "... comparator/comparator.s"
+	@echo "... convert_stream/convert_stream.o"
+	@echo "... convert_stream/convert_stream.i"
+	@echo "... convert_stream/convert_stream.s"
 	@echo "... profiler/profiler.o"
 	@echo "... profiler/profiler.i"
 	@echo "... profiler/profiler.s"

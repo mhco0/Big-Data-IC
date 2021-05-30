@@ -91,7 +91,9 @@ void standard_deviation(const string& test_name, const json& info, vector<double
     for(int i = 0, j = 10; i < stream_sizes; i++){
         if (i == (j - 1) or i == ((j - 1) / 2)){
             
+            vector<double> queries_times;
             double avg_query_time = info[test_name]["time"][string("avg_query_time_") + to_string(i + 1)].get<double>();
+            double median_query_time = 0.0;
             double variance = 0;
             int queries_size = info[test_name]["time"][string("queries_") + to_string(i + 1)].size();
 
@@ -99,13 +101,28 @@ void standard_deviation(const string& test_name, const json& info, vector<double
                 double query_time = it.value()["query_time"].get<double>();
                 int value = it.value()["value"].get<int>();
 
-
+                queries_times.push_back(query_time);
                 variance += (query_time - avg_query_time) * (query_time - avg_query_time);
             }
 
             variance /= queries_size;
+
+            if (queries_times.size() != 0){
+                if ((queries_times.size() & 1)){
+
+                    std::nth_element(queries_times.begin(), queries_times.begin() + queries_times.size() / 2, queries_times.end());
+
+                    median_query_time = queries_times[queries_times.size() / 2];
+                }else{
+                    nth_element(queries_times.begin(), queries_times.begin() + queries_times.size() / 2, queries_times.end());
+
+                    nth_element(queries_times.begin(), queries_times.begin() + (queries_times.size() - 1) / 2, queries_times.end());
+
+                    median_query_time = (queries_times[queries_times.size() / 2 - 1] + queries_times[queries_times.size() / 2]) / 2.0;
+                }
+            }
             
-            y_samples1.push_back(avg_query_time);
+            y_samples1.push_back(median_query_time);
             y_samples2.push_back(sqrt(variance));
                   
             if(i == (j - 1)){

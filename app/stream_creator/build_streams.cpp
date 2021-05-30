@@ -10,7 +10,8 @@ using namespace std;
 using json = nlohmann::json;
 
 int main(){
-    vector<string> methods = {"random_stream_city", "random_stream_city_with_weight", "random_stream_in_region", "random_stream_in_region_with_weight"};
+    //"random_stream_city_with_weight", "random_stream_in_region_with_weight"
+    vector<string> methods = {"random_stream_city", "random_stream_in_region"};
     string output_path = "data/";
     string temp_file = "config_temp.json";
 
@@ -18,7 +19,7 @@ int main(){
     int min_v = 0, max_v = 10000;
     int min_w = 1, max_w = 100; 
     int citys = 100;
-    int stream_sizes = 10000000;
+    int stream_sizes = 100000000;
     double max_radius = 5.0;
 
     for(auto& method : methods){
@@ -40,7 +41,7 @@ int main(){
             cout << progress;
             cout.flush();
 
-            for(int i = 1; i <= stream_sizes; i *= 10){
+            for(int i = stream_sizes; i <= stream_sizes; i *= 10){
                 config["args"]["vector_size"] = i;
 
                 string data_file_name = "stream_city_" + to_string(i) + ".json";
@@ -88,7 +89,7 @@ int main(){
             cout << progress;
             cout.flush();
 
-            for(int i = 1; i <= stream_sizes; i *= 10){
+            for(int i = stream_sizes; i <= stream_sizes; i *= 10){
                 config["args"]["vector_size"] = i;
 
                 string data_file_name = "stream_uniform_" + to_string(i) + ".json";
@@ -141,7 +142,7 @@ int main(){
             cout << progress;
             cout.flush();
 
-            for(int i = 1; i <= stream_sizes; i *= 10){
+            for(int i = stream_sizes; i <= stream_sizes; i *= 10){
                 config["args"]["vector_size"] = i;
 
                 string data_file_name = "stream_uniform_ww_" + to_string(i) + ".json";
@@ -195,7 +196,7 @@ int main(){
             cout << progress;
             cout.flush();
 
-            for(int i = 1; i <= stream_sizes; i *= 10){
+            for(int i = stream_sizes; i <= stream_sizes; i *= 10){
                 config["args"]["vector_size"] = i;
 
                 string data_file_name = "stream_city_ww_" + to_string(i) + ".json";

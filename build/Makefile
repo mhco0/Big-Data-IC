@@ -779,6 +779,45 @@ profiler/fast:
 .PHONY : profiler/fast
 
 #=============================================================================
+# Target rules for targets named convert_stream
+
+# Build rule for target.
+convert_stream: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 convert_stream
+.PHONY : convert_stream
+
+# fast build rule for target.
+convert_stream/fast:
+	$(MAKE) -f app/CMakeFiles/convert_stream.dir/build.make app/CMakeFiles/convert_stream.dir/build
+.PHONY : convert_stream/fast
+
+#=============================================================================
+# Target rules for targets named query_creator
+
+# Build rule for target.
+query_creator: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 query_creator
+.PHONY : query_creator
+
+# fast build rule for target.
+query_creator/fast:
+	$(MAKE) -f app/CMakeFiles/query_creator.dir/build.make app/CMakeFiles/query_creator.dir/build
+.PHONY : query_creator/fast
+
+#=============================================================================
+# Target rules for targets named experiment_all
+
+# Build rule for target.
+experiment_all: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 experiment_all
+.PHONY : experiment_all
+
+# fast build rule for target.
+experiment_all/fast:
+	$(MAKE) -f app/CMakeFiles/experiment_all.dir/build.make app/CMakeFiles/experiment_all.dir/build
+.PHONY : experiment_all/fast
+
+#=============================================================================
 # Target rules for targets named build_streams
 
 # Build rule for target.
@@ -816,32 +855,6 @@ brute_force: cmake_check_build_system
 brute_force/fast:
 	$(MAKE) -f app/CMakeFiles/brute_force.dir/build.make app/CMakeFiles/brute_force.dir/build
 .PHONY : brute_force/fast
-
-#=============================================================================
-# Target rules for targets named query_creator
-
-# Build rule for target.
-query_creator: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 query_creator
-.PHONY : query_creator
-
-# fast build rule for target.
-query_creator/fast:
-	$(MAKE) -f app/CMakeFiles/query_creator.dir/build.make app/CMakeFiles/query_creator.dir/build
-.PHONY : query_creator/fast
-
-#=============================================================================
-# Target rules for targets named experiment_all
-
-# Build rule for target.
-experiment_all: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 experiment_all
-.PHONY : experiment_all
-
-# fast build rule for target.
-experiment_all/fast:
-	$(MAKE) -f app/CMakeFiles/experiment_all.dir/build.make app/CMakeFiles/experiment_all.dir/build
-.PHONY : experiment_all/fast
 
 #=============================================================================
 # Target rules for targets named build_brute_force
@@ -942,11 +955,12 @@ help:
 	@echo "... coletor"
 	@echo "... comparator"
 	@echo "... profiler"
+	@echo "... convert_stream"
+	@echo "... query_creator"
+	@echo "... experiment_all"
 	@echo "... build_streams"
 	@echo "... stream_creator"
 	@echo "... brute_force"
-	@echo "... query_creator"
-	@echo "... experiment_all"
 	@echo "... build_brute_force"
 	@echo "... build_queries"
 	@echo "... quantile_quadtree_experiment"

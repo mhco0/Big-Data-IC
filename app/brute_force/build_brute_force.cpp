@@ -12,7 +12,7 @@ int main(int argc, char* argv[]){
     string stream_file_prefix = "data/stream_";
     string query_file_prefix = "query/query_"; // temporary
     string output_file_prefix = "out/";
-    int stream_sizes = 10000000;
+    int stream_sizes = 100000000;
 
       if(args.size() != 2){
         DEBUG_ERR("You need to pass the test name and the option for the stream\n Ex [gk/ kll/ q_digest/ dcs] [-c/ -cw/ -u/ -uw]");

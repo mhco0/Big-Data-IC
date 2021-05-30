@@ -143,7 +143,7 @@ namespace qsbd {
   
             nth_element(ranks.begin(), ranks.begin() + (size - 1) / 2, ranks.end());
 
-            return (ranks[size/2 - 1] + ranks[size / 2]) / 2;
+            return (ranks[size / 2 - 1] + ranks[size / 2]) / 2;
         }
     }
 
