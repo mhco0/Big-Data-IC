@@ -87,7 +87,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\src;C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\googletest\googletest\include;C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\googletest\googletest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>%(AdditionalOptions) -pg -fno-omit-frame-pointer -g -ggdb -fstrict-aliasing</AdditionalOptions>
+      <AdditionalOptions>%(AdditionalOptions) -g</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -98,6 +98,7 @@
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>EnableAllWarnings</WarningLevel>
       <PreprocessorDefinitions>WIN32;_WINDOWS;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
     </ClCompile>
@@ -114,9 +115,9 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>..\lib\Debug\gtest_maind.lib;..\lib\Debug\QSBD_GLOBAL_GEN.lib;..\lib\Debug\QSBD_Q_DIGEST_FACTORY.lib;..\lib\Debug\QSBD_Q_DIGEST.lib;..\lib\Debug\QSBD_UTILS.lib;..\lib\Debug\gtestd.lib;..\lib\Debug\QSBD_QUANTILE_SKETCH.lib;..\lib\Debug\QSBD_DEBUG.lib;..\lib\Debug\QSBD_SKETCH_FACTORY.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>..\lib\Debug\gtest_maind.lib;..\lib\Debug\QSBD_STREAM_MAKER.lib;..\lib\Debug\QSBD_GLOBAL_GEN.lib;..\lib\Debug\QSBD_Q_DIGEST_FACTORY.lib;..\lib\Debug\QSBD_Q_DIGEST.lib;..\lib\Debug\QSBD_UTILS.lib;..\lib\Debug\gtestd.lib;..\lib\Debug\QSBD_COMMUM_HEADER.lib;..\lib\Debug\QSBD_DEBUG.lib;..\lib\Debug\QSBD_QUANTILE_SKETCH.lib;..\lib\Debug\QSBD_SKETCH_FACTORY.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalOptions>%(AdditionalOptions) /machine:x64 -pg -fno-omit-frame-pointer -g -O2 -ggdb -fstrict-aliasing</AdditionalOptions>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64 -g -Wall</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <ImportLibrary>C:/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/lib/Debug/test_q_digest.lib</ImportLibrary>
@@ -130,7 +131,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\src;C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\googletest\googletest\include;C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\googletest\googletest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>%(AdditionalOptions) -pg -fno-omit-frame-pointer -g -ggdb -fstrict-aliasing</AdditionalOptions>
+      <AdditionalOptions>%(AdditionalOptions) -g</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>Sync</ExceptionHandling>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
@@ -139,6 +140,7 @@
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>EnableAllWarnings</WarningLevel>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <DebugInformationFormat>
@@ -157,9 +159,9 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>..\lib\Release\gtest_main.lib;..\lib\Release\QSBD_GLOBAL_GEN.lib;..\lib\Release\QSBD_Q_DIGEST_FACTORY.lib;..\lib\Release\QSBD_Q_DIGEST.lib;..\lib\Release\QSBD_UTILS.lib;..\lib\Release\gtest.lib;..\lib\Release\QSBD_QUANTILE_SKETCH.lib;..\lib\Release\QSBD_DEBUG.lib;..\lib\Release\QSBD_SKETCH_FACTORY.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>..\lib\Release\gtest_main.lib;..\lib\Release\QSBD_STREAM_MAKER.lib;..\lib\Release\QSBD_GLOBAL_GEN.lib;..\lib\Release\QSBD_Q_DIGEST_FACTORY.lib;..\lib\Release\QSBD_Q_DIGEST.lib;..\lib\Release\QSBD_UTILS.lib;..\lib\Release\gtest.lib;..\lib\Release\QSBD_COMMUM_HEADER.lib;..\lib\Release\QSBD_DEBUG.lib;..\lib\Release\QSBD_QUANTILE_SKETCH.lib;..\lib\Release\QSBD_SKETCH_FACTORY.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalOptions>%(AdditionalOptions) /machine:x64 -pg -fno-omit-frame-pointer -g -O2 -ggdb -fstrict-aliasing</AdditionalOptions>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64 -g -Wall</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <ImportLibrary>C:/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/lib/Release/test_q_digest.lib</ImportLibrary>
@@ -173,7 +175,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\src;C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\googletest\googletest\include;C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\googletest\googletest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>%(AdditionalOptions) -pg -fno-omit-frame-pointer -g -ggdb -fstrict-aliasing</AdditionalOptions>
+      <AdditionalOptions>%(AdditionalOptions) -g</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>Sync</ExceptionHandling>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
@@ -182,6 +184,7 @@
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>EnableAllWarnings</WarningLevel>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="MinSizeRel";%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <DebugInformationFormat>
@@ -200,9 +203,9 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>..\lib\MinSizeRel\gtest_main.lib;..\lib\MinSizeRel\QSBD_GLOBAL_GEN.lib;..\lib\MinSizeRel\QSBD_Q_DIGEST_FACTORY.lib;..\lib\MinSizeRel\QSBD_Q_DIGEST.lib;..\lib\MinSizeRel\QSBD_UTILS.lib;..\lib\MinSizeRel\gtest.lib;..\lib\MinSizeRel\QSBD_QUANTILE_SKETCH.lib;..\lib\MinSizeRel\QSBD_DEBUG.lib;..\lib\MinSizeRel\QSBD_SKETCH_FACTORY.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>..\lib\MinSizeRel\gtest_main.lib;..\lib\MinSizeRel\QSBD_STREAM_MAKER.lib;..\lib\MinSizeRel\QSBD_GLOBAL_GEN.lib;..\lib\MinSizeRel\QSBD_Q_DIGEST_FACTORY.lib;..\lib\MinSizeRel\QSBD_Q_DIGEST.lib;..\lib\MinSizeRel\QSBD_UTILS.lib;..\lib\MinSizeRel\gtest.lib;..\lib\MinSizeRel\QSBD_COMMUM_HEADER.lib;..\lib\MinSizeRel\QSBD_DEBUG.lib;..\lib\MinSizeRel\QSBD_QUANTILE_SKETCH.lib;..\lib\MinSizeRel\QSBD_SKETCH_FACTORY.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalOptions>%(AdditionalOptions) /machine:x64 -pg -fno-omit-frame-pointer -g -O2 -ggdb -fstrict-aliasing</AdditionalOptions>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64 -g -Wall</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <ImportLibrary>C:/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/lib/MinSizeRel/test_q_digest.lib</ImportLibrary>
@@ -216,7 +219,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\src;C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\googletest\googletest\include;C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\googletest\googletest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>%(AdditionalOptions) -pg -fno-omit-frame-pointer -g -ggdb -fstrict-aliasing</AdditionalOptions>
+      <AdditionalOptions>%(AdditionalOptions) -g</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <ExceptionHandling>Sync</ExceptionHandling>
@@ -226,6 +229,7 @@
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>EnableAllWarnings</WarningLevel>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="RelWithDebInfo";%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
     </ClCompile>
@@ -242,9 +246,9 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>..\lib\RelWithDebInfo\gtest_main.lib;..\lib\RelWithDebInfo\QSBD_GLOBAL_GEN.lib;..\lib\RelWithDebInfo\QSBD_Q_DIGEST_FACTORY.lib;..\lib\RelWithDebInfo\QSBD_Q_DIGEST.lib;..\lib\RelWithDebInfo\QSBD_UTILS.lib;..\lib\RelWithDebInfo\gtest.lib;..\lib\RelWithDebInfo\QSBD_QUANTILE_SKETCH.lib;..\lib\RelWithDebInfo\QSBD_DEBUG.lib;..\lib\RelWithDebInfo\QSBD_SKETCH_FACTORY.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>..\lib\RelWithDebInfo\gtest_main.lib;..\lib\RelWithDebInfo\QSBD_STREAM_MAKER.lib;..\lib\RelWithDebInfo\QSBD_GLOBAL_GEN.lib;..\lib\RelWithDebInfo\QSBD_Q_DIGEST_FACTORY.lib;..\lib\RelWithDebInfo\QSBD_Q_DIGEST.lib;..\lib\RelWithDebInfo\QSBD_UTILS.lib;..\lib\RelWithDebInfo\gtest.lib;..\lib\RelWithDebInfo\QSBD_COMMUM_HEADER.lib;..\lib\RelWithDebInfo\QSBD_DEBUG.lib;..\lib\RelWithDebInfo\QSBD_QUANTILE_SKETCH.lib;..\lib\RelWithDebInfo\QSBD_SKETCH_FACTORY.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalOptions>%(AdditionalOptions) /machine:x64 -pg -fno-omit-frame-pointer -g -O2 -ggdb -fstrict-aliasing</AdditionalOptions>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64 -g -Wall</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <ImportLibrary>C:/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/lib/RelWithDebInfo/test_q_digest.lib</ImportLibrary>
@@ -321,6 +325,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
+    <ProjectReference Include="C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\build\src\QSBD_COMMUM_HEADER.vcxproj">
+      <Project>{3FB85DE4-3141-32B0-890F-79C61A3E5186}</Project>
+      <Name>QSBD_COMMUM_HEADER</Name>
+    </ProjectReference>
     <ProjectReference Include="C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\build\src\QSBD_DEBUG.vcxproj">
       <Project>{3FE1F193-8808-3688-8EB2-8F4D3CE19297}</Project>
       <Name>QSBD_DEBUG</Name>
@@ -344,6 +352,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ProjectReference Include="C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\build\src\QSBD_SKETCH_FACTORY.vcxproj">
       <Project>{97726D92-CBCE-3934-9A75-8DAC5F0D09E7}</Project>
       <Name>QSBD_SKETCH_FACTORY</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\build\src\QSBD_STREAM_MAKER.vcxproj">
+      <Project>{D1B83E7B-4060-34F8-9C7E-C8584519F6BF}</Project>
+      <Name>QSBD_STREAM_MAKER</Name>
     </ProjectReference>
     <ProjectReference Include="C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\build\src\QSBD_UTILS.vcxproj">
       <Project>{A1227CE1-0CCB-3655-8AF9-CEA83EBE85D3}</Project>

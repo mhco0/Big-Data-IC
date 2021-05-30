@@ -39,7 +39,7 @@ int main(int argc, char* argv[]){
     }
 
 
-    for(int i = 1; i <= stream_sizes; i *= 10){
+    for(int i = stream_sizes; i <= stream_sizes; i *= 10){
         string stream_file = stream_file_prefix + to_string(i) + ".json";
         string query_file = query_file_prefix + to_string(i) + ".json";
         string output_file = output_file_prefix + to_string(i) +".json";

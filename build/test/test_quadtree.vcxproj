@@ -87,7 +87,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\src;C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\googletest\googletest\include;C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\googletest\googletest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>%(AdditionalOptions) -pg -fno-omit-frame-pointer -g -ggdb -fstrict-aliasing</AdditionalOptions>
+      <AdditionalOptions>%(AdditionalOptions) -g</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -98,6 +98,7 @@
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>EnableAllWarnings</WarningLevel>
       <PreprocessorDefinitions>WIN32;_WINDOWS;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
     </ClCompile>
@@ -116,7 +117,7 @@
     <Link>
       <AdditionalDependencies>..\lib\Debug\gtest_maind.lib;..\lib\Debug\QSBD_QUADTREE.lib;..\lib\Debug\QSBD_STREAM_MAKER.lib;..\lib\Debug\QSBD_UTILS.lib;..\lib\Debug\gtestd.lib;..\lib\Debug\QSBD_AABB.lib;..\lib\Debug\QSBD_POINT.lib;..\lib\Debug\QSBD_COMMUM_HEADER.lib;..\lib\Debug\QSBD_GLOBAL_GEN.lib;..\lib\Debug\QSBD_DEBUG.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalOptions>%(AdditionalOptions) /machine:x64 -pg -fno-omit-frame-pointer -g -O2 -ggdb -fstrict-aliasing</AdditionalOptions>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64 -g -Wall</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <ImportLibrary>C:/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/lib/Debug/test_quadtree.lib</ImportLibrary>
@@ -130,7 +131,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\src;C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\googletest\googletest\include;C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\googletest\googletest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>%(AdditionalOptions) -pg -fno-omit-frame-pointer -g -ggdb -fstrict-aliasing</AdditionalOptions>
+      <AdditionalOptions>%(AdditionalOptions) -g</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>Sync</ExceptionHandling>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
@@ -139,6 +140,7 @@
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>EnableAllWarnings</WarningLevel>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <DebugInformationFormat>
@@ -159,7 +161,7 @@
     <Link>
       <AdditionalDependencies>..\lib\Release\gtest_main.lib;..\lib\Release\QSBD_QUADTREE.lib;..\lib\Release\QSBD_STREAM_MAKER.lib;..\lib\Release\QSBD_UTILS.lib;..\lib\Release\gtest.lib;..\lib\Release\QSBD_AABB.lib;..\lib\Release\QSBD_POINT.lib;..\lib\Release\QSBD_COMMUM_HEADER.lib;..\lib\Release\QSBD_GLOBAL_GEN.lib;..\lib\Release\QSBD_DEBUG.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalOptions>%(AdditionalOptions) /machine:x64 -pg -fno-omit-frame-pointer -g -O2 -ggdb -fstrict-aliasing</AdditionalOptions>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64 -g -Wall</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <ImportLibrary>C:/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/lib/Release/test_quadtree.lib</ImportLibrary>
@@ -173,7 +175,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\src;C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\googletest\googletest\include;C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\googletest\googletest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>%(AdditionalOptions) -pg -fno-omit-frame-pointer -g -ggdb -fstrict-aliasing</AdditionalOptions>
+      <AdditionalOptions>%(AdditionalOptions) -g</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>Sync</ExceptionHandling>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
@@ -182,6 +184,7 @@
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>EnableAllWarnings</WarningLevel>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="MinSizeRel";%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <DebugInformationFormat>
@@ -202,7 +205,7 @@
     <Link>
       <AdditionalDependencies>..\lib\MinSizeRel\gtest_main.lib;..\lib\MinSizeRel\QSBD_QUADTREE.lib;..\lib\MinSizeRel\QSBD_STREAM_MAKER.lib;..\lib\MinSizeRel\QSBD_UTILS.lib;..\lib\MinSizeRel\gtest.lib;..\lib\MinSizeRel\QSBD_AABB.lib;..\lib\MinSizeRel\QSBD_POINT.lib;..\lib\MinSizeRel\QSBD_COMMUM_HEADER.lib;..\lib\MinSizeRel\QSBD_GLOBAL_GEN.lib;..\lib\MinSizeRel\QSBD_DEBUG.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalOptions>%(AdditionalOptions) /machine:x64 -pg -fno-omit-frame-pointer -g -O2 -ggdb -fstrict-aliasing</AdditionalOptions>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64 -g -Wall</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <ImportLibrary>C:/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/lib/MinSizeRel/test_quadtree.lib</ImportLibrary>
@@ -216,7 +219,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\src;C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\googletest\googletest\include;C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\googletest\googletest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>%(AdditionalOptions) -pg -fno-omit-frame-pointer -g -ggdb -fstrict-aliasing</AdditionalOptions>
+      <AdditionalOptions>%(AdditionalOptions) -g</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <ExceptionHandling>Sync</ExceptionHandling>
@@ -226,6 +229,7 @@
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>EnableAllWarnings</WarningLevel>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="RelWithDebInfo";%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
     </ClCompile>
@@ -244,7 +248,7 @@
     <Link>
       <AdditionalDependencies>..\lib\RelWithDebInfo\gtest_main.lib;..\lib\RelWithDebInfo\QSBD_QUADTREE.lib;..\lib\RelWithDebInfo\QSBD_STREAM_MAKER.lib;..\lib\RelWithDebInfo\QSBD_UTILS.lib;..\lib\RelWithDebInfo\gtest.lib;..\lib\RelWithDebInfo\QSBD_AABB.lib;..\lib\RelWithDebInfo\QSBD_POINT.lib;..\lib\RelWithDebInfo\QSBD_COMMUM_HEADER.lib;..\lib\RelWithDebInfo\QSBD_GLOBAL_GEN.lib;..\lib\RelWithDebInfo\QSBD_DEBUG.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalOptions>%(AdditionalOptions) /machine:x64 -pg -fno-omit-frame-pointer -g -O2 -ggdb -fstrict-aliasing</AdditionalOptions>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64 -g -Wall</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <ImportLibrary>C:/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/lib/RelWithDebInfo/test_quadtree.lib</ImportLibrary>

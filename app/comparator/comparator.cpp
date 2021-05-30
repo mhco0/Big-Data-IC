@@ -50,85 +50,85 @@ int main(int argc, char* argv[]){
 
     for(auto& it : types_of_plots){
         if(it == "app_rank"){
-            for(int i = 1; i <= stream_sizes; i *= 10){
-                string file = file_prefix;
-                output_file = file_prefix + it + "_" + to_string(i) + "_" + args[2] + ".dat";
+            
+            string file = file_prefix;
+            output_file = file_prefix + it + "_" + to_string(stream_sizes) + "_" + args[2] + ".dat";
 
-                ofstream out(output_file);
+            ofstream out(output_file);
 
-                if(not out.is_open()){
-                    DEBUG_ERR("Couldn't open output app rank file");
+            if(not out.is_open()){
+                DEBUG_ERR("Couldn't open output app rank file");
 
-                    return -1;
-                }
-
-                file += (to_string(i) + "_" + args[2] + ".json");
-
-
-                ifstream infos(file);
-
-                if (infos.is_open()){
-                    json all_infos = json::parse(infos);
-
-                    for(auto& it : all_infos[test_name]["time"]["queries"].items()){
-                        int x_label = it.value()["value"].get<int>();
-                        int y_label = it.value()["rank"].get<int>();
-
-                        out << x_label << " " << y_label << endl;
-                    }
-                    
-                    infos.close();
-                       
-                }else{
-                    DEBUG_ERR("Couldn't open file. File:");
-                    DEBUG_ERR(file);
-
-                    return -1;
-                }
-
-                out.close();
+                return -1;
             }
+
+            file += (to_string(stream_sizes) + "_" + args[2] + ".json");
+
+
+            ifstream infos(file);
+
+            if (infos.is_open()){
+                json all_infos = json::parse(infos);
+
+                for(auto& it : all_infos[test_name]["time"][string("queries_") + to_string(stream_sizes)].items()){
+                    int x_label = it.value()["value"].get<int>();
+                    int y_label = it.value()["rank"].get<int>();
+
+                    out << x_label << " " << y_label << endl;
+                }
+                
+                infos.close();
+                    
+            }else{
+                DEBUG_ERR("Couldn't open file. File:");
+                DEBUG_ERR(file);
+
+                return -1;
+            }
+
+            out.close();
+        
 
             
         }else{
-            for(int i = 1; i <= stream_sizes; i *= 10){
-                output_file = real_ranks_file + it + "_" + to_string(i) + ".dat";
+          
+            output_file = real_ranks_file + it + "_" + to_string(stream_sizes) + ".dat";
 
-                ofstream out(output_file);
+            ofstream out(output_file);
 
-                if(not out.is_open()){
-                    DEBUG_ERR("Couldn't open output real rank file");
+            if(not out.is_open()){
+                DEBUG_ERR("Couldn't open output real rank file");
 
-                    return -1;
-                }
-
-                string file = real_ranks_file;
-
-                file += (to_string(i) + ".json");
-
-                ifstream infos(file);
-
-                if (infos.is_open()){
-                    json all_infos = json::parse(infos);
-
-                    for(auto& it : all_infos["queries"].items()){
-                        int x_label = it.value()["value"].get<int>();
-                        int y_label = it.value()["rank"].get<int>();
-
-                        out << x_label << " " << y_label << endl;
-                    }
-                    
-                    infos.close();
-                       
-                }else{
-                    DEBUG_ERR("Couldn't open file. File:");
-                    DEBUG_ERR(file);
-
-                    return -1;
-                }
-
-                out.close();
+                return -1;
             }
+
+            string file = real_ranks_file;
+
+            file += (to_string(stream_sizes) + ".json");
+
+            ifstream infos(file);
+
+            if (infos.is_open()){
+                json all_infos = json::parse(infos);
+
+                for(auto& it : all_infos["queries"].items()){
+                    int x_label = it.value()["value"].get<int>();
+                    int y_label = it.value()["rank"].get<int>();
+
+                    out << x_label << " " << y_label << endl;
+                }
+                
+                infos.close();
+                    
+            }else{
+                DEBUG_ERR("Couldn't open file. File:");
+                DEBUG_ERR(file);
+
+                return -1;
+            }
+
+            out.close();
+            
         }
     }
 

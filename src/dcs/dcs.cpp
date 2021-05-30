@@ -178,10 +178,12 @@ namespace qsbd {
 
         if(this->error - rhs_cv.error > 1e-6){
             DEBUG_ERR("dcs's error need to match");
+            return;
         }
 
         if(this->universe != rhs_cv.universe){
             DEBUG_ERR("dcs's universe need to match");
+            return;
         }
 
         this->total_weight += rhs_cv.total_weight;

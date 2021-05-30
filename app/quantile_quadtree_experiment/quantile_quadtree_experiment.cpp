@@ -36,7 +36,7 @@ json q_digest_test(const json& stream_file, const json& query_file, const json& 
     json out_info = json::object();
     out_info["q_digest_test"] = json::object();
 
-    cout << "Update...";
+    cout << "Running...";
     cout.flush();
 
     qsbd::q_digest_factory factory(error, universe);
@@ -44,9 +44,6 @@ json q_digest_test(const json& stream_file, const json& query_file, const json& 
     json loop_info;
     double update_time_acc = 0.0;
 
-    qsbd::timer update_overall;
-
-    update_overall.start();
     for(int i = 0, j = 10; i < stream.size(); i++){
         qsbd::timer update_once;
 
@@ -54,65 +51,46 @@ json q_digest_test(const json& stream_file, const json& query_file, const json& 
         qq_test.update(qsbd::point<int>(stream[i].second.first, stream[i].second.second), stream[i].first.first, stream[i].first.second);
         update_once.end();
 
-        update_time_acc += (double) update_once.count();
+        update_time_acc += update_once.count();
         if (i == (j - 1) or i == ((j - 1) / 2)){
-            loop_info["time"][string("update_time_acc_") + to_string(j)] = update_time_acc;
+            double avg_update_time = update_time_acc / (i + 1);
+            loop_info["time"][string("update_time_acc_") + to_string(i + 1)] = update_time_acc;
+            loop_info["time"][string("avg_update_time_") + to_string(i + 1)] = avg_update_time;
+
+            double query_time_acc = 0.0;
+            loop_info["time"][string("queries_") + to_string(i + 1)] = json::array();
+
+            for(int j = 0; j < regions_to_search.size(); j++){
+                qsbd::aabb<int> region(regions_to_search[j].second[0], regions_to_search[j].second[1], regions_to_search[j].second[2], regions_to_search[j].second[3]);
+                qsbd::timer query_once;
+                json region_info;
+
+                query_once.start();
+                int rank = qq_test.query(region, regions_to_search[j].first);
+                query_once.end();
+
+                query_time_acc += query_once.count();
+                
+                region_info["region"] = regions_to_search[j].second;
+                region_info["value"] = regions_to_search[j].first;
+                region_info["rank"] = rank;
+                region_info["query_time"] = query_once.count();
+
+                loop_info["time"][string("queries_") + to_string(i + 1)].push_back(region_info);
+            }
+
+            double avg_query_time = query_time_acc / regions_to_search.size();
+
+            loop_info["time"][string("avg_query_time_") + to_string(i + 1)] = avg_query_time;
+            loop_info[string("memory_") + to_string(i + 1)] = {};
+
+            qsbd::mem_track::track_list_memory_usage(loop_info[string("memory_") + to_string(i + 1)]);
 
             if(i == (j - 1)){
                 j *= 10;
             }
         }
     }
-    update_overall.end();
-
-    double avg_update_time = update_time_acc / stream.size();
-
-    loop_info["time"]["avg_update_time"] = avg_update_time;
-    loop_info["time"]["update_time_overall"] = update_overall.count();
-
-    cout << "Done!" << endl;
-    cout << "Queries...";
-    cout.flush();
-
-    loop_info["time"]["queries"] = json::array();
-
-    qsbd::timer query_overall;
-    double query_time_acc = 0.0;
-
-    query_overall.start();
-    for(int j = 0; j < regions_to_search.size(); j++){
-        qsbd::aabb<int> region(regions_to_search[j].second[0], regions_to_search[j].second[1], regions_to_search[j].second[2], regions_to_search[j].second[3]);
-        qsbd::timer query_once;
-        json region_info;
-        int rank = -1;
-
-        query_once.start();
-        rank = qq_test.query(region, regions_to_search[j].first);
-        query_once.end();
-
-        query_time_acc += (double) query_once.count();
-
-        region_info["region"] = regions_to_search[j].second;
-        region_info["value"] = regions_to_search[j].first;
-        region_info["rank"] = rank;
-        region_info["query_time"] = query_overall.count();
-
-        loop_info["time"]["queries"].push_back(region_info);
-    }
-    query_overall.end();
-
-    double avg_query_time = query_time_acc / regions_to_search.size();
-
-    loop_info["time"]["avg_query_time"] = avg_query_time;
-    loop_info["time"]["query_time_overall"] = query_overall.count();
-
-    cout << "Done!" << endl;
-    cout << "Memory...";
-    cout.flush();
-
-    loop_info["memory"] = {};
-
-    qsbd::mem_track::track_list_memory_usage(loop_info["memory"]);
 
     out_info["q_digest_test"] = loop_info;
 
@@ -137,7 +115,7 @@ json kll_test(const json& stream_file, const json& query_file, const json& test_
     json out_info = json::object();
     out_info["kll_test"] = json::object();
 
-    cout << "Update...";
+    cout << "Running...";
     cout.flush();
 
     qsbd::kll_factory<int> factory(error);
@@ -145,9 +123,6 @@ json kll_test(const json& stream_file, const json& query_file, const json& test_
     json loop_info;
     double update_time_acc = 0.0;
 
-    qsbd::timer update_overall;
-
-    update_overall.start();
     for(int i = 0, j = 10; i < stream.size(); i++){
         qsbd::timer update_once;
 
@@ -155,65 +130,46 @@ json kll_test(const json& stream_file, const json& query_file, const json& test_
         qq_test.update(qsbd::point<int>(stream[i].second.first, stream[i].second.second), stream[i].first);
         update_once.end();
 
-        update_time_acc += (double) update_once.count();
+        update_time_acc += update_once.count();
         if (i == (j - 1) or i == ((j - 1) / 2)){
-            loop_info["time"][string("update_time_acc_") + to_string(j)] = update_time_acc;
+            double avg_update_time = update_time_acc / (i + 1);
+            loop_info["time"][string("update_time_acc_") + to_string(i + 1)] = update_time_acc;
+            loop_info["time"][string("avg_update_time_") + to_string(i + 1)] = avg_update_time;
+
+            double query_time_acc = 0.0;
+            loop_info["time"][string("queries_") + to_string(i + 1)] = json::array();
+
+            for(int j = 0; j < regions_to_search.size(); j++){
+                qsbd::aabb<int> region(regions_to_search[j].second[0], regions_to_search[j].second[1], regions_to_search[j].second[2], regions_to_search[j].second[3]);
+                qsbd::timer query_once;
+                json region_info;
+
+                query_once.start();
+                int rank = qq_test.query(region, regions_to_search[j].first);
+                query_once.end();
+
+                query_time_acc += query_once.count();
+                
+                region_info["region"] = regions_to_search[j].second;
+                region_info["value"] = regions_to_search[j].first;
+                region_info["rank"] = rank;
+                region_info["query_time"] = query_once.count();
+
+                loop_info["time"][string("queries_") + to_string(i + 1)].push_back(region_info);
+            }
+
+            double avg_query_time = query_time_acc / regions_to_search.size();
+
+            loop_info["time"][string("avg_query_time_") + to_string(i + 1)] = avg_query_time;
+            loop_info[string("memory_") + to_string(i + 1)] = {};
+
+            qsbd::mem_track::track_list_memory_usage(loop_info[string("memory_") + to_string(i + 1)]);
 
             if(i == (j - 1)){
                 j *= 10;
             }
         }
     }
-    update_overall.end();
-
-    double avg_update_time = update_time_acc / stream.size();
-
-    loop_info["time"]["avg_update_time"] = avg_update_time;
-    loop_info["time"]["update_time_overall"] = update_overall.count();
-
-    cout << "Done!" << endl;
-    cout << "Queries...";
-    cout.flush();
-
-    loop_info["time"]["queries"] = json::array();
-
-    qsbd::timer query_overall;
-    double query_time_acc = 0.0;
-
-    query_overall.start();
-    for(int j = 0; j < regions_to_search.size(); j++){
-        qsbd::aabb<int> region(regions_to_search[j].second[0], regions_to_search[j].second[1], regions_to_search[j].second[2], regions_to_search[j].second[3]);
-        qsbd::timer query_once;
-        json region_info;
-
-        query_once.start();
-        int rank = qq_test.query(region, regions_to_search[j].first);
-        query_once.end();
-
-        query_time_acc += (double) query_once.count();
-    
-        region_info["region"] = regions_to_search[j].second;
-        region_info["value"] = regions_to_search[j].first;
-        region_info["rank"] = rank;
-        region_info["query_time"] = query_overall.count();
-
-        loop_info["time"]["queries"].push_back(region_info);
-    }
-
-    query_overall.end();
-
-    double avg_query_time = query_time_acc / regions_to_search.size();
-
-    loop_info["time"]["avg_query_time"] = avg_query_time;
-    loop_info["time"]["query_time_overall"] = query_overall.count();
-
-    cout << "Done!" << endl;
-    cout << "Memory...";
-    cout.flush();
-
-    loop_info["memory"] = {};
-
-    qsbd::mem_track::track_list_memory_usage(loop_info["memory"]);
 
     out_info["kll_test"] = loop_info;
 
@@ -239,7 +195,7 @@ json dcs_test(const json& stream_file, const json& query_file, const json& test_
     json out_info = json::object();
     out_info["dcs_test"] = json::object();
 
-    cout << "Update...";
+    cout << "Running...";
     cout.flush();
 
     qsbd::dcs_factory factory(error, universe);
@@ -247,9 +203,6 @@ json dcs_test(const json& stream_file, const json& query_file, const json& test_
     json loop_info;
     double update_time_acc = 0.0;
 
-    qsbd::timer update_overall;
-
-    update_overall.start();
     for(int i = 0, j = 10; i < stream.size(); i++){
         qsbd::timer update_once;
 
@@ -257,64 +210,46 @@ json dcs_test(const json& stream_file, const json& query_file, const json& test_
         qq_test.update(qsbd::point<int>(stream[i].second.first, stream[i].second.second), stream[i].first.first, stream[i].first.second);
         update_once.end();
 
-        update_time_acc += (double) update_once.count();
+        update_time_acc += update_once.count();
         if (i == (j - 1) or i == ((j - 1) / 2)){
-            loop_info["time"][string("update_time_acc_") + to_string(j)] = update_time_acc;
+            double avg_update_time = update_time_acc / (i + 1);
+            loop_info["time"][string("update_time_acc_") + to_string(i + 1)] = update_time_acc;
+            loop_info["time"][string("avg_update_time_") + to_string(i + 1)] = avg_update_time;
+
+            double query_time_acc = 0.0;
+            loop_info["time"][string("queries_") + to_string(i + 1)] = json::array();
+
+            for(int j = 0; j < regions_to_search.size(); j++){
+                qsbd::aabb<int> region(regions_to_search[j].second[0], regions_to_search[j].second[1], regions_to_search[j].second[2], regions_to_search[j].second[3]);
+                qsbd::timer query_once;
+                json region_info;
+
+                query_once.start();
+                int rank = qq_test.query(region, regions_to_search[j].first);
+                query_once.end();
+
+                query_time_acc += query_once.count();
+                
+                region_info["region"] = regions_to_search[j].second;
+                region_info["value"] = regions_to_search[j].first;
+                region_info["rank"] = rank;
+                region_info["query_time"] = query_once.count();
+
+                loop_info["time"][string("queries_") + to_string(i + 1)].push_back(region_info);
+            }
+
+            double avg_query_time = query_time_acc / regions_to_search.size();
+
+            loop_info["time"][string("avg_query_time_") + to_string(i + 1)] = avg_query_time;
+            loop_info[string("memory_") + to_string(i + 1)] = {};
+
+            qsbd::mem_track::track_list_memory_usage(loop_info[string("memory_") + to_string(i + 1)]);
 
             if(i == (j - 1)){
                 j *= 10;
             }
         }
     }
-    update_overall.end();
-
-    double avg_update_time = update_time_acc / stream.size();
-
-    loop_info["time"]["avg_update_time"] = avg_update_time;
-    loop_info["time"]["update_time_overall"] = update_overall.count();
-
-    cout << "Done!" << endl;
-    cout << "Queries...";
-    cout.flush();
-
-    loop_info["time"]["queries"] = json::array();
-
-    qsbd::timer query_overall;
-    double query_time_acc = 0.0;
-
-    query_overall.start();
-    for(int j = 0; j < regions_to_search.size(); j++){
-        qsbd::aabb<int> region(regions_to_search[j].second[0], regions_to_search[j].second[1], regions_to_search[j].second[2], regions_to_search[j].second[3]);
-        qsbd::timer query_once;
-        json region_info;
-
-        query_once.start();
-        int rank = qq_test.query(region, regions_to_search[j].first);
-        query_once.end();
-
-        query_time_acc += (double) query_once.count();
-
-        region_info["region"] = regions_to_search[j].second;
-        region_info["value"] = regions_to_search[j].first;
-        region_info["rank"] = rank;
-        region_info["query_time"] = query_overall.count();
-
-        loop_info["time"]["queries"].push_back(region_info);
-    }
-    query_overall.end();
-
-    double avg_query_time = query_time_acc / regions_to_search.size();
-
-    loop_info["time"]["avg_query_time"] = avg_query_time;
-    loop_info["time"]["query_time_overall"] = query_overall.count();
-
-    cout << "Done!" << endl;
-    cout << "Memory...";
-    cout.flush();
-
-    loop_info["memory"] = {};
-
-    qsbd::mem_track::track_list_memory_usage(loop_info["memory"]);
 
     out_info["dcs_test"] = loop_info;
 
@@ -339,7 +274,7 @@ json gk_test(const json& stream_file, const json& query_file, const json& test_f
     json out_info = json::object();
     out_info["gk_test"] = json::object();
 
-    cout << "Update...";
+    cout << "Running...";
     cout.flush();
 
     qsbd::gk_factory<int> factory(error);
@@ -347,9 +282,6 @@ json gk_test(const json& stream_file, const json& query_file, const json& test_f
     json loop_info;
     double update_time_acc = 0.0;
 
-    qsbd::timer update_overall;
-
-    update_overall.start();
     for(int i = 0, j = 10; i < stream.size(); i++){
         qsbd::timer update_once;
 
@@ -358,62 +290,46 @@ json gk_test(const json& stream_file, const json& query_file, const json& test_f
         update_once.end();
 
         update_time_acc += (double) update_once.count();
+
         if (i == (j - 1) or i == ((j - 1) / 2)){
-            loop_info["time"][string("update_time_acc_") + to_string(j)] = update_time_acc;
+            double avg_update_time = update_time_acc / (i + 1);
+            loop_info["time"][string("update_time_acc_") + to_string(i + 1)] = update_time_acc;
+            loop_info["time"][string("avg_update_time_") + to_string(i + 1)] = avg_update_time;
+
+            double query_time_acc = 0.0;
+            loop_info["time"][string("queries_") + to_string(i + 1)] = json::array();
+
+            for(int j = 0; j < regions_to_search.size(); j++){
+                qsbd::aabb<int> region(regions_to_search[j].second[0], regions_to_search[j].second[1], regions_to_search[j].second[2], regions_to_search[j].second[3]);
+                qsbd::timer query_once;
+                json region_info;
+
+                query_once.start();
+                int rank = qq_test.query(region, regions_to_search[j].first);
+                query_once.end();
+
+                query_time_acc += query_once.count();
+                
+                region_info["region"] = regions_to_search[j].second;
+                region_info["value"] = regions_to_search[j].first;
+                region_info["rank"] = rank;
+                region_info["query_time"] = query_once.count();
+
+                loop_info["time"][string("queries_") + to_string(i + 1)].push_back(region_info);
+            }
+
+            double avg_query_time = query_time_acc / regions_to_search.size();
+
+            loop_info["time"][string("avg_query_time_") + to_string(i + 1)] = avg_query_time;
+            loop_info[string("memory_") + to_string(i + 1)] = {};
+
+            qsbd::mem_track::track_list_memory_usage(loop_info[string("memory_") + to_string(i + 1)]);
 
             if(i == (j - 1)){
                 j *= 10;
             }
         }
     }
-    update_overall.end();
-
-    double avg_update_time = update_time_acc / stream.size();
-
-    loop_info["time"]["avg_update_time"] = avg_update_time;
-    loop_info["time"]["update_time_overall"] = update_overall.count();
-
-    loop_info["time"]["queries"] = json::array();
-
-    qsbd::timer query_overall;
-    double query_time_acc = 0.0;
-
-    cout << "Done!" << endl;
-    cout << "Queries...";
-    cout.flush();
-
-    query_overall.start();
-    for(int j = 0; j < regions_to_search.size(); j++){
-        qsbd::aabb<int> region(regions_to_search[j].second[0], regions_to_search[j].second[1], regions_to_search[j].second[2], regions_to_search[j].second[3]);
-        qsbd::timer query_once;
-        json region_info;
-
-        query_once.start();
-        int rank = qq_test.query(region, regions_to_search[j].first);
-        query_once.end();
-
-        query_time_acc += (double) query_once.count();
-        
-        region_info["region"] = regions_to_search[j].second;
-        region_info["value"] = regions_to_search[j].first;
-        region_info["rank"] = rank;
-        region_info["query_time"] = query_overall.count();
-
-        loop_info["time"]["queries"].push_back(region_info);
-    }
-    query_overall.end();
-
-    double avg_query_time = query_time_acc / regions_to_search.size();
-
-    cout << "Done!" << endl;
-    cout << "Memory...";
-    cout.flush();
-
-    loop_info["time"]["avg_query_time"] = avg_query_time;
-    loop_info["time"]["query_time_overall"] = query_overall.count();
-    loop_info["memory"] = {};
-
-    qsbd::mem_track::track_list_memory_usage(loop_info["memory"]);
 
     out_info["gk_test"] = loop_info;
 

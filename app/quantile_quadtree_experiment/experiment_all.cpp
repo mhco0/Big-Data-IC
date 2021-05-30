@@ -19,7 +19,7 @@ int main(int argc, char* argv[]){
     int max_deep = 25;
     int stream_sizes = 10000000;
     double error = 0.3;
-    int universe = 131072;
+    int universe = 16384;
     
     if(args.size() != 2){
         DEBUG_ERR("You need to pass the test name and the option for the stream\n Ex [gk/ kll/ q_digest/ dcs] [-c/ -cw/ -u/ -uw]");
@@ -69,10 +69,10 @@ int main(int argc, char* argv[]){
         temp_config << config.dump(4);
         temp_config.close();
 
-        for(int i = 1; i <= stream_sizes; i *= 10){
+        for(int i = stream_sizes; i <= stream_sizes; i *= 10){
             string stream_file = stream_file_prefix + to_string(i) + ".json";
             string query_file = query_file_prefix + to_string(i) + ".json";
-            string output_file = output_file_prefix + to_string(i) + "_" + to_string(deep) +".json";
+            string output_file = output_file_prefix + to_string(i) + "_" + to_string(deep) +"_2.json";
 
             DEBUG(stream_file);
             DEBUG(query_file);
