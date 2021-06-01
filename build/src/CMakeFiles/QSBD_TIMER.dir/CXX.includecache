@@ -6,11 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/timer/timer.cpp
+/home/mhco/projects/Big-Data-IC/src/timer/timer.cpp
 timer.h
-/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/timer/timer.h
+/home/mhco/projects/Big-Data-IC/src/timer/timer.h
 
-/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/timer/timer.h
+/home/mhco/projects/Big-Data-IC/src/timer/timer.h
 chrono
 -
 

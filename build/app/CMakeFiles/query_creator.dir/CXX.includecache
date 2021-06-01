@@ -432,7 +432,7 @@ vector
 string_view
 -
 
-/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/app/query_creator/query_creator.cpp
+/home/mhco/projects/Big-Data-IC/app/query_creator/query_creator.cpp
 nlohmann/json.hpp
 -
 stream_maker/stream_maker.h

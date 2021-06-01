@@ -45,8 +45,10 @@ void generate_stream(const json& config, ofstream& out){
         double miny = config["args"]["miny"].get<double>();
         double maxx = config["args"]["maxx"].get<double>();
         double maxy = config["args"]["maxy"].get<double>();
+	int min_v = config["args"]["min_v"].get<int>();
+	int max_v = config["args"]["max_v"].get<int>();
 
-        auto stream = qsbd::stream_maker::random_stream_in_region(vector_size, minx, miny, maxx, maxy);
+        auto stream = qsbd::stream_maker::random_stream_in_region(vector_size, minx, miny, maxx, maxy, min_v, max_v);
         temp["stream"] = stream;
     }else if(method == "random_stream_in_region_with_weight"){
         int vector_size = config["args"]["vector_size"].get<int>();

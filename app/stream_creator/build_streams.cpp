@@ -10,8 +10,8 @@ using namespace std;
 using json = nlohmann::json;
 
 int main(){
-    //"random_stream_city_with_weight", "random_stream_in_region_with_weight"
-    vector<string> methods = {"random_stream_city", "random_stream_in_region"};
+    //"random_stream_city_with_weight", "random_stream_in_region_with_weight", "random_stream_city"
+    vector<string> methods = {"random_stream_in_region"};
     string output_path = "data/";
     string temp_file = "config_temp.json";
 
@@ -19,7 +19,7 @@ int main(){
     int min_v = 0, max_v = 10000;
     int min_w = 1, max_w = 100; 
     int citys = 100;
-    int stream_sizes = 100000000;
+    int stream_sizes = 10000000;
     double max_radius = 5.0;
 
     for(auto& method : methods){
@@ -84,6 +84,8 @@ int main(){
             config["args"]["miny"] = miny;
             config["args"]["maxx"] = maxx;
             config["args"]["maxy"] = maxy;
+	    config["args"]["min_v"] = min_v;
+	    config["args"]["max_v"] = max_v;
 
             string progress = "0%";
             cout << progress;

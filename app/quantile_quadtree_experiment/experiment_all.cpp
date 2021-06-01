@@ -17,7 +17,7 @@ int main(int argc, char* argv[]){
     string temp_file = "temp_file_";
     vector<double> bounds = {0.0, 0.0, 1280.0, 720.0};
     int max_deep = 15;
-    int stream_sizes = 100000000;
+    int stream_sizes = 10000000;
     double error = 0.3;
     int universe = 16384;
     
@@ -72,7 +72,7 @@ int main(int argc, char* argv[]){
         for(int i = stream_sizes; i <= stream_sizes; i *= 10){
             string stream_file = stream_file_prefix + to_string(i) + ".json";
             string query_file = query_file_prefix + to_string(i) + ".json";
-            string output_file = output_file_prefix + to_string(i) + "_" + to_string(deep) +"_2.json";
+            string output_file = output_file_prefix + to_string(i) + "_" + to_string(deep) + ".json";
 
             DEBUG(stream_file);
             DEBUG(query_file);

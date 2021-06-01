@@ -184,13 +184,15 @@ namespace qsbd{
 			return -0x3f3f3f;
 		}
 
-		vector<pair<int, pair<double, double>>> random_stream_in_region(int vector_size, double minx, double miny, double maxx, double maxy){
+		vector<pair<int, pair<double, double>>> random_stream_in_region(int vector_size, double minx, double miny, double maxx, double maxy, int min_v, int max_v){
 			uniform_real_distribution<double> x_distribution(minx, maxx);
 			uniform_real_distribution<double> y_distribution(miny, maxy);
+			uniform_int_distribution<int> who_pick(min_v, max_v);
 			vector<pair<int, pair<double, double>>> ret;
 			
 			for(int i = 0; i < vector_size; i++){
-				ret.push_back({i, {x_distribution(generator), y_distribution(generator)}});
+				int element = who_pick(generator);
+				ret.push_back({element, {x_distribution(generator), y_distribution(generator)}});
 			}
 
 			return ret;

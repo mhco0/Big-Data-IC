@@ -25,4 +25,4 @@ app/CMakeFiles/quantile_quadtree_experiment.dir/quantile_quadtree_experiment/qua
  ../src/timer/timer.h
  ../src/utils/utils.h
  ../thirdparty/nlohmann/json.hpp
- /mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/app/quantile_quadtree_experiment/quantile_quadtree_experiment.cpp
+ /home/mhco/projects/Big-Data-IC/app/quantile_quadtree_experiment/quantile_quadtree_experiment.cpp
