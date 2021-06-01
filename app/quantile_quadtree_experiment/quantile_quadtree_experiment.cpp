@@ -26,12 +26,25 @@ json q_digest_test(const json& stream_file, const json& query_file, const json& 
     int universe = test_file["sketch"]["universe"].get<int>();
     int deep = test_file["deep"].get<int>();
     double bounds[4] = {0, 0, 0, 0};
+    int discrete_bounds[4] = {0, 0, 0, 0};
     
     for(auto& it : test_file["bound_box"].items()){
         bounds[stoi(it.key())] = it.value();
     }
 
-    qsbd::aabb<int> bound_box(bounds[0], bounds[1], bounds[2], bounds[3]);
+    for(int i = 0; i < 4; i++){
+        // 0 -> 0 2
+        // 1 -> 1 3
+        // 2 -> 0 2 
+        // 3 -> 1 3
+        if(i & 1){
+            discrete_bounds[i] = qsbd::map_coord(bounds[i], bounds[1], bounds[3], deep);
+        }else{
+            discrete_bounds[i] = qsbd::map_coord(bounds[i], bounds[0], bounds[2], deep);
+        }
+    }
+
+    qsbd::aabb<int> bound_box(discrete_bounds[0], discrete_bounds[1], discrete_bounds[2], discrete_bounds[3]);
     
     json out_info = json::object();
     out_info["q_digest_test"] = json::object();
@@ -46,9 +59,10 @@ json q_digest_test(const json& stream_file, const json& query_file, const json& 
 
     for(int i = 0, j = 10; i < stream.size(); i++){
         qsbd::timer update_once;
+        qsbd::point<int> coord(qsbd::map_coord(stream[i].second.first, bounds[0], bounds[2], deep), qsbd::map_coord(stream[i].second.second, bounds[1], bounds[3], deep));
 
         update_once.start();
-        qq_test.update(qsbd::point<int>(stream[i].second.first, stream[i].second.second), stream[i].first.first, stream[i].first.second);
+        qq_test.update(coord, stream[i].first.first, stream[i].first.second);
         update_once.end();
 
         update_time_acc += update_once.count();
@@ -61,7 +75,17 @@ json q_digest_test(const json& stream_file, const json& query_file, const json& 
             loop_info["time"][string("queries_") + to_string(i + 1)] = json::array();
 
             for(int j = 0; j < regions_to_search.size(); j++){
-                qsbd::aabb<int> region(regions_to_search[j].second[0], regions_to_search[j].second[1], regions_to_search[j].second[2], regions_to_search[j].second[3]);
+                int region_discrete_bound[4] = {0, 0, 0, 0};
+
+                for(int z = 0; z < 4; z++){
+                    if(z & 1){
+                        region_discrete_bound[z] = qsbd::map_coord(regions_to_search[j].second[z], bounds[1], bounds[3], deep);
+                    }else{
+                        region_discrete_bound[z] = qsbd::map_coord(regions_to_search[j].second[z], bounds[0], bounds[2], deep);
+                    }
+                }
+
+                qsbd::aabb<int> region(region_discrete_bound[0], region_discrete_bound[1], region_discrete_bound[2], region_discrete_bound[3]);
                 qsbd::timer query_once;
                 json region_info;
 
@@ -105,12 +129,25 @@ json kll_test(const json& stream_file, const json& query_file, const json& test_
     double error = test_file["sketch"]["error"].get<double>();
     int deep = test_file["deep"].get<int>();
     double bounds[4] = {0, 0, 0, 0};
+    int discrete_bounds[4] = {0, 0, 0, 0};
     
     for(auto& it : test_file["bound_box"].items()){
         bounds[stoi(it.key())] = it.value();
     }
 
-    qsbd::aabb<int> bound_box(bounds[0], bounds[1], bounds[2], bounds[3]);
+    for(int i = 0; i < 4; i++){
+        // 0 -> 0 2
+        // 1 -> 1 3
+        // 2 -> 0 2 
+        // 3 -> 1 3
+        if(i & 1){
+            discrete_bounds[i] = qsbd::map_coord(bounds[i], bounds[1], bounds[3], deep);
+        }else{
+            discrete_bounds[i] = qsbd::map_coord(bounds[i], bounds[0], bounds[2], deep);
+        }
+    }
+
+    qsbd::aabb<int> bound_box(discrete_bounds[0], discrete_bounds[1], discrete_bounds[2], discrete_bounds[3]);
     
     json out_info = json::object();
     out_info["kll_test"] = json::object();
@@ -125,9 +162,10 @@ json kll_test(const json& stream_file, const json& query_file, const json& test_
 
     for(int i = 0, j = 10; i < stream.size(); i++){
         qsbd::timer update_once;
+        qsbd::point<int> coord(qsbd::map_coord(stream[i].second.first, bounds[0], bounds[2], deep), qsbd::map_coord(stream[i].second.second, bounds[1], bounds[3], deep));
 
         update_once.start();
-        qq_test.update(qsbd::point<int>(stream[i].second.first, stream[i].second.second), stream[i].first);
+        qq_test.update(coord, stream[i].first);
         update_once.end();
 
         update_time_acc += update_once.count();
@@ -140,7 +178,17 @@ json kll_test(const json& stream_file, const json& query_file, const json& test_
             loop_info["time"][string("queries_") + to_string(i + 1)] = json::array();
 
             for(int j = 0; j < regions_to_search.size(); j++){
-                qsbd::aabb<int> region(regions_to_search[j].second[0], regions_to_search[j].second[1], regions_to_search[j].second[2], regions_to_search[j].second[3]);
+                int region_discrete_bound[4] = {0, 0, 0, 0};
+
+                for(int z = 0; z < 4; z++){
+                    if(z & 1){
+                        region_discrete_bound[z] = qsbd::map_coord(regions_to_search[j].second[z], bounds[1], bounds[3], deep);
+                    }else{
+                        region_discrete_bound[z] = qsbd::map_coord(regions_to_search[j].second[z], bounds[0], bounds[2], deep);
+                    }
+                }
+
+                qsbd::aabb<int> region(region_discrete_bound[0], region_discrete_bound[1], region_discrete_bound[2], region_discrete_bound[3]);
                 qsbd::timer query_once;
                 json region_info;
 
@@ -185,12 +233,25 @@ json dcs_test(const json& stream_file, const json& query_file, const json& test_
     int universe = test_file["sketch"]["universe"].get<int>();
     int deep = test_file["deep"].get<int>();
     double bounds[4] = {0, 0, 0, 0};
+    int discrete_bounds[4] = {0, 0, 0, 0};
     
     for(auto& it : test_file["bound_box"].items()){
         bounds[stoi(it.key())] = it.value();
     }
 
-    qsbd::aabb<int> bound_box(bounds[0], bounds[1], bounds[2], bounds[3]);
+    for(int i = 0; i < 4; i++){
+        // 0 -> 0 2
+        // 1 -> 1 3
+        // 2 -> 0 2 
+        // 3 -> 1 3
+        if(i & 1){
+            discrete_bounds[i] = qsbd::map_coord(bounds[i], bounds[1], bounds[3], deep);
+        }else{
+            discrete_bounds[i] = qsbd::map_coord(bounds[i], bounds[0], bounds[2], deep);
+        }
+    }
+
+    qsbd::aabb<int> bound_box(discrete_bounds[0], discrete_bounds[1], discrete_bounds[2], discrete_bounds[3]);
     
     json out_info = json::object();
     out_info["dcs_test"] = json::object();
@@ -205,9 +266,10 @@ json dcs_test(const json& stream_file, const json& query_file, const json& test_
 
     for(int i = 0, j = 10; i < stream.size(); i++){
         qsbd::timer update_once;
+        qsbd::point<int> coord(qsbd::map_coord(stream[i].second.first, bounds[0], bounds[2], deep), qsbd::map_coord(stream[i].second.second, bounds[1], bounds[3], deep));
 
         update_once.start();
-        qq_test.update(qsbd::point<int>(stream[i].second.first, stream[i].second.second), stream[i].first.first, stream[i].first.second);
+        qq_test.update(coord, stream[i].first.first, stream[i].first.second);
         update_once.end();
 
         update_time_acc += update_once.count();
@@ -220,7 +282,17 @@ json dcs_test(const json& stream_file, const json& query_file, const json& test_
             loop_info["time"][string("queries_") + to_string(i + 1)] = json::array();
 
             for(int j = 0; j < regions_to_search.size(); j++){
-                qsbd::aabb<int> region(regions_to_search[j].second[0], regions_to_search[j].second[1], regions_to_search[j].second[2], regions_to_search[j].second[3]);
+                int region_discrete_bound[4] = {0, 0, 0, 0};
+
+                for(int z = 0; z < 4; z++){
+                    if(z & 1){
+                        region_discrete_bound[z] = qsbd::map_coord(regions_to_search[j].second[z], bounds[1], bounds[3], deep);
+                    }else{
+                        region_discrete_bound[z] = qsbd::map_coord(regions_to_search[j].second[z], bounds[0], bounds[2], deep);
+                    }
+                }
+
+                qsbd::aabb<int> region(region_discrete_bound[0], region_discrete_bound[1], region_discrete_bound[2], region_discrete_bound[3]);
                 qsbd::timer query_once;
                 json region_info;
 
@@ -264,12 +336,25 @@ json gk_test(const json& stream_file, const json& query_file, const json& test_f
     double error = test_file["sketch"]["error"].get<double>();
     int deep = test_file["deep"].get<int>();
     double bounds[4] = {0, 0, 0, 0};
+    int discrete_bounds[4] = {0, 0, 0, 0};
     
     for(auto& it : test_file["bound_box"].items()){
         bounds[stoi(it.key())] = it.value();
     }
 
-    qsbd::aabb<int> resolution(bounds[0], bounds[1], bounds[2], bounds[3]);
+    for(int i = 0; i < 4; i++){
+        // 0 -> 0 2
+        // 1 -> 1 3
+        // 2 -> 0 2 
+        // 3 -> 1 3
+        if(i & 1){
+            discrete_bounds[i] = qsbd::map_coord(bounds[i], bounds[1], bounds[3], deep);
+        }else{
+            discrete_bounds[i] = qsbd::map_coord(bounds[i], bounds[0], bounds[2], deep);
+        }
+    }
+
+    qsbd::aabb<int> bound_box(discrete_bounds[0], discrete_bounds[1], discrete_bounds[2], discrete_bounds[3]);
     
     json out_info = json::object();
     out_info["gk_test"] = json::object();
@@ -278,15 +363,16 @@ json gk_test(const json& stream_file, const json& query_file, const json& test_f
     cout.flush();
 
     qsbd::gk_factory<int> factory(error);
-    qsbd::quantile_quadtree<int> qq_test(resolution, deep, &factory);
+    qsbd::quantile_quadtree<int> qq_test(bound_box, deep, &factory);
     json loop_info;
     double update_time_acc = 0.0;
 
     for(int i = 0, j = 10; i < stream.size(); i++){
         qsbd::timer update_once;
+        qsbd::point<int> coord(qsbd::map_coord(stream[i].second.first, bounds[0], bounds[2], deep), qsbd::map_coord(stream[i].second.second, bounds[1], bounds[3], deep));
 
         update_once.start();
-        qq_test.update(qsbd::point<int>(stream[i].second.first, stream[i].second.second), stream[i].first);
+        qq_test.update(coord, stream[i].first);
         update_once.end();
 
         update_time_acc += (double) update_once.count();
@@ -300,7 +386,17 @@ json gk_test(const json& stream_file, const json& query_file, const json& test_f
             loop_info["time"][string("queries_") + to_string(i + 1)] = json::array();
 
             for(int j = 0; j < regions_to_search.size(); j++){
-                qsbd::aabb<int> region(regions_to_search[j].second[0], regions_to_search[j].second[1], regions_to_search[j].second[2], regions_to_search[j].second[3]);
+                int region_discrete_bound[4] = {0, 0, 0, 0};
+
+                for(int z = 0; z < 4; z++){
+                    if(z & 1){
+                        region_discrete_bound[z] = qsbd::map_coord(regions_to_search[j].second[z], bounds[1], bounds[3], deep);
+                    }else{
+                        region_discrete_bound[z] = qsbd::map_coord(regions_to_search[j].second[z], bounds[0], bounds[2], deep);
+                    }
+                }
+
+                qsbd::aabb<int> region(region_discrete_bound[0], region_discrete_bound[1], region_discrete_bound[2], region_discrete_bound[3]);
                 qsbd::timer query_once;
                 json region_info;
 
