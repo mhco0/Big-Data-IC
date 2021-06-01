@@ -226,4 +226,5 @@ namespace qsbd {
     int dcs::get_total_weight() const {
         return this->total_weight;
     }
+
 }

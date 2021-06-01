@@ -83,6 +83,8 @@ bin/test_dcs: lib/libQSBD_DCS.a
 bin/test_dcs: lib/libQSBD_STREAM_MAKER.a
 bin/test_dcs: lib/libQSBD_DCS_FACTORY.a
 bin/test_dcs: lib/libQSBD_UTILS.a
+bin/test_dcs: lib/libQSBD_MEMORY_TRACKER.a
+bin/test_dcs: lib/libgtestd.a
 bin/test_dcs: lib/libQSBD_DCS.a
 bin/test_dcs: lib/libQSBD_QUANTILE_SKETCH.a
 bin/test_dcs: lib/libQSBD_COUNT_SKETCH.a
@@ -92,6 +94,7 @@ bin/test_dcs: lib/libQSBD_UTILS.a
 bin/test_dcs: lib/libQSBD_GLOBAL_GEN.a
 bin/test_dcs: lib/libQSBD_DEBUG.a
 bin/test_dcs: lib/libQSBD_SKETCH_FACTORY.a
+bin/test_dcs: lib/libnlohmann_json.a
 bin/test_dcs: test/CMakeFiles/test_dcs.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/mhco/projects/Big-Data-IC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ../bin/test_dcs"
 	cd /home/mhco/projects/Big-Data-IC/build/test && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/test_dcs.dir/link.txt --verbose=$(VERBOSE)

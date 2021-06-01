@@ -3,9 +3,11 @@
 #include <dcs/dcs.h>
 #include <dcs_factory/dcs_factory.h>
 #include <utils/utils.h>
+#include <memory_tracker/memory_tracker.h>
 using namespace std;
 using namespace qsbd;
 using namespace qsbd::stream_maker;
+using json = nlohmann::json;
 
 deque<string> g_args;
 // error universe [2^some integer] stream_size attempts stream_weight_min stream_weight_max
@@ -21,6 +23,18 @@ TEST(DcsTest, TestInit){
     EXPECT_TRUE(test.get_w() == 14);
     EXPECT_TRUE(test.get_s() == 1);
 	EXPECT_TRUE(test.get_total_weight() == 0);
+}
+
+TEST(DcsTest, TestMemoryU){
+	dcs* test = new dcs(0.3, 1 << 14);
+
+	json out;
+
+	mem_track::track_list_memory_usage(out);
+
+	cout << out.dump(4);
+
+	delete test;
 }
 
 TEST(DcsTest, TestUpdate){

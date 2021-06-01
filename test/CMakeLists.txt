@@ -43,7 +43,7 @@ target_include_directories(test_count_sketch PRIVATE ${QSBD_DIR_SOURCE})
 add_test(NAME test_count_sketch COMMAND test_count_sketch)
 
 add_executable(test_dcs test_dcs.cpp)
-target_link_libraries(test_dcs PRIVATE gtest_main QSBD_DCS QSBD_STREAM_MAKER QSBD_DCS_FACTORY QSBD_UTILS)
+target_link_libraries(test_dcs PRIVATE gtest_main QSBD_DCS QSBD_STREAM_MAKER QSBD_DCS_FACTORY QSBD_UTILS QSBD_MEMORY_TRACKER)
 target_include_directories(test_dcs PRIVATE ${QSBD_DIR_SOURCE})
 add_test(NAME test_dcs COMMAND test_dcs)
 
