@@ -91,8 +91,8 @@ TEST(QuantileQuadtreeTest, TestUpdateAndQueryWithKll){
     aabb<int> resolution(stod(g_args[0]), stod(g_args[1]), stod(g_args[2]), stod(g_args[3]));
     aabb<int> search_region = construct_aabb_from_random_region(stod(g_args[0]), stod(g_args[1]), stod(g_args[2]), stod(g_args[3]));
 
-	vector<pair<int, pair<double, double>>> stream =  random_stream_city(N, stod(g_args[0]), stod(g_args[1]), stod(g_args[2]), stod(g_args[3]), 0, N, 15, 5.0);
-    vector<pair<int, pair<double, double>>> guarantee_stream = random_stream_in_region(points_guarantee, search_region.bounds().first.x(), search_region.bounds().first.y(), search_region.bounds().second.x(), search_region.bounds().second.y());
+	vector<pair<int, pair<double, double>>> stream =  random_stream_city(N, stod(g_args[0]), stod(g_args[1]), stod(g_args[2]), stod(g_args[3]), 0, N - 1, 15, 5.0);
+    vector<pair<int, pair<double, double>>> guarantee_stream = random_stream_in_region(points_guarantee, search_region.bounds().first.x(), search_region.bounds().first.y(), search_region.bounds().second.x(), search_region.bounds().second.y(), 0, N - 1);
     for(auto& it : guarantee_stream){
         stream.push_back(it);
     }
@@ -146,8 +146,8 @@ TEST(QuantileQuadtreeTest, TestUpdateAndQueryWithGK){
     aabb<int> resolution(0.0, 0.0, 1280.0, 720.0);
     aabb<int> search_region = construct_aabb_from_random_region(0.0, 0.0, 1280.0, 720.0);
  
-	vector<pair<int, pair<double, double>>> stream =  random_stream_city(N, 0.0, 0.0, 1280.0, 720.0, 0, N, 15, 5.0);
-    vector<pair<int, pair<double, double>>> guarantee_stream = random_stream_in_region(points_guarantee, search_region.bounds().first.x(), search_region.bounds().first.y(), search_region.bounds().second.x(), search_region.bounds().second.y());
+	vector<pair<int, pair<double, double>>> stream =  random_stream_city(N, 0.0, 0.0, 1280.0, 720.0, 0, N - 1, 15, 5.0);
+    vector<pair<int, pair<double, double>>> guarantee_stream = random_stream_in_region(points_guarantee, search_region.bounds().first.x(), search_region.bounds().first.y(), search_region.bounds().second.x(), search_region.bounds().second.y(), 0, N - 1);
     for(auto& it : guarantee_stream){
         stream.push_back(it);
     }
@@ -197,8 +197,8 @@ TEST(QuantileQuadtreeTest, TestUpdateAndQueryWithQDigest){
     aabb<int> resolution(0.0, 0.0, 1280.0, 720.0);
     aabb<int> search_region = construct_aabb_from_random_region(0.0, 0.0, 1280.0, 720.0);
     
-	vector<pair<pair<int, int>, pair<double, double>>> stream =  random_stream_in_region_with_weight(N, 0.0, 0.0, 1280.0, 720.0, 0, N, 1, 50);
-    vector<pair<pair<int, int>, pair<double, double>>> guarantee_stream = random_stream_in_region_with_weight(points_guarantee, search_region.bounds().first.x(), search_region.bounds().first.y(), search_region.bounds().second.x(), search_region.bounds().second.y(), 0, N, 1, 50);
+	vector<pair<pair<int, int>, pair<double, double>>> stream =  random_stream_in_region_with_weight(N, 0.0, 0.0, 1280.0, 720.0, 0, N - 1, 1, 50);
+    vector<pair<pair<int, int>, pair<double, double>>> guarantee_stream = random_stream_in_region_with_weight(points_guarantee, search_region.bounds().first.x(), search_region.bounds().first.y(), search_region.bounds().second.x(), search_region.bounds().second.y(), 0, N - 1, 1, 50);
     for(auto& it : guarantee_stream){
         stream.push_back(it);
     }
@@ -253,8 +253,8 @@ TEST(QuantileQuadtreeTest, TestUpdateAndQueryWithDcs){
     aabb<int> resolution(stod(g_args[0]), stod(g_args[1]), stod(g_args[2]), stod(g_args[3]));
     aabb<int> search_region = construct_aabb_from_random_region(stod(g_args[0]), stod(g_args[1]), stod(g_args[2]), stod(g_args[3]));
 
-	vector<pair<pair<int, int>, pair<double, double>>> stream = random_stream_in_region_with_weight(N, stod(g_args[0]), stod(g_args[1]), stod(g_args[2]), stod(g_args[3]), 0, N, 1, 50);
-    vector<pair<pair<int, int>, pair<double, double>>> guarantee_stream = random_stream_in_region_with_weight(points_guarantee, search_region.bounds().first.x(), search_region.bounds().first.y(), search_region.bounds().second.x(), search_region.bounds().second.y(), 0, N, 1, 50);
+	vector<pair<pair<int, int>, pair<double, double>>> stream = random_stream_in_region_with_weight(N, stod(g_args[0]), stod(g_args[1]), stod(g_args[2]), stod(g_args[3]), 0, N - 1, 1, 50);
+    vector<pair<pair<int, int>, pair<double, double>>> guarantee_stream = random_stream_in_region_with_weight(points_guarantee, search_region.bounds().first.x(), search_region.bounds().first.y(), search_region.bounds().second.x(), search_region.bounds().second.y(), 0, N - 1, 1, 50);
     for(auto& it : guarantee_stream){
         stream.push_back(it);
     }
@@ -292,6 +292,23 @@ TEST(QuantileQuadtreeTest, TestUpdateAndQueryWithDcs){
 	}
 }
 
+TEST(QuantileQuadtreeTest, TestMapCoord){
+    point<double> p(2.5, 9.5);
+    double max_v = 10.0;
+    double min_v = 0.0;
+    int divisions = 1;
+
+
+    point<int> p2(map_coord(p.x(), min_v, max_v, divisions), map_coord(p.y(), min_v, max_v, divisions));
+
+    EXPECT_EQ(p2.x(), 0);
+    EXPECT_EQ(p2.y(), 1);
+
+    point<int> p3(map_coord(p.x(), min_v, max_v, divisions + 1), map_coord(p.y(), min_v, max_v, divisions + 1));
+
+    EXPECT_EQ(p3.x(), 1);
+    EXPECT_EQ(p3.y(), 3);
+}
 
 int main(int argc, char* argv[]){
     testing::InitGoogleTest(&argc, argv);

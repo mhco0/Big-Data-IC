@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/mhco/projects/Big-Data-IC
+CMAKE_SOURCE_DIR = "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/mhco/projects/Big-Data-IC/build
+CMAKE_BINARY_DIR = "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -91,14 +91,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/mhco/projects/Big-Data-IC/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/mhco/projects/Big-Data-IC/build/CMakeFiles /home/mhco/projects/Big-Data-IC/build/thirdparty/CMakeFiles/progress.marks
-	cd /home/mhco/projects/Big-Data-IC/build && $(MAKE) -f CMakeFiles/Makefile2 thirdparty/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mhco/projects/Big-Data-IC/build/CMakeFiles 0
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/thirdparty/CMakeFiles/progress.marks"
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 thirdparty/all
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/mhco/projects/Big-Data-IC/build && $(MAKE) -f CMakeFiles/Makefile2 thirdparty/clean
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 thirdparty/clean
 .PHONY : clean
 
 # The main clean target
@@ -108,22 +108,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/mhco/projects/Big-Data-IC/build && $(MAKE) -f CMakeFiles/Makefile2 thirdparty/preinstall
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 thirdparty/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/mhco/projects/Big-Data-IC/build && $(MAKE) -f CMakeFiles/Makefile2 thirdparty/preinstall
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 thirdparty/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/mhco/projects/Big-Data-IC/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 thirdparty/CMakeFiles/nlohmann_json.dir/rule:
-	cd /home/mhco/projects/Big-Data-IC/build && $(MAKE) -f CMakeFiles/Makefile2 thirdparty/CMakeFiles/nlohmann_json.dir/rule
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 thirdparty/CMakeFiles/nlohmann_json.dir/rule
 .PHONY : thirdparty/CMakeFiles/nlohmann_json.dir/rule
 
 # Convenience name for target.
@@ -133,7 +133,7 @@ nlohmann_json: thirdparty/CMakeFiles/nlohmann_json.dir/rule
 
 # fast build rule for target.
 nlohmann_json/fast:
-	cd /home/mhco/projects/Big-Data-IC/build && $(MAKE) -f thirdparty/CMakeFiles/nlohmann_json.dir/build.make thirdparty/CMakeFiles/nlohmann_json.dir/build
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f thirdparty/CMakeFiles/nlohmann_json.dir/build.make thirdparty/CMakeFiles/nlohmann_json.dir/build
 .PHONY : nlohmann_json/fast
 
 # Help Target
@@ -157,6 +157,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/mhco/projects/Big-Data-IC/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

@@ -1,4 +1,4 @@
-# Install script for directory: /home/mhco/projects/Big-Data-IC
+# Install script for directory: /mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,22 +39,22 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mhco/projects/Big-Data-IC/build/thirdparty/cmake_install.cmake")
+  include("/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/thirdparty/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mhco/projects/Big-Data-IC/build/src/cmake_install.cmake")
+  include("/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mhco/projects/Big-Data-IC/build/test/cmake_install.cmake")
+  include("/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mhco/projects/Big-Data-IC/build/app/cmake_install.cmake")
+  include("/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/app/cmake_install.cmake")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -65,5 +65,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/mhco/projects/Big-Data-IC/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
