@@ -1,2 +1,2 @@
-/bin/ar qc ../lib/libQSBD_COMMUM_HEADER.a  
-/bin/ranlib ../lib/libQSBD_COMMUM_HEADER.a
+/usr/bin/ar qc ../lib/libQSBD_COMMUM_HEADER.a  
+/usr/bin/ranlib ../lib/libQSBD_COMMUM_HEADER.a

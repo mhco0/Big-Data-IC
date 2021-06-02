@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_count_sketch.cpp" "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test/CMakeFiles/test_count_sketch.dir/test_count_sketch.cpp.o"
+  "/home/mhco/projects/Big-Data-IC/test/test_count_sketch.cpp" "/home/mhco/projects/Big-Data-IC/build/test/CMakeFiles/test_count_sketch.dir/test_count_sketch.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -15,13 +15,13 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/QSBD_COUNT_SKETCH.dir/DependInfo.cmake"
-  "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/QSBD_STREAM_MAKER.dir/DependInfo.cmake"
-  "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/QSBD_UTILS.dir/DependInfo.cmake"
-  "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/QSBD_K_WISE_FAMILY.dir/DependInfo.cmake"
-  "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/QSBD_DEBUG.dir/DependInfo.cmake"
-  "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/QSBD_COMMUM_HEADER.dir/DependInfo.cmake"
-  "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/QSBD_GLOBAL_GEN.dir/DependInfo.cmake"
+  "/home/mhco/projects/Big-Data-IC/build/src/CMakeFiles/QSBD_COUNT_SKETCH.dir/DependInfo.cmake"
+  "/home/mhco/projects/Big-Data-IC/build/src/CMakeFiles/QSBD_STREAM_MAKER.dir/DependInfo.cmake"
+  "/home/mhco/projects/Big-Data-IC/build/src/CMakeFiles/QSBD_UTILS.dir/DependInfo.cmake"
+  "/home/mhco/projects/Big-Data-IC/build/src/CMakeFiles/QSBD_K_WISE_FAMILY.dir/DependInfo.cmake"
+  "/home/mhco/projects/Big-Data-IC/build/src/CMakeFiles/QSBD_DEBUG.dir/DependInfo.cmake"
+  "/home/mhco/projects/Big-Data-IC/build/src/CMakeFiles/QSBD_COMMUM_HEADER.dir/DependInfo.cmake"
+  "/home/mhco/projects/Big-Data-IC/build/src/CMakeFiles/QSBD_GLOBAL_GEN.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

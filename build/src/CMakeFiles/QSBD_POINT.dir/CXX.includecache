@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/commum_header/commum_header.h
+/home/mhco/projects/Big-Data-IC/src/commum_header/commum_header.h
 iostream
 -
 fstream
@@ -38,11 +38,11 @@ exception
 limits
 -
 
-/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/point/point.cpp
+/home/mhco/projects/Big-Data-IC/src/point/point.cpp
 point.hpp
-/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/point/point.hpp
+/home/mhco/projects/Big-Data-IC/src/point/point.hpp
 
-/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/point/point.hpp
+/home/mhco/projects/Big-Data-IC/src/point/point.hpp
 ../commum_header/commum_header.h
-/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/commum_header/commum_header.h
+/home/mhco/projects/Big-Data-IC/src/commum_header/commum_header.h
 

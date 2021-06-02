@@ -1,1 +1,1 @@
-/bin/x86_64-linux-gnu-g++-9   -g -Wall   -g -Wall CMakeFiles/test_json.dir/test_json.cpp.o  -o ../bin/test_json  -lgtest_main ../lib/libnlohmann_json.a 
+/usr/bin/c++   -g -Wall   -g -Wall CMakeFiles/test_json.dir/test_json.cpp.o  -o ../bin/test_json  -lgtest_main ../lib/libnlohmann_json.a 
