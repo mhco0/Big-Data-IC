@@ -14,6 +14,7 @@ namespace qsbd{
     std::deque<std::string> process_args(int argc, char* argv[]);
     bool ends_with(std::string const& value, std::string const& ending);
     int map_coord(double coord, double min_coord, double max_coord, int resolution);
+    double map_coord_inv(int coord, double min_coord, double max_coord, int resolution);
 
     template<class T>
     void insert_sorted(std::vector<T>& vec, const T& data){

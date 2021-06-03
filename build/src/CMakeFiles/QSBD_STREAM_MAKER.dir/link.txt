@@ -1,2 +1,2 @@
-/usr/bin/ar qc ../lib/libQSBD_STREAM_MAKER.a  CMakeFiles/QSBD_STREAM_MAKER.dir/stream_maker/stream_maker.cpp.o
-/usr/bin/ranlib ../lib/libQSBD_STREAM_MAKER.a
+/bin/ar qc ../lib/libQSBD_STREAM_MAKER.a  CMakeFiles/QSBD_STREAM_MAKER.dir/stream_maker/stream_maker.cpp.o
+/bin/ranlib ../lib/libQSBD_STREAM_MAKER.a

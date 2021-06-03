@@ -103,4 +103,8 @@ namespace qsbd{
     int map_coord(double coord, double min_coord, double max_coord, int resolution){
         return ((coord - min_coord) * (1 << resolution)) / (max_coord - min_coord); 
     }
+
+    double map_coord_inv(int coord, double min_coord, double max_coord, int resolution){
+        return (((coord * (max_coord - min_coord)) / (1 << resolution)) + min_coord);
+    }
 }

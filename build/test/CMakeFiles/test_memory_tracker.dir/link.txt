@@ -1,1 +1,1 @@
-/usr/bin/c++   -g -Wall   -g -Wall CMakeFiles/test_memory_tracker.dir/test_memory_tracker.cpp.o  -o ../bin/test_memory_tracker  -lgtest_main ../lib/libQSBD_MEMORY_TRACKER.a ../lib/libQSBD_UTILS.a ../lib/libnlohmann_json.a 
+/bin/x86_64-linux-gnu-g++-9   -g -Wall -g   -g -Wall CMakeFiles/test_memory_tracker.dir/test_memory_tracker.cpp.o  -o ../bin/test_memory_tracker  -lgtest_main ../lib/libQSBD_MEMORY_TRACKER.a ../lib/libQSBD_UTILS.a ../lib/libnlohmann_json.a 

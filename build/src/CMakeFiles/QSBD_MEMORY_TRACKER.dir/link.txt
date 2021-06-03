@@ -1,2 +1,2 @@
-/usr/bin/ar qc ../lib/libQSBD_MEMORY_TRACKER.a  CMakeFiles/QSBD_MEMORY_TRACKER.dir/memory_tracker/memory_tracker.cpp.o
-/usr/bin/ranlib ../lib/libQSBD_MEMORY_TRACKER.a
+/bin/ar qc ../lib/libQSBD_MEMORY_TRACKER.a  CMakeFiles/QSBD_MEMORY_TRACKER.dir/memory_tracker/memory_tracker.cpp.o
+/bin/ranlib ../lib/libQSBD_MEMORY_TRACKER.a

@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/mhco/projects/Big-Data-IC
+CMAKE_SOURCE_DIR = "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/mhco/projects/Big-Data-IC/build
+CMAKE_BINARY_DIR = "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build"
 
 # Include any dependencies generated for this target.
 include src/CMakeFiles/QSBD_COUNT_SKETCH.dir/depend.make
@@ -59,16 +59,16 @@ include src/CMakeFiles/QSBD_COUNT_SKETCH.dir/flags.make
 
 src/CMakeFiles/QSBD_COUNT_SKETCH.dir/count_sketch/count_sketch.cpp.o: src/CMakeFiles/QSBD_COUNT_SKETCH.dir/flags.make
 src/CMakeFiles/QSBD_COUNT_SKETCH.dir/count_sketch/count_sketch.cpp.o: ../src/count_sketch/count_sketch.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mhco/projects/Big-Data-IC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/CMakeFiles/QSBD_COUNT_SKETCH.dir/count_sketch/count_sketch.cpp.o"
-	cd /home/mhco/projects/Big-Data-IC/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/QSBD_COUNT_SKETCH.dir/count_sketch/count_sketch.cpp.o -c /home/mhco/projects/Big-Data-IC/src/count_sketch/count_sketch.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/CMakeFiles/QSBD_COUNT_SKETCH.dir/count_sketch/count_sketch.cpp.o"
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src" && /bin/x86_64-linux-gnu-g++-9  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/QSBD_COUNT_SKETCH.dir/count_sketch/count_sketch.cpp.o -c "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/count_sketch/count_sketch.cpp"
 
 src/CMakeFiles/QSBD_COUNT_SKETCH.dir/count_sketch/count_sketch.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/QSBD_COUNT_SKETCH.dir/count_sketch/count_sketch.cpp.i"
-	cd /home/mhco/projects/Big-Data-IC/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mhco/projects/Big-Data-IC/src/count_sketch/count_sketch.cpp > CMakeFiles/QSBD_COUNT_SKETCH.dir/count_sketch/count_sketch.cpp.i
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src" && /bin/x86_64-linux-gnu-g++-9 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/count_sketch/count_sketch.cpp" > CMakeFiles/QSBD_COUNT_SKETCH.dir/count_sketch/count_sketch.cpp.i
 
 src/CMakeFiles/QSBD_COUNT_SKETCH.dir/count_sketch/count_sketch.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/QSBD_COUNT_SKETCH.dir/count_sketch/count_sketch.cpp.s"
-	cd /home/mhco/projects/Big-Data-IC/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mhco/projects/Big-Data-IC/src/count_sketch/count_sketch.cpp -o CMakeFiles/QSBD_COUNT_SKETCH.dir/count_sketch/count_sketch.cpp.s
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src" && /bin/x86_64-linux-gnu-g++-9 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/count_sketch/count_sketch.cpp" -o CMakeFiles/QSBD_COUNT_SKETCH.dir/count_sketch/count_sketch.cpp.s
 
 # Object files for target QSBD_COUNT_SKETCH
 QSBD_COUNT_SKETCH_OBJECTS = \
@@ -80,9 +80,9 @@ QSBD_COUNT_SKETCH_EXTERNAL_OBJECTS =
 lib/libQSBD_COUNT_SKETCH.a: src/CMakeFiles/QSBD_COUNT_SKETCH.dir/count_sketch/count_sketch.cpp.o
 lib/libQSBD_COUNT_SKETCH.a: src/CMakeFiles/QSBD_COUNT_SKETCH.dir/build.make
 lib/libQSBD_COUNT_SKETCH.a: src/CMakeFiles/QSBD_COUNT_SKETCH.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/mhco/projects/Big-Data-IC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library ../lib/libQSBD_COUNT_SKETCH.a"
-	cd /home/mhco/projects/Big-Data-IC/build/src && $(CMAKE_COMMAND) -P CMakeFiles/QSBD_COUNT_SKETCH.dir/cmake_clean_target.cmake
-	cd /home/mhco/projects/Big-Data-IC/build/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/QSBD_COUNT_SKETCH.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX static library ../lib/libQSBD_COUNT_SKETCH.a"
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src" && $(CMAKE_COMMAND) -P CMakeFiles/QSBD_COUNT_SKETCH.dir/cmake_clean_target.cmake
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src" && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/QSBD_COUNT_SKETCH.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 src/CMakeFiles/QSBD_COUNT_SKETCH.dir/build: lib/libQSBD_COUNT_SKETCH.a
@@ -90,10 +90,10 @@ src/CMakeFiles/QSBD_COUNT_SKETCH.dir/build: lib/libQSBD_COUNT_SKETCH.a
 .PHONY : src/CMakeFiles/QSBD_COUNT_SKETCH.dir/build
 
 src/CMakeFiles/QSBD_COUNT_SKETCH.dir/clean:
-	cd /home/mhco/projects/Big-Data-IC/build/src && $(CMAKE_COMMAND) -P CMakeFiles/QSBD_COUNT_SKETCH.dir/cmake_clean.cmake
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src" && $(CMAKE_COMMAND) -P CMakeFiles/QSBD_COUNT_SKETCH.dir/cmake_clean.cmake
 .PHONY : src/CMakeFiles/QSBD_COUNT_SKETCH.dir/clean
 
 src/CMakeFiles/QSBD_COUNT_SKETCH.dir/depend:
-	cd /home/mhco/projects/Big-Data-IC/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mhco/projects/Big-Data-IC /home/mhco/projects/Big-Data-IC/src /home/mhco/projects/Big-Data-IC/build /home/mhco/projects/Big-Data-IC/build/src /home/mhco/projects/Big-Data-IC/build/src/CMakeFiles/QSBD_COUNT_SKETCH.dir/DependInfo.cmake --color=$(COLOR)
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC" "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src" "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src" "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/QSBD_COUNT_SKETCH.dir/DependInfo.cmake" --color=$(COLOR)
 .PHONY : src/CMakeFiles/QSBD_COUNT_SKETCH.dir/depend
 

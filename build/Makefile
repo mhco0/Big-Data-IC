@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/mhco/projects/Big-Data-IC
+CMAKE_SOURCE_DIR = "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/mhco/projects/Big-Data-IC/build
+CMAKE_BINARY_DIR = "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -91,9 +91,9 @@ test/fast: test
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mhco/projects/Big-Data-IC/build/CMakeFiles /home/mhco/projects/Big-Data-IC/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/progress.marks"
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mhco/projects/Big-Data-IC/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
@@ -642,6 +642,19 @@ test_gk/fast:
 .PHONY : test_gk/fast
 
 #=============================================================================
+# Target rules for targets named quadtree_data_bounds
+
+# Build rule for target.
+quadtree_data_bounds: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 quadtree_data_bounds
+.PHONY : quadtree_data_bounds
+
+# fast build rule for target.
+quadtree_data_bounds/fast:
+	$(MAKE) -f app/CMakeFiles/quadtree_data_bounds.dir/build.make app/CMakeFiles/quadtree_data_bounds.dir/build
+.PHONY : quadtree_data_bounds/fast
+
+#=============================================================================
 # Target rules for targets named coletor
 
 # Build rule for target.
@@ -653,32 +666,6 @@ coletor: cmake_check_build_system
 coletor/fast:
 	$(MAKE) -f app/CMakeFiles/coletor.dir/build.make app/CMakeFiles/coletor.dir/build
 .PHONY : coletor/fast
-
-#=============================================================================
-# Target rules for targets named comparator
-
-# Build rule for target.
-comparator: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 comparator
-.PHONY : comparator
-
-# fast build rule for target.
-comparator/fast:
-	$(MAKE) -f app/CMakeFiles/comparator.dir/build.make app/CMakeFiles/comparator.dir/build
-.PHONY : comparator/fast
-
-#=============================================================================
-# Target rules for targets named profiler
-
-# Build rule for target.
-profiler: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 profiler
-.PHONY : profiler
-
-# fast build rule for target.
-profiler/fast:
-	$(MAKE) -f app/CMakeFiles/profiler.dir/build.make app/CMakeFiles/profiler.dir/build
-.PHONY : profiler/fast
 
 #=============================================================================
 # Target rules for targets named convert_stream
@@ -707,6 +694,19 @@ query_creator/fast:
 .PHONY : query_creator/fast
 
 #=============================================================================
+# Target rules for targets named data_points
+
+# Build rule for target.
+data_points: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 data_points
+.PHONY : data_points
+
+# fast build rule for target.
+data_points/fast:
+	$(MAKE) -f app/CMakeFiles/data_points.dir/build.make app/CMakeFiles/data_points.dir/build
+.PHONY : data_points/fast
+
+#=============================================================================
 # Target rules for targets named experiment_all
 
 # Build rule for target.
@@ -718,6 +718,45 @@ experiment_all: cmake_check_build_system
 experiment_all/fast:
 	$(MAKE) -f app/CMakeFiles/experiment_all.dir/build.make app/CMakeFiles/experiment_all.dir/build
 .PHONY : experiment_all/fast
+
+#=============================================================================
+# Target rules for targets named comparator
+
+# Build rule for target.
+comparator: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 comparator
+.PHONY : comparator
+
+# fast build rule for target.
+comparator/fast:
+	$(MAKE) -f app/CMakeFiles/comparator.dir/build.make app/CMakeFiles/comparator.dir/build
+.PHONY : comparator/fast
+
+#=============================================================================
+# Target rules for targets named profiler
+
+# Build rule for target.
+profiler: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 profiler
+.PHONY : profiler
+
+# fast build rule for target.
+profiler/fast:
+	$(MAKE) -f app/CMakeFiles/profiler.dir/build.make app/CMakeFiles/profiler.dir/build
+.PHONY : profiler/fast
+
+#=============================================================================
+# Target rules for targets named brute_force
+
+# Build rule for target.
+brute_force: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 brute_force
+.PHONY : brute_force
+
+# fast build rule for target.
+brute_force/fast:
+	$(MAKE) -f app/CMakeFiles/brute_force.dir/build.make app/CMakeFiles/brute_force.dir/build
+.PHONY : brute_force/fast
 
 #=============================================================================
 # Target rules for targets named build_streams
@@ -744,19 +783,6 @@ stream_creator: cmake_check_build_system
 stream_creator/fast:
 	$(MAKE) -f app/CMakeFiles/stream_creator.dir/build.make app/CMakeFiles/stream_creator.dir/build
 .PHONY : stream_creator/fast
-
-#=============================================================================
-# Target rules for targets named brute_force
-
-# Build rule for target.
-brute_force: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 brute_force
-.PHONY : brute_force
-
-# fast build rule for target.
-brute_force/fast:
-	$(MAKE) -f app/CMakeFiles/brute_force.dir/build.make app/CMakeFiles/brute_force.dir/build
-.PHONY : brute_force/fast
 
 #=============================================================================
 # Target rules for targets named build_brute_force
@@ -846,15 +872,17 @@ help:
 	@echo "... test_q_digest"
 	@echo "... test_config"
 	@echo "... test_gk"
+	@echo "... quadtree_data_bounds"
 	@echo "... coletor"
-	@echo "... comparator"
-	@echo "... profiler"
 	@echo "... convert_stream"
 	@echo "... query_creator"
+	@echo "... data_points"
 	@echo "... experiment_all"
+	@echo "... comparator"
+	@echo "... profiler"
+	@echo "... brute_force"
 	@echo "... build_streams"
 	@echo "... stream_creator"
-	@echo "... brute_force"
 	@echo "... build_brute_force"
 	@echo "... build_queries"
 	@echo "... quantile_quadtree_experiment"
