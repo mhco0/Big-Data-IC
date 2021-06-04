@@ -11,7 +11,7 @@ namespace qsbd {
         this->lvls = ceil(log2(universe));
     }
 
-    dcs::dcs(double err, int univ, const std::vector<count_sketch>& other_est){
+    dcs::dcs(double err, int univ, const std::vector<std::vector<std::vector<unsigned long long int>>>& hashs_consts){
         this->set_params(err, univ);
 
         this->frequency_counters.assign(this->lvls - (this->s + 1), {});
@@ -22,12 +22,10 @@ namespace qsbd {
             this->frequency_counters[i - (this->s + 1)].assign(universe / dyadic_interval, 0);
         }
 
-        for(int i = 0; i <= this->s; i++){
-            // do not do a deep copy here
-            // the estimators NEED to be empty, a deep copy here will be wrong
-            count_sketch cs(other_est[i].error, other_est[i].delta, other_est[i].hash_functions);
+        ASSERT((this->s + 1) == hashs_consts.size());
 
-            this->estimators.push_back(cs);
+        for(int i = 0; i <= this->s; i++){
+            this->estimators.emplace_back(this->d, this->w, hashs_consts[i]);
         }
     }
 
@@ -48,9 +46,7 @@ namespace qsbd {
         }
 
         for(int i = 0; i <= this->s; i++){
-            count_sketch cs(this->d, this->w);  
-
-            this->estimators.push_back(cs);
+            this->estimators.emplace_back(this->d, this->w);
         }
     }
 
@@ -148,7 +144,7 @@ namespace qsbd {
             return nullptr;
         }
 
-        dcs* merged = new dcs(this->error, this->universe, this->estimators);
+        dcs* merged = new dcs(this->error, this->universe, this->get_count_sketchs_hash_functions_constants());
 
         merged->total_weight = this->total_weight + rhs_cv.total_weight;
 
@@ -225,6 +221,16 @@ namespace qsbd {
 
     int dcs::get_total_weight() const {
         return this->total_weight;
+    }
+
+    std::vector<std::vector<std::vector<unsigned long long int>>> dcs::get_count_sketchs_hash_functions_constants() const {
+        std::vector<std::vector<std::vector<unsigned long long int>>> consts;
+
+        for(auto& it : this->estimators){
+            consts.push_back(it.get_hash_functions_consts());
+        }
+
+        return consts;
     }
 
 }

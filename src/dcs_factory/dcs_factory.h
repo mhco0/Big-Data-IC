@@ -8,7 +8,7 @@ namespace qsbd{
     private:
         double error;
         int universe;
-        std::vector<count_sketch> estimators;
+        std::vector<std::vector<std::vector<unsigned long long int>>> hashs_consts;
     public:
         dcs_factory(double err, int univ){
             this->error = err;
@@ -16,15 +16,11 @@ namespace qsbd{
 
             dcs dummy(this->error, this->universe);
 
-            auto est = dummy.get_estimators();
-
-            for(auto& it : est){
-                estimators.push_back(it);
-            }
+            hashs_consts = std::move(dummy.get_count_sketchs_hash_functions_constants());
         }
 
         quantile_sketch<int> * instance() override {
-            return new dcs(this->error, this->universe, this->estimators);
+            return new dcs(this->error, this->universe, this->hashs_consts);
         }
     };
 }

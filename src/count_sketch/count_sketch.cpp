@@ -31,13 +31,11 @@ namespace qsbd {
         }
 
         for(int i = 0; i < this->d; i++){
-            k_wise_family h(2, 2 * this->t);
-
-            this->hash_functions.push_back(h);
+            this->hash_functions.emplace_back(2, 2 * this->t);
         }
     }
 
-    count_sketch::count_sketch(int fixd, int fixt, const std::vector<k_wise_family>& hashs){
+    count_sketch::count_sketch(int fixd, int fixt, const std::vector<std::vector<unsigned long long int>>& hashs_consts){
         this->set_param_int(fixd, fixt);
 
         this->estimators.assign(this->d, {});
@@ -45,10 +43,10 @@ namespace qsbd {
             this->estimators[i].assign(this->t, 0);
         }
 
-        for(int i = 0; i < this->d; i++){
-            k_wise_family h(hashs[i]);
+        ASSERT(this->d == hashs_consts.size());
 
-            this->hash_functions.push_back(h);
+        for(int i = 0; i < this->d; i++){
+            this->hash_functions.emplace_back(2, 2 * this->t, hashs_consts[i]);
         }
     }
 
@@ -61,13 +59,11 @@ namespace qsbd {
         }
 
         for(int i = 0; i < this->d; i++){
-            k_wise_family h(2, 2 * this->t);
-
-            this->hash_functions.push_back(h);
+            this->hash_functions.emplace_back(2, 2 * this->t);
         }
     }
 
-    count_sketch::count_sketch(double err, double delt, const std::vector<k_wise_family>& hashs){
+    count_sketch::count_sketch(double err, double delt, const std::vector<std::vector<unsigned long long int>>& hashs_consts){
         this->set_param_double(err, delt);
 
         this->estimators.assign(this->d, {});
@@ -76,11 +72,10 @@ namespace qsbd {
         }
 
         // the hash should map to 2 * t
+        ASSERT(this->d == hashs_consts.size());
 
         for(int i = 0; i < this->d; i++){
-            k_wise_family h(hashs[i]);
-
-            this->hash_functions.push_back(h);
+            this->hash_functions.emplace_back(2, 2 * this->t, hashs_consts[i]);
         }
     }
 
@@ -99,9 +94,7 @@ namespace qsbd {
         }
 
         for(int i = 0; i < other.d; i++){
-            k_wise_family h(other.hash_functions[i]);
-
-            this->hash_functions.push_back(h);
+            this->hash_functions.emplace_back(other.hash_functions[i]);
         }
     }
 
@@ -152,10 +145,10 @@ namespace qsbd {
         ASSERT(this->d == rhs.d);
 
         for(int i = 0; i < this->d; i++){
-            ASSERT(this->hash_functions[i].get_constants() == rhs.hash_functions[i].get_constants());
+            ASSERT(this->hash_functions[i].get_constants() == rhs.hash_functions[i].get_constants());        
         }
 
-        count_sketch* merged_cs = new count_sketch(this->error, this->delta, this->hash_functions);
+        count_sketch* merged_cs = new count_sketch(this->error, this->delta, this->get_hash_functions_consts());
 
         for(int i = 0; i < merged_cs->d; i++){
             for(int j = 0; j < merged_cs->t; j++){
@@ -230,5 +223,15 @@ namespace qsbd {
 
     std::vector<k_wise_family> count_sketch::get_hash_functions() const {
         return this->hash_functions;
+    }
+
+    std::vector<std::vector<unsigned long long int>> count_sketch::get_hash_functions_consts() const {
+        std::vector<std::vector<unsigned long long int>> consts;
+
+        for(auto& it : this->hash_functions){
+            consts.push_back(it.get_constants());
+        }
+
+        return consts;
     }
 }

@@ -28,7 +28,7 @@ namespace qsbd{
         void set_params(double err, int univ);
     public:
         dcs(double err, int univ);
-        dcs(double err, int univ, const std::vector<count_sketch>& other_est);
+        dcs(double err, int univ, const std::vector<std::vector<std::vector<unsigned long long int>>>& hashs_consts);
         ~dcs();
 
         void update(int x, int weight) override;
@@ -46,6 +46,7 @@ namespace qsbd{
         double get_error() const;
         int get_universe() const;
         int get_total_weight() const;
+        std::vector<std::vector<std::vector<unsigned long long int>>> get_count_sketchs_hash_functions_constants() const;
     };
 }
 #endif
