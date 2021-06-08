@@ -257,6 +257,21 @@ brute_force/fast:
 .PHONY : brute_force/fast
 
 # Convenience name for target.
+app/CMakeFiles/profile_count_sketch.dir/rule:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/profile_count_sketch.dir/rule
+.PHONY : app/CMakeFiles/profile_count_sketch.dir/rule
+
+# Convenience name for target.
+profile_count_sketch: app/CMakeFiles/profile_count_sketch.dir/rule
+
+.PHONY : profile_count_sketch
+
+# fast build rule for target.
+profile_count_sketch/fast:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/profile_count_sketch.dir/build.make app/CMakeFiles/profile_count_sketch.dir/build
+.PHONY : profile_count_sketch/fast
+
+# Convenience name for target.
 app/CMakeFiles/build_streams.dir/rule:
 	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/build_streams.dir/rule
 .PHONY : app/CMakeFiles/build_streams.dir/rule
@@ -287,19 +302,19 @@ stream_creator/fast:
 .PHONY : stream_creator/fast
 
 # Convenience name for target.
-app/CMakeFiles/build_brute_force.dir/rule:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/build_brute_force.dir/rule
-.PHONY : app/CMakeFiles/build_brute_force.dir/rule
+app/CMakeFiles/quantile_quadtree_experiment.dir/rule:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/quantile_quadtree_experiment.dir/rule
+.PHONY : app/CMakeFiles/quantile_quadtree_experiment.dir/rule
 
 # Convenience name for target.
-build_brute_force: app/CMakeFiles/build_brute_force.dir/rule
+quantile_quadtree_experiment: app/CMakeFiles/quantile_quadtree_experiment.dir/rule
 
-.PHONY : build_brute_force
+.PHONY : quantile_quadtree_experiment
 
 # fast build rule for target.
-build_brute_force/fast:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/build_brute_force.dir/build.make app/CMakeFiles/build_brute_force.dir/build
-.PHONY : build_brute_force/fast
+quantile_quadtree_experiment/fast:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/quantile_quadtree_experiment.dir/build.make app/CMakeFiles/quantile_quadtree_experiment.dir/build
+.PHONY : quantile_quadtree_experiment/fast
 
 # Convenience name for target.
 app/CMakeFiles/build_queries.dir/rule:
@@ -317,19 +332,19 @@ build_queries/fast:
 .PHONY : build_queries/fast
 
 # Convenience name for target.
-app/CMakeFiles/quantile_quadtree_experiment.dir/rule:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/quantile_quadtree_experiment.dir/rule
-.PHONY : app/CMakeFiles/quantile_quadtree_experiment.dir/rule
+app/CMakeFiles/build_brute_force.dir/rule:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/build_brute_force.dir/rule
+.PHONY : app/CMakeFiles/build_brute_force.dir/rule
 
 # Convenience name for target.
-quantile_quadtree_experiment: app/CMakeFiles/quantile_quadtree_experiment.dir/rule
+build_brute_force: app/CMakeFiles/build_brute_force.dir/rule
 
-.PHONY : quantile_quadtree_experiment
+.PHONY : build_brute_force
 
 # fast build rule for target.
-quantile_quadtree_experiment/fast:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/quantile_quadtree_experiment.dir/build.make app/CMakeFiles/quantile_quadtree_experiment.dir/build
-.PHONY : quantile_quadtree_experiment/fast
+build_brute_force/fast:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/build_brute_force.dir/build.make app/CMakeFiles/build_brute_force.dir/build
+.PHONY : build_brute_force/fast
 
 brute_force/brute_force.o: brute_force/brute_force.cpp.o
 
@@ -492,6 +507,33 @@ convert_stream/convert_stream.s: convert_stream/convert_stream.cpp.s
 convert_stream/convert_stream.cpp.s:
 	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/convert_stream.dir/build.make app/CMakeFiles/convert_stream.dir/convert_stream/convert_stream.cpp.s
 .PHONY : convert_stream/convert_stream.cpp.s
+
+profiler/profile_count_sketch.o: profiler/profile_count_sketch.cpp.o
+
+.PHONY : profiler/profile_count_sketch.o
+
+# target to build an object file
+profiler/profile_count_sketch.cpp.o:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/profile_count_sketch.dir/build.make app/CMakeFiles/profile_count_sketch.dir/profiler/profile_count_sketch.cpp.o
+.PHONY : profiler/profile_count_sketch.cpp.o
+
+profiler/profile_count_sketch.i: profiler/profile_count_sketch.cpp.i
+
+.PHONY : profiler/profile_count_sketch.i
+
+# target to preprocess a source file
+profiler/profile_count_sketch.cpp.i:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/profile_count_sketch.dir/build.make app/CMakeFiles/profile_count_sketch.dir/profiler/profile_count_sketch.cpp.i
+.PHONY : profiler/profile_count_sketch.cpp.i
+
+profiler/profile_count_sketch.s: profiler/profile_count_sketch.cpp.s
+
+.PHONY : profiler/profile_count_sketch.s
+
+# target to generate assembly for a file
+profiler/profile_count_sketch.cpp.s:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/profile_count_sketch.dir/build.make app/CMakeFiles/profile_count_sketch.dir/profiler/profile_count_sketch.cpp.s
+.PHONY : profiler/profile_count_sketch.cpp.s
 
 profiler/profiler.o: profiler/profiler.cpp.o
 
@@ -725,13 +767,14 @@ help:
 	@echo "... profiler"
 	@echo "... test"
 	@echo "... brute_force"
+	@echo "... profile_count_sketch"
 	@echo "... build_streams"
 	@echo "... stream_creator"
+	@echo "... quantile_quadtree_experiment"
+	@echo "... build_queries"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... build_brute_force"
-	@echo "... build_queries"
-	@echo "... quantile_quadtree_experiment"
 	@echo "... brute_force/brute_force.o"
 	@echo "... brute_force/brute_force.i"
 	@echo "... brute_force/brute_force.s"
@@ -750,6 +793,9 @@ help:
 	@echo "... convert_stream/convert_stream.o"
 	@echo "... convert_stream/convert_stream.i"
 	@echo "... convert_stream/convert_stream.s"
+	@echo "... profiler/profile_count_sketch.o"
+	@echo "... profiler/profile_count_sketch.i"
+	@echo "... profiler/profile_count_sketch.s"
 	@echo "... profiler/profiler.o"
 	@echo "... profiler/profiler.i"
 	@echo "... profiler/profiler.s"

@@ -5,6 +5,7 @@
 #include <vector>
 #include <deque>
 #include <stdint.h>
+#include <cmath>
 
 namespace qsbd{
     bool isPrime(int n);
@@ -26,6 +27,17 @@ namespace qsbd{
         vec.insert(insert_position, data);
 
         return;
+    }
+
+    template<class T>
+    double lp_norm(std::vector<T>& vec, const int& norm){
+        double sum = 0.0;
+
+        for(auto& it : vec){
+            sum += pow(it, norm);
+        }
+
+        return pow(sum, 1.0 / norm);
     }
 }
 

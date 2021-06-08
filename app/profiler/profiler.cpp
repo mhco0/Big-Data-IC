@@ -10,6 +10,164 @@
 #include <iostream>
 using namespace std;
 
+class dummy_sketch : public qsbd::quantile_sketch<int> {
+public:
+    dummy_sketch(){
+    }
+
+    ~dummy_sketch(){
+    }
+
+    void update(int x, int weight) override {
+        return;
+    }
+
+    int query(int x) override {
+        return 0;
+    }
+
+    void inner_merge(qsbd::quantile_sketch<int>& rhs) override{
+        return;
+    }
+
+    qsbd::quantile_sketch<int>* merge(qsbd::quantile_sketch<int>& rhs) override {
+        return nullptr;
+    }
+};
+
+class dummy_factory : public qsbd::sketch_factory<int> {
+public:
+    dummy_factory(){
+    }
+
+    qsbd::quantile_sketch<int>* instance() override {
+        return new dummy_sketch();
+    }
+};
+
+void empty_run(bool only_update){
+      // STREAM
+    int vector_size = 100000000; 
+    int min_v = 0;
+    int max_v = 1000;
+    double minx = 0.0;
+    double miny = 0.0;
+    double maxx = 1280.0;
+    double maxy = 720.0;
+    int min_w = 0;
+    int max_w = 50;
+
+    // TREE
+    double error = 0.3;
+    int universe = 1024;
+    int depth = 10;
+    double bounds[4] = {0.0, 0.0, 1280.0, 720.0};
+    int discrete_bounds[4] = {0, 0, 0, 0};
+
+    // QUERIES
+    int initial_value = 0;
+    int final_value = 1000;
+    int step = 1;
+
+    vector<pair<pair<int, int>, pair<double, double>>> stream = qsbd::stream_maker::random_stream_in_region_with_weight(vector_size, minx, miny, maxx, maxy, min_v, max_v, min_w, max_w);
+    vector<pair<int, vector<double>>> regions_to_search;
+    
+    for(int i = 0; i < 4; i++){
+        // 0 -> 0 2
+        // 1 -> 1 3
+        // 2 -> 0 2 
+        // 3 -> 1 3
+        if(i & 1){
+            discrete_bounds[i] = qsbd::map_coord(bounds[i], bounds[1], bounds[3], depth);
+        }else{
+            discrete_bounds[i] = qsbd::map_coord(bounds[i], bounds[0], bounds[2], depth);
+        }
+    }
+
+    qsbd::aabb<int> resolution(discrete_bounds[0], discrete_bounds[1], discrete_bounds[2], discrete_bounds[3]);
+    
+    for(int i = initial_value; i < final_value; i += step){
+        auto query_bound = qsbd::stream_maker::random_rectangle_in_region(bounds[0], bounds[1], bounds[2], bounds[3]);
+        vector<double> rect;
+        pair<int, vector<double>> rank_query;
+
+        rect.push_back(query_bound.first.first);
+        rect.push_back(query_bound.first.second);
+        rect.push_back(query_bound.second.first);
+        rect.push_back(query_bound.second.second);
+
+        rank_query = make_pair(i, rect);
+        regions_to_search.push_back(rank_query);
+    }
+
+    cout << "Update := ";
+    cout.flush();
+
+    string progress = "0%";
+    cout << progress;
+    cout.flush();
+
+    dummy_factory factory;
+    qsbd::quantile_quadtree<int> qq_test(resolution, depth, &factory);
+
+    for(int i = 0; i < stream.size(); i++){
+        qsbd::point<int> coord(qsbd::map_coord(stream[i].second.first, bounds[0], bounds[2], depth), qsbd::map_coord(stream[i].second.second, bounds[1], bounds[3], depth));
+        qq_test.update(coord, stream[i].first.first, stream[i].first.second);
+        int progress_pct = (int) ((i * 100) / stream.size());
+        
+        cout << string(progress.size(), '\b');
+        cout.flush();
+        
+        progress = to_string(progress_pct) + "%";
+        cout << progress;
+        cout.flush();
+    }
+
+    cout << string(progress.size(), '\b');
+    cout.flush();
+    
+    cout << "Done!" << endl;
+
+    if (only_update) return;
+
+    cout << "Queries := ";
+    cout.flush();
+
+    progress = "0%";
+    cout << progress;
+    cout.flush();
+
+    for(int j = 0; j < regions_to_search.size(); j++){
+        int region_discrete_bound[4] = {0, 0, 0, 0};
+
+        for(int z = 0; z < 4; z++){
+            if(z & 1){
+                region_discrete_bound[z] = qsbd::map_coord(regions_to_search[j].second[z], bounds[1], bounds[3], depth);
+            }else{
+                region_discrete_bound[z] = qsbd::map_coord(regions_to_search[j].second[z], bounds[0], bounds[2], depth);
+            }
+        }
+
+        qsbd::aabb<int> region(region_discrete_bound[0], region_discrete_bound[1], region_discrete_bound[2], region_discrete_bound[3]);
+
+        int rank = qq_test.query(region, regions_to_search[j].first);
+
+        int progress_pct = (int) ((j * 100) / regions_to_search.size());
+        
+        cout << string(progress.size(), '\b');
+        cout.flush();
+        
+        progress = to_string(progress_pct) + "%";
+        cout << progress;
+        cout.flush();
+    }
+
+    cout << string(progress.size(), '\b');
+    cout.flush();
+    
+    cout << "Done!" << endl;
+}
+
 void gk_run(bool only_update){
     // STREAM
     int vector_size = 1000; 
@@ -135,7 +293,7 @@ void gk_run(bool only_update){
 
 void q_digest_run(bool only_update){
     // STREAM
-    int vector_size = 1; 
+    int vector_size = 100000; 
     int min_v = 0;
     int max_v = 1000;
     double minx = 0.0;
@@ -260,11 +418,6 @@ void q_digest_run(bool only_update){
 }
 
 void dcs_run(bool only_update){
-    cout << sizeof(qsbd::dcs) << endl;
-    cout << sizeof(qsbd::quantile_quadtree<int>) << endl;
-    cout << sizeof(qsbd::count_sketch) << endl;
-    cout << sizeof(qsbd::k_wise_family) << endl;
-
     // STREAM
     int vector_size = 100000; 
     int min_v = 0;
@@ -287,6 +440,12 @@ void dcs_run(bool only_update){
     int initial_value = 0;
     int final_value = 1000;
     int step = 1;
+
+    qsbd::dcs t(error, universe);
+
+    cout << t.get_d() << endl;
+    cout << t.get_w() << endl;
+    cout << t.get_s() << endl;
 
     vector<pair<pair<int, int>, pair<double, double>>> stream = qsbd::stream_maker::random_stream_in_region_with_weight(vector_size, minx, miny, maxx, maxy, min_v, max_v, min_w, max_w);
     vector<pair<int, vector<double>>> regions_to_search;
@@ -385,6 +544,134 @@ void dcs_run(bool only_update){
     cout.flush();
     
     cout << "Done!" << endl;
+}
+
+void dcs_run2(bool only_update){
+    // STREAM
+    int min_v = 0;
+    int max_v = 1000;
+    double minx = 0.0;
+    double miny = 0.0;
+    double maxx = 1280.0;
+    double maxy = 720.0;
+
+    // TREE
+    double error = 0.3;
+    int universe = 1024;
+    int depth = 10;
+    double bounds[4] = {0.0, 0.0, 1280.0, 720.0};
+    int discrete_bounds[4] = {0, 0, 0, 0};
+
+    // QUERIES
+    int initial_value = 0;
+    int final_value = 1000;
+    int step = 1;
+
+    vector<pair<pair<int, int>, pair<int, int>>> stream;
+    vector<pair<int, vector<double>>> regions_to_search;
+
+    for(int i = 0; i < 1024; i++){
+        for(int j = 0; j < 1024; j++){
+            uniform_int_distribution v(min_v, max_v);
+
+            stream.push_back({{v(generator), 1}, {i, j}});
+        }
+    }
+    
+    for(int i = 0; i < 4; i++){
+        // 0 -> 0 2
+        // 1 -> 1 3
+        // 2 -> 0 2 
+        // 3 -> 1 3
+        if(i & 1){
+            discrete_bounds[i] = qsbd::map_coord(bounds[i], bounds[1], bounds[3], depth);
+        }else{
+            discrete_bounds[i] = qsbd::map_coord(bounds[i], bounds[0], bounds[2], depth);
+        }
+    }
+
+    qsbd::aabb<int> resolution(discrete_bounds[0], discrete_bounds[1], discrete_bounds[2], discrete_bounds[3]);
+    
+    /*(for(int i = initial_value; i < final_value; i += step){
+        auto query_bound = qsbd::stream_maker::random_rectangle_in_region(bounds[0], bounds[1], bounds[2], bounds[3]);
+        vector<double> rect;
+        pair<int, vector<double>> rank_query;
+
+        rect.push_back(query_bound.first.first);
+        rect.push_back(query_bound.first.second);
+        rect.push_back(query_bound.second.first);
+        rect.push_back(query_bound.second.second);
+
+        rank_query = make_pair(i, rect);
+        regions_to_search.push_back(rank_query);
+    }*/
+
+    cout << "Update := ";
+    cout.flush();
+
+    string progress = "0%";
+    cout << progress;
+    cout.flush();
+
+    qsbd::dcs_factory factory(error, universe);
+    qsbd::quantile_quadtree<int> qq_test(resolution, depth, &factory);
+
+    for(int i = 0; i < stream.size(); i++){
+        qsbd::point<int> coord(stream[i].second.first, stream[i].second.second);
+        qq_test.update(coord, stream[i].first.first, stream[i].first.second);
+        int progress_pct = (int) ((i * 100) / stream.size());
+        
+        cout << string(progress.size(), '\b');
+        cout.flush();
+        
+        progress = to_string(progress_pct) + "%";
+        cout << progress;
+        cout.flush();
+    }
+
+    cout << string(progress.size(), '\b');
+    cout.flush();
+    
+    cout << "Done!" << endl;
+
+    if (only_update) return;
+
+    /*cout << "Queries := ";
+    cout.flush();
+
+    progress = "0%";
+    cout << progress;
+    cout.flush();
+
+    for(int j = 0; j < regions_to_search.size(); j++){
+        int region_discrete_bound[4] = {0, 0, 0, 0};
+
+        for(int z = 0; z < 4; z++){
+            if(z & 1){
+                region_discrete_bound[z] = qsbd::map_coord(regions_to_search[j].second[z], bounds[1], bounds[3], depth);
+            }else{
+                region_discrete_bound[z] = qsbd::map_coord(regions_to_search[j].second[z], bounds[0], bounds[2], depth);
+            }
+        }
+
+        qsbd::aabb<int> region(region_discrete_bound[0], region_discrete_bound[1], region_discrete_bound[2], region_discrete_bound[3]);
+
+        int rank = qq_test.query(region, regions_to_search[j].first);
+
+        int progress_pct = (int) ((j * 100) / regions_to_search.size());
+        
+        cout << string(progress.size(), '\b');
+        cout.flush();
+        
+        progress = to_string(progress_pct) + "%";
+        cout << progress;
+        cout.flush();
+    }
+
+    cout << string(progress.size(), '\b');
+    cout.flush();
+    
+    cout << "Done!" << endl;*/
 }
 
 void kll_run(bool only_update){
@@ -538,7 +825,8 @@ int main(int argc, char* argv[]){
     if(args[0] == "kll") kll_run(only_update);
     else if(args[0] == "gk") gk_run(only_update);
     else if(args[0] == "q_digest") q_digest_run(only_update);
-    else if(args[0] == "dcs") dcs_run(only_update);
+    else if(args[0] == "dcs") dcs_run2(only_update);
+    else if(args[0] == "empty") empty_run(only_update);
     else{
         DEBUG_ERR("Invalid test arg.");
         return -1;

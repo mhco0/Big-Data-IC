@@ -759,6 +759,19 @@ brute_force/fast:
 .PHONY : brute_force/fast
 
 #=============================================================================
+# Target rules for targets named profile_count_sketch
+
+# Build rule for target.
+profile_count_sketch: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 profile_count_sketch
+.PHONY : profile_count_sketch
+
+# fast build rule for target.
+profile_count_sketch/fast:
+	$(MAKE) -f app/CMakeFiles/profile_count_sketch.dir/build.make app/CMakeFiles/profile_count_sketch.dir/build
+.PHONY : profile_count_sketch/fast
+
+#=============================================================================
 # Target rules for targets named build_streams
 
 # Build rule for target.
@@ -785,17 +798,17 @@ stream_creator/fast:
 .PHONY : stream_creator/fast
 
 #=============================================================================
-# Target rules for targets named build_brute_force
+# Target rules for targets named quantile_quadtree_experiment
 
 # Build rule for target.
-build_brute_force: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 build_brute_force
-.PHONY : build_brute_force
+quantile_quadtree_experiment: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 quantile_quadtree_experiment
+.PHONY : quantile_quadtree_experiment
 
 # fast build rule for target.
-build_brute_force/fast:
-	$(MAKE) -f app/CMakeFiles/build_brute_force.dir/build.make app/CMakeFiles/build_brute_force.dir/build
-.PHONY : build_brute_force/fast
+quantile_quadtree_experiment/fast:
+	$(MAKE) -f app/CMakeFiles/quantile_quadtree_experiment.dir/build.make app/CMakeFiles/quantile_quadtree_experiment.dir/build
+.PHONY : quantile_quadtree_experiment/fast
 
 #=============================================================================
 # Target rules for targets named build_queries
@@ -811,17 +824,17 @@ build_queries/fast:
 .PHONY : build_queries/fast
 
 #=============================================================================
-# Target rules for targets named quantile_quadtree_experiment
+# Target rules for targets named build_brute_force
 
 # Build rule for target.
-quantile_quadtree_experiment: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 quantile_quadtree_experiment
-.PHONY : quantile_quadtree_experiment
+build_brute_force: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 build_brute_force
+.PHONY : build_brute_force
 
 # fast build rule for target.
-quantile_quadtree_experiment/fast:
-	$(MAKE) -f app/CMakeFiles/quantile_quadtree_experiment.dir/build.make app/CMakeFiles/quantile_quadtree_experiment.dir/build
-.PHONY : quantile_quadtree_experiment/fast
+build_brute_force/fast:
+	$(MAKE) -f app/CMakeFiles/build_brute_force.dir/build.make app/CMakeFiles/build_brute_force.dir/build
+.PHONY : build_brute_force/fast
 
 # Help Target
 help:
@@ -881,11 +894,12 @@ help:
 	@echo "... comparator"
 	@echo "... profiler"
 	@echo "... brute_force"
+	@echo "... profile_count_sketch"
 	@echo "... build_streams"
 	@echo "... stream_creator"
-	@echo "... build_brute_force"
-	@echo "... build_queries"
 	@echo "... quantile_quadtree_experiment"
+	@echo "... build_queries"
+	@echo "... build_brute_force"
 .PHONY : help
 
 

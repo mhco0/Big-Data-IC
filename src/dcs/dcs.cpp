@@ -5,8 +5,8 @@ namespace qsbd {
         this->universe = univ;
         this->error = err;
         this->total_weight = 0;
-        this->w = (int) (sqrt(log2(universe) * log(log2(universe) / err)) / err);
-        this->d = (int) log(log2(universe) / err);
+        this->w = (int) ceil(sqrt(log2(universe) * log(log(universe) / err)) / err);
+        this->d = (int) ceil(log(log(universe) / err));
         this->s = std::max((int) floor(log2(universe / (double) (this->w * this->d))), 0);
         this->lvls = ceil(log2(universe));
     }

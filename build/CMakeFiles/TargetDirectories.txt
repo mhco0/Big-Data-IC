@@ -60,10 +60,11 @@
 /mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/app/CMakeFiles/profiler.dir
 /mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/app/CMakeFiles/test.dir
 /mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/app/CMakeFiles/brute_force.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/app/CMakeFiles/profile_count_sketch.dir
 /mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/app/CMakeFiles/build_streams.dir
 /mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/app/CMakeFiles/stream_creator.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/app/CMakeFiles/quantile_quadtree_experiment.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/app/CMakeFiles/build_queries.dir
 /mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/app/CMakeFiles/rebuild_cache.dir
 /mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/app/CMakeFiles/edit_cache.dir
 /mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/app/CMakeFiles/build_brute_force.dir
-/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/app/CMakeFiles/build_queries.dir
-/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/app/CMakeFiles/quantile_quadtree_experiment.dir

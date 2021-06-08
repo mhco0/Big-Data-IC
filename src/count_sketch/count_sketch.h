@@ -6,20 +6,21 @@
 #include "../k_wise_family/k_wise_family.h"
 
 namespace qsbd {
-    class dcs;
 
     class count_sketch {
     private:  
-        friend class dcs;
 
         double error, delta;
-        // d is the number of rows and t is the number of collums for the estimator matrix
+        // d is the number of rows and t is the number of columns for the estimator matrix
         int d, t;
         std::vector<k_wise_family> hash_functions;
         std::vector<std::vector<int>> estimators;
-
+        //L1 bound
         void set_param_double(double err, double delt);
         void set_param_int(int fixd, int fixt);
+        // L2 bound
+        void set_param_double2(double err, double delt);
+        void set_param_int2(int fixd, int fixt);
 
         int g(int random_bit);
     public:

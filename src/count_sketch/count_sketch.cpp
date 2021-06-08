@@ -6,7 +6,7 @@ namespace qsbd {
         this->delta = delt;
 
         this->d = (int) ceil(48 * log(1.0 / delta));
-        this->t = (int) (3.0 / error);
+        this->t = (int) ceil(3.0 / error);
     }
 
     void count_sketch::set_param_int(int fixd, int fixt){
@@ -15,6 +15,22 @@ namespace qsbd {
 
         this->error = 3.0 / this->t;
         this->delta = exp(-this->d / 48.0);
+    }
+
+    void count_sketch::set_param_double2(double err, double delt){
+        this->error = err;
+        this->delta = delt;
+
+        this->d = (int) ceil(16 * log(1.0 / delta));
+        this->t = (int) ceil(4.0 / (error * error));
+    }
+
+    void count_sketch::set_param_int2(int fixd, int fixt){
+        this->d = fixd;
+        this->t = fixt;
+
+        this->error = 2.0 / sqrt(this->t);
+        this->delta = exp(-this->d / 16.0);
     }
 
     int count_sketch::g(int random_bit){
