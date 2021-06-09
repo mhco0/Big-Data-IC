@@ -94,17 +94,17 @@ TEST(CountScketchTest, TestMerge){
     int total_weight = weight_from_stream(merged_stream);
     map<int, int> frequency = frequency_counter(merged_stream);
     map<int, int> fails;
-    vector<k_wise_family> hash_functions;
+    vector<vector<unsigned long long int>> hash_consts;
 
     for(int i = 0; i < d; i++){
         k_wise_family h(2, 2 * t);
 
-        hash_functions.push_back(h);
+        hash_consts.push_back(h.get_constants());
     }
 
     for(int i = 0; i < attempts; i++){
-        count_sketch cs1 (error, delta, hash_functions);
-        count_sketch cs2 (error, delta, hash_functions);
+        count_sketch cs1 (error, delta, hash_consts);
+        count_sketch cs2 (error, delta, hash_consts);
 
         for(auto& it : stream1){   
             cs1.update(it.first, it.second);
@@ -145,17 +145,17 @@ TEST(CountScketchTest, TestInnerMerge){
     int total_weight = weight_from_stream(merged_stream);
     map<int, int> frequency = frequency_counter(merged_stream);
     map<int, int> fails;
-    vector<k_wise_family> hash_functions;
+    vector<vector<unsigned long long int>> hash_consts;
 
     for(int i = 0; i < d; i++){
         k_wise_family h(2, 2 * t);
 
-        hash_functions.push_back(h);
+        hash_consts.push_back(h.get_constants());
     }
 
     for(int i = 0; i < attempts; i++){
-        count_sketch cs1 (error, delta, hash_functions);
-        count_sketch cs2 (error, delta, hash_functions);
+        count_sketch cs1 (error, delta, hash_consts);
+        count_sketch cs2 (error, delta, hash_consts);
 
         for(auto& it : stream1){   
             cs1.update(it.first, it.second);

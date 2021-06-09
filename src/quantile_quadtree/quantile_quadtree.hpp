@@ -30,14 +30,22 @@ namespace qsbd {
             int center_x = (box.bounds().first.x() + box.bounds().second.x()) / 2;
             int center_y = (box.bounds().first.y() + box.bounds().second.y()) / 2;
 
-            if(pos.x() > center_x and pos.y() > center_y) return 0;
-            else if(pos.x() < center_x and pos.y() > center_y) return 1;
+
+            // if(pos.x() > center_x and pos.y() > center_y) return 0;
+            // else if(pos.x() < center_x and pos.y() > center_y) return 1;
+            // else if(pos.x() < center_x and pos.y() < center_y) return 2;
+            // else if(pos.x() > center_x and pos.y() < center_y) return 3;
+            // else if(pos.x() == center_x and pos.y() > center_y) return 0;
+            // else if(pos.x() < center_x and pos.y() == center_y) return 1;
+            // else if(pos.x() == center_x and pos.y() < center_y) return 2;
+            // else if(pos.x() > center_x and pos.y() == center_y) return 3;
+            // else return 0;
+
+
+            if(pos.x() >= center_x and pos.y() >= center_y) return 0;
+            else if(pos.x() < center_x and pos.y() >= center_y) return 1;
             else if(pos.x() < center_x and pos.y() < center_y) return 2;
-            else if(pos.x() > center_x and pos.y() < center_y) return 3;
-            else if(pos.x() == center_x and pos.y() > center_y) return 0;
-            else if(pos.x() < center_x and pos.y() == center_y) return 1;
-            else if(pos.x() == center_x and pos.y() < center_y) return 2;
-            else if(pos.x() > center_x and pos.y() == center_y) return 3;
+            else if(pos.x() >= center_x and pos.y() < center_y) return 3;
             else return 0;
         }
 
@@ -214,7 +222,7 @@ namespace qsbd {
             this->root->payload->update(value);
 
             while(cur_deep <= this->max_deep and not unit_box(cur_box)){
-                if(this->tree[cur_pos].ne_child_pos == -1){ // leaf
+                if(this->tree[cur_pos].ne_child_pos == -1 and this->tree[cur_pos].payload == nullptr){ // leaf
                     //needs to create four new nodes
 
                     int ne_child_pos = (cur_deep == this->max_deep) ? -1 : alloc_childs();
@@ -243,7 +251,7 @@ namespace qsbd {
             this->root->payload->update(value, weight);
 
             while(cur_deep <= this->max_deep and not unit_box(cur_box)){
-                if(this->tree[cur_pos].ne_child_pos == -1){ // leaf
+                if(this->tree[cur_pos].ne_child_pos == -1 and this->tree[cur_pos].payload == nullptr){ // leaf
                     //needs to create four new nodes
                     int ne_child_pos = (cur_deep == this->max_deep) ? -1 : alloc_childs();
 

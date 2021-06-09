@@ -1,70 +1,115 @@
-/home/mhco/projects/Big-Data-IC/build/CMakeFiles/rebuild_cache.dir
-/home/mhco/projects/Big-Data-IC/build/CMakeFiles/edit_cache.dir
-/home/mhco/projects/Big-Data-IC/build/CMakeFiles/test.dir
-/home/mhco/projects/Big-Data-IC/build/thirdparty/CMakeFiles/edit_cache.dir
-/home/mhco/projects/Big-Data-IC/build/thirdparty/CMakeFiles/test.dir
-/home/mhco/projects/Big-Data-IC/build/thirdparty/CMakeFiles/rebuild_cache.dir
-/home/mhco/projects/Big-Data-IC/build/thirdparty/CMakeFiles/nlohmann_json.dir
-/home/mhco/projects/Big-Data-IC/build/src/CMakeFiles/QSBD_DCS_FACTORY.dir
-/home/mhco/projects/Big-Data-IC/build/src/CMakeFiles/QSBD_Q_DIGEST_FACTORY.dir
-/home/mhco/projects/Big-Data-IC/build/src/CMakeFiles/QSBD_KLL_FACTORY.dir
-/home/mhco/projects/Big-Data-IC/build/src/CMakeFiles/QSBD_QUANTILE_QUADTREE.dir
-/home/mhco/projects/Big-Data-IC/build/src/CMakeFiles/QSBD_QUANTILE_SKETCH.dir
-/home/mhco/projects/Big-Data-IC/build/src/CMakeFiles/QSBD_SKETCH_FACTORY.dir
-/home/mhco/projects/Big-Data-IC/build/src/CMakeFiles/QSBD_QUADTREE.dir
-/home/mhco/projects/Big-Data-IC/build/src/CMakeFiles/QSBD_GLOBAL_GEN.dir
-/home/mhco/projects/Big-Data-IC/build/src/CMakeFiles/test.dir
-/home/mhco/projects/Big-Data-IC/build/src/CMakeFiles/QSBD_GK_FACTORY.dir
-/home/mhco/projects/Big-Data-IC/build/src/CMakeFiles/QSBD_POINT.dir
-/home/mhco/projects/Big-Data-IC/build/src/CMakeFiles/QSBD_COMMUM_HEADER.dir
-/home/mhco/projects/Big-Data-IC/build/src/CMakeFiles/QSBD_UTILS.dir
-/home/mhco/projects/Big-Data-IC/build/src/CMakeFiles/QSBD_DEBUG.dir
-/home/mhco/projects/Big-Data-IC/build/src/CMakeFiles/QSBD_MEMORY_TRACKER.dir
-/home/mhco/projects/Big-Data-IC/build/src/CMakeFiles/QSBD_Q_DIGEST.dir
-/home/mhco/projects/Big-Data-IC/build/src/CMakeFiles/QSBD_COUNT_SKETCH.dir
-/home/mhco/projects/Big-Data-IC/build/src/CMakeFiles/QSBD_TIMER.dir
-/home/mhco/projects/Big-Data-IC/build/src/CMakeFiles/QSBD_GK.dir
-/home/mhco/projects/Big-Data-IC/build/src/CMakeFiles/rebuild_cache.dir
-/home/mhco/projects/Big-Data-IC/build/src/CMakeFiles/edit_cache.dir
-/home/mhco/projects/Big-Data-IC/build/src/CMakeFiles/QSBD_STREAM_MAKER.dir
-/home/mhco/projects/Big-Data-IC/build/src/CMakeFiles/QSBD_CONFIG.dir
-/home/mhco/projects/Big-Data-IC/build/src/CMakeFiles/QSBD_AABB.dir
-/home/mhco/projects/Big-Data-IC/build/src/CMakeFiles/QSBD_K_WISE_FAMILY.dir
-/home/mhco/projects/Big-Data-IC/build/src/CMakeFiles/QSBD_KLL.dir
-/home/mhco/projects/Big-Data-IC/build/src/CMakeFiles/QSBD_LOG.dir
-/home/mhco/projects/Big-Data-IC/build/src/CMakeFiles/QSBD_DCS.dir
-/home/mhco/projects/Big-Data-IC/build/test/CMakeFiles/rebuild_cache.dir
-/home/mhco/projects/Big-Data-IC/build/test/CMakeFiles/edit_cache.dir
-/home/mhco/projects/Big-Data-IC/build/test/CMakeFiles/test.dir
-/home/mhco/projects/Big-Data-IC/build/test/CMakeFiles/tester.dir
-/home/mhco/projects/Big-Data-IC/build/test/CMakeFiles/test_json.dir
-/home/mhco/projects/Big-Data-IC/build/test/CMakeFiles/test_stream_maker.dir
-/home/mhco/projects/Big-Data-IC/build/test/CMakeFiles/test_memory_tracker.dir
-/home/mhco/projects/Big-Data-IC/build/test/CMakeFiles/test_kll.dir
-/home/mhco/projects/Big-Data-IC/build/test/CMakeFiles/test_log.dir
-/home/mhco/projects/Big-Data-IC/build/test/CMakeFiles/test_quantile_quadtree.dir
-/home/mhco/projects/Big-Data-IC/build/test/CMakeFiles/test_k_wise_family.dir
-/home/mhco/projects/Big-Data-IC/build/test/CMakeFiles/test_quadtree.dir
-/home/mhco/projects/Big-Data-IC/build/test/CMakeFiles/test_dcs.dir
-/home/mhco/projects/Big-Data-IC/build/test/CMakeFiles/test_count_sketch.dir
-/home/mhco/projects/Big-Data-IC/build/test/CMakeFiles/test_q_digest.dir
-/home/mhco/projects/Big-Data-IC/build/test/CMakeFiles/test_config.dir
-/home/mhco/projects/Big-Data-IC/build/test/CMakeFiles/test_gk.dir
-/home/mhco/projects/Big-Data-IC/build/app/CMakeFiles/quadtree_data_bounds.dir
-/home/mhco/projects/Big-Data-IC/build/app/CMakeFiles/coletor.dir
-/home/mhco/projects/Big-Data-IC/build/app/CMakeFiles/convert_stream.dir
-/home/mhco/projects/Big-Data-IC/build/app/CMakeFiles/query_creator.dir
-/home/mhco/projects/Big-Data-IC/build/app/CMakeFiles/data_points.dir
-/home/mhco/projects/Big-Data-IC/build/app/CMakeFiles/experiment_all.dir
-/home/mhco/projects/Big-Data-IC/build/app/CMakeFiles/comparator.dir
-/home/mhco/projects/Big-Data-IC/build/app/CMakeFiles/profiler.dir
-/home/mhco/projects/Big-Data-IC/build/app/CMakeFiles/test.dir
-/home/mhco/projects/Big-Data-IC/build/app/CMakeFiles/brute_force.dir
-/home/mhco/projects/Big-Data-IC/build/app/CMakeFiles/profile_count_sketch.dir
-/home/mhco/projects/Big-Data-IC/build/app/CMakeFiles/build_streams.dir
-/home/mhco/projects/Big-Data-IC/build/app/CMakeFiles/stream_creator.dir
-/home/mhco/projects/Big-Data-IC/build/app/CMakeFiles/quantile_quadtree_experiment.dir
-/home/mhco/projects/Big-Data-IC/build/app/CMakeFiles/build_queries.dir
-/home/mhco/projects/Big-Data-IC/build/app/CMakeFiles/rebuild_cache.dir
-/home/mhco/projects/Big-Data-IC/build/app/CMakeFiles/edit_cache.dir
-/home/mhco/projects/Big-Data-IC/build/app/CMakeFiles/build_brute_force.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/install/strip.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/install/local.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/install.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/list_install_components.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/rebuild_cache.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/edit_cache.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/test.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/googletest/CMakeFiles/install/strip.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/googletest/CMakeFiles/install/local.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/googletest/CMakeFiles/install.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/googletest/CMakeFiles/list_install_components.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/googletest/CMakeFiles/rebuild_cache.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/googletest/CMakeFiles/edit_cache.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/googletest/CMakeFiles/test.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/googletest/googlemock/CMakeFiles/install/strip.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/googletest/googlemock/CMakeFiles/install/local.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/googletest/googlemock/CMakeFiles/install.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/googletest/googlemock/CMakeFiles/list_install_components.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/googletest/googlemock/CMakeFiles/rebuild_cache.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/googletest/googlemock/CMakeFiles/edit_cache.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/googletest/googlemock/CMakeFiles/test.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/googletest/googlemock/CMakeFiles/gmock_main.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/googletest/googlemock/CMakeFiles/gmock.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/googletest/googletest/CMakeFiles/install/strip.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/googletest/googletest/CMakeFiles/install/local.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/googletest/googletest/CMakeFiles/install.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/googletest/googletest/CMakeFiles/list_install_components.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/googletest/googletest/CMakeFiles/rebuild_cache.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/googletest/googletest/CMakeFiles/edit_cache.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/googletest/googletest/CMakeFiles/test.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/googletest/googletest/CMakeFiles/gtest_main.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/googletest/googletest/CMakeFiles/gtest.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/thirdparty/CMakeFiles/install/strip.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/thirdparty/CMakeFiles/install/local.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/thirdparty/CMakeFiles/edit_cache.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/thirdparty/CMakeFiles/test.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/thirdparty/CMakeFiles/install.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/thirdparty/CMakeFiles/list_install_components.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/thirdparty/CMakeFiles/rebuild_cache.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/thirdparty/CMakeFiles/nlohmann_json.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/install/local.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/install.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/QSBD_DCS.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/QSBD_LOG.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/QSBD_KLL.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/QSBD_K_WISE_FAMILY.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/QSBD_CONFIG.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/rebuild_cache.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/edit_cache.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/QSBD_GK.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/QSBD_TIMER.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/QSBD_COUNT_SKETCH.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/QSBD_Q_DIGEST.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/QSBD_DEBUG.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/QSBD_UTILS.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/QSBD_COMMUM_HEADER.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/install/strip.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/QSBD_POINT.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/QSBD_GK_FACTORY.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/test.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/QSBD_STREAM_MAKER.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/QSBD_MEMORY_TRACKER.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/QSBD_GLOBAL_GEN.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/QSBD_QUADTREE.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/QSBD_SKETCH_FACTORY.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/QSBD_QUANTILE_SKETCH.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/QSBD_QUANTILE_QUADTREE.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/QSBD_KLL_FACTORY.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/QSBD_Q_DIGEST_FACTORY.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/QSBD_AABB.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/list_install_components.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/QSBD_DCS_FACTORY.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test/CMakeFiles/install/strip.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test/CMakeFiles/install/local.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test/CMakeFiles/rebuild_cache.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test/CMakeFiles/edit_cache.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test/CMakeFiles/test.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test/CMakeFiles/list_install_components.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test/CMakeFiles/tester.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test/CMakeFiles/test_json.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test/CMakeFiles/test_stream_maker.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test/CMakeFiles/test_memory_tracker.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test/CMakeFiles/test_kll.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test/CMakeFiles/test_log.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test/CMakeFiles/test_quantile_quadtree.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test/CMakeFiles/test_k_wise_family.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test/CMakeFiles/test_quadtree.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test/CMakeFiles/test_dcs.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test/CMakeFiles/install.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test/CMakeFiles/test_count_sketch.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test/CMakeFiles/test_q_digest.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test/CMakeFiles/test_config.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test/CMakeFiles/test_gk.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/app/CMakeFiles/install/strip.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/app/CMakeFiles/list_install_components.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/app/CMakeFiles/quadtree_data_bounds.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/app/CMakeFiles/coletor.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/app/CMakeFiles/install/local.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/app/CMakeFiles/convert_stream.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/app/CMakeFiles/install.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/app/CMakeFiles/query_creator.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/app/CMakeFiles/data_points.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/app/CMakeFiles/experiment_all.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/app/CMakeFiles/comparator.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/app/CMakeFiles/profiler.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/app/CMakeFiles/test.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/app/CMakeFiles/brute_force.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/app/CMakeFiles/profile_count_sketch.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/app/CMakeFiles/build_streams.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/app/CMakeFiles/stream_creator.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/app/CMakeFiles/quantile_quadtree_experiment.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/app/CMakeFiles/build_queries.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/app/CMakeFiles/rebuild_cache.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/app/CMakeFiles/edit_cache.dir
+/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/app/CMakeFiles/build_brute_force.dir

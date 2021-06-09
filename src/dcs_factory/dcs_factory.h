@@ -9,7 +9,7 @@ namespace qsbd{
         double error;
         int universe;
 		int count;
-        std::vector<std::vector<std::vector<unsigned long long int>>> hashs_consts;
+        std::vector<std::vector<std::vector<int>>> hashs_consts;
     public:
         dcs_factory(double err, int univ){
             this->error = err;

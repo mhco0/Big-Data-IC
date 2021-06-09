@@ -1,2 +1,2 @@
-/usr/bin/ar qc ../lib/libQSBD_UTILS.a  CMakeFiles/QSBD_UTILS.dir/utils/utils.cpp.o
-/usr/bin/ranlib ../lib/libQSBD_UTILS.a
+/bin/ar qc ../lib/libQSBD_UTILS.a  CMakeFiles/QSBD_UTILS.dir/utils/utils.cpp.o
+/bin/ranlib ../lib/libQSBD_UTILS.a

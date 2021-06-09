@@ -13,8 +13,8 @@ namespace qsbd {
         double error, delta;
         // d is the number of rows and t is the number of columns for the estimator matrix
         int d, t;
-        std::vector<k_wise_family> hash_functions;
-        std::vector<std::vector<int>> estimators;
+        k_wise_family** hash_functions;
+        int** estimators;
         //L1 bound
         void set_param_double(double err, double delt);
         void set_param_int(int fixd, int fixt);
@@ -25,9 +25,9 @@ namespace qsbd {
         int g(int random_bit);
     public:
         count_sketch(int fixd, int fixt);
-        count_sketch(int fixd, int fixt, const std::vector<std::vector<unsigned long long int>>& hashs_consts);
+        count_sketch(int fixd, int fixt, const std::vector<std::vector<int>>& hashs_consts);
         count_sketch(double err, double delt);
-        count_sketch(double err, double delt, const std::vector<std::vector<unsigned long long int>>& hashs_consts);
+        count_sketch(double err, double delt, const std::vector<std::vector<int>>& hashs_consts);
         count_sketch(const count_sketch& other);
         ~count_sketch();
 
@@ -44,7 +44,7 @@ namespace qsbd {
         double get_delta() const;
         std::vector<std::vector<int>> get_estimators() const;
         std::vector<k_wise_family> get_hash_functions() const;
-        std::vector<std::vector<unsigned long long int>> get_hash_functions_consts() const;
+        std::vector<std::vector<int>> get_hash_functions_consts() const;
     };
 }
 #endif

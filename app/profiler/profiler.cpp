@@ -36,12 +36,18 @@ public:
 };
 
 class dummy_factory : public qsbd::sketch_factory<int> {
+    int count;
 public:
-    dummy_factory(){
+    dummy_factory():count(0){
     }
 
     qsbd::quantile_sketch<int>* instance() override {
+        this->count++;
         return new dummy_sketch();
+    }
+
+    int allocations(){
+        return this->count;
     }
 };
 
@@ -558,7 +564,7 @@ void dcs_run2(bool only_update){
     // TREE
     double error = 0.3;
     int universe = 1024;
-    int depth = 10;
+    int depth = 9;
     double bounds[4] = {0.0, 0.0, 1280.0, 720.0};
     int discrete_bounds[4] = {0, 0, 0, 0};
 
@@ -635,6 +641,12 @@ void dcs_run2(bool only_update){
 
 	cout << factory.allocations() << endl;
 	cout << sizeof(qsbd::dcs) << endl;
+    qsbd::dcs* test = new qsbd::dcs(error, universe);
+
+    cout << sizeof(test) << endl;
+    cout << sizeof(*test) << endl;
+
+    delete test; 
 
     //cout << string(progress.size(), '\b');
     //cout.flush();

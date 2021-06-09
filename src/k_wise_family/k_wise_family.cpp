@@ -2,28 +2,28 @@
 
 namespace qsbd {
 
-    k_wise_family::k_wise_family(int k, unsigned long long int universe){
+    k_wise_family::k_wise_family(int k, int universe){
         this->big_prim = nextPrime(universe);
 
-        std::uniform_int_distribution<unsigned long long int> distribution(1LL, this->big_prim - 1);
+        std::uniform_int_distribution<int> distribution(1, this->big_prim - 1);
 
         this->_k = k;
         this->universe = universe;
 
         this->constants.reserve(_k);
-	for(int i = 0; i < _k; i++){
+	    for(int i = 0; i < _k; i++){
             this->constants.push_back(distribution(generator));
         }
     }
 
-    k_wise_family::k_wise_family(int k, unsigned long long int universe, const std::vector<ll>& conf){
+    k_wise_family::k_wise_family(int k, int universe, const std::vector<int>& conf){
         this->big_prim = nextPrime(universe);
         this->_k = k;
         this->universe = universe;
 
         ASSERT(conf.size() == this->_k);
 	
-	this->constants.reserve(this->_k);
+	    this->constants.reserve(this->_k);
         for(int i = 0; i < conf.size(); i++){
             this->constants.push_back(conf[i]);
         }
@@ -34,7 +34,7 @@ namespace qsbd {
         this->_k = rhs._k;
         this->universe = rhs.universe;
 
-	this->constants.reserve(rhs.constants.size());
+	    this->constants.reserve(rhs.constants.size());
         for(int i = 0; i < rhs.constants.size(); i++){
             this->constants.push_back(rhs.constants[i]);
         }
@@ -43,11 +43,11 @@ namespace qsbd {
     k_wise_family::~k_wise_family(){
     }
 
-    unsigned long long int k_wise_family::operator() (unsigned long long int elem) {
-        unsigned long long int parse_sum = 0LL;
+    int k_wise_family::operator() (int elem) {
+        int parse_sum = 0LL;
 
         for(int i = 0; i < this->_k; i++){
-            unsigned long long int exp_x = 1LL;
+            int exp_x = 1LL;
 
             for(int j = 0; j < i; j++){
                 exp_x = exp_x * elem;
@@ -74,11 +74,11 @@ namespace qsbd {
         return *this;
     }
 
-    std::vector<unsigned long long int> k_wise_family::get_constants() const {
+    std::vector<int> k_wise_family::get_constants() const {
         return this->constants;
     }
 
-    unsigned long long int k_wise_family::get_universe() const {
+    int k_wise_family::get_universe() const {
         return this->universe;
     }
 

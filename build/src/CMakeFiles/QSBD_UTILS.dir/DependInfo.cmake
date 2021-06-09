@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/mhco/projects/Big-Data-IC/src/utils/utils.cpp" "/home/mhco/projects/Big-Data-IC/build/src/CMakeFiles/QSBD_UTILS.dir/utils/utils.cpp.o"
+  "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/utils/utils.cpp" "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/QSBD_UTILS.dir/utils/utils.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

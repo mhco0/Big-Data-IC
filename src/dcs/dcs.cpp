@@ -11,7 +11,7 @@ namespace qsbd {
         this->lvls = (int) ceil(log2(universe));
     }
 
-    dcs::dcs(double err, int univ, const std::vector<std::vector<std::vector<unsigned long long int>>>& hashs_consts){
+    dcs::dcs(double err, int univ, const std::vector<std::vector<std::vector<int>>>& hashs_consts){
         this->set_params(err, univ);
 
 		this->frequency_counters.reserve(this->lvls - (this->s + 1));
@@ -233,8 +233,8 @@ namespace qsbd {
         return this->total_weight;
     }
 
-    std::vector<std::vector<std::vector<unsigned long long int>>> dcs::get_count_sketchs_hash_functions_constants() const {
-        std::vector<std::vector<std::vector<unsigned long long int>>> consts;
+    std::vector<std::vector<std::vector<int>>> dcs::get_count_sketchs_hash_functions_constants() const {
+        std::vector<std::vector<std::vector<int>>> consts;
 	
 		consts.reserve(this->estimators.size());
         for(auto& it : this->estimators){
