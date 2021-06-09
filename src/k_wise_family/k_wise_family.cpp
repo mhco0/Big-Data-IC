@@ -10,7 +10,8 @@ namespace qsbd {
         this->_k = k;
         this->universe = universe;
 
-        for(int i = 0; i < _k; i++){
+        this->constants.reserve(_k);
+	for(int i = 0; i < _k; i++){
             this->constants.push_back(distribution(generator));
         }
     }
@@ -21,7 +22,8 @@ namespace qsbd {
         this->universe = universe;
 
         ASSERT(conf.size() == this->_k);
-
+	
+	this->constants.reserve(this->_k);
         for(int i = 0; i < conf.size(); i++){
             this->constants.push_back(conf[i]);
         }
@@ -32,6 +34,7 @@ namespace qsbd {
         this->_k = rhs._k;
         this->universe = rhs.universe;
 
+	this->constants.reserve(rhs.constants.size());
         for(int i = 0; i < rhs.constants.size(); i++){
             this->constants.push_back(rhs.constants[i]);
         }

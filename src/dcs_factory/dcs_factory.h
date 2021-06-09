@@ -8,20 +8,26 @@ namespace qsbd{
     private:
         double error;
         int universe;
+		int count;
         std::vector<std::vector<std::vector<unsigned long long int>>> hashs_consts;
     public:
         dcs_factory(double err, int univ){
             this->error = err;
             this->universe = univ;
-
+			this->count = 0;
             dcs dummy(this->error, this->universe);
 
             hashs_consts = std::move(dummy.get_count_sketchs_hash_functions_constants());
         }
 
         quantile_sketch<int> * instance() override {
+			count++;
             return new dcs(this->error, this->universe, this->hashs_consts);
         }
+
+		int allocations(){
+			return this->count;
+		}
     };
 }
 

@@ -548,12 +548,12 @@ void dcs_run(bool only_update){
 
 void dcs_run2(bool only_update){
     // STREAM
-    int min_v = 0;
-    int max_v = 1000;
-    double minx = 0.0;
-    double miny = 0.0;
-    double maxx = 1280.0;
-    double maxy = 720.0;
+    //int min_v = 0;
+    //int max_v = 1000;
+    //double minx = 0.0;
+    //double miny = 0.0;
+    //double maxx = 1280.0;
+    //double maxy = 720.0;
 
     // TREE
     double error = 0.3;
@@ -563,20 +563,20 @@ void dcs_run2(bool only_update){
     int discrete_bounds[4] = {0, 0, 0, 0};
 
     // QUERIES
-    int initial_value = 0;
-    int final_value = 1000;
-    int step = 1;
+    //int initial_value = 0;
+    //int final_value = 1000;
+    //int step = 1;
 
-    vector<pair<pair<int, int>, pair<int, int>>> stream;
-    vector<pair<int, vector<double>>> regions_to_search;
+    //vector<pair<pair<int, int>, pair<int, int>>> stream;
+    //vector<pair<int, vector<double>>> regions_to_search;
 
-    for(int i = 0; i < 1024; i++){
+    /*for(int i = 0; i < 1024; i++){
         for(int j = 0; j < 1024; j++){
-            uniform_int_distribution v(min_v, max_v);
+            uniform_int_distribution<int> v(min_v, max_v);
 
-            stream.push_back({{v(generator), 1}, {i, j}});
+            stream.push_back({{v(qsbd::generator), 1}, {i, j}});
         }
-    }
+    }*/
     
     for(int i = 0; i < 4; i++){
         // 0 -> 0 2
@@ -606,33 +606,40 @@ void dcs_run2(bool only_update){
         regions_to_search.push_back(rank_query);
     }*/
 
-    cout << "Update := ";
-    cout.flush();
+    //cout << "Update := ";
+    //cout.flush();
 
-    string progress = "0%";
-    cout << progress;
-    cout.flush();
+    //string progress = "0%";
+    //cout << progress;
+    //cout.flush();
 
     qsbd::dcs_factory factory(error, universe);
+	//dummy_factory factory;
     qsbd::quantile_quadtree<int> qq_test(resolution, depth, &factory);
 
-    for(int i = 0; i < stream.size(); i++){
-        qsbd::point<int> coord(stream[i].second.first, stream[i].second.second);
-        qq_test.update(coord, stream[i].first.first, stream[i].first.second);
-        int progress_pct = (int) ((i * 100) / stream.size());
+    for(int i = 0; i < (1 << depth); i++){
+		for(int j = 0; j < (1 << depth); j++){
+			uniform_int_distribution<int> v(0, 1023);		
+        	qsbd::point<int> coord(i, j);
+        	qq_test.update(coord, v(qsbd::generator), 1);
+        	//int progress_pct = (int) (((i * 1024 + j) * 100) / (1024 * 1024));
         
-        cout << string(progress.size(), '\b');
-        cout.flush();
+        	//cout << string(progress.size(), '\b');
+        	//cout.flush();
         
-        progress = to_string(progress_pct) + "%";
-        cout << progress;
-        cout.flush();
+        	//progress = to_string(progress_pct) + "%";
+        	//cout << progress;
+        	//cout.flush();
+		}
     }
 
-    cout << string(progress.size(), '\b');
-    cout.flush();
+	cout << factory.allocations() << endl;
+	cout << sizeof(qsbd::dcs) << endl;
+
+    //cout << string(progress.size(), '\b');
+    //cout.flush();
     
-    cout << "Done!" << endl;
+    //cout << "Done!" << endl;
 
     if (only_update) return;
 
@@ -695,9 +702,9 @@ void kll_run(bool only_update){
     // QUERIES
     int initial_value = 0;
     int final_value = 1000;
-    int step = 1;
-
-    vector<pair<int, pair<double, double>>> stream = qsbd::stream_maker::random_stream_city(vector_size, minx, miny, maxx, maxy, min_v, max_v, citys, max_radius);
+	int step = 1;
+     
+	vector<pair<int, pair<double, double>>> stream = qsbd::stream_maker::random_stream_city(vector_size, minx, miny, maxx, maxy, min_v, max_v, citys, max_radius);
     vector<pair<int, vector<double>>> regions_to_search;
     
     for(int i = 0; i < 4; i++){
@@ -837,3 +844,4 @@ int main(int argc, char* argv[]){
     }
     return 0;
 }
+

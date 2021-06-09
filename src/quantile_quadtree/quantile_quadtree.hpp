@@ -49,15 +49,14 @@ namespace qsbd {
 
         int alloc_childs(){
             int ne_child_pos = this->tree.size();
-
             // ne
-            this->tree.push_back(quantile_quadtree<ObjType>::node(-1));
+            this->tree.emplace_back(-1);
             // nw
-            this->tree.push_back(quantile_quadtree<ObjType>::node(-1));
+            this->tree.emplace_back(-1);
             // sw
-            this->tree.push_back(quantile_quadtree<ObjType>::node(-1));
+            this->tree.emplace_back(-1);
             // se
-            this->tree.push_back(quantile_quadtree<ObjType>::node(-1));
+            this->tree.emplace_back(-1);
  
             return ne_child_pos;
         }
@@ -209,7 +208,7 @@ namespace qsbd {
 
         bool update(const point<int>& pos, ObjType value){
             aabb<int> cur_box(this->boundarys);
-            int cur_deep = 0;
+            int cur_deep = 1;
             int what_child = direction(this->boundarys, pos);
             int cur_pos = this->root->ne_child_pos + what_child;
             this->root->payload->update(value);
@@ -218,7 +217,7 @@ namespace qsbd {
                 if(this->tree[cur_pos].ne_child_pos == -1){ // leaf
                     //needs to create four new nodes
 
-                    int ne_child_pos = alloc_childs();
+                    int ne_child_pos = (cur_deep == this->max_deep) ? -1 : alloc_childs();
 
                     this->tree[cur_pos].ne_child_pos = ne_child_pos;
                     this->tree[cur_pos].payload = this->factory->instance();
@@ -238,7 +237,7 @@ namespace qsbd {
 
         bool update(const point<int>& pos, ObjType value, int weight){
             aabb<int> cur_box(this->boundarys);
-            int cur_deep = 0;
+            int cur_deep = 1;
             int what_child = direction(this->boundarys, pos);
             int cur_pos = this->root->ne_child_pos + what_child;
             this->root->payload->update(value, weight);
@@ -246,7 +245,7 @@ namespace qsbd {
             while(cur_deep <= this->max_deep and not unit_box(cur_box)){
                 if(this->tree[cur_pos].ne_child_pos == -1){ // leaf
                     //needs to create four new nodes
-                    int ne_child_pos = alloc_childs();
+                    int ne_child_pos = (cur_deep == this->max_deep) ? -1 : alloc_childs();
 
                     this->tree[cur_pos].ne_child_pos = ne_child_pos;
                     this->tree[cur_pos].payload = this->factory->instance();
@@ -260,7 +259,10 @@ namespace qsbd {
                 cur_deep++;
             }
             
-            if(cur_deep == this->max_deep) return true;
+        	VDEBUG(this->tree.size());
+			VDEBUG(this->tree.capacity());    
+		
+			if(cur_deep == this->max_deep) return true;
             else return false;
         }
 
@@ -268,6 +270,8 @@ namespace qsbd {
             aabb<int> cur_box(this->boundarys);
             quantile_sketch<ObjType> * sketch = this->factory->instance();
             
+
+			//0 can be 1 here because i start on this depth, check this later;
             search_region(-1, region, 0, cur_box, sketch);
 
             int ret = sketch->query(value);

@@ -41,11 +41,17 @@ namespace qsbd {
     count_sketch::count_sketch(int fixd, int fixt){
         this->set_param_int(fixd, fixt);
 
-        this->estimators.assign(this->d, {});
+        this->estimators.reserve(this->d);
         for(int i = 0; i < this->d; i++){
-            this->estimators[i].assign(this->t, 0);
+			this->estimators.emplace_back();
+			
+			this->estimators[i].reserve(this->t);
+			for(int j = 0; j < this->t; j++){
+				this->estimators[i].emplace_back(0);
+			}
         }
-
+	
+		this->hash_functions.reserve(this->d);
         for(int i = 0; i < this->d; i++){
             this->hash_functions.emplace_back(2, 2 * this->t);
         }
@@ -54,26 +60,38 @@ namespace qsbd {
     count_sketch::count_sketch(int fixd, int fixt, const std::vector<std::vector<unsigned long long int>>& hashs_consts){
         this->set_param_int(fixd, fixt);
 
-        this->estimators.assign(this->d, {});
+		this->estimators.reserve(this->d);
         for(int i = 0; i < this->d; i++){
-            this->estimators[i].assign(this->t, 0);
+			this->estimators.emplace_back();
+			
+			this->estimators[i].reserve(this->t);
+			for(int j = 0; j < this->t; j++){
+				this->estimators[i].emplace_back(0);
+			}
         }
 
         ASSERT(this->d == hashs_consts.size());
-
+	
+		this->hash_functions.reserve(this->d);
         for(int i = 0; i < this->d; i++){
-            this->hash_functions.emplace_back(2, 2 * this->t, hashs_consts[i]);
+        	this->hash_functions.emplace_back(2, 2 * this->t, hashs_consts[i]);
         }
     }
 
     count_sketch::count_sketch(double err, double delt){
         this->set_param_double(err, delt);
 
-        this->estimators.assign(this->d, {});
+		this->estimators.reserve(this->d);
         for(int i = 0; i < this->d; i++){
-            this->estimators[i].assign(this->t, 0);
+			this->estimators.emplace_back();
+			
+			this->estimators[i].reserve(this->t);
+			for(int j = 0; j < this->t; j++){
+				this->estimators[i].emplace_back(0);
+			}
         }
-
+		
+		this->hash_functions.reserve(this->d);
         for(int i = 0; i < this->d; i++){
             this->hash_functions.emplace_back(2, 2 * this->t);
         }
@@ -81,15 +99,21 @@ namespace qsbd {
 
     count_sketch::count_sketch(double err, double delt, const std::vector<std::vector<unsigned long long int>>& hashs_consts){
         this->set_param_double(err, delt);
-
-        this->estimators.assign(this->d, {});
+	
+		this->estimators.reserve(this->d);
         for(int i = 0; i < this->d; i++){
-            this->estimators[i].assign(this->t, 0);
+			this->estimators.emplace_back();
+
+			this->estimators[i].reserve(this->t);
+			for(int j = 0; j < this->t; j++){
+				this->estimators[i].emplace_back(0);
+			}
         }
 
         // the hash should map to 2 * t
         ASSERT(this->d == hashs_consts.size());
 
+		this->hash_functions.reserve(this->d);
         for(int i = 0; i < this->d; i++){
             this->hash_functions.emplace_back(2, 2 * this->t, hashs_consts[i]);
         }
@@ -101,14 +125,17 @@ namespace qsbd {
         this->d = other.d;
         this->t = other.t;
 
-        this->estimators.assign(other.d, {});
+		this->estimators.reserve(other.d);
         for(int i = 0; i < other.d; i++){
-            this->estimators[i].assign(other.t, 0);
+			this->estimators.emplace_back();
+            
+			this->estimators[i].reserve(other.t);
             for(int j = 0; j < other.t; j++){
-                this->estimators[i][j] = other.estimators[i][j];
+				this->estimators[i].emplace_back(other.estimators[i][j]);
             }
         }
-
+	
+		this->hash_functions.reserve(other.hash_functions.size());
         for(int i = 0; i < other.d; i++){
             this->hash_functions.emplace_back(other.hash_functions[i]);
         }
@@ -129,11 +156,13 @@ namespace qsbd {
     int count_sketch::query(int elem){
         std::vector<int> ranks;
 
+		ranks.reserve(this->d);
+
         for(int i = 0; i < this->d; i++){
             int hx = hash_functions[i](elem) % (2 * this->t);
             int hi = hx >> 1;
 
-            ranks.push_back(g(hx) * estimators[i][hi]);
+            ranks.emplace_back(g(hx) * estimators[i][hi]);
         }
 
         //std::sort(ranks.begin(), ranks.end());
@@ -244,8 +273,9 @@ namespace qsbd {
     std::vector<std::vector<unsigned long long int>> count_sketch::get_hash_functions_consts() const {
         std::vector<std::vector<unsigned long long int>> consts;
 
-        for(auto& it : this->hash_functions){
-            consts.push_back(it.get_constants());
+        consts.reserve(this->hash_functions.size());
+		for(auto& it : this->hash_functions){
+            consts.emplace_back(it.get_constants());
         }
 
         return consts;

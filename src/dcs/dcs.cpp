@@ -8,22 +8,28 @@ namespace qsbd {
         this->w = (int) ceil(sqrt(log2(universe) * log(log(universe) / err)) / err);
         this->d = (int) ceil(log(log(universe) / err));
         this->s = std::max((int) floor(log2(universe / (double) (this->w * this->d))), 0);
-        this->lvls = ceil(log2(universe));
+        this->lvls = (int) ceil(log2(universe));
     }
 
     dcs::dcs(double err, int univ, const std::vector<std::vector<std::vector<unsigned long long int>>>& hashs_consts){
         this->set_params(err, univ);
 
-        this->frequency_counters.assign(this->lvls - (this->s + 1), {});
+		this->frequency_counters.reserve(this->lvls - (this->s + 1));
 
         for(int i = this->s + 1; i < this->lvls; i++){
-            int dyadic_interval = 1 << i;
+			this->frequency_counters.emplace_back();
+			int dyadic_interval = 1 << i;
+			int interval_size = universe / dyadic_interval;
 
-            this->frequency_counters[i - (this->s + 1)].assign(universe / dyadic_interval, 0);
+			this->frequency_counters[i - (this->s + 1)].reserve(interval_size);
+			for(int j = 0; j < interval_size; j++){
+				this->frequency_counters[i - (this->s + 1)].emplace_back(0);
+			}
         }
 
         ASSERT((this->s + 1) == hashs_consts.size());
 
+		this->estimators.reserve(this->s + 1);
         for(int i = 0; i <= this->s; i++){
             this->estimators.emplace_back(this->d, this->w, hashs_consts[i]);
         }
@@ -37,14 +43,18 @@ namespace qsbd {
     dcs::dcs(double err, int univ){
         this->set_params(err, univ);
 
-        this->frequency_counters.assign(this->lvls - (this->s + 1), {});
-
+		this->frequency_counters.reserve(this->lvls - (this->s + 1));
         for(int i = this->s + 1; i < this->lvls; i++){
+			this->frequency_counters.emplace_back();
             int dyadic_interval = 1 << i;
+			int interval_size = universe / dyadic_interval;
 
-            this->frequency_counters[i - (this->s + 1)].assign(universe / dyadic_interval, 0);
+			for(int j = 0; j < interval_size; j++){
+				this->frequency_counters[i - (this->s + 1)].emplace_back(0);
+			}
         }
 
+		this->estimators.reserve(this->s + 1);
         for(int i = 0; i <= this->s; i++){
             this->estimators.emplace_back(this->d, this->w);
         }
@@ -225,9 +235,10 @@ namespace qsbd {
 
     std::vector<std::vector<std::vector<unsigned long long int>>> dcs::get_count_sketchs_hash_functions_constants() const {
         std::vector<std::vector<std::vector<unsigned long long int>>> consts;
-
+	
+		consts.reserve(this->estimators.size());
         for(auto& it : this->estimators){
-            consts.push_back(it.get_hash_functions_consts());
+            consts.emplace_back(it.get_hash_functions_consts());
         }
 
         return consts;
