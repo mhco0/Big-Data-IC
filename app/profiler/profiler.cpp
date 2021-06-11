@@ -643,15 +643,29 @@ void dcs_run2(bool only_update){
 
 	//qsbd::dcs* test = dynamic_cast<qsbd::dcs*>(factory.instance());
 
-	//delete test;
+	/*VDEBUG(factory.allocations());
+    qsbd::dcs* test = new qsbd::dcs(error, universe);
+    qsbd::k_wise_family * f2 = new qsbd::k_wise_family(2, universe);
+    qsbd::count_sketch * cs = new qsbd::count_sketch(4, 19);
+    VDEBUG(sizeof(*f2));
+    VDEBUG(2 * sizeof(int));
+    VDEBUG(sizeof(*cs));
+    VDEBUG(2 * sizeof(double) + sizeof(qsbd::k_wise_family**) + sizeof(int**) + 2 * sizeof(int));
+    VDEBUG(4 * (sizeof(*f2) + 2 * sizeof(int)));
+    VDEBUG(4 * 19 * sizeof(int));
+    VDEBUG(sizeof(*test));
+    VDEBUG(sizeof(double) + 6 * sizeof(int) + sizeof(vector<vector<int>>) + sizeof(vector<qsbd::count_sketch>));
+    VDEBUG((test->get_s() + 1) * (sizeof(*cs) + 4 * 19 * sizeof(int) + 4 * (sizeof(*f2) + 2 * sizeof(int))));
+    VDEBUG((test->get_tree_lvl() - (test->get_s() + 1)) * (sizeof(vector<int>) + 126 * sizeof(int)));
+    VDEBUG(sizeof(dummy_sketch));
+    VDEBUG(test->get_tree_lvl());
+    VDEBUG(test->get_w());
+    VDEBUG(test->get_d());
+    VDEBUG(test->get_s());
 
-	//cout << factory.allocations() << endl;
-	//cout << sizeof(qsbd::dcs) << endl;
-
-    //cout << sizeof(test) << endl;
-    //cout << sizeof(*test) << endl;
-
-    //free(malloc(sizeof(qsbd::dcs))); 
+    delete test;
+    delete f2;
+    delete cs;*/
 
     //cout << string(progress.size(), '\b');
     //cout.flush();

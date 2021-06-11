@@ -54,6 +54,10 @@ namespace qsbd {
 			}
         }
 
+        for(auto& it : frequency_counters){
+            VDEBUG(it.size());
+        }
+
 		this->estimators.reserve(this->s + 1);
         for(int i = 0; i <= this->s; i++){
             this->estimators.emplace_back(this->d, this->w);

@@ -21,14 +21,10 @@ short direction(const aabb<int>& box, const point<int>& pos){
     int center_x = (box.bounds().first.x() + box.bounds().second.x()) / 2;
     int center_y = (box.bounds().first.y() + box.bounds().second.y()) / 2;
 
-    if(pos.x() > center_x and pos.y() > center_y) return 0;
-    else if(pos.x() < center_x and pos.y() > center_y) return 1;
+    if(pos.x() >= center_x and pos.y() >= center_y) return 0;
+    else if(pos.x() < center_x and pos.y() >= center_y) return 1;
     else if(pos.x() < center_x and pos.y() < center_y) return 2;
-    else if(pos.x() > center_x and pos.y() < center_y) return 3;
-    else if(pos.x() == center_x and pos.y() > center_y) return 0;
-    else if(pos.x() < center_x and pos.y() == center_y) return 1;
-    else if(pos.x() == center_x and pos.y() < center_y) return 2;
-    else if(pos.x() > center_x and pos.y() == center_y) return 3;
+    else if(pos.x() >= center_x and pos.y() < center_y) return 3;
     else return 0;
 }
 
