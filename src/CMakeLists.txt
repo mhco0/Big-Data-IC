@@ -53,7 +53,7 @@ add_library(
 add_library(
     QSBD_COUNT_SKETCH
     "count_sketch/count_sketch.h"
-    "count_sketch/count_sketch.cpp"
+    "count_sketch/count_sketch_impl2.cpp"
 )
 
 add_library(

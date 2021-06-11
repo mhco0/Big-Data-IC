@@ -564,9 +564,9 @@ void dcs_run2(bool only_update){
     // TREE
     double error = 0.3;
     int universe = 1024;
-    int depth = 9;
-    double bounds[4] = {0.0, 0.0, 1280.0, 720.0};
-    int discrete_bounds[4] = {0, 0, 0, 0};
+    int depth = 10;
+    //double bounds[4] = {0.0, 0.0, 1280.0, 720.0};
+    //int discrete_bounds[4] = {0, 0, 0, 0};
 
     // QUERIES
     //int initial_value = 0;
@@ -584,7 +584,7 @@ void dcs_run2(bool only_update){
         }
     }*/
     
-    for(int i = 0; i < 4; i++){
+    /*for(int i = 0; i < 4; i++){
         // 0 -> 0 2
         // 1 -> 1 3
         // 2 -> 0 2 
@@ -594,9 +594,9 @@ void dcs_run2(bool only_update){
         }else{
             discrete_bounds[i] = qsbd::map_coord(bounds[i], bounds[0], bounds[2], depth);
         }
-    }
+    }*/
 
-    qsbd::aabb<int> resolution(discrete_bounds[0], discrete_bounds[1], discrete_bounds[2], discrete_bounds[3]);
+    qsbd::aabb<int> resolution(0, 0, 1 << depth, 1 << depth);
     
     /*(for(int i = initial_value; i < final_value; i += step){
         auto query_bound = qsbd::stream_maker::random_rectangle_in_region(bounds[0], bounds[1], bounds[2], bounds[3]);
@@ -621,32 +621,37 @@ void dcs_run2(bool only_update){
 
     qsbd::dcs_factory factory(error, universe);
 	//dummy_factory factory;
-    qsbd::quantile_quadtree<int> qq_test(resolution, depth, &factory);
+   	qsbd::quantile_quadtree<int> qq_test(resolution, depth, &factory);
 
-    for(int i = 0; i < (1 << depth); i++){
-		for(int j = 0; j < (1 << depth); j++){
-			uniform_int_distribution<int> v(0, 1023);		
-        	qsbd::point<int> coord(i, j);
-        	qq_test.update(coord, v(qsbd::generator), 1);
-        	//int progress_pct = (int) (((i * 1024 + j) * 100) / (1024 * 1024));
+   	for(int k = 0; k < 1; k++){
+ 		for(int i = 0; i < (1 << depth); i++){
+			for(int j = 0; j < (1 << depth); j++){
+				uniform_int_distribution<int> v(0, 1023);		
+        		qsbd::point<int> coord(i, j);
+        		qq_test.update(coord, v(qsbd::generator), 1);
+        		//int progress_pct = (int) (((i * 1024 + j) * 100) / (1024 * 1024));
         
-        	//cout << string(progress.size(), '\b');
-        	//cout.flush();
+        		//cout << string(progress.size(), '\b');
+        		//cout.flush();
         
-        	//progress = to_string(progress_pct) + "%";
-        	//cout << progress;
-        	//cout.flush();
-		}
-    }
+        		//progress = to_string(progress_pct) + "%";
+        		//cout << progress;
+        		//cout.flush();
+			}
+    	}
+	}
 
-	cout << factory.allocations() << endl;
-	cout << sizeof(qsbd::dcs) << endl;
-    qsbd::dcs* test = new qsbd::dcs(error, universe);
+	//qsbd::dcs* test = dynamic_cast<qsbd::dcs*>(factory.instance());
 
-    cout << sizeof(test) << endl;
-    cout << sizeof(*test) << endl;
+	//delete test;
 
-    delete test; 
+	//cout << factory.allocations() << endl;
+	//cout << sizeof(qsbd::dcs) << endl;
+
+    //cout << sizeof(test) << endl;
+    //cout << sizeof(*test) << endl;
+
+    //free(malloc(sizeof(qsbd::dcs))); 
 
     //cout << string(progress.size(), '\b');
     //cout.flush();
@@ -816,7 +821,8 @@ void kll_run(bool only_update){
 }
 
 int main(int argc, char* argv[]){
-    deque<string> args = qsbd::process_args(argc, argv);
+    dcs_run2(true);
+	/*deque<string> args = qsbd::process_args(argc, argv);
 
     bool only_update = false;
 
@@ -853,7 +859,7 @@ int main(int argc, char* argv[]){
 
     if(args.size() == 1 or (args.size() == 2 and only_update)){
         cout << "Seed used : " << qsbd::seed << endl;
-    }
+    }*/
     return 0;
 }
 

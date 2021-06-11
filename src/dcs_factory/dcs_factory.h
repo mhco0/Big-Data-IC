@@ -15,9 +15,10 @@ namespace qsbd{
             this->error = err;
             this->universe = univ;
 			this->count = 0;
-            dcs dummy(this->error, this->universe);
+        
+			dcs dummy(err, univ);
 
-            hashs_consts = std::move(dummy.get_count_sketchs_hash_functions_constants());
+			hashs_consts = std::move(dummy.get_count_sketchs_hash_functions_constants());
         }
 
         quantile_sketch<int> * instance() override {

@@ -186,12 +186,15 @@ namespace qsbd {
             }
 
             delete this->root;
-
+			
+			int check = 0;
             for(int i = 0; i < this->tree.size(); i++){
                 if(this->tree[i].payload != nullptr){
+					check++;
                     delete this->tree[i].payload;
                 }
             }
+			VDEBUG(check);
         }
 
     public:
@@ -267,8 +270,8 @@ namespace qsbd {
                 cur_deep++;
             }
             
-        	VDEBUG(this->tree.size());
-			VDEBUG(this->tree.capacity());    
+        	//VDEBUG(this->tree.size());
+			//VDEBUG(this->tree.capacity());    
 		
 			if(cur_deep == this->max_deep) return true;
             else return false;
