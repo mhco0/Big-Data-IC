@@ -16,7 +16,7 @@ int main(int argc, char* argv[]){
     string output_file_prefix = "out/";
     string temp_file = "temp_file_";
     vector<double> bounds = {0.0, 0.0, 1280.0, 720.0};
-    int max_deep = 15;
+    int max_deep = 10;
     int stream_sizes = 10000000;
     double error = 0.3;
     int universe = 16384;
@@ -46,7 +46,7 @@ int main(int argc, char* argv[]){
         return -1;
     }
 
-    for(int deep = 5; deep <= max_deep; deep += 5){
+    for(int deep = 10; deep <= max_deep; deep += 5){
         json config = json::object();
 
         ofstream temp_config(temp_file);

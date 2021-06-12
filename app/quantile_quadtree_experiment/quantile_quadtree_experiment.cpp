@@ -19,31 +19,7 @@ using json = nlohmann::json;
 *
 */
 
-json q_digest_test(const json& stream_file, const json& query_file, const json& test_file){
-    vector<pair<pair<int, int>, pair<double, double>>> stream = stream_file["stream"];
-    vector<pair<int, vector<double>>> regions_to_search = query_file["queries"]["rank"].get<vector<pair<int, vector<double>>>>();
-    double error = test_file["sketch"]["error"].get<double>();
-    int universe = test_file["sketch"]["universe"].get<int>();
-    int deep = test_file["deep"].get<int>();
-    double bounds[4] = {0, 0, 0, 0};
-    int discrete_bounds[4] = {0, 0, 0, 0};
-    
-    for(auto& it : test_file["bound_box"].items()){
-        bounds[stoi(it.key())] = it.value();
-    }
-
-    for(int i = 0; i < 4; i++){
-        // 0 -> 0 2
-        // 1 -> 1 3
-        // 2 -> 0 2 
-        // 3 -> 1 3
-        if(i & 1){
-            discrete_bounds[i] = qsbd::map_coord(bounds[i], bounds[1], bounds[3], deep);
-        }else{
-            discrete_bounds[i] = qsbd::map_coord(bounds[i], bounds[0], bounds[2], deep);
-        }
-    }
-
+json q_digest_test(const vector<pair<pair<int, int>, pair<double, double>>>& stream, const vector<pair<int, vector<double>>>& regions_to_search, double error, int universe, int* discrete_bounds, double* bounds, int depth){
     qsbd::aabb<int> bound_box(discrete_bounds[0], discrete_bounds[1], discrete_bounds[2], discrete_bounds[3]);
     
     json out_info = json::object();
@@ -53,13 +29,13 @@ json q_digest_test(const json& stream_file, const json& query_file, const json& 
     cout.flush();
 
     qsbd::q_digest_factory factory(error, universe);
-    qsbd::quantile_quadtree<int> qq_test(bound_box, deep, &factory);
+    qsbd::quantile_quadtree<int> qq_test(bound_box, depth, &factory);
     json loop_info;
     double update_time_acc = 0.0;
 
     for(int i = 0, j = 10; i < stream.size(); i++){
         qsbd::timer update_once;
-        qsbd::point<int> coord(qsbd::map_coord(stream[i].second.first, bounds[0], bounds[2], deep), qsbd::map_coord(stream[i].second.second, bounds[1], bounds[3], deep));
+        qsbd::point<int> coord(qsbd::map_coord(stream[i].second.first, bounds[0], bounds[2], depth), qsbd::map_coord(stream[i].second.second, bounds[1], bounds[3], depth));
 
         update_once.start();
         qq_test.update(coord, stream[i].first.first, stream[i].first.second);
@@ -79,9 +55,9 @@ json q_digest_test(const json& stream_file, const json& query_file, const json& 
 
                 for(int z = 0; z < 4; z++){
                     if(z & 1){
-                        region_discrete_bound[z] = qsbd::map_coord(regions_to_search[j].second[z], bounds[1], bounds[3], deep);
+                        region_discrete_bound[z] = qsbd::map_coord(regions_to_search[j].second[z], bounds[1], bounds[3], depth);
                     }else{
-                        region_discrete_bound[z] = qsbd::map_coord(regions_to_search[j].second[z], bounds[0], bounds[2], deep);
+                        region_discrete_bound[z] = qsbd::map_coord(regions_to_search[j].second[z], bounds[0], bounds[2], depth);
                     }
                 }
 
@@ -123,30 +99,7 @@ json q_digest_test(const json& stream_file, const json& query_file, const json& 
     return out_info;
 }
 
-json kll_test(const json& stream_file, const json& query_file, const json& test_file){
-    vector<pair<int, pair<double, double>>> stream = stream_file["stream"];
-    vector<pair<int, vector<double>>> regions_to_search = query_file["queries"]["rank"].get<vector<pair<int, vector<double>>>>();
-    double error = test_file["sketch"]["error"].get<double>();
-    int deep = test_file["deep"].get<int>();
-    double bounds[4] = {0, 0, 0, 0};
-    int discrete_bounds[4] = {0, 0, 0, 0};
-    
-    for(auto& it : test_file["bound_box"].items()){
-        bounds[stoi(it.key())] = it.value();
-    }
-
-    for(int i = 0; i < 4; i++){
-        // 0 -> 0 2
-        // 1 -> 1 3
-        // 2 -> 0 2 
-        // 3 -> 1 3
-        if(i & 1){
-            discrete_bounds[i] = qsbd::map_coord(bounds[i], bounds[1], bounds[3], deep);
-        }else{
-            discrete_bounds[i] = qsbd::map_coord(bounds[i], bounds[0], bounds[2], deep);
-        }
-    }
-
+json kll_test(const vector<pair<int, pair<double, double>>>& stream, const vector<pair<int, vector<double>>>& regions_to_search, double error, int* discrete_bounds, double* bounds, int depth){
     qsbd::aabb<int> bound_box(discrete_bounds[0], discrete_bounds[1], discrete_bounds[2], discrete_bounds[3]);
     
     json out_info = json::object();
@@ -156,13 +109,13 @@ json kll_test(const json& stream_file, const json& query_file, const json& test_
     cout.flush();
 
     qsbd::kll_factory<int> factory(error);
-    qsbd::quantile_quadtree<int> qq_test(bound_box, deep, &factory);
+    qsbd::quantile_quadtree<int> qq_test(bound_box, depth, &factory);
     json loop_info;
     double update_time_acc = 0.0;
 
     for(int i = 0, j = 10; i < stream.size(); i++){
         qsbd::timer update_once;
-        qsbd::point<int> coord(qsbd::map_coord(stream[i].second.first, bounds[0], bounds[2], deep), qsbd::map_coord(stream[i].second.second, bounds[1], bounds[3], deep));
+        qsbd::point<int> coord(qsbd::map_coord(stream[i].second.first, bounds[0], bounds[2], depth), qsbd::map_coord(stream[i].second.second, bounds[1], bounds[3], depth));
 
         update_once.start();
         qq_test.update(coord, stream[i].first);
@@ -182,9 +135,9 @@ json kll_test(const json& stream_file, const json& query_file, const json& test_
 
                 for(int z = 0; z < 4; z++){
                     if(z & 1){
-                        region_discrete_bound[z] = qsbd::map_coord(regions_to_search[j].second[z], bounds[1], bounds[3], deep);
+                        region_discrete_bound[z] = qsbd::map_coord(regions_to_search[j].second[z], bounds[1], bounds[3], depth);
                     }else{
-                        region_discrete_bound[z] = qsbd::map_coord(regions_to_search[j].second[z], bounds[0], bounds[2], deep);
+                        region_discrete_bound[z] = qsbd::map_coord(regions_to_search[j].second[z], bounds[0], bounds[2], depth);
                     }
                 }
 
@@ -226,31 +179,7 @@ json kll_test(const json& stream_file, const json& query_file, const json& test_
     return out_info;
 }
 
-json dcs_test(const json& stream_file, const json& query_file, const json& test_file){
-    vector<pair<pair<int, int>, pair<double, double>>> stream = stream_file["stream"];
-    vector<pair<int, vector<double>>> regions_to_search = query_file["queries"]["rank"].get<vector<pair<int, vector<double>>>>();
-    double error = test_file["sketch"]["error"].get<double>();
-    int universe = test_file["sketch"]["universe"].get<int>();
-    int deep = test_file["deep"].get<int>();
-    double bounds[4] = {0, 0, 0, 0};
-    int discrete_bounds[4] = {0, 0, 0, 0};
-    
-    for(auto& it : test_file["bound_box"].items()){
-        bounds[stoi(it.key())] = it.value();
-    }
-
-    for(int i = 0; i < 4; i++){
-        // 0 -> 0 2
-        // 1 -> 1 3
-        // 2 -> 0 2 
-        // 3 -> 1 3
-        if(i & 1){
-            discrete_bounds[i] = qsbd::map_coord(bounds[i], bounds[1], bounds[3], deep);
-        }else{
-            discrete_bounds[i] = qsbd::map_coord(bounds[i], bounds[0], bounds[2], deep);
-        }
-    }
-
+json dcs_test(const vector<pair<pair<int, int>, pair<double, double>>>& stream, const vector<pair<int, vector<double>>>& regions_to_search, double error, int universe, int* discrete_bounds, double* bounds, int depth){
     qsbd::aabb<int> bound_box(discrete_bounds[0], discrete_bounds[1], discrete_bounds[2], discrete_bounds[3]);
     
     json out_info = json::object();
@@ -260,13 +189,13 @@ json dcs_test(const json& stream_file, const json& query_file, const json& test_
     cout.flush();
 
     qsbd::dcs_factory factory(error, universe);
-    qsbd::quantile_quadtree<int> qq_test(bound_box, deep, &factory);
+    qsbd::quantile_quadtree<int> qq_test(bound_box, depth, &factory);
     json loop_info;
     double update_time_acc = 0.0;
 
     for(int i = 0, j = 10; i < stream.size(); i++){
         qsbd::timer update_once;
-        qsbd::point<int> coord(qsbd::map_coord(stream[i].second.first, bounds[0], bounds[2], deep), qsbd::map_coord(stream[i].second.second, bounds[1], bounds[3], deep));
+        qsbd::point<int> coord(qsbd::map_coord(stream[i].second.first, bounds[0], bounds[2], depth), qsbd::map_coord(stream[i].second.second, bounds[1], bounds[3], depth));
 
         update_once.start();
         qq_test.update(coord, stream[i].first.first, stream[i].first.second);
@@ -286,9 +215,9 @@ json dcs_test(const json& stream_file, const json& query_file, const json& test_
 
                 for(int z = 0; z < 4; z++){
                     if(z & 1){
-                        region_discrete_bound[z] = qsbd::map_coord(regions_to_search[j].second[z], bounds[1], bounds[3], deep);
+                        region_discrete_bound[z] = qsbd::map_coord(regions_to_search[j].second[z], bounds[1], bounds[3], depth);
                     }else{
-                        region_discrete_bound[z] = qsbd::map_coord(regions_to_search[j].second[z], bounds[0], bounds[2], deep);
+                        region_discrete_bound[z] = qsbd::map_coord(regions_to_search[j].second[z], bounds[0], bounds[2], depth);
                     }
                 }
 
@@ -330,30 +259,7 @@ json dcs_test(const json& stream_file, const json& query_file, const json& test_
     return out_info;
 }
 
-json gk_test(const json& stream_file, const json& query_file, const json& test_file){
-    vector<pair<int, pair<double, double>>> stream = stream_file["stream"];
-    vector<pair<int, vector<double>>> regions_to_search = query_file["queries"]["rank"].get<vector<pair<int, vector<double>>>>();
-    double error = test_file["sketch"]["error"].get<double>();
-    int deep = test_file["deep"].get<int>();
-    double bounds[4] = {0, 0, 0, 0};
-    int discrete_bounds[4] = {0, 0, 0, 0};
-    
-    for(auto& it : test_file["bound_box"].items()){
-        bounds[stoi(it.key())] = it.value();
-    }
-
-    for(int i = 0; i < 4; i++){
-        // 0 -> 0 2
-        // 1 -> 1 3
-        // 2 -> 0 2 
-        // 3 -> 1 3
-        if(i & 1){
-            discrete_bounds[i] = qsbd::map_coord(bounds[i], bounds[1], bounds[3], deep);
-        }else{
-            discrete_bounds[i] = qsbd::map_coord(bounds[i], bounds[0], bounds[2], deep);
-        }
-    }
-
+json gk_test(const vector<pair<int, pair<double, double>>>& stream, const vector<pair<int, vector<double>>>& regions_to_search, double error, int* discrete_bounds, double* bounds, int depth){
     qsbd::aabb<int> bound_box(discrete_bounds[0], discrete_bounds[1], discrete_bounds[2], discrete_bounds[3]);
     
     json out_info = json::object();
@@ -363,13 +269,13 @@ json gk_test(const json& stream_file, const json& query_file, const json& test_f
     cout.flush();
 
     qsbd::gk_factory<int> factory(error);
-    qsbd::quantile_quadtree<int> qq_test(bound_box, deep, &factory);
+    qsbd::quantile_quadtree<int> qq_test(bound_box, depth, &factory);
     json loop_info;
     double update_time_acc = 0.0;
 
     for(int i = 0, j = 10; i < stream.size(); i++){
         qsbd::timer update_once;
-        qsbd::point<int> coord(qsbd::map_coord(stream[i].second.first, bounds[0], bounds[2], deep), qsbd::map_coord(stream[i].second.second, bounds[1], bounds[3], deep));
+        qsbd::point<int> coord(qsbd::map_coord(stream[i].second.first, bounds[0], bounds[2], depth), qsbd::map_coord(stream[i].second.second, bounds[1], bounds[3], depth));
 
         update_once.start();
         qq_test.update(coord, stream[i].first);
@@ -390,9 +296,9 @@ json gk_test(const json& stream_file, const json& query_file, const json& test_f
 
                 for(int z = 0; z < 4; z++){
                     if(z & 1){
-                        region_discrete_bound[z] = qsbd::map_coord(regions_to_search[j].second[z], bounds[1], bounds[3], deep);
+                        region_discrete_bound[z] = qsbd::map_coord(regions_to_search[j].second[z], bounds[1], bounds[3], depth);
                     }else{
-                        region_discrete_bound[z] = qsbd::map_coord(regions_to_search[j].second[z], bounds[0], bounds[2], deep);
+                        region_discrete_bound[z] = qsbd::map_coord(regions_to_search[j].second[z], bounds[0], bounds[2], depth);
                     }
                 }
 
@@ -451,33 +357,105 @@ int main(int argc, char * argv[]){
     cout << "Parsing Files...";
     cout.flush();
 
-    // see if i can open the file write after
-    json stream_file = json::parse(ifstream(args[0]));
-    json query_file = json::parse(ifstream(args[1]));
-    json test_file = json::parse(ifstream(args[2]));
+	ifstream stream_file(args[0]);
+	if(not stream_file.is_open()){
+		DEBUG_ERR("Coulnd't open stream file");		
+
+		return -1;
+	}
+
+	ifstream query_file(args[1]);
+	if(not query_file.is_open()){
+		stream_file.close();
+		DEBUG_ERR("Couldn't open query file");
+		
+		return -1;
+	}
+
+	ifstream test_file(args[2]);
+	if(not test_file.is_open()){
+		stream_file.close();
+		query_file.close();
+		DEBUG_ERR("Couldn't	open test file");
+
+		return -1;
+	}
+
+    json stream_json = json::parse(stream_file);
+    json query_json = json::parse(query_file);
+    json test_json = json::parse(test_file);
     json out_info;
 
     cout << "Done." << endl;
 
-    string sketch_to_test = test_file["sketch"]["type"].get<string>();
-    qsbd::logger out_file(args[3]);
+	stream_file.close();
+	query_file.close();
+	test_file.close();
+
+    string sketch_to_test = test_json["sketch"]["type"].get<string>();
+    int depth  = test_json["deep"].get<int>();
+    double error = test_json["sketch"]["error"].get<double>();
+    double bounds[4] = {0, 0, 0, 0};
+    int discrete_bounds[4] = {0, 0, 0, 0};
+    
+	cout << "Using bounds : " << endl;
+    for(auto& it : test_json["bound_box"].items()){
+        bounds[stoi(it.key())] = it.value();
+		cout << it.value() << " ";
+    }
+	cout << endl;
+
+	cout << "Discrete bounds : " << endl;
+    for(int i = 0; i < 4; i++){
+        // 0 -> 0 2
+        // 1 -> 1 3
+        // 2 -> 0 2 
+        // 3 -> 1 3
+        if(i & 1){
+            discrete_bounds[i] = qsbd::map_coord(bounds[i], bounds[1], bounds[3], depth);
+        }else{
+            discrete_bounds[i] = qsbd::map_coord(bounds[i], bounds[0], bounds[2], depth);
+        }
+
+		cout << discrete_bounds[i] << " ";
+    }
+	cout << endl;
+	
+    vector<pair<int, vector<double>>> regions_to_search = query_json["queries"]["rank"].get<vector<pair<int, vector<double>>>>();
 
     cout << "Sketch used : " << sketch_to_test << endl;
 
-    cout << "Running Experiment..." << endl;
+	if(sketch_to_test == "q_digest" or sketch_to_test == "dcs"){
+    	vector<pair<pair<int, int>, pair<double, double>>> stream = stream_json["stream"];
+		int universe = test_json["sketch"]["universe"].get<int>();
+	
+		stream_json.~json();
+		query_json.~json();
+		test_json.~json();
+		cout << "Using error & universe : " << error << " " << universe << endl; 
+    	cout << "Running Experiment..." << endl;
+		if(sketch_to_test == "dcs"){
+			out_info = dcs_test(stream, regions_to_search, error, universe, discrete_bounds, bounds, depth);
+		}else{
+			out_info = q_digest_test(stream, regions_to_search, error, universe, discrete_bounds, bounds, depth);
+		}
+	}else if(sketch_to_test == "kll" or sketch_to_test == "gk"){
+    	vector<pair<int, pair<double, double>>> stream = stream_json["stream"];
 
-    if(sketch_to_test == "q_digest"){
-        out_info = q_digest_test(stream_file, query_file, test_file);
-    }else if(sketch_to_test == "kll"){ 
-        out_info = kll_test(stream_file, query_file, test_file);
-    }else if(sketch_to_test == "dcs"){
-        out_info = dcs_test(stream_file, query_file, test_file);
-    }else if(sketch_to_test == "gk"){
-        out_info = gk_test(stream_file, query_file, test_file);
-    }else{
+		stream_json.~json();
+		query_json.~json();
+		test_json.~json();
+    	cout << "Using error : " << error << endl;
+		cout << "Running Experiment..." << endl;
+		if(sketch_to_test == "gk"){
+			out_info = gk_test(stream, regions_to_search, error, discrete_bounds, bounds, depth);
+		}else{
+			out_info = kll_test(stream, regions_to_search, error, discrete_bounds, bounds, depth);
+		}
+	}else{
         DEBUG_ERR("This sketch isn't supported for the quantile quadtree");
         return -1;
-    }
+	}
 
     cout << "Done." << endl;
 
@@ -487,6 +465,7 @@ int main(int argc, char * argv[]){
 
     cout << "Writing in the logger...";
     cout.flush();
+	qsbd::logger out_file(args[3]);
     out_file << out_info.dump(4);
     cout << "Done." << endl;
 
