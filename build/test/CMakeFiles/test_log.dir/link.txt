@@ -1,1 +1,1 @@
-/usr/bin/c++   -g -Wall   -g -Wall CMakeFiles/test_log.dir/test_log.cpp.o  -o ../bin/test_log  -lgtest_main ../lib/libQSBD_LOG.a ../lib/libQSBD_DEBUG.a 
+/usr/bin/c++   -g -Wall   -g -Wall CMakeFiles/test_log.dir/test_log.cpp.o  -o ../bin/test_log  ../lib/libgtest_main.a ../lib/libQSBD_LOG.a ../lib/libgtest.a -lpthread ../lib/libQSBD_DEBUG.a 

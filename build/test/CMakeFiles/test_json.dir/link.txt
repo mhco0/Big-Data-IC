@@ -1,1 +1,1 @@
-/usr/bin/c++   -g -Wall   -g -Wall CMakeFiles/test_json.dir/test_json.cpp.o  -o ../bin/test_json  -lgtest_main ../lib/libnlohmann_json.a 
+/usr/bin/c++   -g -Wall   -g -Wall CMakeFiles/test_json.dir/test_json.cpp.o  -o ../bin/test_json  ../lib/libgtest_main.a ../lib/libnlohmann_json.a ../lib/libgtest.a -lpthread 

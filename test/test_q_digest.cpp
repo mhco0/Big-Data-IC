@@ -375,6 +375,15 @@ TEST(QDigestTest, TestInnerMerge){
 	q_digest qdstr(epsilon, stream_size);
 
 
+	qdstr.tree.emplace_back(20, -1);
+	qdstr.tree.emplace_back(30, -1);
+	qdstr.tree[0].left_child = 1;
+
+	qdstl.inner_merge(qdstr);	
+
+	qdstl.print();
+
+	return;
 	for(auto& it : stream){
 		qdstl.update(it.first, it.second);
 		qdstr.update(it.first, it.second);

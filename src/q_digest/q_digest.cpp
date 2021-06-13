@@ -12,8 +12,8 @@ namespace qsbd {
     int q_digest::alloc_childs(){
         int left_child_pos = tree.size();
 
-        tree.push_back(q_digest::node(0, -1));
-        tree.push_back(q_digest::node(0, -1));
+        tree.emplace_back(0, -1);
+        tree.emplace_back(0, -1);
 
         return left_child_pos;
     }
@@ -129,7 +129,7 @@ namespace qsbd {
 
     void q_digest::private_merge(const std::vector<q_digest::node>& left_tree, const std::vector<q_digest::node>& right_tree, int cur_node, int left_node, int right_node){    
         if(cur_node != -1 and left_node != -1 and right_node != -1){
-            if(this->tree[cur_node].left_child == -1 and left_tree[left_node].left_child != -1 and right_tree[right_node].left_child != -1){
+            if(this->tree[cur_node].left_child == -1 and (left_tree[left_node].left_child != -1 or right_tree[right_node].left_child != -1)){
                 int left_child_pos = this->alloc_childs();
                 this->tree[cur_node].left_child = left_child_pos;
             }
@@ -285,7 +285,7 @@ namespace qsbd {
         this->capacity = 0;
         this->ceil_weight = 0;
         this->transfered_buffer = false;
-        this->tree.push_back(q_digest::node(0, -1));
+        this->tree.emplace_back(0, -1);
     }
     
     q_digest::~q_digest(){

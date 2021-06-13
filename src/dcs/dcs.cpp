@@ -54,10 +54,6 @@ namespace qsbd {
 			}
         }
 
-        for(auto& it : frequency_counters){
-            VDEBUG(it.size());
-        }
-
 		this->estimators.reserve(this->s + 1);
         for(int i = 0; i <= this->s; i++){
             this->estimators.emplace_back(this->d, this->w);
@@ -77,7 +73,7 @@ namespace qsbd {
         this->total_weight += weight;
         for(int i = 0; i < this->lvls; i++){
             if(i > this->s){
-                if(((i - (this->s + 1)) < 0) or x >= this->frequency_counters[i - (this->s + 1)].size()){
+                /*if(((i - (this->s + 1)) < 0) or x >= this->frequency_counters[i - (this->s + 1)].size()){
                     VDEBUG(this->d);
                     VDEBUG(this->w);
                     VDEBUG(this->s);
@@ -85,7 +81,7 @@ namespace qsbd {
                     VDEBUG(this->frequency_counters[i - (this->s + 1)].size());
                     VDEBUG(i);
                     VDEBUG(x);
-                }
+                }*/
                 this->frequency_counters[i - (this->s + 1)][x] += weight;
             }else{
                 this->estimators[i].update(x, weight);

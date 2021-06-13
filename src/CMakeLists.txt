@@ -51,9 +51,15 @@ add_library(
 )
 
 add_library(
+    QSBD_TWO_WISE_FAMILY
+    "two_wise_family/two_wise_family.h"
+    "two_wise_family/two_wise_family.cpp"    
+)
+
+add_library(
     QSBD_COUNT_SKETCH
     "count_sketch/count_sketch.h"
-    "count_sketch/count_sketch_impl2.cpp"
+    "count_sketch/count_sketch_two_wise.cpp"
 )
 
 add_library(
@@ -149,6 +155,7 @@ set(QSBD_LIBS
     QSBD_CONFIG
     QSBD_MEMORY_TRACKER
     QSBD_K_WISE_FAMILY
+    QSBD_TWO_WISE_FAMILY
     QSBD_COUNT_SKETCH
     QSBD_QUANTILE_SKETCH
     QSBD_SKETCH_FACTORY
@@ -176,12 +183,16 @@ target_link_libraries(QSBD_K_WISE_FAMILY PUBLIC QSBD_GLOBAL_GEN)
 target_link_libraries(QSBD_K_WISE_FAMILY PUBLIC QSBD_UTILS)
 target_link_libraries(QSBD_K_WISE_FAMILY PUBLIC QSBD_DEBUG)
 
+target_link_libraries(QSBD_TWO_WISE_FAMILY PUBLIC QSBD_GLOBAL_GEN)
+target_link_libraries(QSBD_TWO_WISE_FAMILY PUBLIC QSBD_UTILS)
+target_link_libraries(QSBD_TWO_WISE_FAMILY PUBLIC QSBD_DEBUG)
+
 target_link_libraries(QSBD_STREAM_MAKER PUBLIC QSBD_COMMUM_HEADER)
 target_link_libraries(QSBD_STREAM_MAKER PUBLIC QSBD_GLOBAL_GEN)
 target_link_libraries(QSBD_STREAM_MAKER PUBLIC QSBD_DEBUG)
 
 target_link_libraries(QSBD_COUNT_SKETCH PUBLIC QSBD_DEBUG)
-target_link_libraries(QSBD_COUNT_SKETCH PUBLIC QSBD_K_WISE_FAMILY)
+target_link_libraries(QSBD_COUNT_SKETCH PUBLIC QSBD_TWO_WISE_FAMILY)
 target_link_libraries(QSBD_COUNT_SKETCH PUBLIC QSBD_COMMUM_HEADER)
 target_link_libraries(QSBD_COUNT_SKETCH PUBLIC QSBD_GLOBAL_GEN)
 

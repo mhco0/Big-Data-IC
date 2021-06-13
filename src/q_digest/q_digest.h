@@ -8,7 +8,7 @@
 
 namespace qsbd{
 	class q_digest : public quantile_sketch<int> {
-	private:
+	public:
 		class node{
 		public:
 			int weight;

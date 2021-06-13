@@ -41,65 +41,81 @@ namespace qsbd {
     count_sketch::count_sketch(int fixd, int fixt){
         this->set_param_int(fixd, fixt);
 
-        this->estimators = (int **) malloc(this->d * sizeof(int *));
-
+        this->estimators.reserve(this->d);
         for(int i = 0; i < this->d; i++){
-			this->estimators[i] = (int *) calloc(this->t, sizeof(int));
+			this->estimators.emplace_back();
+			
+			this->estimators[i].reserve(this->t);
+			for(int j = 0; j < this->t; j++){
+				this->estimators[i].emplace_back(0);
+			}
         }
 	
-		this->hash_functions = (k_wise_family **) malloc(this->d * sizeof(k_wise_family *));
+		this->hash_functions.reserve(this->d);
         for(int i = 0; i < this->d; i++){
-            this->hash_functions[i] = new k_wise_family(2, 2 * this->t);
+            this->hash_functions.emplace_back(2, 2 * this->t);
         }
     }
 
     count_sketch::count_sketch(int fixd, int fixt, const std::vector<std::vector<int>>& hashs_consts){
         this->set_param_int(fixd, fixt);
 
-        this->estimators = (int **) malloc(this->d * sizeof(int *));
-
+		this->estimators.reserve(this->d);
         for(int i = 0; i < this->d; i++){
-			this->estimators[i] = (int *) calloc(this->t, sizeof(int));
+			this->estimators.emplace_back();
+			
+			this->estimators[i].reserve(this->t);
+			for(int j = 0; j < this->t; j++){
+				this->estimators[i].emplace_back(0);
+			}
         }
 
         ASSERT(this->d == hashs_consts.size());
 	
-		this->hash_functions = (k_wise_family **) malloc(this->d * sizeof(k_wise_family *));
+		this->hash_functions.reserve(this->d);
         for(int i = 0; i < this->d; i++){
-            this->hash_functions[i] = new k_wise_family(2, 2 * this->t, hashs_consts[i]);
+        	this->hash_functions.emplace_back(2, 2 * this->t, hashs_consts[i]);
         }
     }
 
     count_sketch::count_sketch(double err, double delt){
         this->set_param_double(err, delt);
 
-		this->estimators = (int **) malloc(this->d * sizeof(int *));
-
+		this->estimators.reserve(this->d);
         for(int i = 0; i < this->d; i++){
-			this->estimators[i] = (int *) calloc(this->t, sizeof(int));
+			this->estimators.emplace_back();
+			
+			this->estimators[i].reserve(this->t);
+			for(int j = 0; j < this->t; j++){
+				this->estimators[i].emplace_back(0);
+			}
         }
 		
-		this->hash_functions = (k_wise_family **) malloc(this->d * sizeof(k_wise_family *));
+		this->hash_functions.reserve(this->d);
         for(int i = 0; i < this->d; i++){
-            this->hash_functions[i] = new k_wise_family(2, 2 * this->t);
+            this->hash_functions.emplace_back(2, 2 * this->t);
         }
     }
 
     count_sketch::count_sketch(double err, double delt, const std::vector<std::vector<int>>& hashs_consts){
         this->set_param_double(err, delt);
 	
-		this->estimators = (int **) malloc(this->d * sizeof(int *));
-
+		this->estimators.reserve(this->d);
         for(int i = 0; i < this->d; i++){
-			this->estimators[i] = (int *) calloc(this->t, sizeof(int));
+			this->estimators.emplace_back();
+
+			this->estimators[i].reserve(this->t);
+			for(int j = 0; j < this->t; j++){
+				this->estimators[i].emplace_back(0);
+			}
         }
 
         // the hash should map to 2 * t
         ASSERT(this->d == hashs_consts.size());
 
-		this->hash_functions = (k_wise_family **) malloc(this->d * sizeof(k_wise_family *));
+		this->hash_functions.reserve(this->d);
         for(int i = 0; i < this->d; i++){
-            this->hash_functions[i] = new k_wise_family(2, 2 * this->t, hashs_consts[i]);
+            this->hash_functions.emplace_back(2, 2 * this->t, hashs_consts[i]);
         }
     }
 
@@ -109,33 +125,28 @@ namespace qsbd {
         this->d = other.d;
         this->t = other.t;
 
-		this->estimators = (int **) malloc(other.d * sizeof(int *));
+		this->estimators.reserve(other.d);
         for(int i = 0; i < other.d; i++){
-			this->estimators[i] = (int *) malloc(other.t * sizeof(int));
+			this->estimators.emplace_back();
+            
+			this->estimators[i].reserve(other.t);
             for(int j = 0; j < other.t; j++){
-				this->estimators[i][j] = other.estimators[i][j];
+				this->estimators[i].emplace_back(other.estimators[i][j]);
             }
         }
 	
-		this->hash_functions = (k_wise_family **) malloc(other.d * sizeof(k_wise_family *));
+		this->hash_functions.reserve(other.hash_functions.size());
         for(int i = 0; i < other.d; i++){
-            this->hash_functions[i] = new k_wise_family(*other.hash_functions[i]);
+            this->hash_functions.emplace_back(other.hash_functions[i]);
         }
     }
 
     count_sketch::~count_sketch(){
-        for(int i = 0; i < this->d; i++){
-            free(this->estimators[i]);
-            delete this->hash_functions[i];
-        }
-    
-        free(this->estimators);
-        free(this->hash_functions);
     }
 
     void count_sketch::update(int elem, int weight){
         for(int i = 0; i < this->d; i++){
-            int hx = (*hash_functions[i])(elem) % (2 * this->t);
+            int hx = hash_functions[i](elem) % (2 * this->t);
             int hi = hx >> 1;
 
             estimators[i][hi] += g(hx) * weight;
@@ -148,7 +159,7 @@ namespace qsbd {
 		ranks.reserve(this->d);
 
         for(int i = 0; i < this->d; i++){
-            int hx = (*hash_functions[i])(elem) % (2 * this->t);
+            int hx = hash_functions[i](elem) % (2 * this->t);
             int hi = hx >> 1;
 
             ranks.emplace_back(g(hx) * estimators[i][hi]);
@@ -179,7 +190,7 @@ namespace qsbd {
         ASSERT(this->d == rhs.d);
 
         for(int i = 0; i < this->d; i++){
-            ASSERT(this->hash_functions[i]->get_constants() == rhs.hash_functions[i]->get_constants());        
+            ASSERT(this->hash_functions[i].get_constants() == rhs.hash_functions[i].get_constants());        
         }
 
         count_sketch* merged_cs = new count_sketch(this->error, this->delta, this->get_hash_functions_consts());
@@ -198,7 +209,7 @@ namespace qsbd {
         ASSERT(this->d == rhs.d);
 
         for(int i = 0; i < this->d; i++){
-            ASSERT(this->hash_functions[i]->get_constants() == rhs.hash_functions[i]->get_constants());
+            ASSERT(this->hash_functions[i].get_constants() == rhs.hash_functions[i].get_constants());
         }
 
         for(int i = 0; i < this->d; i++){
@@ -215,29 +226,20 @@ namespace qsbd {
             this->d = other.d;
             this->t = other.t;
 
-            for(int i = 0; i < this->d; i++){
-                free(this->estimators[i]);
+            this->hash_functions.resize(other.hash_functions.size());
+
+            for(int i = 0; i < other.hash_functions.size(); i++){
+                this->hash_functions[i] = other.hash_functions[i];
             }
 
-            free(this->estimators);
+            this->estimators.resize(other.estimators.size());
 
-            this->estimators = (int **) malloc(other.d * sizeof(int *));
-            for(int i = 0; i < other.d; i++){
-                this->estimators[i] = (int *) malloc(other.t * sizeof(int));
-                for(int j = 0; j < other.t; j++){
+            for(int i = 0; i < other.estimators.size(); i++){
+                this->estimators[i].resize(other.estimators[i].size());
+
+                for(int j = 0; j < other.estimators[i].size(); j++){
                     this->estimators[i][j] = other.estimators[i][j];
                 }
-            }
-
-            for(int i = 0; i < this->d; i++){
-                delete this->hash_functions[i];
-            }
-
-            free(this->hash_functions);
-	
-            this->hash_functions = (k_wise_family **) malloc(other.d * sizeof(k_wise_family *));
-            for(int i = 0; i < other.d; i++){
-                this->hash_functions[i] = new k_wise_family(*other.hash_functions[i]);
             }
         }
 
@@ -260,34 +262,20 @@ namespace qsbd {
         return this->delta;
     }
 
-    std::vector<std::vector<int>> count_sketch::get_estimators() const { 
-        std::vector<std::vector<int>> copy_estimators;
-
-        copy_estimators.reserve(this->d);
-
-        for(int i = 0; i < this->d; i++){
-            copy_estimators.emplace_back(this->estimators[i], this->estimators[i] + this->t);
-        }
-
-        return copy_estimators;
+    std::vector<std::vector<int>> count_sketch::get_estimators() const {
+        return this->estimators;
     }
 
     std::vector<k_wise_family> count_sketch::get_hash_functions() const {
-        std::vector<k_wise_family> copy_functions;
-
-        copy_functions.reserve(this->d);
-        for(int i = 0; i < this->d; i++){
-            copy_functions.emplace_back(*this->hash_functions[i]);
-        }
-        return copy_functions;
+        return this->hash_functions;
     }
 
     std::vector<std::vector<int>> count_sketch::get_hash_functions_consts() const {
         std::vector<std::vector<int>> consts;
 
-        consts.reserve(this->d);
-		for(int i = 0; i < this->d; i++){
-            consts.emplace_back(hash_functions[i]->get_constants());
+        consts.reserve(this->hash_functions.size());
+		for(auto& it : this->hash_functions){
+            consts.emplace_back(it.get_constants());
         }
 
         return consts;

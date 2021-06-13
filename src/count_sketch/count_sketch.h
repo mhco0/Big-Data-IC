@@ -3,7 +3,8 @@
 #include "../qsbd_debug/qsbd_debug.h"
 #include "../global_generator/global_generator.h"
 #include "../commum_header/commum_header.h"
-#include "../k_wise_family/k_wise_family.h"
+//#include "../k_wise_family/k_wise_family.h"
+#include "../two_wise_family/two_wise_family.h"
 
 namespace qsbd {
 
@@ -13,7 +14,7 @@ namespace qsbd {
         double error, delta;
         // d is the number of rows and t is the number of columns for the estimator matrix
         int d, t;
-       	std::vector<k_wise_family> hash_functions;
+       	std::vector<two_wise_family> hash_functions;
         std::vector<std::vector<int>> estimators;
         //L1 bound
         void set_param_double(double err, double delt);
@@ -43,7 +44,7 @@ namespace qsbd {
         double get_error() const;
         double get_delta() const;
         std::vector<std::vector<int>> get_estimators() const;
-        std::vector<k_wise_family> get_hash_functions() const;
+        std::vector<two_wise_family> get_hash_functions() const;
         std::vector<std::vector<int>> get_hash_functions_consts() const;
     };
 }
