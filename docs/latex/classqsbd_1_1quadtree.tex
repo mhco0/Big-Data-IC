@@ -1,0 +1,44 @@
+\hypertarget{classqsbd_1_1quadtree}{}\doxysection{qsbd\+::quadtree$<$ T $>$ Class Template Reference}
+\label{classqsbd_1_1quadtree}\index{qsbd::quadtree$<$ T $>$@{qsbd::quadtree$<$ T $>$}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classqsbd_1_1quadtree_ae99074c36f0ef736d17fd1e310735cd8}\label{classqsbd_1_1quadtree_ae99074c36f0ef736d17fd1e310735cd8}} 
+{\bfseries quadtree} (const \mbox{\hyperlink{classqsbd_1_1quadtree}{quadtree}}$<$ T $>$ \&other)=delete
+\item 
+\mbox{\Hypertarget{classqsbd_1_1quadtree_aba8aafaa21a767c66c012f19f431f36d}\label{classqsbd_1_1quadtree_aba8aafaa21a767c66c012f19f431f36d}} 
+\mbox{\hyperlink{classqsbd_1_1quadtree}{quadtree}}$<$ T $>$ \& {\bfseries operator=} (const \mbox{\hyperlink{classqsbd_1_1quadtree}{quadtree}} \&other)=delete
+\item 
+\mbox{\Hypertarget{classqsbd_1_1quadtree_aae5b6b73a120cef174ec9d4aac438a07}\label{classqsbd_1_1quadtree_aae5b6b73a120cef174ec9d4aac438a07}} 
+bool {\bfseries insert} (const \mbox{\hyperlink{classqsbd_1_1point}{point}}$<$ double $>$ \&pos, T value)
+\item 
+\mbox{\Hypertarget{classqsbd_1_1quadtree_af531072e290ec0d4c5bf1a2ad2a1b3b7}\label{classqsbd_1_1quadtree_af531072e290ec0d4c5bf1a2ad2a1b3b7}} 
+std\+::vector$<$ T $>$ {\bfseries query} (const \mbox{\hyperlink{classqsbd_1_1aabb}{aabb}}$<$ double $>$ \&region)
+\item 
+\mbox{\Hypertarget{classqsbd_1_1quadtree_a159f456da50087fc9038ff6869e426b1}\label{classqsbd_1_1quadtree_a159f456da50087fc9038ff6869e426b1}} 
+\mbox{\hyperlink{classqsbd_1_1aabb}{aabb}}$<$ double $>$ {\bfseries bounds} () const
+\item 
+\mbox{\Hypertarget{classqsbd_1_1quadtree_a32ae36d63f369b0836482c68e98e0d8b}\label{classqsbd_1_1quadtree_a32ae36d63f369b0836482c68e98e0d8b}} 
+void {\bfseries show\+\_\+root\+\_\+tree} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classqsbd_1_1quadtree_a59b4f6449acf094c67d823ee8cb3a778}\label{classqsbd_1_1quadtree_a59b4f6449acf094c67d823ee8cb3a778}} 
+\mbox{\hyperlink{classqsbd_1_1quadtree}{quadtree}}$<$ T $>$\+::node $\ast$ {\bfseries root}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class T$>$\newline
+class qsbd\+::quadtree$<$ T $>$}
+
+
+Definition at line 7 of file quadtree.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/quadtree/quadtree.\+h\item 
+src/quadtree/quadtree.\+cpp\end{DoxyCompactItemize}

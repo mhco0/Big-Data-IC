@@ -60,15 +60,15 @@ include src/CMakeFiles/QSBD_GLOBAL_GEN.dir/flags.make
 src/CMakeFiles/QSBD_GLOBAL_GEN.dir/global_generator/global_generator.cpp.o: src/CMakeFiles/QSBD_GLOBAL_GEN.dir/flags.make
 src/CMakeFiles/QSBD_GLOBAL_GEN.dir/global_generator/global_generator.cpp.o: ../src/global_generator/global_generator.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/CMakeFiles/QSBD_GLOBAL_GEN.dir/global_generator/global_generator.cpp.o"
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src" && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/QSBD_GLOBAL_GEN.dir/global_generator/global_generator.cpp.o -c "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/global_generator/global_generator.cpp"
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src" && /bin/x86_64-linux-gnu-g++-9  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/QSBD_GLOBAL_GEN.dir/global_generator/global_generator.cpp.o -c "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/global_generator/global_generator.cpp"
 
 src/CMakeFiles/QSBD_GLOBAL_GEN.dir/global_generator/global_generator.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/QSBD_GLOBAL_GEN.dir/global_generator/global_generator.cpp.i"
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/global_generator/global_generator.cpp" > CMakeFiles/QSBD_GLOBAL_GEN.dir/global_generator/global_generator.cpp.i
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src" && /bin/x86_64-linux-gnu-g++-9 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/global_generator/global_generator.cpp" > CMakeFiles/QSBD_GLOBAL_GEN.dir/global_generator/global_generator.cpp.i
 
 src/CMakeFiles/QSBD_GLOBAL_GEN.dir/global_generator/global_generator.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/QSBD_GLOBAL_GEN.dir/global_generator/global_generator.cpp.s"
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/global_generator/global_generator.cpp" -o CMakeFiles/QSBD_GLOBAL_GEN.dir/global_generator/global_generator.cpp.s
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src" && /bin/x86_64-linux-gnu-g++-9 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/global_generator/global_generator.cpp" -o CMakeFiles/QSBD_GLOBAL_GEN.dir/global_generator/global_generator.cpp.s
 
 # Object files for target QSBD_GLOBAL_GEN
 QSBD_GLOBAL_GEN_OBJECTS = \

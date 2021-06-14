@@ -78,41 +78,6 @@ list_install_components/fast: list_install_components
 
 .PHONY : list_install_components/fast
 
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
-
-# Special rule for the target install/local
-install/local/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local/fast
-
-# Special rule for the target install
-install: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/bin/cmake -P cmake_install.cmake
-.PHONY : install
-
-# Special rule for the target install
-install/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/bin/cmake -P cmake_install.cmake
-.PHONY : install/fast
-
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-
-.PHONY : test/fast
-
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -134,6 +99,41 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -168,6 +168,36 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+app/CMakeFiles/build_brute_force.dir/rule:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/build_brute_force.dir/rule
+.PHONY : app/CMakeFiles/build_brute_force.dir/rule
+
+# Convenience name for target.
+build_brute_force: app/CMakeFiles/build_brute_force.dir/rule
+
+.PHONY : build_brute_force
+
+# fast build rule for target.
+build_brute_force/fast:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/build_brute_force.dir/build.make app/CMakeFiles/build_brute_force.dir/build
+.PHONY : build_brute_force/fast
+
+# Convenience name for target.
+app/CMakeFiles/query_creator.dir/rule:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/query_creator.dir/rule
+.PHONY : app/CMakeFiles/query_creator.dir/rule
+
+# Convenience name for target.
+query_creator: app/CMakeFiles/query_creator.dir/rule
+
+.PHONY : query_creator
+
+# fast build rule for target.
+query_creator/fast:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/query_creator.dir/build.make app/CMakeFiles/query_creator.dir/build
+.PHONY : query_creator/fast
+
+# Convenience name for target.
 app/CMakeFiles/quadtree_data_bounds.dir/rule:
 	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/quadtree_data_bounds.dir/rule
 .PHONY : app/CMakeFiles/quadtree_data_bounds.dir/rule
@@ -198,34 +228,19 @@ coletor/fast:
 .PHONY : coletor/fast
 
 # Convenience name for target.
-app/CMakeFiles/convert_stream.dir/rule:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/convert_stream.dir/rule
-.PHONY : app/CMakeFiles/convert_stream.dir/rule
+app/CMakeFiles/experiment_all.dir/rule:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/experiment_all.dir/rule
+.PHONY : app/CMakeFiles/experiment_all.dir/rule
 
 # Convenience name for target.
-convert_stream: app/CMakeFiles/convert_stream.dir/rule
+experiment_all: app/CMakeFiles/experiment_all.dir/rule
 
-.PHONY : convert_stream
+.PHONY : experiment_all
 
 # fast build rule for target.
-convert_stream/fast:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/convert_stream.dir/build.make app/CMakeFiles/convert_stream.dir/build
-.PHONY : convert_stream/fast
-
-# Convenience name for target.
-app/CMakeFiles/query_creator.dir/rule:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/query_creator.dir/rule
-.PHONY : app/CMakeFiles/query_creator.dir/rule
-
-# Convenience name for target.
-query_creator: app/CMakeFiles/query_creator.dir/rule
-
-.PHONY : query_creator
-
-# fast build rule for target.
-query_creator/fast:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/query_creator.dir/build.make app/CMakeFiles/query_creator.dir/build
-.PHONY : query_creator/fast
+experiment_all/fast:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/experiment_all.dir/build.make app/CMakeFiles/experiment_all.dir/build
+.PHONY : experiment_all/fast
 
 # Convenience name for target.
 app/CMakeFiles/data_points.dir/rule:
@@ -243,19 +258,19 @@ data_points/fast:
 .PHONY : data_points/fast
 
 # Convenience name for target.
-app/CMakeFiles/experiment_all.dir/rule:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/experiment_all.dir/rule
-.PHONY : app/CMakeFiles/experiment_all.dir/rule
+app/CMakeFiles/convert_stream.dir/rule:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/convert_stream.dir/rule
+.PHONY : app/CMakeFiles/convert_stream.dir/rule
 
 # Convenience name for target.
-experiment_all: app/CMakeFiles/experiment_all.dir/rule
+convert_stream: app/CMakeFiles/convert_stream.dir/rule
 
-.PHONY : experiment_all
+.PHONY : convert_stream
 
 # fast build rule for target.
-experiment_all/fast:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/experiment_all.dir/build.make app/CMakeFiles/experiment_all.dir/build
-.PHONY : experiment_all/fast
+convert_stream/fast:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/convert_stream.dir/build.make app/CMakeFiles/convert_stream.dir/build
+.PHONY : convert_stream/fast
 
 # Convenience name for target.
 app/CMakeFiles/comparator.dir/rule:
@@ -318,34 +333,49 @@ profile_count_sketch/fast:
 .PHONY : profile_count_sketch/fast
 
 # Convenience name for target.
-app/CMakeFiles/build_streams.dir/rule:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/build_streams.dir/rule
-.PHONY : app/CMakeFiles/build_streams.dir/rule
+app/CMakeFiles/profile_gk.dir/rule:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/profile_gk.dir/rule
+.PHONY : app/CMakeFiles/profile_gk.dir/rule
 
 # Convenience name for target.
-build_streams: app/CMakeFiles/build_streams.dir/rule
+profile_gk: app/CMakeFiles/profile_gk.dir/rule
 
-.PHONY : build_streams
+.PHONY : profile_gk
 
 # fast build rule for target.
-build_streams/fast:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/build_streams.dir/build.make app/CMakeFiles/build_streams.dir/build
-.PHONY : build_streams/fast
+profile_gk/fast:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/profile_gk.dir/build.make app/CMakeFiles/profile_gk.dir/build
+.PHONY : profile_gk/fast
 
 # Convenience name for target.
-app/CMakeFiles/stream_creator.dir/rule:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/stream_creator.dir/rule
-.PHONY : app/CMakeFiles/stream_creator.dir/rule
+app/CMakeFiles/profile_q_digest.dir/rule:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/profile_q_digest.dir/rule
+.PHONY : app/CMakeFiles/profile_q_digest.dir/rule
 
 # Convenience name for target.
-stream_creator: app/CMakeFiles/stream_creator.dir/rule
+profile_q_digest: app/CMakeFiles/profile_q_digest.dir/rule
 
-.PHONY : stream_creator
+.PHONY : profile_q_digest
 
 # fast build rule for target.
-stream_creator/fast:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/stream_creator.dir/build.make app/CMakeFiles/stream_creator.dir/build
-.PHONY : stream_creator/fast
+profile_q_digest/fast:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/profile_q_digest.dir/build.make app/CMakeFiles/profile_q_digest.dir/build
+.PHONY : profile_q_digest/fast
+
+# Convenience name for target.
+app/CMakeFiles/profile_dcs.dir/rule:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/profile_dcs.dir/rule
+.PHONY : app/CMakeFiles/profile_dcs.dir/rule
+
+# Convenience name for target.
+profile_dcs: app/CMakeFiles/profile_dcs.dir/rule
+
+.PHONY : profile_dcs
+
+# fast build rule for target.
+profile_dcs/fast:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/profile_dcs.dir/build.make app/CMakeFiles/profile_dcs.dir/build
+.PHONY : profile_dcs/fast
 
 # Convenience name for target.
 app/CMakeFiles/quantile_quadtree_experiment.dir/rule:
@@ -378,19 +408,49 @@ build_queries/fast:
 .PHONY : build_queries/fast
 
 # Convenience name for target.
-app/CMakeFiles/build_brute_force.dir/rule:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/build_brute_force.dir/rule
-.PHONY : app/CMakeFiles/build_brute_force.dir/rule
+app/CMakeFiles/profile_kll.dir/rule:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/profile_kll.dir/rule
+.PHONY : app/CMakeFiles/profile_kll.dir/rule
 
 # Convenience name for target.
-build_brute_force: app/CMakeFiles/build_brute_force.dir/rule
+profile_kll: app/CMakeFiles/profile_kll.dir/rule
 
-.PHONY : build_brute_force
+.PHONY : profile_kll
 
 # fast build rule for target.
-build_brute_force/fast:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/build_brute_force.dir/build.make app/CMakeFiles/build_brute_force.dir/build
-.PHONY : build_brute_force/fast
+profile_kll/fast:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/profile_kll.dir/build.make app/CMakeFiles/profile_kll.dir/build
+.PHONY : profile_kll/fast
+
+# Convenience name for target.
+app/CMakeFiles/build_streams.dir/rule:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/build_streams.dir/rule
+.PHONY : app/CMakeFiles/build_streams.dir/rule
+
+# Convenience name for target.
+build_streams: app/CMakeFiles/build_streams.dir/rule
+
+.PHONY : build_streams
+
+# fast build rule for target.
+build_streams/fast:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/build_streams.dir/build.make app/CMakeFiles/build_streams.dir/build
+.PHONY : build_streams/fast
+
+# Convenience name for target.
+app/CMakeFiles/stream_creator.dir/rule:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/stream_creator.dir/rule
+.PHONY : app/CMakeFiles/stream_creator.dir/rule
+
+# Convenience name for target.
+stream_creator: app/CMakeFiles/stream_creator.dir/rule
+
+.PHONY : stream_creator
+
+# fast build rule for target.
+stream_creator/fast:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/stream_creator.dir/build.make app/CMakeFiles/stream_creator.dir/build
+.PHONY : stream_creator/fast
 
 brute_force/brute_force.o: brute_force/brute_force.cpp.o
 
@@ -580,6 +640,114 @@ profiler/profile_count_sketch.s: profiler/profile_count_sketch.cpp.s
 profiler/profile_count_sketch.cpp.s:
 	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/profile_count_sketch.dir/build.make app/CMakeFiles/profile_count_sketch.dir/profiler/profile_count_sketch.cpp.s
 .PHONY : profiler/profile_count_sketch.cpp.s
+
+profiler/profile_dcs.o: profiler/profile_dcs.cpp.o
+
+.PHONY : profiler/profile_dcs.o
+
+# target to build an object file
+profiler/profile_dcs.cpp.o:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/profile_dcs.dir/build.make app/CMakeFiles/profile_dcs.dir/profiler/profile_dcs.cpp.o
+.PHONY : profiler/profile_dcs.cpp.o
+
+profiler/profile_dcs.i: profiler/profile_dcs.cpp.i
+
+.PHONY : profiler/profile_dcs.i
+
+# target to preprocess a source file
+profiler/profile_dcs.cpp.i:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/profile_dcs.dir/build.make app/CMakeFiles/profile_dcs.dir/profiler/profile_dcs.cpp.i
+.PHONY : profiler/profile_dcs.cpp.i
+
+profiler/profile_dcs.s: profiler/profile_dcs.cpp.s
+
+.PHONY : profiler/profile_dcs.s
+
+# target to generate assembly for a file
+profiler/profile_dcs.cpp.s:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/profile_dcs.dir/build.make app/CMakeFiles/profile_dcs.dir/profiler/profile_dcs.cpp.s
+.PHONY : profiler/profile_dcs.cpp.s
+
+profiler/profile_gk.o: profiler/profile_gk.cpp.o
+
+.PHONY : profiler/profile_gk.o
+
+# target to build an object file
+profiler/profile_gk.cpp.o:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/profile_gk.dir/build.make app/CMakeFiles/profile_gk.dir/profiler/profile_gk.cpp.o
+.PHONY : profiler/profile_gk.cpp.o
+
+profiler/profile_gk.i: profiler/profile_gk.cpp.i
+
+.PHONY : profiler/profile_gk.i
+
+# target to preprocess a source file
+profiler/profile_gk.cpp.i:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/profile_gk.dir/build.make app/CMakeFiles/profile_gk.dir/profiler/profile_gk.cpp.i
+.PHONY : profiler/profile_gk.cpp.i
+
+profiler/profile_gk.s: profiler/profile_gk.cpp.s
+
+.PHONY : profiler/profile_gk.s
+
+# target to generate assembly for a file
+profiler/profile_gk.cpp.s:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/profile_gk.dir/build.make app/CMakeFiles/profile_gk.dir/profiler/profile_gk.cpp.s
+.PHONY : profiler/profile_gk.cpp.s
+
+profiler/profile_kll.o: profiler/profile_kll.cpp.o
+
+.PHONY : profiler/profile_kll.o
+
+# target to build an object file
+profiler/profile_kll.cpp.o:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/profile_kll.dir/build.make app/CMakeFiles/profile_kll.dir/profiler/profile_kll.cpp.o
+.PHONY : profiler/profile_kll.cpp.o
+
+profiler/profile_kll.i: profiler/profile_kll.cpp.i
+
+.PHONY : profiler/profile_kll.i
+
+# target to preprocess a source file
+profiler/profile_kll.cpp.i:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/profile_kll.dir/build.make app/CMakeFiles/profile_kll.dir/profiler/profile_kll.cpp.i
+.PHONY : profiler/profile_kll.cpp.i
+
+profiler/profile_kll.s: profiler/profile_kll.cpp.s
+
+.PHONY : profiler/profile_kll.s
+
+# target to generate assembly for a file
+profiler/profile_kll.cpp.s:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/profile_kll.dir/build.make app/CMakeFiles/profile_kll.dir/profiler/profile_kll.cpp.s
+.PHONY : profiler/profile_kll.cpp.s
+
+profiler/profile_q_digest.o: profiler/profile_q_digest.cpp.o
+
+.PHONY : profiler/profile_q_digest.o
+
+# target to build an object file
+profiler/profile_q_digest.cpp.o:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/profile_q_digest.dir/build.make app/CMakeFiles/profile_q_digest.dir/profiler/profile_q_digest.cpp.o
+.PHONY : profiler/profile_q_digest.cpp.o
+
+profiler/profile_q_digest.i: profiler/profile_q_digest.cpp.i
+
+.PHONY : profiler/profile_q_digest.i
+
+# target to preprocess a source file
+profiler/profile_q_digest.cpp.i:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/profile_q_digest.dir/build.make app/CMakeFiles/profile_q_digest.dir/profiler/profile_q_digest.cpp.i
+.PHONY : profiler/profile_q_digest.cpp.i
+
+profiler/profile_q_digest.s: profiler/profile_q_digest.cpp.s
+
+.PHONY : profiler/profile_q_digest.s
+
+# target to generate assembly for a file
+profiler/profile_q_digest.cpp.s:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/profile_q_digest.dir/build.make app/CMakeFiles/profile_q_digest.dir/profiler/profile_q_digest.cpp.s
+.PHONY : profiler/profile_q_digest.cpp.s
 
 profiler/profiler.o: profiler/profiler.cpp.o
 
@@ -805,26 +973,30 @@ help:
 	@echo "... depend"
 	@echo "... install/strip"
 	@echo "... list_install_components"
-	@echo "... quadtree_data_bounds"
-	@echo "... coletor"
-	@echo "... install/local"
-	@echo "... convert_stream"
+	@echo "... rebuild_cache"
+	@echo "... edit_cache"
+	@echo "... build_brute_force"
 	@echo "... install"
 	@echo "... query_creator"
-	@echo "... data_points"
+	@echo "... quadtree_data_bounds"
+	@echo "... coletor"
 	@echo "... experiment_all"
+	@echo "... data_points"
+	@echo "... install/local"
+	@echo "... convert_stream"
 	@echo "... comparator"
 	@echo "... profiler"
 	@echo "... test"
 	@echo "... brute_force"
 	@echo "... profile_count_sketch"
-	@echo "... build_streams"
-	@echo "... stream_creator"
+	@echo "... profile_gk"
+	@echo "... profile_q_digest"
+	@echo "... profile_dcs"
 	@echo "... quantile_quadtree_experiment"
 	@echo "... build_queries"
-	@echo "... rebuild_cache"
-	@echo "... edit_cache"
-	@echo "... build_brute_force"
+	@echo "... profile_kll"
+	@echo "... build_streams"
+	@echo "... stream_creator"
 	@echo "... brute_force/brute_force.o"
 	@echo "... brute_force/brute_force.i"
 	@echo "... brute_force/brute_force.s"
@@ -846,6 +1018,18 @@ help:
 	@echo "... profiler/profile_count_sketch.o"
 	@echo "... profiler/profile_count_sketch.i"
 	@echo "... profiler/profile_count_sketch.s"
+	@echo "... profiler/profile_dcs.o"
+	@echo "... profiler/profile_dcs.i"
+	@echo "... profiler/profile_dcs.s"
+	@echo "... profiler/profile_gk.o"
+	@echo "... profiler/profile_gk.i"
+	@echo "... profiler/profile_gk.s"
+	@echo "... profiler/profile_kll.o"
+	@echo "... profiler/profile_kll.i"
+	@echo "... profiler/profile_kll.s"
+	@echo "... profiler/profile_q_digest.o"
+	@echo "... profiler/profile_q_digest.i"
+	@echo "... profiler/profile_q_digest.s"
 	@echo "... profiler/profiler.o"
 	@echo "... profiler/profiler.i"
 	@echo "... profiler/profiler.s"

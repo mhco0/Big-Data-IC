@@ -1,0 +1,71 @@
+\hypertarget{classqsbd_1_1count__sketch}{}\doxysection{qsbd\+::count\+\_\+sketch Class Reference}
+\label{classqsbd_1_1count__sketch}\index{qsbd::count\_sketch@{qsbd::count\_sketch}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classqsbd_1_1count__sketch_aa31ebfbec75b141b594795bf1054bfdf}\label{classqsbd_1_1count__sketch_aa31ebfbec75b141b594795bf1054bfdf}} 
+{\bfseries count\+\_\+sketch} (int fixd, int fixt)
+\item 
+\mbox{\Hypertarget{classqsbd_1_1count__sketch_a3c991f6b9331e9661f596b58dce1760e}\label{classqsbd_1_1count__sketch_a3c991f6b9331e9661f596b58dce1760e}} 
+{\bfseries count\+\_\+sketch} (int fixd, int fixt, const std\+::vector$<$ std\+::vector$<$ int $>$$>$ \&hashs\+\_\+consts)
+\item 
+\mbox{\Hypertarget{classqsbd_1_1count__sketch_a8988ea03fb1cf0f60d8c6a25353506f3}\label{classqsbd_1_1count__sketch_a8988ea03fb1cf0f60d8c6a25353506f3}} 
+{\bfseries count\+\_\+sketch} (double err, double delt)
+\item 
+\mbox{\Hypertarget{classqsbd_1_1count__sketch_a3567c91c16a44bc4cc2bb188e4a3fc83}\label{classqsbd_1_1count__sketch_a3567c91c16a44bc4cc2bb188e4a3fc83}} 
+{\bfseries count\+\_\+sketch} (double err, double delt, const std\+::vector$<$ std\+::vector$<$ int $>$$>$ \&hashs\+\_\+consts)
+\item 
+\mbox{\Hypertarget{classqsbd_1_1count__sketch_a19fae10d685fd45dfa00f28733ff3ad2}\label{classqsbd_1_1count__sketch_a19fae10d685fd45dfa00f28733ff3ad2}} 
+{\bfseries count\+\_\+sketch} (const \mbox{\hyperlink{classqsbd_1_1count__sketch}{count\+\_\+sketch}} \&other)
+\item 
+\mbox{\Hypertarget{classqsbd_1_1count__sketch_adc2e894ccebfa8677a12e5bdad0357b6}\label{classqsbd_1_1count__sketch_adc2e894ccebfa8677a12e5bdad0357b6}} 
+void {\bfseries update} (int elem, int weight)
+\item 
+\mbox{\Hypertarget{classqsbd_1_1count__sketch_aec2b22e91d508f4e2aa2ea7a6d583364}\label{classqsbd_1_1count__sketch_aec2b22e91d508f4e2aa2ea7a6d583364}} 
+int {\bfseries query} (int elem)
+\item 
+\mbox{\Hypertarget{classqsbd_1_1count__sketch_a287a233e585a12f1284158df1c52d4c5}\label{classqsbd_1_1count__sketch_a287a233e585a12f1284158df1c52d4c5}} 
+\mbox{\hyperlink{classqsbd_1_1count__sketch}{count\+\_\+sketch}} $\ast$ {\bfseries merge} (\mbox{\hyperlink{classqsbd_1_1count__sketch}{count\+\_\+sketch}} \&rhs)
+\item 
+\mbox{\Hypertarget{classqsbd_1_1count__sketch_a715a5850a4ec01b924f6eb2b2f03d649}\label{classqsbd_1_1count__sketch_a715a5850a4ec01b924f6eb2b2f03d649}} 
+void {\bfseries inner\+\_\+merge} (\mbox{\hyperlink{classqsbd_1_1count__sketch}{count\+\_\+sketch}} \&rhs)
+\item 
+\mbox{\Hypertarget{classqsbd_1_1count__sketch_a0413add7eb49f751d1db6a9d6b413428}\label{classqsbd_1_1count__sketch_a0413add7eb49f751d1db6a9d6b413428}} 
+\mbox{\hyperlink{classqsbd_1_1count__sketch}{count\+\_\+sketch}} \& {\bfseries operator=} (const \mbox{\hyperlink{classqsbd_1_1count__sketch}{count\+\_\+sketch}} \&other)
+\item 
+\mbox{\Hypertarget{classqsbd_1_1count__sketch_a9537c35ea6b923b0cc3bf2f1cc243680}\label{classqsbd_1_1count__sketch_a9537c35ea6b923b0cc3bf2f1cc243680}} 
+int {\bfseries get\+\_\+d} () const
+\item 
+\mbox{\Hypertarget{classqsbd_1_1count__sketch_a1f5f376531d72a0b5f090eb9d786fb92}\label{classqsbd_1_1count__sketch_a1f5f376531d72a0b5f090eb9d786fb92}} 
+int {\bfseries get\+\_\+t} () const
+\item 
+\mbox{\Hypertarget{classqsbd_1_1count__sketch_a2397fa06de21873b3554cb75485c9a55}\label{classqsbd_1_1count__sketch_a2397fa06de21873b3554cb75485c9a55}} 
+double {\bfseries get\+\_\+error} () const
+\item 
+\mbox{\Hypertarget{classqsbd_1_1count__sketch_a897c62bcd92cc8f0dd6169d836911778}\label{classqsbd_1_1count__sketch_a897c62bcd92cc8f0dd6169d836911778}} 
+double {\bfseries get\+\_\+delta} () const
+\item 
+\mbox{\Hypertarget{classqsbd_1_1count__sketch_aca092b4590ead1bfd3b38ca7147529d1}\label{classqsbd_1_1count__sketch_aca092b4590ead1bfd3b38ca7147529d1}} 
+std\+::vector$<$ std\+::vector$<$ int $>$ $>$ {\bfseries get\+\_\+estimators} () const
+\item 
+\mbox{\Hypertarget{classqsbd_1_1count__sketch_a8e5c8c42b2ec1c209bb947c7e2e73df9}\label{classqsbd_1_1count__sketch_a8e5c8c42b2ec1c209bb947c7e2e73df9}} 
+std\+::vector$<$ \mbox{\hyperlink{classqsbd_1_1two__wise__family}{two\+\_\+wise\+\_\+family}} $>$ {\bfseries get\+\_\+hash\+\_\+functions} () const
+\item 
+\mbox{\Hypertarget{classqsbd_1_1count__sketch_aa908579f27136909b6e277cf3f8ce15f}\label{classqsbd_1_1count__sketch_aa908579f27136909b6e277cf3f8ce15f}} 
+std\+::vector$<$ std\+::vector$<$ int $>$ $>$ {\bfseries get\+\_\+hash\+\_\+functions\+\_\+consts} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 11 of file count\+\_\+sketch.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/count\+\_\+sketch/count\+\_\+sketch.\+h\item 
+src/count\+\_\+sketch/count\+\_\+sketch.\+cpp\item 
+src/count\+\_\+sketch/count\+\_\+sketch\+\_\+malloc.\+cpp\item 
+src/count\+\_\+sketch/count\+\_\+sketch\+\_\+two\+\_\+wise.\+cpp\end{DoxyCompactItemize}

@@ -1,2 +1,2 @@
-/usr/bin/ar qc ../lib/libQSBD_GLOBAL_GEN.a  CMakeFiles/QSBD_GLOBAL_GEN.dir/global_generator/global_generator.cpp.o
-/usr/bin/ranlib ../lib/libQSBD_GLOBAL_GEN.a
+/bin/ar qc ../lib/libQSBD_GLOBAL_GEN.a  CMakeFiles/QSBD_GLOBAL_GEN.dir/global_generator/global_generator.cpp.o
+/bin/ranlib ../lib/libQSBD_GLOBAL_GEN.a

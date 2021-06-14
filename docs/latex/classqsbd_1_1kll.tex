@@ -1,0 +1,86 @@
+\hypertarget{classqsbd_1_1kll}{}\doxysection{qsbd\+::kll$<$ T $>$ Class Template Reference}
+\label{classqsbd_1_1kll}\index{qsbd::kll$<$ T $>$@{qsbd::kll$<$ T $>$}}
+Inheritance diagram for qsbd\+::kll$<$ T $>$\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classqsbd_1_1kll}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classqsbd_1_1kll_aaaac86e4347fb54bef9578d91e2114a3}\label{classqsbd_1_1kll_aaaac86e4347fb54bef9578d91e2114a3}} 
+{\bfseries kll} (double err)
+\item 
+\mbox{\Hypertarget{classqsbd_1_1kll_a5d8426a8557ee75bcc0d1e9495c2cf96}\label{classqsbd_1_1kll_a5d8426a8557ee75bcc0d1e9495c2cf96}} 
+void {\bfseries compress} ()
+\item 
+\mbox{\Hypertarget{classqsbd_1_1kll_a2d13b0861967e45ab5c4780d35f1f449}\label{classqsbd_1_1kll_a2d13b0861967e45ab5c4780d35f1f449}} 
+void {\bfseries update} (T elem) override
+\item 
+\mbox{\Hypertarget{classqsbd_1_1kll_ae90d25239b925ab9bc1ef7794d9e4104}\label{classqsbd_1_1kll_ae90d25239b925ab9bc1ef7794d9e4104}} 
+int {\bfseries query} (T elem) override
+\item 
+\mbox{\Hypertarget{classqsbd_1_1kll_a333e8c73e1ad730429f657c3f798ed6c}\label{classqsbd_1_1kll_a333e8c73e1ad730429f657c3f798ed6c}} 
+\mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$ T $>$ $\ast$ {\bfseries merge} (\mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$ T $>$ \&rhs) override
+\item 
+\mbox{\Hypertarget{classqsbd_1_1kll_a37cec2795a6a5b6ff64e72b635887d7a}\label{classqsbd_1_1kll_a37cec2795a6a5b6ff64e72b635887d7a}} 
+void {\bfseries inner\+\_\+merge} (\mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$ T $>$ \&rhs) override
+\item 
+\mbox{\Hypertarget{classqsbd_1_1kll_af2ac5bcbd4e244a90eb409138b31f403}\label{classqsbd_1_1kll_af2ac5bcbd4e244a90eb409138b31f403}} 
+void {\bfseries print} ()
+\item 
+\mbox{\Hypertarget{classqsbd_1_1kll_aaf3c85eb29da691cdc9a91d26e4566a6}\label{classqsbd_1_1kll_aaf3c85eb29da691cdc9a91d26e4566a6}} 
+void {\bfseries set\+\_\+buffers} (std\+::vector$<$ std\+::vector$<$ T $>$$>$ \&buffers)
+\item 
+\mbox{\Hypertarget{classqsbd_1_1kll_a1aa3b45b8186a44ed6a060a0c9a2430f}\label{classqsbd_1_1kll_a1aa3b45b8186a44ed6a060a0c9a2430f}} 
+std\+::vector$<$ std\+::vector$<$ T $>$ $>$ {\bfseries get\+\_\+buffers} ()
+\item 
+\mbox{\Hypertarget{classqsbd_1_1kll_ad3ffcf29a71c4a6c6b60c548b9449f1a}\label{classqsbd_1_1kll_ad3ffcf29a71c4a6c6b60c548b9449f1a}} 
+double {\bfseries get\+\_\+error} ()
+\item 
+\mbox{\Hypertarget{classqsbd_1_1kll_a96ecb3525a817e4e950c6cad7a89b732}\label{classqsbd_1_1kll_a96ecb3525a817e4e950c6cad7a89b732}} 
+double {\bfseries get\+\_\+capacity} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classqsbd_1_1kll_a1468ecfc87d32ead99cc9970f7ebf50c}\label{classqsbd_1_1kll_a1468ecfc87d32ead99cc9970f7ebf50c}} 
+static void {\bfseries insert\+\_\+sorted} (std\+::vector$<$ T $>$ \&buffer, const T \&elem)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classqsbd_1_1kll_a4f7fb4635acceae1391b75225165bd5f}\label{classqsbd_1_1kll_a4f7fb4635acceae1391b75225165bd5f}} 
+std\+::uniform\+\_\+int\+\_\+distribution$<$ int $>$ {\bfseries coin}
+\item 
+\mbox{\Hypertarget{classqsbd_1_1kll_acb09a4077263304b6d7870987990092a}\label{classqsbd_1_1kll_acb09a4077263304b6d7870987990092a}} 
+std\+::vector$<$ std\+::vector$<$ T $>$ $>$ {\bfseries buffers\+\_\+array}
+\item 
+\mbox{\Hypertarget{classqsbd_1_1kll_aad71ce1a0d369b04b3ca9610ddb1512f}\label{classqsbd_1_1kll_aad71ce1a0d369b04b3ca9610ddb1512f}} 
+int {\bfseries height}
+\item 
+\mbox{\Hypertarget{classqsbd_1_1kll_a15c83bcdcaebf639c00bf6e44ade785b}\label{classqsbd_1_1kll_a15c83bcdcaebf639c00bf6e44ade785b}} 
+double {\bfseries buffer\+\_\+diff}
+\item 
+\mbox{\Hypertarget{classqsbd_1_1kll_a31449186f8953f95a65919d4d9f0be20}\label{classqsbd_1_1kll_a31449186f8953f95a65919d4d9f0be20}} 
+double {\bfseries capacity\+\_\+max}
+\item 
+\mbox{\Hypertarget{classqsbd_1_1kll_a9f037e8059f42e188f892d0f3e88a130}\label{classqsbd_1_1kll_a9f037e8059f42e188f892d0f3e88a130}} 
+double {\bfseries error}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class T$>$\newline
+class qsbd\+::kll$<$ T $>$}
+
+
+Definition at line 10 of file kll.\+hpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/kll/kll.\+hpp\item 
+src/kll/kll.\+cpp\end{DoxyCompactItemize}

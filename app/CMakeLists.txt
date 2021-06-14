@@ -42,6 +42,26 @@ target_include_directories(profile_count_sketch PRIVATE ${QSBD_DIR_SOURCE})
 target_include_directories(profile_count_sketch PRIVATE ${THIRD_PARTY_DIR_SOURCE})
 target_link_libraries(profile_count_sketch PRIVATE  QSBD_COUNT_SKETCH QSBD_UTILS QSBD_DEBUG QSBD_STREAM_MAKER)
 
+add_executable(profile_q_digest "profiler/profile_q_digest.cpp")
+target_include_directories(profile_q_digest PRIVATE ${QSBD_DIR_SOURCE})
+target_include_directories(profile_q_digest PRIVATE ${THIRD_PARTY_DIR_SOURCE})
+target_link_libraries(profile_q_digest PRIVATE  QSBD_Q_DIGEST QSBD_UTILS QSBD_DEBUG QSBD_STREAM_MAKER)
+
+add_executable(profile_dcs "profiler/profile_dcs.cpp")
+target_include_directories(profile_dcs PRIVATE ${QSBD_DIR_SOURCE})
+target_include_directories(profile_dcs PRIVATE ${THIRD_PARTY_DIR_SOURCE})
+target_link_libraries(profile_dcs PRIVATE  QSBD_DCS QSBD_UTILS QSBD_DEBUG QSBD_STREAM_MAKER)
+
+add_executable(profile_kll "profiler/profile_kll.cpp")
+target_include_directories(profile_kll PRIVATE ${QSBD_DIR_SOURCE})
+target_include_directories(profile_kll PRIVATE ${THIRD_PARTY_DIR_SOURCE})
+target_link_libraries(profile_kll PRIVATE  QSBD_KLL QSBD_UTILS QSBD_DEBUG QSBD_STREAM_MAKER)
+
+add_executable(profile_gk "profiler/profile_gk.cpp")
+target_include_directories(profile_gk PRIVATE ${QSBD_DIR_SOURCE})
+target_include_directories(profile_gk PRIVATE ${THIRD_PARTY_DIR_SOURCE})
+target_link_libraries(profile_gk PRIVATE  QSBD_GK QSBD_UTILS QSBD_DEBUG QSBD_STREAM_MAKER)
+
 add_executable(convert_stream "convert_stream/convert_stream.cpp")
 target_include_directories(convert_stream PRIVATE ${QSBD_DIR_SOURCE})
 target_include_directories(convert_stream PRIVATE ${THIRD_PARTY_DIR_SOURCE})

@@ -753,6 +753,32 @@ test_gk/fast:
 .PHONY : test_gk/fast
 
 #=============================================================================
+# Target rules for targets named build_brute_force
+
+# Build rule for target.
+build_brute_force: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 build_brute_force
+.PHONY : build_brute_force
+
+# fast build rule for target.
+build_brute_force/fast:
+	$(MAKE) -f app/CMakeFiles/build_brute_force.dir/build.make app/CMakeFiles/build_brute_force.dir/build
+.PHONY : build_brute_force/fast
+
+#=============================================================================
+# Target rules for targets named query_creator
+
+# Build rule for target.
+query_creator: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 query_creator
+.PHONY : query_creator
+
+# fast build rule for target.
+query_creator/fast:
+	$(MAKE) -f app/CMakeFiles/query_creator.dir/build.make app/CMakeFiles/query_creator.dir/build
+.PHONY : query_creator/fast
+
+#=============================================================================
 # Target rules for targets named quadtree_data_bounds
 
 # Build rule for target.
@@ -779,30 +805,17 @@ coletor/fast:
 .PHONY : coletor/fast
 
 #=============================================================================
-# Target rules for targets named convert_stream
+# Target rules for targets named experiment_all
 
 # Build rule for target.
-convert_stream: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 convert_stream
-.PHONY : convert_stream
+experiment_all: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 experiment_all
+.PHONY : experiment_all
 
 # fast build rule for target.
-convert_stream/fast:
-	$(MAKE) -f app/CMakeFiles/convert_stream.dir/build.make app/CMakeFiles/convert_stream.dir/build
-.PHONY : convert_stream/fast
-
-#=============================================================================
-# Target rules for targets named query_creator
-
-# Build rule for target.
-query_creator: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 query_creator
-.PHONY : query_creator
-
-# fast build rule for target.
-query_creator/fast:
-	$(MAKE) -f app/CMakeFiles/query_creator.dir/build.make app/CMakeFiles/query_creator.dir/build
-.PHONY : query_creator/fast
+experiment_all/fast:
+	$(MAKE) -f app/CMakeFiles/experiment_all.dir/build.make app/CMakeFiles/experiment_all.dir/build
+.PHONY : experiment_all/fast
 
 #=============================================================================
 # Target rules for targets named data_points
@@ -818,17 +831,17 @@ data_points/fast:
 .PHONY : data_points/fast
 
 #=============================================================================
-# Target rules for targets named experiment_all
+# Target rules for targets named convert_stream
 
 # Build rule for target.
-experiment_all: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 experiment_all
-.PHONY : experiment_all
+convert_stream: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 convert_stream
+.PHONY : convert_stream
 
 # fast build rule for target.
-experiment_all/fast:
-	$(MAKE) -f app/CMakeFiles/experiment_all.dir/build.make app/CMakeFiles/experiment_all.dir/build
-.PHONY : experiment_all/fast
+convert_stream/fast:
+	$(MAKE) -f app/CMakeFiles/convert_stream.dir/build.make app/CMakeFiles/convert_stream.dir/build
+.PHONY : convert_stream/fast
 
 #=============================================================================
 # Target rules for targets named comparator
@@ -883,30 +896,43 @@ profile_count_sketch/fast:
 .PHONY : profile_count_sketch/fast
 
 #=============================================================================
-# Target rules for targets named build_streams
+# Target rules for targets named profile_gk
 
 # Build rule for target.
-build_streams: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 build_streams
-.PHONY : build_streams
+profile_gk: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 profile_gk
+.PHONY : profile_gk
 
 # fast build rule for target.
-build_streams/fast:
-	$(MAKE) -f app/CMakeFiles/build_streams.dir/build.make app/CMakeFiles/build_streams.dir/build
-.PHONY : build_streams/fast
+profile_gk/fast:
+	$(MAKE) -f app/CMakeFiles/profile_gk.dir/build.make app/CMakeFiles/profile_gk.dir/build
+.PHONY : profile_gk/fast
 
 #=============================================================================
-# Target rules for targets named stream_creator
+# Target rules for targets named profile_q_digest
 
 # Build rule for target.
-stream_creator: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 stream_creator
-.PHONY : stream_creator
+profile_q_digest: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 profile_q_digest
+.PHONY : profile_q_digest
 
 # fast build rule for target.
-stream_creator/fast:
-	$(MAKE) -f app/CMakeFiles/stream_creator.dir/build.make app/CMakeFiles/stream_creator.dir/build
-.PHONY : stream_creator/fast
+profile_q_digest/fast:
+	$(MAKE) -f app/CMakeFiles/profile_q_digest.dir/build.make app/CMakeFiles/profile_q_digest.dir/build
+.PHONY : profile_q_digest/fast
+
+#=============================================================================
+# Target rules for targets named profile_dcs
+
+# Build rule for target.
+profile_dcs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 profile_dcs
+.PHONY : profile_dcs
+
+# fast build rule for target.
+profile_dcs/fast:
+	$(MAKE) -f app/CMakeFiles/profile_dcs.dir/build.make app/CMakeFiles/profile_dcs.dir/build
+.PHONY : profile_dcs/fast
 
 #=============================================================================
 # Target rules for targets named quantile_quadtree_experiment
@@ -935,17 +961,43 @@ build_queries/fast:
 .PHONY : build_queries/fast
 
 #=============================================================================
-# Target rules for targets named build_brute_force
+# Target rules for targets named profile_kll
 
 # Build rule for target.
-build_brute_force: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 build_brute_force
-.PHONY : build_brute_force
+profile_kll: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 profile_kll
+.PHONY : profile_kll
 
 # fast build rule for target.
-build_brute_force/fast:
-	$(MAKE) -f app/CMakeFiles/build_brute_force.dir/build.make app/CMakeFiles/build_brute_force.dir/build
-.PHONY : build_brute_force/fast
+profile_kll/fast:
+	$(MAKE) -f app/CMakeFiles/profile_kll.dir/build.make app/CMakeFiles/profile_kll.dir/build
+.PHONY : profile_kll/fast
+
+#=============================================================================
+# Target rules for targets named build_streams
+
+# Build rule for target.
+build_streams: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 build_streams
+.PHONY : build_streams
+
+# fast build rule for target.
+build_streams/fast:
+	$(MAKE) -f app/CMakeFiles/build_streams.dir/build.make app/CMakeFiles/build_streams.dir/build
+.PHONY : build_streams/fast
+
+#=============================================================================
+# Target rules for targets named stream_creator
+
+# Build rule for target.
+stream_creator: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 stream_creator
+.PHONY : stream_creator
+
+# fast build rule for target.
+stream_creator/fast:
+	$(MAKE) -f app/CMakeFiles/stream_creator.dir/build.make app/CMakeFiles/stream_creator.dir/build
+.PHONY : stream_creator/fast
 
 # Help Target
 help:
@@ -1005,21 +1057,25 @@ help:
 	@echo "... test_q_digest"
 	@echo "... test_config"
 	@echo "... test_gk"
+	@echo "... build_brute_force"
+	@echo "... query_creator"
 	@echo "... quadtree_data_bounds"
 	@echo "... coletor"
-	@echo "... convert_stream"
-	@echo "... query_creator"
-	@echo "... data_points"
 	@echo "... experiment_all"
+	@echo "... data_points"
+	@echo "... convert_stream"
 	@echo "... comparator"
 	@echo "... profiler"
 	@echo "... brute_force"
 	@echo "... profile_count_sketch"
-	@echo "... build_streams"
-	@echo "... stream_creator"
+	@echo "... profile_gk"
+	@echo "... profile_q_digest"
+	@echo "... profile_dcs"
 	@echo "... quantile_quadtree_experiment"
 	@echo "... build_queries"
-	@echo "... build_brute_force"
+	@echo "... profile_kll"
+	@echo "... build_streams"
+	@echo "... stream_creator"
 .PHONY : help
 
 

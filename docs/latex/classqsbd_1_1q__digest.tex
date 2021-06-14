@@ -1,0 +1,362 @@
+\hypertarget{classqsbd_1_1q__digest}{}\doxysection{qsbd\+::q\+\_\+digest Class Reference}
+\label{classqsbd_1_1q__digest}\index{qsbd::q\_digest@{qsbd::q\_digest}}
+
+
+A quantile sketch derived class.  
+
+
+
+
+{\ttfamily \#include $<$q\+\_\+digest.\+h$>$}
+
+Inheritance diagram for qsbd\+::q\+\_\+digest\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classqsbd_1_1q__digest}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classqsbd_1_1q__digest_a5836b79fcd15d45326b5465ae8ed1c3f}{q\+\_\+digest}} (double error, int universe)
+\begin{DoxyCompactList}\small\item\em Constructs the \mbox{\hyperlink{classqsbd_1_1q__digest}{q\+\_\+digest}} class using {\ttfamily error} and {\ttfamily universe}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classqsbd_1_1q__digest_a708601691b0bd7bb5214dbf6b3fd22df}\label{classqsbd_1_1q__digest_a708601691b0bd7bb5214dbf6b3fd22df}} 
+{\bfseries q\+\_\+digest} (const \mbox{\hyperlink{classqsbd_1_1q__digest}{q\+\_\+digest}} \&other)=delete
+\item 
+\mbox{\Hypertarget{classqsbd_1_1q__digest_a85178f37abd3d436ae925a4f6b95074b}\label{classqsbd_1_1q__digest_a85178f37abd3d436ae925a4f6b95074b}} 
+\mbox{\hyperlink{classqsbd_1_1q__digest_a85178f37abd3d436ae925a4f6b95074b}{$\sim$q\+\_\+digest}} ()
+\begin{DoxyCompactList}\small\item\em Destructs the \mbox{\hyperlink{classqsbd_1_1q__digest}{q\+\_\+digest}} instance. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classqsbd_1_1q__digest_a3d5ccec68f21232c993ed826bd759ea9}\label{classqsbd_1_1q__digest_a3d5ccec68f21232c993ed826bd759ea9}} 
+\mbox{\hyperlink{classqsbd_1_1q__digest}{q\+\_\+digest}} \& {\bfseries operator=} (const \mbox{\hyperlink{classqsbd_1_1q__digest}{q\+\_\+digest}} \&other)=delete
+\item 
+void \mbox{\hyperlink{classqsbd_1_1q__digest_a50335e2e3f9d062c33c8aab6b9c2fb32}{print}} (int indent=0) const
+\begin{DoxyCompactList}\small\item\em Prints the Tree structure of the class on the standard output (std\+::cout) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classqsbd_1_1q__digest_aaf18100b864a16631d476f5cbe57ab51}\label{classqsbd_1_1q__digest_aaf18100b864a16631d476f5cbe57ab51}} 
+void \mbox{\hyperlink{classqsbd_1_1q__digest_aaf18100b864a16631d476f5cbe57ab51}{print\+\_\+subtree\+\_\+weights}} ()
+\begin{DoxyCompactList}\small\item\em Prints the Tree structure of the class on the standard output (std\+::cout), but the weights on the tree in each node will be the sum of the weight plus the weight of their subtree. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classqsbd_1_1q__digest_a995cd3e871d7cc1d2f4d34fc7b5aecc8}{update}} (int x, int weight) override
+\begin{DoxyCompactList}\small\item\em Inserts a element {\ttfamily x} with weigth {\ttfamily weight}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classqsbd_1_1q__digest_ade7168cd70f94767678988531ea30414}{query}} (int x) override
+\begin{DoxyCompactList}\small\item\em Query the rank of the element {\ttfamily x}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classqsbd_1_1q__digest_aceacbb604670ff642ddfec5b65dd572b}\label{classqsbd_1_1q__digest_aceacbb604670ff642ddfec5b65dd572b}} 
+void \mbox{\hyperlink{classqsbd_1_1q__digest_aceacbb604670ff642ddfec5b65dd572b}{compress}} ()
+\begin{DoxyCompactList}\small\item\em Trys to compress the q\+\_\+digeste tree if possible. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$ int $>$ $\ast$ \mbox{\hyperlink{classqsbd_1_1q__digest_a9c5c1c479213737f979b41ef44229527}{merge}} (\mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$ int $>$ \&rhs) override
+\begin{DoxyCompactList}\small\item\em Merges this instance of quadtree with another \mbox{\hyperlink{classqsbd_1_1q__digest}{q\+\_\+digest}} instance. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classqsbd_1_1q__digest_a7716bd59379244c24c4493155527ddd4}{inner\+\_\+merge}} (\mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$ int $>$ \&rhs) override
+\begin{DoxyCompactList}\small\item\em Merges this instance of quadtree with another \mbox{\hyperlink{classqsbd_1_1q__digest}{q\+\_\+digest}} instance and saves it in this instance. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classqsbd_1_1q__digest_a4ab1ac055cb586cc8af5f5eb40180e14}{get\+\_\+total\+\_\+weight}} () const
+\begin{DoxyCompactList}\small\item\em Getter for the total weight saw the the instance. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A quantile sketch derived class. 
+
+The Q-\/\+Digest summary is based on maintaining a subset of simple counters of ranges, when the input is drawn from a fixed integer domain, and can be weighted. Each input is an $(x,w)$ pair where w must be positive. The summary takes space at most $O(\frac{\log{U}}{\epsilon})$, which is fixed and independent of the input. Summaries can be easily merged together. The summary works by maintaining a tree-\/structure over the domain U\+: nodes in the tree correspond to subranges of U, and simple statistics are maintained for a small set of nodes. 
+
+Definition at line 33 of file q\+\_\+digest.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classqsbd_1_1q__digest_a5836b79fcd15d45326b5465ae8ed1c3f}\label{classqsbd_1_1q__digest_a5836b79fcd15d45326b5465ae8ed1c3f}} 
+\index{qsbd::q\_digest@{qsbd::q\_digest}!q\_digest@{q\_digest}}
+\index{q\_digest@{q\_digest}!qsbd::q\_digest@{qsbd::q\_digest}}
+\doxysubsubsection{\texorpdfstring{q\_digest()}{q\_digest()}}
+{\footnotesize\ttfamily q\+\_\+digest\+::q\+\_\+digest (\begin{DoxyParamCaption}\item[{double}]{error,  }\item[{int}]{universe }\end{DoxyParamCaption})}
+
+
+
+Constructs the \mbox{\hyperlink{classqsbd_1_1q__digest}{q\+\_\+digest}} class using {\ttfamily error} and {\ttfamily universe}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em error} & The error that the \mbox{\hyperlink{classqsbd_1_1q__digest}{q\+\_\+digest}} will suport \\
+\hline
+{\em universe} & The range for the elements on \mbox{\hyperlink{classqsbd_1_1q__digest}{q\+\_\+digest}} \mbox{[}0..universe -\/ 1\mbox{]} \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 281 of file q\+\_\+digest.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{281                                                 \{}
+\DoxyCodeLine{282         this-\/>error = error;}
+\DoxyCodeLine{283         this-\/>universe = universe;}
+\DoxyCodeLine{284         this-\/>total\_weight = 0;}
+\DoxyCodeLine{285         this-\/>capacity = 0;}
+\DoxyCodeLine{286         this-\/>ceil\_weight = 0;}
+\DoxyCodeLine{287         this-\/>transfered\_buffer = \textcolor{keyword}{false};}
+\DoxyCodeLine{288         this-\/>tree.emplace\_back(0, -\/1);}
+\DoxyCodeLine{289     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classqsbd_1_1q__digest_a4ab1ac055cb586cc8af5f5eb40180e14}\label{classqsbd_1_1q__digest_a4ab1ac055cb586cc8af5f5eb40180e14}} 
+\index{qsbd::q\_digest@{qsbd::q\_digest}!get\_total\_weight@{get\_total\_weight}}
+\index{get\_total\_weight@{get\_total\_weight}!qsbd::q\_digest@{qsbd::q\_digest}}
+\doxysubsubsection{\texorpdfstring{get\_total\_weight()}{get\_total\_weight()}}
+{\footnotesize\ttfamily int q\+\_\+digest\+::get\+\_\+total\+\_\+weight (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Getter for the total weight saw the the instance. 
+
+\begin{DoxyReturn}{Returns}
+The total weight 
+\end{DoxyReturn}
+
+
+Definition at line 379 of file q\+\_\+digest.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{379                                          \{}
+\DoxyCodeLine{380         \textcolor{keywordflow}{return} total\_weight;}
+\DoxyCodeLine{381     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classqsbd_1_1q__digest_a7716bd59379244c24c4493155527ddd4}\label{classqsbd_1_1q__digest_a7716bd59379244c24c4493155527ddd4}} 
+\index{qsbd::q\_digest@{qsbd::q\_digest}!inner\_merge@{inner\_merge}}
+\index{inner\_merge@{inner\_merge}!qsbd::q\_digest@{qsbd::q\_digest}}
+\doxysubsubsection{\texorpdfstring{inner\_merge()}{inner\_merge()}}
+{\footnotesize\ttfamily void q\+\_\+digest\+::inner\+\_\+merge (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$ int $>$ \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Merges this instance of quadtree with another \mbox{\hyperlink{classqsbd_1_1q__digest}{q\+\_\+digest}} instance and saves it in this instance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rhs} & A \mbox{\hyperlink{classqsbd_1_1q__digest}{q\+\_\+digest}} instance to be merged \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classqsbd_1_1q__digest_a9c5c1c479213737f979b41ef44229527}{q\+\_\+digest\+::merge(quantile\+\_\+sketch$<$int$>$\&)}} 
+\end{DoxySeeAlso}
+\begin{DoxyWarning}{Warning}
+The universe and the error in both instance needs to be the same. The error will be considered as the same if $|this->error - rhs.error| \leq 1e-6$
+
+The \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}} must be a instance of the \mbox{\hyperlink{classqsbd_1_1q__digest}{q\+\_\+digest}} class 
+\end{DoxyWarning}
+
+
+Implements \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{qsbd\+::quantile\+\_\+sketch$<$ int $>$}}.
+
+
+
+Definition at line 358 of file q\+\_\+digest.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{358                                                        \{}
+\DoxyCodeLine{359         \mbox{\hyperlink{classq__digest}{q\_digest}}\& rhs\_cv = \textcolor{keyword}{dynamic\_cast<}\mbox{\hyperlink{classq__digest}{q\_digest}}\&\textcolor{keyword}{>} (rhs);}
+\DoxyCodeLine{360 }
+\DoxyCodeLine{361         \textcolor{keywordflow}{if} (this-\/>universe != rhs\_cv.universe or (this-\/>error -\/ rhs\_cv.error > 1e-\/6))\{}
+\DoxyCodeLine{362             \textcolor{keywordflow}{throw} merge\_error();}
+\DoxyCodeLine{363         \}}
+\DoxyCodeLine{364 }
+\DoxyCodeLine{365         this-\/>transfer\_buffer\_to\_tree(); }
+\DoxyCodeLine{366         rhs\_cv.transfer\_buffer\_to\_tree();}
+\DoxyCodeLine{367 }
+\DoxyCodeLine{368         this-\/>private\_merge(this-\/>tree, rhs\_cv.tree, 0, 0, 0);}
+\DoxyCodeLine{369 }
+\DoxyCodeLine{370         this-\/>total\_weight += rhs\_cv.total\_weight;}
+\DoxyCodeLine{371 }
+\DoxyCodeLine{372         this-\/>capacity = (this-\/>error * this-\/>total\_weight) / log2(this-\/>universe);}
+\DoxyCodeLine{373         this-\/>transfered\_buffer = \textcolor{keyword}{true};}
+\DoxyCodeLine{374         this-\/>ceil\_weight = 2 * this-\/>total\_weight;}
+\DoxyCodeLine{375 }
+\DoxyCodeLine{376         this-\/>\mbox{\hyperlink{classqsbd_1_1q__digest_aceacbb604670ff642ddfec5b65dd572b}{compress}}();}
+\DoxyCodeLine{377     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classqsbd_1_1q__digest_a9c5c1c479213737f979b41ef44229527}\label{classqsbd_1_1q__digest_a9c5c1c479213737f979b41ef44229527}} 
+\index{qsbd::q\_digest@{qsbd::q\_digest}!merge@{merge}}
+\index{merge@{merge}!qsbd::q\_digest@{qsbd::q\_digest}}
+\doxysubsubsection{\texorpdfstring{merge()}{merge()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$ int $>$ $\ast$ q\+\_\+digest\+::merge (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$ int $>$ \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Merges this instance of quadtree with another \mbox{\hyperlink{classqsbd_1_1q__digest}{q\+\_\+digest}} instance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rhs} & A \mbox{\hyperlink{classqsbd_1_1q__digest}{q\+\_\+digest}} instance to be merged \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the new instance of a \mbox{\hyperlink{classqsbd_1_1q__digest}{q\+\_\+digest}} 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classqsbd_1_1q__digest_a7716bd59379244c24c4493155527ddd4}{q\+\_\+digest\+::inner\+\_\+merge(quantile\+\_\+sketch$<$int$>$\&)}} 
+\end{DoxySeeAlso}
+\begin{DoxyWarning}{Warning}
+The universe and the error in both instance needs to be the same. The error will be considered as the same if $|this->error - rhs.error| \leq 1e-6$
+
+The \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}} must be a instance of the \mbox{\hyperlink{classqsbd_1_1q__digest}{q\+\_\+digest}} class
+
+Is the user responsabilite of frees the returned pointer 
+\end{DoxyWarning}
+
+
+Implements \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{qsbd\+::quantile\+\_\+sketch$<$ int $>$}}.
+
+
+
+Definition at line 334 of file q\+\_\+digest.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{334                                                                  \{}
+\DoxyCodeLine{335         \mbox{\hyperlink{classq__digest}{q\_digest}}\& rhs\_cv = \textcolor{keyword}{dynamic\_cast<}\mbox{\hyperlink{classq__digest}{q\_digest}}\&\textcolor{keyword}{>} (rhs);}
+\DoxyCodeLine{336 }
+\DoxyCodeLine{337         \textcolor{keywordflow}{if} (this-\/>universe != rhs\_cv.universe or (this-\/>error -\/ rhs\_cv.error > 1e-\/6))\{}
+\DoxyCodeLine{338             \textcolor{keywordflow}{throw} merge\_error();}
+\DoxyCodeLine{339         \}}
+\DoxyCodeLine{340 }
+\DoxyCodeLine{341         \mbox{\hyperlink{classq__digest}{q\_digest}}* merged\_qdst = \textcolor{keyword}{new} \mbox{\hyperlink{classqsbd_1_1q__digest_a5836b79fcd15d45326b5465ae8ed1c3f}{q\_digest}}(this-\/>error, this-\/>universe);}
+\DoxyCodeLine{342 }
+\DoxyCodeLine{343         merged\_qdst-\/>total\_weight = this-\/>total\_weight + rhs\_cv.total\_weight;}
+\DoxyCodeLine{344         merged\_qdst-\/>capacity = (merged\_qdst-\/>error * merged\_qdst-\/>total\_weight) / log2(merged\_qdst-\/>universe);}
+\DoxyCodeLine{345         merged\_qdst-\/>transfered\_buffer = \textcolor{keyword}{true};}
+\DoxyCodeLine{346         merged\_qdst-\/>ceil\_weight = 2 * merged\_qdst-\/>total\_weight;}
+\DoxyCodeLine{347 }
+\DoxyCodeLine{348         this-\/>transfer\_buffer\_to\_tree();}
+\DoxyCodeLine{349         rhs\_cv.transfer\_buffer\_to\_tree();}
+\DoxyCodeLine{350 }
+\DoxyCodeLine{351         merged\_qdst-\/>private\_merge(this-\/>tree, rhs\_cv.tree, 0, 0, 0);}
+\DoxyCodeLine{352 }
+\DoxyCodeLine{353         merged\_qdst-\/>compress();}
+\DoxyCodeLine{354 }
+\DoxyCodeLine{355         \textcolor{keywordflow}{return} merged\_qdst;}
+\DoxyCodeLine{356     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classqsbd_1_1q__digest_a50335e2e3f9d062c33c8aab6b9c2fb32}\label{classqsbd_1_1q__digest_a50335e2e3f9d062c33c8aab6b9c2fb32}} 
+\index{qsbd::q\_digest@{qsbd::q\_digest}!print@{print}}
+\index{print@{print}!qsbd::q\_digest@{qsbd::q\_digest}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily void q\+\_\+digest\+::print (\begin{DoxyParamCaption}\item[{int}]{indent = {\ttfamily 0} }\end{DoxyParamCaption}) const}
+
+
+
+Prints the Tree structure of the class on the standard output (std\+::cout) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em indent} & The indentation on print \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 294 of file q\+\_\+digest.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{294                                          \{}
+\DoxyCodeLine{295         this-\/>private\_print(0, indent);}
+\DoxyCodeLine{296     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classqsbd_1_1q__digest_ade7168cd70f94767678988531ea30414}\label{classqsbd_1_1q__digest_ade7168cd70f94767678988531ea30414}} 
+\index{qsbd::q\_digest@{qsbd::q\_digest}!query@{query}}
+\index{query@{query}!qsbd::q\_digest@{qsbd::q\_digest}}
+\doxysubsubsection{\texorpdfstring{query()}{query()}}
+{\footnotesize\ttfamily int q\+\_\+digest\+::query (\begin{DoxyParamCaption}\item[{int}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Query the rank of the element {\ttfamily x}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The element to be queried \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The estimated rank for {\ttfamily x} 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+All ranks will be int values, and $query(x) \leq rank(x) \leq query(x) + \epsilon * W$ 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{qsbd\+::quantile\+\_\+sketch$<$ int $>$}}.
+
+
+
+Definition at line 318 of file q\+\_\+digest.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{318                             \{}
+\DoxyCodeLine{319         \textcolor{keywordflow}{if} (x >= universe)\{}
+\DoxyCodeLine{320             DEBUG\_ERR(\textcolor{stringliteral}{"{}On q\_digest::update value first parameter 'x' is greater then the universe range"{}});}
+\DoxyCodeLine{321 }
+\DoxyCodeLine{322             \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{323         \}}
+\DoxyCodeLine{324 }
+\DoxyCodeLine{325         \textcolor{keywordflow}{if}((total\_weight < (log2(universe) / error)) and not transfered\_buffer) \textcolor{keywordflow}{return} query\_from\_buffer(x);}
+\DoxyCodeLine{326         \textcolor{keywordflow}{else} \textcolor{keywordflow}{return} private\_query(x);}
+\DoxyCodeLine{327     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classqsbd_1_1q__digest_a995cd3e871d7cc1d2f4d34fc7b5aecc8}\label{classqsbd_1_1q__digest_a995cd3e871d7cc1d2f4d34fc7b5aecc8}} 
+\index{qsbd::q\_digest@{qsbd::q\_digest}!update@{update}}
+\index{update@{update}!qsbd::q\_digest@{qsbd::q\_digest}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void q\+\_\+digest\+::update (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{weight }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Inserts a element {\ttfamily x} with weigth {\ttfamily weight}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The element to be inserted \\
+\hline
+{\em weight} & The weight of this element \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+The insertion will be in $O(log(U))$ 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{qsbd\+::quantile\+\_\+sketch$<$ int $>$}}.
+
+
+
+Definition at line 302 of file q\+\_\+digest.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{302                                           \{}
+\DoxyCodeLine{303         \textcolor{keywordflow}{if} (x >= universe)\{}
+\DoxyCodeLine{304             DEBUG\_ERR(\textcolor{stringliteral}{"{}On q\_digest::update value first parameter 'x' is greater then the universe range"{}});}
+\DoxyCodeLine{305 }
+\DoxyCodeLine{306             \textcolor{keywordflow}{return};}
+\DoxyCodeLine{307         \}}
+\DoxyCodeLine{308 }
+\DoxyCodeLine{309         \textcolor{keywordflow}{if}((total\_weight < (log2(universe) / error)) and not transfered\_buffer)\{}
+\DoxyCodeLine{310             insert\_in\_buffer(x, weight);}
+\DoxyCodeLine{311 }
+\DoxyCodeLine{312             \textcolor{keywordflow}{if}(total\_weight >= (log2(universe) / error)) transfer\_buffer\_to\_tree();}
+\DoxyCodeLine{313         \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{314             private\_update(x, weight);}
+\DoxyCodeLine{315         \}}
+\DoxyCodeLine{316     \}   }
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/q\+\_\+digest/\mbox{\hyperlink{q__digest_8h}{q\+\_\+digest.\+h}}\item 
+src/q\+\_\+digest/q\+\_\+digest.\+cpp\end{DoxyCompactItemize}

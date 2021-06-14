@@ -1,0 +1,78 @@
+\hypertarget{classqsbd_1_1dcs}{}\doxysection{qsbd\+::dcs Class Reference}
+\label{classqsbd_1_1dcs}\index{qsbd::dcs@{qsbd::dcs}}
+Inheritance diagram for qsbd\+::dcs\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classqsbd_1_1dcs}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classqsbd_1_1dcs_a3e61f9233679a751187e6fc6a8a22eeb}\label{classqsbd_1_1dcs_a3e61f9233679a751187e6fc6a8a22eeb}} 
+{\bfseries dcs} (double err, int univ)
+\item 
+\mbox{\Hypertarget{classqsbd_1_1dcs_a455c4c01b0972de56fa5bdca7fd82c29}\label{classqsbd_1_1dcs_a455c4c01b0972de56fa5bdca7fd82c29}} 
+{\bfseries dcs} (double err, int univ, const std\+::vector$<$ std\+::vector$<$ std\+::vector$<$ int $>$$>$$>$ \&hashs\+\_\+consts)
+\item 
+\mbox{\Hypertarget{classqsbd_1_1dcs_a156b262c353702c45314cc8a12eafa9a}\label{classqsbd_1_1dcs_a156b262c353702c45314cc8a12eafa9a}} 
+void {\bfseries update} (int x, int weight) override
+\item 
+\mbox{\Hypertarget{classqsbd_1_1dcs_acdb1bcb6b35ce55084fe2b0ed673672f}\label{classqsbd_1_1dcs_acdb1bcb6b35ce55084fe2b0ed673672f}} 
+int {\bfseries query} (int x) override
+\item 
+\mbox{\Hypertarget{classqsbd_1_1dcs_acd06f01bc3561d7231ed2dbf20f89241}\label{classqsbd_1_1dcs_acd06f01bc3561d7231ed2dbf20f89241}} 
+int {\bfseries quantile} (double quant) override
+\item 
+\mbox{\Hypertarget{classqsbd_1_1dcs_a9916003b7f514ed84f7298c5faa53d84}\label{classqsbd_1_1dcs_a9916003b7f514ed84f7298c5faa53d84}} 
+\mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$ int $>$ $\ast$ {\bfseries merge} (\mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$ int $>$ \&rhs) override
+\item 
+\mbox{\Hypertarget{classqsbd_1_1dcs_a524fea14527f34c75a0280c0fc32ddb4}\label{classqsbd_1_1dcs_a524fea14527f34c75a0280c0fc32ddb4}} 
+void {\bfseries inner\+\_\+merge} (\mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$ int $>$ \&rhs) override
+\item 
+\mbox{\Hypertarget{classqsbd_1_1dcs_af4603f6a42c7d76ebca1b27610b3e3c7}\label{classqsbd_1_1dcs_af4603f6a42c7d76ebca1b27610b3e3c7}} 
+std\+::vector$<$ \mbox{\hyperlink{classqsbd_1_1count__sketch}{count\+\_\+sketch}} $>$ {\bfseries get\+\_\+estimators} () const
+\item 
+\mbox{\Hypertarget{classqsbd_1_1dcs_ae90f6c1529970340ebf81f742a134cf9}\label{classqsbd_1_1dcs_ae90f6c1529970340ebf81f742a134cf9}} 
+int {\bfseries get\+\_\+tree\+\_\+lvl} () const
+\item 
+\mbox{\Hypertarget{classqsbd_1_1dcs_ac3e7f7acd39ee045b210835fe738e0c4}\label{classqsbd_1_1dcs_ac3e7f7acd39ee045b210835fe738e0c4}} 
+int {\bfseries get\+\_\+w} () const
+\item 
+\mbox{\Hypertarget{classqsbd_1_1dcs_a03ac0ca2dfe2ef845740ef7703917815}\label{classqsbd_1_1dcs_a03ac0ca2dfe2ef845740ef7703917815}} 
+int {\bfseries get\+\_\+d} () const
+\item 
+\mbox{\Hypertarget{classqsbd_1_1dcs_adce16c360cef3b1f78de2cce57e8643f}\label{classqsbd_1_1dcs_adce16c360cef3b1f78de2cce57e8643f}} 
+int {\bfseries get\+\_\+s} () const
+\item 
+\mbox{\Hypertarget{classqsbd_1_1dcs_a0b3f0288db8a427fdebcf49712a1958a}\label{classqsbd_1_1dcs_a0b3f0288db8a427fdebcf49712a1958a}} 
+double {\bfseries get\+\_\+error} () const
+\item 
+\mbox{\Hypertarget{classqsbd_1_1dcs_a5faa2e080c48e4c498d6f0e0965aa0d7}\label{classqsbd_1_1dcs_a5faa2e080c48e4c498d6f0e0965aa0d7}} 
+int {\bfseries get\+\_\+universe} () const
+\item 
+\mbox{\Hypertarget{classqsbd_1_1dcs_a82226679f587bbef7e46e3870722e54b}\label{classqsbd_1_1dcs_a82226679f587bbef7e46e3870722e54b}} 
+int {\bfseries get\+\_\+total\+\_\+weight} () const
+\item 
+\mbox{\Hypertarget{classqsbd_1_1dcs_a3682a76c8459a9079b5221cb10364e6d}\label{classqsbd_1_1dcs_a3682a76c8459a9079b5221cb10364e6d}} 
+std\+::vector$<$ std\+::vector$<$ std\+::vector$<$ int $>$ $>$ $>$ {\bfseries get\+\_\+count\+\_\+sketchs\+\_\+hash\+\_\+functions\+\_\+constants} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classqsbd_1_1dcs_a5e73ef1e22329994fd6cf1e68dc0d849}\label{classqsbd_1_1dcs_a5e73ef1e22329994fd6cf1e68dc0d849}} 
+class {\bfseries dcs\+\_\+factory}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 13 of file dcs.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/dcs/dcs.\+h\item 
+src/dcs/dcs.\+cpp\end{DoxyCompactItemize}
