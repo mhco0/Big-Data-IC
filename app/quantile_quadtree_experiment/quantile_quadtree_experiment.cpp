@@ -42,7 +42,7 @@ json q_digest_test(const vector<pair<pair<int, int>, pair<double, double>>>& str
         update_once.end();
 
         update_time_acc += update_once.count();
-        if (i == (j - 1) or i == ((j - 1) / 2)){
+        if ((i > 100000) and (i == (j - 1) or i == ((j - 1) / 2))){
             double avg_update_time = update_time_acc / (i + 1);
             loop_info["time"][string("update_time_acc_") + to_string(i + 1)] = update_time_acc;
             loop_info["time"][string("avg_update_time_") + to_string(i + 1)] = avg_update_time;
@@ -86,9 +86,10 @@ json q_digest_test(const vector<pair<pair<int, int>, pair<double, double>>>& str
 
             qsbd::mem_track::track_list_memory_usage(loop_info[string("memory_") + to_string(i + 1)]);
 
-            if(i == (j - 1)){
-                j *= 10;
-            }
+        }
+        
+        if(i == (j - 1)){
+            j *= 10;
         }
     }
 
@@ -122,7 +123,7 @@ json kll_test(const vector<pair<int, pair<double, double>>>& stream, const vecto
         update_once.end();
 
         update_time_acc += update_once.count();
-        if (i == (j - 1) or i == ((j - 1) / 2)){
+        if ((i > 100000) and (i == (j - 1) or i == ((j - 1) / 2))){
             double avg_update_time = update_time_acc / (i + 1);
             loop_info["time"][string("update_time_acc_") + to_string(i + 1)] = update_time_acc;
             loop_info["time"][string("avg_update_time_") + to_string(i + 1)] = avg_update_time;
@@ -166,9 +167,10 @@ json kll_test(const vector<pair<int, pair<double, double>>>& stream, const vecto
 
             qsbd::mem_track::track_list_memory_usage(loop_info[string("memory_") + to_string(i + 1)]);
 
-            if(i == (j - 1)){
-                j *= 10;
-            }
+        }
+        
+        if(i == (j - 1)){
+            j *= 10;
         }
     }
 
@@ -202,7 +204,7 @@ json dcs_test(const vector<pair<pair<int, int>, pair<double, double>>>& stream, 
         update_once.end();
 
         update_time_acc += update_once.count();
-        if (i == (j - 1) or i == ((j - 1) / 2)){
+        if ((i > 100000) and (i == (j - 1) or i == ((j - 1) / 2))){
             double avg_update_time = update_time_acc / (i + 1);
             loop_info["time"][string("update_time_acc_") + to_string(i + 1)] = update_time_acc;
             loop_info["time"][string("avg_update_time_") + to_string(i + 1)] = avg_update_time;
@@ -246,9 +248,10 @@ json dcs_test(const vector<pair<pair<int, int>, pair<double, double>>>& stream, 
 
             qsbd::mem_track::track_list_memory_usage(loop_info[string("memory_") + to_string(i + 1)]);
 
-            if(i == (j - 1)){
-                j *= 10;
-            }
+        }
+        
+        if(i == (j - 1)){
+            j *= 10;
         }
     }
 
@@ -283,7 +286,7 @@ json gk_test(const vector<pair<int, pair<double, double>>>& stream, const vector
 
         update_time_acc += (double) update_once.count();
 
-        if (i == (j - 1) or i == ((j - 1) / 2)){
+        if ((i > 100000) and (i == (j - 1) or i == ((j - 1) / 2))){
             double avg_update_time = update_time_acc / (i + 1);
             loop_info["time"][string("update_time_acc_") + to_string(i + 1)] = update_time_acc;
             loop_info["time"][string("avg_update_time_") + to_string(i + 1)] = avg_update_time;
@@ -327,9 +330,10 @@ json gk_test(const vector<pair<int, pair<double, double>>>& stream, const vector
 
             qsbd::mem_track::track_list_memory_usage(loop_info[string("memory_") + to_string(i + 1)]);
 
-            if(i == (j - 1)){
-                j *= 10;
-            }
+        }
+        
+        if(i == (j - 1)){
+            j *= 10;
         }
     }
 
