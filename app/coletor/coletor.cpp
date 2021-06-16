@@ -12,11 +12,11 @@ using json = nlohmann::json;
 
 void x_label_by_stream_size(vector<int>& x_samples, int stream_sizes){
     for(int i = 0, j = 10; i < stream_sizes; i++){
-        if (i == (j - 1) or i == ((j - 1) / 2)){
+        if((i > 100000) and (i == (j - 1) or i == ((j - 1) / 2))){
             x_samples.push_back((i + 1));
-            if(i == (j - 1)){
-                j *= 10;
-            }
+        }
+        if(i == (j - 1)){
+            j *= 10;
         }
     }
 }
@@ -51,14 +51,14 @@ void construct_time_summary(const string& test_name, const json& info, vector<do
 
 void query_time_summary(const string& test_name, const json& info, vector<double>& y_samples, int stream_sizes){
     for(int i = 0, j = 10; i < stream_sizes; i++){
-        if (i == (j - 1) or i == ((j - 1) / 2)){
+        if((i > 100000) and (i == (j - 1) or i == ((j - 1) / 2))){
             double avg_query_time = info[test_name]["time"][string("avg_query_time_") + to_string(i + 1)].get<double>();
             
             y_samples.push_back(avg_query_time);
-            
-            if(i == (j - 1)){
-                j *= 10;
-            }
+        }
+
+        if(i == (j - 1)){
+            j *= 10;
         }
     }
 }
@@ -179,7 +179,7 @@ int main(int argc, char* argv[]){
 
         string file = file_prefix;
 
-        file += (to_string(stream_sizes) + "_" + args[2] + "_2.json");
+        file += (to_string(stream_sizes) + "_" + args[2] + ".json");
 
         ifstream infos(file);
 

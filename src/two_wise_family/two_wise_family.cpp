@@ -5,7 +5,7 @@ namespace qsbd {
     two_wise_family::two_wise_family(int universe){
         this->big_prim = nextPrime(universe);
 
-        std::uniform_int_distribution<int> distribution(1, this->big_prim - 1);
+        std::uniform_int_distribution<int> distribution(0, this->big_prim - 1);
 
         this->universe = universe;
         this->constants[0] = distribution(generator);

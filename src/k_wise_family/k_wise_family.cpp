@@ -5,7 +5,7 @@ namespace qsbd {
     k_wise_family::k_wise_family(int k, int universe){
         this->big_prim = nextPrime(universe);
 
-        std::uniform_int_distribution<int> distribution(1, this->big_prim - 1);
+        std::uniform_int_distribution<int> distribution(0, this->big_prim - 1);
 
         this->_k = k;
         this->universe = universe;
@@ -44,10 +44,10 @@ namespace qsbd {
     }
 
     int k_wise_family::operator() (int elem) {
-        int parse_sum = 0LL;
+        int parse_sum = 0;
 
         for(int i = 0; i < this->_k; i++){
-            int exp_x = 1LL;
+            int exp_x = 1;
 
             for(int j = 0; j < i; j++){
                 exp_x = exp_x * elem;

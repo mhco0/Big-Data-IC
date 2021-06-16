@@ -9,7 +9,7 @@ int main(int argc, char* argv[]){
 
     double error = stod(args[0]);
     int universe = stod(args[1]);
-    int stream_size = 100000;
+    int stream_size = 1000;
     int attempts = 100;
     vector<pair<int, int>> stream = stream_maker::random_int_stream_with_weight(stream_size, 0, universe - 1, 1, 50);
     int total_weight = stream_maker::weight_from_stream(stream);
@@ -36,6 +36,7 @@ int main(int argc, char* argv[]){
         delete test;
     }
 
+
     if(args.size() == 3){
         if(args[2] == "-diff"){
             cout << error * total_weight << endl;
@@ -44,8 +45,9 @@ int main(int argc, char* argv[]){
                 cout << i << " " << (double) (app_ranks[i] - error * total_weight) << " " << real_ranks[i] << " " << (double) (app_ranks[i] + error * total_weight) << endl;
             }
         }else if(args[2] == "-fail"){
-            for(auto& it : fails){
-                cout << it / 100.0 << " " << (double) (error / log(universe)) << endl;
+
+            for(int i = 0; i < fails.size(); i++){
+                cout << i << " " << fails[i] / (double)(stream.size() * attempts) << " " << (double) (error / log(universe)) << endl;
             }
         }
     }
