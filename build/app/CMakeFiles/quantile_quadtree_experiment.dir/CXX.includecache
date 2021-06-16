@@ -51,8 +51,8 @@ limits
 ../src/global_generator/global_generator.h
 ../commum_header/commum_header.h
 ../src/commum_header/commum_header.h
-../k_wise_family/k_wise_family.h
-../src/k_wise_family/k_wise_family.h
+../two_wise_family/two_wise_family.h
+../src/two_wise_family/two_wise_family.h
 
 ../src/dcs/dcs.h
 ../commum_header/commum_header.h
@@ -93,16 +93,6 @@ chrono
 -
 random
 -
-
-../src/k_wise_family/k_wise_family.h
-../commum_header/commum_header.h
-../src/commum_header/commum_header.h
-../global_generator/global_generator.h
-../src/global_generator/global_generator.h
-../utils/utils.h
-../src/utils/utils.h
-../qsbd_debug/qsbd_debug.h
-../src/qsbd_debug/qsbd_debug.h
 
 ../src/kll/kll.hpp
 ../commum_header/commum_header.h
@@ -197,6 +187,16 @@ iostream
 ../src/timer/timer.h
 chrono
 -
+
+../src/two_wise_family/two_wise_family.h
+../commum_header/commum_header.h
+../src/commum_header/commum_header.h
+../global_generator/global_generator.h
+../src/global_generator/global_generator.h
+../utils/utils.h
+../src/utils/utils.h
+../qsbd_debug/qsbd_debug.h
+../src/qsbd_debug/qsbd_debug.h
 
 ../src/utils/utils.h
 algorithm

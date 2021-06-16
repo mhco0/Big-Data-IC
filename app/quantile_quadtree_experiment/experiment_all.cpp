@@ -19,7 +19,7 @@ int main(int argc, char* argv[]){
     int max_deep = 10;
     int stream_sizes = 10000000;
     double error = 0.3;
-    int universe = 16384;
+    int universe = 1024;
     
     if(args.size() != 2){
         DEBUG_ERR("You need to pass the test name and the option for the stream\n Ex [gk/ kll/ q_digest/ dcs] [-c/ -cw/ -u/ -uw]");
@@ -46,7 +46,7 @@ int main(int argc, char* argv[]){
         return -1;
     }
 
-    for(int deep = 10; deep <= max_deep; deep += 5){
+    for(int deep = 5; deep <= max_deep; deep += 5){
         json config = json::object();
 
         ofstream temp_config(temp_file);
@@ -71,7 +71,7 @@ int main(int argc, char* argv[]){
 
         for(int i = stream_sizes; i <= stream_sizes; i *= 10){
             string stream_file = stream_file_prefix + to_string(i) + ".json";
-            string query_file = query_file_prefix + to_string(i) + ".json";
+            string query_file = query_file_prefix + to_string(i) + "_uniform.json";
             string output_file = output_file_prefix + to_string(i) + "_" + to_string(deep) + ".json";
 
             DEBUG(stream_file);

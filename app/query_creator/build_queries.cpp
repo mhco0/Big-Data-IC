@@ -14,8 +14,8 @@ int main(int argc, char* argv[]){
     string temp_file = "config_temp.json";
     vector<double> bounds = {0.0, 0.0, 1280.0, 720.0};
     int initial_value = 0;
-    int final_value = 10000;
-    int step = 100;
+    int final_value = 1000;
+    int step = 10;
     int stream_sizes = 10000000;
 
     json config = json::object();
@@ -26,10 +26,10 @@ int main(int argc, char* argv[]){
     config["search_bound"] = bounds;
 
     for(int i = stream_sizes; i <= stream_sizes; i *= 10){
-        final_value = min(i, 10000);
+        final_value = min(i, 1000);
         config["queries"]["rank"]["final_value"] = final_value;
 
-        string data_file_name = "query_" + to_string(i) + ".json";
+        string data_file_name = "query_" + to_string(i) + "_uniform.json";
         data_file_name = output_path + data_file_name;
         
         ofstream temp_config(temp_file);

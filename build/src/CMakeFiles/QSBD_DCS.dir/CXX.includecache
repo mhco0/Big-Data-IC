@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/commum_header/commum_header.h
+/home/mhco/projects/Big-Data-IC/src/commum_header/commum_header.h
 iostream
 -
 fstream
@@ -38,55 +38,55 @@ exception
 limits
 -
 
-/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/count_sketch/count_sketch.h
+/home/mhco/projects/Big-Data-IC/src/count_sketch/count_sketch.h
 ../qsbd_debug/qsbd_debug.h
-/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/qsbd_debug/qsbd_debug.h
+/home/mhco/projects/Big-Data-IC/src/qsbd_debug/qsbd_debug.h
 ../global_generator/global_generator.h
-/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/global_generator/global_generator.h
+/home/mhco/projects/Big-Data-IC/src/global_generator/global_generator.h
 ../commum_header/commum_header.h
-/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/commum_header/commum_header.h
+/home/mhco/projects/Big-Data-IC/src/commum_header/commum_header.h
 ../two_wise_family/two_wise_family.h
-/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/two_wise_family/two_wise_family.h
+/home/mhco/projects/Big-Data-IC/src/two_wise_family/two_wise_family.h
 
-/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/dcs/dcs.cpp
+/home/mhco/projects/Big-Data-IC/src/dcs/dcs.cpp
 dcs.h
-/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/dcs/dcs.h
+/home/mhco/projects/Big-Data-IC/src/dcs/dcs.h
 
-/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/dcs/dcs.h
+/home/mhco/projects/Big-Data-IC/src/dcs/dcs.h
 ../commum_header/commum_header.h
-/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/commum_header/commum_header.h
+/home/mhco/projects/Big-Data-IC/src/commum_header/commum_header.h
 ../global_generator/global_generator.h
-/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/global_generator/global_generator.h
+/home/mhco/projects/Big-Data-IC/src/global_generator/global_generator.h
 ../count_sketch/count_sketch.h
-/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/count_sketch/count_sketch.h
+/home/mhco/projects/Big-Data-IC/src/count_sketch/count_sketch.h
 ../quantile_sketch/quantile_sketch.hpp
-/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/quantile_sketch/quantile_sketch.hpp
+/home/mhco/projects/Big-Data-IC/src/quantile_sketch/quantile_sketch.hpp
 ../qsbd_debug/qsbd_debug.h
-/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/qsbd_debug/qsbd_debug.h
+/home/mhco/projects/Big-Data-IC/src/qsbd_debug/qsbd_debug.h
 
-/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/global_generator/global_generator.h
+/home/mhco/projects/Big-Data-IC/src/global_generator/global_generator.h
 chrono
 -
 random
 -
 
-/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/qsbd_debug/qsbd_debug.h
+/home/mhco/projects/Big-Data-IC/src/qsbd_debug/qsbd_debug.h
 iostream
 -
 
-/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/quantile_sketch/quantile_sketch.hpp
+/home/mhco/projects/Big-Data-IC/src/quantile_sketch/quantile_sketch.hpp
 
-/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/two_wise_family/two_wise_family.h
+/home/mhco/projects/Big-Data-IC/src/two_wise_family/two_wise_family.h
 ../commum_header/commum_header.h
-/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/commum_header/commum_header.h
+/home/mhco/projects/Big-Data-IC/src/commum_header/commum_header.h
 ../global_generator/global_generator.h
-/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/global_generator/global_generator.h
+/home/mhco/projects/Big-Data-IC/src/global_generator/global_generator.h
 ../utils/utils.h
-/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/utils/utils.h
+/home/mhco/projects/Big-Data-IC/src/utils/utils.h
 ../qsbd_debug/qsbd_debug.h
-/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/qsbd_debug/qsbd_debug.h
+/home/mhco/projects/Big-Data-IC/src/qsbd_debug/qsbd_debug.h
 
-/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/utils/utils.h
+/home/mhco/projects/Big-Data-IC/src/utils/utils.h
 algorithm
 -
 string

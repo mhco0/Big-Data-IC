@@ -346,6 +346,17 @@ json gk_test(const vector<pair<int, pair<double, double>>>& stream, const vector
 
 int main(int argc, char * argv[]){
     deque<string> args = qsbd::process_args(argc, argv);
+	vector<pair<int, vector<double>>> regions_to_search;
+	vector<pair<pair<int, int>, pair<double, double>>> stream_ww;
+	vector<pair<int, pair<double, double>>> stream;
+    json out_info;
+	string sketch_to_test;
+	int depth;
+	int universe;
+	double error;
+	double bounds[4] = {0.0, 0.0, 0.0, 0.0};
+	int discrete_bounds[4] = {0, 0, 0, 0};
+	
 
     if(args.size() != 4){
         DEBUG_ERR("You need to pass 3 json files and 1 output file. ex: [stream] [querys] [config] [output]");
@@ -361,94 +372,92 @@ int main(int argc, char * argv[]){
     cout << "Parsing Files...";
     cout.flush();
 
-	ifstream stream_file(args[0]);
-	if(not stream_file.is_open()){
-		DEBUG_ERR("Coulnd't open stream file");		
+	{
+		ifstream stream_file(args[0]);
+		if(not stream_file.is_open()){
+			DEBUG_ERR("Coulnd't open stream file");		
 
-		return -1;
-	}
+			return -1;
+		}
 
-	ifstream query_file(args[1]);
-	if(not query_file.is_open()){
-		stream_file.close();
-		DEBUG_ERR("Couldn't open query file");
+		ifstream query_file(args[1]);
+		if(not query_file.is_open()){
+			stream_file.close();
+			DEBUG_ERR("Couldn't open query file");
 		
-		return -1;
-	}
+			return -1;
+		}
 
-	ifstream test_file(args[2]);
-	if(not test_file.is_open()){
+		ifstream test_file(args[2]);
+		if(not test_file.is_open()){
+			stream_file.close();
+			query_file.close();
+			DEBUG_ERR("Couldn't	open test file");
+
+			return -1;
+		}
+
+    	json stream_json = json::parse(stream_file);
+    	json query_json = json::parse(query_file);
+    	json test_json = json::parse(test_file);
+
+    	cout << "Done." << endl;
+
 		stream_file.close();
 		query_file.close();
-		DEBUG_ERR("Couldn't	open test file");
+		test_file.close();
 
-		return -1;
-	}
-
-    json stream_json = json::parse(stream_file);
-    json query_json = json::parse(query_file);
-    json test_json = json::parse(test_file);
-    json out_info;
-
-    cout << "Done." << endl;
-
-	stream_file.close();
-	query_file.close();
-	test_file.close();
-
-    string sketch_to_test = test_json["sketch"]["type"].get<string>();
-    int depth  = test_json["deep"].get<int>();
-    double error = test_json["sketch"]["error"].get<double>();
-    double bounds[4] = {0, 0, 0, 0};
-    int discrete_bounds[4] = {0, 0, 0, 0};
+    	sketch_to_test = test_json["sketch"]["type"].get<string>();
+    	depth  = test_json["deep"].get<int>();
+    	error = test_json["sketch"]["error"].get<double>();
     
-	cout << "Using bounds : " << endl;
-    for(auto& it : test_json["bound_box"].items()){
-        bounds[stoi(it.key())] = it.value();
-		cout << it.value() << " ";
-    }
-	cout << endl;
+		cout << "Using bounds : " << endl;
+    	for(auto& it : test_json["bound_box"].items()){
+        	bounds[stoi(it.key())] = it.value();
+			cout << it.value() << " ";
+    	}
+		cout << endl;
 
-	cout << "Discrete bounds : " << endl;
-    for(int i = 0; i < 4; i++){
-        // 0 -> 0 2
-        // 1 -> 1 3
-        // 2 -> 0 2 
-        // 3 -> 1 3
-        if(i & 1){
-            discrete_bounds[i] = qsbd::map_coord(bounds[i], bounds[1], bounds[3], depth);
-        }else{
-            discrete_bounds[i] = qsbd::map_coord(bounds[i], bounds[0], bounds[2], depth);
-        }
+		cout << "Discrete bounds : " << endl;
+    	for(int i = 0; i < 4; i++){
+        	// 0 -> 0 2
+        	// 1 -> 1 3
+        	// 2 -> 0 2 
+        	// 3 -> 1 3
+        	if(i & 1){
+            	discrete_bounds[i] = qsbd::map_coord(bounds[i], bounds[1], bounds[3], depth);
+        	}else{
+            	discrete_bounds[i] = qsbd::map_coord(bounds[i], bounds[0], bounds[2], depth);
+        	}
 
-		cout << discrete_bounds[i] << " ";
-    }
-	cout << endl;
+			cout << discrete_bounds[i] << " ";
+    	}
+		cout << endl;
 	
-    vector<pair<int, vector<double>>> regions_to_search = query_json["queries"]["rank"].get<vector<pair<int, vector<double>>>>();
+    	regions_to_search = query_json["queries"]["rank"].get<vector<pair<int, vector<double>>>>();
 
-    cout << "Sketch used : " << sketch_to_test << endl;
+
+		if(sketch_to_test == "q_digest" or sketch_to_test == "dcs"){
+   			stream_ww = stream_json["stream"].get<vector<pair<pair<int, int>, pair<double, double>>>>();
+			universe = test_json["sketch"]["universe"].get<int>();
+		}else{
+			stream = stream_json["stream"].get<vector<pair<int, pair<double, double>>>>();
+		}
+	}
+    
+	cout << "Sketch used : " << sketch_to_test << endl;
 
 	if(sketch_to_test == "q_digest" or sketch_to_test == "dcs"){
-    	vector<pair<pair<int, int>, pair<double, double>>> stream = stream_json["stream"];
-		int universe = test_json["sketch"]["universe"].get<int>();
 	
-		stream_json.~json();
-		query_json.~json();
-		test_json.~json();
 		cout << "Using error & universe : " << error << " " << universe << endl; 
     	cout << "Running Experiment..." << endl;
 		if(sketch_to_test == "dcs"){
-			out_info = dcs_test(stream, regions_to_search, error, universe, discrete_bounds, bounds, depth);
+			out_info = dcs_test(stream_ww, regions_to_search, error, universe, discrete_bounds, bounds, depth);
 		}else{
-			out_info = q_digest_test(stream, regions_to_search, error, universe, discrete_bounds, bounds, depth);
+			out_info = q_digest_test(stream_ww, regions_to_search, error, universe, discrete_bounds, bounds, depth);
 		}
 	}else if(sketch_to_test == "kll" or sketch_to_test == "gk"){
-    	vector<pair<int, pair<double, double>>> stream = stream_json["stream"];
 
-		stream_json.~json();
-		query_json.~json();
-		test_json.~json();
     	cout << "Using error : " << error << endl;
 		cout << "Running Experiment..." << endl;
 		if(sketch_to_test == "gk"){
