@@ -14,7 +14,7 @@ int main(int argc, char* argv[]){
     string output_file_prefix = "out/";
     int stream_sizes = 10000000;
 
-      if(args.size() != 2){
+	if(args.size() != 2){
         DEBUG_ERR("You need to pass the test name and the option for the stream\n Ex [gk/ kll/ q_digest/ dcs] [-c/ -cw/ -u/ -uw]");
         return -1;
     }
@@ -41,7 +41,7 @@ int main(int argc, char* argv[]){
 
     for(int i = stream_sizes; i <= stream_sizes; i *= 10){
         string stream_file = stream_file_prefix + to_string(i) + ".json";
-        string query_file = query_file_prefix + to_string(i) + ".json";
+        string query_file = query_file_prefix + to_string(i) + "_uniform.json";
         string output_file = output_file_prefix + to_string(i) +".json";
 
         DEBUG(stream_file);
