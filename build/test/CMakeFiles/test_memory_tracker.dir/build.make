@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC"
+CMAKE_SOURCE_DIR = /home/mhco/projects/Big-Data-IC
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build"
+CMAKE_BINARY_DIR = /home/mhco/projects/Big-Data-IC/build
 
 # Include any dependencies generated for this target.
 include test/CMakeFiles/test_memory_tracker.dir/depend.make
@@ -59,16 +59,16 @@ include test/CMakeFiles/test_memory_tracker.dir/flags.make
 
 test/CMakeFiles/test_memory_tracker.dir/test_memory_tracker.cpp.o: test/CMakeFiles/test_memory_tracker.dir/flags.make
 test/CMakeFiles/test_memory_tracker.dir/test_memory_tracker.cpp.o: ../test/test_memory_tracker.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object test/CMakeFiles/test_memory_tracker.dir/test_memory_tracker.cpp.o"
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && /bin/x86_64-linux-gnu-g++-9  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/test_memory_tracker.dir/test_memory_tracker.cpp.o -c "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_memory_tracker.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mhco/projects/Big-Data-IC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object test/CMakeFiles/test_memory_tracker.dir/test_memory_tracker.cpp.o"
+	cd /home/mhco/projects/Big-Data-IC/build/test && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/test_memory_tracker.dir/test_memory_tracker.cpp.o -c /home/mhco/projects/Big-Data-IC/test/test_memory_tracker.cpp
 
 test/CMakeFiles/test_memory_tracker.dir/test_memory_tracker.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test_memory_tracker.dir/test_memory_tracker.cpp.i"
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && /bin/x86_64-linux-gnu-g++-9 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_memory_tracker.cpp" > CMakeFiles/test_memory_tracker.dir/test_memory_tracker.cpp.i
+	cd /home/mhco/projects/Big-Data-IC/build/test && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mhco/projects/Big-Data-IC/test/test_memory_tracker.cpp > CMakeFiles/test_memory_tracker.dir/test_memory_tracker.cpp.i
 
 test/CMakeFiles/test_memory_tracker.dir/test_memory_tracker.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test_memory_tracker.dir/test_memory_tracker.cpp.s"
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && /bin/x86_64-linux-gnu-g++-9 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_memory_tracker.cpp" -o CMakeFiles/test_memory_tracker.dir/test_memory_tracker.cpp.s
+	cd /home/mhco/projects/Big-Data-IC/build/test && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mhco/projects/Big-Data-IC/test/test_memory_tracker.cpp -o CMakeFiles/test_memory_tracker.dir/test_memory_tracker.cpp.s
 
 # Object files for target test_memory_tracker
 test_memory_tracker_OBJECTS = \
@@ -79,13 +79,11 @@ test_memory_tracker_EXTERNAL_OBJECTS =
 
 bin/test_memory_tracker: test/CMakeFiles/test_memory_tracker.dir/test_memory_tracker.cpp.o
 bin/test_memory_tracker: test/CMakeFiles/test_memory_tracker.dir/build.make
-bin/test_memory_tracker: lib/libgtest_maind.a
 bin/test_memory_tracker: lib/libQSBD_SLT_MEMORY_TRACKER.a
 bin/test_memory_tracker: lib/libQSBD_MEMORY_TRACKER.a
 bin/test_memory_tracker: lib/libQSBD_DCS_FACTORY.a
 bin/test_memory_tracker: lib/libQSBD_QUANTILE_QUADTREE.a
 bin/test_memory_tracker: lib/libQSBD_UTILS.a
-bin/test_memory_tracker: lib/libgtestd.a
 bin/test_memory_tracker: lib/libnlohmann_json.a
 bin/test_memory_tracker: lib/libQSBD_SKETCH_FACTORY.a
 bin/test_memory_tracker: lib/libQSBD_DCS.a
@@ -99,8 +97,8 @@ bin/test_memory_tracker: lib/libQSBD_POINT.a
 bin/test_memory_tracker: lib/libQSBD_COMMUM_HEADER.a
 bin/test_memory_tracker: lib/libQSBD_DEBUG.a
 bin/test_memory_tracker: test/CMakeFiles/test_memory_tracker.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ../bin/test_memory_tracker"
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/test_memory_tracker.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/mhco/projects/Big-Data-IC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ../bin/test_memory_tracker"
+	cd /home/mhco/projects/Big-Data-IC/build/test && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/test_memory_tracker.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 test/CMakeFiles/test_memory_tracker.dir/build: bin/test_memory_tracker
@@ -108,10 +106,10 @@ test/CMakeFiles/test_memory_tracker.dir/build: bin/test_memory_tracker
 .PHONY : test/CMakeFiles/test_memory_tracker.dir/build
 
 test/CMakeFiles/test_memory_tracker.dir/clean:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" && $(CMAKE_COMMAND) -P CMakeFiles/test_memory_tracker.dir/cmake_clean.cmake
+	cd /home/mhco/projects/Big-Data-IC/build/test && $(CMAKE_COMMAND) -P CMakeFiles/test_memory_tracker.dir/cmake_clean.cmake
 .PHONY : test/CMakeFiles/test_memory_tracker.dir/clean
 
 test/CMakeFiles/test_memory_tracker.dir/depend:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC" "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test" "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test" "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test/CMakeFiles/test_memory_tracker.dir/DependInfo.cmake" --color=$(COLOR)
+	cd /home/mhco/projects/Big-Data-IC/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mhco/projects/Big-Data-IC /home/mhco/projects/Big-Data-IC/test /home/mhco/projects/Big-Data-IC/build /home/mhco/projects/Big-Data-IC/build/test /home/mhco/projects/Big-Data-IC/build/test/CMakeFiles/test_memory_tracker.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : test/CMakeFiles/test_memory_tracker.dir/depend
 

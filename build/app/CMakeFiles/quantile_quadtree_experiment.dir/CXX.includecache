@@ -137,6 +137,10 @@ stdlib.h
 -
 string.h
 -
+vector
+-
+list
+-
 algorithm
 -
 new

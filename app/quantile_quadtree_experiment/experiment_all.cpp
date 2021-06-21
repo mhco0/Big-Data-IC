@@ -74,7 +74,7 @@ int main(int argc, char* argv[]){
         for(int i = stream_sizes; i <= stream_sizes; i *= 10){
             string stream_file = stream_file_prefix + to_string(i) + ".json";
             string query_file = query_file_prefix + to_string(i) + "_uniform.json";
-            string output_file = output_file_prefix + to_string(i) + "_" + to_string(deep) + ".json";
+            string output_file = output_file_prefix + to_string(i) + "_" + to_string(deep) + "_leaf.json";
 
             DEBUG(stream_file);
             DEBUG(query_file);

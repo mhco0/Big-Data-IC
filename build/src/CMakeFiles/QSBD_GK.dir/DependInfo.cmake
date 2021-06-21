@@ -5,10 +5,10 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/QSBD_QUANTILE_SKETCH.dir/DependInfo.cmake"
-  "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/QSBD_COMMUM_HEADER.dir/DependInfo.cmake"
-  "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/QSBD_GLOBAL_GEN.dir/DependInfo.cmake"
-  "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/QSBD_DEBUG.dir/DependInfo.cmake"
+  "/home/mhco/projects/Big-Data-IC/build/src/CMakeFiles/QSBD_QUANTILE_SKETCH.dir/DependInfo.cmake"
+  "/home/mhco/projects/Big-Data-IC/build/src/CMakeFiles/QSBD_COMMUM_HEADER.dir/DependInfo.cmake"
+  "/home/mhco/projects/Big-Data-IC/build/src/CMakeFiles/QSBD_GLOBAL_GEN.dir/DependInfo.cmake"
+  "/home/mhco/projects/Big-Data-IC/build/src/CMakeFiles/QSBD_DEBUG.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

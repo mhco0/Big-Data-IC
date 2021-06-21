@@ -6,13 +6,13 @@
 
 #IncludeRegexTransform: 
 
-/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/memory_tracker/memory_tracker.cpp
+/home/mhco/projects/Big-Data-IC/src/memory_tracker/memory_tracker.cpp
 memory_tracker.h
-/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/memory_tracker/memory_tracker.h
+/home/mhco/projects/Big-Data-IC/src/memory_tracker/memory_tracker.h
 
-/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/memory_tracker/memory_tracker.h
+/home/mhco/projects/Big-Data-IC/src/memory_tracker/memory_tracker.h
 ../../thirdparty/nlohmann/json.hpp
-/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/thirdparty/nlohmann/json.hpp
+/home/mhco/projects/Big-Data-IC/thirdparty/nlohmann/json.hpp
 typeinfo
 -
 assert.h
@@ -32,7 +32,7 @@ algorithm
 new
 -
 
-/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/thirdparty/nlohmann/json.hpp
+/home/mhco/projects/Big-Data-IC/thirdparty/nlohmann/json.hpp
 algorithm
 -
 cstddef
