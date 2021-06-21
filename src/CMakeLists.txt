@@ -144,6 +144,11 @@ add_library(
     "logger/logger.cpp"
 )
 
+add_library(
+    QSBD_SLT_MEMORY_TRACKER
+    "stl_memory_tracker/stl_memory_tracker.hpp"
+)
+
 set(QSBD_LIBS
 
     QSBD_GLOBAL_GEN
@@ -172,6 +177,7 @@ set(QSBD_LIBS
     QSBD_QUADTREE
     QSBD_QUANTILE_QUADTREE
     QSBD_LOG
+    QSBD_SLT_MEMORY_TRACKER
 )
 
 

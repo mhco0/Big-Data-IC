@@ -4,19 +4,19 @@
 #include "../kll/kll.hpp"
 
 namespace qsbd {
-    template<class Type>
-    class kll_factory : public sketch_factory<Type>{
-    private:
-        double error;
-    public:
-        kll_factory(double err){
-            this->error = err;
-        }
+	template<class Type>
+	class kll_factory : public sketch_factory<Type>{
+	private:
+		double error;
+	public:
+		kll_factory(double err){
+			this->error = err;
+		}
 
-        quantile_sketch<Type> * instance() override {
-            return new kll<Type>(this->error);
-        }
-    };
+		quantile_sketch<Type> * instance() override {
+			return new kll<Type>(this->error);
+		}
+	};
 }
 
 #endif  

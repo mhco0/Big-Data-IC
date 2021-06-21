@@ -18,7 +18,7 @@ target_include_directories(test_stream_maker PRIVATE ${QSBD_DIR_SOURCE})
 add_test(NAME test_stream_maker COMMAND test_stream_maker)
 
 add_executable(test_memory_tracker test_memory_tracker.cpp)
-target_link_libraries(test_memory_tracker PRIVATE gtest_main QSBD_MEMORY_TRACKER QSBD_UTILS)
+target_link_libraries(test_memory_tracker PRIVATE gtest_main QSBD_SLT_MEMORY_TRACKER QSBD_MEMORY_TRACKER QSBD_DCS_FACTORY QSBD_QUANTILE_QUADTREE  QSBD_UTILS)
 target_include_directories(test_memory_tracker PRIVATE ${QSBD_DIR_SOURCE})
 add_test(NAME test_memory_tracker COMMAND test_memory_tracker)
 

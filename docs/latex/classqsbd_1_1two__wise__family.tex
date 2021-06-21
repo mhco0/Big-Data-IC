@@ -1,42 +1,313 @@
 \hypertarget{classqsbd_1_1two__wise__family}{}\doxysection{qsbd\+::two\+\_\+wise\+\_\+family Class Reference}
 \label{classqsbd_1_1two__wise__family}\index{qsbd::two\_wise\_family@{qsbd::two\_wise\_family}}
+
+
+A function class to represent functions from a 2-\/wise family.  
+
+
+
+
+{\ttfamily \#include $<$two\+\_\+wise\+\_\+family.\+h$>$}
+
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classqsbd_1_1two__wise__family_a76c400f1934cc2733cdf19c5928a4b60}\label{classqsbd_1_1two__wise__family_a76c400f1934cc2733cdf19c5928a4b60}} 
-{\bfseries two\+\_\+wise\+\_\+family} (int universe)
-\item 
-\mbox{\Hypertarget{classqsbd_1_1two__wise__family_a7fb87ac12d30a18421e78b126b004bb1}\label{classqsbd_1_1two__wise__family_a7fb87ac12d30a18421e78b126b004bb1}} 
-{\bfseries two\+\_\+wise\+\_\+family} (int universe, const std\+::vector$<$ int $>$ \&conf)
-\item 
-\mbox{\Hypertarget{classqsbd_1_1two__wise__family_a7c3f8fe8ede0fccd4cd5274e8a424fea}\label{classqsbd_1_1two__wise__family_a7c3f8fe8ede0fccd4cd5274e8a424fea}} 
-{\bfseries two\+\_\+wise\+\_\+family} (const \mbox{\hyperlink{classqsbd_1_1two__wise__family}{two\+\_\+wise\+\_\+family}} \&rhs)
-\item 
-\mbox{\Hypertarget{classqsbd_1_1two__wise__family_a5b96b0128427fabc03f2772c6452625a}\label{classqsbd_1_1two__wise__family_a5b96b0128427fabc03f2772c6452625a}} 
-int {\bfseries operator()} (int elem)
-\item 
-\mbox{\Hypertarget{classqsbd_1_1two__wise__family_aa5f8d48c22c080ad4e041ccb48e962dc}\label{classqsbd_1_1two__wise__family_aa5f8d48c22c080ad4e041ccb48e962dc}} 
-\mbox{\hyperlink{classqsbd_1_1two__wise__family}{two\+\_\+wise\+\_\+family}} \& {\bfseries operator=} (const \mbox{\hyperlink{classqsbd_1_1two__wise__family}{two\+\_\+wise\+\_\+family}} \&other)
-\item 
-\mbox{\Hypertarget{classqsbd_1_1two__wise__family_a09e2207513ed2132cbca64ce2b7daaf5}\label{classqsbd_1_1two__wise__family_a09e2207513ed2132cbca64ce2b7daaf5}} 
-std\+::vector$<$ int $>$ {\bfseries get\+\_\+constants} () const
-\item 
-\mbox{\Hypertarget{classqsbd_1_1two__wise__family_a628f790b93933c7716837d831d6daa17}\label{classqsbd_1_1two__wise__family_a628f790b93933c7716837d831d6daa17}} 
-int {\bfseries get\+\_\+universe} () const
-\item 
-\mbox{\Hypertarget{classqsbd_1_1two__wise__family_a71c2f9ed3a3c4000bc3bf70c59baa9fb}\label{classqsbd_1_1two__wise__family_a71c2f9ed3a3c4000bc3bf70c59baa9fb}} 
-int {\bfseries get\+\_\+k} () const
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{classqsbd_1_1two__wise__family_a615fe42cb36e06ee91d0993c39e75676}{two\+\_\+wise\+\_\+family}} ()=default
+\begin{DoxyCompactList}\small\item\em Constructs the \mbox{\hyperlink{classqsbd_1_1two__wise__family}{two\+\_\+wise\+\_\+family}} class using the default values given by the compilator. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classqsbd_1_1two__wise__family_a76c400f1934cc2733cdf19c5928a4b60}{two\+\_\+wise\+\_\+family}} (int universe)
+\begin{DoxyCompactList}\small\item\em Constructs the \mbox{\hyperlink{classqsbd_1_1two__wise__family}{two\+\_\+wise\+\_\+family}} class passing the {\ttfamily universe} of values. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classqsbd_1_1two__wise__family_a7fb87ac12d30a18421e78b126b004bb1}{two\+\_\+wise\+\_\+family}} (int universe, const std\+::vector$<$ int $>$ \&conf)
+\begin{DoxyCompactList}\small\item\em Constructs the \mbox{\hyperlink{classqsbd_1_1two__wise__family}{two\+\_\+wise\+\_\+family}} class passing the {\ttfamily universe} and {\ttfamily config} as the constant values. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classqsbd_1_1two__wise__family_a7c3f8fe8ede0fccd4cd5274e8a424fea}{two\+\_\+wise\+\_\+family}} (const \mbox{\hyperlink{classqsbd_1_1two__wise__family}{two\+\_\+wise\+\_\+family}} \&rhs)
+\begin{DoxyCompactList}\small\item\em Constructs the \mbox{\hyperlink{classqsbd_1_1two__wise__family}{two\+\_\+wise\+\_\+family}} class by copy constructor. Copys all information given by {\ttfamily rhs}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classqsbd_1_1two__wise__family_abe2b5c5f7c2f5bbd28c614ef4bae6f3c}\label{classqsbd_1_1two__wise__family_abe2b5c5f7c2f5bbd28c614ef4bae6f3c}} 
+\mbox{\hyperlink{classqsbd_1_1two__wise__family_abe2b5c5f7c2f5bbd28c614ef4bae6f3c}{$\sim$two\+\_\+wise\+\_\+family}} ()
+\begin{DoxyCompactList}\small\item\em Destructs the \mbox{\hyperlink{classqsbd_1_1two__wise__family}{two\+\_\+wise\+\_\+family}} instance. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classqsbd_1_1two__wise__family_a5b96b0128427fabc03f2772c6452625a}{operator()}} (int elem)
+\begin{DoxyCompactList}\small\item\em Calculates the value hashed of the {\ttfamily elem}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classqsbd_1_1two__wise__family}{two\+\_\+wise\+\_\+family}} \& \mbox{\hyperlink{classqsbd_1_1two__wise__family_aa5f8d48c22c080ad4e041ccb48e962dc}{operator=}} (const \mbox{\hyperlink{classqsbd_1_1two__wise__family}{two\+\_\+wise\+\_\+family}} \&other)
+\begin{DoxyCompactList}\small\item\em Assigns a \mbox{\hyperlink{classqsbd_1_1two__wise__family}{two\+\_\+wise\+\_\+family}} to another \mbox{\hyperlink{classqsbd_1_1two__wise__family}{two\+\_\+wise\+\_\+family}} instance {\ttfamily other}. \end{DoxyCompactList}\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{classqsbd_1_1two__wise__family_a09e2207513ed2132cbca64ce2b7daaf5}{get\+\_\+constants}} () const
+\begin{DoxyCompactList}\small\item\em Gets the constant values choosen by the user or by the algorithm. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classqsbd_1_1two__wise__family_a628f790b93933c7716837d831d6daa17}{get\+\_\+universe}} () const
+\begin{DoxyCompactList}\small\item\em Gets the universe of values choosen by the user on initialization. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classqsbd_1_1two__wise__family_a71c2f9ed3a3c4000bc3bf70c59baa9fb}{get\+\_\+k}} () const
+\begin{DoxyCompactList}\small\item\em Gets the K type of the family. Ex\+: if we have a 2-\/wise family, this should return 2. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
+A function class to represent functions from a 2-\/wise family. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classqsbd_1_1k__wise__family}{k\+\_\+wise\+\_\+family}} 
+\end{DoxySeeAlso}
 
 
-Definition at line 9 of file two\+\_\+wise\+\_\+family.\+h.
+Definition at line 24 of file two\+\_\+wise\+\_\+family.\+h.
 
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classqsbd_1_1two__wise__family_a615fe42cb36e06ee91d0993c39e75676}\label{classqsbd_1_1two__wise__family_a615fe42cb36e06ee91d0993c39e75676}} 
+\index{qsbd::two\_wise\_family@{qsbd::two\_wise\_family}!two\_wise\_family@{two\_wise\_family}}
+\index{two\_wise\_family@{two\_wise\_family}!qsbd::two\_wise\_family@{qsbd::two\_wise\_family}}
+\doxysubsubsection{\texorpdfstring{two\_wise\_family()}{two\_wise\_family()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily qsbd\+::two\+\_\+wise\+\_\+family\+::two\+\_\+wise\+\_\+family (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Constructs the \mbox{\hyperlink{classqsbd_1_1two__wise__family}{two\+\_\+wise\+\_\+family}} class using the default values given by the compilator. 
+
+\begin{DoxyWarning}{Warning}
+The instance won\textquotesingle{}t be initialize properly by just calling in this way. 
+\end{DoxyWarning}
+\mbox{\Hypertarget{classqsbd_1_1two__wise__family_a76c400f1934cc2733cdf19c5928a4b60}\label{classqsbd_1_1two__wise__family_a76c400f1934cc2733cdf19c5928a4b60}} 
+\index{qsbd::two\_wise\_family@{qsbd::two\_wise\_family}!two\_wise\_family@{two\_wise\_family}}
+\index{two\_wise\_family@{two\_wise\_family}!qsbd::two\_wise\_family@{qsbd::two\_wise\_family}}
+\doxysubsubsection{\texorpdfstring{two\_wise\_family()}{two\_wise\_family()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily two\+\_\+wise\+\_\+family\+::two\+\_\+wise\+\_\+family (\begin{DoxyParamCaption}\item[{int}]{universe }\end{DoxyParamCaption})}
+
+
+
+Constructs the \mbox{\hyperlink{classqsbd_1_1two__wise__family}{two\+\_\+wise\+\_\+family}} class passing the {\ttfamily universe} of values. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em universe} & The universe of values that the function will map \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 5 of file two\+\_\+wise\+\_\+family.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{5                                                 \{}
+\DoxyCodeLine{6         this-\/>big\_prim = nextPrime(universe);}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8         std::uniform\_int\_distribution<int> distribution(0, this-\/>big\_prim -\/ 1);}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10         this-\/>universe = universe;}
+\DoxyCodeLine{11         this-\/>constants[0] = distribution(generator);}
+\DoxyCodeLine{12         this-\/>constants[1] = distribution(generator);}
+\DoxyCodeLine{13     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classqsbd_1_1two__wise__family_a7fb87ac12d30a18421e78b126b004bb1}\label{classqsbd_1_1two__wise__family_a7fb87ac12d30a18421e78b126b004bb1}} 
+\index{qsbd::two\_wise\_family@{qsbd::two\_wise\_family}!two\_wise\_family@{two\_wise\_family}}
+\index{two\_wise\_family@{two\_wise\_family}!qsbd::two\_wise\_family@{qsbd::two\_wise\_family}}
+\doxysubsubsection{\texorpdfstring{two\_wise\_family()}{two\_wise\_family()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily two\+\_\+wise\+\_\+family\+::two\+\_\+wise\+\_\+family (\begin{DoxyParamCaption}\item[{int}]{universe,  }\item[{const std\+::vector$<$ int $>$ \&}]{conf }\end{DoxyParamCaption})}
+
+
+
+Constructs the \mbox{\hyperlink{classqsbd_1_1two__wise__family}{two\+\_\+wise\+\_\+family}} class passing the {\ttfamily universe} and {\ttfamily config} as the constant values. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em universe} & The universe of values that the function will map \\
+\hline
+{\em conf} & A vector of constant values to be used by the hash formula \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+None of the constant values should be 0, they need to be in the range \mbox{[}1, next\+Prim(universe)), otherwise the hash properties won\textquotesingle{}t be satisfied. 
+
+The vector of constants sould have size equal 2 
+\end{DoxyWarning}
+
+
+Definition at line 15 of file two\+\_\+wise\+\_\+family.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{15                                                                             \{}
+\DoxyCodeLine{16         this-\/>big\_prim = nextPrime(universe);}
+\DoxyCodeLine{17         this-\/>universe = universe;}
+\DoxyCodeLine{18     }
+\DoxyCodeLine{19         ASSERT(conf.size() == 2);}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21         this-\/>constants[0] = conf[0];}
+\DoxyCodeLine{22         this-\/>constants[1] = conf[1];}
+\DoxyCodeLine{23     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classqsbd_1_1two__wise__family_a7c3f8fe8ede0fccd4cd5274e8a424fea}\label{classqsbd_1_1two__wise__family_a7c3f8fe8ede0fccd4cd5274e8a424fea}} 
+\index{qsbd::two\_wise\_family@{qsbd::two\_wise\_family}!two\_wise\_family@{two\_wise\_family}}
+\index{two\_wise\_family@{two\_wise\_family}!qsbd::two\_wise\_family@{qsbd::two\_wise\_family}}
+\doxysubsubsection{\texorpdfstring{two\_wise\_family()}{two\_wise\_family()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily two\+\_\+wise\+\_\+family\+::two\+\_\+wise\+\_\+family (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classqsbd_1_1two__wise__family}{two\+\_\+wise\+\_\+family}} \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+Constructs the \mbox{\hyperlink{classqsbd_1_1two__wise__family}{two\+\_\+wise\+\_\+family}} class by copy constructor. Copys all information given by {\ttfamily rhs}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rhs} & A instance of another \mbox{\hyperlink{classqsbd_1_1two__wise__family}{two\+\_\+wise\+\_\+family}} \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 25 of file two\+\_\+wise\+\_\+family.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{25                                                               \{}
+\DoxyCodeLine{26         this-\/>big\_prim = rhs.big\_prim;}
+\DoxyCodeLine{27         this-\/>universe = rhs.universe;}
+\DoxyCodeLine{28         this-\/>constants[0] = rhs.constants[0];}
+\DoxyCodeLine{29         this-\/>constants[1] = rhs.constants[1];}
+\DoxyCodeLine{30     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classqsbd_1_1two__wise__family_a09e2207513ed2132cbca64ce2b7daaf5}\label{classqsbd_1_1two__wise__family_a09e2207513ed2132cbca64ce2b7daaf5}} 
+\index{qsbd::two\_wise\_family@{qsbd::two\_wise\_family}!get\_constants@{get\_constants}}
+\index{get\_constants@{get\_constants}!qsbd::two\_wise\_family@{qsbd::two\_wise\_family}}
+\doxysubsubsection{\texorpdfstring{get\_constants()}{get\_constants()}}
+{\footnotesize\ttfamily std\+::vector$<$ int $>$ two\+\_\+wise\+\_\+family\+::get\+\_\+constants (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the constant values choosen by the user or by the algorithm. 
+
+\begin{DoxyReturn}{Returns}
+A vector of constant values 
+\end{DoxyReturn}
+
+
+Definition at line 51 of file two\+\_\+wise\+\_\+family.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{51                                                         \{}
+\DoxyCodeLine{52         \textcolor{keywordflow}{return} std::vector<int>(this-\/>constants, this-\/>constants + 2);}
+\DoxyCodeLine{53     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classqsbd_1_1two__wise__family_a71c2f9ed3a3c4000bc3bf70c59baa9fb}\label{classqsbd_1_1two__wise__family_a71c2f9ed3a3c4000bc3bf70c59baa9fb}} 
+\index{qsbd::two\_wise\_family@{qsbd::two\_wise\_family}!get\_k@{get\_k}}
+\index{get\_k@{get\_k}!qsbd::two\_wise\_family@{qsbd::two\_wise\_family}}
+\doxysubsubsection{\texorpdfstring{get\_k()}{get\_k()}}
+{\footnotesize\ttfamily int two\+\_\+wise\+\_\+family\+::get\+\_\+k (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the K type of the family. Ex\+: if we have a 2-\/wise family, this should return 2. 
+
+\begin{DoxyReturn}{Returns}
+The return always should be 2 
+\end{DoxyReturn}
+
+
+Definition at line 59 of file two\+\_\+wise\+\_\+family.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{59                                      \{}
+\DoxyCodeLine{60         \textcolor{keywordflow}{return} 2;}
+\DoxyCodeLine{61     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classqsbd_1_1two__wise__family_a628f790b93933c7716837d831d6daa17}\label{classqsbd_1_1two__wise__family_a628f790b93933c7716837d831d6daa17}} 
+\index{qsbd::two\_wise\_family@{qsbd::two\_wise\_family}!get\_universe@{get\_universe}}
+\index{get\_universe@{get\_universe}!qsbd::two\_wise\_family@{qsbd::two\_wise\_family}}
+\doxysubsubsection{\texorpdfstring{get\_universe()}{get\_universe()}}
+{\footnotesize\ttfamily int two\+\_\+wise\+\_\+family\+::get\+\_\+universe (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the universe of values choosen by the user on initialization. 
+
+\begin{DoxyReturn}{Returns}
+The universe of values to map 
+\end{DoxyReturn}
+
+
+Definition at line 55 of file two\+\_\+wise\+\_\+family.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{55                                             \{}
+\DoxyCodeLine{56         \textcolor{keywordflow}{return} this-\/>universe;}
+\DoxyCodeLine{57     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classqsbd_1_1two__wise__family_a5b96b0128427fabc03f2772c6452625a}\label{classqsbd_1_1two__wise__family_a5b96b0128427fabc03f2772c6452625a}} 
+\index{qsbd::two\_wise\_family@{qsbd::two\_wise\_family}!operator()@{operator()}}
+\index{operator()@{operator()}!qsbd::two\_wise\_family@{qsbd::two\_wise\_family}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily int two\+\_\+wise\+\_\+family\+::operator() (\begin{DoxyParamCaption}\item[{int}]{elem }\end{DoxyParamCaption})}
+
+
+
+Calculates the value hashed of the {\ttfamily elem}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em elem} & A value in range \mbox{[}0, universe) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The hash value of the {\ttfamily elem} 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+By the way the hash maps the values ​​in the range of \mbox{[}0..next\+Prim(universe)\mbox{]}, the return can be greater than the universe. 
+\end{DoxyNote}
+
+
+Definition at line 35 of file two\+\_\+wise\+\_\+family.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{35                                              \{}
+\DoxyCodeLine{36         \textcolor{keywordflow}{return} (this-\/>constants[0] + this-\/>constants[1] * elem) \% this-\/>big\_prim;}
+\DoxyCodeLine{37     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classqsbd_1_1two__wise__family_aa5f8d48c22c080ad4e041ccb48e962dc}\label{classqsbd_1_1two__wise__family_aa5f8d48c22c080ad4e041ccb48e962dc}} 
+\index{qsbd::two\_wise\_family@{qsbd::two\_wise\_family}!operator=@{operator=}}
+\index{operator=@{operator=}!qsbd::two\_wise\_family@{qsbd::two\_wise\_family}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classqsbd_1_1two__wise__family}{two\+\_\+wise\+\_\+family}} \& two\+\_\+wise\+\_\+family\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classqsbd_1_1two__wise__family}{two\+\_\+wise\+\_\+family}} \&}]{other }\end{DoxyParamCaption})}
+
+
+
+Assigns a \mbox{\hyperlink{classqsbd_1_1two__wise__family}{two\+\_\+wise\+\_\+family}} to another \mbox{\hyperlink{classqsbd_1_1two__wise__family}{two\+\_\+wise\+\_\+family}} instance {\ttfamily other}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Another instace of a \mbox{\hyperlink{classqsbd_1_1two__wise__family}{two\+\_\+wise\+\_\+family}} class \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A reference to this instance 
+\end{DoxyReturn}
+
+
+Definition at line 39 of file two\+\_\+wise\+\_\+family.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{39                                                                            \{}
+\DoxyCodeLine{40         \textcolor{keywordflow}{if}(\textcolor{keyword}{this} != \&other)\{}
+\DoxyCodeLine{41             this-\/>big\_prim = other.big\_prim;}
+\DoxyCodeLine{42             this-\/>universe = other.universe;}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44             this-\/>constants[0] = other.constants[0];}
+\DoxyCodeLine{45             this-\/>constants[1] = other.constants[1];}
+\DoxyCodeLine{46         \}}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{49     \}}
+
+\end{DoxyCode}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-src/two\+\_\+wise\+\_\+family/two\+\_\+wise\+\_\+family.\+h\item 
+src/two\+\_\+wise\+\_\+family/\mbox{\hyperlink{two__wise__family_8h}{two\+\_\+wise\+\_\+family.\+h}}\item 
 src/two\+\_\+wise\+\_\+family/two\+\_\+wise\+\_\+family.\+cpp\end{DoxyCompactItemize}

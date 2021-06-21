@@ -12,9 +12,8 @@ Inheritance diagram for qsbd\+::gk\+\_\+factory$<$ Type $>$\+:\begin{figure}[H]
 \mbox{\Hypertarget{classqsbd_1_1gk__factory_ac2bb185dcaadc3fa38534ee517d3cb9f}\label{classqsbd_1_1gk__factory_ac2bb185dcaadc3fa38534ee517d3cb9f}} 
 {\bfseries gk\+\_\+factory} (double err)
 \item 
-\mbox{\Hypertarget{classqsbd_1_1gk__factory_a8e366608d9731870b0cb8265980a9e86}\label{classqsbd_1_1gk__factory_a8e366608d9731870b0cb8265980a9e86}} 
-\mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$ Type $>$ $\ast$ {\bfseries instance} () override
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$ Type $>$ $\ast$ \mbox{\hyperlink{classqsbd_1_1gk__factory_a8e366608d9731870b0cb8265980a9e86}{instance}} () override
+\begin{DoxyCompactList}\small\item\em A pure virtual method for create new instances of a \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$Type$>$. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -24,6 +23,43 @@ class qsbd\+::gk\+\_\+factory$<$ Type $>$}
 
 Definition at line 8 of file gk\+\_\+factory.\+hpp.
 
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classqsbd_1_1gk__factory_a8e366608d9731870b0cb8265980a9e86}\label{classqsbd_1_1gk__factory_a8e366608d9731870b0cb8265980a9e86}} 
+\index{qsbd::gk\_factory$<$ Type $>$@{qsbd::gk\_factory$<$ Type $>$}!instance@{instance}}
+\index{instance@{instance}!qsbd::gk\_factory$<$ Type $>$@{qsbd::gk\_factory$<$ Type $>$}}
+\doxysubsubsection{\texorpdfstring{instance()}{instance()}}
+{\footnotesize\ttfamily template$<$class Type $>$ \\
+\mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$Type$>$$\ast$ \mbox{\hyperlink{classqsbd_1_1gk__factory}{qsbd\+::gk\+\_\+factory}}$<$ Type $>$\+::instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+A pure virtual method for create new instances of a \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$Type$>$. 
+
+\begin{DoxyReturn}{Returns}
+A pointer to a new allocated \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$Type$>$ 
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+It\textquotesingle{}s up to a user the function of delete this memory. 
+
+All quantile sketchs returned by this method should be capable of merging together. 
+\end{DoxyWarning}
+
+
+Implements \mbox{\hyperlink{classqsbd_1_1sketch__factory_ad54e5735ea72b515991cc994fe37e23a}{qsbd\+::sketch\+\_\+factory$<$ Type $>$}}.
+
+
+
+Definition at line 16 of file gk\+\_\+factory.\+hpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{16                                                     \{}
+\DoxyCodeLine{17             \textcolor{keywordflow}{return} \textcolor{keyword}{new} \mbox{\hyperlink{classgk}{gk<Type>}}(this-\/>error);}
+\DoxyCodeLine{18         \}}
+
+\end{DoxyCode}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

@@ -563,7 +563,7 @@ void dcs_run2(bool only_update){
 
     // TREE
     double error = 0.3;
-    int universe = 16384;
+    int universe = 1024;
     int depth = 10;
     //double bounds[4] = {0.0, 0.0, 1280.0, 720.0};
     //int discrete_bounds[4] = {0, 0, 0, 0};
@@ -621,7 +621,7 @@ void dcs_run2(bool only_update){
 
     qsbd::dcs_factory factory(error, universe);
 	//dummy_factory factory;
-   	qsbd::quantile_quadtree<int> qq_test(resolution, depth, &factory);
+   	qsbd::quantile_quadtree<int> qq_test(resolution, depth, &factory, true);
 
    	for(int k = 0; k < 1; k++){
  		for(int i = 0; i < (1 << depth); i++){
@@ -640,6 +640,8 @@ void dcs_run2(bool only_update){
 			}
     	}
 	}
+
+    VDEBUG(qq_test.query(resolution, universe - 1));
 
 	/*VDEBUG(factory.allocations());
     qsbd::dcs* test = new qsbd::dcs(error, universe);

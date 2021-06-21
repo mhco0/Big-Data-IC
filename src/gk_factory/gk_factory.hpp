@@ -4,19 +4,19 @@
 #include "../gk/gk.hpp"
 
 namespace qsbd {
-    template<class Type>
-    class gk_factory : public sketch_factory<Type>{
-    private:
-        double error;
-    public:
-        gk_factory(double err){
-            this->error = err;
-        }
+	template<class Type>
+	class gk_factory : public sketch_factory<Type>{
+	private:
+		double error;
+	public:
+		gk_factory(double err){
+			this->error = err;
+		}
 
-        quantile_sketch<Type> * instance() override {
-            return new gk<Type>(this->error);
-        }
-    };
+		quantile_sketch<Type> * instance() override {
+			return new gk<Type>(this->error);
+		}
+	};
 }
 
 

@@ -12,9 +12,8 @@ Inheritance diagram for qsbd\+::kll\+\_\+factory$<$ Type $>$\+:\begin{figure}[H]
 \mbox{\Hypertarget{classqsbd_1_1kll__factory_ae746f6470ebbc1fb58f127c76d54bee0}\label{classqsbd_1_1kll__factory_ae746f6470ebbc1fb58f127c76d54bee0}} 
 {\bfseries kll\+\_\+factory} (double err)
 \item 
-\mbox{\Hypertarget{classqsbd_1_1kll__factory_adce0aec1afea9987269fea54d03e5b1c}\label{classqsbd_1_1kll__factory_adce0aec1afea9987269fea54d03e5b1c}} 
-\mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$ Type $>$ $\ast$ {\bfseries instance} () override
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$ Type $>$ $\ast$ \mbox{\hyperlink{classqsbd_1_1kll__factory_adce0aec1afea9987269fea54d03e5b1c}{instance}} () override
+\begin{DoxyCompactList}\small\item\em A pure virtual method for create new instances of a \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$Type$>$. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -24,6 +23,43 @@ class qsbd\+::kll\+\_\+factory$<$ Type $>$}
 
 Definition at line 8 of file kll\+\_\+factory.\+hpp.
 
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classqsbd_1_1kll__factory_adce0aec1afea9987269fea54d03e5b1c}\label{classqsbd_1_1kll__factory_adce0aec1afea9987269fea54d03e5b1c}} 
+\index{qsbd::kll\_factory$<$ Type $>$@{qsbd::kll\_factory$<$ Type $>$}!instance@{instance}}
+\index{instance@{instance}!qsbd::kll\_factory$<$ Type $>$@{qsbd::kll\_factory$<$ Type $>$}}
+\doxysubsubsection{\texorpdfstring{instance()}{instance()}}
+{\footnotesize\ttfamily template$<$class Type $>$ \\
+\mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$Type$>$$\ast$ \mbox{\hyperlink{classqsbd_1_1kll__factory}{qsbd\+::kll\+\_\+factory}}$<$ Type $>$\+::instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+A pure virtual method for create new instances of a \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$Type$>$. 
+
+\begin{DoxyReturn}{Returns}
+A pointer to a new allocated \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$Type$>$ 
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+It\textquotesingle{}s up to a user the function of delete this memory. 
+
+All quantile sketchs returned by this method should be capable of merging together. 
+\end{DoxyWarning}
+
+
+Implements \mbox{\hyperlink{classqsbd_1_1sketch__factory_ad54e5735ea72b515991cc994fe37e23a}{qsbd\+::sketch\+\_\+factory$<$ Type $>$}}.
+
+
+
+Definition at line 16 of file kll\+\_\+factory.\+hpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{16                                                     \{}
+\DoxyCodeLine{17             \textcolor{keywordflow}{return} \textcolor{keyword}{new} kll<Type>(this-\/>error);}
+\DoxyCodeLine{18         \}}
+
+\end{DoxyCode}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

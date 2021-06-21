@@ -1,42 +1,340 @@
 \hypertarget{classqsbd_1_1k__wise__family}{}\doxysection{qsbd\+::k\+\_\+wise\+\_\+family Class Reference}
 \label{classqsbd_1_1k__wise__family}\index{qsbd::k\_wise\_family@{qsbd::k\_wise\_family}}
+
+
+A function class to represent functions from a k-\/wise family.  
+
+
+
+
+{\ttfamily \#include $<$k\+\_\+wise\+\_\+family.\+h$>$}
+
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classqsbd_1_1k__wise__family_ad853e44b7afe096f2327efe848860beb}\label{classqsbd_1_1k__wise__family_ad853e44b7afe096f2327efe848860beb}} 
-{\bfseries k\+\_\+wise\+\_\+family} (int k, int universe)
-\item 
-\mbox{\Hypertarget{classqsbd_1_1k__wise__family_ac7ec7ba962604c277ed02ab387924951}\label{classqsbd_1_1k__wise__family_ac7ec7ba962604c277ed02ab387924951}} 
-{\bfseries k\+\_\+wise\+\_\+family} (int k, int universe, const std\+::vector$<$ int $>$ \&conf)
-\item 
-\mbox{\Hypertarget{classqsbd_1_1k__wise__family_ad88f2e95b6e1e0645d1ff83f7b15a2da}\label{classqsbd_1_1k__wise__family_ad88f2e95b6e1e0645d1ff83f7b15a2da}} 
-{\bfseries k\+\_\+wise\+\_\+family} (const \mbox{\hyperlink{classqsbd_1_1k__wise__family}{k\+\_\+wise\+\_\+family}} \&rhs)
-\item 
-\mbox{\Hypertarget{classqsbd_1_1k__wise__family_af2a269f0778a85ccd81723ec3fcc14aa}\label{classqsbd_1_1k__wise__family_af2a269f0778a85ccd81723ec3fcc14aa}} 
-int {\bfseries operator()} (int elem)
-\item 
-\mbox{\Hypertarget{classqsbd_1_1k__wise__family_aed44f18a31016eb89b13c911fcd6f420}\label{classqsbd_1_1k__wise__family_aed44f18a31016eb89b13c911fcd6f420}} 
-\mbox{\hyperlink{classqsbd_1_1k__wise__family}{k\+\_\+wise\+\_\+family}} \& {\bfseries operator=} (const \mbox{\hyperlink{classqsbd_1_1k__wise__family}{k\+\_\+wise\+\_\+family}} \&other)
-\item 
-\mbox{\Hypertarget{classqsbd_1_1k__wise__family_ad5c06d354871777b481c0be4b43453bf}\label{classqsbd_1_1k__wise__family_ad5c06d354871777b481c0be4b43453bf}} 
-std\+::vector$<$ int $>$ {\bfseries get\+\_\+constants} () const
-\item 
-\mbox{\Hypertarget{classqsbd_1_1k__wise__family_afef2f13a1c06e3692d0493dbdeaa64bf}\label{classqsbd_1_1k__wise__family_afef2f13a1c06e3692d0493dbdeaa64bf}} 
-int {\bfseries get\+\_\+universe} () const
-\item 
-\mbox{\Hypertarget{classqsbd_1_1k__wise__family_a487f099174e5f0beb179b3b8544764dc}\label{classqsbd_1_1k__wise__family_a487f099174e5f0beb179b3b8544764dc}} 
-int {\bfseries get\+\_\+k} () const
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{classqsbd_1_1k__wise__family_adc66bf591df0d21d391ce4cb9b99a1cb}{k\+\_\+wise\+\_\+family}} ()=default
+\begin{DoxyCompactList}\small\item\em Constructs the \mbox{\hyperlink{classqsbd_1_1k__wise__family}{k\+\_\+wise\+\_\+family}} class using the default values given by the compilator. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classqsbd_1_1k__wise__family_ad853e44b7afe096f2327efe848860beb}{k\+\_\+wise\+\_\+family}} (int k, int universe)
+\begin{DoxyCompactList}\small\item\em Constructs the \mbox{\hyperlink{classqsbd_1_1k__wise__family}{k\+\_\+wise\+\_\+family}} class passing {\ttfamily k} and {\ttfamily universe} of values. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classqsbd_1_1k__wise__family_ac7ec7ba962604c277ed02ab387924951}{k\+\_\+wise\+\_\+family}} (int k, int universe, const std\+::vector$<$ int $>$ \&conf)
+\begin{DoxyCompactList}\small\item\em Constructs the \mbox{\hyperlink{classqsbd_1_1k__wise__family}{k\+\_\+wise\+\_\+family}} class passing {\ttfamily k} , {\ttfamily universe} and {\ttfamily config} as the constant values. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classqsbd_1_1k__wise__family_ad88f2e95b6e1e0645d1ff83f7b15a2da}{k\+\_\+wise\+\_\+family}} (const \mbox{\hyperlink{classqsbd_1_1k__wise__family}{k\+\_\+wise\+\_\+family}} \&rhs)
+\begin{DoxyCompactList}\small\item\em Constructs the \mbox{\hyperlink{classqsbd_1_1k__wise__family}{k\+\_\+wise\+\_\+family}} class by copy constructor. Copys all information given by {\ttfamily rhs}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classqsbd_1_1k__wise__family_a867cab92fe7f0b427842eb817e588b16}\label{classqsbd_1_1k__wise__family_a867cab92fe7f0b427842eb817e588b16}} 
+\mbox{\hyperlink{classqsbd_1_1k__wise__family_a867cab92fe7f0b427842eb817e588b16}{$\sim$k\+\_\+wise\+\_\+family}} ()
+\begin{DoxyCompactList}\small\item\em Destructs the \mbox{\hyperlink{classqsbd_1_1k__wise__family}{k\+\_\+wise\+\_\+family}} instance. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classqsbd_1_1k__wise__family_af2a269f0778a85ccd81723ec3fcc14aa}{operator()}} (int elem)
+\begin{DoxyCompactList}\small\item\em Calculates the value hashed of the {\ttfamily elem}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classqsbd_1_1k__wise__family}{k\+\_\+wise\+\_\+family}} \& \mbox{\hyperlink{classqsbd_1_1k__wise__family_aed44f18a31016eb89b13c911fcd6f420}{operator=}} (const \mbox{\hyperlink{classqsbd_1_1k__wise__family}{k\+\_\+wise\+\_\+family}} \&other)
+\begin{DoxyCompactList}\small\item\em Assigns a \mbox{\hyperlink{classqsbd_1_1k__wise__family}{k\+\_\+wise\+\_\+family}} to another \mbox{\hyperlink{classqsbd_1_1k__wise__family}{k\+\_\+wise\+\_\+family}} instance {\ttfamily other}. \end{DoxyCompactList}\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{classqsbd_1_1k__wise__family_ad5c06d354871777b481c0be4b43453bf}{get\+\_\+constants}} () const
+\begin{DoxyCompactList}\small\item\em Gets the constant values choosen by the user or by the algorithm. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classqsbd_1_1k__wise__family_afef2f13a1c06e3692d0493dbdeaa64bf}{get\+\_\+universe}} () const
+\begin{DoxyCompactList}\small\item\em Gets the universe of values choosen by the user on initialization. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classqsbd_1_1k__wise__family_a487f099174e5f0beb179b3b8544764dc}{get\+\_\+k}} () const
+\begin{DoxyCompactList}\small\item\em Gets the K type of the family. Ex\+: if we have a 2-\/wise family, this should return 2. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
+A function class to represent functions from a k-\/wise family. 
+
+From Wikipédia \+: In computer science, a family of hash functions is said to be k-\/independent, k-\/wise independent or k-\/universal if selecting a function at random from the family guarantees that the hash codes of any designated k keys are independent random variables (see precise mathematical definitions below). Such families allow good average case performance in randomized algorithms or data structures, even if the input data is chosen by an adversary. The trade-\/offs between the degree of independence and the efficiency of evaluating the hash function are well studied, and many k-\/independent families have been proposed. 
+
+Definition at line 30 of file k\+\_\+wise\+\_\+family.\+h.
 
 
-Definition at line 9 of file k\+\_\+wise\+\_\+family.\+h.
 
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classqsbd_1_1k__wise__family_adc66bf591df0d21d391ce4cb9b99a1cb}\label{classqsbd_1_1k__wise__family_adc66bf591df0d21d391ce4cb9b99a1cb}} 
+\index{qsbd::k\_wise\_family@{qsbd::k\_wise\_family}!k\_wise\_family@{k\_wise\_family}}
+\index{k\_wise\_family@{k\_wise\_family}!qsbd::k\_wise\_family@{qsbd::k\_wise\_family}}
+\doxysubsubsection{\texorpdfstring{k\_wise\_family()}{k\_wise\_family()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily qsbd\+::k\+\_\+wise\+\_\+family\+::k\+\_\+wise\+\_\+family (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Constructs the \mbox{\hyperlink{classqsbd_1_1k__wise__family}{k\+\_\+wise\+\_\+family}} class using the default values given by the compilator. 
+
+\begin{DoxyWarning}{Warning}
+The instance won\textquotesingle{}t be initialize properly by just calling in this way. 
+\end{DoxyWarning}
+\mbox{\Hypertarget{classqsbd_1_1k__wise__family_ad853e44b7afe096f2327efe848860beb}\label{classqsbd_1_1k__wise__family_ad853e44b7afe096f2327efe848860beb}} 
+\index{qsbd::k\_wise\_family@{qsbd::k\_wise\_family}!k\_wise\_family@{k\_wise\_family}}
+\index{k\_wise\_family@{k\_wise\_family}!qsbd::k\_wise\_family@{qsbd::k\_wise\_family}}
+\doxysubsubsection{\texorpdfstring{k\_wise\_family()}{k\_wise\_family()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily qsbd\+::k\+\_\+wise\+\_\+family\+::k\+\_\+wise\+\_\+family (\begin{DoxyParamCaption}\item[{int}]{k,  }\item[{int}]{universe }\end{DoxyParamCaption})}
+
+
+
+Constructs the \mbox{\hyperlink{classqsbd_1_1k__wise__family}{k\+\_\+wise\+\_\+family}} class passing {\ttfamily k} and {\ttfamily universe} of values. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em k} & The k type of the family. Ex\+: k = 2 -\/$>$ 2-\/wise family \\
+\hline
+{\em universe} & The universe of values that the function will map \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 5 of file k\+\_\+wise\+\_\+family.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{5                                                    \{}
+\DoxyCodeLine{6         this-\/>big\_prim = nextPrime(universe);}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8         std::uniform\_int\_distribution<int> distribution(0, this-\/>big\_prim -\/ 1);}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10         this-\/>\_k = k;}
+\DoxyCodeLine{11         this-\/>universe = universe;}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13         this-\/>constants.reserve(\_k);}
+\DoxyCodeLine{14         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < \_k; i++)\{}
+\DoxyCodeLine{15             this-\/>constants.push\_back(distribution(generator));}
+\DoxyCodeLine{16         \}}
+\DoxyCodeLine{17     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classqsbd_1_1k__wise__family_ac7ec7ba962604c277ed02ab387924951}\label{classqsbd_1_1k__wise__family_ac7ec7ba962604c277ed02ab387924951}} 
+\index{qsbd::k\_wise\_family@{qsbd::k\_wise\_family}!k\_wise\_family@{k\_wise\_family}}
+\index{k\_wise\_family@{k\_wise\_family}!qsbd::k\_wise\_family@{qsbd::k\_wise\_family}}
+\doxysubsubsection{\texorpdfstring{k\_wise\_family()}{k\_wise\_family()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily qsbd\+::k\+\_\+wise\+\_\+family\+::k\+\_\+wise\+\_\+family (\begin{DoxyParamCaption}\item[{int}]{k,  }\item[{int}]{universe,  }\item[{const std\+::vector$<$ int $>$ \&}]{conf }\end{DoxyParamCaption})}
+
+
+
+Constructs the \mbox{\hyperlink{classqsbd_1_1k__wise__family}{k\+\_\+wise\+\_\+family}} class passing {\ttfamily k} , {\ttfamily universe} and {\ttfamily config} as the constant values. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em k} & The k type of the family. Ex\+: k = 2 -\/$>$ 2-\/wise family \\
+\hline
+{\em universe} & The universe of values that the function will map \\
+\hline
+{\em conf} & A vector of constant values to be used by the hash formula \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+The constant values need to be in the range \mbox{[}0, next\+Prim(universe)), otherwise the hash properties won\textquotesingle{}t be satisfied. 
+
+The vector of constants sould have the size as the given {\ttfamily k} . 
+\end{DoxyWarning}
+
+
+Definition at line 19 of file k\+\_\+wise\+\_\+family.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{19                                                                                \{}
+\DoxyCodeLine{20         this-\/>big\_prim = nextPrime(universe);}
+\DoxyCodeLine{21         this-\/>\_k = k;}
+\DoxyCodeLine{22         this-\/>universe = universe;}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24         ASSERT(conf.size() == this-\/>\_k);}
+\DoxyCodeLine{25     }
+\DoxyCodeLine{26         this-\/>constants.reserve(this-\/>\_k);}
+\DoxyCodeLine{27         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < conf.size(); i++)\{}
+\DoxyCodeLine{28             this-\/>constants.push\_back(conf[i]);}
+\DoxyCodeLine{29         \}}
+\DoxyCodeLine{30     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classqsbd_1_1k__wise__family_ad88f2e95b6e1e0645d1ff83f7b15a2da}\label{classqsbd_1_1k__wise__family_ad88f2e95b6e1e0645d1ff83f7b15a2da}} 
+\index{qsbd::k\_wise\_family@{qsbd::k\_wise\_family}!k\_wise\_family@{k\_wise\_family}}
+\index{k\_wise\_family@{k\_wise\_family}!qsbd::k\_wise\_family@{qsbd::k\_wise\_family}}
+\doxysubsubsection{\texorpdfstring{k\_wise\_family()}{k\_wise\_family()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily qsbd\+::k\+\_\+wise\+\_\+family\+::k\+\_\+wise\+\_\+family (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classqsbd_1_1k__wise__family}{k\+\_\+wise\+\_\+family}} \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+Constructs the \mbox{\hyperlink{classqsbd_1_1k__wise__family}{k\+\_\+wise\+\_\+family}} class by copy constructor. Copys all information given by {\ttfamily rhs}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rhs} & A instance of another \mbox{\hyperlink{classqsbd_1_1k__wise__family}{k\+\_\+wise\+\_\+family}} \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 32 of file k\+\_\+wise\+\_\+family.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{32                                                         \{}
+\DoxyCodeLine{33         this-\/>big\_prim = rhs.big\_prim;}
+\DoxyCodeLine{34         this-\/>\_k = rhs.\_k;}
+\DoxyCodeLine{35         this-\/>universe = rhs.universe;}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37         this-\/>constants.reserve(rhs.constants.size());}
+\DoxyCodeLine{38         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < rhs.constants.size(); i++)\{}
+\DoxyCodeLine{39             this-\/>constants.push\_back(rhs.constants[i]);}
+\DoxyCodeLine{40         \}}
+\DoxyCodeLine{41     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classqsbd_1_1k__wise__family_ad5c06d354871777b481c0be4b43453bf}\label{classqsbd_1_1k__wise__family_ad5c06d354871777b481c0be4b43453bf}} 
+\index{qsbd::k\_wise\_family@{qsbd::k\_wise\_family}!get\_constants@{get\_constants}}
+\index{get\_constants@{get\_constants}!qsbd::k\_wise\_family@{qsbd::k\_wise\_family}}
+\doxysubsubsection{\texorpdfstring{get\_constants()}{get\_constants()}}
+{\footnotesize\ttfamily std\+::vector$<$ int $>$ qsbd\+::k\+\_\+wise\+\_\+family\+::get\+\_\+constants (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the constant values choosen by the user or by the algorithm. 
+
+\begin{DoxyReturn}{Returns}
+A vector of constant values 
+\end{DoxyReturn}
+
+
+Definition at line 77 of file k\+\_\+wise\+\_\+family.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{77                                                       \{}
+\DoxyCodeLine{78         \textcolor{keywordflow}{return} this-\/>constants;}
+\DoxyCodeLine{79     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classqsbd_1_1k__wise__family_a487f099174e5f0beb179b3b8544764dc}\label{classqsbd_1_1k__wise__family_a487f099174e5f0beb179b3b8544764dc}} 
+\index{qsbd::k\_wise\_family@{qsbd::k\_wise\_family}!get\_k@{get\_k}}
+\index{get\_k@{get\_k}!qsbd::k\_wise\_family@{qsbd::k\_wise\_family}}
+\doxysubsubsection{\texorpdfstring{get\_k()}{get\_k()}}
+{\footnotesize\ttfamily int qsbd\+::k\+\_\+wise\+\_\+family\+::get\+\_\+k (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the K type of the family. Ex\+: if we have a 2-\/wise family, this should return 2. 
+
+\begin{DoxyReturn}{Returns}
+The k type of the family 
+\end{DoxyReturn}
+
+
+Definition at line 85 of file k\+\_\+wise\+\_\+family.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{85                                    \{}
+\DoxyCodeLine{86         \textcolor{keywordflow}{return} this-\/>\_k;}
+\DoxyCodeLine{87     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classqsbd_1_1k__wise__family_afef2f13a1c06e3692d0493dbdeaa64bf}\label{classqsbd_1_1k__wise__family_afef2f13a1c06e3692d0493dbdeaa64bf}} 
+\index{qsbd::k\_wise\_family@{qsbd::k\_wise\_family}!get\_universe@{get\_universe}}
+\index{get\_universe@{get\_universe}!qsbd::k\_wise\_family@{qsbd::k\_wise\_family}}
+\doxysubsubsection{\texorpdfstring{get\_universe()}{get\_universe()}}
+{\footnotesize\ttfamily int qsbd\+::k\+\_\+wise\+\_\+family\+::get\+\_\+universe (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the universe of values choosen by the user on initialization. 
+
+\begin{DoxyReturn}{Returns}
+The universe of values to map 
+\end{DoxyReturn}
+
+
+Definition at line 81 of file k\+\_\+wise\+\_\+family.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{81                                           \{}
+\DoxyCodeLine{82         \textcolor{keywordflow}{return} this-\/>universe;}
+\DoxyCodeLine{83     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classqsbd_1_1k__wise__family_af2a269f0778a85ccd81723ec3fcc14aa}\label{classqsbd_1_1k__wise__family_af2a269f0778a85ccd81723ec3fcc14aa}} 
+\index{qsbd::k\_wise\_family@{qsbd::k\_wise\_family}!operator()@{operator()}}
+\index{operator()@{operator()}!qsbd::k\_wise\_family@{qsbd::k\_wise\_family}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily int qsbd\+::k\+\_\+wise\+\_\+family\+::operator() (\begin{DoxyParamCaption}\item[{int}]{elem }\end{DoxyParamCaption})}
+
+
+
+Calculates the value hashed of the {\ttfamily elem}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em elem} & A value in range \mbox{[}0, universe) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The hash value of the {\ttfamily elem} 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+By the way the hash maps the values ​​in the range of \mbox{[}0..next\+Prim(universe) -\/ 1\mbox{]}, the return can be greater than the universe. 
+\end{DoxyNote}
+
+
+Definition at line 46 of file k\+\_\+wise\+\_\+family.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{46                                            \{}
+\DoxyCodeLine{47         \textcolor{keywordtype}{int} parse\_sum = 0;}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < this-\/>\_k; i++)\{}
+\DoxyCodeLine{50             \textcolor{keywordtype}{int} exp\_x = 1;}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j = 0; j < i; j++)\{}
+\DoxyCodeLine{53                 exp\_x = exp\_x * elem;}
+\DoxyCodeLine{54             \}}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56             parse\_sum += this-\/>constants[i] * exp\_x;}
+\DoxyCodeLine{57         \}}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59         \textcolor{keywordflow}{return} (parse\_sum \% this-\/>big\_prim);}
+\DoxyCodeLine{60     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classqsbd_1_1k__wise__family_aed44f18a31016eb89b13c911fcd6f420}\label{classqsbd_1_1k__wise__family_aed44f18a31016eb89b13c911fcd6f420}} 
+\index{qsbd::k\_wise\_family@{qsbd::k\_wise\_family}!operator=@{operator=}}
+\index{operator=@{operator=}!qsbd::k\_wise\_family@{qsbd::k\_wise\_family}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classqsbd_1_1k__wise__family}{k\+\_\+wise\+\_\+family}} \& qsbd\+::k\+\_\+wise\+\_\+family\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classqsbd_1_1k__wise__family}{k\+\_\+wise\+\_\+family}} \&}]{other }\end{DoxyParamCaption})}
+
+
+
+Assigns a \mbox{\hyperlink{classqsbd_1_1k__wise__family}{k\+\_\+wise\+\_\+family}} to another \mbox{\hyperlink{classqsbd_1_1k__wise__family}{k\+\_\+wise\+\_\+family}} instance {\ttfamily other}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Another instace of a \mbox{\hyperlink{classqsbd_1_1k__wise__family}{k\+\_\+wise\+\_\+family}} class \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A reference to this instance 
+\end{DoxyReturn}
+
+
+Definition at line 62 of file k\+\_\+wise\+\_\+family.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{62                                                                      \{}
+\DoxyCodeLine{63         \textcolor{keywordflow}{if}(\textcolor{keyword}{this} != \&other)\{}
+\DoxyCodeLine{64             this-\/>big\_prim = other.big\_prim;}
+\DoxyCodeLine{65             this-\/>\_k = other.\_k;}
+\DoxyCodeLine{66             this-\/>universe = other.universe;}
+\DoxyCodeLine{67             this-\/>constants.resize(other.constants.size());}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{69             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < other.constants.size(); i++)\{}
+\DoxyCodeLine{70                 this-\/>constants[i] = other.constants[i];}
+\DoxyCodeLine{71             \}}
+\DoxyCodeLine{72         \}}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{75     \}}
+
+\end{DoxyCode}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-src/k\+\_\+wise\+\_\+family/k\+\_\+wise\+\_\+family.\+h\item 
+src/k\+\_\+wise\+\_\+family/\mbox{\hyperlink{k__wise__family_8h}{k\+\_\+wise\+\_\+family.\+h}}\item 
 src/k\+\_\+wise\+\_\+family/k\+\_\+wise\+\_\+family.\+cpp\end{DoxyCompactItemize}

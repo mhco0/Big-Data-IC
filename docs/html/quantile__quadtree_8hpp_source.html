@@ -204,7 +204,7 @@ $(function() {
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;                <span class="keywordflow">if</span>(to_merge[i] != <span class="keyword">nullptr</span>){</div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;                    <a class="code" href="classqsbd_1_1quantile__sketch.html">quantile_sketch&lt;ObjType&gt;</a> * old_ref = final_sketch;</div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; </div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;                    final_sketch = final_sketch-&gt;merge(*to_merge[i]);</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;                    final_sketch = final_sketch-&gt;<a class="code" href="classqsbd_1_1quantile__sketch.html#a20950642c0bd2279335f566b1c0170df">merge</a>(*to_merge[i]);</div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; </div>
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;                    <span class="keyword">delete</span> old_ref;</div>
 <div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;                }</div>
@@ -243,7 +243,7 @@ $(function() {
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160; </div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;            <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; 4; i++){</div>
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;                <span class="keywordflow">if</span>(to_merge[i] != <span class="keyword">nullptr</span>){</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;                    final_sketch-&gt;inner_merge(*to_merge[i]);</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;                    final_sketch-&gt;<a class="code" href="classqsbd_1_1quantile__sketch.html#af3458d26f52106a68ab2a65a81eeb0af">inner_merge</a>(*to_merge[i]);</div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;                }</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;            }</div>
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160; </div>
@@ -275,7 +275,7 @@ $(function() {
 <div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;            this-&gt;max_deep = deep_length;</div>
 <div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;            this-&gt;factory = fact;</div>
 <div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;            this-&gt;root = <span class="keyword">new</span> <a class="code" href="classqsbd_1_1quantile__quadtree.html">quantile_quadtree&lt;ObjType&gt;::node</a>(0);</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;            this-&gt;root-&gt;payload = this-&gt;factory-&gt;instance();</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;            this-&gt;root-&gt;payload = this-&gt;factory-&gt;<a class="code" href="classqsbd_1_1sketch__factory.html#ad54e5735ea72b515991cc994fe37e23a">instance</a>();</div>
 <div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;            this-&gt;alloc_childs();</div>
 <div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;        }</div>
 <div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160; </div>
@@ -301,7 +301,7 @@ $(function() {
 <div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;                    <span class="keywordtype">int</span> ne_child_pos = (cur_deep == this-&gt;max_deep) ? -1 : alloc_childs();</div>
 <div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160; </div>
 <div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;                    this-&gt;tree[cur_pos].ne_child_pos = ne_child_pos;</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;                    this-&gt;tree[cur_pos].payload = this-&gt;factory-&gt;instance();</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;                    this-&gt;tree[cur_pos].payload = this-&gt;factory-&gt;<a class="code" href="classqsbd_1_1sketch__factory.html#ad54e5735ea72b515991cc994fe37e23a">instance</a>();</div>
 <div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;                }</div>
 <div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160; </div>
 <div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;                this-&gt;tree[cur_pos].payload-&gt;update(value);</div>
@@ -329,7 +329,7 @@ $(function() {
 <div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;                    <span class="keywordtype">int</span> ne_child_pos = (cur_deep == this-&gt;max_deep) ? -1 : alloc_childs();</div>
 <div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160; </div>
 <div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;                    this-&gt;tree[cur_pos].ne_child_pos = ne_child_pos;</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;                    this-&gt;tree[cur_pos].payload = this-&gt;factory-&gt;instance();</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;                    this-&gt;tree[cur_pos].payload = this-&gt;factory-&gt;<a class="code" href="classqsbd_1_1sketch__factory.html#ad54e5735ea72b515991cc994fe37e23a">instance</a>();</div>
 <div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;                }</div>
 <div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160; </div>
 <div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;                this-&gt;tree[cur_pos].payload-&gt;update(value, weight);</div>
@@ -349,13 +349,13 @@ $(function() {
 <div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160; </div>
 <div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;        <span class="keywordtype">int</span> query(<span class="keyword">const</span> <a class="code" href="classqsbd_1_1aabb.html">aabb&lt;int&gt;</a>&amp; region, ObjType value){</div>
 <div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;            <a class="code" href="classqsbd_1_1aabb.html">aabb&lt;int&gt;</a> cur_box(this-&gt;boundarys);</div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;            <a class="code" href="classqsbd_1_1quantile__sketch.html">quantile_sketch&lt;ObjType&gt;</a> * sketch = this-&gt;factory-&gt;instance();</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;            <a class="code" href="classqsbd_1_1quantile__sketch.html">quantile_sketch&lt;ObjType&gt;</a> * sketch = this-&gt;factory-&gt;<a class="code" href="classqsbd_1_1sketch__factory.html#ad54e5735ea72b515991cc994fe37e23a">instance</a>();</div>
 <div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;            </div>
 <div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160; </div>
 <div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;            <span class="comment">//0 can be 1 here because i start on this depth, check this later;</span></div>
 <div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;            search_region(-1, region, 0, cur_box, sketch);</div>
 <div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160; </div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;            <span class="keywordtype">int</span> ret = sketch-&gt;query(value);</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;            <span class="keywordtype">int</span> ret = sketch-&gt;<a class="code" href="classqsbd_1_1quantile__sketch.html#a8cf64d79f25d910d1c1aed209ddac71e">query</a>(value);</div>
 <div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160; </div>
 <div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;            <span class="keyword">delete</span> sketch;</div>
 <div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160; </div>
@@ -372,8 +372,12 @@ $(function() {
 <div class="ttc" id="aclassqsbd_1_1point_html_ab3b25afbec223c14b89bec1e8797440b"><div class="ttname"><a href="classqsbd_1_1point.html#ab3b25afbec223c14b89bec1e8797440b">qsbd::point::y</a></div><div class="ttdeci">void y(const T &amp;val)</div><div class="ttdoc">Sets the point y to the value of val.</div><div class="ttdef"><b>Definition:</b> <a href="point_8cpp_source.html#l00035">point.cpp:35</a></div></div>
 <div class="ttc" id="aclassqsbd_1_1point_html_ad28fee3f0926b1539e12895d9e84d0a1"><div class="ttname"><a href="classqsbd_1_1point.html#ad28fee3f0926b1539e12895d9e84d0a1">qsbd::point::x</a></div><div class="ttdeci">void x(const T &amp;val)</div><div class="ttdoc">Sets the point x to the value of val.</div><div class="ttdef"><b>Definition:</b> <a href="point_8cpp_source.html#l00030">point.cpp:30</a></div></div>
 <div class="ttc" id="aclassqsbd_1_1quantile__quadtree_html"><div class="ttname"><a href="classqsbd_1_1quantile__quadtree.html">qsbd::quantile_quadtree</a></div><div class="ttdef"><b>Definition:</b> <a href="quantile__quadtree_8hpp_source.html#l00010">quantile_quadtree.hpp:10</a></div></div>
-<div class="ttc" id="aclassqsbd_1_1quantile__sketch_html"><div class="ttname"><a href="classqsbd_1_1quantile__sketch.html">qsbd::quantile_sketch</a></div><div class="ttdef"><b>Definition:</b> <a href="quantile__sketch_8hpp_source.html#l00006">quantile_sketch.hpp:6</a></div></div>
-<div class="ttc" id="aclassqsbd_1_1sketch__factory_html"><div class="ttname"><a href="classqsbd_1_1sketch__factory.html">qsbd::sketch_factory</a></div><div class="ttdef"><b>Definition:</b> <a href="sketch__factory_8hpp_source.html#l00007">sketch_factory.hpp:7</a></div></div>
+<div class="ttc" id="aclassqsbd_1_1quantile__sketch_html"><div class="ttname"><a href="classqsbd_1_1quantile__sketch.html">qsbd::quantile_sketch</a></div><div class="ttdoc">A interface for quantile sketchs.</div><div class="ttdef"><b>Definition:</b> <a href="quantile__sketch_8hpp_source.html#l00024">quantile_sketch.hpp:24</a></div></div>
+<div class="ttc" id="aclassqsbd_1_1quantile__sketch_html_a20950642c0bd2279335f566b1c0170df"><div class="ttname"><a href="classqsbd_1_1quantile__sketch.html#a20950642c0bd2279335f566b1c0170df">qsbd::quantile_sketch::merge</a></div><div class="ttdeci">virtual quantile_sketch&lt; Type &gt; * merge(quantile_sketch&lt; Type &gt; &amp;rhs)=0</div><div class="ttdoc">A pure virtual merge method. Recives a quantile sketch rhs performes a merge with this sketch,...</div></div>
+<div class="ttc" id="aclassqsbd_1_1quantile__sketch_html_a8cf64d79f25d910d1c1aed209ddac71e"><div class="ttname"><a href="classqsbd_1_1quantile__sketch.html#a8cf64d79f25d910d1c1aed209ddac71e">qsbd::quantile_sketch::query</a></div><div class="ttdeci">virtual int query(Type elem)</div><div class="ttdoc">A virtual query method. Receives a elem and returns the rank associate with this element.</div><div class="ttdef"><b>Definition:</b> <a href="quantile__sketch_8hpp_source.html#l00069">quantile_sketch.hpp:69</a></div></div>
+<div class="ttc" id="aclassqsbd_1_1quantile__sketch_html_af3458d26f52106a68ab2a65a81eeb0af"><div class="ttname"><a href="classqsbd_1_1quantile__sketch.html#af3458d26f52106a68ab2a65a81eeb0af">qsbd::quantile_sketch::inner_merge</a></div><div class="ttdeci">virtual void inner_merge(quantile_sketch&lt; Type &gt; &amp;rhs)=0</div><div class="ttdoc">A pure virtual merge method. Recives a quantile sketch rhs performes a merge with this sketch,...</div></div>
+<div class="ttc" id="aclassqsbd_1_1sketch__factory_html"><div class="ttname"><a href="classqsbd_1_1sketch__factory.html">qsbd::sketch_factory</a></div><div class="ttdoc">A interface for factorys of sketchs.</div><div class="ttdef"><b>Definition:</b> <a href="sketch__factory_8hpp_source.html#l00023">sketch_factory.hpp:23</a></div></div>
+<div class="ttc" id="aclassqsbd_1_1sketch__factory_html_ad54e5735ea72b515991cc994fe37e23a"><div class="ttname"><a href="classqsbd_1_1sketch__factory.html#ad54e5735ea72b515991cc994fe37e23a">qsbd::sketch_factory::instance</a></div><div class="ttdeci">virtual quantile_sketch&lt; Type &gt; * instance()=0</div><div class="ttdoc">A pure virtual method for create new instances of a quantile_sketch&lt;Type&gt;.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -1,71 +1,739 @@
 \hypertarget{classqsbd_1_1count__sketch}{}\doxysection{qsbd\+::count\+\_\+sketch Class Reference}
 \label{classqsbd_1_1count__sketch}\index{qsbd::count\_sketch@{qsbd::count\_sketch}}
+
+
+A class to estimate a frequency of a element in a stream.  
+
+
+
+
+{\ttfamily \#include $<$count\+\_\+sketch.\+h$>$}
+
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classqsbd_1_1count__sketch_aa31ebfbec75b141b594795bf1054bfdf}\label{classqsbd_1_1count__sketch_aa31ebfbec75b141b594795bf1054bfdf}} 
-{\bfseries count\+\_\+sketch} (int fixd, int fixt)
-\item 
-\mbox{\Hypertarget{classqsbd_1_1count__sketch_a3c991f6b9331e9661f596b58dce1760e}\label{classqsbd_1_1count__sketch_a3c991f6b9331e9661f596b58dce1760e}} 
-{\bfseries count\+\_\+sketch} (int fixd, int fixt, const std\+::vector$<$ std\+::vector$<$ int $>$$>$ \&hashs\+\_\+consts)
-\item 
-\mbox{\Hypertarget{classqsbd_1_1count__sketch_a8988ea03fb1cf0f60d8c6a25353506f3}\label{classqsbd_1_1count__sketch_a8988ea03fb1cf0f60d8c6a25353506f3}} 
-{\bfseries count\+\_\+sketch} (double err, double delt)
-\item 
-\mbox{\Hypertarget{classqsbd_1_1count__sketch_a3567c91c16a44bc4cc2bb188e4a3fc83}\label{classqsbd_1_1count__sketch_a3567c91c16a44bc4cc2bb188e4a3fc83}} 
-{\bfseries count\+\_\+sketch} (double err, double delt, const std\+::vector$<$ std\+::vector$<$ int $>$$>$ \&hashs\+\_\+consts)
-\item 
-\mbox{\Hypertarget{classqsbd_1_1count__sketch_a19fae10d685fd45dfa00f28733ff3ad2}\label{classqsbd_1_1count__sketch_a19fae10d685fd45dfa00f28733ff3ad2}} 
-{\bfseries count\+\_\+sketch} (const \mbox{\hyperlink{classqsbd_1_1count__sketch}{count\+\_\+sketch}} \&other)
-\item 
-\mbox{\Hypertarget{classqsbd_1_1count__sketch_adc2e894ccebfa8677a12e5bdad0357b6}\label{classqsbd_1_1count__sketch_adc2e894ccebfa8677a12e5bdad0357b6}} 
-void {\bfseries update} (int elem, int weight)
-\item 
-\mbox{\Hypertarget{classqsbd_1_1count__sketch_aec2b22e91d508f4e2aa2ea7a6d583364}\label{classqsbd_1_1count__sketch_aec2b22e91d508f4e2aa2ea7a6d583364}} 
-int {\bfseries query} (int elem)
-\item 
-\mbox{\Hypertarget{classqsbd_1_1count__sketch_a287a233e585a12f1284158df1c52d4c5}\label{classqsbd_1_1count__sketch_a287a233e585a12f1284158df1c52d4c5}} 
-\mbox{\hyperlink{classqsbd_1_1count__sketch}{count\+\_\+sketch}} $\ast$ {\bfseries merge} (\mbox{\hyperlink{classqsbd_1_1count__sketch}{count\+\_\+sketch}} \&rhs)
-\item 
-\mbox{\Hypertarget{classqsbd_1_1count__sketch_a715a5850a4ec01b924f6eb2b2f03d649}\label{classqsbd_1_1count__sketch_a715a5850a4ec01b924f6eb2b2f03d649}} 
-void {\bfseries inner\+\_\+merge} (\mbox{\hyperlink{classqsbd_1_1count__sketch}{count\+\_\+sketch}} \&rhs)
-\item 
-\mbox{\Hypertarget{classqsbd_1_1count__sketch_a0413add7eb49f751d1db6a9d6b413428}\label{classqsbd_1_1count__sketch_a0413add7eb49f751d1db6a9d6b413428}} 
-\mbox{\hyperlink{classqsbd_1_1count__sketch}{count\+\_\+sketch}} \& {\bfseries operator=} (const \mbox{\hyperlink{classqsbd_1_1count__sketch}{count\+\_\+sketch}} \&other)
-\item 
-\mbox{\Hypertarget{classqsbd_1_1count__sketch_a9537c35ea6b923b0cc3bf2f1cc243680}\label{classqsbd_1_1count__sketch_a9537c35ea6b923b0cc3bf2f1cc243680}} 
-int {\bfseries get\+\_\+d} () const
-\item 
-\mbox{\Hypertarget{classqsbd_1_1count__sketch_a1f5f376531d72a0b5f090eb9d786fb92}\label{classqsbd_1_1count__sketch_a1f5f376531d72a0b5f090eb9d786fb92}} 
-int {\bfseries get\+\_\+t} () const
-\item 
-\mbox{\Hypertarget{classqsbd_1_1count__sketch_a2397fa06de21873b3554cb75485c9a55}\label{classqsbd_1_1count__sketch_a2397fa06de21873b3554cb75485c9a55}} 
-double {\bfseries get\+\_\+error} () const
-\item 
-\mbox{\Hypertarget{classqsbd_1_1count__sketch_a897c62bcd92cc8f0dd6169d836911778}\label{classqsbd_1_1count__sketch_a897c62bcd92cc8f0dd6169d836911778}} 
-double {\bfseries get\+\_\+delta} () const
-\item 
-\mbox{\Hypertarget{classqsbd_1_1count__sketch_aca092b4590ead1bfd3b38ca7147529d1}\label{classqsbd_1_1count__sketch_aca092b4590ead1bfd3b38ca7147529d1}} 
-std\+::vector$<$ std\+::vector$<$ int $>$ $>$ {\bfseries get\+\_\+estimators} () const
-\item 
-\mbox{\Hypertarget{classqsbd_1_1count__sketch_a8e5c8c42b2ec1c209bb947c7e2e73df9}\label{classqsbd_1_1count__sketch_a8e5c8c42b2ec1c209bb947c7e2e73df9}} 
-std\+::vector$<$ \mbox{\hyperlink{classqsbd_1_1two__wise__family}{two\+\_\+wise\+\_\+family}} $>$ {\bfseries get\+\_\+hash\+\_\+functions} () const
-\item 
-\mbox{\Hypertarget{classqsbd_1_1count__sketch_aa908579f27136909b6e277cf3f8ce15f}\label{classqsbd_1_1count__sketch_aa908579f27136909b6e277cf3f8ce15f}} 
-std\+::vector$<$ std\+::vector$<$ int $>$ $>$ {\bfseries get\+\_\+hash\+\_\+functions\+\_\+consts} () const
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{classqsbd_1_1count__sketch_aa31ebfbec75b141b594795bf1054bfdf}{count\+\_\+sketch}} (int fixd, int fixt)
+\begin{DoxyCompactList}\small\item\em Constructs a \mbox{\hyperlink{classqsbd_1_1count__sketch}{count\+\_\+sketch}} with {\ttfamily fixd} rows and {\ttfamily fixt} collumns. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classqsbd_1_1count__sketch_a3c991f6b9331e9661f596b58dce1760e}{count\+\_\+sketch}} (int fixd, int fixt, const std\+::vector$<$ std\+::vector$<$ int $>$$>$ \&hashs\+\_\+consts)
+\begin{DoxyCompactList}\small\item\em Constructs a \mbox{\hyperlink{classqsbd_1_1count__sketch}{count\+\_\+sketch}} with {\ttfamily fixd} rows, {\ttfamily fixt} collumns and {\ttfamily hashs\+\_\+consts}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classqsbd_1_1count__sketch_a8988ea03fb1cf0f60d8c6a25353506f3}{count\+\_\+sketch}} (double err, double delt)
+\begin{DoxyCompactList}\small\item\em Constructs a \mbox{\hyperlink{classqsbd_1_1count__sketch}{count\+\_\+sketch}} with error {\ttfamily err} and delta {\ttfamily delt}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classqsbd_1_1count__sketch_a3567c91c16a44bc4cc2bb188e4a3fc83}{count\+\_\+sketch}} (double err, double delt, const std\+::vector$<$ std\+::vector$<$ int $>$$>$ \&hashs\+\_\+consts)
+\begin{DoxyCompactList}\small\item\em Constructs a \mbox{\hyperlink{classqsbd_1_1count__sketch}{count\+\_\+sketch}} with error {\ttfamily err} and delta {\ttfamily delt}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classqsbd_1_1count__sketch_a19fae10d685fd45dfa00f28733ff3ad2}{count\+\_\+sketch}} (const \mbox{\hyperlink{classqsbd_1_1count__sketch}{count\+\_\+sketch}} \&other)
+\begin{DoxyCompactList}\small\item\em Constructs a \mbox{\hyperlink{classqsbd_1_1count__sketch}{count\+\_\+sketch}} with {\ttfamily other} \mbox{\hyperlink{classqsbd_1_1count__sketch}{count\+\_\+sketch}} instance. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classqsbd_1_1count__sketch_a37754d593bad7f44f98d8e2ce4a514e9}\label{classqsbd_1_1count__sketch_a37754d593bad7f44f98d8e2ce4a514e9}} 
+\mbox{\hyperlink{classqsbd_1_1count__sketch_a37754d593bad7f44f98d8e2ce4a514e9}{$\sim$count\+\_\+sketch}} ()
+\begin{DoxyCompactList}\small\item\em Destructs the \mbox{\hyperlink{classqsbd_1_1count__sketch}{count\+\_\+sketch}} instance. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classqsbd_1_1count__sketch_adc2e894ccebfa8677a12e5bdad0357b6}{update}} (int elem, int weight)
+\begin{DoxyCompactList}\small\item\em Updates the \mbox{\hyperlink{classqsbd_1_1count__sketch}{count\+\_\+sketch}} with {\ttfamily elem} element and {\ttfamily weight}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classqsbd_1_1count__sketch_aec2b22e91d508f4e2aa2ea7a6d583364}{query}} (int elem)
+\begin{DoxyCompactList}\small\item\em Query the \mbox{\hyperlink{classqsbd_1_1count__sketch}{count\+\_\+sketch}} about the frequency of {\ttfamily elem}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classqsbd_1_1count__sketch}{count\+\_\+sketch}} $\ast$ \mbox{\hyperlink{classqsbd_1_1count__sketch_a287a233e585a12f1284158df1c52d4c5}{merge}} (\mbox{\hyperlink{classqsbd_1_1count__sketch}{count\+\_\+sketch}} \&rhs)
+\begin{DoxyCompactList}\small\item\em Merges this sketch with {\ttfamily rhs} sketch and saves the result in a new instance. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classqsbd_1_1count__sketch_a715a5850a4ec01b924f6eb2b2f03d649}{inner\+\_\+merge}} (\mbox{\hyperlink{classqsbd_1_1count__sketch}{count\+\_\+sketch}} \&rhs)
+\begin{DoxyCompactList}\small\item\em Merges this sketch with {\ttfamily rhs} sketch and saves the result in this sketch. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classqsbd_1_1count__sketch}{count\+\_\+sketch}} \& \mbox{\hyperlink{classqsbd_1_1count__sketch_a0413add7eb49f751d1db6a9d6b413428}{operator=}} (const \mbox{\hyperlink{classqsbd_1_1count__sketch}{count\+\_\+sketch}} \&other)
+\begin{DoxyCompactList}\small\item\em Assign this \mbox{\hyperlink{classqsbd_1_1count__sketch}{count\+\_\+sketch}} with {\ttfamily other}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classqsbd_1_1count__sketch_a9537c35ea6b923b0cc3bf2f1cc243680}{get\+\_\+d}} () const
+\begin{DoxyCompactList}\small\item\em A getter for the row of the estimation matrix. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classqsbd_1_1count__sketch_a1f5f376531d72a0b5f090eb9d786fb92}{get\+\_\+t}} () const
+\begin{DoxyCompactList}\small\item\em A getter for the collumns on the estimation matrix. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classqsbd_1_1count__sketch_a2397fa06de21873b3554cb75485c9a55}{get\+\_\+error}} () const
+\begin{DoxyCompactList}\small\item\em A getter for the $\epsilon$. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classqsbd_1_1count__sketch_a897c62bcd92cc8f0dd6169d836911778}{get\+\_\+delta}} () const
+\begin{DoxyCompactList}\small\item\em A getter for the $\delta$. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \mbox{\hyperlink{classqsbd_1_1count__sketch_aca092b4590ead1bfd3b38ca7147529d1}{get\+\_\+estimators}} () const
+\begin{DoxyCompactList}\small\item\em A getter for the estimation matrix. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classqsbd_1_1two__wise__family}{two\+\_\+wise\+\_\+family}} $>$ \mbox{\hyperlink{classqsbd_1_1count__sketch_a8e5c8c42b2ec1c209bb947c7e2e73df9}{get\+\_\+hash\+\_\+functions}} () const
+\begin{DoxyCompactList}\small\item\em A getter for the hash functions. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \mbox{\hyperlink{classqsbd_1_1count__sketch_aa908579f27136909b6e277cf3f8ce15f}{get\+\_\+hash\+\_\+functions\+\_\+consts}} () const
+\begin{DoxyCompactList}\small\item\em A getter for all the hash functions constants. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
+A class to estimate a frequency of a element in a stream. 
+
+It also summarizes a multiset v and answers point queries approximately. It has asymptotically the same guarantees as the Count\+Min Sketch, but with slightly worse hidden constant factors\+: Given parameters $\epsilon$ and $\delta$, the summary uses space $O(\frac{\log(\frac{1}{\delta})}{\epsilon})$ , and guarantees with probability at least 1−δ that any point query is answered with additive error at most $\epsilon||v||_1$. Alternatively, with space $O(\frac{\log(\frac{1}{\delta})}{\epsilon^2})$, it has error at most $\epsilon||v||_2$ with probability at least $1 − \delta$. The benefit of the Count Sketch is that it produces an unbiased estimator.
+
+This Count Sketch uses the L1 bound garantee. 
+
+Definition at line 34 of file count\+\_\+sketch.\+h.
 
 
-Definition at line 11 of file count\+\_\+sketch.\+h.
 
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classqsbd_1_1count__sketch_aa31ebfbec75b141b594795bf1054bfdf}\label{classqsbd_1_1count__sketch_aa31ebfbec75b141b594795bf1054bfdf}} 
+\index{qsbd::count\_sketch@{qsbd::count\_sketch}!count\_sketch@{count\_sketch}}
+\index{count\_sketch@{count\_sketch}!qsbd::count\_sketch@{qsbd::count\_sketch}}
+\doxysubsubsection{\texorpdfstring{count\_sketch()}{count\_sketch()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily qsbd\+::count\+\_\+sketch\+::count\+\_\+sketch (\begin{DoxyParamCaption}\item[{int}]{fixd,  }\item[{int}]{fixt }\end{DoxyParamCaption})}
+
+
+
+Constructs a \mbox{\hyperlink{classqsbd_1_1count__sketch}{count\+\_\+sketch}} with {\ttfamily fixd} rows and {\ttfamily fixt} collumns. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fixd} & The number of rows for the estimation matrix \\
+\hline
+{\em fixt} & The number of collumns for the estimation matrix \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+Constructor bounds are not guaranteed unless you know the exact calculations, if that is not the case use 
+\end{DoxyWarning}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classqsbd_1_1count__sketch_a8988ea03fb1cf0f60d8c6a25353506f3}{count\+\_\+sketch(double, double)}} instead. 
+
+\mbox{\hyperlink{classqsbd_1_1count__sketch_a8988ea03fb1cf0f60d8c6a25353506f3}{count\+\_\+sketch(double, double)}} 
+\end{DoxySeeAlso}
+
+
+Definition at line 41 of file count\+\_\+sketch.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{41                                                 \{}
+\DoxyCodeLine{42         this-\/>set\_param\_int(fixd, fixt);}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44         this-\/>estimators.reserve(this-\/>d);}
+\DoxyCodeLine{45         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < this-\/>d; i++)\{}
+\DoxyCodeLine{46             this-\/>estimators.emplace\_back();}
+\DoxyCodeLine{47             }
+\DoxyCodeLine{48             this-\/>estimators[i].reserve(this-\/>t);}
+\DoxyCodeLine{49             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j = 0; j < this-\/>t; j++)\{}
+\DoxyCodeLine{50                 this-\/>estimators[i].emplace\_back(0);}
+\DoxyCodeLine{51             \}}
+\DoxyCodeLine{52         \}}
+\DoxyCodeLine{53     }
+\DoxyCodeLine{54         this-\/>hash\_functions.reserve(this-\/>d);}
+\DoxyCodeLine{55         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < this-\/>d; i++)\{}
+\DoxyCodeLine{56             this-\/>hash\_functions.emplace\_back(2, 2 * this-\/>t);}
+\DoxyCodeLine{57         \}}
+\DoxyCodeLine{58     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classqsbd_1_1count__sketch_a3c991f6b9331e9661f596b58dce1760e}\label{classqsbd_1_1count__sketch_a3c991f6b9331e9661f596b58dce1760e}} 
+\index{qsbd::count\_sketch@{qsbd::count\_sketch}!count\_sketch@{count\_sketch}}
+\index{count\_sketch@{count\_sketch}!qsbd::count\_sketch@{qsbd::count\_sketch}}
+\doxysubsubsection{\texorpdfstring{count\_sketch()}{count\_sketch()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily qsbd\+::count\+\_\+sketch\+::count\+\_\+sketch (\begin{DoxyParamCaption}\item[{int}]{fixd,  }\item[{int}]{fixt,  }\item[{const std\+::vector$<$ std\+::vector$<$ int $>$$>$ \&}]{hashs\+\_\+consts }\end{DoxyParamCaption})}
+
+
+
+Constructs a \mbox{\hyperlink{classqsbd_1_1count__sketch}{count\+\_\+sketch}} with {\ttfamily fixd} rows, {\ttfamily fixt} collumns and {\ttfamily hashs\+\_\+consts}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fixd} & The number of rows for the estimation matrix \\
+\hline
+{\em fixt} & The number of collumns for the estimation matrix \\
+\hline
+{\em hashs\+\_\+consts} & A vector of vectors of constants used by each hash function in the \mbox{\hyperlink{classqsbd_1_1count__sketch}{count\+\_\+sketch}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+Constructor bounds are not guaranteed unless you know the exact calculations, if that is not the case use 
+\end{DoxyWarning}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classqsbd_1_1count__sketch_a8988ea03fb1cf0f60d8c6a25353506f3}{count\+\_\+sketch(double, double)}} instead. 
+\end{DoxySeeAlso}
+\begin{DoxyWarning}{Warning}
+The vector should have the same size as {\ttfamily fixd} , it also need that each vector inside it contains with two values from a interval \mbox{[}0..next\+Prim(2 $\ast$ {\ttfamily fixt} ) -\/ 1\mbox{]}. 
+\end{DoxyWarning}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classqsbd_1_1count__sketch_a8988ea03fb1cf0f60d8c6a25353506f3}{count\+\_\+sketch(double, double)}} 
+\end{DoxySeeAlso}
+
+
+Definition at line 60 of file count\+\_\+sketch.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{60                                                                                                \{}
+\DoxyCodeLine{61         this-\/>set\_param\_int(fixd, fixt);}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63         this-\/>estimators.reserve(this-\/>d);}
+\DoxyCodeLine{64         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < this-\/>d; i++)\{}
+\DoxyCodeLine{65             this-\/>estimators.emplace\_back();}
+\DoxyCodeLine{66             }
+\DoxyCodeLine{67             this-\/>estimators[i].reserve(this-\/>t);}
+\DoxyCodeLine{68             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j = 0; j < this-\/>t; j++)\{}
+\DoxyCodeLine{69                 this-\/>estimators[i].emplace\_back(0);}
+\DoxyCodeLine{70             \}}
+\DoxyCodeLine{71         \}}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73         ASSERT(this-\/>d == hashs\_consts.size());}
+\DoxyCodeLine{74     }
+\DoxyCodeLine{75         this-\/>hash\_functions.reserve(this-\/>d);}
+\DoxyCodeLine{76         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < this-\/>d; i++)\{}
+\DoxyCodeLine{77             this-\/>hash\_functions.emplace\_back(2, 2 * this-\/>t, hashs\_consts[i]);}
+\DoxyCodeLine{78         \}}
+\DoxyCodeLine{79     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classqsbd_1_1count__sketch_a8988ea03fb1cf0f60d8c6a25353506f3}\label{classqsbd_1_1count__sketch_a8988ea03fb1cf0f60d8c6a25353506f3}} 
+\index{qsbd::count\_sketch@{qsbd::count\_sketch}!count\_sketch@{count\_sketch}}
+\index{count\_sketch@{count\_sketch}!qsbd::count\_sketch@{qsbd::count\_sketch}}
+\doxysubsubsection{\texorpdfstring{count\_sketch()}{count\_sketch()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily qsbd\+::count\+\_\+sketch\+::count\+\_\+sketch (\begin{DoxyParamCaption}\item[{double}]{err,  }\item[{double}]{delt }\end{DoxyParamCaption})}
+
+
+
+Constructs a \mbox{\hyperlink{classqsbd_1_1count__sketch}{count\+\_\+sketch}} with error {\ttfamily err} and delta {\ttfamily delt}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em err} & The $\epsilon$ from the algorithm \\
+\hline
+{\em delt} & The $\delta$ from the algorithm \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 81 of file count\+\_\+sketch.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{81                                                      \{}
+\DoxyCodeLine{82         this-\/>set\_param\_double(err, delt);}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84         this-\/>estimators.reserve(this-\/>d);}
+\DoxyCodeLine{85         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < this-\/>d; i++)\{}
+\DoxyCodeLine{86             this-\/>estimators.emplace\_back();}
+\DoxyCodeLine{87             }
+\DoxyCodeLine{88             this-\/>estimators[i].reserve(this-\/>t);}
+\DoxyCodeLine{89             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j = 0; j < this-\/>t; j++)\{}
+\DoxyCodeLine{90                 this-\/>estimators[i].emplace\_back(0);}
+\DoxyCodeLine{91             \}}
+\DoxyCodeLine{92         \}}
+\DoxyCodeLine{93         }
+\DoxyCodeLine{94         this-\/>hash\_functions.reserve(this-\/>d);}
+\DoxyCodeLine{95         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < this-\/>d; i++)\{}
+\DoxyCodeLine{96             this-\/>hash\_functions.emplace\_back(2, 2 * this-\/>t);}
+\DoxyCodeLine{97         \}}
+\DoxyCodeLine{98     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classqsbd_1_1count__sketch_a3567c91c16a44bc4cc2bb188e4a3fc83}\label{classqsbd_1_1count__sketch_a3567c91c16a44bc4cc2bb188e4a3fc83}} 
+\index{qsbd::count\_sketch@{qsbd::count\_sketch}!count\_sketch@{count\_sketch}}
+\index{count\_sketch@{count\_sketch}!qsbd::count\_sketch@{qsbd::count\_sketch}}
+\doxysubsubsection{\texorpdfstring{count\_sketch()}{count\_sketch()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily qsbd\+::count\+\_\+sketch\+::count\+\_\+sketch (\begin{DoxyParamCaption}\item[{double}]{err,  }\item[{double}]{delt,  }\item[{const std\+::vector$<$ std\+::vector$<$ int $>$$>$ \&}]{hashs\+\_\+consts }\end{DoxyParamCaption})}
+
+
+
+Constructs a \mbox{\hyperlink{classqsbd_1_1count__sketch}{count\+\_\+sketch}} with error {\ttfamily err} and delta {\ttfamily delt}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em err} & The $\epsilon$ from the algorithm \\
+\hline
+{\em delt} & The $\delta$ from the algorithm \\
+\hline
+{\em hashs\+\_\+consts} & The constants to be used by each hash function \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+The vector should have the same size as the rows of estimators from the sketch, it also need that each vector inside it contains with two values from a interval \mbox{[}0..next\+Prim(2 $\ast$ collumns in the sketch) -\/ 1\mbox{]}. 
+\end{DoxyWarning}
+
+
+Definition at line 100 of file count\+\_\+sketch.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{100                                                                                                     \{}
+\DoxyCodeLine{101         this-\/>set\_param\_double(err, delt);}
+\DoxyCodeLine{102     }
+\DoxyCodeLine{103         this-\/>estimators.reserve(this-\/>d);}
+\DoxyCodeLine{104         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < this-\/>d; i++)\{}
+\DoxyCodeLine{105             this-\/>estimators.emplace\_back();}
+\DoxyCodeLine{106 }
+\DoxyCodeLine{107             this-\/>estimators[i].reserve(this-\/>t);}
+\DoxyCodeLine{108             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j = 0; j < this-\/>t; j++)\{}
+\DoxyCodeLine{109                 this-\/>estimators[i].emplace\_back(0);}
+\DoxyCodeLine{110             \}}
+\DoxyCodeLine{111         \}}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{113         \textcolor{comment}{// the hash should map to 2 * t}}
+\DoxyCodeLine{114         ASSERT(this-\/>d == hashs\_consts.size());}
+\DoxyCodeLine{115 }
+\DoxyCodeLine{116         this-\/>hash\_functions.reserve(this-\/>d);}
+\DoxyCodeLine{117         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < this-\/>d; i++)\{}
+\DoxyCodeLine{118             this-\/>hash\_functions.emplace\_back(2, 2 * this-\/>t, hashs\_consts[i]);}
+\DoxyCodeLine{119         \}}
+\DoxyCodeLine{120     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classqsbd_1_1count__sketch_a19fae10d685fd45dfa00f28733ff3ad2}\label{classqsbd_1_1count__sketch_a19fae10d685fd45dfa00f28733ff3ad2}} 
+\index{qsbd::count\_sketch@{qsbd::count\_sketch}!count\_sketch@{count\_sketch}}
+\index{count\_sketch@{count\_sketch}!qsbd::count\_sketch@{qsbd::count\_sketch}}
+\doxysubsubsection{\texorpdfstring{count\_sketch()}{count\_sketch()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily qsbd\+::count\+\_\+sketch\+::count\+\_\+sketch (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classqsbd_1_1count__sketch}{count\+\_\+sketch}} \&}]{other }\end{DoxyParamCaption})}
+
+
+
+Constructs a \mbox{\hyperlink{classqsbd_1_1count__sketch}{count\+\_\+sketch}} with {\ttfamily other} \mbox{\hyperlink{classqsbd_1_1count__sketch}{count\+\_\+sketch}} instance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Another \mbox{\hyperlink{classqsbd_1_1count__sketch}{count\+\_\+sketch}} instance \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 122 of file count\+\_\+sketch.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{122                                                        \{}
+\DoxyCodeLine{123         this-\/>error = other.error;}
+\DoxyCodeLine{124         this-\/>delta = other.delta;}
+\DoxyCodeLine{125         this-\/>d = other.d;}
+\DoxyCodeLine{126         this-\/>t = other.t;}
+\DoxyCodeLine{127 }
+\DoxyCodeLine{128         this-\/>estimators.reserve(other.d);}
+\DoxyCodeLine{129         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < other.d; i++)\{}
+\DoxyCodeLine{130             this-\/>estimators.emplace\_back();}
+\DoxyCodeLine{131             }
+\DoxyCodeLine{132             this-\/>estimators[i].reserve(other.t);}
+\DoxyCodeLine{133             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j = 0; j < other.t; j++)\{}
+\DoxyCodeLine{134                 this-\/>estimators[i].emplace\_back(other.estimators[i][j]);}
+\DoxyCodeLine{135             \}}
+\DoxyCodeLine{136         \}}
+\DoxyCodeLine{137     }
+\DoxyCodeLine{138         this-\/>hash\_functions.reserve(other.hash\_functions.size());}
+\DoxyCodeLine{139         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < other.d; i++)\{}
+\DoxyCodeLine{140             this-\/>hash\_functions.emplace\_back(other.hash\_functions[i]);}
+\DoxyCodeLine{141         \}}
+\DoxyCodeLine{142     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classqsbd_1_1count__sketch_a9537c35ea6b923b0cc3bf2f1cc243680}\label{classqsbd_1_1count__sketch_a9537c35ea6b923b0cc3bf2f1cc243680}} 
+\index{qsbd::count\_sketch@{qsbd::count\_sketch}!get\_d@{get\_d}}
+\index{get\_d@{get\_d}!qsbd::count\_sketch@{qsbd::count\_sketch}}
+\doxysubsubsection{\texorpdfstring{get\_d()}{get\_d()}}
+{\footnotesize\ttfamily int qsbd\+::count\+\_\+sketch\+::get\+\_\+d (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+A getter for the row of the estimation matrix. 
+
+\begin{DoxyReturn}{Returns}
+The number of rows on the estimation matrix 
+\end{DoxyReturn}
+
+
+Definition at line 249 of file count\+\_\+sketch.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{249                                   \{}
+\DoxyCodeLine{250         \textcolor{keywordflow}{return} this-\/>d;}
+\DoxyCodeLine{251     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classqsbd_1_1count__sketch_a897c62bcd92cc8f0dd6169d836911778}\label{classqsbd_1_1count__sketch_a897c62bcd92cc8f0dd6169d836911778}} 
+\index{qsbd::count\_sketch@{qsbd::count\_sketch}!get\_delta@{get\_delta}}
+\index{get\_delta@{get\_delta}!qsbd::count\_sketch@{qsbd::count\_sketch}}
+\doxysubsubsection{\texorpdfstring{get\_delta()}{get\_delta()}}
+{\footnotesize\ttfamily double qsbd\+::count\+\_\+sketch\+::get\+\_\+delta (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+A getter for the $\delta$. 
+
+\begin{DoxyReturn}{Returns}
+$\delta$ 
+\end{DoxyReturn}
+
+
+Definition at line 261 of file count\+\_\+sketch.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{261                                          \{}
+\DoxyCodeLine{262         \textcolor{keywordflow}{return} this-\/>delta;}
+\DoxyCodeLine{263     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classqsbd_1_1count__sketch_a2397fa06de21873b3554cb75485c9a55}\label{classqsbd_1_1count__sketch_a2397fa06de21873b3554cb75485c9a55}} 
+\index{qsbd::count\_sketch@{qsbd::count\_sketch}!get\_error@{get\_error}}
+\index{get\_error@{get\_error}!qsbd::count\_sketch@{qsbd::count\_sketch}}
+\doxysubsubsection{\texorpdfstring{get\_error()}{get\_error()}}
+{\footnotesize\ttfamily double qsbd\+::count\+\_\+sketch\+::get\+\_\+error (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+A getter for the $\epsilon$. 
+
+\begin{DoxyReturn}{Returns}
+$\epsilon$ 
+\end{DoxyReturn}
+
+
+Definition at line 257 of file count\+\_\+sketch.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{257                                          \{}
+\DoxyCodeLine{258         \textcolor{keywordflow}{return} this-\/>error;}
+\DoxyCodeLine{259     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classqsbd_1_1count__sketch_aca092b4590ead1bfd3b38ca7147529d1}\label{classqsbd_1_1count__sketch_aca092b4590ead1bfd3b38ca7147529d1}} 
+\index{qsbd::count\_sketch@{qsbd::count\_sketch}!get\_estimators@{get\_estimators}}
+\index{get\_estimators@{get\_estimators}!qsbd::count\_sketch@{qsbd::count\_sketch}}
+\doxysubsubsection{\texorpdfstring{get\_estimators()}{get\_estimators()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::vector$<$ int $>$ $>$ qsbd\+::count\+\_\+sketch\+::get\+\_\+estimators (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+A getter for the estimation matrix. 
+
+\begin{DoxyReturn}{Returns}
+The estimation matrix 
+\end{DoxyReturn}
+
+
+Definition at line 265 of file count\+\_\+sketch.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{265                                                                  \{}
+\DoxyCodeLine{266         \textcolor{keywordflow}{return} this-\/>estimators;}
+\DoxyCodeLine{267     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classqsbd_1_1count__sketch_a8e5c8c42b2ec1c209bb947c7e2e73df9}\label{classqsbd_1_1count__sketch_a8e5c8c42b2ec1c209bb947c7e2e73df9}} 
+\index{qsbd::count\_sketch@{qsbd::count\_sketch}!get\_hash\_functions@{get\_hash\_functions}}
+\index{get\_hash\_functions@{get\_hash\_functions}!qsbd::count\_sketch@{qsbd::count\_sketch}}
+\doxysubsubsection{\texorpdfstring{get\_hash\_functions()}{get\_hash\_functions()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classqsbd_1_1two__wise__family}{two\+\_\+wise\+\_\+family}} $>$ qsbd\+::count\+\_\+sketch\+::get\+\_\+hash\+\_\+functions (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+A getter for the hash functions. 
+
+\begin{DoxyReturn}{Returns}
+All hash functions used by this \mbox{\hyperlink{classqsbd_1_1count__sketch}{count\+\_\+sketch}} 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classqsbd_1_1two__wise__family}{qsbd\+::two\+\_\+wise\+\_\+family}} 
+\end{DoxySeeAlso}
+
+
+Definition at line 269 of file count\+\_\+sketch.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{269                                                                     \{}
+\DoxyCodeLine{270         \textcolor{keywordflow}{return} this-\/>hash\_functions;}
+\DoxyCodeLine{271     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classqsbd_1_1count__sketch_aa908579f27136909b6e277cf3f8ce15f}\label{classqsbd_1_1count__sketch_aa908579f27136909b6e277cf3f8ce15f}} 
+\index{qsbd::count\_sketch@{qsbd::count\_sketch}!get\_hash\_functions\_consts@{get\_hash\_functions\_consts}}
+\index{get\_hash\_functions\_consts@{get\_hash\_functions\_consts}!qsbd::count\_sketch@{qsbd::count\_sketch}}
+\doxysubsubsection{\texorpdfstring{get\_hash\_functions\_consts()}{get\_hash\_functions\_consts()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::vector$<$ int $>$ $>$ qsbd\+::count\+\_\+sketch\+::get\+\_\+hash\+\_\+functions\+\_\+consts (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+A getter for all the hash functions constants. 
+
+\begin{DoxyReturn}{Returns}
+A vector with all hash functions constants each row on vector has size equal two. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classqsbd_1_1two__wise__family}{qsbd\+::two\+\_\+wise\+\_\+family}} 
+\end{DoxySeeAlso}
+
+
+Definition at line 273 of file count\+\_\+sketch.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{273                                                                             \{}
+\DoxyCodeLine{274         std::vector<std::vector<int>> consts;}
+\DoxyCodeLine{275 }
+\DoxyCodeLine{276         consts.reserve(this-\/>hash\_functions.size());}
+\DoxyCodeLine{277         \textcolor{keywordflow}{for}(\textcolor{keyword}{auto}\& it : this-\/>hash\_functions)\{}
+\DoxyCodeLine{278             consts.emplace\_back(it.get\_constants());}
+\DoxyCodeLine{279         \}}
+\DoxyCodeLine{280 }
+\DoxyCodeLine{281         \textcolor{keywordflow}{return} consts;}
+\DoxyCodeLine{282     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classqsbd_1_1count__sketch_a1f5f376531d72a0b5f090eb9d786fb92}\label{classqsbd_1_1count__sketch_a1f5f376531d72a0b5f090eb9d786fb92}} 
+\index{qsbd::count\_sketch@{qsbd::count\_sketch}!get\_t@{get\_t}}
+\index{get\_t@{get\_t}!qsbd::count\_sketch@{qsbd::count\_sketch}}
+\doxysubsubsection{\texorpdfstring{get\_t()}{get\_t()}}
+{\footnotesize\ttfamily int qsbd\+::count\+\_\+sketch\+::get\+\_\+t (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+A getter for the collumns on the estimation matrix. 
+
+\begin{DoxyReturn}{Returns}
+The number of collumns on the estimation matrix 
+\end{DoxyReturn}
+
+
+Definition at line 253 of file count\+\_\+sketch.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{253                                   \{}
+\DoxyCodeLine{254         \textcolor{keywordflow}{return} this-\/>t;}
+\DoxyCodeLine{255     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classqsbd_1_1count__sketch_a715a5850a4ec01b924f6eb2b2f03d649}\label{classqsbd_1_1count__sketch_a715a5850a4ec01b924f6eb2b2f03d649}} 
+\index{qsbd::count\_sketch@{qsbd::count\_sketch}!inner\_merge@{inner\_merge}}
+\index{inner\_merge@{inner\_merge}!qsbd::count\_sketch@{qsbd::count\_sketch}}
+\doxysubsubsection{\texorpdfstring{inner\_merge()}{inner\_merge()}}
+{\footnotesize\ttfamily void qsbd\+::count\+\_\+sketch\+::inner\+\_\+merge (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classqsbd_1_1count__sketch}{count\+\_\+sketch}} \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+Merges this sketch with {\ttfamily rhs} sketch and saves the result in this sketch. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rhs} & Another instance of a \mbox{\hyperlink{classqsbd_1_1count__sketch}{count\+\_\+sketch}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+All hash functions from {\ttfamily rhs} should have the same constants as this sketch. 
+
+The {\ttfamily rhs} \mbox{\hyperlink{classqsbd_1_1count__sketch}{count\+\_\+sketch}} should have the same estimator matrix size (d and t), in other words should have the same $\epsilon$ and $\delta$. 
+\end{DoxyWarning}
+\begin{DoxySeeAlso}{See also}
+count\+\_\+sketch$\ast$ \mbox{\hyperlink{classqsbd_1_1count__sketch_a287a233e585a12f1284158df1c52d4c5}{count\+\_\+sketch\+::merge(count\+\_\+sketch\&)}} 
+\end{DoxySeeAlso}
+
+
+Definition at line 207 of file count\+\_\+sketch.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{207                                                    \{}
+\DoxyCodeLine{208         ASSERT(this-\/>t == rhs.t);}
+\DoxyCodeLine{209         ASSERT(this-\/>d == rhs.d);}
+\DoxyCodeLine{210 }
+\DoxyCodeLine{211         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < this-\/>d; i++)\{}
+\DoxyCodeLine{212             ASSERT(this-\/>hash\_functions[i].get\_constants() == rhs.hash\_functions[i].get\_constants());}
+\DoxyCodeLine{213         \}}
+\DoxyCodeLine{214 }
+\DoxyCodeLine{215         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < this-\/>d; i++)\{}
+\DoxyCodeLine{216             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j = 0; j < this-\/>t; j++)\{}
+\DoxyCodeLine{217                 this-\/>estimators[i][j] += rhs.estimators[i][j];}
+\DoxyCodeLine{218             \}}
+\DoxyCodeLine{219         \}}
+\DoxyCodeLine{220     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classqsbd_1_1count__sketch_a287a233e585a12f1284158df1c52d4c5}\label{classqsbd_1_1count__sketch_a287a233e585a12f1284158df1c52d4c5}} 
+\index{qsbd::count\_sketch@{qsbd::count\_sketch}!merge@{merge}}
+\index{merge@{merge}!qsbd::count\_sketch@{qsbd::count\_sketch}}
+\doxysubsubsection{\texorpdfstring{merge()}{merge()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classqsbd_1_1count__sketch}{count\+\_\+sketch}} $\ast$ qsbd\+::count\+\_\+sketch\+::merge (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classqsbd_1_1count__sketch}{count\+\_\+sketch}} \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+Merges this sketch with {\ttfamily rhs} sketch and saves the result in a new instance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rhs} & Another instance of a \mbox{\hyperlink{classqsbd_1_1count__sketch}{count\+\_\+sketch}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A new allocated instance of a \mbox{\hyperlink{classqsbd_1_1count__sketch}{count\+\_\+sketch}} 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+void \mbox{\hyperlink{classqsbd_1_1count__sketch_a715a5850a4ec01b924f6eb2b2f03d649}{count\+\_\+sketch\+::inner\+\_\+merge(count\+\_\+sketch\&)}} 
+\end{DoxySeeAlso}
+
+
+Definition at line 188 of file count\+\_\+sketch.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{188                                                       \{}
+\DoxyCodeLine{189         ASSERT(this-\/>t == rhs.t);}
+\DoxyCodeLine{190         ASSERT(this-\/>d == rhs.d);}
+\DoxyCodeLine{191 }
+\DoxyCodeLine{192         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < this-\/>d; i++)\{}
+\DoxyCodeLine{193             ASSERT(this-\/>hash\_functions[i].get\_constants() == rhs.hash\_functions[i].get\_constants());        }
+\DoxyCodeLine{194         \}}
+\DoxyCodeLine{195 }
+\DoxyCodeLine{196         \mbox{\hyperlink{classqsbd_1_1count__sketch_aa31ebfbec75b141b594795bf1054bfdf}{count\_sketch}}* merged\_cs = \textcolor{keyword}{new} \mbox{\hyperlink{classqsbd_1_1count__sketch_aa31ebfbec75b141b594795bf1054bfdf}{count\_sketch}}(this-\/>error, this-\/>delta, this-\/>\mbox{\hyperlink{classqsbd_1_1count__sketch_aa908579f27136909b6e277cf3f8ce15f}{get\_hash\_functions\_consts}}());}
+\DoxyCodeLine{197 }
+\DoxyCodeLine{198         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < merged\_cs-\/>d; i++)\{}
+\DoxyCodeLine{199             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j = 0; j < merged\_cs-\/>t; j++)\{}
+\DoxyCodeLine{200                 merged\_cs-\/>estimators[i][j] = this-\/>estimators[i][j] + rhs.estimators[i][j];}
+\DoxyCodeLine{201             \}}
+\DoxyCodeLine{202         \}}
+\DoxyCodeLine{203 }
+\DoxyCodeLine{204         \textcolor{keywordflow}{return} merged\_cs;}
+\DoxyCodeLine{205     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classqsbd_1_1count__sketch_a0413add7eb49f751d1db6a9d6b413428}\label{classqsbd_1_1count__sketch_a0413add7eb49f751d1db6a9d6b413428}} 
+\index{qsbd::count\_sketch@{qsbd::count\_sketch}!operator=@{operator=}}
+\index{operator=@{operator=}!qsbd::count\_sketch@{qsbd::count\_sketch}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classqsbd_1_1count__sketch}{count\+\_\+sketch}} \& qsbd\+::count\+\_\+sketch\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classqsbd_1_1count__sketch}{count\+\_\+sketch}} \&}]{other }\end{DoxyParamCaption})}
+
+
+
+Assign this \mbox{\hyperlink{classqsbd_1_1count__sketch}{count\+\_\+sketch}} with {\ttfamily other}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & Another instance of a \mbox{\hyperlink{classqsbd_1_1count__sketch}{count\+\_\+sketch}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A reference to this 
+\end{DoxyReturn}
+
+
+Definition at line 222 of file count\+\_\+sketch.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{222                                                                   \{}
+\DoxyCodeLine{223         \textcolor{keywordflow}{if}(\textcolor{keyword}{this} != \&other)\{}
+\DoxyCodeLine{224             this-\/>error = other.error;}
+\DoxyCodeLine{225             this-\/>delta = other.delta;}
+\DoxyCodeLine{226             this-\/>d = other.d;}
+\DoxyCodeLine{227             this-\/>t = other.t;}
+\DoxyCodeLine{228 }
+\DoxyCodeLine{229             this-\/>hash\_functions.resize(other.hash\_functions.size());}
+\DoxyCodeLine{230 }
+\DoxyCodeLine{231             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < other.hash\_functions.size(); i++)\{}
+\DoxyCodeLine{232                 this-\/>hash\_functions[i] = other.hash\_functions[i];}
+\DoxyCodeLine{233             \}}
+\DoxyCodeLine{234 }
+\DoxyCodeLine{235             this-\/>estimators.resize(other.estimators.size());}
+\DoxyCodeLine{236 }
+\DoxyCodeLine{237             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < other.estimators.size(); i++)\{}
+\DoxyCodeLine{238                 this-\/>estimators[i].resize(other.estimators[i].size());}
+\DoxyCodeLine{239 }
+\DoxyCodeLine{240                 \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j = 0; j < other.estimators[i].size(); j++)\{}
+\DoxyCodeLine{241                     this-\/>estimators[i][j] = other.estimators[i][j];}
+\DoxyCodeLine{242                 \}}
+\DoxyCodeLine{243             \}}
+\DoxyCodeLine{244         \}}
+\DoxyCodeLine{245 }
+\DoxyCodeLine{246         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{247     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classqsbd_1_1count__sketch_aec2b22e91d508f4e2aa2ea7a6d583364}\label{classqsbd_1_1count__sketch_aec2b22e91d508f4e2aa2ea7a6d583364}} 
+\index{qsbd::count\_sketch@{qsbd::count\_sketch}!query@{query}}
+\index{query@{query}!qsbd::count\_sketch@{qsbd::count\_sketch}}
+\doxysubsubsection{\texorpdfstring{query()}{query()}}
+{\footnotesize\ttfamily int qsbd\+::count\+\_\+sketch\+::query (\begin{DoxyParamCaption}\item[{int}]{elem }\end{DoxyParamCaption})}
+
+
+
+Query the \mbox{\hyperlink{classqsbd_1_1count__sketch}{count\+\_\+sketch}} about the frequency of {\ttfamily elem}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em elem} & The element to be queried \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The estimated frequency for that {\ttfamily elem} 
+\end{DoxyReturn}
+
+
+Definition at line 156 of file count\+\_\+sketch.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{156                                    \{}
+\DoxyCodeLine{157         std::vector<int> ranks;}
+\DoxyCodeLine{158 }
+\DoxyCodeLine{159         ranks.reserve(this-\/>d);}
+\DoxyCodeLine{160 }
+\DoxyCodeLine{161         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < this-\/>d; i++)\{}
+\DoxyCodeLine{162             \textcolor{keywordtype}{int} hx = hash\_functions[i](elem) \% (2 * this-\/>t);}
+\DoxyCodeLine{163             \textcolor{keywordtype}{int} hi = hx >> 1;}
+\DoxyCodeLine{164 }
+\DoxyCodeLine{165             ranks.emplace\_back(g(hx) * estimators[i][hi]);}
+\DoxyCodeLine{166         \}}
+\DoxyCodeLine{167 }
+\DoxyCodeLine{168         \textcolor{comment}{//std::sort(ranks.begin(), ranks.end());}}
+\DoxyCodeLine{169         \textcolor{keywordtype}{int} size = ranks.size();}
+\DoxyCodeLine{170 }
+\DoxyCodeLine{171         \textcolor{keywordflow}{if} (size == 0) \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{172 }
+\DoxyCodeLine{173         \textcolor{comment}{// picking the median in linear time;}}
+\DoxyCodeLine{174         \textcolor{keywordflow}{if} ((size \& 1))\{}
+\DoxyCodeLine{175 }
+\DoxyCodeLine{176             std::nth\_element(ranks.begin(), ranks.begin() + size / 2, ranks.end());}
+\DoxyCodeLine{177 }
+\DoxyCodeLine{178             \textcolor{keywordflow}{return} ranks[size / 2];}
+\DoxyCodeLine{179         \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{180             nth\_element(ranks.begin(), ranks.begin() + size / 2, ranks.end());}
+\DoxyCodeLine{181   }
+\DoxyCodeLine{182             nth\_element(ranks.begin(), ranks.begin() + (size -\/ 1) / 2, ranks.end());}
+\DoxyCodeLine{183 }
+\DoxyCodeLine{184             \textcolor{keywordflow}{return} (ranks[size / 2 -\/ 1] + ranks[size / 2]) / 2;}
+\DoxyCodeLine{185         \}}
+\DoxyCodeLine{186     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classqsbd_1_1count__sketch_adc2e894ccebfa8677a12e5bdad0357b6}\label{classqsbd_1_1count__sketch_adc2e894ccebfa8677a12e5bdad0357b6}} 
+\index{qsbd::count\_sketch@{qsbd::count\_sketch}!update@{update}}
+\index{update@{update}!qsbd::count\_sketch@{qsbd::count\_sketch}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void qsbd\+::count\+\_\+sketch\+::update (\begin{DoxyParamCaption}\item[{int}]{elem,  }\item[{int}]{weight }\end{DoxyParamCaption})}
+
+
+
+Updates the \mbox{\hyperlink{classqsbd_1_1count__sketch}{count\+\_\+sketch}} with {\ttfamily elem} element and {\ttfamily weight}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em elem} & The element to update the sketch \\
+\hline
+{\em weight} & The weight associeted with {\ttfamily elem} \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 147 of file count\+\_\+sketch.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{147                                                  \{}
+\DoxyCodeLine{148         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < this-\/>d; i++)\{}
+\DoxyCodeLine{149             \textcolor{keywordtype}{int} hx = hash\_functions[i](elem) \% (2 * this-\/>t);}
+\DoxyCodeLine{150             \textcolor{keywordtype}{int} hi = hx >> 1;}
+\DoxyCodeLine{151 }
+\DoxyCodeLine{152             estimators[i][hi] += g(hx) * weight;}
+\DoxyCodeLine{153         \}}
+\DoxyCodeLine{154     \}}
+
+\end{DoxyCode}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-src/count\+\_\+sketch/count\+\_\+sketch.\+h\item 
+src/count\+\_\+sketch/\mbox{\hyperlink{count__sketch_8h}{count\+\_\+sketch.\+h}}\item 
 src/count\+\_\+sketch/count\+\_\+sketch.\+cpp\item 
 src/count\+\_\+sketch/count\+\_\+sketch\+\_\+malloc.\+cpp\item 
 src/count\+\_\+sketch/count\+\_\+sketch\+\_\+two\+\_\+wise.\+cpp\end{DoxyCompactItemize}

@@ -4,8 +4,8 @@
 #include <random>
 
 namespace qsbd{
-    extern unsigned seed;
-    extern std::default_random_engine generator;
+	extern unsigned seed;
+	extern std::default_random_engine generator;
 }
 
 #endif

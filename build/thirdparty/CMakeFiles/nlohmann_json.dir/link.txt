@@ -1,2 +1,2 @@
-/usr/bin/ar qc ../lib/libnlohmann_json.a  
-/usr/bin/ranlib ../lib/libnlohmann_json.a
+/bin/ar qc ../lib/libnlohmann_json.a  
+/bin/ranlib ../lib/libnlohmann_json.a

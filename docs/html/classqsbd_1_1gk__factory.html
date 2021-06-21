@@ -79,7 +79,7 @@ Inheritance diagram for qsbd::gk_factory&lt; Type &gt;:</div>
  <div class="center">
   <img src="classqsbd_1_1gk__factory.png" usemap="#qsbd::gk_5Ffactory_3C_20Type_20_3E_map" alt=""/>
   <map id="qsbd::gk_5Ffactory_3C_20Type_20_3E_map" name="qsbd::gk_5Ffactory_3C_20Type_20_3E_map">
-<area href="classqsbd_1_1sketch__factory.html" alt="qsbd::sketch_factory&lt; Type &gt;" shape="rect" coords="0,0,179,24"/>
+<area href="classqsbd_1_1sketch__factory.html" title="A interface for factorys of sketchs." alt="qsbd::sketch_factory&lt; Type &gt;" shape="rect" coords="0,0,179,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -88,15 +88,57 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ac2bb185dcaadc3fa38534ee517d3cb9f"><td class="memItemLeft" align="right" valign="top"><a id="ac2bb185dcaadc3fa38534ee517d3cb9f"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>gk_factory</b> (double err)</td></tr>
 <tr class="separator:ac2bb185dcaadc3fa38534ee517d3cb9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e366608d9731870b0cb8265980a9e86"><td class="memItemLeft" align="right" valign="top"><a id="a8e366608d9731870b0cb8265980a9e86"></a>
-<a class="el" href="classqsbd_1_1quantile__sketch.html">quantile_sketch</a>&lt; Type &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>instance</b> () override</td></tr>
+<tr class="memitem:a8e366608d9731870b0cb8265980a9e86"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classqsbd_1_1quantile__sketch.html">quantile_sketch</a>&lt; Type &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqsbd_1_1gk__factory.html#a8e366608d9731870b0cb8265980a9e86">instance</a> () override</td></tr>
+<tr class="memdesc:a8e366608d9731870b0cb8265980a9e86"><td class="mdescLeft">&#160;</td><td class="mdescRight">A pure virtual method for create new instances of a <a class="el" href="classqsbd_1_1quantile__sketch.html" title="A interface for quantile sketchs.">quantile_sketch</a>&lt;Type&gt;.  <a href="classqsbd_1_1gk__factory.html#a8e366608d9731870b0cb8265980a9e86">More...</a><br /></td></tr>
 <tr class="separator:a8e366608d9731870b0cb8265980a9e86"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;class Type&gt;<br />
 class qsbd::gk_factory&lt; Type &gt;</div>
 <p class="definition">Definition at line <a class="el" href="gk__factory_8hpp_source.html#l00008">8</a> of file <a class="el" href="gk__factory_8hpp_source.html">gk_factory.hpp</a>.</p>
-</div><hr/>The documentation for this class was generated from the following file:<ul>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a8e366608d9731870b0cb8265980a9e86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e366608d9731870b0cb8265980a9e86">&#9670;&nbsp;</a></span>instance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Type &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classqsbd_1_1quantile__sketch.html">quantile_sketch</a>&lt;Type&gt;* <a class="el" href="classqsbd_1_1gk__factory.html">qsbd::gk_factory</a>&lt; Type &gt;::instance </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A pure virtual method for create new instances of a <a class="el" href="classqsbd_1_1quantile__sketch.html" title="A interface for quantile sketchs.">quantile_sketch</a>&lt;Type&gt;. </p>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to a new allocated <a class="el" href="classqsbd_1_1quantile__sketch.html" title="A interface for quantile sketchs.">quantile_sketch</a>&lt;Type&gt; </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>It's up to a user the function of delete this memory. </dd>
+<dd>
+All quantile sketchs returned by this method should be capable of merging together. </dd></dl>
+
+<p>Implements <a class="el" href="classqsbd_1_1sketch__factory.html#ad54e5735ea72b515991cc994fe37e23a">qsbd::sketch_factory&lt; Type &gt;</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="gk__factory_8hpp_source.html#l00016">16</a> of file <a class="el" href="gk__factory_8hpp_source.html">gk_factory.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;                                                    {</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="classgk.html">gk&lt;Type&gt;</a>(this-&gt;error);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        }</div>
+<div class="ttc" id="aclassgk_html"><div class="ttname"><a href="classgk.html">gk</a></div><div class="ttdef"><b>Definition:</b> <a href="gk_8cpp_source.html#l00006">gk.cpp:6</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li>src/gk_factory/<a class="el" href="gk__factory_8hpp_source.html">gk_factory.hpp</a></li>
 </ul>
 </div><!-- contents -->

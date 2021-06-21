@@ -15,18 +15,14 @@ Inheritance diagram for qsbd\+::kll$<$ T $>$\+:\begin{figure}[H]
 \mbox{\Hypertarget{classqsbd_1_1kll_a5d8426a8557ee75bcc0d1e9495c2cf96}\label{classqsbd_1_1kll_a5d8426a8557ee75bcc0d1e9495c2cf96}} 
 void {\bfseries compress} ()
 \item 
-\mbox{\Hypertarget{classqsbd_1_1kll_a2d13b0861967e45ab5c4780d35f1f449}\label{classqsbd_1_1kll_a2d13b0861967e45ab5c4780d35f1f449}} 
-void {\bfseries update} (T elem) override
-\item 
-\mbox{\Hypertarget{classqsbd_1_1kll_ae90d25239b925ab9bc1ef7794d9e4104}\label{classqsbd_1_1kll_ae90d25239b925ab9bc1ef7794d9e4104}} 
-int {\bfseries query} (T elem) override
-\item 
-\mbox{\Hypertarget{classqsbd_1_1kll_a333e8c73e1ad730429f657c3f798ed6c}\label{classqsbd_1_1kll_a333e8c73e1ad730429f657c3f798ed6c}} 
-\mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$ T $>$ $\ast$ {\bfseries merge} (\mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$ T $>$ \&rhs) override
-\item 
-\mbox{\Hypertarget{classqsbd_1_1kll_a37cec2795a6a5b6ff64e72b635887d7a}\label{classqsbd_1_1kll_a37cec2795a6a5b6ff64e72b635887d7a}} 
-void {\bfseries inner\+\_\+merge} (\mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$ T $>$ \&rhs) override
-\item 
+void \mbox{\hyperlink{classqsbd_1_1kll_a2d13b0861967e45ab5c4780d35f1f449}{update}} (T elem) override
+\begin{DoxyCompactList}\small\item\em A virtual update method. Receives a {\ttfamily elem} and updates the sketch with it. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classqsbd_1_1kll_ae90d25239b925ab9bc1ef7794d9e4104}{query}} (T elem) override
+\begin{DoxyCompactList}\small\item\em A virtual query method. Receives a {\ttfamily elem} and returns the rank associate with this element. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$ T $>$ $\ast$ \mbox{\hyperlink{classqsbd_1_1kll_a333e8c73e1ad730429f657c3f798ed6c}{merge}} (\mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$ T $>$ \&rhs) override
+\begin{DoxyCompactList}\small\item\em A pure virtual merge method. Recives a quantile sketch {\ttfamily rhs} performes a merge with this sketch, and returns a new quantile sketch. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classqsbd_1_1kll_a37cec2795a6a5b6ff64e72b635887d7a}{inner\+\_\+merge}} (\mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$ T $>$ \&rhs) override
+\begin{DoxyCompactList}\small\item\em A pure virtual merge method. Recives a quantile sketch {\ttfamily rhs} performes a merge with this sketch, and save in this sketch. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classqsbd_1_1kll_af2ac5bcbd4e244a90eb409138b31f403}\label{classqsbd_1_1kll_af2ac5bcbd4e244a90eb409138b31f403}} 
 void {\bfseries print} ()
 \item 
@@ -78,6 +74,251 @@ class qsbd\+::kll$<$ T $>$}
 
 Definition at line 10 of file kll.\+hpp.
 
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classqsbd_1_1kll_a37cec2795a6a5b6ff64e72b635887d7a}\label{classqsbd_1_1kll_a37cec2795a6a5b6ff64e72b635887d7a}} 
+\index{qsbd::kll$<$ T $>$@{qsbd::kll$<$ T $>$}!inner\_merge@{inner\_merge}}
+\index{inner\_merge@{inner\_merge}!qsbd::kll$<$ T $>$@{qsbd::kll$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{inner\_merge()}{inner\_merge()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{classqsbd_1_1kll}{qsbd\+::kll}}$<$ T $>$\+::inner\+\_\+merge (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$ T $>$ \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+A pure virtual merge method. Recives a quantile sketch {\ttfamily rhs} performes a merge with this sketch, and save in this sketch. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rhs} & A instance of a \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$Type$>$ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+The \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}} passed as argument should be the same as this. 
+\end{DoxyWarning}
+
+
+Implements \mbox{\hyperlink{classqsbd_1_1quantile__sketch_af3458d26f52106a68ab2a65a81eeb0af}{qsbd\+::quantile\+\_\+sketch$<$ T $>$}}.
+
+
+
+Definition at line 111 of file kll.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{111                                                    \{}
+\DoxyCodeLine{112         kll<T>\& rhs\_cv = \textcolor{keyword}{dynamic\_cast<}kll<T>\&\textcolor{keyword}{>} (rhs);}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{114         \textcolor{keywordflow}{if}((rhs\_cv.error -\/ this-\/>error) > 1e-\/6)\{}
+\DoxyCodeLine{115             DEBUG\_ERR(\textcolor{stringliteral}{"{}in kll::inner\_merge kll's error need to match"{}});}
+\DoxyCodeLine{116         \}}
+\DoxyCodeLine{117 }
+\DoxyCodeLine{118         \textcolor{keywordtype}{int} merged\_height = std::max(rhs\_cv.height, this-\/>height);}
+\DoxyCodeLine{119         std::vector<std::vector<T>> merged\_buffer;}
+\DoxyCodeLine{120         merged\_buffer.push\_back(\{\});}
+\DoxyCodeLine{121 }
+\DoxyCodeLine{122         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} l = 0; l <= merged\_height; l++)\{}
+\DoxyCodeLine{123             \textcolor{keywordflow}{if}(l < merged\_height)\{}
+\DoxyCodeLine{124                 merged\_buffer.push\_back(\{\});}
+\DoxyCodeLine{125             \}}
+\DoxyCodeLine{126             }
+\DoxyCodeLine{127             \textcolor{keywordtype}{int} i = 0;}
+\DoxyCodeLine{128             \textcolor{keywordtype}{int} j = 0;}
+\DoxyCodeLine{129 }
+\DoxyCodeLine{130             \textcolor{keywordtype}{bool} have\_in\_rhs = l < rhs\_cv.buffers\_array.size();}
+\DoxyCodeLine{131             \textcolor{keywordtype}{bool} have\_in\_this = l < this-\/>buffers\_array.size();}
+\DoxyCodeLine{132             \textcolor{keywordtype}{bool} have\_in\_both\_arrays = have\_in\_rhs \&\& have\_in\_this;}
+\DoxyCodeLine{133 }
+\DoxyCodeLine{134             \textcolor{keywordflow}{while} (have\_in\_both\_arrays \&\&  i < rhs\_cv.buffers\_array[l].size() \&\& j < this-\/>buffers\_array[l].size())\{}
+\DoxyCodeLine{135                 \textcolor{keywordflow}{if}(rhs\_cv.buffers\_array[l][i] <= this-\/>buffers\_array[l][j])\{}
+\DoxyCodeLine{136                     merged\_buffer[l].push\_back(rhs\_cv.buffers\_array[l][i]);}
+\DoxyCodeLine{137                     i++;}
+\DoxyCodeLine{138                 \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{139                     merged\_buffer[l].push\_back(this-\/>buffers\_array[l][j]);}
+\DoxyCodeLine{140                     j++;}
+\DoxyCodeLine{141                 \}}
+\DoxyCodeLine{142             \}}
+\DoxyCodeLine{143 }
+\DoxyCodeLine{144             \textcolor{keywordflow}{while}(have\_in\_rhs \&\& i < rhs\_cv.buffers\_array[l].size())\{}
+\DoxyCodeLine{145                 merged\_buffer[l].push\_back(rhs\_cv.buffers\_array[l][i]);}
+\DoxyCodeLine{146                 i++;}
+\DoxyCodeLine{147             \}}
+\DoxyCodeLine{148 }
+\DoxyCodeLine{149             \textcolor{keywordflow}{while}(have\_in\_this \&\& j < this-\/>buffers\_array[l].size())\{}
+\DoxyCodeLine{150                 merged\_buffer[l].push\_back(this-\/>buffers\_array[l][j]);}
+\DoxyCodeLine{151                 j++;}
+\DoxyCodeLine{152             \}}
+\DoxyCodeLine{153         \}}
+\DoxyCodeLine{154 }
+\DoxyCodeLine{155         this-\/>height = merged\_height;}
+\DoxyCodeLine{156         this-\/>buffers\_array.clear();}
+\DoxyCodeLine{157         this-\/>buffers\_array = std::move(merged\_buffer);}
+\DoxyCodeLine{158 }
+\DoxyCodeLine{159         this-\/>compress();}
+\DoxyCodeLine{160     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classqsbd_1_1kll_a333e8c73e1ad730429f657c3f798ed6c}\label{classqsbd_1_1kll_a333e8c73e1ad730429f657c3f798ed6c}} 
+\index{qsbd::kll$<$ T $>$@{qsbd::kll$<$ T $>$}!merge@{merge}}
+\index{merge@{merge}!qsbd::kll$<$ T $>$@{qsbd::kll$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{merge()}{merge()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$ T $>$ $\ast$ \mbox{\hyperlink{classqsbd_1_1kll}{qsbd\+::kll}}$<$ T $>$\+::merge (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$ T $>$ \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+A pure virtual merge method. Recives a quantile sketch {\ttfamily rhs} performes a merge with this sketch, and returns a new quantile sketch. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rhs} & A instance of a \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$Type$>$ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to a new instance of a \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$Type$>$ 
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+It\textquotesingle{}s up to a user the function of delete this memory. 
+
+The \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}} passed as argument should be the same as this. 
+\end{DoxyWarning}
+
+
+Implements \mbox{\hyperlink{classqsbd_1_1quantile__sketch_a20950642c0bd2279335f566b1c0170df}{qsbd\+::quantile\+\_\+sketch$<$ T $>$}}.
+
+
+
+Definition at line 61 of file kll.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{61                                                             \{}
+\DoxyCodeLine{62         kll<T>\& rhs\_cv = \textcolor{keyword}{dynamic\_cast<}kll<T>\&\textcolor{keyword}{>} (rhs);}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64         \textcolor{keywordflow}{if}((rhs\_cv.error -\/ this-\/>error) > 1e-\/6)\{}
+\DoxyCodeLine{65             DEBUG\_ERR(\textcolor{stringliteral}{"{}in kll::merge kll's error need to match"{}});}
+\DoxyCodeLine{66             \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{67         \}}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{69         kll<T>* merged\_summary = \textcolor{keyword}{new} kll<T>(rhs\_cv.error);}
+\DoxyCodeLine{70         merged\_summary-\/>height = std::max(rhs\_cv.height, this-\/>height);}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} l = 0; l <= merged\_summary-\/>height; l++)\{}
+\DoxyCodeLine{73             \textcolor{keywordflow}{if}(l < merged\_summary-\/>height)\{}
+\DoxyCodeLine{74                 merged\_summary-\/>buffers\_array.push\_back(\{\});}
+\DoxyCodeLine{75             \}}
+\DoxyCodeLine{76             }
+\DoxyCodeLine{77             \textcolor{keywordtype}{int} i = 0;}
+\DoxyCodeLine{78             \textcolor{keywordtype}{int} j = 0;}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80             \textcolor{keywordtype}{bool} have\_in\_rhs = l < rhs\_cv.buffers\_array.size();}
+\DoxyCodeLine{81             \textcolor{keywordtype}{bool} have\_in\_this = l < this-\/>buffers\_array.size();}
+\DoxyCodeLine{82             \textcolor{keywordtype}{bool} have\_in\_both\_arrays = have\_in\_rhs \&\& have\_in\_this;}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84             \textcolor{keywordflow}{while} (have\_in\_both\_arrays \&\&  i < rhs\_cv.buffers\_array[l].size() \&\& j < this-\/>buffers\_array[l].size())\{}
+\DoxyCodeLine{85                 \textcolor{keywordflow}{if}(rhs\_cv.buffers\_array[l][i] <= this-\/>buffers\_array[l][j])\{}
+\DoxyCodeLine{86                     merged\_summary-\/>buffers\_array[l].push\_back(rhs\_cv.buffers\_array[l][i]);}
+\DoxyCodeLine{87                     i++;}
+\DoxyCodeLine{88                 \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{89                     merged\_summary-\/>buffers\_array[l].push\_back(this-\/>buffers\_array[l][j]);}
+\DoxyCodeLine{90                     j++;}
+\DoxyCodeLine{91                 \}}
+\DoxyCodeLine{92             \}}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94             \textcolor{keywordflow}{while}(have\_in\_rhs \&\& i < rhs\_cv.buffers\_array[l].size())\{}
+\DoxyCodeLine{95                 merged\_summary-\/>buffers\_array[l].push\_back(rhs\_cv.buffers\_array[l][i]);}
+\DoxyCodeLine{96                 i++;}
+\DoxyCodeLine{97             \}}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{99             \textcolor{keywordflow}{while}(have\_in\_this \&\& j < this-\/>buffers\_array[l].size())\{}
+\DoxyCodeLine{100                 merged\_summary-\/>buffers\_array[l].push\_back(this-\/>buffers\_array[l][j]);}
+\DoxyCodeLine{101                 j++;}
+\DoxyCodeLine{102             \}}
+\DoxyCodeLine{103         \}}
+\DoxyCodeLine{104 }
+\DoxyCodeLine{105         merged\_summary-\/>compress();}
+\DoxyCodeLine{106 }
+\DoxyCodeLine{107         \textcolor{keywordflow}{return} merged\_summary;}
+\DoxyCodeLine{108     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classqsbd_1_1kll_ae90d25239b925ab9bc1ef7794d9e4104}\label{classqsbd_1_1kll_ae90d25239b925ab9bc1ef7794d9e4104}} 
+\index{qsbd::kll$<$ T $>$@{qsbd::kll$<$ T $>$}!query@{query}}
+\index{query@{query}!qsbd::kll$<$ T $>$@{qsbd::kll$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{query()}{query()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+int \mbox{\hyperlink{classqsbd_1_1kll}{qsbd\+::kll}}$<$ T $>$\+::query (\begin{DoxyParamCaption}\item[{T}]{elem }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+A virtual query method. Receives a {\ttfamily elem} and returns the rank associate with this element. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em elem} & The element to be query the rank \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The rank(elem) 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Unless specified, the rank should be defined as $rank(elem) = \sum _{y < elem} v_{y}$, where $v_{y} = $ sum of all weights of y in the input. 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classqsbd_1_1quantile__sketch_a8cf64d79f25d910d1c1aed209ddac71e}{qsbd\+::quantile\+\_\+sketch$<$ T $>$}}.
+
+
+
+Definition at line 48 of file kll.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{48                            \{}
+\DoxyCodeLine{49         \textcolor{keywordtype}{int} rank = 0;}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i <= height; i++)\{}
+\DoxyCodeLine{52             \textcolor{keyword}{auto} it = upper\_bound(buffers\_array[i].begin(), buffers\_array[i].end(), elem);}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54             rank += (it -\/ buffers\_array[i].begin()) * (1 << i);}
+\DoxyCodeLine{55         \}}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57         \textcolor{keywordflow}{return} rank;}
+\DoxyCodeLine{58     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classqsbd_1_1kll_a2d13b0861967e45ab5c4780d35f1f449}\label{classqsbd_1_1kll_a2d13b0861967e45ab5c4780d35f1f449}} 
+\index{qsbd::kll$<$ T $>$@{qsbd::kll$<$ T $>$}!update@{update}}
+\index{update@{update}!qsbd::kll$<$ T $>$@{qsbd::kll$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{classqsbd_1_1kll}{qsbd\+::kll}}$<$ T $>$\+::update (\begin{DoxyParamCaption}\item[{T}]{elem }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+A virtual update method. Receives a {\ttfamily elem} and updates the sketch with it. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em elem} & A element of the type supported by the sketch \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classqsbd_1_1quantile__sketch_a0e7eefd81eec272e92b7cb989be33c6a}{qsbd\+::quantile\+\_\+sketch$<$ T $>$}}.
+
+
+
+Definition at line 42 of file kll.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{42                              \{}
+\DoxyCodeLine{43         kll<T>::insert\_sorted(buffers\_array[0], elem);}
+\DoxyCodeLine{44         this-\/>compress();}
+\DoxyCodeLine{45     \}}
+
+\end{DoxyCode}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

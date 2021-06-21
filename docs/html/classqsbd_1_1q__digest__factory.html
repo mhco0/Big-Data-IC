@@ -88,14 +88,54 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a7fc3d934159ed9a7e38545479a294a8a"><td class="memItemLeft" align="right" valign="top"><a id="a7fc3d934159ed9a7e38545479a294a8a"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>q_digest_factory</b> (double err, int uni)</td></tr>
 <tr class="separator:a7fc3d934159ed9a7e38545479a294a8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b7fd456b5d66cb3291c61def95362e2"><td class="memItemLeft" align="right" valign="top"><a id="a4b7fd456b5d66cb3291c61def95362e2"></a>
-<a class="el" href="classqsbd_1_1quantile__sketch.html">quantile_sketch</a>&lt; int &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>instance</b> () override</td></tr>
+<tr class="memitem:a4b7fd456b5d66cb3291c61def95362e2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classqsbd_1_1quantile__sketch.html">quantile_sketch</a>&lt; int &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqsbd_1_1q__digest__factory.html#a4b7fd456b5d66cb3291c61def95362e2">instance</a> () override</td></tr>
+<tr class="memdesc:a4b7fd456b5d66cb3291c61def95362e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">A pure virtual method for create new instances of a <a class="el" href="classqsbd_1_1quantile__sketch.html" title="A interface for quantile sketchs.">quantile_sketch</a>&lt;Type&gt;.  <a href="classqsbd_1_1q__digest__factory.html#a4b7fd456b5d66cb3291c61def95362e2">More...</a><br /></td></tr>
 <tr class="separator:a4b7fd456b5d66cb3291c61def95362e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
 <p class="definition">Definition at line <a class="el" href="q__digest__factory_8h_source.html#l00007">7</a> of file <a class="el" href="q__digest__factory_8h_source.html">q_digest_factory.h</a>.</p>
-</div><hr/>The documentation for this class was generated from the following file:<ul>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a4b7fd456b5d66cb3291c61def95362e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b7fd456b5d66cb3291c61def95362e2">&#9670;&nbsp;</a></span>instance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classqsbd_1_1quantile__sketch.html">quantile_sketch</a>&lt;int&gt;* qsbd::q_digest_factory::instance </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A pure virtual method for create new instances of a <a class="el" href="classqsbd_1_1quantile__sketch.html" title="A interface for quantile sketchs.">quantile_sketch</a>&lt;Type&gt;. </p>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to a new allocated <a class="el" href="classqsbd_1_1quantile__sketch.html" title="A interface for quantile sketchs.">quantile_sketch</a>&lt;Type&gt; </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>It's up to a user the function of delete this memory. </dd>
+<dd>
+All quantile sketchs returned by this method should be capable of merging together. </dd></dl>
+
+<p>Implements <a class="el" href="classqsbd_1_1sketch__factory.html#ad54e5735ea72b515991cc994fe37e23a">qsbd::sketch_factory&lt; int &gt;</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="q__digest__factory_8h_source.html#l00017">17</a> of file <a class="el" href="q__digest__factory_8h_source.html">q_digest_factory.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;                                                   {</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="classq__digest.html">q_digest</a>(this-&gt;error, this-&gt;universe);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        }</div>
+<div class="ttc" id="aclassq__digest_html"><div class="ttname"><a href="classq__digest.html">q_digest</a></div><div class="ttdef"><b>Definition:</b> <a href="q__digest_8cpp_source.html#l00006">q_digest.cpp:6</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li>src/q_digest_factory/<a class="el" href="q__digest__factory_8h_source.html">q_digest_factory.h</a></li>
 </ul>
 </div><!-- contents -->

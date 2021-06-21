@@ -70,21 +70,25 @@ $(function() {
   <div class="headertitle"><div class="title">sketch_factory.hpp</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef QSBD_SKETCH_FACTORY</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define QSBD_SKETCH_FACTORY</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;../quantile_sketch/quantile_sketch.hpp&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">namespace </span>qsbd{</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> Type&gt;</div>
-<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="classqsbd_1_1sketch__factory.html">    7</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classqsbd_1_1sketch__factory.html">sketch_factory</a>{</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;        <span class="keyword">virtual</span> <a class="code" href="classqsbd_1_1quantile__sketch.html">quantile_sketch&lt;Type&gt;</a> * instance() = 0;    </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    };  </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;}</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aclassqsbd_1_1quantile__sketch_html"><div class="ttname"><a href="classqsbd_1_1quantile__sketch.html">qsbd::quantile_sketch</a></div><div class="ttdef"><b>Definition:</b> <a href="quantile__sketch_8hpp_source.html#l00006">quantile_sketch.hpp:6</a></div></div>
-<div class="ttc" id="aclassqsbd_1_1sketch__factory_html"><div class="ttname"><a href="classqsbd_1_1sketch__factory.html">qsbd::sketch_factory</a></div><div class="ttdef"><b>Definition:</b> <a href="sketch__factory_8hpp_source.html#l00007">sketch_factory.hpp:7</a></div></div>
+<a href="sketch__factory_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#ifndef QSBD_SKETCH_FACTORY</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#define QSBD_SKETCH_FACTORY</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;../quantile_sketch/quantile_sketch.hpp&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">namespace </span>qsbd{</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> Type&gt;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="classqsbd_1_1sketch__factory.html">   23</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classqsbd_1_1sketch__factory.html">sketch_factory</a>{</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="classqsbd_1_1sketch__factory.html#ad54e5735ea72b515991cc994fe37e23a">   35</a></span>&#160;        <span class="keyword">virtual</span> <a class="code" href="classqsbd_1_1quantile__sketch.html">quantile_sketch&lt;Type&gt;</a> * <a class="code" href="classqsbd_1_1sketch__factory.html#ad54e5735ea72b515991cc994fe37e23a">instance</a>() = 0;    </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    };  </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;}</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclassqsbd_1_1quantile__sketch_html"><div class="ttname"><a href="classqsbd_1_1quantile__sketch.html">qsbd::quantile_sketch</a></div><div class="ttdoc">A interface for quantile sketchs.</div><div class="ttdef"><b>Definition:</b> <a href="quantile__sketch_8hpp_source.html#l00024">quantile_sketch.hpp:24</a></div></div>
+<div class="ttc" id="aclassqsbd_1_1sketch__factory_html"><div class="ttname"><a href="classqsbd_1_1sketch__factory.html">qsbd::sketch_factory</a></div><div class="ttdoc">A interface for factorys of sketchs.</div><div class="ttdef"><b>Definition:</b> <a href="sketch__factory_8hpp_source.html#l00023">sketch_factory.hpp:23</a></div></div>
+<div class="ttc" id="aclassqsbd_1_1sketch__factory_html_ad54e5735ea72b515991cc994fe37e23a"><div class="ttname"><a href="classqsbd_1_1sketch__factory.html#ad54e5735ea72b515991cc994fe37e23a">qsbd::sketch_factory::instance</a></div><div class="ttdeci">virtual quantile_sketch&lt; Type &gt; * instance()=0</div><div class="ttdoc">A pure virtual method for create new instances of a quantile_sketch&lt;Type&gt;.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

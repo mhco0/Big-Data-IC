@@ -1,5 +1,14 @@
 \hypertarget{classqsbd_1_1sketch__factory}{}\doxysection{qsbd\+::sketch\+\_\+factory$<$ Type $>$ Class Template Reference}
 \label{classqsbd_1_1sketch__factory}\index{qsbd::sketch\_factory$<$ Type $>$@{qsbd::sketch\_factory$<$ Type $>$}}
+
+
+A interface for factorys of sketchs.  
+
+
+
+
+{\ttfamily \#include $<$sketch\+\_\+factory.\+hpp$>$}
+
 Inheritance diagram for qsbd\+::sketch\+\_\+factory$<$ Type $>$\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,20 +18,50 @@ Inheritance diagram for qsbd\+::sketch\+\_\+factory$<$ Type $>$\+:\begin{figure}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classqsbd_1_1sketch__factory_ad54e5735ea72b515991cc994fe37e23a}\label{classqsbd_1_1sketch__factory_ad54e5735ea72b515991cc994fe37e23a}} 
-virtual \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$ Type $>$ $\ast$ {\bfseries instance} ()=0
-\end{DoxyCompactItemize}
+virtual \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$ Type $>$ $\ast$ \mbox{\hyperlink{classqsbd_1_1sketch__factory_ad54e5735ea72b515991cc994fe37e23a}{instance}} ()=0
+\begin{DoxyCompactList}\small\item\em A pure virtual method for create new instances of a \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$Type$>$. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 \subsubsection*{template$<$class Type$>$\newline
 class qsbd\+::sketch\+\_\+factory$<$ Type $>$}
+A interface for factorys of sketchs. 
+
+A interface for a factory that creates new quantile sketchs \begin{DoxyNote}{Note}
+The idea of ​​this class is to always make quantile\+\_\+sketchs that are able to merge together 
+\end{DoxyNote}
 
 
-Definition at line 7 of file sketch\+\_\+factory.\+hpp.
+Definition at line 23 of file sketch\+\_\+factory.\+hpp.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classqsbd_1_1sketch__factory_ad54e5735ea72b515991cc994fe37e23a}\label{classqsbd_1_1sketch__factory_ad54e5735ea72b515991cc994fe37e23a}} 
+\index{qsbd::sketch\_factory$<$ Type $>$@{qsbd::sketch\_factory$<$ Type $>$}!instance@{instance}}
+\index{instance@{instance}!qsbd::sketch\_factory$<$ Type $>$@{qsbd::sketch\_factory$<$ Type $>$}}
+\doxysubsubsection{\texorpdfstring{instance()}{instance()}}
+{\footnotesize\ttfamily template$<$class Type $>$ \\
+virtual \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$Type$>$$\ast$ \mbox{\hyperlink{classqsbd_1_1sketch__factory}{qsbd\+::sketch\+\_\+factory}}$<$ Type $>$\+::instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+A pure virtual method for create new instances of a \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$Type$>$. 
+
+\begin{DoxyReturn}{Returns}
+A pointer to a new allocated \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$Type$>$ 
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+It\textquotesingle{}s up to a user the function of delete this memory. 
+
+All quantile sketchs returned by this method should be capable of merging together. 
+\end{DoxyWarning}
+
+
+Implemented in \mbox{\hyperlink{classqsbd_1_1dcs__factory_a0156f21c78b6ed70d0ae33c579d57440}{qsbd\+::dcs\+\_\+factory}}, \mbox{\hyperlink{classqsbd_1_1gk__factory_a8e366608d9731870b0cb8265980a9e86}{qsbd\+::gk\+\_\+factory$<$ Type $>$}}, \mbox{\hyperlink{classqsbd_1_1kll__factory_adce0aec1afea9987269fea54d03e5b1c}{qsbd\+::kll\+\_\+factory$<$ Type $>$}}, and \mbox{\hyperlink{classqsbd_1_1q__digest__factory_a4b7fd456b5d66cb3291c61def95362e2}{qsbd\+::q\+\_\+digest\+\_\+factory}}.
 
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-src/sketch\+\_\+factory/sketch\+\_\+factory.\+hpp\end{DoxyCompactItemize}
+src/sketch\+\_\+factory/\mbox{\hyperlink{sketch__factory_8hpp}{sketch\+\_\+factory.\+hpp}}\end{DoxyCompactItemize}

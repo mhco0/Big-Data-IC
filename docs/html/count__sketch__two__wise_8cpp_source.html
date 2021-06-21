@@ -70,7 +70,7 @@ $(function() {
   <div class="headertitle"><div class="title">count_sketch_two_wise.cpp</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;count_sketch.h&quot;</span></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="count__sketch_8h.html">count_sketch.h</a>&quot;</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">namespace </span>qsbd {</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;    <span class="keywordtype">void</span> count_sketch::set_param_double(<span class="keywordtype">double</span> err, <span class="keywordtype">double</span> delt){</div>
@@ -110,7 +110,7 @@ $(function() {
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">return</span> -1;</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    }</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    count_sketch::count_sketch(<span class="keywordtype">int</span> fixd, <span class="keywordtype">int</span> fixt){</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="classqsbd_1_1count__sketch.html#aa31ebfbec75b141b594795bf1054bfdf">count_sketch::count_sketch</a>(<span class="keywordtype">int</span> fixd, <span class="keywordtype">int</span> fixt){</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        this-&gt;set_param_int(fixd, fixt);</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        this-&gt;estimators.reserve(this-&gt;d);</div>
@@ -129,7 +129,7 @@ $(function() {
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        }</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    }</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    count_sketch::count_sketch(<span class="keywordtype">int</span> fixd, <span class="keywordtype">int</span> fixt, <span class="keyword">const</span> std::vector&lt;std::vector&lt;int&gt;&gt;&amp; hashs_consts){</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <a class="code" href="classqsbd_1_1count__sketch.html#aa31ebfbec75b141b594795bf1054bfdf">count_sketch::count_sketch</a>(<span class="keywordtype">int</span> fixd, <span class="keywordtype">int</span> fixt, <span class="keyword">const</span> std::vector&lt;std::vector&lt;int&gt;&gt;&amp; hashs_consts){</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        this-&gt;set_param_int(fixd, fixt);</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        this-&gt;estimators.reserve(this-&gt;d);</div>
@@ -150,7 +150,7 @@ $(function() {
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        }</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    }</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    count_sketch::count_sketch(<span class="keywordtype">double</span> err, <span class="keywordtype">double</span> delt){</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <a class="code" href="classqsbd_1_1count__sketch.html#aa31ebfbec75b141b594795bf1054bfdf">count_sketch::count_sketch</a>(<span class="keywordtype">double</span> err, <span class="keywordtype">double</span> delt){</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        this-&gt;set_param_double(err, delt);</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        this-&gt;estimators.reserve(this-&gt;d);</div>
@@ -169,7 +169,7 @@ $(function() {
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        }</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    }</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    count_sketch::count_sketch(<span class="keywordtype">double</span> err, <span class="keywordtype">double</span> delt, <span class="keyword">const</span> std::vector&lt;std::vector&lt;int&gt;&gt;&amp; hashs_consts){</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <a class="code" href="classqsbd_1_1count__sketch.html#aa31ebfbec75b141b594795bf1054bfdf">count_sketch::count_sketch</a>(<span class="keywordtype">double</span> err, <span class="keywordtype">double</span> delt, <span class="keyword">const</span> std::vector&lt;std::vector&lt;int&gt;&gt;&amp; hashs_consts){</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        this-&gt;set_param_double(err, delt);</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    </div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        this-&gt;estimators.reserve(this-&gt;d);</div>
@@ -191,7 +191,7 @@ $(function() {
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        }</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    }</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    count_sketch::count_sketch(<span class="keyword">const</span> count_sketch&amp; other){</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <a class="code" href="classqsbd_1_1count__sketch.html#aa31ebfbec75b141b594795bf1054bfdf">count_sketch::count_sketch</a>(<span class="keyword">const</span> count_sketch&amp; other){</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        this-&gt;error = other.error;</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        this-&gt;delta = other.delta;</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        this-&gt;d = other.d;</div>
@@ -213,10 +213,10 @@ $(function() {
 <div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;        }</div>
 <div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    }</div>
 <div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160; </div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    count_sketch::~count_sketch(){</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    <a class="code" href="classqsbd_1_1count__sketch.html#a37754d593bad7f44f98d8e2ce4a514e9">count_sketch::~count_sketch</a>(){</div>
 <div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    }</div>
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160; </div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    <span class="keywordtype">void</span> count_sketch::update(<span class="keywordtype">int</span> elem, <span class="keywordtype">int</span> weight){</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classqsbd_1_1count__sketch.html#adc2e894ccebfa8677a12e5bdad0357b6">count_sketch::update</a>(<span class="keywordtype">int</span> elem, <span class="keywordtype">int</span> weight){</div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; this-&gt;d; i++){</div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;            <span class="keywordtype">int</span> hx = hash_functions[i](elem) % (2 * this-&gt;t);</div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;            <span class="keywordtype">int</span> hi = hx &gt;&gt; 1;</div>
@@ -225,7 +225,7 @@ $(function() {
 <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;        }</div>
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    }</div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160; </div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <span class="keywordtype">int</span> count_sketch::query(<span class="keywordtype">int</span> elem){</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classqsbd_1_1count__sketch.html#aec2b22e91d508f4e2aa2ea7a6d583364">count_sketch::query</a>(<span class="keywordtype">int</span> elem){</div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;        std::vector&lt;int&gt; ranks;</div>
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160; </div>
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;        ranks.reserve(this-&gt;d);</div>
@@ -257,7 +257,7 @@ $(function() {
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;        }</div>
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    }</div>
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160; </div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    count_sketch* count_sketch::merge(count_sketch&amp; rhs){</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    count_sketch* <a class="code" href="classqsbd_1_1count__sketch.html#a287a233e585a12f1284158df1c52d4c5">count_sketch::merge</a>(count_sketch&amp; rhs){</div>
 <div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;        ASSERT(this-&gt;t == rhs.t);</div>
 <div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;        ASSERT(this-&gt;d == rhs.d);</div>
 <div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160; </div>
@@ -265,7 +265,7 @@ $(function() {
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;            ASSERT(this-&gt;hash_functions[i].get_constants() == rhs.hash_functions[i].get_constants());        </div>
 <div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;        }</div>
 <div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160; </div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        count_sketch* merged_cs = <span class="keyword">new</span> count_sketch(this-&gt;error, this-&gt;delta, this-&gt;get_hash_functions_consts());</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        <a class="code" href="classqsbd_1_1count__sketch.html#aa31ebfbec75b141b594795bf1054bfdf">count_sketch</a>* merged_cs = <span class="keyword">new</span> <a class="code" href="classqsbd_1_1count__sketch.html#aa31ebfbec75b141b594795bf1054bfdf">count_sketch</a>(this-&gt;error, this-&gt;delta, this-&gt;<a class="code" href="classqsbd_1_1count__sketch.html#aa908579f27136909b6e277cf3f8ce15f">get_hash_functions_consts</a>());</div>
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160; </div>
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; merged_cs-&gt;d; i++){</div>
 <div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;            <span class="keywordflow">for</span>(<span class="keywordtype">int</span> j = 0; j &lt; merged_cs-&gt;t; j++){</div>
@@ -276,7 +276,7 @@ $(function() {
 <div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;        <span class="keywordflow">return</span> merged_cs;</div>
 <div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    }</div>
 <div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160; </div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    <span class="keywordtype">void</span> count_sketch::inner_merge(count_sketch&amp; rhs){</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classqsbd_1_1count__sketch.html#a715a5850a4ec01b924f6eb2b2f03d649">count_sketch::inner_merge</a>(count_sketch&amp; rhs){</div>
 <div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;        ASSERT(this-&gt;t == rhs.t);</div>
 <div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;        ASSERT(this-&gt;d == rhs.d);</div>
 <div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160; </div>
@@ -291,7 +291,7 @@ $(function() {
 <div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;        }</div>
 <div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    }</div>
 <div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160; </div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    count_sketch&amp; count_sketch::operator=(<span class="keyword">const</span> count_sketch&amp; other){</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    count_sketch&amp; <a class="code" href="classqsbd_1_1count__sketch.html#a0413add7eb49f751d1db6a9d6b413428">count_sketch::operator=</a>(<span class="keyword">const</span> count_sketch&amp; other){</div>
 <div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;        <span class="keywordflow">if</span>(<span class="keyword">this</span> != &amp;other){</div>
 <div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;            this-&gt;error = other.error;</div>
 <div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;            this-&gt;delta = other.delta;</div>
@@ -318,31 +318,31 @@ $(function() {
 <div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
 <div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    }</div>
 <div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160; </div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    <span class="keywordtype">int</span> count_sketch::get_d()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classqsbd_1_1count__sketch.html#a9537c35ea6b923b0cc3bf2f1cc243680">count_sketch::get_d</a>()<span class="keyword"> const </span>{</div>
 <div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;        <span class="keywordflow">return</span> this-&gt;d;</div>
 <div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    }</div>
 <div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160; </div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;    <span class="keywordtype">int</span> count_sketch::get_t()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classqsbd_1_1count__sketch.html#a1f5f376531d72a0b5f090eb9d786fb92">count_sketch::get_t</a>()<span class="keyword"> const </span>{</div>
 <div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;        <span class="keywordflow">return</span> this-&gt;t;</div>
 <div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    }</div>
 <div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160; </div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    <span class="keywordtype">double</span> count_sketch::get_error()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classqsbd_1_1count__sketch.html#a2397fa06de21873b3554cb75485c9a55">count_sketch::get_error</a>()<span class="keyword"> const </span>{</div>
 <div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;        <span class="keywordflow">return</span> this-&gt;error;</div>
 <div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;    }</div>
 <div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160; </div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    <span class="keywordtype">double</span> count_sketch::get_delta()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classqsbd_1_1count__sketch.html#a897c62bcd92cc8f0dd6169d836911778">count_sketch::get_delta</a>()<span class="keyword"> const </span>{</div>
 <div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;        <span class="keywordflow">return</span> this-&gt;delta;</div>
 <div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;    }</div>
 <div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160; </div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    std::vector&lt;std::vector&lt;int&gt;&gt; count_sketch::get_estimators()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    std::vector&lt;std::vector&lt;int&gt;&gt; <a class="code" href="classqsbd_1_1count__sketch.html#aca092b4590ead1bfd3b38ca7147529d1">count_sketch::get_estimators</a>()<span class="keyword"> const </span>{</div>
 <div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;        <span class="keywordflow">return</span> this-&gt;estimators;</div>
 <div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    }</div>
 <div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160; </div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    std::vector&lt;two_wise_family&gt; count_sketch::get_hash_functions()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    std::vector&lt;two_wise_family&gt; <a class="code" href="classqsbd_1_1count__sketch.html#a8e5c8c42b2ec1c209bb947c7e2e73df9">count_sketch::get_hash_functions</a>()<span class="keyword"> const </span>{</div>
 <div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;        <span class="keywordflow">return</span> this-&gt;hash_functions;</div>
 <div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    }</div>
 <div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160; </div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    std::vector&lt;std::vector&lt;int&gt;&gt; count_sketch::get_hash_functions_consts()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    std::vector&lt;std::vector&lt;int&gt;&gt; <a class="code" href="classqsbd_1_1count__sketch.html#aa908579f27136909b6e277cf3f8ce15f">count_sketch::get_hash_functions_consts</a>()<span class="keyword"> const </span>{</div>
 <div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;        std::vector&lt;std::vector&lt;int&gt;&gt; consts;</div>
 <div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160; </div>
 <div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;        consts.reserve(this-&gt;hash_functions.size());</div>
@@ -353,6 +353,21 @@ $(function() {
 <div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;        <span class="keywordflow">return</span> consts;</div>
 <div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    }</div>
 <div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;}</div>
+<div class="ttc" id="aclassqsbd_1_1count__sketch_html_a0413add7eb49f751d1db6a9d6b413428"><div class="ttname"><a href="classqsbd_1_1count__sketch.html#a0413add7eb49f751d1db6a9d6b413428">qsbd::count_sketch::operator=</a></div><div class="ttdeci">count_sketch &amp; operator=(const count_sketch &amp;other)</div><div class="ttdoc">Assign this count_sketch with other.</div><div class="ttdef"><b>Definition:</b> <a href="count__sketch_8cpp_source.html#l00222">count_sketch.cpp:222</a></div></div>
+<div class="ttc" id="aclassqsbd_1_1count__sketch_html_a1f5f376531d72a0b5f090eb9d786fb92"><div class="ttname"><a href="classqsbd_1_1count__sketch.html#a1f5f376531d72a0b5f090eb9d786fb92">qsbd::count_sketch::get_t</a></div><div class="ttdeci">int get_t() const</div><div class="ttdoc">A getter for the collumns on the estimation matrix.</div><div class="ttdef"><b>Definition:</b> <a href="count__sketch_8cpp_source.html#l00253">count_sketch.cpp:253</a></div></div>
+<div class="ttc" id="aclassqsbd_1_1count__sketch_html_a2397fa06de21873b3554cb75485c9a55"><div class="ttname"><a href="classqsbd_1_1count__sketch.html#a2397fa06de21873b3554cb75485c9a55">qsbd::count_sketch::get_error</a></div><div class="ttdeci">double get_error() const</div><div class="ttdoc">A getter for the .</div><div class="ttdef"><b>Definition:</b> <a href="count__sketch_8cpp_source.html#l00257">count_sketch.cpp:257</a></div></div>
+<div class="ttc" id="aclassqsbd_1_1count__sketch_html_a287a233e585a12f1284158df1c52d4c5"><div class="ttname"><a href="classqsbd_1_1count__sketch.html#a287a233e585a12f1284158df1c52d4c5">qsbd::count_sketch::merge</a></div><div class="ttdeci">count_sketch * merge(count_sketch &amp;rhs)</div><div class="ttdoc">Merges this sketch with rhs sketch and saves the result in a new instance.</div><div class="ttdef"><b>Definition:</b> <a href="count__sketch_8cpp_source.html#l00188">count_sketch.cpp:188</a></div></div>
+<div class="ttc" id="aclassqsbd_1_1count__sketch_html_a37754d593bad7f44f98d8e2ce4a514e9"><div class="ttname"><a href="classqsbd_1_1count__sketch.html#a37754d593bad7f44f98d8e2ce4a514e9">qsbd::count_sketch::~count_sketch</a></div><div class="ttdeci">~count_sketch()</div><div class="ttdoc">Destructs the count_sketch instance.</div><div class="ttdef"><b>Definition:</b> <a href="count__sketch_8cpp_source.html#l00144">count_sketch.cpp:144</a></div></div>
+<div class="ttc" id="aclassqsbd_1_1count__sketch_html_a715a5850a4ec01b924f6eb2b2f03d649"><div class="ttname"><a href="classqsbd_1_1count__sketch.html#a715a5850a4ec01b924f6eb2b2f03d649">qsbd::count_sketch::inner_merge</a></div><div class="ttdeci">void inner_merge(count_sketch &amp;rhs)</div><div class="ttdoc">Merges this sketch with rhs sketch and saves the result in this sketch.</div><div class="ttdef"><b>Definition:</b> <a href="count__sketch_8cpp_source.html#l00207">count_sketch.cpp:207</a></div></div>
+<div class="ttc" id="aclassqsbd_1_1count__sketch_html_a897c62bcd92cc8f0dd6169d836911778"><div class="ttname"><a href="classqsbd_1_1count__sketch.html#a897c62bcd92cc8f0dd6169d836911778">qsbd::count_sketch::get_delta</a></div><div class="ttdeci">double get_delta() const</div><div class="ttdoc">A getter for the .</div><div class="ttdef"><b>Definition:</b> <a href="count__sketch_8cpp_source.html#l00261">count_sketch.cpp:261</a></div></div>
+<div class="ttc" id="aclassqsbd_1_1count__sketch_html_a8e5c8c42b2ec1c209bb947c7e2e73df9"><div class="ttname"><a href="classqsbd_1_1count__sketch.html#a8e5c8c42b2ec1c209bb947c7e2e73df9">qsbd::count_sketch::get_hash_functions</a></div><div class="ttdeci">std::vector&lt; two_wise_family &gt; get_hash_functions() const</div><div class="ttdoc">A getter for the hash functions.</div><div class="ttdef"><b>Definition:</b> <a href="count__sketch_8cpp_source.html#l00269">count_sketch.cpp:269</a></div></div>
+<div class="ttc" id="aclassqsbd_1_1count__sketch_html_a9537c35ea6b923b0cc3bf2f1cc243680"><div class="ttname"><a href="classqsbd_1_1count__sketch.html#a9537c35ea6b923b0cc3bf2f1cc243680">qsbd::count_sketch::get_d</a></div><div class="ttdeci">int get_d() const</div><div class="ttdoc">A getter for the row of the estimation matrix.</div><div class="ttdef"><b>Definition:</b> <a href="count__sketch_8cpp_source.html#l00249">count_sketch.cpp:249</a></div></div>
+<div class="ttc" id="aclassqsbd_1_1count__sketch_html_aa31ebfbec75b141b594795bf1054bfdf"><div class="ttname"><a href="classqsbd_1_1count__sketch.html#aa31ebfbec75b141b594795bf1054bfdf">qsbd::count_sketch::count_sketch</a></div><div class="ttdeci">count_sketch(int fixd, int fixt)</div><div class="ttdoc">Constructs a count_sketch with fixd rows and fixt collumns.</div><div class="ttdef"><b>Definition:</b> <a href="count__sketch_8cpp_source.html#l00041">count_sketch.cpp:41</a></div></div>
+<div class="ttc" id="aclassqsbd_1_1count__sketch_html_aa908579f27136909b6e277cf3f8ce15f"><div class="ttname"><a href="classqsbd_1_1count__sketch.html#aa908579f27136909b6e277cf3f8ce15f">qsbd::count_sketch::get_hash_functions_consts</a></div><div class="ttdeci">std::vector&lt; std::vector&lt; int &gt; &gt; get_hash_functions_consts() const</div><div class="ttdoc">A getter for all the hash functions constants.</div><div class="ttdef"><b>Definition:</b> <a href="count__sketch_8cpp_source.html#l00273">count_sketch.cpp:273</a></div></div>
+<div class="ttc" id="aclassqsbd_1_1count__sketch_html_aca092b4590ead1bfd3b38ca7147529d1"><div class="ttname"><a href="classqsbd_1_1count__sketch.html#aca092b4590ead1bfd3b38ca7147529d1">qsbd::count_sketch::get_estimators</a></div><div class="ttdeci">std::vector&lt; std::vector&lt; int &gt; &gt; get_estimators() const</div><div class="ttdoc">A getter for the estimation matrix.</div><div class="ttdef"><b>Definition:</b> <a href="count__sketch_8cpp_source.html#l00265">count_sketch.cpp:265</a></div></div>
+<div class="ttc" id="aclassqsbd_1_1count__sketch_html_adc2e894ccebfa8677a12e5bdad0357b6"><div class="ttname"><a href="classqsbd_1_1count__sketch.html#adc2e894ccebfa8677a12e5bdad0357b6">qsbd::count_sketch::update</a></div><div class="ttdeci">void update(int elem, int weight)</div><div class="ttdoc">Updates the count_sketch with elem element and weight.</div><div class="ttdef"><b>Definition:</b> <a href="count__sketch_8cpp_source.html#l00147">count_sketch.cpp:147</a></div></div>
+<div class="ttc" id="aclassqsbd_1_1count__sketch_html_aec2b22e91d508f4e2aa2ea7a6d583364"><div class="ttname"><a href="classqsbd_1_1count__sketch.html#aec2b22e91d508f4e2aa2ea7a6d583364">qsbd::count_sketch::query</a></div><div class="ttdeci">int query(int elem)</div><div class="ttdoc">Query the count_sketch about the frequency of elem.</div><div class="ttdef"><b>Definition:</b> <a href="count__sketch_8cpp_source.html#l00156">count_sketch.cpp:156</a></div></div>
+<div class="ttc" id="acount__sketch_8h_html"><div class="ttname"><a href="count__sketch_8h.html">count_sketch.h</a></div><div class="ttdoc">QSBD count_sketch class.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -70,14 +70,14 @@ $(function() {
   <div class="headertitle"><div class="title">k_wise_family.cpp</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;k_wise_family.h&quot;</span></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="k__wise__family_8h.html">k_wise_family.h</a>&quot;</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">namespace </span>qsbd {</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;    k_wise_family::k_wise_family(<span class="keywordtype">int</span> k, <span class="keywordtype">int</span> universe){</div>
+<div class="line"><a name="l00005"></a><span class="lineno"><a class="line" href="classqsbd_1_1k__wise__family.html#ad853e44b7afe096f2327efe848860beb">    5</a></span>&#160;    <a class="code" href="classqsbd_1_1k__wise__family.html#adc66bf591df0d21d391ce4cb9b99a1cb">k_wise_family::k_wise_family</a>(<span class="keywordtype">int</span> k, <span class="keywordtype">int</span> universe){</div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;        this-&gt;big_prim = nextPrime(universe);</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;        std::uniform_int_distribution&lt;int&gt; distribution(1, this-&gt;big_prim - 1);</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;        std::uniform_int_distribution&lt;int&gt; distribution(0, this-&gt;big_prim - 1);</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;        this-&gt;_k = k;</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        this-&gt;universe = universe;</div>
@@ -88,7 +88,7 @@ $(function() {
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        }</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    }</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    k_wise_family::k_wise_family(<span class="keywordtype">int</span> k, <span class="keywordtype">int</span> universe, <span class="keyword">const</span> std::vector&lt;int&gt;&amp; conf){</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classqsbd_1_1k__wise__family.html#ac7ec7ba962604c277ed02ab387924951">   19</a></span>&#160;    <a class="code" href="classqsbd_1_1k__wise__family.html#adc66bf591df0d21d391ce4cb9b99a1cb">k_wise_family::k_wise_family</a>(<span class="keywordtype">int</span> k, <span class="keywordtype">int</span> universe, <span class="keyword">const</span> std::vector&lt;int&gt;&amp; conf){</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        this-&gt;big_prim = nextPrime(universe);</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        this-&gt;_k = k;</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        this-&gt;universe = universe;</div>
@@ -101,7 +101,7 @@ $(function() {
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        }</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    }</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    k_wise_family::k_wise_family(<span class="keyword">const</span> k_wise_family&amp; rhs){</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="classqsbd_1_1k__wise__family.html#ad88f2e95b6e1e0645d1ff83f7b15a2da">   32</a></span>&#160;    <a class="code" href="classqsbd_1_1k__wise__family.html#adc66bf591df0d21d391ce4cb9b99a1cb">k_wise_family::k_wise_family</a>(<span class="keyword">const</span> <a class="code" href="classqsbd_1_1k__wise__family.html">k_wise_family</a>&amp; rhs){</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        this-&gt;big_prim = rhs.big_prim;</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        this-&gt;_k = rhs._k;</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        this-&gt;universe = rhs.universe;</div>
@@ -112,14 +112,14 @@ $(function() {
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        }</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    }</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    k_wise_family::~k_wise_family(){</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="classqsbd_1_1k__wise__family.html#a867cab92fe7f0b427842eb817e588b16">   43</a></span>&#160;    <a class="code" href="classqsbd_1_1k__wise__family.html#a867cab92fe7f0b427842eb817e588b16">k_wise_family::~k_wise_family</a>(){</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    }</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">int</span> k_wise_family::operator() (<span class="keywordtype">int</span> elem) {</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keywordtype">int</span> parse_sum = 0LL;</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="classqsbd_1_1k__wise__family.html#af2a269f0778a85ccd81723ec3fcc14aa">   46</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classqsbd_1_1k__wise__family.html#af2a269f0778a85ccd81723ec3fcc14aa">k_wise_family::operator() </a>(<span class="keywordtype">int</span> elem) {</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keywordtype">int</span> parse_sum = 0;</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; this-&gt;_k; i++){</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            <span class="keywordtype">int</span> exp_x = 1LL;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            <span class="keywordtype">int</span> exp_x = 1;</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            <span class="keywordflow">for</span>(<span class="keywordtype">int</span> j = 0; j &lt; i; j++){</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                exp_x = exp_x * elem;</div>
@@ -131,7 +131,7 @@ $(function() {
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordflow">return</span> (parse_sum % this-&gt;big_prim);</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    }</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    k_wise_family&amp; k_wise_family::operator=(<span class="keyword">const</span> k_wise_family&amp; other){</div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="classqsbd_1_1k__wise__family.html#aed44f18a31016eb89b13c911fcd6f420">   62</a></span>&#160;    <a class="code" href="classqsbd_1_1k__wise__family.html">k_wise_family</a>&amp; <a class="code" href="classqsbd_1_1k__wise__family.html#aed44f18a31016eb89b13c911fcd6f420">k_wise_family::operator=</a>(<span class="keyword">const</span> <a class="code" href="classqsbd_1_1k__wise__family.html">k_wise_family</a>&amp; other){</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keywordflow">if</span>(<span class="keyword">this</span> != &amp;other){</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            this-&gt;big_prim = other.big_prim;</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            this-&gt;_k = other._k;</div>
@@ -146,18 +146,27 @@ $(function() {
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    }</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    std::vector&lt;int&gt; k_wise_family::get_constants()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="classqsbd_1_1k__wise__family.html#ad5c06d354871777b481c0be4b43453bf">   77</a></span>&#160;    std::vector&lt;int&gt; <a class="code" href="classqsbd_1_1k__wise__family.html#ad5c06d354871777b481c0be4b43453bf">k_wise_family::get_constants</a>()<span class="keyword"> const </span>{</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keywordflow">return</span> this-&gt;constants;</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    }</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordtype">int</span> k_wise_family::get_universe()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="classqsbd_1_1k__wise__family.html#afef2f13a1c06e3692d0493dbdeaa64bf">   81</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classqsbd_1_1k__wise__family.html#afef2f13a1c06e3692d0493dbdeaa64bf">k_wise_family::get_universe</a>()<span class="keyword"> const </span>{</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="keywordflow">return</span> this-&gt;universe;</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    }</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordtype">int</span> k_wise_family::get_k()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="classqsbd_1_1k__wise__family.html#a487f099174e5f0beb179b3b8544764dc">   85</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classqsbd_1_1k__wise__family.html#a487f099174e5f0beb179b3b8544764dc">k_wise_family::get_k</a>()<span class="keyword"> const </span>{</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <span class="keywordflow">return</span> this-&gt;_k;</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    }</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;}</div>
+<div class="ttc" id="aclassqsbd_1_1k__wise__family_html"><div class="ttname"><a href="classqsbd_1_1k__wise__family.html">qsbd::k_wise_family</a></div><div class="ttdoc">A function class to represent functions from a k-wise family.</div><div class="ttdef"><b>Definition:</b> <a href="k__wise__family_8h_source.html#l00030">k_wise_family.h:30</a></div></div>
+<div class="ttc" id="aclassqsbd_1_1k__wise__family_html_a487f099174e5f0beb179b3b8544764dc"><div class="ttname"><a href="classqsbd_1_1k__wise__family.html#a487f099174e5f0beb179b3b8544764dc">qsbd::k_wise_family::get_k</a></div><div class="ttdeci">int get_k() const</div><div class="ttdoc">Gets the K type of the family. Ex: if we have a 2-wise family, this should return 2.</div><div class="ttdef"><b>Definition:</b> <a href="k__wise__family_8cpp_source.html#l00085">k_wise_family.cpp:85</a></div></div>
+<div class="ttc" id="aclassqsbd_1_1k__wise__family_html_a867cab92fe7f0b427842eb817e588b16"><div class="ttname"><a href="classqsbd_1_1k__wise__family.html#a867cab92fe7f0b427842eb817e588b16">qsbd::k_wise_family::~k_wise_family</a></div><div class="ttdeci">~k_wise_family()</div><div class="ttdoc">Destructs the k_wise_family instance.</div><div class="ttdef"><b>Definition:</b> <a href="k__wise__family_8cpp_source.html#l00043">k_wise_family.cpp:43</a></div></div>
+<div class="ttc" id="aclassqsbd_1_1k__wise__family_html_ad5c06d354871777b481c0be4b43453bf"><div class="ttname"><a href="classqsbd_1_1k__wise__family.html#ad5c06d354871777b481c0be4b43453bf">qsbd::k_wise_family::get_constants</a></div><div class="ttdeci">std::vector&lt; int &gt; get_constants() const</div><div class="ttdoc">Gets the constant values choosen by the user or by the algorithm.</div><div class="ttdef"><b>Definition:</b> <a href="k__wise__family_8cpp_source.html#l00077">k_wise_family.cpp:77</a></div></div>
+<div class="ttc" id="aclassqsbd_1_1k__wise__family_html_adc66bf591df0d21d391ce4cb9b99a1cb"><div class="ttname"><a href="classqsbd_1_1k__wise__family.html#adc66bf591df0d21d391ce4cb9b99a1cb">qsbd::k_wise_family::k_wise_family</a></div><div class="ttdeci">k_wise_family()=default</div><div class="ttdoc">Constructs the k_wise_family class using the default values given by the compilator.</div></div>
+<div class="ttc" id="aclassqsbd_1_1k__wise__family_html_aed44f18a31016eb89b13c911fcd6f420"><div class="ttname"><a href="classqsbd_1_1k__wise__family.html#aed44f18a31016eb89b13c911fcd6f420">qsbd::k_wise_family::operator=</a></div><div class="ttdeci">k_wise_family &amp; operator=(const k_wise_family &amp;other)</div><div class="ttdoc">Assigns a k_wise_family to another k_wise_family instance other.</div><div class="ttdef"><b>Definition:</b> <a href="k__wise__family_8cpp_source.html#l00062">k_wise_family.cpp:62</a></div></div>
+<div class="ttc" id="aclassqsbd_1_1k__wise__family_html_af2a269f0778a85ccd81723ec3fcc14aa"><div class="ttname"><a href="classqsbd_1_1k__wise__family.html#af2a269f0778a85ccd81723ec3fcc14aa">qsbd::k_wise_family::operator()</a></div><div class="ttdeci">int operator()(int elem)</div><div class="ttdoc">Calculates the value hashed of the elem.</div><div class="ttdef"><b>Definition:</b> <a href="k__wise__family_8cpp_source.html#l00046">k_wise_family.cpp:46</a></div></div>
+<div class="ttc" id="aclassqsbd_1_1k__wise__family_html_afef2f13a1c06e3692d0493dbdeaa64bf"><div class="ttname"><a href="classqsbd_1_1k__wise__family.html#afef2f13a1c06e3692d0493dbdeaa64bf">qsbd::k_wise_family::get_universe</a></div><div class="ttdeci">int get_universe() const</div><div class="ttdoc">Gets the universe of values choosen by the user on initialization.</div><div class="ttdef"><b>Definition:</b> <a href="k__wise__family_8cpp_source.html#l00081">k_wise_family.cpp:81</a></div></div>
+<div class="ttc" id="ak__wise__family_8h_html"><div class="ttname"><a href="k__wise__family_8h.html">k_wise_family.h</a></div><div class="ttdoc">QSBD k_wise_family class.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

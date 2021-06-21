@@ -88,8 +88,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:afbc21b646462cdf9573def2fadec8402"><td class="memItemLeft" align="right" valign="top"><a id="afbc21b646462cdf9573def2fadec8402"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>dcs_factory</b> (double err, int univ)</td></tr>
 <tr class="separator:afbc21b646462cdf9573def2fadec8402"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0156f21c78b6ed70d0ae33c579d57440"><td class="memItemLeft" align="right" valign="top"><a id="a0156f21c78b6ed70d0ae33c579d57440"></a>
-<a class="el" href="classqsbd_1_1quantile__sketch.html">quantile_sketch</a>&lt; int &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>instance</b> () override</td></tr>
+<tr class="memitem:a0156f21c78b6ed70d0ae33c579d57440"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classqsbd_1_1quantile__sketch.html">quantile_sketch</a>&lt; int &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqsbd_1_1dcs__factory.html#a0156f21c78b6ed70d0ae33c579d57440">instance</a> () override</td></tr>
+<tr class="memdesc:a0156f21c78b6ed70d0ae33c579d57440"><td class="mdescLeft">&#160;</td><td class="mdescRight">A pure virtual method for create new instances of a <a class="el" href="classqsbd_1_1quantile__sketch.html" title="A interface for quantile sketchs.">quantile_sketch</a>&lt;Type&gt;.  <a href="classqsbd_1_1dcs__factory.html#a0156f21c78b6ed70d0ae33c579d57440">More...</a><br /></td></tr>
 <tr class="separator:a0156f21c78b6ed70d0ae33c579d57440"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af134895abe49946e7a829e49f044cf1f"><td class="memItemLeft" align="right" valign="top"><a id="af134895abe49946e7a829e49f044cf1f"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>allocations</b> ()</td></tr>
@@ -98,7 +98,47 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>allocations</b> ()</td
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
 <p class="definition">Definition at line <a class="el" href="dcs__factory_8h_source.html#l00007">7</a> of file <a class="el" href="dcs__factory_8h_source.html">dcs_factory.h</a>.</p>
-</div><hr/>The documentation for this class was generated from the following file:<ul>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a0156f21c78b6ed70d0ae33c579d57440"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0156f21c78b6ed70d0ae33c579d57440">&#9670;&nbsp;</a></span>instance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classqsbd_1_1quantile__sketch.html">quantile_sketch</a>&lt;int&gt;* qsbd::dcs_factory::instance </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A pure virtual method for create new instances of a <a class="el" href="classqsbd_1_1quantile__sketch.html" title="A interface for quantile sketchs.">quantile_sketch</a>&lt;Type&gt;. </p>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to a new allocated <a class="el" href="classqsbd_1_1quantile__sketch.html" title="A interface for quantile sketchs.">quantile_sketch</a>&lt;Type&gt; </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>It's up to a user the function of delete this memory. </dd>
+<dd>
+All quantile sketchs returned by this method should be capable of merging together. </dd></dl>
+
+<p>Implements <a class="el" href="classqsbd_1_1sketch__factory.html#ad54e5735ea72b515991cc994fe37e23a">qsbd::sketch_factory&lt; int &gt;</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="dcs__factory_8h_source.html#l00024">24</a> of file <a class="el" href="dcs__factory_8h_source.html">dcs_factory.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                                                   {</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;            count++;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">new</span> dcs(this-&gt;error, this-&gt;universe, this-&gt;hashs_consts);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li>src/dcs_factory/<a class="el" href="dcs__factory_8h_source.html">dcs_factory.h</a></li>
 </ul>
 </div><!-- contents -->

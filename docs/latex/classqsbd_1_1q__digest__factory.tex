@@ -12,9 +12,8 @@ Inheritance diagram for qsbd\+::q\+\_\+digest\+\_\+factory\+:\begin{figure}[H]
 \mbox{\Hypertarget{classqsbd_1_1q__digest__factory_a7fc3d934159ed9a7e38545479a294a8a}\label{classqsbd_1_1q__digest__factory_a7fc3d934159ed9a7e38545479a294a8a}} 
 {\bfseries q\+\_\+digest\+\_\+factory} (double err, int uni)
 \item 
-\mbox{\Hypertarget{classqsbd_1_1q__digest__factory_a4b7fd456b5d66cb3291c61def95362e2}\label{classqsbd_1_1q__digest__factory_a4b7fd456b5d66cb3291c61def95362e2}} 
-\mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$ int $>$ $\ast$ {\bfseries instance} () override
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$ int $>$ $\ast$ \mbox{\hyperlink{classqsbd_1_1q__digest__factory_a4b7fd456b5d66cb3291c61def95362e2}{instance}} () override
+\begin{DoxyCompactList}\small\item\em A pure virtual method for create new instances of a \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$Type$>$. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -22,6 +21,42 @@ Inheritance diagram for qsbd\+::q\+\_\+digest\+\_\+factory\+:\begin{figure}[H]
 
 Definition at line 7 of file q\+\_\+digest\+\_\+factory.\+h.
 
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classqsbd_1_1q__digest__factory_a4b7fd456b5d66cb3291c61def95362e2}\label{classqsbd_1_1q__digest__factory_a4b7fd456b5d66cb3291c61def95362e2}} 
+\index{qsbd::q\_digest\_factory@{qsbd::q\_digest\_factory}!instance@{instance}}
+\index{instance@{instance}!qsbd::q\_digest\_factory@{qsbd::q\_digest\_factory}}
+\doxysubsubsection{\texorpdfstring{instance()}{instance()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$int$>$$\ast$ qsbd\+::q\+\_\+digest\+\_\+factory\+::instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+A pure virtual method for create new instances of a \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$Type$>$. 
+
+\begin{DoxyReturn}{Returns}
+A pointer to a new allocated \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$Type$>$ 
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+It\textquotesingle{}s up to a user the function of delete this memory. 
+
+All quantile sketchs returned by this method should be capable of merging together. 
+\end{DoxyWarning}
+
+
+Implements \mbox{\hyperlink{classqsbd_1_1sketch__factory_ad54e5735ea72b515991cc994fe37e23a}{qsbd\+::sketch\+\_\+factory$<$ int $>$}}.
+
+
+
+Definition at line 17 of file q\+\_\+digest\+\_\+factory.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{17                                                    \{}
+\DoxyCodeLine{18             \textcolor{keywordflow}{return} \textcolor{keyword}{new} \mbox{\hyperlink{classq__digest}{q\_digest}}(this-\/>error, this-\/>universe);}
+\DoxyCodeLine{19         \}}
+
+\end{DoxyCode}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

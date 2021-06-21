@@ -19,7 +19,7 @@ using json = nlohmann::json;
 *
 */
 
-json q_digest_test(const vector<pair<pair<int, int>, pair<double, double>>>& stream, const vector<pair<int, vector<double>>>& regions_to_search, double error, int universe, int* discrete_bounds, double* bounds, int depth){
+json q_digest_test(const vector<pair<pair<int, int>, pair<double, double>>>& stream, const vector<pair<int, vector<double>>>& regions_to_search, double error, int universe, int* discrete_bounds, double* bounds, int depth, bool only_leafs){
     qsbd::aabb<int> bound_box(discrete_bounds[0], discrete_bounds[1], discrete_bounds[2], discrete_bounds[3]);
     
     json out_info = json::object();
@@ -29,7 +29,7 @@ json q_digest_test(const vector<pair<pair<int, int>, pair<double, double>>>& str
     cout.flush();
 
     qsbd::q_digest_factory factory(error, universe);
-    qsbd::quantile_quadtree<int> qq_test(bound_box, depth, &factory);
+    qsbd::quantile_quadtree<int> qq_test(bound_box, depth, &factory, only_leafs);
     json loop_info;
     double update_time_acc = 0.0;
 
@@ -100,7 +100,7 @@ json q_digest_test(const vector<pair<pair<int, int>, pair<double, double>>>& str
     return out_info;
 }
 
-json kll_test(const vector<pair<int, pair<double, double>>>& stream, const vector<pair<int, vector<double>>>& regions_to_search, double error, int* discrete_bounds, double* bounds, int depth){
+json kll_test(const vector<pair<int, pair<double, double>>>& stream, const vector<pair<int, vector<double>>>& regions_to_search, double error, int* discrete_bounds, double* bounds, int depth, bool only_leafs){
     qsbd::aabb<int> bound_box(discrete_bounds[0], discrete_bounds[1], discrete_bounds[2], discrete_bounds[3]);
     
     json out_info = json::object();
@@ -110,7 +110,7 @@ json kll_test(const vector<pair<int, pair<double, double>>>& stream, const vecto
     cout.flush();
 
     qsbd::kll_factory<int> factory(error);
-    qsbd::quantile_quadtree<int> qq_test(bound_box, depth, &factory);
+    qsbd::quantile_quadtree<int> qq_test(bound_box, depth, &factory, only_leafs);
     json loop_info;
     double update_time_acc = 0.0;
 
@@ -181,7 +181,7 @@ json kll_test(const vector<pair<int, pair<double, double>>>& stream, const vecto
     return out_info;
 }
 
-json dcs_test(const vector<pair<pair<int, int>, pair<double, double>>>& stream, const vector<pair<int, vector<double>>>& regions_to_search, double error, int universe, int* discrete_bounds, double* bounds, int depth){
+json dcs_test(const vector<pair<pair<int, int>, pair<double, double>>>& stream, const vector<pair<int, vector<double>>>& regions_to_search, double error, int universe, int* discrete_bounds, double* bounds, int depth, bool only_leafs){
     qsbd::aabb<int> bound_box(discrete_bounds[0], discrete_bounds[1], discrete_bounds[2], discrete_bounds[3]);
     
     json out_info = json::object();
@@ -191,7 +191,7 @@ json dcs_test(const vector<pair<pair<int, int>, pair<double, double>>>& stream, 
     cout.flush();
 
     qsbd::dcs_factory factory(error, universe);
-    qsbd::quantile_quadtree<int> qq_test(bound_box, depth, &factory);
+    qsbd::quantile_quadtree<int> qq_test(bound_box, depth, &factory, only_leafs);
     json loop_info;
     double update_time_acc = 0.0;
 
@@ -262,7 +262,7 @@ json dcs_test(const vector<pair<pair<int, int>, pair<double, double>>>& stream, 
     return out_info;
 }
 
-json gk_test(const vector<pair<int, pair<double, double>>>& stream, const vector<pair<int, vector<double>>>& regions_to_search, double error, int* discrete_bounds, double* bounds, int depth){
+json gk_test(const vector<pair<int, pair<double, double>>>& stream, const vector<pair<int, vector<double>>>& regions_to_search, double error, int* discrete_bounds, double* bounds, int depth, bool only_leafs){
     qsbd::aabb<int> bound_box(discrete_bounds[0], discrete_bounds[1], discrete_bounds[2], discrete_bounds[3]);
     
     json out_info = json::object();
@@ -272,7 +272,7 @@ json gk_test(const vector<pair<int, pair<double, double>>>& stream, const vector
     cout.flush();
 
     qsbd::gk_factory<int> factory(error);
-    qsbd::quantile_quadtree<int> qq_test(bound_box, depth, &factory);
+    qsbd::quantile_quadtree<int> qq_test(bound_box, depth, &factory, only_leafs);
     json loop_info;
     double update_time_acc = 0.0;
 
@@ -353,6 +353,7 @@ int main(int argc, char * argv[]){
 	string sketch_to_test;
 	int depth;
 	int universe;
+    bool only_leafs;
 	double error;
 	double bounds[4] = {0.0, 0.0, 0.0, 0.0};
 	int discrete_bounds[4] = {0, 0, 0, 0};
@@ -410,6 +411,7 @@ int main(int argc, char * argv[]){
     	sketch_to_test = test_json["sketch"]["type"].get<string>();
     	depth  = test_json["deep"].get<int>();
     	error = test_json["sketch"]["error"].get<double>();
+        only_leafs = test_json["only_leafs"].get<bool>();
     
 		cout << "Using bounds : " << endl;
     	for(auto& it : test_json["bound_box"].items()){
@@ -452,18 +454,18 @@ int main(int argc, char * argv[]){
 		cout << "Using error & universe : " << error << " " << universe << endl; 
     	cout << "Running Experiment..." << endl;
 		if(sketch_to_test == "dcs"){
-			out_info = dcs_test(stream_ww, regions_to_search, error, universe, discrete_bounds, bounds, depth);
+			out_info = dcs_test(stream_ww, regions_to_search, error, universe, discrete_bounds, bounds, depth, only_leafs);
 		}else{
-			out_info = q_digest_test(stream_ww, regions_to_search, error, universe, discrete_bounds, bounds, depth);
+			out_info = q_digest_test(stream_ww, regions_to_search, error, universe, discrete_bounds, bounds, depth, only_leafs);
 		}
 	}else if(sketch_to_test == "kll" or sketch_to_test == "gk"){
 
     	cout << "Using error : " << error << endl;
 		cout << "Running Experiment..." << endl;
 		if(sketch_to_test == "gk"){
-			out_info = gk_test(stream, regions_to_search, error, discrete_bounds, bounds, depth);
+			out_info = gk_test(stream, regions_to_search, error, discrete_bounds, bounds, depth, only_leafs);
 		}else{
-			out_info = kll_test(stream, regions_to_search, error, discrete_bounds, bounds, depth);
+			out_info = kll_test(stream, regions_to_search, error, discrete_bounds, bounds, depth, only_leafs);
 		}
 	}else{
         DEBUG_ERR("This sketch isn't supported for the quantile quadtree");

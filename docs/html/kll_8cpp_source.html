@@ -111,13 +111,13 @@ $(function() {
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    }</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">void</span> kll&lt;T&gt;::update(T elem){</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        kll&lt;T&gt;::insert_sorted(buffers_array[0], elem);</div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="classqsbd_1_1kll.html#a2d13b0861967e45ab5c4780d35f1f449">   42</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classqsbd_1_1kll.html">kll&lt;T&gt;::update</a>(T elem){</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <a class="code" href="classqsbd_1_1kll.html">kll&lt;T&gt;::insert_sorted</a>(buffers_array[0], elem);</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        this-&gt;compress();</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    }</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">int</span> kll&lt;T&gt;::query(T elem){</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="classqsbd_1_1kll.html#ae90d25239b925ab9bc1ef7794d9e4104">   48</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classqsbd_1_1kll.html">kll&lt;T&gt;::query</a>(T elem){</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordtype">int</span> rank = 0;</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt;= height; i++){</div>
@@ -130,15 +130,15 @@ $(function() {
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    }</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    quantile_sketch&lt;T&gt;* kll&lt;T&gt;::merge(quantile_sketch&lt;T&gt;&amp; rhs){</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        kll&lt;T&gt;&amp; rhs_cv = <span class="keyword">dynamic_cast&lt;</span>kll&lt;T&gt;&amp;<span class="keyword">&gt;</span> (rhs);</div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="classqsbd_1_1kll.html#a333e8c73e1ad730429f657c3f798ed6c">   61</a></span>&#160;    <a class="code" href="classqsbd_1_1quantile__sketch.html">quantile_sketch&lt;T&gt;</a>* <a class="code" href="classqsbd_1_1kll.html">kll&lt;T&gt;::merge</a>(<a class="code" href="classqsbd_1_1quantile__sketch.html">quantile_sketch&lt;T&gt;</a>&amp; rhs){</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <a class="code" href="classqsbd_1_1kll.html">kll&lt;T&gt;</a>&amp; rhs_cv = <span class="keyword">dynamic_cast&lt;</span><a class="code" href="classqsbd_1_1kll.html">kll&lt;T&gt;</a>&amp;<span class="keyword">&gt;</span> (rhs);</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordflow">if</span>((rhs_cv.error - this-&gt;error) &gt; 1e-6){</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            DEBUG_ERR(<span class="stringliteral">&quot;in kll::merge kll&#39;s error need to match&quot;</span>);</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        }</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        kll&lt;T&gt;* merged_summary = <span class="keyword">new</span> kll&lt;T&gt;(rhs_cv.error);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <a class="code" href="classqsbd_1_1kll.html">kll&lt;T&gt;</a>* merged_summary = <span class="keyword">new</span> <a class="code" href="classqsbd_1_1kll.html">kll&lt;T&gt;</a>(rhs_cv.error);</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        merged_summary-&gt;height = std::max(rhs_cv.height, this-&gt;height);</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> l = 0; l &lt;= merged_summary-&gt;height; l++){</div>
@@ -180,8 +180,8 @@ $(function() {
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    }</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keywordtype">void</span> kll&lt;T&gt;::inner_merge(quantile_sketch&lt;T&gt;&amp; rhs){</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        kll&lt;T&gt;&amp; rhs_cv = <span class="keyword">dynamic_cast&lt;</span>kll&lt;T&gt;&amp;<span class="keyword">&gt;</span> (rhs);</div>
+<div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="classqsbd_1_1kll.html#a37cec2795a6a5b6ff64e72b635887d7a">  111</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classqsbd_1_1kll.html">kll&lt;T&gt;::inner_merge</a>(<a class="code" href="classqsbd_1_1quantile__sketch.html">quantile_sketch&lt;T&gt;</a>&amp; rhs){</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <a class="code" href="classqsbd_1_1kll.html">kll&lt;T&gt;</a>&amp; rhs_cv = <span class="keyword">dynamic_cast&lt;</span><a class="code" href="classqsbd_1_1kll.html">kll&lt;T&gt;</a>&amp;<span class="keyword">&gt;</span> (rhs);</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <span class="keywordflow">if</span>((rhs_cv.error - this-&gt;error) &gt; 1e-6){</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;            DEBUG_ERR(<span class="stringliteral">&quot;in kll::inner_merge kll&#39;s error need to match&quot;</span>);</div>
@@ -234,7 +234,7 @@ $(function() {
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    <span class="comment">//DEBUG</span></div>
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160; </div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <span class="keywordtype">void</span> kll&lt;T&gt;::print(){</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classqsbd_1_1kll.html">kll&lt;T&gt;::print</a>(){</div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> l = 0; l &lt;= height; l++){</div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;height [&quot;</span> &lt;&lt; l &lt;&lt; <span class="stringliteral">&quot;]: &quot;</span>;</div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;            <span class="keywordflow">for</span>(<span class="keyword">auto</span>&amp; i : buffers_array[l]){</div>
@@ -270,6 +270,8 @@ $(function() {
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    <span class="keyword">template</span> <span class="keyword">class </span>kll&lt;int&gt;;</div>
 <div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    <span class="keyword">template</span> <span class="keyword">class </span>kll&lt;double&gt;;</div>
 <div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;}</div>
+<div class="ttc" id="aclassqsbd_1_1kll_html"><div class="ttname"><a href="classqsbd_1_1kll.html">qsbd::kll</a></div><div class="ttdef"><b>Definition:</b> <a href="kll_8hpp_source.html#l00010">kll.hpp:10</a></div></div>
+<div class="ttc" id="aclassqsbd_1_1quantile__sketch_html"><div class="ttname"><a href="classqsbd_1_1quantile__sketch.html">qsbd::quantile_sketch&lt; T &gt;</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

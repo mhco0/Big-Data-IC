@@ -73,6 +73,11 @@ $(function() {
   <div class="headertitle"><div class="title">qsbd::sketch_factory&lt; Type &gt; Class Template Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>A interface for factorys of sketchs.  
+ <a href="classqsbd_1_1sketch__factory.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="sketch__factory_8hpp_source.html">sketch_factory.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for qsbd::sketch_factory&lt; Type &gt;:</div>
 <div class="dyncontent">
@@ -86,15 +91,53 @@ Inheritance diagram for qsbd::sketch_factory&lt; Type &gt;:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad54e5735ea72b515991cc994fe37e23a"><td class="memItemLeft" align="right" valign="top"><a id="ad54e5735ea72b515991cc994fe37e23a"></a>
-virtual <a class="el" href="classqsbd_1_1quantile__sketch.html">quantile_sketch</a>&lt; Type &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>instance</b> ()=0</td></tr>
+<tr class="memitem:ad54e5735ea72b515991cc994fe37e23a"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classqsbd_1_1quantile__sketch.html">quantile_sketch</a>&lt; Type &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqsbd_1_1sketch__factory.html#ad54e5735ea72b515991cc994fe37e23a">instance</a> ()=0</td></tr>
+<tr class="memdesc:ad54e5735ea72b515991cc994fe37e23a"><td class="mdescLeft">&#160;</td><td class="mdescRight">A pure virtual method for create new instances of a <a class="el" href="classqsbd_1_1quantile__sketch.html" title="A interface for quantile sketchs.">quantile_sketch</a>&lt;Type&gt;.  <a href="classqsbd_1_1sketch__factory.html#ad54e5735ea72b515991cc994fe37e23a">More...</a><br /></td></tr>
 <tr class="separator:ad54e5735ea72b515991cc994fe37e23a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;class Type&gt;<br />
-class qsbd::sketch_factory&lt; Type &gt;</div>
-<p class="definition">Definition at line <a class="el" href="sketch__factory_8hpp_source.html#l00007">7</a> of file <a class="el" href="sketch__factory_8hpp_source.html">sketch_factory.hpp</a>.</p>
-</div><hr/>The documentation for this class was generated from the following file:<ul>
+class qsbd::sketch_factory&lt; Type &gt;</div><p >A interface for factorys of sketchs. </p>
+<p >A interface for a factory that creates new quantile sketchs </p><dl class="section note"><dt>Note</dt><dd>The idea of ​​this class is to always make quantile_sketchs that are able to merge together </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="sketch__factory_8hpp_source.html#l00023">23</a> of file <a class="el" href="sketch__factory_8hpp_source.html">sketch_factory.hpp</a>.</p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="ad54e5735ea72b515991cc994fe37e23a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad54e5735ea72b515991cc994fe37e23a">&#9670;&nbsp;</a></span>instance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Type &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="classqsbd_1_1quantile__sketch.html">quantile_sketch</a>&lt;Type&gt;* <a class="el" href="classqsbd_1_1sketch__factory.html">qsbd::sketch_factory</a>&lt; Type &gt;::instance </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A pure virtual method for create new instances of a <a class="el" href="classqsbd_1_1quantile__sketch.html" title="A interface for quantile sketchs.">quantile_sketch</a>&lt;Type&gt;. </p>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to a new allocated <a class="el" href="classqsbd_1_1quantile__sketch.html" title="A interface for quantile sketchs.">quantile_sketch</a>&lt;Type&gt; </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>It's up to a user the function of delete this memory. </dd>
+<dd>
+All quantile sketchs returned by this method should be capable of merging together. </dd></dl>
+
+<p>Implemented in <a class="el" href="classqsbd_1_1dcs__factory.html#a0156f21c78b6ed70d0ae33c579d57440">qsbd::dcs_factory</a>, <a class="el" href="classqsbd_1_1gk__factory.html#a8e366608d9731870b0cb8265980a9e86">qsbd::gk_factory&lt; Type &gt;</a>, <a class="el" href="classqsbd_1_1kll__factory.html#adce0aec1afea9987269fea54d03e5b1c">qsbd::kll_factory&lt; Type &gt;</a>, and <a class="el" href="classqsbd_1_1q__digest__factory.html#a4b7fd456b5d66cb3291c61def95362e2">qsbd::q_digest_factory</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li>src/sketch_factory/<a class="el" href="sketch__factory_8hpp_source.html">sketch_factory.hpp</a></li>
 </ul>
 </div><!-- contents -->

@@ -20,6 +20,7 @@ int main(int argc, char* argv[]){
     int stream_sizes = 10000000;
     double error = 0.3;
     int universe = 1024;
+    bool only_leafs = true;
     
     if(args.size() != 2){
         DEBUG_ERR("You need to pass the test name and the option for the stream\n Ex [gk/ kll/ q_digest/ dcs] [-c/ -cw/ -u/ -uw]");
@@ -65,6 +66,7 @@ int main(int argc, char* argv[]){
 
         config["bound_box"] = bounds;
         config["deep"] = deep;
+        config["only_leafs"] = only_leafs;
 
         temp_config << config.dump(4);
         temp_config.close();

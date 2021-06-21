@@ -1,38 +1,234 @@
 \hypertarget{classqsbd_1_1quantile__sketch}{}\doxysection{qsbd\+::quantile\+\_\+sketch$<$ Type $>$ Class Template Reference}
 \label{classqsbd_1_1quantile__sketch}\index{qsbd::quantile\_sketch$<$ Type $>$@{qsbd::quantile\_sketch$<$ Type $>$}}
+
+
+A interface for quantile sketchs.  
+
+
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\Hypertarget{classqsbd_1_1quantile__sketch_acdc52dcaf3fa236574629e208432aa26}\label{classqsbd_1_1quantile__sketch_acdc52dcaf3fa236574629e208432aa26}} 
+virtual \mbox{\hyperlink{classqsbd_1_1quantile__sketch_acdc52dcaf3fa236574629e208432aa26}{$\sim$quantile\+\_\+sketch}} ()
+\begin{DoxyCompactList}\small\item\em A virtual destructor for all kinds of \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classqsbd_1_1quantile__sketch_a0e1fbfa40af7286315b193affc8999b5}\label{classqsbd_1_1quantile__sketch_a0e1fbfa40af7286315b193affc8999b5}} 
-virtual void {\bfseries init} ()
-\item 
-\mbox{\Hypertarget{classqsbd_1_1quantile__sketch_a0e7eefd81eec272e92b7cb989be33c6a}\label{classqsbd_1_1quantile__sketch_a0e7eefd81eec272e92b7cb989be33c6a}} 
-virtual void {\bfseries update} (Type elem)
-\item 
-\mbox{\Hypertarget{classqsbd_1_1quantile__sketch_ab21feebdceb1dc906fb422680b721fcb}\label{classqsbd_1_1quantile__sketch_ab21feebdceb1dc906fb422680b721fcb}} 
-virtual void {\bfseries update} (Type elem, int weight)
-\item 
-\mbox{\Hypertarget{classqsbd_1_1quantile__sketch_a6b54b5419ec258c6b94cbacb5db81cbc}\label{classqsbd_1_1quantile__sketch_a6b54b5419ec258c6b94cbacb5db81cbc}} 
-virtual Type {\bfseries quantile} (double quant)
-\item 
-\mbox{\Hypertarget{classqsbd_1_1quantile__sketch_a8cf64d79f25d910d1c1aed209ddac71e}\label{classqsbd_1_1quantile__sketch_a8cf64d79f25d910d1c1aed209ddac71e}} 
-virtual int {\bfseries query} (Type elem)
-\item 
-\mbox{\Hypertarget{classqsbd_1_1quantile__sketch_a20950642c0bd2279335f566b1c0170df}\label{classqsbd_1_1quantile__sketch_a20950642c0bd2279335f566b1c0170df}} 
-virtual \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$ Type $>$ $\ast$ {\bfseries merge} (\mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$ Type $>$ \&rhs)=0
-\item 
-\mbox{\Hypertarget{classqsbd_1_1quantile__sketch_af3458d26f52106a68ab2a65a81eeb0af}\label{classqsbd_1_1quantile__sketch_af3458d26f52106a68ab2a65a81eeb0af}} 
-virtual void {\bfseries inner\+\_\+merge} (\mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$ Type $>$ \&rhs)=0
-\end{DoxyCompactItemize}
+virtual void \mbox{\hyperlink{classqsbd_1_1quantile__sketch_a0e1fbfa40af7286315b193affc8999b5}{init}} ()
+\begin{DoxyCompactList}\small\item\em A virtual init method this should be used unless the constructor was already called. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classqsbd_1_1quantile__sketch_a0e7eefd81eec272e92b7cb989be33c6a}{update}} (Type elem)
+\begin{DoxyCompactList}\small\item\em A virtual update method. Receives a {\ttfamily elem} and updates the sketch with it. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classqsbd_1_1quantile__sketch_ab21feebdceb1dc906fb422680b721fcb}{update}} (Type elem, int weight)
+\begin{DoxyCompactList}\small\item\em A virtual update method. Receives a {\ttfamily elem} and a {\ttfamily weight} and updates the sketch with it. \end{DoxyCompactList}\item 
+virtual Type \mbox{\hyperlink{classqsbd_1_1quantile__sketch_a6b54b5419ec258c6b94cbacb5db81cbc}{quantile}} (double quant)
+\begin{DoxyCompactList}\small\item\em A virtual quantile method. Receives a {\ttfamily quant} and returns a element associate with this quantile. \end{DoxyCompactList}\item 
+virtual int \mbox{\hyperlink{classqsbd_1_1quantile__sketch_a8cf64d79f25d910d1c1aed209ddac71e}{query}} (Type elem)
+\begin{DoxyCompactList}\small\item\em A virtual query method. Receives a {\ttfamily elem} and returns the rank associate with this element. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$ Type $>$ $\ast$ \mbox{\hyperlink{classqsbd_1_1quantile__sketch_a20950642c0bd2279335f566b1c0170df}{merge}} (\mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$ Type $>$ \&rhs)=0
+\begin{DoxyCompactList}\small\item\em A pure virtual merge method. Recives a quantile sketch {\ttfamily rhs} performes a merge with this sketch, and returns a new quantile sketch. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classqsbd_1_1quantile__sketch_af3458d26f52106a68ab2a65a81eeb0af}{inner\+\_\+merge}} (\mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$ Type $>$ \&rhs)=0
+\begin{DoxyCompactList}\small\item\em A pure virtual merge method. Recives a quantile sketch {\ttfamily rhs} performes a merge with this sketch, and save in this sketch. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 \subsubsection*{template$<$class Type$>$\newline
 class qsbd\+::quantile\+\_\+sketch$<$ Type $>$}
+A interface for quantile sketchs. 
+
+A interface for all that a quantile sketch should have 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Type} & The type of the elements that the quantile sketch works with \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyWarning}{Warning}
+Although update and query aren\textquotesingle{}t pure virtual member functions the should be implemented. At least one of the update and one query method. 
+\end{DoxyWarning}
 
 
-Definition at line 6 of file quantile\+\_\+sketch.\+hpp.
+Definition at line 24 of file quantile\+\_\+sketch.\+hpp.
 
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classqsbd_1_1quantile__sketch_af3458d26f52106a68ab2a65a81eeb0af}\label{classqsbd_1_1quantile__sketch_af3458d26f52106a68ab2a65a81eeb0af}} 
+\index{qsbd::quantile\_sketch$<$ Type $>$@{qsbd::quantile\_sketch$<$ Type $>$}!inner\_merge@{inner\_merge}}
+\index{inner\_merge@{inner\_merge}!qsbd::quantile\_sketch$<$ Type $>$@{qsbd::quantile\_sketch$<$ Type $>$}}
+\doxysubsubsection{\texorpdfstring{inner\_merge()}{inner\_merge()}}
+{\footnotesize\ttfamily template$<$class Type $>$ \\
+virtual void \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{qsbd\+::quantile\+\_\+sketch}}$<$ Type $>$\+::inner\+\_\+merge (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$ Type $>$ \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+A pure virtual merge method. Recives a quantile sketch {\ttfamily rhs} performes a merge with this sketch, and save in this sketch. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rhs} & A instance of a \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$Type$>$ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+The \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}} passed as argument should be the same as this. 
+\end{DoxyWarning}
+
+
+Implemented in \mbox{\hyperlink{classqsbd_1_1dcs_a524fea14527f34c75a0280c0fc32ddb4}{qsbd\+::dcs}}, \mbox{\hyperlink{classqsbd_1_1q__digest_a7716bd59379244c24c4493155527ddd4}{qsbd\+::q\+\_\+digest}}, \mbox{\hyperlink{classqsbd_1_1gk_a039ced5336b543060bf3ee4a5a4999fc}{qsbd\+::gk$<$ T $>$}}, and \mbox{\hyperlink{classqsbd_1_1kll_a37cec2795a6a5b6ff64e72b635887d7a}{qsbd\+::kll$<$ T $>$}}.
+
+\mbox{\Hypertarget{classqsbd_1_1quantile__sketch_a20950642c0bd2279335f566b1c0170df}\label{classqsbd_1_1quantile__sketch_a20950642c0bd2279335f566b1c0170df}} 
+\index{qsbd::quantile\_sketch$<$ Type $>$@{qsbd::quantile\_sketch$<$ Type $>$}!merge@{merge}}
+\index{merge@{merge}!qsbd::quantile\_sketch$<$ Type $>$@{qsbd::quantile\_sketch$<$ Type $>$}}
+\doxysubsubsection{\texorpdfstring{merge()}{merge()}}
+{\footnotesize\ttfamily template$<$class Type $>$ \\
+virtual \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$Type$>$$\ast$ \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{qsbd\+::quantile\+\_\+sketch}}$<$ Type $>$\+::merge (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$ Type $>$ \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+A pure virtual merge method. Recives a quantile sketch {\ttfamily rhs} performes a merge with this sketch, and returns a new quantile sketch. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rhs} & A instance of a \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$Type$>$ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to a new instance of a \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$Type$>$ 
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+It\textquotesingle{}s up to a user the function of delete this memory. 
+
+The \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}} passed as argument should be the same as this. 
+\end{DoxyWarning}
+
+
+Implemented in \mbox{\hyperlink{classqsbd_1_1dcs_a9916003b7f514ed84f7298c5faa53d84}{qsbd\+::dcs}}, \mbox{\hyperlink{classqsbd_1_1q__digest_a9c5c1c479213737f979b41ef44229527}{qsbd\+::q\+\_\+digest}}, \mbox{\hyperlink{classqsbd_1_1gk_a3223001631ceb911111401bdc7eb3ede}{qsbd\+::gk$<$ T $>$}}, and \mbox{\hyperlink{classqsbd_1_1kll_a333e8c73e1ad730429f657c3f798ed6c}{qsbd\+::kll$<$ T $>$}}.
+
+\mbox{\Hypertarget{classqsbd_1_1quantile__sketch_a6b54b5419ec258c6b94cbacb5db81cbc}\label{classqsbd_1_1quantile__sketch_a6b54b5419ec258c6b94cbacb5db81cbc}} 
+\index{qsbd::quantile\_sketch$<$ Type $>$@{qsbd::quantile\_sketch$<$ Type $>$}!quantile@{quantile}}
+\index{quantile@{quantile}!qsbd::quantile\_sketch$<$ Type $>$@{qsbd::quantile\_sketch$<$ Type $>$}}
+\doxysubsubsection{\texorpdfstring{quantile()}{quantile()}}
+{\footnotesize\ttfamily template$<$class Type $>$ \\
+virtual Type \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{qsbd\+::quantile\+\_\+sketch}}$<$ Type $>$\+::quantile (\begin{DoxyParamCaption}\item[{double}]{quant }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+A virtual quantile method. Receives a {\ttfamily quant} and returns a element associate with this quantile. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em quant} & The quantile to be queried \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The element associete with the quantile {\ttfamily quant} 
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+The quantile should be in range \mbox{[}0..1) 
+\end{DoxyWarning}
+
+
+Reimplemented in \mbox{\hyperlink{classqsbd_1_1dcs_acd06f01bc3561d7231ed2dbf20f89241}{qsbd\+::dcs}}.
+
+
+
+Definition at line 59 of file quantile\+\_\+sketch.\+hpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{59 \{\textcolor{keywordflow}{return} Type();\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classqsbd_1_1quantile__sketch_a8cf64d79f25d910d1c1aed209ddac71e}\label{classqsbd_1_1quantile__sketch_a8cf64d79f25d910d1c1aed209ddac71e}} 
+\index{qsbd::quantile\_sketch$<$ Type $>$@{qsbd::quantile\_sketch$<$ Type $>$}!query@{query}}
+\index{query@{query}!qsbd::quantile\_sketch$<$ Type $>$@{qsbd::quantile\_sketch$<$ Type $>$}}
+\doxysubsubsection{\texorpdfstring{query()}{query()}}
+{\footnotesize\ttfamily template$<$class Type $>$ \\
+virtual int \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{qsbd\+::quantile\+\_\+sketch}}$<$ Type $>$\+::query (\begin{DoxyParamCaption}\item[{Type}]{elem }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+A virtual query method. Receives a {\ttfamily elem} and returns the rank associate with this element. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em elem} & The element to be query the rank \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The rank(elem) 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Unless specified, the rank should be defined as $rank(elem) = \sum _{y < elem} v_{y}$, where $v_{y} = $ sum of all weights of y in the input. 
+\end{DoxyNote}
+
+
+Reimplemented in \mbox{\hyperlink{classqsbd_1_1dcs_acdb1bcb6b35ce55084fe2b0ed673672f}{qsbd\+::dcs}}, \mbox{\hyperlink{classqsbd_1_1q__digest_ade7168cd70f94767678988531ea30414}{qsbd\+::q\+\_\+digest}}, \mbox{\hyperlink{classqsbd_1_1kll_ae90d25239b925ab9bc1ef7794d9e4104}{qsbd\+::kll$<$ T $>$}}, and \mbox{\hyperlink{classqsbd_1_1gk_a34fd256cb9b567896c2dde66ce43f036}{qsbd\+::gk$<$ T $>$}}.
+
+
+
+Definition at line 69 of file quantile\+\_\+sketch.\+hpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{69 \{\textcolor{keywordflow}{return} 0;\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classqsbd_1_1quantile__sketch_a0e7eefd81eec272e92b7cb989be33c6a}\label{classqsbd_1_1quantile__sketch_a0e7eefd81eec272e92b7cb989be33c6a}} 
+\index{qsbd::quantile\_sketch$<$ Type $>$@{qsbd::quantile\_sketch$<$ Type $>$}!update@{update}}
+\index{update@{update}!qsbd::quantile\_sketch$<$ Type $>$@{qsbd::quantile\_sketch$<$ Type $>$}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class Type $>$ \\
+virtual void \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{qsbd\+::quantile\+\_\+sketch}}$<$ Type $>$\+::update (\begin{DoxyParamCaption}\item[{Type}]{elem }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+A virtual update method. Receives a {\ttfamily elem} and updates the sketch with it. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em elem} & A element of the type supported by the sketch \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \mbox{\hyperlink{classqsbd_1_1kll_a2d13b0861967e45ab5c4780d35f1f449}{qsbd\+::kll$<$ T $>$}}, and \mbox{\hyperlink{classqsbd_1_1gk_a3a1041a9881bf5362a0fb1578022b3e3}{qsbd\+::gk$<$ T $>$}}.
+
+
+
+Definition at line 43 of file quantile\+\_\+sketch.\+hpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{43 \{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classqsbd_1_1quantile__sketch_ab21feebdceb1dc906fb422680b721fcb}\label{classqsbd_1_1quantile__sketch_ab21feebdceb1dc906fb422680b721fcb}} 
+\index{qsbd::quantile\_sketch$<$ Type $>$@{qsbd::quantile\_sketch$<$ Type $>$}!update@{update}}
+\index{update@{update}!qsbd::quantile\_sketch$<$ Type $>$@{qsbd::quantile\_sketch$<$ Type $>$}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class Type $>$ \\
+virtual void \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{qsbd\+::quantile\+\_\+sketch}}$<$ Type $>$\+::update (\begin{DoxyParamCaption}\item[{Type}]{elem,  }\item[{int}]{weight }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+A virtual update method. Receives a {\ttfamily elem} and a {\ttfamily weight} and updates the sketch with it. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em elem} & A element of the type supported by the sketch \\
+\hline
+{\em weight} & The weight associate with this {\ttfamily elem} \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \mbox{\hyperlink{classqsbd_1_1dcs_a156b262c353702c45314cc8a12eafa9a}{qsbd\+::dcs}}, and \mbox{\hyperlink{classqsbd_1_1q__digest_a995cd3e871d7cc1d2f4d34fc7b5aecc8}{qsbd\+::q\+\_\+digest}}.
+
+
+
+Definition at line 50 of file quantile\+\_\+sketch.\+hpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{50 \{\}}
+
+\end{DoxyCode}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

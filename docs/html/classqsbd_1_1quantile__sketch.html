@@ -73,36 +73,313 @@ $(function() {
   <div class="headertitle"><div class="title">qsbd::quantile_sketch&lt; Type &gt; Class Template Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>A interface for quantile sketchs.  
+ <a href="classqsbd_1_1quantile__sketch.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:acdc52dcaf3fa236574629e208432aa26"><td class="memItemLeft" align="right" valign="top"><a id="acdc52dcaf3fa236574629e208432aa26"></a>
+virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqsbd_1_1quantile__sketch.html#acdc52dcaf3fa236574629e208432aa26">~quantile_sketch</a> ()</td></tr>
+<tr class="memdesc:acdc52dcaf3fa236574629e208432aa26"><td class="mdescLeft">&#160;</td><td class="mdescRight">A virtual destructor for all kinds of <a class="el" href="classqsbd_1_1quantile__sketch.html" title="A interface for quantile sketchs.">quantile_sketch</a>. <br /></td></tr>
+<tr class="separator:acdc52dcaf3fa236574629e208432aa26"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0e1fbfa40af7286315b193affc8999b5"><td class="memItemLeft" align="right" valign="top"><a id="a0e1fbfa40af7286315b193affc8999b5"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>init</b> ()</td></tr>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqsbd_1_1quantile__sketch.html#a0e1fbfa40af7286315b193affc8999b5">init</a> ()</td></tr>
+<tr class="memdesc:a0e1fbfa40af7286315b193affc8999b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">A virtual init method this should be used unless the constructor was already called. <br /></td></tr>
 <tr class="separator:a0e1fbfa40af7286315b193affc8999b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e7eefd81eec272e92b7cb989be33c6a"><td class="memItemLeft" align="right" valign="top"><a id="a0e7eefd81eec272e92b7cb989be33c6a"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> (Type elem)</td></tr>
+<tr class="memitem:a0e7eefd81eec272e92b7cb989be33c6a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqsbd_1_1quantile__sketch.html#a0e7eefd81eec272e92b7cb989be33c6a">update</a> (Type elem)</td></tr>
+<tr class="memdesc:a0e7eefd81eec272e92b7cb989be33c6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">A virtual update method. Receives a <code>elem</code> and updates the sketch with it.  <a href="classqsbd_1_1quantile__sketch.html#a0e7eefd81eec272e92b7cb989be33c6a">More...</a><br /></td></tr>
 <tr class="separator:a0e7eefd81eec272e92b7cb989be33c6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab21feebdceb1dc906fb422680b721fcb"><td class="memItemLeft" align="right" valign="top"><a id="ab21feebdceb1dc906fb422680b721fcb"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> (Type elem, int weight)</td></tr>
+<tr class="memitem:ab21feebdceb1dc906fb422680b721fcb"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqsbd_1_1quantile__sketch.html#ab21feebdceb1dc906fb422680b721fcb">update</a> (Type elem, int weight)</td></tr>
+<tr class="memdesc:ab21feebdceb1dc906fb422680b721fcb"><td class="mdescLeft">&#160;</td><td class="mdescRight">A virtual update method. Receives a <code>elem</code> and a <code>weight</code> and updates the sketch with it.  <a href="classqsbd_1_1quantile__sketch.html#ab21feebdceb1dc906fb422680b721fcb">More...</a><br /></td></tr>
 <tr class="separator:ab21feebdceb1dc906fb422680b721fcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6b54b5419ec258c6b94cbacb5db81cbc"><td class="memItemLeft" align="right" valign="top"><a id="a6b54b5419ec258c6b94cbacb5db81cbc"></a>
-virtual Type&#160;</td><td class="memItemRight" valign="bottom"><b>quantile</b> (double quant)</td></tr>
+<tr class="memitem:a6b54b5419ec258c6b94cbacb5db81cbc"><td class="memItemLeft" align="right" valign="top">virtual Type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqsbd_1_1quantile__sketch.html#a6b54b5419ec258c6b94cbacb5db81cbc">quantile</a> (double quant)</td></tr>
+<tr class="memdesc:a6b54b5419ec258c6b94cbacb5db81cbc"><td class="mdescLeft">&#160;</td><td class="mdescRight">A virtual quantile method. Receives a <code>quant</code> and returns a element associate with this quantile.  <a href="classqsbd_1_1quantile__sketch.html#a6b54b5419ec258c6b94cbacb5db81cbc">More...</a><br /></td></tr>
 <tr class="separator:a6b54b5419ec258c6b94cbacb5db81cbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8cf64d79f25d910d1c1aed209ddac71e"><td class="memItemLeft" align="right" valign="top"><a id="a8cf64d79f25d910d1c1aed209ddac71e"></a>
-virtual int&#160;</td><td class="memItemRight" valign="bottom"><b>query</b> (Type elem)</td></tr>
+<tr class="memitem:a8cf64d79f25d910d1c1aed209ddac71e"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqsbd_1_1quantile__sketch.html#a8cf64d79f25d910d1c1aed209ddac71e">query</a> (Type elem)</td></tr>
+<tr class="memdesc:a8cf64d79f25d910d1c1aed209ddac71e"><td class="mdescLeft">&#160;</td><td class="mdescRight">A virtual query method. Receives a <code>elem</code> and returns the rank associate with this element.  <a href="classqsbd_1_1quantile__sketch.html#a8cf64d79f25d910d1c1aed209ddac71e">More...</a><br /></td></tr>
 <tr class="separator:a8cf64d79f25d910d1c1aed209ddac71e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a20950642c0bd2279335f566b1c0170df"><td class="memItemLeft" align="right" valign="top"><a id="a20950642c0bd2279335f566b1c0170df"></a>
-virtual <a class="el" href="classqsbd_1_1quantile__sketch.html">quantile_sketch</a>&lt; Type &gt; *&#160;</td><td class="memItemRight" valign="bottom"><b>merge</b> (<a class="el" href="classqsbd_1_1quantile__sketch.html">quantile_sketch</a>&lt; Type &gt; &amp;rhs)=0</td></tr>
+<tr class="memitem:a20950642c0bd2279335f566b1c0170df"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classqsbd_1_1quantile__sketch.html">quantile_sketch</a>&lt; Type &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqsbd_1_1quantile__sketch.html#a20950642c0bd2279335f566b1c0170df">merge</a> (<a class="el" href="classqsbd_1_1quantile__sketch.html">quantile_sketch</a>&lt; Type &gt; &amp;rhs)=0</td></tr>
+<tr class="memdesc:a20950642c0bd2279335f566b1c0170df"><td class="mdescLeft">&#160;</td><td class="mdescRight">A pure virtual merge method. Recives a quantile sketch <code>rhs</code> performes a merge with this sketch, and returns a new quantile sketch.  <a href="classqsbd_1_1quantile__sketch.html#a20950642c0bd2279335f566b1c0170df">More...</a><br /></td></tr>
 <tr class="separator:a20950642c0bd2279335f566b1c0170df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af3458d26f52106a68ab2a65a81eeb0af"><td class="memItemLeft" align="right" valign="top"><a id="af3458d26f52106a68ab2a65a81eeb0af"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>inner_merge</b> (<a class="el" href="classqsbd_1_1quantile__sketch.html">quantile_sketch</a>&lt; Type &gt; &amp;rhs)=0</td></tr>
+<tr class="memitem:af3458d26f52106a68ab2a65a81eeb0af"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqsbd_1_1quantile__sketch.html#af3458d26f52106a68ab2a65a81eeb0af">inner_merge</a> (<a class="el" href="classqsbd_1_1quantile__sketch.html">quantile_sketch</a>&lt; Type &gt; &amp;rhs)=0</td></tr>
+<tr class="memdesc:af3458d26f52106a68ab2a65a81eeb0af"><td class="mdescLeft">&#160;</td><td class="mdescRight">A pure virtual merge method. Recives a quantile sketch <code>rhs</code> performes a merge with this sketch, and save in this sketch.  <a href="classqsbd_1_1quantile__sketch.html#af3458d26f52106a68ab2a65a81eeb0af">More...</a><br /></td></tr>
 <tr class="separator:af3458d26f52106a68ab2a65a81eeb0af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;class Type&gt;<br />
-class qsbd::quantile_sketch&lt; Type &gt;</div>
-<p class="definition">Definition at line <a class="el" href="quantile__sketch_8hpp_source.html#l00006">6</a> of file <a class="el" href="quantile__sketch_8hpp_source.html">quantile_sketch.hpp</a>.</p>
-</div><hr/>The documentation for this class was generated from the following file:<ul>
+class qsbd::quantile_sketch&lt; Type &gt;</div><p >A interface for quantile sketchs. </p>
+<p >A interface for all that a quantile sketch should have </p><dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Type</td><td>The type of the elements that the quantile sketch works with </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section warning"><dt>Warning</dt><dd>Although update and query aren't pure virtual member functions the should be implemented. At least one of the update and one query method. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="quantile__sketch_8hpp_source.html#l00024">24</a> of file <a class="el" href="quantile__sketch_8hpp_source.html">quantile_sketch.hpp</a>.</p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="af3458d26f52106a68ab2a65a81eeb0af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3458d26f52106a68ab2a65a81eeb0af">&#9670;&nbsp;</a></span>inner_merge()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Type &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void <a class="el" href="classqsbd_1_1quantile__sketch.html">qsbd::quantile_sketch</a>&lt; Type &gt;::inner_merge </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classqsbd_1_1quantile__sketch.html">quantile_sketch</a>&lt; Type &gt; &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A pure virtual merge method. Recives a quantile sketch <code>rhs</code> performes a merge with this sketch, and save in this sketch. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rhs</td><td>A instance of a <a class="el" href="classqsbd_1_1quantile__sketch.html" title="A interface for quantile sketchs.">quantile_sketch</a>&lt;Type&gt; </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section warning"><dt>Warning</dt><dd>The <a class="el" href="classqsbd_1_1quantile__sketch.html" title="A interface for quantile sketchs.">quantile_sketch</a> passed as argument should be the same as this. </dd></dl>
+
+<p>Implemented in <a class="el" href="classqsbd_1_1dcs.html#a524fea14527f34c75a0280c0fc32ddb4">qsbd::dcs</a>, <a class="el" href="classqsbd_1_1q__digest.html#a7716bd59379244c24c4493155527ddd4">qsbd::q_digest</a>, <a class="el" href="classqsbd_1_1gk.html#a039ced5336b543060bf3ee4a5a4999fc">qsbd::gk&lt; T &gt;</a>, and <a class="el" href="classqsbd_1_1kll.html#a37cec2795a6a5b6ff64e72b635887d7a">qsbd::kll&lt; T &gt;</a>.</p>
+
+</div>
+</div>
+<a id="a20950642c0bd2279335f566b1c0170df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20950642c0bd2279335f566b1c0170df">&#9670;&nbsp;</a></span>merge()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Type &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="classqsbd_1_1quantile__sketch.html">quantile_sketch</a>&lt;Type&gt;* <a class="el" href="classqsbd_1_1quantile__sketch.html">qsbd::quantile_sketch</a>&lt; Type &gt;::merge </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classqsbd_1_1quantile__sketch.html">quantile_sketch</a>&lt; Type &gt; &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A pure virtual merge method. Recives a quantile sketch <code>rhs</code> performes a merge with this sketch, and returns a new quantile sketch. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rhs</td><td>A instance of a <a class="el" href="classqsbd_1_1quantile__sketch.html" title="A interface for quantile sketchs.">quantile_sketch</a>&lt;Type&gt; </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to a new instance of a <a class="el" href="classqsbd_1_1quantile__sketch.html" title="A interface for quantile sketchs.">quantile_sketch</a>&lt;Type&gt; </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>It's up to a user the function of delete this memory. </dd>
+<dd>
+The <a class="el" href="classqsbd_1_1quantile__sketch.html" title="A interface for quantile sketchs.">quantile_sketch</a> passed as argument should be the same as this. </dd></dl>
+
+<p>Implemented in <a class="el" href="classqsbd_1_1dcs.html#a9916003b7f514ed84f7298c5faa53d84">qsbd::dcs</a>, <a class="el" href="classqsbd_1_1q__digest.html#a9c5c1c479213737f979b41ef44229527">qsbd::q_digest</a>, <a class="el" href="classqsbd_1_1gk.html#a3223001631ceb911111401bdc7eb3ede">qsbd::gk&lt; T &gt;</a>, and <a class="el" href="classqsbd_1_1kll.html#a333e8c73e1ad730429f657c3f798ed6c">qsbd::kll&lt; T &gt;</a>.</p>
+
+</div>
+</div>
+<a id="a6b54b5419ec258c6b94cbacb5db81cbc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b54b5419ec258c6b94cbacb5db81cbc">&#9670;&nbsp;</a></span>quantile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Type &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual Type <a class="el" href="classqsbd_1_1quantile__sketch.html">qsbd::quantile_sketch</a>&lt; Type &gt;::quantile </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>quant</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A virtual quantile method. Receives a <code>quant</code> and returns a element associate with this quantile. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">quant</td><td>The quantile to be queried </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The element associete with the quantile <code>quant</code> </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>The quantile should be in range [0..1) </dd></dl>
+
+<p>Reimplemented in <a class="el" href="classqsbd_1_1dcs.html#acd06f01bc3561d7231ed2dbf20f89241">qsbd::dcs</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="quantile__sketch_8hpp_source.html#l00059">59</a> of file <a class="el" href="quantile__sketch_8hpp_source.html">quantile_sketch.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;{<span class="keywordflow">return</span> Type();}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a8cf64d79f25d910d1c1aed209ddac71e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8cf64d79f25d910d1c1aed209ddac71e">&#9670;&nbsp;</a></span>query()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Type &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int <a class="el" href="classqsbd_1_1quantile__sketch.html">qsbd::quantile_sketch</a>&lt; Type &gt;::query </td>
+          <td>(</td>
+          <td class="paramtype">Type&#160;</td>
+          <td class="paramname"><em>elem</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A virtual query method. Receives a <code>elem</code> and returns the rank associate with this element. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">elem</td><td>The element to be query the rank </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The rank(elem) </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Unless specified, the rank should be defined as <img class="formulaInl" alt="$rank(elem) = \sum _{y &lt; elem} v_{y}$" src="form_12.png"/>, where <img class="formulaInl" alt="$v_{y} = $" src="form_13.png"/> sum of all weights of y in the input. </dd></dl>
+
+<p>Reimplemented in <a class="el" href="classqsbd_1_1dcs.html#acdb1bcb6b35ce55084fe2b0ed673672f">qsbd::dcs</a>, <a class="el" href="classqsbd_1_1q__digest.html#ade7168cd70f94767678988531ea30414">qsbd::q_digest</a>, <a class="el" href="classqsbd_1_1kll.html#ae90d25239b925ab9bc1ef7794d9e4104">qsbd::kll&lt; T &gt;</a>, and <a class="el" href="classqsbd_1_1gk.html#a34fd256cb9b567896c2dde66ce43f036">qsbd::gk&lt; T &gt;</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="quantile__sketch_8hpp_source.html#l00069">69</a> of file <a class="el" href="quantile__sketch_8hpp_source.html">quantile_sketch.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;{<span class="keywordflow">return</span> 0;}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a0e7eefd81eec272e92b7cb989be33c6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e7eefd81eec272e92b7cb989be33c6a">&#9670;&nbsp;</a></span>update() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Type &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void <a class="el" href="classqsbd_1_1quantile__sketch.html">qsbd::quantile_sketch</a>&lt; Type &gt;::update </td>
+          <td>(</td>
+          <td class="paramtype">Type&#160;</td>
+          <td class="paramname"><em>elem</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A virtual update method. Receives a <code>elem</code> and updates the sketch with it. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">elem</td><td>A element of the type supported by the sketch </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Reimplemented in <a class="el" href="classqsbd_1_1kll.html#a2d13b0861967e45ab5c4780d35f1f449">qsbd::kll&lt; T &gt;</a>, and <a class="el" href="classqsbd_1_1gk.html#a3a1041a9881bf5362a0fb1578022b3e3">qsbd::gk&lt; T &gt;</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="quantile__sketch_8hpp_source.html#l00043">43</a> of file <a class="el" href="quantile__sketch_8hpp_source.html">quantile_sketch.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;{}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ab21feebdceb1dc906fb422680b721fcb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab21feebdceb1dc906fb422680b721fcb">&#9670;&nbsp;</a></span>update() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Type &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void <a class="el" href="classqsbd_1_1quantile__sketch.html">qsbd::quantile_sketch</a>&lt; Type &gt;::update </td>
+          <td>(</td>
+          <td class="paramtype">Type&#160;</td>
+          <td class="paramname"><em>elem</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>weight</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A virtual update method. Receives a <code>elem</code> and a <code>weight</code> and updates the sketch with it. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">elem</td><td>A element of the type supported by the sketch </td></tr>
+    <tr><td class="paramname">weight</td><td>The weight associate with this <code>elem</code> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Reimplemented in <a class="el" href="classqsbd_1_1dcs.html#a156b262c353702c45314cc8a12eafa9a">qsbd::dcs</a>, and <a class="el" href="classqsbd_1_1q__digest.html#a995cd3e871d7cc1d2f4d34fc7b5aecc8">qsbd::q_digest</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="quantile__sketch_8hpp_source.html#l00050">50</a> of file <a class="el" href="quantile__sketch_8hpp_source.html">quantile_sketch.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;{}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li>src/quantile_sketch/<a class="el" href="quantile__sketch_8hpp_source.html">quantile_sketch.hpp</a></li>
 </ul>
 </div><!-- contents -->

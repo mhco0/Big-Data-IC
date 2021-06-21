@@ -22,6 +22,18 @@ test/CMakeFiles/test_memory_tracker.dir/test_memory_tracker.cpp.o
  ../googletest/googletest/include/gtest/internal/gtest-port.h
  ../googletest/googletest/include/gtest/internal/gtest-string.h
  ../googletest/googletest/include/gtest/internal/gtest-type-util.h
- ../src/memory_tracker/memory_tracker.h
- ../thirdparty/nlohmann/json.hpp
+ ../src/aabb/aabb.hpp
+ ../src/commum_header/commum_header.h
+ ../src/count_sketch/count_sketch.h
+ ../src/dcs/dcs.h
+ ../src/dcs_factory/dcs_factory.h
+ ../src/global_generator/global_generator.h
+ ../src/point/point.hpp
+ ../src/qsbd_debug/qsbd_debug.h
+ ../src/quantile_quadtree/quantile_quadtree.hpp
+ ../src/quantile_sketch/quantile_sketch.hpp
+ ../src/sketch_factory/sketch_factory.hpp
+ ../src/stl_memory_tracker/stl_memory_tracker.hpp
+ ../src/two_wise_family/two_wise_family.h
+ ../src/utils/utils.h
  /mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_memory_tracker.cpp

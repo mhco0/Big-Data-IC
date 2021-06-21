@@ -8,45 +8,45 @@
 
 namespace qsbd{
 
-    class dcs_factory;
+	class dcs_factory;
 
-    class dcs : public quantile_sketch<int>{
-    private: 
-        friend class dcs_factory;
+	class dcs : public quantile_sketch<int>{
+	private: 
+		friend class dcs_factory;
 
-        int universe;
-        double error;
-        // for initialize count sketch
-        int total_weight;
-        int w, d;
-        int s;
-        int lvls;
+		int universe;
+		double error;
+		// for initialize count sketch
+		int total_weight;
+		int w, d;
+		int s;
+		int lvls;
 
-        std::vector<std::vector<int>> frequency_counters;
-        std::vector<count_sketch> estimators;
+		std::vector<std::vector<int>> frequency_counters;
+		std::vector<count_sketch> estimators;
 
-        void set_params(double err, int univ);
-    public:
-        dcs(double err, int univ);
-        dcs(double err, int univ, const std::vector<std::vector<std::vector<int>>>& hashs_consts);
-        ~dcs();
+		void set_params(double err, int univ);
+	public:
+		dcs(double err, int univ);
+		dcs(double err, int univ, const std::vector<std::vector<std::vector<int>>>& hashs_consts);
+		~dcs();
 
-        void update(int x, int weight) override;
-        int query(int x) override;
-        int quantile(double quant) override;
+		void update(int x, int weight) override;
+		int query(int x) override;
+		int quantile(double quant) override;
 
-        quantile_sketch<int> * merge(quantile_sketch<int>& rhs) override;
-        void inner_merge(quantile_sketch<int>& rhs) override;
+		quantile_sketch<int> * merge(quantile_sketch<int>& rhs) override;
+		void inner_merge(quantile_sketch<int>& rhs) override;
 
-        std::vector<count_sketch> get_estimators() const;
-        int get_tree_lvl() const;
-        int get_w() const;
-        int get_d() const;
-        int get_s() const;
-        double get_error() const;
-        int get_universe() const;
-        int get_total_weight() const;
-        std::vector<std::vector<std::vector<int>>> get_count_sketchs_hash_functions_constants() const;
-    };
+		std::vector<count_sketch> get_estimators() const;
+		int get_tree_lvl() const;
+		int get_w() const;
+		int get_d() const;
+		int get_s() const;
+		double get_error() const;
+		int get_universe() const;
+		int get_total_weight() const;
+		std::vector<std::vector<std::vector<int>>> get_count_sketchs_hash_functions_constants() const;
+	};
 }
 #endif

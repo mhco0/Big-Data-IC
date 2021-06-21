@@ -15,21 +15,16 @@ Inheritance diagram for qsbd\+::dcs\+:\begin{figure}[H]
 \mbox{\Hypertarget{classqsbd_1_1dcs_a455c4c01b0972de56fa5bdca7fd82c29}\label{classqsbd_1_1dcs_a455c4c01b0972de56fa5bdca7fd82c29}} 
 {\bfseries dcs} (double err, int univ, const std\+::vector$<$ std\+::vector$<$ std\+::vector$<$ int $>$$>$$>$ \&hashs\+\_\+consts)
 \item 
-\mbox{\Hypertarget{classqsbd_1_1dcs_a156b262c353702c45314cc8a12eafa9a}\label{classqsbd_1_1dcs_a156b262c353702c45314cc8a12eafa9a}} 
-void {\bfseries update} (int x, int weight) override
-\item 
-\mbox{\Hypertarget{classqsbd_1_1dcs_acdb1bcb6b35ce55084fe2b0ed673672f}\label{classqsbd_1_1dcs_acdb1bcb6b35ce55084fe2b0ed673672f}} 
-int {\bfseries query} (int x) override
-\item 
-\mbox{\Hypertarget{classqsbd_1_1dcs_acd06f01bc3561d7231ed2dbf20f89241}\label{classqsbd_1_1dcs_acd06f01bc3561d7231ed2dbf20f89241}} 
-int {\bfseries quantile} (double quant) override
-\item 
-\mbox{\Hypertarget{classqsbd_1_1dcs_a9916003b7f514ed84f7298c5faa53d84}\label{classqsbd_1_1dcs_a9916003b7f514ed84f7298c5faa53d84}} 
-\mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$ int $>$ $\ast$ {\bfseries merge} (\mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$ int $>$ \&rhs) override
-\item 
-\mbox{\Hypertarget{classqsbd_1_1dcs_a524fea14527f34c75a0280c0fc32ddb4}\label{classqsbd_1_1dcs_a524fea14527f34c75a0280c0fc32ddb4}} 
-void {\bfseries inner\+\_\+merge} (\mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$ int $>$ \&rhs) override
-\item 
+void \mbox{\hyperlink{classqsbd_1_1dcs_a156b262c353702c45314cc8a12eafa9a}{update}} (int x, int weight) override
+\begin{DoxyCompactList}\small\item\em A virtual update method. Receives a {\ttfamily elem} and a {\ttfamily weight} and updates the sketch with it. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classqsbd_1_1dcs_acdb1bcb6b35ce55084fe2b0ed673672f}{query}} (int x) override
+\begin{DoxyCompactList}\small\item\em A virtual query method. Receives a {\ttfamily elem} and returns the rank associate with this element. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classqsbd_1_1dcs_acd06f01bc3561d7231ed2dbf20f89241}{quantile}} (double quant) override
+\begin{DoxyCompactList}\small\item\em A virtual quantile method. Receives a {\ttfamily quant} and returns a element associate with this quantile. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$ int $>$ $\ast$ \mbox{\hyperlink{classqsbd_1_1dcs_a9916003b7f514ed84f7298c5faa53d84}{merge}} (\mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$ int $>$ \&rhs) override
+\begin{DoxyCompactList}\small\item\em A pure virtual merge method. Recives a quantile sketch {\ttfamily rhs} performes a merge with this sketch, and returns a new quantile sketch. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classqsbd_1_1dcs_a524fea14527f34c75a0280c0fc32ddb4}{inner\+\_\+merge}} (\mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$ int $>$ \&rhs) override
+\begin{DoxyCompactList}\small\item\em A pure virtual merge method. Recives a quantile sketch {\ttfamily rhs} performes a merge with this sketch, and save in this sketch. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classqsbd_1_1dcs_af4603f6a42c7d76ebca1b27610b3e3c7}\label{classqsbd_1_1dcs_af4603f6a42c7d76ebca1b27610b3e3c7}} 
 std\+::vector$<$ \mbox{\hyperlink{classqsbd_1_1count__sketch}{count\+\_\+sketch}} $>$ {\bfseries get\+\_\+estimators} () const
 \item 
@@ -70,6 +65,306 @@ class {\bfseries dcs\+\_\+factory}
 
 Definition at line 13 of file dcs.\+h.
 
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classqsbd_1_1dcs_a524fea14527f34c75a0280c0fc32ddb4}\label{classqsbd_1_1dcs_a524fea14527f34c75a0280c0fc32ddb4}} 
+\index{qsbd::dcs@{qsbd::dcs}!inner\_merge@{inner\_merge}}
+\index{inner\_merge@{inner\_merge}!qsbd::dcs@{qsbd::dcs}}
+\doxysubsubsection{\texorpdfstring{inner\_merge()}{inner\_merge()}}
+{\footnotesize\ttfamily void qsbd\+::dcs\+::inner\+\_\+merge (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$ int $>$ \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+A pure virtual merge method. Recives a quantile sketch {\ttfamily rhs} performes a merge with this sketch, and save in this sketch. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rhs} & A instance of a \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$Type$>$ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+The \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}} passed as argument should be the same as this. 
+\end{DoxyWarning}
+
+
+Implements \mbox{\hyperlink{classqsbd_1_1quantile__sketch_af3458d26f52106a68ab2a65a81eeb0af}{qsbd\+::quantile\+\_\+sketch$<$ int $>$}}.
+
+
+
+Definition at line 182 of file dcs.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{182                                                   \{}
+\DoxyCodeLine{183         dcs\& rhs\_cv = \textcolor{keyword}{dynamic\_cast<}dcs\&\textcolor{keyword}{>} (rhs);}
+\DoxyCodeLine{184 }
+\DoxyCodeLine{185         \textcolor{keywordflow}{if}(this-\/>error -\/ rhs\_cv.error > 1e-\/6)\{}
+\DoxyCodeLine{186             DEBUG\_ERR(\textcolor{stringliteral}{"{}dcs's error need to match"{}});}
+\DoxyCodeLine{187             \textcolor{keywordflow}{return};}
+\DoxyCodeLine{188         \}}
+\DoxyCodeLine{189 }
+\DoxyCodeLine{190         \textcolor{keywordflow}{if}(this-\/>universe != rhs\_cv.universe)\{}
+\DoxyCodeLine{191             DEBUG\_ERR(\textcolor{stringliteral}{"{}dcs's universe need to match"{}});}
+\DoxyCodeLine{192             \textcolor{keywordflow}{return};}
+\DoxyCodeLine{193         \}}
+\DoxyCodeLine{194 }
+\DoxyCodeLine{195         this-\/>total\_weight += rhs\_cv.total\_weight;}
+\DoxyCodeLine{196 }
+\DoxyCodeLine{197         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < this-\/>lvls; i++)\{}
+\DoxyCodeLine{198             \textcolor{keywordflow}{if}(i > this-\/>s)\{}
+\DoxyCodeLine{199                 \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j = 0; j < this-\/>frequency\_counters[i -\/ (this-\/>s + 1)].size(); j++)\{}
+\DoxyCodeLine{200                     this-\/>frequency\_counters[i -\/ (this-\/>s + 1)][j] += rhs\_cv.frequency\_counters[i -\/ (rhs\_cv.s + 1)][j];}
+\DoxyCodeLine{201                 \}}
+\DoxyCodeLine{202             \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{203                 this-\/>estimators[i].inner\_merge(rhs\_cv.estimators[i]);}
+\DoxyCodeLine{204             \}}
+\DoxyCodeLine{205         \}}
+\DoxyCodeLine{206     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classqsbd_1_1dcs_a9916003b7f514ed84f7298c5faa53d84}\label{classqsbd_1_1dcs_a9916003b7f514ed84f7298c5faa53d84}} 
+\index{qsbd::dcs@{qsbd::dcs}!merge@{merge}}
+\index{merge@{merge}!qsbd::dcs@{qsbd::dcs}}
+\doxysubsubsection{\texorpdfstring{merge()}{merge()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$ int $>$ $\ast$ qsbd\+::dcs\+::merge (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$ int $>$ \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+A pure virtual merge method. Recives a quantile sketch {\ttfamily rhs} performes a merge with this sketch, and returns a new quantile sketch. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rhs} & A instance of a \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$Type$>$ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to a new instance of a \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$Type$>$ 
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+It\textquotesingle{}s up to a user the function of delete this memory. 
+
+The \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}} passed as argument should be the same as this. 
+\end{DoxyWarning}
+
+
+Implements \mbox{\hyperlink{classqsbd_1_1quantile__sketch_a20950642c0bd2279335f566b1c0170df}{qsbd\+::quantile\+\_\+sketch$<$ int $>$}}.
+
+
+
+Definition at line 144 of file dcs.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{144                                                               \{}
+\DoxyCodeLine{145         dcs\& rhs\_cv = \textcolor{keyword}{dynamic\_cast<}dcs\&\textcolor{keyword}{>} (rhs);}
+\DoxyCodeLine{146 }
+\DoxyCodeLine{147         \textcolor{keywordflow}{if}(this-\/>error -\/ rhs\_cv.error > 1e-\/6)\{}
+\DoxyCodeLine{148             DEBUG\_ERR(\textcolor{stringliteral}{"{}dcs's error need to match"{}});}
+\DoxyCodeLine{149             \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{150         \}}
+\DoxyCodeLine{151 }
+\DoxyCodeLine{152         \textcolor{keywordflow}{if}(this-\/>universe != rhs\_cv.universe)\{}
+\DoxyCodeLine{153             DEBUG\_ERR(\textcolor{stringliteral}{"{}dcs's universe need to match"{}});}
+\DoxyCodeLine{154             \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{155         \}}
+\DoxyCodeLine{156 }
+\DoxyCodeLine{157         dcs* merged = \textcolor{keyword}{new} dcs(this-\/>error, this-\/>universe, this-\/>get\_count\_sketchs\_hash\_functions\_constants());}
+\DoxyCodeLine{158 }
+\DoxyCodeLine{159         merged-\/>total\_weight = this-\/>total\_weight + rhs\_cv.total\_weight;}
+\DoxyCodeLine{160 }
+\DoxyCodeLine{161         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < merged-\/>lvls; i++)\{}
+\DoxyCodeLine{162             \textcolor{keywordflow}{if}(i > merged-\/>s)\{}
+\DoxyCodeLine{163                 \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j = 0; j < merged-\/>frequency\_counters[i -\/ (merged-\/>s + 1)].size(); j++)\{}
+\DoxyCodeLine{164                     merged-\/>frequency\_counters[i -\/ (merged-\/>s + 1)][j] = this-\/>frequency\_counters[i -\/ (this-\/>s + 1)][j] + rhs\_cv.frequency\_counters[i -\/ (rhs\_cv.s + 1)][j];}
+\DoxyCodeLine{165                 \}}
+\DoxyCodeLine{166             \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{167                 count\_sketch * ref = this-\/>estimators[i].merge(rhs\_cv.estimators[i]);}
+\DoxyCodeLine{168 }
+\DoxyCodeLine{169                 \textcolor{keywordflow}{if}(ref == \textcolor{keyword}{nullptr})\{}
+\DoxyCodeLine{170                     DEBUG\_ERR(\textcolor{stringliteral}{"{}in dcs merge, count\_sketch merge fail."{}});}
+\DoxyCodeLine{171                     \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{172                 \}}
+\DoxyCodeLine{173 }
+\DoxyCodeLine{174                 merged-\/>estimators[i] = *ref;}
+\DoxyCodeLine{175                 \textcolor{keyword}{delete} ref;}
+\DoxyCodeLine{176             \}}
+\DoxyCodeLine{177         \}}
+\DoxyCodeLine{178 }
+\DoxyCodeLine{179         \textcolor{keywordflow}{return} merged;}
+\DoxyCodeLine{180     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classqsbd_1_1dcs_acd06f01bc3561d7231ed2dbf20f89241}\label{classqsbd_1_1dcs_acd06f01bc3561d7231ed2dbf20f89241}} 
+\index{qsbd::dcs@{qsbd::dcs}!quantile@{quantile}}
+\index{quantile@{quantile}!qsbd::dcs@{qsbd::dcs}}
+\doxysubsubsection{\texorpdfstring{quantile()}{quantile()}}
+{\footnotesize\ttfamily int qsbd\+::dcs\+::quantile (\begin{DoxyParamCaption}\item[{double}]{quant }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+A virtual quantile method. Receives a {\ttfamily quant} and returns a element associate with this quantile. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em quant} & The quantile to be queried \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The element associete with the quantile {\ttfamily quant} 
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+The quantile should be in range \mbox{[}0..1) 
+\end{DoxyWarning}
+
+
+Reimplemented from \mbox{\hyperlink{classqsbd_1_1quantile__sketch_a6b54b5419ec258c6b94cbacb5db81cbc}{qsbd\+::quantile\+\_\+sketch$<$ int $>$}}.
+
+
+
+Definition at line 118 of file dcs.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{118                                  \{}
+\DoxyCodeLine{119         \textcolor{comment}{// quant must be in [0, 1]}}
+\DoxyCodeLine{120 }
+\DoxyCodeLine{121         \textcolor{keywordtype}{int} weight = (int) total\_weight * quant;}
+\DoxyCodeLine{122         \textcolor{keywordtype}{int} x = 0;}
+\DoxyCodeLine{123         \textcolor{keywordtype}{int} parse\_quant = 0;}
+\DoxyCodeLine{124 }
+\DoxyCodeLine{125         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = this-\/>lvls -\/ 1; i >= 0; i-\/-\/)\{}
+\DoxyCodeLine{126             \textcolor{keywordtype}{int} M = 0;}
+\DoxyCodeLine{127             x = 2 * x;}
+\DoxyCodeLine{128 }
+\DoxyCodeLine{129             \textcolor{keywordflow}{if}(i > this-\/>s)\{}
+\DoxyCodeLine{130                 M = this-\/>frequency\_counters[i -\/ (this-\/>s + 1)][x];}
+\DoxyCodeLine{131             \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{132                 M = this-\/>estimators[i].query(x);}
+\DoxyCodeLine{133             \}}
+\DoxyCodeLine{134 }
+\DoxyCodeLine{135             \textcolor{keywordflow}{if}(parse\_quant + M < weight)\{}
+\DoxyCodeLine{136                 x += 1;}
+\DoxyCodeLine{137                 parse\_quant += M;}
+\DoxyCodeLine{138             \}}
+\DoxyCodeLine{139         \}}
+\DoxyCodeLine{140 }
+\DoxyCodeLine{141         \textcolor{keywordflow}{return} x;}
+\DoxyCodeLine{142     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classqsbd_1_1dcs_acdb1bcb6b35ce55084fe2b0ed673672f}\label{classqsbd_1_1dcs_acdb1bcb6b35ce55084fe2b0ed673672f}} 
+\index{qsbd::dcs@{qsbd::dcs}!query@{query}}
+\index{query@{query}!qsbd::dcs@{qsbd::dcs}}
+\doxysubsubsection{\texorpdfstring{query()}{query()}}
+{\footnotesize\ttfamily int qsbd\+::dcs\+::query (\begin{DoxyParamCaption}\item[{int}]{elem }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+A virtual query method. Receives a {\ttfamily elem} and returns the rank associate with this element. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em elem} & The element to be query the rank \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The rank(elem) 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Unless specified, the rank should be defined as $rank(elem) = \sum _{y < elem} v_{y}$, where $v_{y} = $ sum of all weights of y in the input. 
+\end{DoxyNote}
+
+
+Reimplemented from \mbox{\hyperlink{classqsbd_1_1quantile__sketch_a8cf64d79f25d910d1c1aed209ddac71e}{qsbd\+::quantile\+\_\+sketch$<$ int $>$}}.
+
+
+
+Definition at line 94 of file dcs.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{94                        \{}
+\DoxyCodeLine{95         \textcolor{keywordflow}{if}(x >= this-\/>universe)\{}
+\DoxyCodeLine{96             DEBUG\_ERR(\textcolor{stringliteral}{"{}On dcs::query value first parameter 'x' is greater then the universe range"{}});}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98             \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{99         \}}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{101         \textcolor{keywordtype}{int} rank = 0;}
+\DoxyCodeLine{102 }
+\DoxyCodeLine{103         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < this-\/>lvls; i++)\{}
+\DoxyCodeLine{104             \textcolor{keywordflow}{if}(x \& 1)\{}
+\DoxyCodeLine{105                 \textcolor{keywordflow}{if}(i > this-\/>s)\{}
+\DoxyCodeLine{106                     rank += this-\/>frequency\_counters[i -\/ (this-\/>s + 1)][x -\/ 1];}
+\DoxyCodeLine{107                 \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{108                     rank += this-\/>estimators[i].query(x -\/ 1);}
+\DoxyCodeLine{109                 \}}
+\DoxyCodeLine{110             \}}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{112             x = x / 2;}
+\DoxyCodeLine{113         \}}
+\DoxyCodeLine{114 }
+\DoxyCodeLine{115         \textcolor{keywordflow}{return} rank;}
+\DoxyCodeLine{116     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classqsbd_1_1dcs_a156b262c353702c45314cc8a12eafa9a}\label{classqsbd_1_1dcs_a156b262c353702c45314cc8a12eafa9a}} 
+\index{qsbd::dcs@{qsbd::dcs}!update@{update}}
+\index{update@{update}!qsbd::dcs@{qsbd::dcs}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void qsbd\+::dcs\+::update (\begin{DoxyParamCaption}\item[{int}]{elem,  }\item[{int}]{weight }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+A virtual update method. Receives a {\ttfamily elem} and a {\ttfamily weight} and updates the sketch with it. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em elem} & A element of the type supported by the sketch \\
+\hline
+{\em weight} & The weight associate with this {\ttfamily elem} \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classqsbd_1_1quantile__sketch_ab21feebdceb1dc906fb422680b721fcb}{qsbd\+::quantile\+\_\+sketch$<$ int $>$}}.
+
+
+
+Definition at line 66 of file dcs.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{66                                      \{}
+\DoxyCodeLine{67         \textcolor{keywordflow}{if}(x >= this-\/>universe)\{}
+\DoxyCodeLine{68             DEBUG\_ERR(\textcolor{stringliteral}{"{}On dcs::update value first parameter 'x' is greater then the universe range"{}});}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70             \textcolor{keywordflow}{return};}
+\DoxyCodeLine{71         \}}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73         this-\/>total\_weight += weight;}
+\DoxyCodeLine{74         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < this-\/>lvls; i++)\{}
+\DoxyCodeLine{75             \textcolor{keywordflow}{if}(i > this-\/>s)\{}
+\DoxyCodeLine{76                 \textcolor{comment}{/*if(((i -\/ (this-\/>s + 1)) < 0) or x >= this-\/>frequency\_counters[i -\/ (this-\/>s + 1)].size())\{ }}
+\DoxyCodeLine{77 \textcolor{comment}{                    VDEBUG(this-\/>d); }}
+\DoxyCodeLine{78 \textcolor{comment}{                    VDEBUG(this-\/>w); }}
+\DoxyCodeLine{79 \textcolor{comment}{                    VDEBUG(this-\/>s); }}
+\DoxyCodeLine{80 \textcolor{comment}{                    VDEBUG(this-\/>lvls); }}
+\DoxyCodeLine{81 \textcolor{comment}{                    VDEBUG(this-\/>frequency\_counters[i -\/ (this-\/>s + 1)].size()); }}
+\DoxyCodeLine{82 \textcolor{comment}{                    VDEBUG(i); }}
+\DoxyCodeLine{83 \textcolor{comment}{                    VDEBUG(x); }}
+\DoxyCodeLine{84 \textcolor{comment}{                \}*/}}
+\DoxyCodeLine{85                 this-\/>frequency\_counters[i -\/ (this-\/>s + 1)][x] += weight;}
+\DoxyCodeLine{86             \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{87                 this-\/>estimators[i].update(x, weight);}
+\DoxyCodeLine{88             \}}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90             x = x / 2;}
+\DoxyCodeLine{91         \}}
+\DoxyCodeLine{92     \}}
+
+\end{DoxyCode}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

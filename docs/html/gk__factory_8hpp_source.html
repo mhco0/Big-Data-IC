@@ -85,7 +85,7 @@ $(function() {
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;            this-&gt;error = err;</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        }</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <a class="code" href="classqsbd_1_1quantile__sketch.html">quantile_sketch&lt;Type&gt;</a> * instance()<span class="keyword"> override </span>{</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classqsbd_1_1gk__factory.html#a8e366608d9731870b0cb8265980a9e86">   16</a></span>&#160;        <a class="code" href="classqsbd_1_1quantile__sketch.html">quantile_sketch&lt;Type&gt;</a> * <a class="code" href="classqsbd_1_1gk__factory.html#a8e366608d9731870b0cb8265980a9e86">instance</a>()<span class="keyword"> override </span>{</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="classqsbd_1_1gk.html">gk&lt;Type&gt;</a>(this-&gt;error);</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        }</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    };</div>
@@ -94,9 +94,10 @@ $(function() {
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aclassqsbd_1_1gk__factory_html"><div class="ttname"><a href="classqsbd_1_1gk__factory.html">qsbd::gk_factory</a></div><div class="ttdef"><b>Definition:</b> <a href="gk__factory_8hpp_source.html#l00008">gk_factory.hpp:8</a></div></div>
+<div class="ttc" id="aclassqsbd_1_1gk__factory_html_a8e366608d9731870b0cb8265980a9e86"><div class="ttname"><a href="classqsbd_1_1gk__factory.html#a8e366608d9731870b0cb8265980a9e86">qsbd::gk_factory::instance</a></div><div class="ttdeci">quantile_sketch&lt; Type &gt; * instance() override</div><div class="ttdoc">A pure virtual method for create new instances of a quantile_sketch&lt;Type&gt;.</div><div class="ttdef"><b>Definition:</b> <a href="gk__factory_8hpp_source.html#l00016">gk_factory.hpp:16</a></div></div>
 <div class="ttc" id="aclassqsbd_1_1gk_html"><div class="ttname"><a href="classqsbd_1_1gk.html">qsbd::gk</a></div><div class="ttdef"><b>Definition:</b> <a href="gk_8hpp_source.html#l00010">gk.hpp:10</a></div></div>
-<div class="ttc" id="aclassqsbd_1_1quantile__sketch_html"><div class="ttname"><a href="classqsbd_1_1quantile__sketch.html">qsbd::quantile_sketch</a></div><div class="ttdef"><b>Definition:</b> <a href="quantile__sketch_8hpp_source.html#l00006">quantile_sketch.hpp:6</a></div></div>
-<div class="ttc" id="aclassqsbd_1_1sketch__factory_html"><div class="ttname"><a href="classqsbd_1_1sketch__factory.html">qsbd::sketch_factory</a></div><div class="ttdef"><b>Definition:</b> <a href="sketch__factory_8hpp_source.html#l00007">sketch_factory.hpp:7</a></div></div>
+<div class="ttc" id="aclassqsbd_1_1quantile__sketch_html"><div class="ttname"><a href="classqsbd_1_1quantile__sketch.html">qsbd::quantile_sketch</a></div><div class="ttdoc">A interface for quantile sketchs.</div><div class="ttdef"><b>Definition:</b> <a href="quantile__sketch_8hpp_source.html#l00024">quantile_sketch.hpp:24</a></div></div>
+<div class="ttc" id="aclassqsbd_1_1sketch__factory_html"><div class="ttname"><a href="classqsbd_1_1sketch__factory.html">qsbd::sketch_factory</a></div><div class="ttdoc">A interface for factorys of sketchs.</div><div class="ttdef"><b>Definition:</b> <a href="sketch__factory_8hpp_source.html#l00023">sketch_factory.hpp:23</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

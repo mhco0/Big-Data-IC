@@ -70,36 +70,53 @@ $(function() {
   <div class="headertitle"><div class="title">two_wise_family.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef QSBD_TWO_WISE_FAMILY_H</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define QSBD_TWO_WISE_FAMILY_H</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;../commum_header/commum_header.h&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;../global_generator/global_generator.h&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;../utils/utils.h&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;../qsbd_debug/qsbd_debug.h&quot;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">namespace </span>qsbd{</div>
-<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="classqsbd_1_1two__wise__family.html">    9</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classqsbd_1_1two__wise__family.html">two_wise_family</a>{</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        <span class="keywordtype">int</span> big_prim = 2;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        <span class="keywordtype">int</span> constants[2];</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        <span class="keywordtype">int</span> universe;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <a class="code" href="classqsbd_1_1two__wise__family.html">two_wise_family</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <a class="code" href="classqsbd_1_1two__wise__family.html">two_wise_family</a>(<span class="keywordtype">int</span> universe);</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <a class="code" href="classqsbd_1_1two__wise__family.html">two_wise_family</a>(<span class="keywordtype">int</span> universe, <span class="keyword">const</span> std::vector&lt;int&gt;&amp; conf);</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <a class="code" href="classqsbd_1_1two__wise__family.html">two_wise_family</a>(<span class="keyword">const</span> <a class="code" href="classqsbd_1_1two__wise__family.html">two_wise_family</a>&amp; rhs);</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        ~<a class="code" href="classqsbd_1_1two__wise__family.html">~two_wise_family</a>();</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keywordtype">int</span> operator() (<span class="keywordtype">int</span> elem);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <a class="code" href="classqsbd_1_1two__wise__family.html">two_wise_family</a>&amp; operator=(<span class="keyword">const</span> <a class="code" href="classqsbd_1_1two__wise__family.html">two_wise_family</a>&amp; other);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        std::vector&lt;int&gt; get_constants() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keywordtype">int</span> get_universe() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keywordtype">int</span> get_k() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    };</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;}</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aclassqsbd_1_1two__wise__family_html"><div class="ttname"><a href="classqsbd_1_1two__wise__family.html">qsbd::two_wise_family</a></div><div class="ttdef"><b>Definition:</b> <a href="two__wise__family_8h_source.html#l00009">two_wise_family.h:9</a></div></div>
+<a href="two__wise__family_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#ifndef QSBD_TWO_WISE_FAMILY_H</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#define QSBD_TWO_WISE_FAMILY_H</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;../commum_header/commum_header.h&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;../global_generator/global_generator.h&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;../utils/utils.h&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;../qsbd_debug/qsbd_debug.h&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">namespace </span>qsbd{</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    </div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classqsbd_1_1two__wise__family.html">   24</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classqsbd_1_1two__wise__family.html">two_wise_family</a>{</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keywordtype">int</span> big_prim; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keywordtype">int</span> constants[2]; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keywordtype">int</span> universe;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="classqsbd_1_1two__wise__family.html#a615fe42cb36e06ee91d0993c39e75676">   35</a></span>&#160;        <a class="code" href="classqsbd_1_1two__wise__family.html#a615fe42cb36e06ee91d0993c39e75676">two_wise_family</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <a class="code" href="classqsbd_1_1two__wise__family.html#a615fe42cb36e06ee91d0993c39e75676">two_wise_family</a>(<span class="keywordtype">int</span> universe);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <a class="code" href="classqsbd_1_1two__wise__family.html#a615fe42cb36e06ee91d0993c39e75676">two_wise_family</a>(<span class="keywordtype">int</span> universe, <span class="keyword">const</span> std::vector&lt;int&gt;&amp; conf);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <a class="code" href="classqsbd_1_1two__wise__family.html#a615fe42cb36e06ee91d0993c39e75676">two_wise_family</a>(<span class="keyword">const</span> <a class="code" href="classqsbd_1_1two__wise__family.html">two_wise_family</a>&amp; rhs);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <a class="code" href="classqsbd_1_1two__wise__family.html#abe2b5c5f7c2f5bbd28c614ef4bae6f3c">~two_wise_family</a>();</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classqsbd_1_1two__wise__family.html#a5b96b0128427fabc03f2772c6452625a">operator() </a>(<span class="keywordtype">int</span> elem);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <a class="code" href="classqsbd_1_1two__wise__family.html">two_wise_family</a>&amp; <a class="code" href="classqsbd_1_1two__wise__family.html#aa5f8d48c22c080ad4e041ccb48e962dc">operator=</a>(<span class="keyword">const</span> <a class="code" href="classqsbd_1_1two__wise__family.html">two_wise_family</a>&amp; other);</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        std::vector&lt;int&gt; <a class="code" href="classqsbd_1_1two__wise__family.html#a09e2207513ed2132cbca64ce2b7daaf5">get_constants</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classqsbd_1_1two__wise__family.html#a628f790b93933c7716837d831d6daa17">get_universe</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <span class="keywordtype">int</span> <a class="code" href="classqsbd_1_1two__wise__family.html#a71c2f9ed3a3c4000bc3bf70c59baa9fb">get_k</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    };</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;}</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclassqsbd_1_1two__wise__family_html"><div class="ttname"><a href="classqsbd_1_1two__wise__family.html">qsbd::two_wise_family</a></div><div class="ttdoc">A function class to represent functions from a 2-wise family.</div><div class="ttdef"><b>Definition:</b> <a href="two__wise__family_8h_source.html#l00024">two_wise_family.h:24</a></div></div>
+<div class="ttc" id="aclassqsbd_1_1two__wise__family_html_a09e2207513ed2132cbca64ce2b7daaf5"><div class="ttname"><a href="classqsbd_1_1two__wise__family.html#a09e2207513ed2132cbca64ce2b7daaf5">qsbd::two_wise_family::get_constants</a></div><div class="ttdeci">std::vector&lt; int &gt; get_constants() const</div><div class="ttdoc">Gets the constant values choosen by the user or by the algorithm.</div><div class="ttdef"><b>Definition:</b> <a href="two__wise__family_8cpp_source.html#l00051">two_wise_family.cpp:51</a></div></div>
+<div class="ttc" id="aclassqsbd_1_1two__wise__family_html_a5b96b0128427fabc03f2772c6452625a"><div class="ttname"><a href="classqsbd_1_1two__wise__family.html#a5b96b0128427fabc03f2772c6452625a">qsbd::two_wise_family::operator()</a></div><div class="ttdeci">int operator()(int elem)</div><div class="ttdoc">Calculates the value hashed of the elem.</div><div class="ttdef"><b>Definition:</b> <a href="two__wise__family_8cpp_source.html#l00035">two_wise_family.cpp:35</a></div></div>
+<div class="ttc" id="aclassqsbd_1_1two__wise__family_html_a615fe42cb36e06ee91d0993c39e75676"><div class="ttname"><a href="classqsbd_1_1two__wise__family.html#a615fe42cb36e06ee91d0993c39e75676">qsbd::two_wise_family::two_wise_family</a></div><div class="ttdeci">two_wise_family()=default</div><div class="ttdoc">Constructs the two_wise_family class using the default values given by the compilator.</div></div>
+<div class="ttc" id="aclassqsbd_1_1two__wise__family_html_a628f790b93933c7716837d831d6daa17"><div class="ttname"><a href="classqsbd_1_1two__wise__family.html#a628f790b93933c7716837d831d6daa17">qsbd::two_wise_family::get_universe</a></div><div class="ttdeci">int get_universe() const</div><div class="ttdoc">Gets the universe of values choosen by the user on initialization.</div><div class="ttdef"><b>Definition:</b> <a href="two__wise__family_8cpp_source.html#l00055">two_wise_family.cpp:55</a></div></div>
+<div class="ttc" id="aclassqsbd_1_1two__wise__family_html_a71c2f9ed3a3c4000bc3bf70c59baa9fb"><div class="ttname"><a href="classqsbd_1_1two__wise__family.html#a71c2f9ed3a3c4000bc3bf70c59baa9fb">qsbd::two_wise_family::get_k</a></div><div class="ttdeci">int get_k() const</div><div class="ttdoc">Gets the K type of the family. Ex: if we have a 2-wise family, this should return 2.</div><div class="ttdef"><b>Definition:</b> <a href="two__wise__family_8cpp_source.html#l00059">two_wise_family.cpp:59</a></div></div>
+<div class="ttc" id="aclassqsbd_1_1two__wise__family_html_aa5f8d48c22c080ad4e041ccb48e962dc"><div class="ttname"><a href="classqsbd_1_1two__wise__family.html#aa5f8d48c22c080ad4e041ccb48e962dc">qsbd::two_wise_family::operator=</a></div><div class="ttdeci">two_wise_family &amp; operator=(const two_wise_family &amp;other)</div><div class="ttdoc">Assigns a two_wise_family to another two_wise_family instance other.</div><div class="ttdef"><b>Definition:</b> <a href="two__wise__family_8cpp_source.html#l00039">two_wise_family.cpp:39</a></div></div>
+<div class="ttc" id="aclassqsbd_1_1two__wise__family_html_abe2b5c5f7c2f5bbd28c614ef4bae6f3c"><div class="ttname"><a href="classqsbd_1_1two__wise__family.html#abe2b5c5f7c2f5bbd28c614ef4bae6f3c">qsbd::two_wise_family::~two_wise_family</a></div><div class="ttdeci">~two_wise_family()</div><div class="ttdoc">Destructs the two_wise_family instance.</div><div class="ttdef"><b>Definition:</b> <a href="two__wise__family_8cpp_source.html#l00032">two_wise_family.cpp:32</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
