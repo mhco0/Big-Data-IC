@@ -1,27 +1,70 @@
 \hypertarget{classqsbd_1_1timer}{}\doxysection{qsbd\+::timer Class Reference}
 \label{classqsbd_1_1timer}\index{qsbd::timer@{qsbd::timer}}
+
+
+A class to represente a simple timer.  
+
+
+
+
+{\ttfamily \#include $<$timer.\+h$>$}
+
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\Hypertarget{classqsbd_1_1timer_a7dc57c7aafeed28942f038d7f3a66a66}\label{classqsbd_1_1timer_a7dc57c7aafeed28942f038d7f3a66a66}} 
+\mbox{\hyperlink{classqsbd_1_1timer_a7dc57c7aafeed28942f038d7f3a66a66}{timer}} ()
+\begin{DoxyCompactList}\small\item\em The constructor for the timer. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classqsbd_1_1timer_a982185ed3c707faeb6f266b8f52a557e}\label{classqsbd_1_1timer_a982185ed3c707faeb6f266b8f52a557e}} 
+\mbox{\hyperlink{classqsbd_1_1timer_a982185ed3c707faeb6f266b8f52a557e}{$\sim$timer}} ()
+\begin{DoxyCompactList}\small\item\em The destructor for the timer. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classqsbd_1_1timer_aacea2bf0f2e9f7ecfa21aab23003415b}\label{classqsbd_1_1timer_aacea2bf0f2e9f7ecfa21aab23003415b}} 
-void {\bfseries start} ()
-\item 
+void \mbox{\hyperlink{classqsbd_1_1timer_aacea2bf0f2e9f7ecfa21aab23003415b}{start}} ()
+\begin{DoxyCompactList}\small\item\em Sets the start point for the timer. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classqsbd_1_1timer_a0f811bb2dda9cc618adb946c67ada685}\label{classqsbd_1_1timer_a0f811bb2dda9cc618adb946c67ada685}} 
-void {\bfseries end} ()
-\item 
-\mbox{\Hypertarget{classqsbd_1_1timer_a6befa67d3655ee8ebc5b7f4e283088f3}\label{classqsbd_1_1timer_a6befa67d3655ee8ebc5b7f4e283088f3}} 
-double {\bfseries count} ()
-\end{DoxyCompactItemize}
+void \mbox{\hyperlink{classqsbd_1_1timer_a0f811bb2dda9cc618adb946c67ada685}{end}} ()
+\begin{DoxyCompactList}\small\item\em Sets the end point for the timer. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classqsbd_1_1timer_a6befa67d3655ee8ebc5b7f4e283088f3}{count}} ()
+\begin{DoxyCompactList}\small\item\em Counts the time passed between the start and the end point of the timer. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
+A class to represente a simple timer. 
+
+Definition at line 19 of file timer.\+h.
 
 
-Definition at line 6 of file timer.\+h.
 
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classqsbd_1_1timer_a6befa67d3655ee8ebc5b7f4e283088f3}\label{classqsbd_1_1timer_a6befa67d3655ee8ebc5b7f4e283088f3}} 
+\index{qsbd::timer@{qsbd::timer}!count@{count}}
+\index{count@{count}!qsbd::timer@{qsbd::timer}}
+\doxysubsubsection{\texorpdfstring{count()}{count()}}
+{\footnotesize\ttfamily double qsbd\+::timer\+::count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Counts the time passed between the start and the end point of the timer. 
+
+\begin{DoxyReturn}{Returns}
+The time interval passed between \mbox{\hyperlink{classqsbd_1_1timer_a0f811bb2dda9cc618adb946c67ada685}{timer\+::end()}} and \mbox{\hyperlink{classqsbd_1_1timer_aacea2bf0f2e9f7ecfa21aab23003415b}{timer\+::start()}} in seconds. 
+\end{DoxyReturn}
+
+
+Definition at line 22 of file timer.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{22                        \{}
+\DoxyCodeLine{23         duration<double> time\_interval = duration\_cast<duration<double>> (end\_point -\/ start\_point);}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25         \textcolor{keywordflow}{return} time\_interval.count();}
+\DoxyCodeLine{26     \}}
+
+\end{DoxyCode}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-src/timer/timer.\+h\item 
+src/timer/\mbox{\hyperlink{timer_8h}{timer.\+h}}\item 
 src/timer/timer.\+cpp\end{DoxyCompactItemize}

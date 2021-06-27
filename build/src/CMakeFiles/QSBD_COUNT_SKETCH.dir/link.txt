@@ -1,2 +1,2 @@
-/usr/bin/ar qc ../lib/libQSBD_COUNT_SKETCH.a  CMakeFiles/QSBD_COUNT_SKETCH.dir/count_sketch/count_sketch_two_wise.cpp.o
-/usr/bin/ranlib ../lib/libQSBD_COUNT_SKETCH.a
+/bin/ar qc ../lib/libQSBD_COUNT_SKETCH.a  CMakeFiles/QSBD_COUNT_SKETCH.dir/count_sketch/count_sketch_two_wise.cpp.o
+/bin/ranlib ../lib/libQSBD_COUNT_SKETCH.a

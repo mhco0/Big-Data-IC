@@ -9,9 +9,9 @@
 -pg 
 ]]
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}  -g -O0 -Wall")
-set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS}  -g -O0 -Wall")
-set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS}  -g -O0 -Wall")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g  -O0 -Wall")
+set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -g -O0 -Wall")
+set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -g -O0 -Wall")
 set(QSBD_DIR_SOURCE "${CMAKE_SOURCE_DIR}/src")
 set(THIRD_PARTY_DIR_SOURCE "${CMAKE_SOURCE_DIR}/thirdparty")
 
@@ -106,6 +106,11 @@ add_executable(quantile_quadtree_experiment "quantile_quadtree_experiment/quanti
 target_include_directories(quantile_quadtree_experiment PRIVATE ${QSBD_DIR_SOURCE})
 target_include_directories(quantile_quadtree_experiment PRIVATE ${THIRD_PARTY_DIR_SOURCE})
 target_link_libraries(quantile_quadtree_experiment PRIVATE QSBD_TIMER QSBD_QUANTILE_QUADTREE QSBD_GK_FACTORY QSBD_KLL_FACTORY QSBD_DCS_FACTORY QSBD_Q_DIGEST_FACTORY QSBD_UTILS QSBD_LOG QSBD_DEBUG QSBD_MEMORY_TRACKER)
+
+add_executable(new_quantile_quadtree_experiment "quantile_quadtree_experiment/new_quantile_quadtree_experiment.cpp")
+target_include_directories(new_quantile_quadtree_experiment PRIVATE ${QSBD_DIR_SOURCE})
+target_include_directories(new_quantile_quadtree_experiment PRIVATE ${THIRD_PARTY_DIR_SOURCE})
+target_link_libraries(new_quantile_quadtree_experiment PRIVATE QSBD_TIMER QSBD_QUANTILE_QUADTREE QSBD_GK_FACTORY QSBD_KLL_FACTORY QSBD_DCS_FACTORY QSBD_Q_DIGEST_FACTORY QSBD_UTILS QSBD_LOG QSBD_DEBUG)
 
 add_executable(quadtree_data_bounds "quantile_quadtree_experiment/quadtree_data_bounds.cpp")
 target_include_directories(quadtree_data_bounds PRIVATE ${QSBD_DIR_SOURCE})

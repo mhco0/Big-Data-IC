@@ -15,6 +15,7 @@ void x_label_by_stream_size(vector<int>& x_samples, int stream_sizes){
         if((i > 100000) and (i == (j - 1) or i == ((j - 1) / 2))){
             x_samples.push_back((i + 1));
         }
+
         if(i == (j - 1)){
             j *= 10;
         }
@@ -23,28 +24,30 @@ void x_label_by_stream_size(vector<int>& x_samples, int stream_sizes){
 
 void update_time_summary(const string& test_name, const json& info, vector<double>& y_samples, int stream_sizes){
     for(int i = 0, j = 10; i < stream_sizes; i++){
-        if (i == (j - 1) or i == ((j - 1) / 2)){
+        if((i > 100000) and (i == (j - 1) or i == ((j - 1) / 2))){
             double avg_upd_time = info[test_name]["time"][string("avg_update_time_") + to_string(i + 1)].get<double>();
             
             y_samples.push_back(avg_upd_time);
             
-            if(i == (j - 1)){
-                j *= 10;
-            }
+        }
+
+        if(i == (j - 1)){
+            j *= 10;
         }
     }
 }
 
 void construct_time_summary(const string& test_name, const json& info, vector<double>& y_samples, int stream_sizes){
     for(int i = 0, j = 10; i < stream_sizes; i++){
-        if (i == (j - 1) or i == ((j - 1) / 2)){
+        if((i > 100000) and (i == (j - 1) or i == ((j - 1) / 2))){
             double acc_upd_time = info[test_name]["time"][string("update_time_acc_") + to_string(i + 1)].get<double>();
             
             y_samples.push_back(acc_upd_time);
             
-            if(i == (j - 1)){
-                j *= 10;
-            }
+        }
+        
+        if(i == (j - 1)){
+            j *= 10;
         }
     }
 }
@@ -66,7 +69,7 @@ void query_time_summary(const string& test_name, const json& info, vector<double
 
 void memory_summary(const string& test_name, const json& info, vector<double>& y_samples, int stream_sizes){
     for(int i = 0, j = 10; i < stream_sizes; i++){
-        if (i == (j - 1) or i == ((j - 1) / 2)){
+        if((i > 100000) and (i == (j - 1) or i == ((j - 1) / 2))){
             
             int total_bytes = 0;
 
@@ -80,16 +83,17 @@ void memory_summary(const string& test_name, const json& info, vector<double>& y
 
             y_samples.push_back(total_bytes);
             
-            if(i == (j - 1)){
-                j *= 10;
-            }
+        }
+
+        if(i == (j - 1)){
+            j *= 10;
         }
     }
 }
 
 void standard_deviation(const string& test_name, const json& info, vector<double>& y_samples1, vector<double>& y_samples2, int stream_sizes){
     for(int i = 0, j = 10; i < stream_sizes; i++){
-        if (i == (j - 1) or i == ((j - 1) / 2)){
+        if((i > 100000) and (i == (j - 1) or i == ((j - 1) / 2))){
             
             vector<double> queries_times;
             double avg_query_time = info[test_name]["time"][string("avg_query_time_") + to_string(i + 1)].get<double>();
@@ -125,18 +129,30 @@ void standard_deviation(const string& test_name, const json& info, vector<double
             y_samples1.push_back(median_query_time);
             y_samples2.push_back(sqrt(variance));
                   
-            if(i == (j - 1)){
-                j *= 10;
-            }
+        }
+
+        if(i == (j - 1)){
+            j *= 10;
         }
     }
+}
+
+void boxplot(const string& test_name, const json& info, vector<double>& y_samples, int stream_sizes){
+
+    for(auto& it : info[test_name]["time"][string("queries_") + to_string(stream_sizes)].items()){
+        double query_time = it.value()["query_time"].get<double>();
+
+        y_samples.push_back(query_time);
+    }                  
+    
 }
 
 int main(int argc, char* argv[]){
     deque<string> args = qsbd::process_args(argc, argv);
     //"update_time", "construct_time",
-    //, "memory", "query_std_dev"
-    vector<string> types_of_plots = { "query_time"};
+    //, "memory", "query_std_dev", "boxplot"
+    //query_time
+    vector<string> types_of_plots = {"boxplot"};
     vector<string> streams_files;
     string file_prefix = "out/";
     string test_name;
@@ -167,7 +183,7 @@ int main(int argc, char* argv[]){
     }
 
     for(auto& it : types_of_plots){
-        output_file = file_prefix + it + "_" + args[2] + "_2.dat";
+        output_file = file_prefix + it + "_" + args[2] + ".dat";
 
         ofstream out(output_file);
 
@@ -208,6 +224,16 @@ int main(int argc, char* argv[]){
                 for(int i = 0; i < x_label.size(); i++){
                     out << x_label[i] << " " << queries_time[i] << " " << y_label[i] << endl;
                 }
+                return 0;
+            }else if (it == "boxplot"){
+                vector<double> queries_times;
+
+                boxplot(test_name, all_infos, queries_times, stream_sizes);
+
+                for(auto& it : queries_times){
+                    out << it << endl;
+                }
+                return 0;
             }else{
                 DEBUG_ERR("Option to build y_label not found");
                 return -1;

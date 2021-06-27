@@ -25,14 +25,13 @@ test/CMakeFiles/test_memory_tracker.dir/test_memory_tracker.cpp.o: ../src/aabb/a
 test/CMakeFiles/test_memory_tracker.dir/test_memory_tracker.cpp.o: ../src/commum_header/commum_header.h
 test/CMakeFiles/test_memory_tracker.dir/test_memory_tracker.cpp.o: ../src/count_sketch/count_sketch.h
 test/CMakeFiles/test_memory_tracker.dir/test_memory_tracker.cpp.o: ../src/dcs/dcs.h
-test/CMakeFiles/test_memory_tracker.dir/test_memory_tracker.cpp.o: ../src/dcs_factory/dcs_factory.h
 test/CMakeFiles/test_memory_tracker.dir/test_memory_tracker.cpp.o: ../src/global_generator/global_generator.h
+test/CMakeFiles/test_memory_tracker.dir/test_memory_tracker.cpp.o: ../src/heap_tracker/heap_tracker.hpp
 test/CMakeFiles/test_memory_tracker.dir/test_memory_tracker.cpp.o: ../src/point/point.hpp
 test/CMakeFiles/test_memory_tracker.dir/test_memory_tracker.cpp.o: ../src/qsbd_debug/qsbd_debug.h
 test/CMakeFiles/test_memory_tracker.dir/test_memory_tracker.cpp.o: ../src/quantile_quadtree/quantile_quadtree.hpp
 test/CMakeFiles/test_memory_tracker.dir/test_memory_tracker.cpp.o: ../src/quantile_sketch/quantile_sketch.hpp
 test/CMakeFiles/test_memory_tracker.dir/test_memory_tracker.cpp.o: ../src/sketch_factory/sketch_factory.hpp
-test/CMakeFiles/test_memory_tracker.dir/test_memory_tracker.cpp.o: ../src/stl_memory_tracker/stl_memory_tracker.hpp
 test/CMakeFiles/test_memory_tracker.dir/test_memory_tracker.cpp.o: ../src/two_wise_family/two_wise_family.h
 test/CMakeFiles/test_memory_tracker.dir/test_memory_tracker.cpp.o: ../src/utils/utils.h
 test/CMakeFiles/test_memory_tracker.dir/test_memory_tracker.cpp.o: ../test/test_memory_tracker.cpp

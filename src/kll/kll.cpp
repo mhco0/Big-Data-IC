@@ -195,6 +195,18 @@ namespace qsbd {
 		return capacity_max;
 	}
 
+	template<class T>
+	uint64_t kll<T>::get_heap_size(){
+		uint64_t kll_hs = sizeof(kll<T>);
+		uint64_t ba_hs = 0;
+
+		for(int i = 0; i < buffers_array.size(); i++){
+			ba_hs += sizeof(std::vector<T>) + sizeof(T) * buffers_array[i].capacity();
+		}
+
+		return kll_hs + ba_hs; 
+	}
+
 	template class kll<int>;
 	template class kll<double>;
 }

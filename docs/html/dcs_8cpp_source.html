@@ -99,7 +99,7 @@ $(function() {
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            }</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        }</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        ASSERT((this-&gt;s + 1) == hashs_consts.size());</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <a class="code" href="qsbd__debug_8h.html#a0966b817b229d48e5ffc7feab19a0be6">ASSERT</a>((this-&gt;s + 1) == hashs_consts.size());</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        this-&gt;estimators.reserve(this-&gt;s + 1);</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt;= this-&gt;s; i++){</div>
@@ -137,7 +137,7 @@ $(function() {
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
 <div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="classqsbd_1_1dcs.html#a156b262c353702c45314cc8a12eafa9a">   66</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classqsbd_1_1dcs.html#a156b262c353702c45314cc8a12eafa9a">dcs::update</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> weight){</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keywordflow">if</span>(x &gt;= this-&gt;universe){</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            DEBUG_ERR(<span class="stringliteral">&quot;On dcs::update value first parameter &#39;x&#39; is greater then the universe range&quot;</span>);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            <a class="code" href="qsbd__debug_8h.html#a3c258e30fb14168b98931ca8aeade817">DEBUG_ERR</a>(<span class="stringliteral">&quot;On dcs::update value first parameter &#39;x&#39; is greater then the universe range&quot;</span>);</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        }</div>
@@ -165,7 +165,7 @@ $(function() {
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
 <div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="classqsbd_1_1dcs.html#acdb1bcb6b35ce55084fe2b0ed673672f">   94</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classqsbd_1_1dcs.html#acdb1bcb6b35ce55084fe2b0ed673672f">dcs::query</a>(<span class="keywordtype">int</span> x){</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <span class="keywordflow">if</span>(x &gt;= this-&gt;universe){</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            DEBUG_ERR(<span class="stringliteral">&quot;On dcs::query value first parameter &#39;x&#39; is greater then the universe range&quot;</span>);</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            <a class="code" href="qsbd__debug_8h.html#a3c258e30fb14168b98931ca8aeade817">DEBUG_ERR</a>(<span class="stringliteral">&quot;On dcs::query value first parameter &#39;x&#39; is greater then the universe range&quot;</span>);</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;            <span class="keywordflow">return</span> -1;</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        }</div>
@@ -217,12 +217,12 @@ $(function() {
 <div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;        <a class="code" href="classqsbd_1_1dcs.html">dcs</a>&amp; rhs_cv = <span class="keyword">dynamic_cast&lt;</span><a class="code" href="classqsbd_1_1dcs.html">dcs</a>&amp;<span class="keyword">&gt;</span> (rhs);</div>
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160; </div>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        <span class="keywordflow">if</span>(this-&gt;error - rhs_cv.error &gt; 1e-6){</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;            DEBUG_ERR(<span class="stringliteral">&quot;dcs&#39;s error need to match&quot;</span>);</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;            <a class="code" href="qsbd__debug_8h.html#a3c258e30fb14168b98931ca8aeade817">DEBUG_ERR</a>(<span class="stringliteral">&quot;dcs&#39;s error need to match&quot;</span>);</div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        }</div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160; </div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;        <span class="keywordflow">if</span>(this-&gt;universe != rhs_cv.universe){</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;            DEBUG_ERR(<span class="stringliteral">&quot;dcs&#39;s universe need to match&quot;</span>);</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;            <a class="code" href="qsbd__debug_8h.html#a3c258e30fb14168b98931ca8aeade817">DEBUG_ERR</a>(<span class="stringliteral">&quot;dcs&#39;s universe need to match&quot;</span>);</div>
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        }</div>
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160; </div>
@@ -239,7 +239,7 @@ $(function() {
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;                <a class="code" href="classqsbd_1_1count__sketch.html">count_sketch</a> * ref = this-&gt;estimators[i].merge(rhs_cv.estimators[i]);</div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160; </div>
 <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;                <span class="keywordflow">if</span>(ref == <span class="keyword">nullptr</span>){</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;                    DEBUG_ERR(<span class="stringliteral">&quot;in dcs merge, count_sketch merge fail.&quot;</span>);</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;                    <a class="code" href="qsbd__debug_8h.html#a3c258e30fb14168b98931ca8aeade817">DEBUG_ERR</a>(<span class="stringliteral">&quot;in dcs merge, count_sketch merge fail.&quot;</span>);</div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;                    <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;                }</div>
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160; </div>
@@ -255,12 +255,12 @@ $(function() {
 <div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;        <a class="code" href="classqsbd_1_1dcs.html">dcs</a>&amp; rhs_cv = <span class="keyword">dynamic_cast&lt;</span><a class="code" href="classqsbd_1_1dcs.html">dcs</a>&amp;<span class="keyword">&gt;</span> (rhs);</div>
 <div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160; </div>
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;        <span class="keywordflow">if</span>(this-&gt;error - rhs_cv.error &gt; 1e-6){</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;            DEBUG_ERR(<span class="stringliteral">&quot;dcs&#39;s error need to match&quot;</span>);</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;            <a class="code" href="qsbd__debug_8h.html#a3c258e30fb14168b98931ca8aeade817">DEBUG_ERR</a>(<span class="stringliteral">&quot;dcs&#39;s error need to match&quot;</span>);</div>
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;            <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        }</div>
 <div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160; </div>
 <div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;        <span class="keywordflow">if</span>(this-&gt;universe != rhs_cv.universe){</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;            DEBUG_ERR(<span class="stringliteral">&quot;dcs&#39;s universe need to match&quot;</span>);</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;            <a class="code" href="qsbd__debug_8h.html#a3c258e30fb14168b98931ca8aeade817">DEBUG_ERR</a>(<span class="stringliteral">&quot;dcs&#39;s universe need to match&quot;</span>);</div>
 <div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;            <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;        }</div>
 <div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160; </div>
@@ -325,6 +325,8 @@ $(function() {
 <div class="ttc" id="aclassqsbd_1_1dcs_html_acd06f01bc3561d7231ed2dbf20f89241"><div class="ttname"><a href="classqsbd_1_1dcs.html#acd06f01bc3561d7231ed2dbf20f89241">qsbd::dcs::quantile</a></div><div class="ttdeci">int quantile(double quant) override</div><div class="ttdoc">A virtual quantile method. Receives a quant and returns a element associate with this quantile.</div><div class="ttdef"><b>Definition:</b> <a href="dcs_8cpp_source.html#l00118">dcs.cpp:118</a></div></div>
 <div class="ttc" id="aclassqsbd_1_1dcs_html_acdb1bcb6b35ce55084fe2b0ed673672f"><div class="ttname"><a href="classqsbd_1_1dcs.html#acdb1bcb6b35ce55084fe2b0ed673672f">qsbd::dcs::query</a></div><div class="ttdeci">int query(int x) override</div><div class="ttdoc">A virtual query method. Receives a elem and returns the rank associate with this element.</div><div class="ttdef"><b>Definition:</b> <a href="dcs_8cpp_source.html#l00094">dcs.cpp:94</a></div></div>
 <div class="ttc" id="aclassqsbd_1_1quantile__sketch_html"><div class="ttname"><a href="classqsbd_1_1quantile__sketch.html">qsbd::quantile_sketch&lt; int &gt;</a></div></div>
+<div class="ttc" id="aqsbd__debug_8h_html_a0966b817b229d48e5ffc7feab19a0be6"><div class="ttname"><a href="qsbd__debug_8h.html#a0966b817b229d48e5ffc7feab19a0be6">ASSERT</a></div><div class="ttdeci">#define ASSERT(cond)</div><div class="ttdoc">If the condition cond is false this debug macro will output in the error console (std::cerr) the cond...</div><div class="ttdef"><b>Definition:</b> <a href="qsbd__debug_8h_source.html#l00051">qsbd_debug.h:51</a></div></div>
+<div class="ttc" id="aqsbd__debug_8h_html_a3c258e30fb14168b98931ca8aeade817"><div class="ttname"><a href="qsbd__debug_8h.html#a3c258e30fb14168b98931ca8aeade817">DEBUG_ERR</a></div><div class="ttdeci">#define DEBUG_ERR(x)</div><div class="ttdoc">A debug macro that outputs the value of x in the std::cerr.</div><div class="ttdef"><b>Definition:</b> <a href="qsbd__debug_8h_source.html#l00045">qsbd_debug.h:45</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

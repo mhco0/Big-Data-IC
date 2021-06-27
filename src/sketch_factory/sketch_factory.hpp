@@ -11,15 +11,16 @@
 #include "../quantile_sketch/quantile_sketch.hpp"
 
 namespace qsbd{
-	template<class Type>
 
 	/** @class sketch_factory
-	 *  @brief A interface for factorys of sketchs
-	 * 
+	 * @brief A interface for factorys of sketchs
+	 *  
 	 * A interface for a factory that creates new quantile sketchs
+	 * @tparam Type The object type for the quantile_sketch that the factory will provide
 	 * @note
 	 * The idea of ​​this class is to always make quantile_sketchs that are able to merge together
 	*/
+	template<class Type>
 	class sketch_factory{
 	private:
 	public:

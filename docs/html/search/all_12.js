@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['y_76',['y',['../classqsbd_1_1point.html#ab3b25afbec223c14b89bec1e8797440b',1,'qsbd::point::y(const T &amp;val)'],['../classqsbd_1_1point.html#aab0ee044008685b3b89a85ce208ec79f',1,'qsbd::point::y() const']]]
+  ['vdebug_88',['VDEBUG',['../qsbd__debug_8h.html#a5421c131413b97dd17c9c7fb55679639',1,'qsbd_debug.h']]]
 ];

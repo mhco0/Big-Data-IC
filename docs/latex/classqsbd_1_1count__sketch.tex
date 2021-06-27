@@ -164,7 +164,7 @@ Definition at line 60 of file count\+\_\+sketch.\+cpp.
 \DoxyCodeLine{70             \}}
 \DoxyCodeLine{71         \}}
 \DoxyCodeLine{72 }
-\DoxyCodeLine{73         ASSERT(this-\/>d == hashs\_consts.size());}
+\DoxyCodeLine{73         \mbox{\hyperlink{qsbd__debug_8h_a0966b817b229d48e5ffc7feab19a0be6}{ASSERT}}(this-\/>d == hashs\_consts.size());}
 \DoxyCodeLine{74     }
 \DoxyCodeLine{75         this-\/>hash\_functions.reserve(this-\/>d);}
 \DoxyCodeLine{76         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < this-\/>d; i++)\{}
@@ -258,7 +258,7 @@ Definition at line 100 of file count\+\_\+sketch.\+cpp.
 \DoxyCodeLine{111         \}}
 \DoxyCodeLine{112 }
 \DoxyCodeLine{113         \textcolor{comment}{// the hash should map to 2 * t}}
-\DoxyCodeLine{114         ASSERT(this-\/>d == hashs\_consts.size());}
+\DoxyCodeLine{114         \mbox{\hyperlink{qsbd__debug_8h_a0966b817b229d48e5ffc7feab19a0be6}{ASSERT}}(this-\/>d == hashs\_consts.size());}
 \DoxyCodeLine{115 }
 \DoxyCodeLine{116         this-\/>hash\_functions.reserve(this-\/>d);}
 \DoxyCodeLine{117         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < this-\/>d; i++)\{}
@@ -525,11 +525,11 @@ Definition at line 207 of file count\+\_\+sketch.\+cpp.
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{207                                                    \{}
-\DoxyCodeLine{208         ASSERT(this-\/>t == rhs.t);}
-\DoxyCodeLine{209         ASSERT(this-\/>d == rhs.d);}
+\DoxyCodeLine{208         \mbox{\hyperlink{qsbd__debug_8h_a0966b817b229d48e5ffc7feab19a0be6}{ASSERT}}(this-\/>t == rhs.t);}
+\DoxyCodeLine{209         \mbox{\hyperlink{qsbd__debug_8h_a0966b817b229d48e5ffc7feab19a0be6}{ASSERT}}(this-\/>d == rhs.d);}
 \DoxyCodeLine{210 }
 \DoxyCodeLine{211         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < this-\/>d; i++)\{}
-\DoxyCodeLine{212             ASSERT(this-\/>hash\_functions[i].get\_constants() == rhs.hash\_functions[i].get\_constants());}
+\DoxyCodeLine{212             \mbox{\hyperlink{qsbd__debug_8h_a0966b817b229d48e5ffc7feab19a0be6}{ASSERT}}(this-\/>hash\_functions[i].get\_constants() == rhs.hash\_functions[i].get\_constants());}
 \DoxyCodeLine{213         \}}
 \DoxyCodeLine{214 }
 \DoxyCodeLine{215         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < this-\/>d; i++)\{}
@@ -558,6 +558,11 @@ Merges this sketch with {\ttfamily rhs} sketch and saves the result in a new ins
 \begin{DoxyReturn}{Returns}
 A new allocated instance of a \mbox{\hyperlink{classqsbd_1_1count__sketch}{count\+\_\+sketch}} 
 \end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+The {\ttfamily rhs} \mbox{\hyperlink{classqsbd_1_1count__sketch}{count\+\_\+sketch}} should have the same estimator matrix size (d and t), in other words should have the same $\epsilon$ and $\delta$. 
+
+It\textquotesingle{}s up to a user the function of delete this memory. 
+\end{DoxyWarning}
 \begin{DoxySeeAlso}{See also}
 void \mbox{\hyperlink{classqsbd_1_1count__sketch_a715a5850a4ec01b924f6eb2b2f03d649}{count\+\_\+sketch\+::inner\+\_\+merge(count\+\_\+sketch\&)}} 
 \end{DoxySeeAlso}
@@ -568,11 +573,11 @@ Definition at line 188 of file count\+\_\+sketch.\+cpp.
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{188                                                       \{}
-\DoxyCodeLine{189         ASSERT(this-\/>t == rhs.t);}
-\DoxyCodeLine{190         ASSERT(this-\/>d == rhs.d);}
+\DoxyCodeLine{189         \mbox{\hyperlink{qsbd__debug_8h_a0966b817b229d48e5ffc7feab19a0be6}{ASSERT}}(this-\/>t == rhs.t);}
+\DoxyCodeLine{190         \mbox{\hyperlink{qsbd__debug_8h_a0966b817b229d48e5ffc7feab19a0be6}{ASSERT}}(this-\/>d == rhs.d);}
 \DoxyCodeLine{191 }
 \DoxyCodeLine{192         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < this-\/>d; i++)\{}
-\DoxyCodeLine{193             ASSERT(this-\/>hash\_functions[i].get\_constants() == rhs.hash\_functions[i].get\_constants());        }
+\DoxyCodeLine{193             \mbox{\hyperlink{qsbd__debug_8h_a0966b817b229d48e5ffc7feab19a0be6}{ASSERT}}(this-\/>hash\_functions[i].get\_constants() == rhs.hash\_functions[i].get\_constants());        }
 \DoxyCodeLine{194         \}}
 \DoxyCodeLine{195 }
 \DoxyCodeLine{196         \mbox{\hyperlink{classqsbd_1_1count__sketch_aa31ebfbec75b141b594795bf1054bfdf}{count\_sketch}}* merged\_cs = \textcolor{keyword}{new} \mbox{\hyperlink{classqsbd_1_1count__sketch_aa31ebfbec75b141b594795bf1054bfdf}{count\_sketch}}(this-\/>error, this-\/>delta, this-\/>\mbox{\hyperlink{classqsbd_1_1count__sketch_aa908579f27136909b6e277cf3f8ce15f}{get\_hash\_functions\_consts}}());}

@@ -8,6 +8,7 @@
 
 #ifndef QSBD_QUANTILE_SKETCH
 #define QSBD_QUANTILE_SKETCH
+#include <cstdint>
 
 namespace qsbd {
 
@@ -86,6 +87,12 @@ namespace qsbd {
 		 * The quantile_sketch passed as argument should be the same as this.
 		*/
 		virtual void inner_merge(quantile_sketch<Type>& rhs) = 0;
+
+		/**
+		 * @brief A pure virtual method that returns the heap size for this individual quantile_sketch\<Type\>
+		 * @return The heap size for this class as if this was allocated by a quantile_sketch\<Type\> pointer.
+		*/
+		virtual uint64_t get_heap_size() = 0;
 	};
 }
 

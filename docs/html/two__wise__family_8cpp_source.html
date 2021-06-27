@@ -80,15 +80,15 @@ $(function() {
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;        std::uniform_int_distribution&lt;int&gt; distribution(0, this-&gt;big_prim - 1);</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;        this-&gt;universe = universe;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        this-&gt;constants[0] = distribution(generator);</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        this-&gt;constants[1] = distribution(generator);</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        this-&gt;constants[0] = distribution(<a class="code" href="global__generator_8h.html#a2bbc6d216e390d097010618639728f34">generator</a>);</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        this-&gt;constants[1] = distribution(<a class="code" href="global__generator_8h.html#a2bbc6d216e390d097010618639728f34">generator</a>);</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    }</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
 <div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classqsbd_1_1two__wise__family.html#a7fb87ac12d30a18421e78b126b004bb1">   15</a></span>&#160;    <a class="code" href="classqsbd_1_1two__wise__family.html#a615fe42cb36e06ee91d0993c39e75676">two_wise_family::two_wise_family</a>(<span class="keywordtype">int</span> universe, <span class="keyword">const</span> std::vector&lt;int&gt;&amp; conf){</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        this-&gt;big_prim = nextPrime(universe);</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        this-&gt;universe = universe;</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        ASSERT(conf.size() == 2);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <a class="code" href="qsbd__debug_8h.html#a0966b817b229d48e5ffc7feab19a0be6">ASSERT</a>(conf.size() == 2);</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        this-&gt;constants[0] = conf[0];</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        this-&gt;constants[1] = conf[1];</div>
@@ -140,6 +140,8 @@ $(function() {
 <div class="ttc" id="aclassqsbd_1_1two__wise__family_html_a71c2f9ed3a3c4000bc3bf70c59baa9fb"><div class="ttname"><a href="classqsbd_1_1two__wise__family.html#a71c2f9ed3a3c4000bc3bf70c59baa9fb">qsbd::two_wise_family::get_k</a></div><div class="ttdeci">int get_k() const</div><div class="ttdoc">Gets the K type of the family. Ex: if we have a 2-wise family, this should return 2.</div><div class="ttdef"><b>Definition:</b> <a href="two__wise__family_8cpp_source.html#l00059">two_wise_family.cpp:59</a></div></div>
 <div class="ttc" id="aclassqsbd_1_1two__wise__family_html_aa5f8d48c22c080ad4e041ccb48e962dc"><div class="ttname"><a href="classqsbd_1_1two__wise__family.html#aa5f8d48c22c080ad4e041ccb48e962dc">qsbd::two_wise_family::operator=</a></div><div class="ttdeci">two_wise_family &amp; operator=(const two_wise_family &amp;other)</div><div class="ttdoc">Assigns a two_wise_family to another two_wise_family instance other.</div><div class="ttdef"><b>Definition:</b> <a href="two__wise__family_8cpp_source.html#l00039">two_wise_family.cpp:39</a></div></div>
 <div class="ttc" id="aclassqsbd_1_1two__wise__family_html_abe2b5c5f7c2f5bbd28c614ef4bae6f3c"><div class="ttname"><a href="classqsbd_1_1two__wise__family.html#abe2b5c5f7c2f5bbd28c614ef4bae6f3c">qsbd::two_wise_family::~two_wise_family</a></div><div class="ttdeci">~two_wise_family()</div><div class="ttdoc">Destructs the two_wise_family instance.</div><div class="ttdef"><b>Definition:</b> <a href="two__wise__family_8cpp_source.html#l00032">two_wise_family.cpp:32</a></div></div>
+<div class="ttc" id="aglobal__generator_8h_html_a2bbc6d216e390d097010618639728f34"><div class="ttname"><a href="global__generator_8h.html#a2bbc6d216e390d097010618639728f34">qsbd::generator</a></div><div class="ttdeci">std::default_random_engine generator</div><div class="ttdoc">The global generator responsable for creating the random numbers.</div></div>
+<div class="ttc" id="aqsbd__debug_8h_html_a0966b817b229d48e5ffc7feab19a0be6"><div class="ttname"><a href="qsbd__debug_8h.html#a0966b817b229d48e5ffc7feab19a0be6">ASSERT</a></div><div class="ttdeci">#define ASSERT(cond)</div><div class="ttdoc">If the condition cond is false this debug macro will output in the error console (std::cerr) the cond...</div><div class="ttdef"><b>Definition:</b> <a href="qsbd__debug_8h_source.html#l00051">qsbd_debug.h:51</a></div></div>
 <div class="ttc" id="atwo__wise__family_8h_html"><div class="ttname"><a href="two__wise__family_8h.html">two_wise_family.h</a></div><div class="ttdoc">QSBD two_wise_family class.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

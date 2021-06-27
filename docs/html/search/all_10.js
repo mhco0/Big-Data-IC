@@ -1,4 +1,13 @@
 var searchData=
 [
-  ['update_73',['update',['../classqsbd_1_1count__sketch.html#adc2e894ccebfa8677a12e5bdad0357b6',1,'qsbd::count_sketch::update()'],['../classqsbd_1_1dcs.html#a156b262c353702c45314cc8a12eafa9a',1,'qsbd::dcs::update()'],['../classqsbd_1_1gk.html#a3a1041a9881bf5362a0fb1578022b3e3',1,'qsbd::gk::update()'],['../classqsbd_1_1kll.html#a2d13b0861967e45ab5c4780d35f1f449',1,'qsbd::kll::update()'],['../classqsbd_1_1q__digest.html#a995cd3e871d7cc1d2f4d34fc7b5aecc8',1,'qsbd::q_digest::update()'],['../classqsbd_1_1quantile__sketch.html#a0e7eefd81eec272e92b7cb989be33c6a',1,'qsbd::quantile_sketch::update(Type elem)'],['../classqsbd_1_1quantile__sketch.html#ab21feebdceb1dc906fb422680b721fcb',1,'qsbd::quantile_sketch::update(Type elem, int weight)']]]
+  ['timer_77',['timer',['../classqsbd_1_1timer.html',1,'qsbd::timer'],['../classqsbd_1_1timer.html#a7dc57c7aafeed28942f038d7f3a66a66',1,'qsbd::timer::timer()']]],
+  ['timer_2eh_78',['timer.h',['../timer_8h.html',1,'']]],
+  ['track_5falloc_79',['track_alloc',['../structtrack__alloc.html',1,'']]],
+  ['track_5fprinter_80',['track_printer',['../structtrack__printer.html',1,'']]],
+  ['trivial_5fsolution_5fdep_81',['trivial_solution_dep',['../classtrivial__solution__dep.html',1,'']]],
+  ['tug_5fof_5fwar_82',['tug_of_war',['../classtug__of__war.html',1,'']]],
+  ['tug_5fof_5fwar_5fp_83',['tug_of_war_p',['../classtug__of__war__p.html',1,'']]],
+  ['tug_5fof_5fwar_5fpp_84',['tug_of_war_pp',['../classtug__of__war__pp.html',1,'']]],
+  ['two_5fwise_5ffamily_85',['two_wise_family',['../classqsbd_1_1two__wise__family.html',1,'qsbd::two_wise_family'],['../classtwo__wise__family.html',1,'two_wise_family'],['../classqsbd_1_1two__wise__family.html#a615fe42cb36e06ee91d0993c39e75676',1,'qsbd::two_wise_family::two_wise_family()=default'],['../classqsbd_1_1two__wise__family.html#a76c400f1934cc2733cdf19c5928a4b60',1,'qsbd::two_wise_family::two_wise_family(int universe)'],['../classqsbd_1_1two__wise__family.html#a7fb87ac12d30a18421e78b126b004bb1',1,'qsbd::two_wise_family::two_wise_family(int universe, const std::vector&lt; int &gt; &amp;conf)'],['../classqsbd_1_1two__wise__family.html#a7c3f8fe8ede0fccd4cd5274e8a424fea',1,'qsbd::two_wise_family::two_wise_family(const two_wise_family &amp;rhs)']]],
+  ['two_5fwise_5ffamily_2eh_86',['two_wise_family.h',['../two__wise__family_8h.html',1,'']]]
 ];

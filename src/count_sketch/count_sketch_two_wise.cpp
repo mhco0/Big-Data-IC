@@ -280,4 +280,16 @@ namespace qsbd {
 
 		return consts;
 	}
+
+	uint64_t count_sketch::get_heap_size() {
+		uint64_t cs_hs = sizeof(count_sketch);
+		uint64_t hf_hs = sizeof(two_wise_family) * hash_functions.capacity();
+		uint64_t est_hs = 0;
+
+		for(int i = 0; i < estimators.size(); i++){
+			est_hs += sizeof(std::vector<int>) + sizeof(int) * estimators[i].capacity();
+		}
+
+		return cs_hs + hf_hs + est_hs;
+	}
 }

@@ -175,7 +175,7 @@ namespace qsbd {
 				}
 			}
 
-			this->tuple_list.clear();
+			//this->tuple_list.clear();
 			this->tuple_list = std::move(merged_tuple);
 			this->N = merged_N;
 		}
@@ -205,6 +205,12 @@ namespace qsbd {
 			return N;
 		}
 
+		uint64_t get_heap_size() override {
+			uint64_t gk_hs = sizeof(gk<T>);
+			uint64_t tl_hs = sizeof(std::pair<T, std::pair<int, int>>) * tuple_list.capacity();
+
+			return gk_hs + tl_hs;
+		}
 	};
 }
 #endif

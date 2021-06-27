@@ -429,7 +429,7 @@ Is the user responsabilite of frees the returned pointer </dd></dl>
 <p class="definition">Definition at line <a class="el" href="q__digest_2q__digest_8cpp_source.html#l00318">318</a> of file <a class="el" href="q__digest_2q__digest_8cpp_source.html">q_digest.cpp</a>.</p>
 <div class="fragment"><div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;                            {</div>
 <div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;        <span class="keywordflow">if</span> (x &gt;= universe){</div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;            DEBUG_ERR(<span class="stringliteral">&quot;On q_digest::update value first parameter &#39;x&#39; is greater then the universe range&quot;</span>);</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;            <a class="code" href="qsbd__debug_8h.html#a3c258e30fb14168b98931ca8aeade817">DEBUG_ERR</a>(<span class="stringliteral">&quot;On q_digest::update value first parameter &#39;x&#39; is greater then the universe range&quot;</span>);</div>
 <div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160; </div>
 <div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;            <span class="keywordflow">return</span> -1;</div>
 <div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;        }</div>
@@ -437,6 +437,7 @@ Is the user responsabilite of frees the returned pointer </dd></dl>
 <div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;        <span class="keywordflow">if</span>((total_weight &lt; (log2(universe) / error)) and not transfered_buffer) <span class="keywordflow">return</span> query_from_buffer(x);</div>
 <div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">return</span> private_query(x);</div>
 <div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;    }</div>
+<div class="ttc" id="aqsbd__debug_8h_html_a3c258e30fb14168b98931ca8aeade817"><div class="ttname"><a href="qsbd__debug_8h.html#a3c258e30fb14168b98931ca8aeade817">DEBUG_ERR</a></div><div class="ttdeci">#define DEBUG_ERR(x)</div><div class="ttdoc">A debug macro that outputs the value of x in the std::cerr.</div><div class="ttdef"><b>Definition:</b> <a href="qsbd__debug_8h_source.html#l00045">qsbd_debug.h:45</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -489,7 +490,7 @@ Is the user responsabilite of frees the returned pointer </dd></dl>
 <p class="definition">Definition at line <a class="el" href="q__digest_2q__digest_8cpp_source.html#l00302">302</a> of file <a class="el" href="q__digest_2q__digest_8cpp_source.html">q_digest.cpp</a>.</p>
 <div class="fragment"><div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;                                          {</div>
 <div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;        <span class="keywordflow">if</span> (x &gt;= universe){</div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;            DEBUG_ERR(<span class="stringliteral">&quot;On q_digest::update value first parameter &#39;x&#39; is greater then the universe range&quot;</span>);</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;            <a class="code" href="qsbd__debug_8h.html#a3c258e30fb14168b98931ca8aeade817">DEBUG_ERR</a>(<span class="stringliteral">&quot;On q_digest::update value first parameter &#39;x&#39; is greater then the universe range&quot;</span>);</div>
 <div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160; </div>
 <div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;            <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;        }</div>

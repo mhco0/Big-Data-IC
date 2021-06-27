@@ -22,7 +22,6 @@ namespace qsbd {
 
 		aabb<int> boundarys;
 		int max_deep;
-		int inmergs;
 		bool only_leaf;
 		sketch_factory<ObjType> * factory;
 		quantile_quadtree<ObjType>::node * root;
@@ -204,7 +203,6 @@ namespace qsbd {
 		quantile_sketch<ObjType> * search_region(int cur_node, const aabb<int>& region, int deep, aabb<int>& box, quantile_sketch<ObjType> *& final_sketch){
 			if(box.is_inside(region) or deep == this->max_deep or unit_box(box)){
 				if(cur_node == -1){
-					this->inmergs++;
 					final_sketch->inner_merge(*this->root->payload);
 					return this->root->payload;
 				}else return this->tree[cur_node].payload;
@@ -213,7 +211,6 @@ namespace qsbd {
 			int ne_child_pos = (cur_node == -1) ? this->root->ne_child_pos : this->tree[cur_node].ne_child_pos;
 			if(ne_child_pos == -1){
 				if(cur_node == -1){
-					this->inmergs++;
 					final_sketch->inner_merge(*this->root->payload);
 					return this->root->payload;
 				}else return this->tree[cur_node].payload;
@@ -232,7 +229,6 @@ namespace qsbd {
 
 			for(int i = 0; i < 4; i++){
 				if(to_merge[i] != nullptr){
-					this->inmergs++;
 					final_sketch->inner_merge(*to_merge[i]);
 				}
 			}
@@ -243,18 +239,14 @@ namespace qsbd {
 		quantile_sketch<ObjType> * search_region_only_leaf(int cur_node, const aabb<int>& region, int deep, aabb<int>& box, quantile_sketch<ObjType> *& final_sketch){
 			if(deep == this->max_deep or unit_box(box)){
 				if(cur_node == -1){
-					this->inmergs++;
-					final_sketch->inner_merge(*this->root->payload);
-					return this->root->payload;
+					return nullptr;
 				}else return this->tree[cur_node].payload;
 			}
 
 			int ne_child_pos = (cur_node == -1) ? this->root->ne_child_pos : this->tree[cur_node].ne_child_pos;
 			if(ne_child_pos == -1){
 				if(cur_node == -1){
-					this->inmergs++;
-					final_sketch->inner_merge(*this->root->payload);
-					return this->root->payload;
+					return nullptr;
 				}else return this->tree[cur_node].payload;
 			}
 
@@ -271,7 +263,6 @@ namespace qsbd {
 
 			for(int i = 0; i < 4; i++){
 				if(to_merge[i] != nullptr){
-					this->inmergs++;
 					final_sketch->inner_merge(*to_merge[i]);
 				}
 			}
@@ -286,16 +277,12 @@ namespace qsbd {
 
 			delete this->root;
 			
-			int count = 0;
-
 			for(int i = 0; i < this->tree.size(); i++){
 				if(this->tree[i].payload != nullptr){
-					count++;
 					delete this->tree[i].payload;
 				}
 			}
 
-			VDEBUG(count);
 		}
 
 	public:
@@ -330,20 +317,45 @@ namespace qsbd {
 		}
 
 		int query(const aabb<int>& region, ObjType value){
+			// is we are using sketchs on all nodes and the bounds are all inside the query region 
+			// we can ask this faster in the root sketch
+			if(not this->only_leaf and this->boundarys.is_inside(region)){
+				int ret = this->root->payload->query(value);
+
+				return ret;
+			}
+
+
 			aabb<int> cur_box(this->boundarys);
 			quantile_sketch<ObjType> * sketch = this->factory->instance();
-			
-			this->inmergs = 0;
+
 			//This 0 because here we start from the root
 			if(this->only_leaf) search_region_only_leaf(-1, region, 0, cur_box, sketch);
 			else search_region(-1, region, 0, cur_box, sketch);
 
 			int ret = sketch->query(value);
 
-			VDEBUG(this->inmergs);
 			delete sketch;
 
 			return ret;
+		}
+
+		uint64_t get_heap_size() {
+			uint64_t qq_hs = sizeof(quantile_quadtree<ObjType>);
+			uint64_t root_hs = sizeof(quantile_quadtree<ObjType>::node);
+			uint64_t tree_hs = sizeof(quantile_quadtree<ObjType>::node) * this->tree.capacity();
+
+			if(this->root->payload != nullptr){
+				root_hs += this->root->payload->get_heap_size();
+			}
+			
+			for(int i = 0; i < this->tree.size(); i++){
+				if(this->tree[i].payload != nullptr){
+					tree_hs += this->tree[i].payload->get_heap_size();
+				}
+			}
+
+			return qq_hs + root_hs + tree_hs;
 		}
 	};
 }

@@ -197,12 +197,12 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>dcs_factory</b></td>
 <div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;        dcs&amp; rhs_cv = <span class="keyword">dynamic_cast&lt;</span>dcs&amp;<span class="keyword">&gt;</span> (rhs);</div>
 <div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160; </div>
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;        <span class="keywordflow">if</span>(this-&gt;error - rhs_cv.error &gt; 1e-6){</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;            DEBUG_ERR(<span class="stringliteral">&quot;dcs&#39;s error need to match&quot;</span>);</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;            <a class="code" href="qsbd__debug_8h.html#a3c258e30fb14168b98931ca8aeade817">DEBUG_ERR</a>(<span class="stringliteral">&quot;dcs&#39;s error need to match&quot;</span>);</div>
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;            <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        }</div>
 <div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160; </div>
 <div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;        <span class="keywordflow">if</span>(this-&gt;universe != rhs_cv.universe){</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;            DEBUG_ERR(<span class="stringliteral">&quot;dcs&#39;s universe need to match&quot;</span>);</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;            <a class="code" href="qsbd__debug_8h.html#a3c258e30fb14168b98931ca8aeade817">DEBUG_ERR</a>(<span class="stringliteral">&quot;dcs&#39;s universe need to match&quot;</span>);</div>
 <div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;            <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;        }</div>
 <div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160; </div>
@@ -218,6 +218,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>dcs_factory</b></td>
 <div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;            }</div>
 <div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;        }</div>
 <div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    }</div>
+<div class="ttc" id="aqsbd__debug_8h_html_a3c258e30fb14168b98931ca8aeade817"><div class="ttname"><a href="qsbd__debug_8h.html#a3c258e30fb14168b98931ca8aeade817">DEBUG_ERR</a></div><div class="ttdeci">#define DEBUG_ERR(x)</div><div class="ttdoc">A debug macro that outputs the value of x in the std::cerr.</div><div class="ttdef"><b>Definition:</b> <a href="qsbd__debug_8h_source.html#l00045">qsbd_debug.h:45</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -264,12 +265,12 @@ The <a class="el" href="classqsbd_1_1quantile__sketch.html" title="A interface f
 <div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;        dcs&amp; rhs_cv = <span class="keyword">dynamic_cast&lt;</span>dcs&amp;<span class="keyword">&gt;</span> (rhs);</div>
 <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160; </div>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        <span class="keywordflow">if</span>(this-&gt;error - rhs_cv.error &gt; 1e-6){</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;            DEBUG_ERR(<span class="stringliteral">&quot;dcs&#39;s error need to match&quot;</span>);</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;            <a class="code" href="qsbd__debug_8h.html#a3c258e30fb14168b98931ca8aeade817">DEBUG_ERR</a>(<span class="stringliteral">&quot;dcs&#39;s error need to match&quot;</span>);</div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        }</div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160; </div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;        <span class="keywordflow">if</span>(this-&gt;universe != rhs_cv.universe){</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;            DEBUG_ERR(<span class="stringliteral">&quot;dcs&#39;s universe need to match&quot;</span>);</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;            <a class="code" href="qsbd__debug_8h.html#a3c258e30fb14168b98931ca8aeade817">DEBUG_ERR</a>(<span class="stringliteral">&quot;dcs&#39;s universe need to match&quot;</span>);</div>
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        }</div>
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160; </div>
@@ -286,7 +287,7 @@ The <a class="el" href="classqsbd_1_1quantile__sketch.html" title="A interface f
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;                count_sketch * ref = this-&gt;estimators[i].merge(rhs_cv.estimators[i]);</div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160; </div>
 <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;                <span class="keywordflow">if</span>(ref == <span class="keyword">nullptr</span>){</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;                    DEBUG_ERR(<span class="stringliteral">&quot;in dcs merge, count_sketch merge fail.&quot;</span>);</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;                    <a class="code" href="qsbd__debug_8h.html#a3c258e30fb14168b98931ca8aeade817">DEBUG_ERR</a>(<span class="stringliteral">&quot;in dcs merge, count_sketch merge fail.&quot;</span>);</div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;                    <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;                }</div>
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160; </div>
@@ -404,7 +405,7 @@ The <a class="el" href="classqsbd_1_1quantile__sketch.html" title="A interface f
 <p class="definition">Definition at line <a class="el" href="dcs_8cpp_source.html#l00094">94</a> of file <a class="el" href="dcs_8cpp_source.html">dcs.cpp</a>.</p>
 <div class="fragment"><div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                       {</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <span class="keywordflow">if</span>(x &gt;= this-&gt;universe){</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            DEBUG_ERR(<span class="stringliteral">&quot;On dcs::query value first parameter &#39;x&#39; is greater then the universe range&quot;</span>);</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            <a class="code" href="qsbd__debug_8h.html#a3c258e30fb14168b98931ca8aeade817">DEBUG_ERR</a>(<span class="stringliteral">&quot;On dcs::query value first parameter &#39;x&#39; is greater then the universe range&quot;</span>);</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;            <span class="keywordflow">return</span> -1;</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        }</div>
@@ -476,7 +477,7 @@ The <a class="el" href="classqsbd_1_1quantile__sketch.html" title="A interface f
 <p class="definition">Definition at line <a class="el" href="dcs_8cpp_source.html#l00066">66</a> of file <a class="el" href="dcs_8cpp_source.html">dcs.cpp</a>.</p>
 <div class="fragment"><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                                     {</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keywordflow">if</span>(x &gt;= this-&gt;universe){</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            DEBUG_ERR(<span class="stringliteral">&quot;On dcs::update value first parameter &#39;x&#39; is greater then the universe range&quot;</span>);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            <a class="code" href="qsbd__debug_8h.html#a3c258e30fb14168b98931ca8aeade817">DEBUG_ERR</a>(<span class="stringliteral">&quot;On dcs::update value first parameter &#39;x&#39; is greater then the universe range&quot;</span>);</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        }</div>

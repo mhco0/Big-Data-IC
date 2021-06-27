@@ -1,5 +1,14 @@
 \hypertarget{classqsbd_1_1q__digest__factory}{}\doxysection{qsbd\+::q\+\_\+digest\+\_\+factory Class Reference}
 \label{classqsbd_1_1q__digest__factory}\index{qsbd::q\_digest\_factory@{qsbd::q\_digest\_factory}}
+
+
+A factory of \mbox{\hyperlink{classqsbd_1_1q__digest}{q\+\_\+digest}}.  
+
+
+
+
+{\ttfamily \#include $<$q\+\_\+digest\+\_\+factory.\+h$>$}
+
 Inheritance diagram for qsbd\+::q\+\_\+digest\+\_\+factory\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,18 +18,51 @@ Inheritance diagram for qsbd\+::q\+\_\+digest\+\_\+factory\+:\begin{figure}[H]
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classqsbd_1_1q__digest__factory_a7fc3d934159ed9a7e38545479a294a8a}\label{classqsbd_1_1q__digest__factory_a7fc3d934159ed9a7e38545479a294a8a}} 
-{\bfseries q\+\_\+digest\+\_\+factory} (double err, int uni)
-\item 
+\mbox{\hyperlink{classqsbd_1_1q__digest__factory_a7fc3d934159ed9a7e38545479a294a8a}{q\+\_\+digest\+\_\+factory}} (double err, int uni)
+\begin{DoxyCompactList}\small\item\em Constructor for the class. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$ int $>$ $\ast$ \mbox{\hyperlink{classqsbd_1_1q__digest__factory_a4b7fd456b5d66cb3291c61def95362e2}{instance}} () override
-\begin{DoxyCompactList}\small\item\em A pure virtual method for create new instances of a \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$Type$>$. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Creates a new instance of a \mbox{\hyperlink{classqsbd_1_1q__digest}{q\+\_\+digest}} and returns it. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
+A factory of \mbox{\hyperlink{classqsbd_1_1q__digest}{q\+\_\+digest}}. 
+
+A factory that create new \mbox{\hyperlink{classqsbd_1_1q__digest}{q\+\_\+digest}} instances that are able to merge with each other. 
+
+Definition at line 21 of file q\+\_\+digest\+\_\+factory.\+h.
 
 
-Definition at line 7 of file q\+\_\+digest\+\_\+factory.\+h.
 
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classqsbd_1_1q__digest__factory_a7fc3d934159ed9a7e38545479a294a8a}\label{classqsbd_1_1q__digest__factory_a7fc3d934159ed9a7e38545479a294a8a}} 
+\index{qsbd::q\_digest\_factory@{qsbd::q\_digest\_factory}!q\_digest\_factory@{q\_digest\_factory}}
+\index{q\_digest\_factory@{q\_digest\_factory}!qsbd::q\_digest\_factory@{qsbd::q\_digest\_factory}}
+\doxysubsubsection{\texorpdfstring{q\_digest\_factory()}{q\_digest\_factory()}}
+{\footnotesize\ttfamily qsbd\+::q\+\_\+digest\+\_\+factory\+::q\+\_\+digest\+\_\+factory (\begin{DoxyParamCaption}\item[{double}]{err,  }\item[{int}]{uni }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor for the class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em err} & The error that will be used in all instances of \mbox{\hyperlink{classqsbd_1_1q__digest}{q\+\_\+digest}} from this factory \\
+\hline
+{\em uni} & The universe that will be used in all instances of \mbox{\hyperlink{classqsbd_1_1q__digest}{q\+\_\+digest}} from this factory \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 32 of file q\+\_\+digest\+\_\+factory.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{32                                              \{}
+\DoxyCodeLine{33             this-\/>error = err;}
+\DoxyCodeLine{34             this-\/>universe = uni;}
+\DoxyCodeLine{35         \}}
+
+\end{DoxyCode}
 
 
 \doxysubsection{Member Function Documentation}
@@ -32,15 +74,15 @@ Definition at line 7 of file q\+\_\+digest\+\_\+factory.\+h.
 
 
 
-A pure virtual method for create new instances of a \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$Type$>$. 
+Creates a new instance of a \mbox{\hyperlink{classqsbd_1_1q__digest}{q\+\_\+digest}} and returns it. 
 
 \begin{DoxyReturn}{Returns}
-A pointer to a new allocated \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$Type$>$ 
+A pointer to a new instance of \mbox{\hyperlink{classqsbd_1_1q__digest}{q\+\_\+digest}} in the heap 
 \end{DoxyReturn}
 \begin{DoxyWarning}{Warning}
 It\textquotesingle{}s up to a user the function of delete this memory. 
 
-All quantile sketchs returned by this method should be capable of merging together. 
+It\textquotesingle{}s return as a \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$int$>$ you should cast it to the correct type (\mbox{\hyperlink{classqsbd_1_1q__digest}{q\+\_\+digest}} $\ast$). 
 \end{DoxyWarning}
 
 
@@ -48,13 +90,13 @@ Implements \mbox{\hyperlink{classqsbd_1_1sketch__factory_ad54e5735ea72b515991cc9
 
 
 
-Definition at line 17 of file q\+\_\+digest\+\_\+factory.\+h.
+Definition at line 46 of file q\+\_\+digest\+\_\+factory.\+h.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{17                                                    \{}
-\DoxyCodeLine{18             \textcolor{keywordflow}{return} \textcolor{keyword}{new} \mbox{\hyperlink{classq__digest}{q\_digest}}(this-\/>error, this-\/>universe);}
-\DoxyCodeLine{19         \}}
+\DoxyCodeLine{46                                                    \{}
+\DoxyCodeLine{47             \textcolor{keywordflow}{return} \textcolor{keyword}{new} \mbox{\hyperlink{classq__digest}{q\_digest}}(this-\/>error, this-\/>universe);}
+\DoxyCodeLine{48         \}}
 
 \end{DoxyCode}
 

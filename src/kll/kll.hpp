@@ -33,6 +33,7 @@ namespace qsbd {
 		std::vector<std::vector<T>> get_buffers();
 		double get_error();
 		double get_capacity();
+		uint64_t get_heap_size() override;
 	};
 }
 #endif

@@ -154,6 +154,12 @@ namespace qsbd{
 		 * @return The total weight 
 		*/
 		int get_total_weight() const;
+
+		/**
+		 * @brief Getter for the estimated amount of heap memory allocated for this object for a pointer.
+		 * @return The estimated memory in bytes.
+		*/
+		uint64_t get_heap_size() override;
 	};
 }
 #endif

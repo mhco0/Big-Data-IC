@@ -33,6 +33,10 @@ public:
     qsbd::quantile_sketch<int>* merge(qsbd::quantile_sketch<int>& rhs) override {
         return nullptr;
     }
+
+    uint64_t get_heap_size() override {
+        return sizeof(dummy_sketch);
+    }
 };
 
 class dummy_factory : public qsbd::sketch_factory<int> {
@@ -176,7 +180,7 @@ void empty_run(bool only_update){
 
 void gk_run(bool only_update){
     // STREAM
-    int vector_size = 1000; 
+    int vector_size = (int) 1e7; 
     int min_v = 0;
     int max_v = 1000;
     double minx = 0.0;
@@ -197,7 +201,7 @@ void gk_run(bool only_update){
     int final_value = 1000;
     int step = 1;
 
-    vector<pair<int, pair<double, double>>> stream = qsbd::stream_maker::random_stream_city(vector_size, minx, miny, maxx, maxy, min_v, max_v, citys, max_radius);
+    vector<pair<int, pair<double, double>>> stream = qsbd::stream_maker::random_stream_in_region(vector_size, minx, miny, maxx, maxy, min_v, max_v);
     vector<pair<int, vector<double>>> regions_to_search;
     
     for(int i = 0; i < 4; i++){
@@ -564,7 +568,7 @@ void dcs_run2(bool only_update){
     // TREE
     double error = 0.3;
     int universe = 1024;
-    int depth = 10;
+    int depth = 5;
     //double bounds[4] = {0.0, 0.0, 1280.0, 720.0};
     //int discrete_bounds[4] = {0, 0, 0, 0};
 
@@ -621,7 +625,7 @@ void dcs_run2(bool only_update){
 
     qsbd::dcs_factory factory(error, universe);
 	//dummy_factory factory;
-   	qsbd::quantile_quadtree<int> qq_test(resolution, depth, &factory, true);
+   	qsbd::quantile_quadtree<int> qq_test(resolution, depth, &factory);
 
    	for(int k = 0; k < 1; k++){
  		for(int i = 0; i < (1 << depth); i++){
@@ -641,7 +645,9 @@ void dcs_run2(bool only_update){
     	}
 	}
 
-    VDEBUG(qq_test.query(resolution, universe - 1));
+    VDEBUG(qq_test.get_heap_size());
+
+    //VDEBUG(qq_test.query(resolution, universe - 1));
 
 	/*VDEBUG(factory.allocations());
     qsbd::dcs* test = new qsbd::dcs(error, universe);
@@ -834,8 +840,31 @@ void kll_run(bool only_update){
     cout << "Done!" << endl;
 }
 
+void test(){
+    {
+        qsbd::dcs * t1 = new qsbd::dcs(0.3, 1024);
+        cout << t1->get_heap_size() << endl;
+        delete t1;
+    }
+    {
+        qsbd::gk<int> * t2 = new qsbd::gk<int>(0.3);
+        cout << t2->get_heap_size() << endl;
+        delete t2;
+    }
+    {
+        qsbd::kll<int> * t3 = new qsbd::kll<int>(0.3);
+        cout << t3->get_heap_size() << endl;
+        delete t3;
+    }
+    {
+        qsbd::q_digest * t4 = new qsbd::q_digest(0.3, 1024);
+        cout << t4->get_heap_size() << endl;
+        delete t4;
+    }
+}
+
 int main(int argc, char* argv[]){
-    dcs_run2(true);
+    dcs_run2(false);
 	/*deque<string> args = qsbd::process_args(argc, argv);
 
     bool only_update = false;

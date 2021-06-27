@@ -1,0 +1,89 @@
+\hypertarget{qsbd__debug_8h}{}\doxysection{src/qsbd\+\_\+debug/qsbd\+\_\+debug.h File Reference}
+\label{qsbd__debug_8h}\index{src/qsbd\_debug/qsbd\_debug.h@{src/qsbd\_debug/qsbd\_debug.h}}
+
+
+QSBD debug helpers.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{qsbd__debug_8h_a3dfa58b1c5c2943dd49d8aa1981d377d}\label{qsbd__debug_8h_a3dfa58b1c5c2943dd49d8aa1981d377d}} 
+\#define \mbox{\hyperlink{qsbd__debug_8h_a3dfa58b1c5c2943dd49d8aa1981d377d}{DEBUG}}(x)~do \{if(qsbd\+::debug\+::debug\+\_\+enable) std\+::cout $<$$<$ x $<$$<$ std\+::endl;\} while(0)
+\begin{DoxyCompactList}\small\item\em A debug macro that outputs the value of {\ttfamily x} in the std\+::cout. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{qsbd__debug_8h_a5421c131413b97dd17c9c7fb55679639}\label{qsbd__debug_8h_a5421c131413b97dd17c9c7fb55679639}} 
+\#define \mbox{\hyperlink{qsbd__debug_8h_a5421c131413b97dd17c9c7fb55679639}{VDEBUG}}(x)~do \{if(qsbd\+::debug\+::debug\+\_\+enable) std\+::cout $<$$<$ \#x $<$$<$ \char`\"{} \+:= \char`\"{} $<$$<$ x $<$$<$ std\+::endl;\} while(0)
+\begin{DoxyCompactList}\small\item\em A debug macro that outputs {\ttfamily x} and the value of {\ttfamily x} in the std\+::cout. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{qsbd__debug_8h_a3c258e30fb14168b98931ca8aeade817}\label{qsbd__debug_8h_a3c258e30fb14168b98931ca8aeade817}} 
+\#define \mbox{\hyperlink{qsbd__debug_8h_a3c258e30fb14168b98931ca8aeade817}{DEBUG\+\_\+\+ERR}}(x)~do \{if(qsbd\+::debug\+::debug\+\_\+enable) std\+::cerr $<$$<$ x $<$$<$ std\+::endl;\} while(0)
+\begin{DoxyCompactList}\small\item\em A debug macro that outputs the value of {\ttfamily x} in the std\+::cerr. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{qsbd__debug_8h_a0966b817b229d48e5ffc7feab19a0be6}{ASSERT}}(cond)
+\begin{DoxyCompactList}\small\item\em If the condition {\ttfamily cond} is false this debug macro will output in the error console (std\+::cerr) the condition, the file and the line when it was called. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const bool \mbox{\hyperlink{qsbd__debug_8h_a14666c543dba70f8b3f29f617bd3ebe3}{qsbd\+::debug\+::debug\+\_\+enable}} = true
+\begin{DoxyCompactList}\small\item\em A variable flag thats defines if all debug macros in this file will be printed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+QSBD debug helpers. 
+
+\begin{DoxyAuthor}{Author}
+Marcos H C Oliveira \href{mailto:mhco@cin.ufpe.br}{\texttt{ mhco@cin.\+ufpe.\+br}} 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{qsbd__debug_8h_a0966b817b229d48e5ffc7feab19a0be6}\label{qsbd__debug_8h_a0966b817b229d48e5ffc7feab19a0be6}} 
+\index{qsbd\_debug.h@{qsbd\_debug.h}!ASSERT@{ASSERT}}
+\index{ASSERT@{ASSERT}!qsbd\_debug.h@{qsbd\_debug.h}}
+\doxysubsubsection{\texorpdfstring{ASSERT}{ASSERT}}
+{\footnotesize\ttfamily \#define ASSERT(\begin{DoxyParamCaption}\item[{}]{cond }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{                        \textcolor{keywordflow}{do} \{\textcolor{keywordflow}{if}(qsbd::debug::debug\_enable)\{\textcolor{keywordflow}{if}(not (cond))\{\(\backslash\)}
+\DoxyCodeLine{                        DEBUG\_ERR(\textcolor{stringliteral}{"{}==============================="{}});\(\backslash\)}
+\DoxyCodeLine{                        DEBUG\_ERR(\textcolor{stringliteral}{"{}Assertion: "{}});\(\backslash\)}
+\DoxyCodeLine{                        DEBUG\_ERR(\#cond);\(\backslash\)}
+\DoxyCodeLine{                        DEBUG\_ERR(\textcolor{stringliteral}{"{}Failed On: "{}});\(\backslash\)}
+\DoxyCodeLine{                        DEBUG\_ERR(\_\_FILE\_\_);\(\backslash\)}
+\DoxyCodeLine{                        DEBUG\_ERR(\textcolor{stringliteral}{"{}In line: "{}});\(\backslash\)}
+\DoxyCodeLine{                        DEBUG\_ERR(\_\_LINE\_\_);\(\backslash\)}
+\DoxyCodeLine{                        DEBUG\_ERR(\textcolor{stringliteral}{"{}==============================="{}});\(\backslash\)}
+\DoxyCodeLine{                        \}\}\} \textcolor{keywordflow}{while}(0)}
+
+\end{DoxyCode}
+
+
+If the condition {\ttfamily cond} is false this debug macro will output in the error console (std\+::cerr) the condition, the file and the line when it was called. 
+
+
+
+Definition at line 51 of file qsbd\+\_\+debug.\+h.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{qsbd__debug_8h_a14666c543dba70f8b3f29f617bd3ebe3}\label{qsbd__debug_8h_a14666c543dba70f8b3f29f617bd3ebe3}} 
+\index{qsbd\_debug.h@{qsbd\_debug.h}!debug\_enable@{debug\_enable}}
+\index{debug\_enable@{debug\_enable}!qsbd\_debug.h@{qsbd\_debug.h}}
+\doxysubsubsection{\texorpdfstring{debug\_enable}{debug\_enable}}
+{\footnotesize\ttfamily bool qsbd\+::debug\+::debug\+\_\+enable = true}
+
+
+
+A variable flag thats defines if all debug macros in this file will be printed. 
+
+\begin{DoxyNote}{Note}
+To turn this flag off just compile with -\/DDISABLE\+\_\+\+DEBUG=1 
+\end{DoxyNote}
+
+
+Definition at line 22 of file qsbd\+\_\+debug.\+h.
+

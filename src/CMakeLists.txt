@@ -145,8 +145,8 @@ add_library(
 )
 
 add_library(
-    QSBD_SLT_MEMORY_TRACKER
-    "stl_memory_tracker/stl_memory_tracker.hpp"
+    QSBD_HEAP_TRACKER
+    "heap_tracker/heap_tracker.hpp"
 )
 
 set(QSBD_LIBS
@@ -177,7 +177,7 @@ set(QSBD_LIBS
     QSBD_QUADTREE
     QSBD_QUANTILE_QUADTREE
     QSBD_LOG
-    QSBD_SLT_MEMORY_TRACKER
+    QSBD_HEAP_TRACKER
 )
 
 
@@ -245,3 +245,5 @@ target_link_libraries(QSBD_DCS_FACTORY PUBLIC QSBD_DCS)
 target_link_libraries(QSBD_LOG PUBLIC QSBD_DEBUG)
 
 target_link_libraries(QSBD_MEMORY_TRACKER PUBLIC nlohmann_json)
+
+target_link_libraries(QSBD_HEAP_TRACKER PUBLIC QSBD_DEBUG)

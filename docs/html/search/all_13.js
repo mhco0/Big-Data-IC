@@ -1,10 +1,5 @@
 var searchData=
 [
-  ['_7eaabb_77',['~aabb',['../classqsbd_1_1aabb.html#a5e351063c772dc142290713687838a59',1,'qsbd::aabb']]],
-  ['_7ecount_5fsketch_78',['~count_sketch',['../classqsbd_1_1count__sketch.html#a37754d593bad7f44f98d8e2ce4a514e9',1,'qsbd::count_sketch']]],
-  ['_7ek_5fwise_5ffamily_79',['~k_wise_family',['../classqsbd_1_1k__wise__family.html#a867cab92fe7f0b427842eb817e588b16',1,'qsbd::k_wise_family']]],
-  ['_7epoint_80',['~point',['../classqsbd_1_1point.html#a1d20cb34d95b0980cc0c3c64828e602d',1,'qsbd::point']]],
-  ['_7eq_5fdigest_81',['~q_digest',['../classqsbd_1_1q__digest.html#a85178f37abd3d436ae925a4f6b95074b',1,'qsbd::q_digest']]],
-  ['_7equantile_5fsketch_82',['~quantile_sketch',['../classqsbd_1_1quantile__sketch.html#acdc52dcaf3fa236574629e208432aa26',1,'qsbd::quantile_sketch']]],
-  ['_7etwo_5fwise_5ffamily_83',['~two_wise_family',['../classqsbd_1_1two__wise__family.html#abe2b5c5f7c2f5bbd28c614ef4bae6f3c',1,'qsbd::two_wise_family']]]
+  ['x_89',['x',['../classqsbd_1_1point.html#ad28fee3f0926b1539e12895d9e84d0a1',1,'qsbd::point::x(const T &amp;val)'],['../classqsbd_1_1point.html#a209ba4292ab10a19f0ec5f3b1743cfb2',1,'qsbd::point::x() const']]],
+  ['xy_90',['xy',['../classqsbd_1_1point.html#a55826fd2b81830cb020d1128e8cb6f46',1,'qsbd::point::xy(const T &amp;xval, const T &amp;yval)'],['../classqsbd_1_1point.html#aa41d1aa4c71eebf421aaec3873bb0497',1,'qsbd::point::xy() const']]]
 ];

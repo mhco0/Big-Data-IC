@@ -100,12 +100,12 @@ Definition at line 182 of file dcs.\+cpp.
 \DoxyCodeLine{183         dcs\& rhs\_cv = \textcolor{keyword}{dynamic\_cast<}dcs\&\textcolor{keyword}{>} (rhs);}
 \DoxyCodeLine{184 }
 \DoxyCodeLine{185         \textcolor{keywordflow}{if}(this-\/>error -\/ rhs\_cv.error > 1e-\/6)\{}
-\DoxyCodeLine{186             DEBUG\_ERR(\textcolor{stringliteral}{"{}dcs's error need to match"{}});}
+\DoxyCodeLine{186             \mbox{\hyperlink{qsbd__debug_8h_a3c258e30fb14168b98931ca8aeade817}{DEBUG\_ERR}}(\textcolor{stringliteral}{"{}dcs's error need to match"{}});}
 \DoxyCodeLine{187             \textcolor{keywordflow}{return};}
 \DoxyCodeLine{188         \}}
 \DoxyCodeLine{189 }
 \DoxyCodeLine{190         \textcolor{keywordflow}{if}(this-\/>universe != rhs\_cv.universe)\{}
-\DoxyCodeLine{191             DEBUG\_ERR(\textcolor{stringliteral}{"{}dcs's universe need to match"{}});}
+\DoxyCodeLine{191             \mbox{\hyperlink{qsbd__debug_8h_a3c258e30fb14168b98931ca8aeade817}{DEBUG\_ERR}}(\textcolor{stringliteral}{"{}dcs's universe need to match"{}});}
 \DoxyCodeLine{192             \textcolor{keywordflow}{return};}
 \DoxyCodeLine{193         \}}
 \DoxyCodeLine{194 }
@@ -160,12 +160,12 @@ Definition at line 144 of file dcs.\+cpp.
 \DoxyCodeLine{145         dcs\& rhs\_cv = \textcolor{keyword}{dynamic\_cast<}dcs\&\textcolor{keyword}{>} (rhs);}
 \DoxyCodeLine{146 }
 \DoxyCodeLine{147         \textcolor{keywordflow}{if}(this-\/>error -\/ rhs\_cv.error > 1e-\/6)\{}
-\DoxyCodeLine{148             DEBUG\_ERR(\textcolor{stringliteral}{"{}dcs's error need to match"{}});}
+\DoxyCodeLine{148             \mbox{\hyperlink{qsbd__debug_8h_a3c258e30fb14168b98931ca8aeade817}{DEBUG\_ERR}}(\textcolor{stringliteral}{"{}dcs's error need to match"{}});}
 \DoxyCodeLine{149             \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};}
 \DoxyCodeLine{150         \}}
 \DoxyCodeLine{151 }
 \DoxyCodeLine{152         \textcolor{keywordflow}{if}(this-\/>universe != rhs\_cv.universe)\{}
-\DoxyCodeLine{153             DEBUG\_ERR(\textcolor{stringliteral}{"{}dcs's universe need to match"{}});}
+\DoxyCodeLine{153             \mbox{\hyperlink{qsbd__debug_8h_a3c258e30fb14168b98931ca8aeade817}{DEBUG\_ERR}}(\textcolor{stringliteral}{"{}dcs's universe need to match"{}});}
 \DoxyCodeLine{154             \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};}
 \DoxyCodeLine{155         \}}
 \DoxyCodeLine{156 }
@@ -182,7 +182,7 @@ Definition at line 144 of file dcs.\+cpp.
 \DoxyCodeLine{167                 count\_sketch * ref = this-\/>estimators[i].merge(rhs\_cv.estimators[i]);}
 \DoxyCodeLine{168 }
 \DoxyCodeLine{169                 \textcolor{keywordflow}{if}(ref == \textcolor{keyword}{nullptr})\{}
-\DoxyCodeLine{170                     DEBUG\_ERR(\textcolor{stringliteral}{"{}in dcs merge, count\_sketch merge fail."{}});}
+\DoxyCodeLine{170                     \mbox{\hyperlink{qsbd__debug_8h_a3c258e30fb14168b98931ca8aeade817}{DEBUG\_ERR}}(\textcolor{stringliteral}{"{}in dcs merge, count\_sketch merge fail."{}});}
 \DoxyCodeLine{171                     \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};}
 \DoxyCodeLine{172                 \}}
 \DoxyCodeLine{173 }
@@ -286,7 +286,7 @@ Definition at line 94 of file dcs.\+cpp.
 \begin{DoxyCode}{0}
 \DoxyCodeLine{94                        \{}
 \DoxyCodeLine{95         \textcolor{keywordflow}{if}(x >= this-\/>universe)\{}
-\DoxyCodeLine{96             DEBUG\_ERR(\textcolor{stringliteral}{"{}On dcs::query value first parameter 'x' is greater then the universe range"{}});}
+\DoxyCodeLine{96             \mbox{\hyperlink{qsbd__debug_8h_a3c258e30fb14168b98931ca8aeade817}{DEBUG\_ERR}}(\textcolor{stringliteral}{"{}On dcs::query value first parameter 'x' is greater then the universe range"{}});}
 \DoxyCodeLine{97 }
 \DoxyCodeLine{98             \textcolor{keywordflow}{return} -\/1;}
 \DoxyCodeLine{99         \}}
@@ -338,7 +338,7 @@ Definition at line 66 of file dcs.\+cpp.
 \begin{DoxyCode}{0}
 \DoxyCodeLine{66                                      \{}
 \DoxyCodeLine{67         \textcolor{keywordflow}{if}(x >= this-\/>universe)\{}
-\DoxyCodeLine{68             DEBUG\_ERR(\textcolor{stringliteral}{"{}On dcs::update value first parameter 'x' is greater then the universe range"{}});}
+\DoxyCodeLine{68             \mbox{\hyperlink{qsbd__debug_8h_a3c258e30fb14168b98931ca8aeade817}{DEBUG\_ERR}}(\textcolor{stringliteral}{"{}On dcs::update value first parameter 'x' is greater then the universe range"{}});}
 \DoxyCodeLine{69 }
 \DoxyCodeLine{70             \textcolor{keywordflow}{return};}
 \DoxyCodeLine{71         \}}

@@ -379,4 +379,12 @@ namespace qsbd {
 	int q_digest::get_total_weight() const {
 		return total_weight;
 	}
+
+	uint64_t q_digest::get_heap_size(){
+		uint64_t q_digest_hs = sizeof(q_digest);
+		uint64_t tree_hs = sizeof(q_digest::node) * tree.capacity();
+		uint64_t sb_hs = sizeof(std::pair<int, int>) * small_buffer.capacity();
+
+		return q_digest_hs + tree_hs + sb_hs;
+	}
 }

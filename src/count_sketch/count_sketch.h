@@ -14,6 +14,7 @@
 //#include "../k_wise_family/k_wise_family.h"
 #include "../two_wise_family/two_wise_family.h"
 
+
 namespace qsbd {
 
 	/** @class count_sketch
@@ -199,6 +200,9 @@ namespace qsbd {
 		 * qsbd::two_wise_family
 		*/
 		std::vector<std::vector<int>> get_hash_functions_consts() const;
+
+
+		uint64_t get_heap_size();
 	};
 }
 #endif

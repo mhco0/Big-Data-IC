@@ -1,4 +1,7 @@
 var searchData=
 [
-  ['two_5fwise_5ffamily_161',['two_wise_family',['../classqsbd_1_1two__wise__family.html#a615fe42cb36e06ee91d0993c39e75676',1,'qsbd::two_wise_family::two_wise_family()=default'],['../classqsbd_1_1two__wise__family.html#a76c400f1934cc2733cdf19c5928a4b60',1,'qsbd::two_wise_family::two_wise_family(int universe)'],['../classqsbd_1_1two__wise__family.html#a7fb87ac12d30a18421e78b126b004bb1',1,'qsbd::two_wise_family::two_wise_family(int universe, const std::vector&lt; int &gt; &amp;conf)'],['../classqsbd_1_1two__wise__family.html#a7c3f8fe8ede0fccd4cd5274e8a424fea',1,'qsbd::two_wise_family::two_wise_family(const two_wise_family &amp;rhs)']]]
+  ['q_5fdigest_182',['q_digest',['../classqsbd_1_1q__digest.html#a5836b79fcd15d45326b5465ae8ed1c3f',1,'qsbd::q_digest']]],
+  ['q_5fdigest_5ffactory_183',['q_digest_factory',['../classqsbd_1_1q__digest__factory.html#a7fc3d934159ed9a7e38545479a294a8a',1,'qsbd::q_digest_factory']]],
+  ['quantile_184',['quantile',['../classqsbd_1_1dcs.html#acd06f01bc3561d7231ed2dbf20f89241',1,'qsbd::dcs::quantile()'],['../classqsbd_1_1quantile__sketch.html#a6b54b5419ec258c6b94cbacb5db81cbc',1,'qsbd::quantile_sketch::quantile()']]],
+  ['query_185',['query',['../classqsbd_1_1count__sketch.html#aec2b22e91d508f4e2aa2ea7a6d583364',1,'qsbd::count_sketch::query()'],['../classqsbd_1_1dcs.html#acdb1bcb6b35ce55084fe2b0ed673672f',1,'qsbd::dcs::query()'],['../classqsbd_1_1gk.html#a34fd256cb9b567896c2dde66ce43f036',1,'qsbd::gk::query()'],['../classqsbd_1_1kll.html#ae90d25239b925ab9bc1ef7794d9e4104',1,'qsbd::kll::query()'],['../classqsbd_1_1q__digest.html#ade7168cd70f94767678988531ea30414',1,'qsbd::q_digest::query()'],['../classqsbd_1_1quantile__sketch.html#a8cf64d79f25d910d1c1aed209ddac71e',1,'qsbd::quantile_sketch::query()']]]
 ];

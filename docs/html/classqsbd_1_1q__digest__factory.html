@@ -73,6 +73,11 @@ $(function() {
   <div class="headertitle"><div class="title">qsbd::q_digest_factory Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>A factory of <a class="el" href="classqsbd_1_1q__digest.html" title="A quantile sketch derived class.">q_digest</a>.  
+ <a href="classqsbd_1_1q__digest__factory.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="q__digest__factory_8h_source.html">q_digest_factory.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for qsbd::q_digest_factory:</div>
 <div class="dyncontent">
@@ -85,17 +90,71 @@ Inheritance diagram for qsbd::q_digest_factory:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a7fc3d934159ed9a7e38545479a294a8a"><td class="memItemLeft" align="right" valign="top"><a id="a7fc3d934159ed9a7e38545479a294a8a"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>q_digest_factory</b> (double err, int uni)</td></tr>
+<tr class="memitem:a7fc3d934159ed9a7e38545479a294a8a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqsbd_1_1q__digest__factory.html#a7fc3d934159ed9a7e38545479a294a8a">q_digest_factory</a> (double err, int uni)</td></tr>
+<tr class="memdesc:a7fc3d934159ed9a7e38545479a294a8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the class.  <a href="classqsbd_1_1q__digest__factory.html#a7fc3d934159ed9a7e38545479a294a8a">More...</a><br /></td></tr>
 <tr class="separator:a7fc3d934159ed9a7e38545479a294a8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4b7fd456b5d66cb3291c61def95362e2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classqsbd_1_1quantile__sketch.html">quantile_sketch</a>&lt; int &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqsbd_1_1q__digest__factory.html#a4b7fd456b5d66cb3291c61def95362e2">instance</a> () override</td></tr>
-<tr class="memdesc:a4b7fd456b5d66cb3291c61def95362e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">A pure virtual method for create new instances of a <a class="el" href="classqsbd_1_1quantile__sketch.html" title="A interface for quantile sketchs.">quantile_sketch</a>&lt;Type&gt;.  <a href="classqsbd_1_1q__digest__factory.html#a4b7fd456b5d66cb3291c61def95362e2">More...</a><br /></td></tr>
+<tr class="memdesc:a4b7fd456b5d66cb3291c61def95362e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new instance of a <a class="el" href="classqsbd_1_1q__digest.html" title="A quantile sketch derived class.">q_digest</a> and returns it.  <a href="classqsbd_1_1q__digest__factory.html#a4b7fd456b5d66cb3291c61def95362e2">More...</a><br /></td></tr>
 <tr class="separator:a4b7fd456b5d66cb3291c61def95362e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="q__digest__factory_8h_source.html#l00007">7</a> of file <a class="el" href="q__digest__factory_8h_source.html">q_digest_factory.h</a>.</p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+<div class="textblock"><p >A factory of <a class="el" href="classqsbd_1_1q__digest.html" title="A quantile sketch derived class.">q_digest</a>. </p>
+<p >A factory that create new <a class="el" href="classqsbd_1_1q__digest.html" title="A quantile sketch derived class.">q_digest</a> instances that are able to merge with each other. </p>
+
+<p class="definition">Definition at line <a class="el" href="q__digest__factory_8h_source.html#l00021">21</a> of file <a class="el" href="q__digest__factory_8h_source.html">q_digest_factory.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a7fc3d934159ed9a7e38545479a294a8a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7fc3d934159ed9a7e38545479a294a8a">&#9670;&nbsp;</a></span>q_digest_factory()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">qsbd::q_digest_factory::q_digest_factory </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>err</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>uni</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructor for the class. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">err</td><td>The error that will be used in all instances of <a class="el" href="classqsbd_1_1q__digest.html" title="A quantile sketch derived class.">q_digest</a> from this factory </td></tr>
+    <tr><td class="paramname">uni</td><td>The universe that will be used in all instances of <a class="el" href="classqsbd_1_1q__digest.html" title="A quantile sketch derived class.">q_digest</a> from this factory </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="q__digest__factory_8h_source.html#l00032">32</a> of file <a class="el" href="q__digest__factory_8h_source.html">q_digest_factory.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                                             {</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            this-&gt;error = err;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            this-&gt;universe = uni;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
 <a id="a4b7fd456b5d66cb3291c61def95362e2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4b7fd456b5d66cb3291c61def95362e2">&#9670;&nbsp;</a></span>instance()</h2>
 
@@ -119,18 +178,18 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>A pure virtual method for create new instances of a <a class="el" href="classqsbd_1_1quantile__sketch.html" title="A interface for quantile sketchs.">quantile_sketch</a>&lt;Type&gt;. </p>
-<dl class="section return"><dt>Returns</dt><dd>A pointer to a new allocated <a class="el" href="classqsbd_1_1quantile__sketch.html" title="A interface for quantile sketchs.">quantile_sketch</a>&lt;Type&gt; </dd></dl>
+<p>Creates a new instance of a <a class="el" href="classqsbd_1_1q__digest.html" title="A quantile sketch derived class.">q_digest</a> and returns it. </p>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to a new instance of <a class="el" href="classqsbd_1_1q__digest.html" title="A quantile sketch derived class.">q_digest</a> in the heap </dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>It's up to a user the function of delete this memory. </dd>
 <dd>
-All quantile sketchs returned by this method should be capable of merging together. </dd></dl>
+It's return as a <a class="el" href="classqsbd_1_1quantile__sketch.html" title="A interface for quantile sketchs.">quantile_sketch</a>&lt;int&gt; you should cast it to the correct type (<a class="el" href="classqsbd_1_1q__digest.html" title="A quantile sketch derived class.">q_digest</a> *). </dd></dl>
 
 <p>Implements <a class="el" href="classqsbd_1_1sketch__factory.html#ad54e5735ea72b515991cc994fe37e23a">qsbd::sketch_factory&lt; int &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="q__digest__factory_8h_source.html#l00017">17</a> of file <a class="el" href="q__digest__factory_8h_source.html">q_digest_factory.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;                                                   {</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="classq__digest.html">q_digest</a>(this-&gt;error, this-&gt;universe);</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="q__digest__factory_8h_source.html#l00046">46</a> of file <a class="el" href="q__digest__factory_8h_source.html">q_digest_factory.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                                                   {</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="classq__digest.html">q_digest</a>(this-&gt;error, this-&gt;universe);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        }</div>
 <div class="ttc" id="aclassq__digest_html"><div class="ttname"><a href="classq__digest.html">q_digest</a></div><div class="ttdef"><b>Definition:</b> <a href="q__digest_8cpp_source.html#l00006">q_digest.cpp:6</a></div></div>
 </div><!-- fragment -->
 </div>

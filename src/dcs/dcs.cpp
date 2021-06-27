@@ -244,4 +244,20 @@ namespace qsbd {
 		return consts;
 	}
 
+	uint64_t dcs::get_heap_size(){
+		uint64_t dcs_hs = sizeof(dcs);
+		uint64_t fc_hs = 0;
+
+		for(int i = 0; i < frequency_counters.size(); i++){
+			fc_hs += sizeof(std::vector<int>) + sizeof(int) * frequency_counters[i].capacity();
+		}
+
+		uint64_t cs_hs = 0;
+
+		for(int i = 0; i < estimators.size(); i++){
+			cs_hs += estimators[i].get_heap_size();
+		}
+
+		return dcs_hs + fc_hs + cs_hs;
+	}
 }

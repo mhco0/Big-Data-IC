@@ -134,7 +134,7 @@ $(function() {
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <a class="code" href="classqsbd_1_1kll.html">kll&lt;T&gt;</a>&amp; rhs_cv = <span class="keyword">dynamic_cast&lt;</span><a class="code" href="classqsbd_1_1kll.html">kll&lt;T&gt;</a>&amp;<span class="keyword">&gt;</span> (rhs);</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordflow">if</span>((rhs_cv.error - this-&gt;error) &gt; 1e-6){</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            DEBUG_ERR(<span class="stringliteral">&quot;in kll::merge kll&#39;s error need to match&quot;</span>);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <a class="code" href="qsbd__debug_8h.html#a3c258e30fb14168b98931ca8aeade817">DEBUG_ERR</a>(<span class="stringliteral">&quot;in kll::merge kll&#39;s error need to match&quot;</span>);</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        }</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
@@ -184,7 +184,7 @@ $(function() {
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <a class="code" href="classqsbd_1_1kll.html">kll&lt;T&gt;</a>&amp; rhs_cv = <span class="keyword">dynamic_cast&lt;</span><a class="code" href="classqsbd_1_1kll.html">kll&lt;T&gt;</a>&amp;<span class="keyword">&gt;</span> (rhs);</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <span class="keywordflow">if</span>((rhs_cv.error - this-&gt;error) &gt; 1e-6){</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;            DEBUG_ERR(<span class="stringliteral">&quot;in kll::inner_merge kll&#39;s error need to match&quot;</span>);</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;            <a class="code" href="qsbd__debug_8h.html#a3c258e30fb14168b98931ca8aeade817">DEBUG_ERR</a>(<span class="stringliteral">&quot;in kll::inner_merge kll&#39;s error need to match&quot;</span>);</div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        }</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
 <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        <span class="keywordtype">int</span> merged_height = std::max(rhs_cv.height, this-&gt;height);</div>
@@ -272,6 +272,7 @@ $(function() {
 <div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;}</div>
 <div class="ttc" id="aclassqsbd_1_1kll_html"><div class="ttname"><a href="classqsbd_1_1kll.html">qsbd::kll</a></div><div class="ttdef"><b>Definition:</b> <a href="kll_8hpp_source.html#l00010">kll.hpp:10</a></div></div>
 <div class="ttc" id="aclassqsbd_1_1quantile__sketch_html"><div class="ttname"><a href="classqsbd_1_1quantile__sketch.html">qsbd::quantile_sketch&lt; T &gt;</a></div></div>
+<div class="ttc" id="aqsbd__debug_8h_html_a3c258e30fb14168b98931ca8aeade817"><div class="ttname"><a href="qsbd__debug_8h.html#a3c258e30fb14168b98931ca8aeade817">DEBUG_ERR</a></div><div class="ttdeci">#define DEBUG_ERR(x)</div><div class="ttdoc">A debug macro that outputs the value of x in the std::cerr.</div><div class="ttdef"><b>Definition:</b> <a href="qsbd__debug_8h_source.html#l00045">qsbd_debug.h:45</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

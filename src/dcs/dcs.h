@@ -47,6 +47,7 @@ namespace qsbd{
 		int get_universe() const;
 		int get_total_weight() const;
 		std::vector<std::vector<std::vector<int>>> get_count_sketchs_hash_functions_constants() const;
+		uint64_t get_heap_size() override;
 	};
 }
 #endif

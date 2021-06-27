@@ -48,13 +48,59 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/mhco/projects/Big-Data-IC
+CMAKE_SOURCE_DIR = "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/mhco/projects/Big-Data-IC/build
+CMAKE_BINARY_DIR = "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build"
 
 #=============================================================================
 # Targets provided globally by CMake.
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
 
 # Special rule for the target rebuild_cache
 rebuild_cache:
@@ -91,9 +137,9 @@ test/fast: test
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mhco/projects/Big-Data-IC/build/CMakeFiles /home/mhco/projects/Big-Data-IC/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles/progress.marks"
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mhco/projects/Big-Data-IC/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
@@ -120,6 +166,58 @@ preinstall/fast:
 depend:
 	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
+
+#=============================================================================
+# Target rules for targets named gmock_main
+
+# Build rule for target.
+gmock_main: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 gmock_main
+.PHONY : gmock_main
+
+# fast build rule for target.
+gmock_main/fast:
+	$(MAKE) -f googletest/googlemock/CMakeFiles/gmock_main.dir/build.make googletest/googlemock/CMakeFiles/gmock_main.dir/build
+.PHONY : gmock_main/fast
+
+#=============================================================================
+# Target rules for targets named gmock
+
+# Build rule for target.
+gmock: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 gmock
+.PHONY : gmock
+
+# fast build rule for target.
+gmock/fast:
+	$(MAKE) -f googletest/googlemock/CMakeFiles/gmock.dir/build.make googletest/googlemock/CMakeFiles/gmock.dir/build
+.PHONY : gmock/fast
+
+#=============================================================================
+# Target rules for targets named gtest_main
+
+# Build rule for target.
+gtest_main: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 gtest_main
+.PHONY : gtest_main
+
+# fast build rule for target.
+gtest_main/fast:
+	$(MAKE) -f googletest/googletest/CMakeFiles/gtest_main.dir/build.make googletest/googletest/CMakeFiles/gtest_main.dir/build
+.PHONY : gtest_main/fast
+
+#=============================================================================
+# Target rules for targets named gtest
+
+# Build rule for target.
+gtest: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 gtest
+.PHONY : gtest
+
+# fast build rule for target.
+gtest/fast:
+	$(MAKE) -f googletest/googletest/CMakeFiles/gtest.dir/build.make googletest/googletest/CMakeFiles/gtest.dir/build
+.PHONY : gtest/fast
 
 #=============================================================================
 # Target rules for targets named nlohmann_json
@@ -239,6 +337,19 @@ QSBD_Q_DIGEST/fast:
 .PHONY : QSBD_Q_DIGEST/fast
 
 #=============================================================================
+# Target rules for targets named QSBD_HEAP_TRACKER
+
+# Build rule for target.
+QSBD_HEAP_TRACKER: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 QSBD_HEAP_TRACKER
+.PHONY : QSBD_HEAP_TRACKER
+
+# fast build rule for target.
+QSBD_HEAP_TRACKER/fast:
+	$(MAKE) -f src/CMakeFiles/QSBD_HEAP_TRACKER.dir/build.make src/CMakeFiles/QSBD_HEAP_TRACKER.dir/build
+.PHONY : QSBD_HEAP_TRACKER/fast
+
+#=============================================================================
 # Target rules for targets named QSBD_TIMER
 
 # Build rule for target.
@@ -276,19 +387,6 @@ QSBD_UTILS: cmake_check_build_system
 QSBD_UTILS/fast:
 	$(MAKE) -f src/CMakeFiles/QSBD_UTILS.dir/build.make src/CMakeFiles/QSBD_UTILS.dir/build
 .PHONY : QSBD_UTILS/fast
-
-#=============================================================================
-# Target rules for targets named QSBD_SLT_MEMORY_TRACKER
-
-# Build rule for target.
-QSBD_SLT_MEMORY_TRACKER: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 QSBD_SLT_MEMORY_TRACKER
-.PHONY : QSBD_SLT_MEMORY_TRACKER
-
-# fast build rule for target.
-QSBD_SLT_MEMORY_TRACKER/fast:
-	$(MAKE) -f src/CMakeFiles/QSBD_SLT_MEMORY_TRACKER.dir/build.make src/CMakeFiles/QSBD_SLT_MEMORY_TRACKER.dir/build
-.PHONY : QSBD_SLT_MEMORY_TRACKER/fast
 
 #=============================================================================
 # Target rules for targets named QSBD_DEBUG
@@ -668,6 +766,19 @@ test_gk/fast:
 .PHONY : test_gk/fast
 
 #=============================================================================
+# Target rules for targets named new_quantile_quadtree_experiment
+
+# Build rule for target.
+new_quantile_quadtree_experiment: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 new_quantile_quadtree_experiment
+.PHONY : new_quantile_quadtree_experiment
+
+# fast build rule for target.
+new_quantile_quadtree_experiment/fast:
+	$(MAKE) -f app/CMakeFiles/new_quantile_quadtree_experiment.dir/build.make app/CMakeFiles/new_quantile_quadtree_experiment.dir/build
+.PHONY : new_quantile_quadtree_experiment/fast
+
+#=============================================================================
 # Target rules for targets named build_brute_force
 
 # Build rule for target.
@@ -920,9 +1031,17 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... install/strip"
+	@echo "... install/local"
+	@echo "... install"
+	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... test"
+	@echo "... gmock_main"
+	@echo "... gmock"
+	@echo "... gtest_main"
+	@echo "... gtest"
 	@echo "... nlohmann_json"
 	@echo "... QSBD_DCS"
 	@echo "... QSBD_LOG"
@@ -932,10 +1051,10 @@ help:
 	@echo "... QSBD_CONFIG"
 	@echo "... QSBD_COUNT_SKETCH"
 	@echo "... QSBD_Q_DIGEST"
+	@echo "... QSBD_HEAP_TRACKER"
 	@echo "... QSBD_TIMER"
 	@echo "... QSBD_GK"
 	@echo "... QSBD_UTILS"
-	@echo "... QSBD_SLT_MEMORY_TRACKER"
 	@echo "... QSBD_DEBUG"
 	@echo "... QSBD_TWO_WISE_FAMILY"
 	@echo "... QSBD_QUANTILE_QUADTREE"
@@ -965,6 +1084,7 @@ help:
 	@echo "... test_q_digest"
 	@echo "... test_config"
 	@echo "... test_gk"
+	@echo "... new_quantile_quadtree_experiment"
 	@echo "... build_brute_force"
 	@echo "... query_creator"
 	@echo "... quadtree_data_bounds"

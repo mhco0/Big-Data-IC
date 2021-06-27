@@ -168,7 +168,7 @@ template&lt;class T &gt; </div>
 <div class="fragment"><div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;                                                           {</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;            <a class="code" href="classgk.html">gk&lt;T&gt;</a>&amp; rhs_cv = <span class="keyword">dynamic_cast&lt;</span><a class="code" href="classgk.html">gk&lt;T&gt;</a>&amp;<span class="keyword">&gt;</span>(rhs); </div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; </div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;            ASSERT(rhs_cv.epsilon - this-&gt;epsilon &lt; 1e-6);</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;            <a class="code" href="qsbd__debug_8h.html#a0966b817b229d48e5ffc7feab19a0be6">ASSERT</a>(rhs_cv.epsilon - this-&gt;epsilon &lt; 1e-6);</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;            <span class="keywordtype">int</span> left_index = 0;</div>
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;            <span class="keywordtype">int</span> right_index = 0; </div>
@@ -226,6 +226,7 @@ template&lt;class T &gt; </div>
 <div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;            this-&gt;N = merged_N;</div>
 <div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;        }</div>
 <div class="ttc" id="aclassgk_html"><div class="ttname"><a href="classgk.html">gk</a></div><div class="ttdef"><b>Definition:</b> <a href="gk_8cpp_source.html#l00006">gk.cpp:6</a></div></div>
+<div class="ttc" id="aqsbd__debug_8h_html_a0966b817b229d48e5ffc7feab19a0be6"><div class="ttname"><a href="qsbd__debug_8h.html#a0966b817b229d48e5ffc7feab19a0be6">ASSERT</a></div><div class="ttdeci">#define ASSERT(cond)</div><div class="ttdoc">If the condition cond is false this debug macro will output in the error console (std::cerr) the cond...</div><div class="ttdef"><b>Definition:</b> <a href="qsbd__debug_8h_source.html#l00051">qsbd_debug.h:51</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -273,7 +274,7 @@ The <a class="el" href="classqsbd_1_1quantile__sketch.html" title="A interface f
 <div class="fragment"><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                                                                    {</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <a class="code" href="classgk.html">gk&lt;T&gt;</a>&amp; rhs_cv = <span class="keyword">dynamic_cast&lt;</span><a class="code" href="classgk.html">gk&lt;T&gt;</a>&amp;<span class="keyword">&gt;</span>(rhs); </div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            ASSERT(rhs_cv.epsilon - this-&gt;epsilon &lt; 1e-6);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            <a class="code" href="qsbd__debug_8h.html#a0966b817b229d48e5ffc7feab19a0be6">ASSERT</a>(rhs_cv.epsilon - this-&gt;epsilon &lt; 1e-6);</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            <span class="keywordtype">int</span> left_index = 0;</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            <span class="keywordtype">int</span> right_index = 0; </div>

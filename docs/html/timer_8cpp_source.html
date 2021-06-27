@@ -70,33 +70,39 @@ $(function() {
   <div class="headertitle"><div class="title">timer.cpp</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;timer.h&quot;</span></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="timer_8h.html">timer.h</a>&quot;</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="keyword">using namespace </span>std;</div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">using namespace </span>chrono;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">namespace </span>qsbd{</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;    timer::timer(){</div>
+<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="classqsbd_1_1timer.html#a7dc57c7aafeed28942f038d7f3a66a66">    6</a></span>&#160;    <a class="code" href="classqsbd_1_1timer.html#a7dc57c7aafeed28942f038d7f3a66a66">timer::timer</a>(){</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;        start_point = high_resolution_clock::now();</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;        end_point = start_point;</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    }</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    timer::~timer(){</div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="classqsbd_1_1timer.html#a982185ed3c707faeb6f266b8f52a557e">   11</a></span>&#160;    <a class="code" href="classqsbd_1_1timer.html#a982185ed3c707faeb6f266b8f52a557e">timer::~timer</a>(){</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    }</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordtype">void</span> timer::start(){</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classqsbd_1_1timer.html#aacea2bf0f2e9f7ecfa21aab23003415b">   14</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classqsbd_1_1timer.html#aacea2bf0f2e9f7ecfa21aab23003415b">timer::start</a>(){</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        start_point = high_resolution_clock::now();</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    }</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordtype">void</span> timer::end(){</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="classqsbd_1_1timer.html#a0f811bb2dda9cc618adb946c67ada685">   18</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classqsbd_1_1timer.html#a0f811bb2dda9cc618adb946c67ada685">timer::end</a>(){</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        end_point = high_resolution_clock::now();</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    }</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">double</span> timer::count(){</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="classqsbd_1_1timer.html#a6befa67d3655ee8ebc5b7f4e283088f3">   22</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classqsbd_1_1timer.html#a6befa67d3655ee8ebc5b7f4e283088f3">timer::count</a>(){</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        duration&lt;double&gt; time_interval = duration_cast&lt;duration&lt;double&gt;&gt; (end_point - start_point);</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keywordflow">return</span> time_interval.count();</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    }</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;}</div>
+<div class="ttc" id="aclassqsbd_1_1timer_html_a0f811bb2dda9cc618adb946c67ada685"><div class="ttname"><a href="classqsbd_1_1timer.html#a0f811bb2dda9cc618adb946c67ada685">qsbd::timer::end</a></div><div class="ttdeci">void end()</div><div class="ttdoc">Sets the end point for the timer.</div><div class="ttdef"><b>Definition:</b> <a href="timer_8cpp_source.html#l00018">timer.cpp:18</a></div></div>
+<div class="ttc" id="aclassqsbd_1_1timer_html_a6befa67d3655ee8ebc5b7f4e283088f3"><div class="ttname"><a href="classqsbd_1_1timer.html#a6befa67d3655ee8ebc5b7f4e283088f3">qsbd::timer::count</a></div><div class="ttdeci">double count()</div><div class="ttdoc">Counts the time passed between the start and the end point of the timer.</div><div class="ttdef"><b>Definition:</b> <a href="timer_8cpp_source.html#l00022">timer.cpp:22</a></div></div>
+<div class="ttc" id="aclassqsbd_1_1timer_html_a7dc57c7aafeed28942f038d7f3a66a66"><div class="ttname"><a href="classqsbd_1_1timer.html#a7dc57c7aafeed28942f038d7f3a66a66">qsbd::timer::timer</a></div><div class="ttdeci">timer()</div><div class="ttdoc">The constructor for the timer.</div><div class="ttdef"><b>Definition:</b> <a href="timer_8cpp_source.html#l00006">timer.cpp:6</a></div></div>
+<div class="ttc" id="aclassqsbd_1_1timer_html_a982185ed3c707faeb6f266b8f52a557e"><div class="ttname"><a href="classqsbd_1_1timer.html#a982185ed3c707faeb6f266b8f52a557e">qsbd::timer::~timer</a></div><div class="ttdeci">~timer()</div><div class="ttdoc">The destructor for the timer.</div><div class="ttdef"><b>Definition:</b> <a href="timer_8cpp_source.html#l00011">timer.cpp:11</a></div></div>
+<div class="ttc" id="aclassqsbd_1_1timer_html_aacea2bf0f2e9f7ecfa21aab23003415b"><div class="ttname"><a href="classqsbd_1_1timer.html#aacea2bf0f2e9f7ecfa21aab23003415b">qsbd::timer::start</a></div><div class="ttdeci">void start()</div><div class="ttdoc">Sets the start point for the timer.</div><div class="ttdef"><b>Definition:</b> <a href="timer_8cpp_source.html#l00014">timer.cpp:14</a></div></div>
+<div class="ttc" id="atimer_8h_html"><div class="ttname"><a href="timer_8h.html">timer.h</a></div><div class="ttdoc">QSBD timer class.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

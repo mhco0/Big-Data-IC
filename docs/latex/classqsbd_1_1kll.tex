@@ -110,7 +110,7 @@ Definition at line 111 of file kll.\+cpp.
 \DoxyCodeLine{112         kll<T>\& rhs\_cv = \textcolor{keyword}{dynamic\_cast<}kll<T>\&\textcolor{keyword}{>} (rhs);}
 \DoxyCodeLine{113 }
 \DoxyCodeLine{114         \textcolor{keywordflow}{if}((rhs\_cv.error -\/ this-\/>error) > 1e-\/6)\{}
-\DoxyCodeLine{115             DEBUG\_ERR(\textcolor{stringliteral}{"{}in kll::inner\_merge kll's error need to match"{}});}
+\DoxyCodeLine{115             \mbox{\hyperlink{qsbd__debug_8h_a3c258e30fb14168b98931ca8aeade817}{DEBUG\_ERR}}(\textcolor{stringliteral}{"{}in kll::inner\_merge kll's error need to match"{}});}
 \DoxyCodeLine{116         \}}
 \DoxyCodeLine{117 }
 \DoxyCodeLine{118         \textcolor{keywordtype}{int} merged\_height = std::max(rhs\_cv.height, this-\/>height);}
@@ -196,7 +196,7 @@ Definition at line 61 of file kll.\+cpp.
 \DoxyCodeLine{62         kll<T>\& rhs\_cv = \textcolor{keyword}{dynamic\_cast<}kll<T>\&\textcolor{keyword}{>} (rhs);}
 \DoxyCodeLine{63 }
 \DoxyCodeLine{64         \textcolor{keywordflow}{if}((rhs\_cv.error -\/ this-\/>error) > 1e-\/6)\{}
-\DoxyCodeLine{65             DEBUG\_ERR(\textcolor{stringliteral}{"{}in kll::merge kll's error need to match"{}});}
+\DoxyCodeLine{65             \mbox{\hyperlink{qsbd__debug_8h_a3c258e30fb14168b98931ca8aeade817}{DEBUG\_ERR}}(\textcolor{stringliteral}{"{}in kll::merge kll's error need to match"{}});}
 \DoxyCodeLine{66             \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};}
 \DoxyCodeLine{67         \}}
 \DoxyCodeLine{68 }
