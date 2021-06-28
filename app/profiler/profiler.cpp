@@ -10,6 +10,8 @@
 #include <iostream>
 using namespace std;
 
+int imd = 0;
+
 class dummy_sketch : public qsbd::quantile_sketch<int> {
 public:
     dummy_sketch(){
@@ -27,6 +29,7 @@ public:
     }
 
     void inner_merge(qsbd::quantile_sketch<int>& rhs) override{
+        imd++;
         return;
     }
 
@@ -841,30 +844,66 @@ void kll_run(bool only_update){
 }
 
 void test(){
-    {
-        qsbd::dcs * t1 = new qsbd::dcs(0.3, 1024);
-        cout << t1->get_heap_size() << endl;
-        delete t1;
+
+    int depth = 2;
+
+    qsbd::aabb<int> resolution(0, 0, 1 << depth, 1 << depth);
+
+    dummy_factory factory;
+   	qsbd::quantile_quadtree<int> qq_test(resolution, depth, &factory, false);
+
+   	
+    for(int i = 0; i < (1 << depth); i++){
+        for(int j = 0; j < (1 << depth); j++){
+            qsbd::point<int> coord(i, j);
+            qq_test.update(coord, 0);
+        }
     }
-    {
-        qsbd::gk<int> * t2 = new qsbd::gk<int>(0.3);
-        cout << t2->get_heap_size() << endl;
-        delete t2;
-    }
-    {
-        qsbd::kll<int> * t3 = new qsbd::kll<int>(0.3);
-        cout << t3->get_heap_size() << endl;
-        delete t3;
-    }
-    {
-        qsbd::q_digest * t4 = new qsbd::q_digest(0.3, 1024);
-        cout << t4->get_heap_size() << endl;
-        delete t4;
-    }
+
+    qq_test.query(resolution, 0);
+
+    VDEBUG(imd);
+
+    imd = 0;
+
+    qsbd::aabb<int> a(0, 3, 1, 4);
+    qsbd::aabb<int> b(1, 1, 3, 3);
+    VDEBUG(a.intersects(b));
+    VDEBUG(b.intersects(a));
+    VDEBUG(a.intersects(a));
+    VDEBUG(b.intersects(b));
+
+    qq_test.query(qsbd::aabb<int>(1, 1, 3, 3), 0);
+
+    VDEBUG(imd);
+
+    imd = 0;
+
+    qq_test.query(qsbd::aabb<int>(1, 3, 2, 4), 0);
+
+    VDEBUG(imd);
+	
+    imd = 0;
+
+    qq_test.query(qsbd::aabb<int>(2, 1, 3, 2), 0);
+
+    VDEBUG(imd);
+
+    imd = 0;
+
+    qq_test.query(qsbd::aabb<int>(0, 1, 3, 4), 0);
+
+    VDEBUG(imd);
+
+    imd = 0;
+
+    qq_test.query(qsbd::aabb<int>(0, 0, 4, 3), 0);
+
+    VDEBUG(imd);
 }
 
 int main(int argc, char* argv[]){
-    dcs_run2(false);
+    test();
 	/*deque<string> args = qsbd::process_args(argc, argv);
 
     bool only_update = false;

@@ -60,6 +60,9 @@ namespace qsbd{
 		 * @brief Tests if this aabb instance intersects with another aabb @p rhs
 		 * @param rhs A instance of a aabb\<T\>
 		 * @return True if the two aabb intersects with each other and false otherwise
+		 * 
+		 * @note 
+		 *  AABB's just touching each other are considered as non-intersecting.
 		*/
 		bool intersects(const aabb<T>& rhs) const;
 		

@@ -23,7 +23,7 @@ int main(int argc, char* argv[]){
         norm_vector.push_back(it.second);
     }
 
-    double lnorm = lp_norm(norm_vector, p_norm);
+    double lnorm = p_norm(norm_vector, p_norm);
 
     for(int i = 0; i < attempts; i++){
         vector<pair<int, int>> stream_aux;

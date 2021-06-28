@@ -43,8 +43,8 @@ namespace qsbd {
 		T bottom = bounds.first.y();
 		T top = bounds.second.y();
 
-		return (left <= this->max_bound.x()) and (right >= this->min_bound.x()) \
-			and (bottom <= this->max_bound.y()) and (top >= this->min_bound.y());
+		return (left < this->max_bound.x()) and (right > this->min_bound.x()) \
+			and (bottom < this->max_bound.y()) and (top > this->min_bound.y());
 	}
 
 	template<class T>
