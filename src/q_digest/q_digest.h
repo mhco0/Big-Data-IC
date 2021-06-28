@@ -113,12 +113,12 @@ namespace qsbd{
 		int query(int x) override;
 		
 		/**
-		 * @brief Trys to compress the q_digeste tree if possible
+		 * @brief Trys to compress the q_digest tree if possible
 		*/
 		void compress();
 		
 		/**
-		 * @brief Merges this instance of quadtree with another q_digest instance
+		 * @brief Merges this instance of q_digest with another q_digest instance
 		 * @param rhs A q_digest instance to be merged
 		 * @return A pointer to the new instance of a q_digest 
 		 * @sa q_digest::inner_merge(quantile_sketch<int>&)
@@ -136,7 +136,7 @@ namespace qsbd{
 		quantile_sketch<int>* merge(quantile_sketch<int>& rhs) override;
 		
 		/**
-		 * @brief Merges this instance of quadtree with another q_digest instance and saves it in this instance
+		 * @brief Merges this instance of q_digest with another q_digest instance and saves it in this instance
 		 * @param rhs A q_digest instance to be merged
 		 * @sa q_digest::merge(quantile_sketch<int>&)
 		 * @warning 

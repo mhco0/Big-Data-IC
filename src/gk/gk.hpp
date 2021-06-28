@@ -1,3 +1,11 @@
+/**
+ * @file gk.hpp
+ * @brief QSBD gk class
+ * @author Marcos H C Oliveira <mhco@cin.ufpe.br>
+ * @version 1.0
+ *
+ */
+
 #ifndef QSBD_GK_H
 #define QSBD_GK_H
 #include "../global_generator/global_generator.h"
@@ -6,13 +14,31 @@
 #include "../utils/utils.h"
 
 namespace qsbd {
+
+	/** @class gk\<T\>
+	 * @brief A class to represent the Greenwald-Khanna sketch
+	 *  
+	 * The GK summary provides a compact summary of data drawn from an ordered input domain U. It's a
+	 * comparison-based algorithm, it works on any ordered domain U where comparison operator is defined.
+	 * But it only accepts insertions of unweighted elements. So here the total number of elements inserted
+	 * into the summary, N, is the same as the total weight W. This summary can be merged but its size grows
+	 * after each MERGE.
+	 * 
+	 * @tparam T The object type for the gk
+	*/
 	template <class T>
 	class gk : public quantile_sketch<T> {
 	private:
-		std::vector<std::pair<T, std::pair<int, int>>> tuple_list;
+		std::vector<std::pair<T, std::pair<int, int>>> tuple_list; //!< A list of tuples for the elements (element, number of itens represented, uncertainty)
 		int N;
 		double epsilon;
 
+		/**
+		 * @brief A private method function that returns the smallest index for a element in @p vec such this element is greater than @p data
+		 * @param vec Some vector organized as the tuple list for the GK summary
+		 * @param data A element to be queried
+		 * @return The smallest index on the list such that the element \f$x_{index}\f$ > @p data 
+		*/
 		int find_smallest_i(const std::vector<std::pair<T, std::pair<int, int>>>& vec, const T& data){
 			auto up_it = std::upper_bound(vec.begin(), vec.end(), data, [](const T& data, std::pair<T, std::pair<int, int>> value){
 				return (data < value.first);
@@ -22,6 +48,14 @@ namespace qsbd {
 		}
 
 	public:
+
+		/**
+		 * @brief A constructor for the GK summary
+		 * @param eps The error used in the sketch
+		 * 
+		 * @note
+		 * The object type T should define std\::numeric_limits\<T\>::max()
+		*/
 		gk(double eps){
 			N = 0;
 			epsilon = eps;
@@ -29,8 +63,15 @@ namespace qsbd {
 			insert_sorted(tuple_list, std::make_pair(std::numeric_limits<T>::max(), std::make_pair(1, 0)));
 		}
 
+		/**
+		 * @brief The destructor for the GK summary
+		*/
 		~gk(){}
 
+		/**
+		 * @brief A method to update the summary
+		 * @param value A object of type \<T\>
+		*/
 		void update(T value) override {
 			N += 1;
 
@@ -44,7 +85,7 @@ namespace qsbd {
 			if((weight + uncertainty + 1) < capacity){
 				tuple_list[index].second.first += 1;
 			}else{
-
+				// see if this inserts in the i position
 				insert_sorted(tuple_list, {value, {1, weight + uncertainty - 1}});
 
 				for(int i = 0, j = 1; j < tuple_list.size(); i++, j++){
@@ -61,6 +102,22 @@ namespace qsbd {
 			return;
 		}
 
+		/**
+		 * @brief Merges this instance of gk with another gk instance
+		 * @param rhs A gk\<T\> instance to be merged
+		 * @return A pointer to the new instance of a gk 
+		 * @sa gk\<T\>::inner_merge(quantile_sketch\<T\>&)
+		 * @warning 
+		 * The error in both instance needs to be the same. The error will be considered as the same
+		 * if \f$|this->error - rhs.error| \leq 1e-6\f$
+		 * 
+		 * @warning 
+		 * The quantile_sketch must be a instance of the gk class
+		 * 
+		 * @warning 
+		 * Is the user responsabilite of frees the returned pointer
+		 * 
+		*/
 		quantile_sketch<T>* merge(quantile_sketch<T>& rhs) override {
 			gk<T>& rhs_cv = dynamic_cast<gk<T>&>(rhs); 
 
@@ -119,6 +176,18 @@ namespace qsbd {
 			return merged_summary;
 		}
 
+		/**
+		 * @brief Merges this instance of gk with another gk instance and saves it in this instance
+		 * @param rhs A gk\<T\> instance to be merged
+		 * @sa gk\<T\>\::merge(quantile_sketch\<T\>&)
+		 * @warning 
+		 * The error in both instances needs to be the same. The error will be considered as the same
+		 * if \f$|this->error - rhs.error| \leq 1e-6\f$
+		 * 
+		 * @warning 
+		 * The quantile_sketch must be a instance of the gk class
+		 * 
+		*/
 		void inner_merge(quantile_sketch<T>& rhs) override {
 			gk<T>& rhs_cv = dynamic_cast<gk<T>&>(rhs); 
 
@@ -180,6 +249,11 @@ namespace qsbd {
 			this->N = merged_N;
 		}
 
+		/**
+		 * @brief A method that returns the rank for some element @p value
+		 * @param value The element to be queried
+		 * @return The rank for such element
+		*/
 		int query(T value) override {
 			int weight_sum = 0;
 			int index = 0;
@@ -192,7 +266,9 @@ namespace qsbd {
 			return (weight_sum - 1 + ((tuple_list[index].second.first + tuple_list[index].second.second) / 2));
 		}
 
-		//DEBUG
+		/**
+		 * @brief A debug method to print the tuple list in the summary on the standard ouput
+		*/
 		void print(){
 			for (auto &it : tuple_list){
 				std::cout << "(" << it.first << "," << it.second.first << "," << it.second.second << ") ";
@@ -200,11 +276,18 @@ namespace qsbd {
 			std::cout << std::endl;
 		}
 
-		//DEBUG
+		/**
+		 * @brief Getter method to pick the total of elements inserted
+		 * @return The total of elements inserted.
+		*/
 		int get_N(){
 			return N;
 		}
 
+		/**
+		 * @brief Getter for the estimated amount of heap memory allocated for this object for a pointer.
+		 * @return The estimated memory in bytes.
+		*/
 		uint64_t get_heap_size() override {
 			uint64_t gk_hs = sizeof(gk<T>);
 			uint64_t tl_hs = sizeof(std::pair<T, std::pair<int, int>>) * tuple_list.capacity();
