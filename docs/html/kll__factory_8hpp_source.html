@@ -70,33 +70,37 @@ $(function() {
   <div class="headertitle"><div class="title">kll_factory.hpp</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef QSBD_KLL_FACTORY_H</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define QSBD_KLL_FACTORY_H</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;../sketch_factory/sketch_factory.hpp&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;../kll/kll.hpp&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">namespace </span>qsbd {</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> Type&gt;</div>
-<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="classqsbd_1_1kll__factory.html">    8</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classqsbd_1_1kll__factory.html">kll_factory</a> : <span class="keyword">public</span> <a class="code" href="classqsbd_1_1sketch__factory.html">sketch_factory</a>&lt;Type&gt;{</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;        <span class="keywordtype">double</span> error;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        <a class="code" href="classqsbd_1_1kll__factory.html">kll_factory</a>(<span class="keywordtype">double</span> err){</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;            this-&gt;error = err;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        }</div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#ifndef QSBD_KLL_FACTORY_H</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#define QSBD_KLL_FACTORY_H</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;../sketch_factory/sketch_factory.hpp&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;../kll/kll.hpp&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">namespace </span>qsbd {</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classqsbd_1_1kll__factory.html#adce0aec1afea9987269fea54d03e5b1c">   16</a></span>&#160;        <a class="code" href="classqsbd_1_1quantile__sketch.html">quantile_sketch&lt;Type&gt;</a> * <a class="code" href="classqsbd_1_1kll__factory.html#adce0aec1afea9987269fea54d03e5b1c">instance</a>()<span class="keyword"> override </span>{</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="classqsbd_1_1kll.html">kll&lt;Type&gt;</a>(this-&gt;error);</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        }</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    };</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;}</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#endif  </span></div>
-<div class="ttc" id="aclassqsbd_1_1kll__factory_html"><div class="ttname"><a href="classqsbd_1_1kll__factory.html">qsbd::kll_factory</a></div><div class="ttdef"><b>Definition:</b> <a href="kll__factory_8hpp_source.html#l00008">kll_factory.hpp:8</a></div></div>
-<div class="ttc" id="aclassqsbd_1_1kll__factory_html_adce0aec1afea9987269fea54d03e5b1c"><div class="ttname"><a href="classqsbd_1_1kll__factory.html#adce0aec1afea9987269fea54d03e5b1c">qsbd::kll_factory::instance</a></div><div class="ttdeci">quantile_sketch&lt; Type &gt; * instance() override</div><div class="ttdoc">A pure virtual method for create new instances of a quantile_sketch&lt;Type&gt;.</div><div class="ttdef"><b>Definition:</b> <a href="kll__factory_8hpp_source.html#l00016">kll_factory.hpp:16</a></div></div>
-<div class="ttc" id="aclassqsbd_1_1kll_html"><div class="ttname"><a href="classqsbd_1_1kll.html">qsbd::kll</a></div><div class="ttdef"><b>Definition:</b> <a href="kll_8hpp_source.html#l00010">kll.hpp:10</a></div></div>
-<div class="ttc" id="aclassqsbd_1_1quantile__sketch_html"><div class="ttname"><a href="classqsbd_1_1quantile__sketch.html">qsbd::quantile_sketch</a></div><div class="ttdoc">A interface for quantile sketchs.</div><div class="ttdef"><b>Definition:</b> <a href="quantile__sketch_8hpp_source.html#l00024">quantile_sketch.hpp:24</a></div></div>
-<div class="ttc" id="aclassqsbd_1_1sketch__factory_html"><div class="ttname"><a href="classqsbd_1_1sketch__factory.html">qsbd::sketch_factory</a></div><div class="ttdoc">A interface for factorys of sketchs.</div><div class="ttdef"><b>Definition:</b> <a href="sketch__factory_8hpp_source.html#l00023">sketch_factory.hpp:23</a></div></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> Type&gt;</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="classqsbd_1_1kll__factory.html">   23</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classqsbd_1_1kll__factory.html">kll_factory</a> : <span class="keyword">public</span> <a class="code" href="classqsbd_1_1sketch__factory.html">sketch_factory</a>&lt;Type&gt;{</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keywordtype">double</span> error;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="classqsbd_1_1kll__factory.html#ae746f6470ebbc1fb58f127c76d54bee0">   32</a></span>&#160;        <a class="code" href="classqsbd_1_1kll__factory.html#ae746f6470ebbc1fb58f127c76d54bee0">kll_factory</a>(<span class="keywordtype">double</span> err){</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            this-&gt;error = err;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        }</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="classqsbd_1_1kll__factory.html#adce0aec1afea9987269fea54d03e5b1c">   44</a></span>&#160;        <a class="code" href="classqsbd_1_1quantile__sketch.html">quantile_sketch&lt;Type&gt;</a> * <a class="code" href="classqsbd_1_1kll__factory.html#adce0aec1afea9987269fea54d03e5b1c">instance</a>()<span class="keyword"> override </span>{</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="classqsbd_1_1kll.html">kll&lt;Type&gt;</a>(this-&gt;error);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        }</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    };</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;}</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">#endif  </span></div>
+<div class="ttc" id="aclassqsbd_1_1kll__factory_html"><div class="ttname"><a href="classqsbd_1_1kll__factory.html">qsbd::kll_factory</a></div><div class="ttdoc">A factory of kll.</div><div class="ttdef"><b>Definition:</b> <a href="kll__factory_8hpp_source.html#l00023">kll_factory.hpp:23</a></div></div>
+<div class="ttc" id="aclassqsbd_1_1kll__factory_html_adce0aec1afea9987269fea54d03e5b1c"><div class="ttname"><a href="classqsbd_1_1kll__factory.html#adce0aec1afea9987269fea54d03e5b1c">qsbd::kll_factory::instance</a></div><div class="ttdeci">quantile_sketch&lt; Type &gt; * instance() override</div><div class="ttdoc">Creates a new instance of a kll and returns it.</div><div class="ttdef"><b>Definition:</b> <a href="kll__factory_8hpp_source.html#l00044">kll_factory.hpp:44</a></div></div>
+<div class="ttc" id="aclassqsbd_1_1kll__factory_html_ae746f6470ebbc1fb58f127c76d54bee0"><div class="ttname"><a href="classqsbd_1_1kll__factory.html#ae746f6470ebbc1fb58f127c76d54bee0">qsbd::kll_factory::kll_factory</a></div><div class="ttdeci">kll_factory(double err)</div><div class="ttdoc">Constructor for the class.</div><div class="ttdef"><b>Definition:</b> <a href="kll__factory_8hpp_source.html#l00032">kll_factory.hpp:32</a></div></div>
+<div class="ttc" id="aclassqsbd_1_1kll_html"><div class="ttname"><a href="classqsbd_1_1kll.html">qsbd::kll</a></div><div class="ttdoc">A class to represent the Karnin-Lang-Liberty sketch.</div><div class="ttdef"><b>Definition:</b> <a href="kll_8hpp_source.html#l00031">kll.hpp:31</a></div></div>
+<div class="ttc" id="aclassqsbd_1_1quantile__sketch_html"><div class="ttname"><a href="classqsbd_1_1quantile__sketch.html">qsbd::quantile_sketch</a></div><div class="ttdoc">A interface for quantile sketchs.</div><div class="ttdef"><b>Definition:</b> <a href="quantile__sketch_8hpp_source.html#l00025">quantile_sketch.hpp:25</a></div></div>
+<div class="ttc" id="aclassqsbd_1_1sketch__factory_html"><div class="ttname"><a href="classqsbd_1_1sketch__factory.html">qsbd::sketch_factory</a></div><div class="ttdoc">A interface for factorys of sketchs.</div><div class="ttdef"><b>Definition:</b> <a href="sketch__factory_8hpp_source.html#l00024">sketch_factory.hpp:24</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -136,13 +136,16 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aa908579f27136909b6e277cf3f8ce15f"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::vector&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqsbd_1_1count__sketch.html#aa908579f27136909b6e277cf3f8ce15f">get_hash_functions_consts</a> () const</td></tr>
 <tr class="memdesc:aa908579f27136909b6e277cf3f8ce15f"><td class="mdescLeft">&#160;</td><td class="mdescRight">A getter for all the hash functions constants.  <a href="classqsbd_1_1count__sketch.html#aa908579f27136909b6e277cf3f8ce15f">More...</a><br /></td></tr>
 <tr class="separator:aa908579f27136909b6e277cf3f8ce15f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1747fdc26116e65fad719b7c8ab4f71d"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqsbd_1_1count__sketch.html#a1747fdc26116e65fad719b7c8ab4f71d">get_heap_size</a> ()</td></tr>
+<tr class="memdesc:a1747fdc26116e65fad719b7c8ab4f71d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for the estimated amount of heap memory allocated for this object for a pointer.  <a href="classqsbd_1_1count__sketch.html#a1747fdc26116e65fad719b7c8ab4f71d">More...</a><br /></td></tr>
+<tr class="separator:a1747fdc26116e65fad719b7c8ab4f71d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >A class to estimate a frequency of a element in a stream. </p>
 <p >It also summarizes a multiset v and answers point queries approximately. It has asymptotically the same guarantees as the CountMin Sketch, but with slightly worse hidden constant factors: Given parameters <img class="formulaInl" alt="$\epsilon$" src="form_0.png"/> and <img class="formulaInl" alt="$\delta$" src="form_1.png"/>, the summary uses space <img class="formulaInl" alt="$O(\frac{\log(\frac{1}{\delta})}{\epsilon})$" src="form_2.png"/> , and guarantees with probability at least 1−δ that any point query is answered with additive error at most <img class="formulaInl" alt="$\epsilon||v||_1$" src="form_3.png"/>. Alternatively, with space <img class="formulaInl" alt="$O(\frac{\log(\frac{1}{\delta})}{\epsilon^2})$" src="form_4.png"/>, it has error at most <img class="formulaInl" alt="$\epsilon||v||_2$" src="form_5.png"/> with probability at least <img class="formulaInl" alt="$1 − \delta$" src="form_6.png"/>. The benefit of the Count Sketch is that it produces an unbiased estimator.</p>
 <p >This Count Sketch uses the L1 bound garantee. </p>
 
-<p class="definition">Definition at line <a class="el" href="count__sketch_8h_source.html#l00034">34</a> of file <a class="el" href="count__sketch_8h_source.html">count_sketch.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="count__sketch_8h_source.html#l00035">35</a> of file <a class="el" href="count__sketch_8h_source.html">count_sketch.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aa31ebfbec75b141b594795bf1054bfdf"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa31ebfbec75b141b594795bf1054bfdf">&#9670;&nbsp;</a></span>count_sketch() <span class="overload">[1/5]</span></h2>
@@ -610,6 +613,41 @@ Public Member Functions</h2></td></tr>
 </div><!-- fragment -->
 </div>
 </div>
+<a id="a1747fdc26116e65fad719b7c8ab4f71d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1747fdc26116e65fad719b7c8ab4f71d">&#9670;&nbsp;</a></span>get_heap_size()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint64_t qsbd::count_sketch::get_heap_size </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Getter for the estimated amount of heap memory allocated for this object for a pointer. </p>
+<dl class="section return"><dt>Returns</dt><dd>The estimated memory in bytes. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="count__sketch__two__wise_8cpp_source.html#l00284">284</a> of file <a class="el" href="count__sketch__two__wise_8cpp_source.html">count_sketch_two_wise.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;                                         {</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;        uint64_t cs_hs = <span class="keyword">sizeof</span>(<a class="code" href="classqsbd_1_1count__sketch.html#aa31ebfbec75b141b594795bf1054bfdf">count_sketch</a>);</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;        uint64_t hf_hs = <span class="keyword">sizeof</span>(<a class="code" href="classtwo__wise__family.html">two_wise_family</a>) * hash_functions.capacity();</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;        uint64_t est_hs = 0;</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160; </div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; estimators.size(); i++){</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;            est_hs += <span class="keyword">sizeof</span>(std::vector&lt;int&gt;) + <span class="keyword">sizeof</span>(<span class="keywordtype">int</span>) * estimators[i].capacity();</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;        }</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160; </div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;        <span class="keywordflow">return</span> cs_hs + hf_hs + est_hs;</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;    }</div>
+<div class="ttc" id="aclassqsbd_1_1count__sketch_html_aa31ebfbec75b141b594795bf1054bfdf"><div class="ttname"><a href="classqsbd_1_1count__sketch.html#aa31ebfbec75b141b594795bf1054bfdf">qsbd::count_sketch::count_sketch</a></div><div class="ttdeci">count_sketch(int fixd, int fixt)</div><div class="ttdoc">Constructs a count_sketch with fixd rows and fixt collumns.</div><div class="ttdef"><b>Definition:</b> <a href="count__sketch_8cpp_source.html#l00041">count_sketch.cpp:41</a></div></div>
+<div class="ttc" id="aclasstwo__wise__family_html"><div class="ttname"><a href="classtwo__wise__family.html">two_wise_family</a></div><div class="ttdef"><b>Definition:</b> <a href="fm_8cpp_source.html#l00109">fm.cpp:109</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
 <a id="a1f5f376531d72a0b5f090eb9d786fb92"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1f5f376531d72a0b5f090eb9d786fb92">&#9670;&nbsp;</a></span>get_t()</h2>
 
@@ -729,7 +767,6 @@ It's up to a user the function of delete this memory. </dd></dl>
 <div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160; </div>
 <div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;        <span class="keywordflow">return</span> merged_cs;</div>
 <div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    }</div>
-<div class="ttc" id="aclassqsbd_1_1count__sketch_html_aa31ebfbec75b141b594795bf1054bfdf"><div class="ttname"><a href="classqsbd_1_1count__sketch.html#aa31ebfbec75b141b594795bf1054bfdf">qsbd::count_sketch::count_sketch</a></div><div class="ttdeci">count_sketch(int fixd, int fixt)</div><div class="ttdoc">Constructs a count_sketch with fixd rows and fixt collumns.</div><div class="ttdef"><b>Definition:</b> <a href="count__sketch_8cpp_source.html#l00041">count_sketch.cpp:41</a></div></div>
 <div class="ttc" id="aclassqsbd_1_1count__sketch_html_aa908579f27136909b6e277cf3f8ce15f"><div class="ttname"><a href="classqsbd_1_1count__sketch.html#aa908579f27136909b6e277cf3f8ce15f">qsbd::count_sketch::get_hash_functions_consts</a></div><div class="ttdeci">std::vector&lt; std::vector&lt; int &gt; &gt; get_hash_functions_consts() const</div><div class="ttdoc">A getter for all the hash functions constants.</div><div class="ttdef"><b>Definition:</b> <a href="count__sketch_8cpp_source.html#l00273">count_sketch.cpp:273</a></div></div>
 </div><!-- fragment -->
 </div>

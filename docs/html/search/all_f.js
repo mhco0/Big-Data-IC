@@ -1,8 +1,7 @@
 var searchData=
 [
-  ['signature_72',['signature',['../classqsbd_1_1mem__track_1_1signature.html',1,'qsbd::mem_track']]],
-  ['sketch_5ffactory_73',['sketch_factory',['../classqsbd_1_1sketch__factory.html',1,'qsbd']]],
-  ['sketch_5ffactory_2ehpp_74',['sketch_factory.hpp',['../sketch__factory_8hpp.html',1,'']]],
-  ['sketch_5ffactory_3c_20int_20_3e_75',['sketch_factory&lt; int &gt;',['../classqsbd_1_1sketch__factory.html',1,'qsbd']]],
-  ['start_76',['start',['../classqsbd_1_1timer.html#aacea2bf0f2e9f7ecfa21aab23003415b',1,'qsbd::timer']]]
+  ['real_5franks_5ffrom_5fstream_93',['real_ranks_from_stream',['../stream__maker_8h.html#adcab12006be5f9223b68669545761bb9',1,'qsbd::stream_maker']]],
+  ['real_5franks_5ffrom_5fstream_5fwith_5fweight_94',['real_ranks_from_stream_with_weight',['../stream__maker_8h.html#a930e2061171827e71e47073e7169dae0',1,'qsbd::stream_maker']]],
+  ['rebind_95',['rebind',['../structMyAllocator_1_1rebind.html',1,'MyAllocator']]],
+  ['refined_5ffm_96',['refined_fm',['../classrefined__fm.html',1,'']]]
 ];

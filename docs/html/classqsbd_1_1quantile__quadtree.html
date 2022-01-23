@@ -74,33 +74,407 @@ $(function() {
   <div class="headertitle"><div class="title">qsbd::quantile_quadtree&lt; ObjType &gt; Class Template Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>A quadtree that uses quantile sketchs in it's nodes.  
+ <a href="classqsbd_1_1quantile__quadtree.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a0f2862b9ad3a4a3dfb5aa489bd45dcdc"><td class="memItemLeft" align="right" valign="top"><a id="a0f2862b9ad3a4a3dfb5aa489bd45dcdc"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>quantile_quadtree</b> (const <a class="el" href="classqsbd_1_1aabb.html">aabb</a>&lt; int &gt; &amp;region, const int &amp;deep_length, <a class="el" href="classqsbd_1_1sketch__factory.html">sketch_factory</a>&lt; ObjType &gt; *fact, bool only_leafs=false)</td></tr>
+<tr class="memitem:a0f2862b9ad3a4a3dfb5aa489bd45dcdc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqsbd_1_1quantile__quadtree.html#a0f2862b9ad3a4a3dfb5aa489bd45dcdc">quantile_quadtree</a> (const <a class="el" href="classqsbd_1_1aabb.html">aabb</a>&lt; int &gt; &amp;region, const int &amp;deep_length, <a class="el" href="classqsbd_1_1sketch__factory.html">sketch_factory</a>&lt; ObjType &gt; *fact, bool only_leafs=false)</td></tr>
+<tr class="memdesc:a0f2862b9ad3a4a3dfb5aa489bd45dcdc"><td class="mdescLeft">&#160;</td><td class="mdescRight">A constructor for the <a class="el" href="classqsbd_1_1quantile__quadtree.html" title="A quadtree that uses quantile sketchs in it&#39;s nodes.">quantile_quadtree</a>&lt;ObjType&gt;  <a href="classqsbd_1_1quantile__quadtree.html#a0f2862b9ad3a4a3dfb5aa489bd45dcdc">More...</a><br /></td></tr>
 <tr class="separator:a0f2862b9ad3a4a3dfb5aa489bd45dcdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a73b55ccba4395bbd7e34fa1ad465385c"><td class="memItemLeft" align="right" valign="top"><a id="a73b55ccba4395bbd7e34fa1ad465385c"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>quantile_quadtree</b> (const <a class="el" href="classqsbd_1_1quantile__quadtree.html">quantile_quadtree</a> &amp;other)=delete</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqsbd_1_1quantile__quadtree.html#a73b55ccba4395bbd7e34fa1ad465385c">quantile_quadtree</a> (const <a class="el" href="classqsbd_1_1quantile__quadtree.html">quantile_quadtree</a> &amp;other)=delete</td></tr>
+<tr class="memdesc:a73b55ccba4395bbd7e34fa1ad465385c"><td class="mdescLeft">&#160;</td><td class="mdescRight">It's not possible to copy-construct a <a class="el" href="classqsbd_1_1quantile__quadtree.html" title="A quadtree that uses quantile sketchs in it&#39;s nodes.">quantile_quadtree</a> by other. <br /></td></tr>
 <tr class="separator:a73b55ccba4395bbd7e34fa1ad465385c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab94369e56c789afc9f43bedf3e976065"><td class="memItemLeft" align="right" valign="top"><a id="ab94369e56c789afc9f43bedf3e976065"></a>
-<a class="el" href="classqsbd_1_1quantile__quadtree.html">quantile_quadtree</a>&lt; ObjType &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classqsbd_1_1quantile__quadtree.html">quantile_quadtree</a> &amp;other)=delete</td></tr>
+<a class="el" href="classqsbd_1_1quantile__quadtree.html">quantile_quadtree</a>&lt; ObjType &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqsbd_1_1quantile__quadtree.html#ab94369e56c789afc9f43bedf3e976065">operator=</a> (const <a class="el" href="classqsbd_1_1quantile__quadtree.html">quantile_quadtree</a> &amp;other)=delete</td></tr>
+<tr class="memdesc:ab94369e56c789afc9f43bedf3e976065"><td class="mdescLeft">&#160;</td><td class="mdescRight">It's not possible to assign a <a class="el" href="classqsbd_1_1quantile__quadtree.html" title="A quadtree that uses quantile sketchs in it&#39;s nodes.">quantile_quadtree</a> to other. <br /></td></tr>
 <tr class="separator:ab94369e56c789afc9f43bedf3e976065"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeaed34e66f7e71fc7bad998cf7203e33"><td class="memItemLeft" align="right" valign="top"><a id="aeaed34e66f7e71fc7bad998cf7203e33"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> (const <a class="el" href="classqsbd_1_1point.html">point</a>&lt; int &gt; &amp;pos, ObjType value)</td></tr>
+<tr class="memitem:ae1c7036db1cd72dbdebac8416a5861af"><td class="memItemLeft" align="right" valign="top"><a id="ae1c7036db1cd72dbdebac8416a5861af"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqsbd_1_1quantile__quadtree.html#ae1c7036db1cd72dbdebac8416a5861af">~quantile_quadtree</a> ()</td></tr>
+<tr class="memdesc:ae1c7036db1cd72dbdebac8416a5861af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructs the <a class="el" href="classqsbd_1_1quantile__quadtree.html" title="A quadtree that uses quantile sketchs in it&#39;s nodes.">quantile_quadtree</a> instance. <br /></td></tr>
+<tr class="separator:ae1c7036db1cd72dbdebac8416a5861af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeaed34e66f7e71fc7bad998cf7203e33"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqsbd_1_1quantile__quadtree.html#aeaed34e66f7e71fc7bad998cf7203e33">update</a> (const <a class="el" href="classqsbd_1_1point.html">point</a>&lt; int &gt; &amp;pos, ObjType value)</td></tr>
+<tr class="memdesc:aeaed34e66f7e71fc7bad998cf7203e33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the quantile quadtree with the object <code>value</code> with position <code>pos</code>.  <a href="classqsbd_1_1quantile__quadtree.html#aeaed34e66f7e71fc7bad998cf7203e33">More...</a><br /></td></tr>
 <tr class="separator:aeaed34e66f7e71fc7bad998cf7203e33"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae0ba6872219b18e7deeb2cdb8e199526"><td class="memItemLeft" align="right" valign="top"><a id="ae0ba6872219b18e7deeb2cdb8e199526"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> (const <a class="el" href="classqsbd_1_1point.html">point</a>&lt; int &gt; &amp;pos, ObjType value, int weight)</td></tr>
+<tr class="memitem:ae0ba6872219b18e7deeb2cdb8e199526"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqsbd_1_1quantile__quadtree.html#ae0ba6872219b18e7deeb2cdb8e199526">update</a> (const <a class="el" href="classqsbd_1_1point.html">point</a>&lt; int &gt; &amp;pos, ObjType value, int weight)</td></tr>
+<tr class="memdesc:ae0ba6872219b18e7deeb2cdb8e199526"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the quantile quadtree with the object <code>value</code> with position <code>pos</code> and weight <code>weight</code>.  <a href="classqsbd_1_1quantile__quadtree.html#ae0ba6872219b18e7deeb2cdb8e199526">More...</a><br /></td></tr>
 <tr class="separator:ae0ba6872219b18e7deeb2cdb8e199526"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adda47ebfb6d7a6291452d9e60aa2938f"><td class="memItemLeft" align="right" valign="top"><a id="adda47ebfb6d7a6291452d9e60aa2938f"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>query</b> (const <a class="el" href="classqsbd_1_1aabb.html">aabb</a>&lt; int &gt; &amp;region, ObjType value)</td></tr>
+<tr class="memitem:adda47ebfb6d7a6291452d9e60aa2938f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqsbd_1_1quantile__quadtree.html#adda47ebfb6d7a6291452d9e60aa2938f">query</a> (const <a class="el" href="classqsbd_1_1aabb.html">aabb</a>&lt; int &gt; &amp;region, ObjType value)</td></tr>
+<tr class="memdesc:adda47ebfb6d7a6291452d9e60aa2938f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Queries the rank of some object <code>value</code> with certain <code>region</code>.  <a href="classqsbd_1_1quantile__quadtree.html#adda47ebfb6d7a6291452d9e60aa2938f">More...</a><br /></td></tr>
 <tr class="separator:adda47ebfb6d7a6291452d9e60aa2938f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabbe1296f9fda66d4d58e6dc0a2fffe4"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqsbd_1_1quantile__quadtree.html#aabbe1296f9fda66d4d58e6dc0a2fffe4">get_heap_size</a> ()</td></tr>
+<tr class="memdesc:aabbe1296f9fda66d4d58e6dc0a2fffe4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for the estimated amount of heap memory allocated for this object for a pointer.  <a href="classqsbd_1_1quantile__quadtree.html#aabbe1296f9fda66d4d58e6dc0a2fffe4">More...</a><br /></td></tr>
+<tr class="separator:aabbe1296f9fda66d4d58e6dc0a2fffe4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;class ObjType&gt;<br />
-class qsbd::quantile_quadtree&lt; ObjType &gt;</div>
-<p class="definition">Definition at line <a class="el" href="quantile__quadtree_8hpp_source.html#l00010">10</a> of file <a class="el" href="quantile__quadtree_8hpp_source.html">quantile_quadtree.hpp</a>.</p>
-</div><hr/>The documentation for this class was generated from the following file:<ul>
+class qsbd::quantile_quadtree&lt; ObjType &gt;</div><p >A quadtree that uses quantile sketchs in it's nodes. </p>
+<p >A quadtree is a data structure that is used to subdivide a 2D-space into for region, each region in the subdivided space can also subdivide it's space in four more regions. That can be use to make efficient queries and updates if the data has coordenates. A <a class="el" href="classqsbd_1_1quantile__quadtree.html" title="A quadtree that uses quantile sketchs in it&#39;s nodes.">quantile_quadtree</a> is a new data structure that simulates a quadtree behavier but also uses quantile_sketchs in it's nodes, that way, this structure is able to also anwer group statistics , such as the rank for a given element, the cdf for the data and it's quantile. Remember that the quantile quadtree subdivides the space of this mode:</p>
+<ul>
+<li>If we have a space going from (0, 0) to (4, 4), The root and the first level of subdivision will be:</li>
+</ul>
+<div class="fragment"><div class="line">.Lvl = 0 :</div>
+<div class="line">(0, 4)---------------(4, 4)</div>
+<div class="line">|                        |</div>
+<div class="line">|                        |</div>
+<div class="line">|                        |</div>
+<div class="line">|                        |</div>
+<div class="line">|                        |</div>
+<div class="line">(0, 0)---------------(4, 0)</div>
+<div class="line"> </div>
+<div class="line">- The second level :</div>
+<div class="line"> </div>
+<div class="line">.Lvl = 1 :</div>
+<div class="line"> </div>
+<div class="line">(0, 4)-----(2, 4)----(4, 4)</div>
+<div class="line">|    NW     |     NE     |</div>
+<div class="line">|           |            |</div>
+<div class="line">(0, 2)-----(2, 2)----(4, 2)</div>
+<div class="line">|    SW     |     SE     |</div>
+<div class="line">|           |            |</div>
+<div class="line">(0, 0)-----(2, 0)----(4, 0)</div>
+</div><!-- fragment --><p >Where NE, NW , SW and SE are nodes of the quantile quadtree and are also directions of where put the point based on it's position in space. The node in Lvl = 0 now owns all nodes in Lvl = 1, it's points to the first node (NE), the other three nodes are stores sequencialy in the tree, we can see that in this form:</p>
+<div class="fragment"><div class="line">Lvl = 0:</div>
+<div class="line">| root |</div>
+<div class="line">        |</div>
+<div class="line">    \ Lvl = 1</div>
+<div class="line">         -&gt; [NE, NW, SW, SE]</div>
+<div class="line">              |   |   |   |</div>
+<div class="line">              |   |   |   \ Lvl = 2 </div>
+<div class="line">              |   |   \     -&gt; [NE, NW, SW, SE]</div>
+<div class="line">              |   \     -&gt; [NE, NW, SW, SE]</div>
+<div class="line">              \     -&gt; [NE, NW, SW, SE] </div>
+<div class="line">                -&gt; [NE, NW, SW, SE]</div>
+<div class="line">                ...</div>
+</div><!-- fragment --> <dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">ObjType</td><td>The type of the object that the quantile quadtree works with</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section warning"><dt>Warning</dt><dd>To the <a class="el" href="classqsbd_1_1quantile__quadtree.html" title="A quadtree that uses quantile sketchs in it&#39;s nodes.">quantile_quadtree</a> anwer properly it's queries, all quantile sketchs inside this structure must be able to merge together. </dd>
+<dd>
+The <a class="el" href="classqsbd_1_1quantile__quadtree.html" title="A quadtree that uses quantile sketchs in it&#39;s nodes.">quantile_quadtree</a> only subdivides the space until it's reach in a node of size 1 x 1, if we hit this cell we can't no longer subdivide the tree </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="quantile__quadtree_8hpp_source.html#l00086">86</a> of file <a class="el" href="quantile__quadtree_8hpp_source.html">quantile_quadtree.hpp</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a0f2862b9ad3a4a3dfb5aa489bd45dcdc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f2862b9ad3a4a3dfb5aa489bd45dcdc">&#9670;&nbsp;</a></span>quantile_quadtree()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class ObjType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classqsbd_1_1quantile__quadtree.html">qsbd::quantile_quadtree</a>&lt; ObjType &gt;::<a class="el" href="classqsbd_1_1quantile__quadtree.html">quantile_quadtree</a> </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classqsbd_1_1aabb.html">aabb</a>&lt; int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>region</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int &amp;&#160;</td>
+          <td class="paramname"><em>deep_length</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classqsbd_1_1sketch__factory.html">sketch_factory</a>&lt; ObjType &gt; *&#160;</td>
+          <td class="paramname"><em>fact</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>only_leafs</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>A constructor for the <a class="el" href="classqsbd_1_1quantile__quadtree.html" title="A quadtree that uses quantile sketchs in it&#39;s nodes.">quantile_quadtree</a>&lt;ObjType&gt; </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">region</td><td>A AABB to represent the bounds for this quantile quadtree </td></tr>
+    <tr><td class="paramname">deep_length</td><td>The maximum depth for the quantile quadtree </td></tr>
+    <tr><td class="paramname">fact</td><td>A factory to create new sketchs of a certain class </td></tr>
+    <tr><td class="paramname">only_leafs</td><td>A boolean value to indicate that the <a class="el" href="classqsbd_1_1quantile__quadtree.html" title="A quadtree that uses quantile sketchs in it&#39;s nodes.">quantile_quadtree</a> only use sketchs on leafs or no </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="quantile__quadtree_8hpp_source.html#l00506">506</a> of file <a class="el" href="quantile__quadtree_8hpp_source.html">quantile_quadtree.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;                                                                                                                                  {</div>
+<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;            <a class="code" href="qsbd__debug_8h.html#a0966b817b229d48e5ffc7feab19a0be6">ASSERT</a>(fact != <span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;            </div>
+<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;            this-&gt;boundarys = region;</div>
+<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;            this-&gt;max_deep = deep_length;</div>
+<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;            this-&gt;only_leaf = only_leafs;</div>
+<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;            this-&gt;factory = fact;</div>
+<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;            this-&gt;root = <span class="keyword">new</span> quantile_quadtree&lt;ObjType&gt;::node(0);</div>
+<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;            <span class="keywordflow">if</span>(not this-&gt;only_leaf) this-&gt;root-&gt;payload = this-&gt;factory-&gt;instance();</div>
+<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;            this-&gt;alloc_childs();</div>
+<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;        }</div>
+<div class="ttc" id="aqsbd__debug_8h_html_a0966b817b229d48e5ffc7feab19a0be6"><div class="ttname"><a href="qsbd__debug_8h.html#a0966b817b229d48e5ffc7feab19a0be6">ASSERT</a></div><div class="ttdeci">#define ASSERT(cond)</div><div class="ttdoc">If the condition cond is false this debug macro will output in the error console (std::cerr) the cond...</div><div class="ttdef"><b>Definition:</b> <a href="qsbd__debug_8h_source.html#l00051">qsbd_debug.h:51</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="aabbe1296f9fda66d4d58e6dc0a2fffe4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aabbe1296f9fda66d4d58e6dc0a2fffe4">&#9670;&nbsp;</a></span>get_heap_size()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class ObjType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint64_t <a class="el" href="classqsbd_1_1quantile__quadtree.html">qsbd::quantile_quadtree</a>&lt; ObjType &gt;::get_heap_size </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Getter for the estimated amount of heap memory allocated for this object for a pointer. </p>
+<dl class="section return"><dt>Returns</dt><dd>The estimated memory in bytes. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="quantile__quadtree_8hpp_source.html#l00597">597</a> of file <a class="el" href="quantile__quadtree_8hpp_source.html">quantile_quadtree.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;                                 {</div>
+<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;            uint64_t qq_hs = <span class="keyword">sizeof</span>(quantile_quadtree&lt;ObjType&gt;);</div>
+<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;            uint64_t root_hs = <span class="keyword">sizeof</span>(quantile_quadtree&lt;ObjType&gt;::node);</div>
+<div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;            uint64_t tree_hs = <span class="keyword">sizeof</span>(quantile_quadtree&lt;ObjType&gt;::node) * this-&gt;tree.capacity();</div>
+<div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160; </div>
+<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;            <span class="keywordflow">if</span>(this-&gt;root-&gt;payload != <span class="keyword">nullptr</span>){</div>
+<div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;                root_hs += this-&gt;root-&gt;payload-&gt;get_heap_size();</div>
+<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;            }</div>
+<div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;            </div>
+<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;            <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; this-&gt;tree.size(); i++){</div>
+<div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;                <span class="keywordflow">if</span>(this-&gt;tree[i].payload != <span class="keyword">nullptr</span>){</div>
+<div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;                    tree_hs += this-&gt;tree[i].payload-&gt;get_heap_size();</div>
+<div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;                }</div>
+<div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;            }</div>
+<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160; </div>
+<div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;            <span class="keywordflow">return</span> qq_hs + root_hs + tree_hs;</div>
+<div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="adda47ebfb6d7a6291452d9e60aa2938f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adda47ebfb6d7a6291452d9e60aa2938f">&#9670;&nbsp;</a></span>query()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class ObjType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="classqsbd_1_1quantile__quadtree.html">qsbd::quantile_quadtree</a>&lt; ObjType &gt;::query </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classqsbd_1_1aabb.html">aabb</a>&lt; int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>region</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ObjType&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Queries the rank of some object <code>value</code> with certain <code>region</code>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">region</td><td>A AABB region to be queried. </td></tr>
+    <tr><td class="paramname">value</td><td>The object to be queried. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The estimated rank for this object <code>value</code> in the <code>region</code> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="quantile__quadtree_8hpp_source.html#l00570">570</a> of file <a class="el" href="quantile__quadtree_8hpp_source.html">quantile_quadtree.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;                                                         {</div>
+<div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;            <span class="comment">// is we are using sketchs on all nodes and the bounds are all inside the query region </span></div>
+<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;            <span class="comment">// we can ask this faster in the root sketch</span></div>
+<div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;            <span class="keywordflow">if</span>(not this-&gt;only_leaf and this-&gt;boundarys.is_inside(region)){</div>
+<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;                <span class="keywordtype">int</span> ret = this-&gt;root-&gt;payload-&gt;query(value);</div>
+<div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160; </div>
+<div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;                <span class="keywordflow">return</span> ret;</div>
+<div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;            }</div>
+<div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160; </div>
+<div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;            aabb&lt;int&gt; cur_box(this-&gt;boundarys);</div>
+<div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160;            quantile_sketch&lt;ObjType&gt; * sketch = this-&gt;factory-&gt;instance();</div>
+<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160; </div>
+<div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;            <span class="comment">//This 0 because here we start from the root</span></div>
+<div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160;            <span class="keywordflow">if</span>(this-&gt;only_leaf) search_region_only_leaf(-1, region, 0, cur_box, sketch);</div>
+<div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;            <span class="keywordflow">else</span> search_region(-1, region, 0, cur_box, sketch);</div>
+<div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160; </div>
+<div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;            <span class="keywordtype">int</span> ret = sketch-&gt;query(value);</div>
+<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160; </div>
+<div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;            <span class="keyword">delete</span> sketch;</div>
+<div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160; </div>
+<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;            <span class="keywordflow">return</span> ret;</div>
+<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="aeaed34e66f7e71fc7bad998cf7203e33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeaed34e66f7e71fc7bad998cf7203e33">&#9670;&nbsp;</a></span>update() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class ObjType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classqsbd_1_1quantile__quadtree.html">qsbd::quantile_quadtree</a>&lt; ObjType &gt;::update </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classqsbd_1_1point.html">point</a>&lt; int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>pos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ObjType&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Updates the quantile quadtree with the object <code>value</code> with position <code>pos</code>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pos</td><td>The position for the <code>value</code> in int coordenates </td></tr>
+    <tr><td class="paramname">value</td><td>The object to update the tree. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the maximum depth was reached, false otherwise</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>This function will only works properly if the sketch used works with unweighted objects </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="quantile__quadtree_8hpp_source.html#l00544">544</a> of file <a class="el" href="quantile__quadtree_8hpp_source.html">quantile_quadtree.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;                                                         {</div>
+<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;            <span class="keywordflow">if</span>(this-&gt;only_leaf) private_update_only_leaf(pos, value);</div>
+<div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;            <span class="keywordflow">else</span> private_update(pos, value);</div>
+<div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ae0ba6872219b18e7deeb2cdb8e199526"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0ba6872219b18e7deeb2cdb8e199526">&#9670;&nbsp;</a></span>update() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class ObjType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classqsbd_1_1quantile__quadtree.html">qsbd::quantile_quadtree</a>&lt; ObjType &gt;::update </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classqsbd_1_1point.html">point</a>&lt; int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>pos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ObjType&#160;</td>
+          <td class="paramname"><em>value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>weight</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Updates the quantile quadtree with the object <code>value</code> with position <code>pos</code> and weight <code>weight</code>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pos</td><td>The position for the <code>value</code> in int coordenates </td></tr>
+    <tr><td class="paramname">value</td><td>The object to update the tree. </td></tr>
+    <tr><td class="paramname">weight</td><td>The weight associated with <code>value</code> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the maximum depth was reached, false otherwise</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>This function will only works properly if the sketch used works with weighted objects </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="quantile__quadtree_8hpp_source.html#l00559">559</a> of file <a class="el" href="quantile__quadtree_8hpp_source.html">quantile_quadtree.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;                                                                     {</div>
+<div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;            <span class="keywordflow">if</span>(this-&gt;only_leaf) private_update_only_leaf(pos, value, weight);</div>
+<div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;            <span class="keywordflow">else</span> private_update(pos, value, weight);</div>
+<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li>src/quantile_quadtree/<a class="el" href="quantile__quadtree_8hpp_source.html">quantile_quadtree.hpp</a></li>
 </ul>
 </div><!-- contents -->

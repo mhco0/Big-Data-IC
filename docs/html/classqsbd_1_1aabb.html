@@ -388,7 +388,8 @@ template&lt;class T &gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>True if the two aabb intersects with each other and false otherwise </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the two aabb intersects with each other and false otherwise</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>AABB's just touching each other are considered as non-intersecting. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="aabb_8cpp_source.html#l00038">38</a> of file <a class="el" href="aabb_8cpp_source.html">aabb.cpp</a>.</p>
 <div class="fragment"><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                                                    {</div>
@@ -399,8 +400,8 @@ template&lt;class T &gt; </div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        T bottom = <a class="code" href="classqsbd_1_1aabb.html#a2b3cddabd8255645831b4a4cb9e4eef2">bounds</a>.first.y();</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        T top = <a class="code" href="classqsbd_1_1aabb.html#a2b3cddabd8255645831b4a4cb9e4eef2">bounds</a>.second.y();</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordflow">return</span> (left &lt;= this-&gt;max_bound.x()) and (right &gt;= this-&gt;min_bound.x()) \</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            and (bottom &lt;= this-&gt;max_bound.y()) and (top &gt;= this-&gt;min_bound.y());</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <span class="keywordflow">return</span> (left &lt; this-&gt;max_bound.x()) and (right &gt; this-&gt;min_bound.x()) \</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            and (bottom &lt; this-&gt;max_bound.y()) and (top &gt; this-&gt;min_bound.y());</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    }</div>
 <div class="ttc" id="aclassqsbd_1_1aabb_html_a2b3cddabd8255645831b4a4cb9e4eef2"><div class="ttname"><a href="classqsbd_1_1aabb.html#a2b3cddabd8255645831b4a4cb9e4eef2">qsbd::aabb::bounds</a></div><div class="ttdeci">std::pair&lt; point&lt; T &gt;, point&lt; T &gt; &gt; bounds() const</div><div class="ttdoc">Gets the bounds for this aabb.</div><div class="ttdef"><b>Definition:</b> <a href="aabb_8cpp_source.html#l00063">aabb.cpp:63</a></div></div>
 </div><!-- fragment -->

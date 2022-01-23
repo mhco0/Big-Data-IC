@@ -246,8 +246,11 @@ Tests if this aabb instance intersects with another aabb {\ttfamily rhs}.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-True if the two aabb intersects with each other and false otherwise 
+True if the two aabb intersects with each other and false otherwise
 \end{DoxyReturn}
+\begin{DoxyNote}{Note}
+AABB\textquotesingle{}s just touching each other are considered as non-\/intersecting. 
+\end{DoxyNote}
 
 
 Definition at line 38 of file aabb.\+cpp.
@@ -262,8 +265,8 @@ Definition at line 38 of file aabb.\+cpp.
 \DoxyCodeLine{43         T bottom = \mbox{\hyperlink{classqsbd_1_1aabb_a2b3cddabd8255645831b4a4cb9e4eef2}{bounds}}.first.y();}
 \DoxyCodeLine{44         T top = \mbox{\hyperlink{classqsbd_1_1aabb_a2b3cddabd8255645831b4a4cb9e4eef2}{bounds}}.second.y();}
 \DoxyCodeLine{45 }
-\DoxyCodeLine{46         \textcolor{keywordflow}{return} (left <= this-\/>max\_bound.x()) and (right >= this-\/>min\_bound.x()) \(\backslash\) }
-\DoxyCodeLine{47             and (bottom <= this-\/>max\_bound.y()) and (top >= this-\/>min\_bound.y());}
+\DoxyCodeLine{46         \textcolor{keywordflow}{return} (left < this-\/>max\_bound.x()) and (right > this-\/>min\_bound.x()) \(\backslash\) }
+\DoxyCodeLine{47             and (bottom < this-\/>max\_bound.y()) and (top > this-\/>min\_bound.y());}
 \DoxyCodeLine{48     \}}
 
 \end{DoxyCode}

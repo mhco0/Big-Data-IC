@@ -266,6 +266,23 @@ namespace qsbd {
 		}
 	}
 
+	void q_digest::private_quantile(int cur_node, const int& rank, int& cur_weight, int& ret, bool& tracking, int left_range, int right_range){		
+		int middle  = (left_range + right_range) / 2;
+
+		if(tree[cur_node].left_child != -1){
+			this->private_quantile(tree[cur_node].left_child, rank, cur_weight, ret, tracking, left_range, middle);
+		 	this->private_quantile(tree[cur_node].left_child + 1, rank, cur_weight, ret, tracking, middle, right_range);
+		}
+
+		if (cur_weight + tree[cur_node].weight > rank){
+			if(tracking){
+				ret = right_range;
+				tracking = false;
+			}
+		}else cur_weight += tree[cur_node].weight;
+
+	}
+
 	int q_digest::query_from_buffer(const int& x){
 		if(small_buffer.size() == 0) return 0;
 
@@ -276,6 +293,20 @@ namespace qsbd {
 		}
 
 		return rank;
+	}
+
+	int q_digest::quantile_from_buffer(const int& rank){
+		if(small_buffer.size() == 0) return 0;
+
+		int rank_sum = 0;
+
+		for(int i = 0; i < small_buffer.size(); i++){
+			if (rank_sum + small_buffer[i].second > rank) return small_buffer[i].first;
+			
+			rank_sum += small_buffer[i].second;
+		}
+
+		return small_buffer[small_buffer.size() - 1].first;
 	}
 
 	q_digest::q_digest(double error, int universe){
@@ -324,6 +355,20 @@ namespace qsbd {
 
 		if((total_weight < (log2(universe) / error)) and not transfered_buffer) return query_from_buffer(x);
 		else return private_query(x);
+	}
+
+	int q_digest::quantile(double quant){
+		int weight = (int) total_weight * quant;
+
+		if((total_weight < (log2(universe) / error)) and not transfered_buffer) return quantile_from_buffer(weight);
+		else{
+			int value = universe - 1;
+			int cur_weight = 0;
+			bool tracking = true;
+			private_quantile(0, weight, cur_weight, value, tracking, 0ULL, universe - 1);
+
+			return value;
+		}
 	}
 
 	void q_digest::compress(){

@@ -25,7 +25,9 @@ virtual int \mbox{\hyperlink{classqsbd_1_1quantile__sketch_a8cf64d79f25d910d1c1a
 virtual \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$ Type $>$ $\ast$ \mbox{\hyperlink{classqsbd_1_1quantile__sketch_a20950642c0bd2279335f566b1c0170df}{merge}} (\mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$ Type $>$ \&rhs)=0
 \begin{DoxyCompactList}\small\item\em A pure virtual merge method. Recives a quantile sketch {\ttfamily rhs} performes a merge with this sketch, and returns a new quantile sketch. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classqsbd_1_1quantile__sketch_af3458d26f52106a68ab2a65a81eeb0af}{inner\+\_\+merge}} (\mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$ Type $>$ \&rhs)=0
-\begin{DoxyCompactList}\small\item\em A pure virtual merge method. Recives a quantile sketch {\ttfamily rhs} performes a merge with this sketch, and save in this sketch. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em A pure virtual merge method. Recives a quantile sketch {\ttfamily rhs} performes a merge with this sketch, and save in this sketch. \end{DoxyCompactList}\item 
+virtual uint64\+\_\+t \mbox{\hyperlink{classqsbd_1_1quantile__sketch_ae814c5158cd183267ed7029d97355267}{get\+\_\+heap\+\_\+size}} ()=0
+\begin{DoxyCompactList}\small\item\em A pure virtual method that returns the heap size for this individual \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$Type$>$ \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -43,11 +45,29 @@ Although update and query aren\textquotesingle{}t pure virtual member functions 
 \end{DoxyWarning}
 
 
-Definition at line 24 of file quantile\+\_\+sketch.\+hpp.
+Definition at line 25 of file quantile\+\_\+sketch.\+hpp.
 
 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classqsbd_1_1quantile__sketch_ae814c5158cd183267ed7029d97355267}\label{classqsbd_1_1quantile__sketch_ae814c5158cd183267ed7029d97355267}} 
+\index{qsbd::quantile\_sketch$<$ Type $>$@{qsbd::quantile\_sketch$<$ Type $>$}!get\_heap\_size@{get\_heap\_size}}
+\index{get\_heap\_size@{get\_heap\_size}!qsbd::quantile\_sketch$<$ Type $>$@{qsbd::quantile\_sketch$<$ Type $>$}}
+\doxysubsubsection{\texorpdfstring{get\_heap\_size()}{get\_heap\_size()}}
+{\footnotesize\ttfamily template$<$class Type $>$ \\
+virtual uint64\+\_\+t \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{qsbd\+::quantile\+\_\+sketch}}$<$ Type $>$\+::get\+\_\+heap\+\_\+size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+A pure virtual method that returns the heap size for this individual \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$Type$>$ 
+
+\begin{DoxyReturn}{Returns}
+The heap size for this class as if this was allocated by a \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$Type$>$ pointer. 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classqsbd_1_1dcs_a0410203f07c28f25776c12c35bdb2ef2}{qsbd\+::dcs}}, \mbox{\hyperlink{classqsbd_1_1gk_a1ae807440b4ed82487bf89f7c91042f8}{qsbd\+::gk$<$ T $>$}}, \mbox{\hyperlink{classqsbd_1_1kll_ae64747f15ffd2774b672924d7e8b048e}{qsbd\+::kll$<$ T $>$}}, and \mbox{\hyperlink{classqsbd_1_1q__digest_a3a00afbd8d4579dc172abca6b8609ce6}{qsbd\+::q\+\_\+digest}}.
+
 \mbox{\Hypertarget{classqsbd_1_1quantile__sketch_af3458d26f52106a68ab2a65a81eeb0af}\label{classqsbd_1_1quantile__sketch_af3458d26f52106a68ab2a65a81eeb0af}} 
 \index{qsbd::quantile\_sketch$<$ Type $>$@{qsbd::quantile\_sketch$<$ Type $>$}!inner\_merge@{inner\_merge}}
 \index{inner\_merge@{inner\_merge}!qsbd::quantile\_sketch$<$ Type $>$@{qsbd::quantile\_sketch$<$ Type $>$}}
@@ -127,11 +147,11 @@ Reimplemented in \mbox{\hyperlink{classqsbd_1_1dcs_acd06f01bc3561d7231ed2dbf20f8
 
 
 
-Definition at line 59 of file quantile\+\_\+sketch.\+hpp.
+Definition at line 60 of file quantile\+\_\+sketch.\+hpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{59 \{\textcolor{keywordflow}{return} Type();\}}
+\DoxyCodeLine{60 \{\textcolor{keywordflow}{return} Type();\}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classqsbd_1_1quantile__sketch_a8cf64d79f25d910d1c1aed209ddac71e}\label{classqsbd_1_1quantile__sketch_a8cf64d79f25d910d1c1aed209ddac71e}} 
@@ -162,11 +182,11 @@ Reimplemented in \mbox{\hyperlink{classqsbd_1_1dcs_acdb1bcb6b35ce55084fe2b0ed673
 
 
 
-Definition at line 69 of file quantile\+\_\+sketch.\+hpp.
+Definition at line 70 of file quantile\+\_\+sketch.\+hpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{69 \{\textcolor{keywordflow}{return} 0;\}}
+\DoxyCodeLine{70 \{\textcolor{keywordflow}{return} 0;\}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classqsbd_1_1quantile__sketch_a0e7eefd81eec272e92b7cb989be33c6a}\label{classqsbd_1_1quantile__sketch_a0e7eefd81eec272e92b7cb989be33c6a}} 
@@ -191,11 +211,11 @@ Reimplemented in \mbox{\hyperlink{classqsbd_1_1kll_a2d13b0861967e45ab5c4780d35f1
 
 
 
-Definition at line 43 of file quantile\+\_\+sketch.\+hpp.
+Definition at line 44 of file quantile\+\_\+sketch.\+hpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{43 \{\}}
+\DoxyCodeLine{44 \{\}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classqsbd_1_1quantile__sketch_ab21feebdceb1dc906fb422680b721fcb}\label{classqsbd_1_1quantile__sketch_ab21feebdceb1dc906fb422680b721fcb}} 
@@ -222,11 +242,11 @@ Reimplemented in \mbox{\hyperlink{classqsbd_1_1dcs_a156b262c353702c45314cc8a12ea
 
 
 
-Definition at line 50 of file quantile\+\_\+sketch.\+hpp.
+Definition at line 51 of file quantile\+\_\+sketch.\+hpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{50 \{\}}
+\DoxyCodeLine{51 \{\}}
 
 \end{DoxyCode}
 

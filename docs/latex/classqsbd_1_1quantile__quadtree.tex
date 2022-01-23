@@ -1,37 +1,317 @@
 \hypertarget{classqsbd_1_1quantile__quadtree}{}\doxysection{qsbd\+::quantile\+\_\+quadtree$<$ Obj\+Type $>$ Class Template Reference}
 \label{classqsbd_1_1quantile__quadtree}\index{qsbd::quantile\_quadtree$<$ ObjType $>$@{qsbd::quantile\_quadtree$<$ ObjType $>$}}
+
+
+A quadtree that uses quantile sketchs in it\textquotesingle{}s nodes.  
+
+
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classqsbd_1_1quantile__quadtree_a0f2862b9ad3a4a3dfb5aa489bd45dcdc}\label{classqsbd_1_1quantile__quadtree_a0f2862b9ad3a4a3dfb5aa489bd45dcdc}} 
-{\bfseries quantile\+\_\+quadtree} (const \mbox{\hyperlink{classqsbd_1_1aabb}{aabb}}$<$ int $>$ \&region, const int \&deep\+\_\+length, \mbox{\hyperlink{classqsbd_1_1sketch__factory}{sketch\+\_\+factory}}$<$ Obj\+Type $>$ $\ast$fact, bool only\+\_\+leafs=false)
-\item 
+\mbox{\hyperlink{classqsbd_1_1quantile__quadtree_a0f2862b9ad3a4a3dfb5aa489bd45dcdc}{quantile\+\_\+quadtree}} (const \mbox{\hyperlink{classqsbd_1_1aabb}{aabb}}$<$ int $>$ \&region, const int \&deep\+\_\+length, \mbox{\hyperlink{classqsbd_1_1sketch__factory}{sketch\+\_\+factory}}$<$ Obj\+Type $>$ $\ast$fact, bool only\+\_\+leafs=false)
+\begin{DoxyCompactList}\small\item\em A constructor for the \mbox{\hyperlink{classqsbd_1_1quantile__quadtree}{quantile\+\_\+quadtree}}$<$Obj\+Type$>$ \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classqsbd_1_1quantile__quadtree_a73b55ccba4395bbd7e34fa1ad465385c}\label{classqsbd_1_1quantile__quadtree_a73b55ccba4395bbd7e34fa1ad465385c}} 
-{\bfseries quantile\+\_\+quadtree} (const \mbox{\hyperlink{classqsbd_1_1quantile__quadtree}{quantile\+\_\+quadtree}} \&other)=delete
-\item 
+\mbox{\hyperlink{classqsbd_1_1quantile__quadtree_a73b55ccba4395bbd7e34fa1ad465385c}{quantile\+\_\+quadtree}} (const \mbox{\hyperlink{classqsbd_1_1quantile__quadtree}{quantile\+\_\+quadtree}} \&other)=delete
+\begin{DoxyCompactList}\small\item\em It\textquotesingle{}s not possible to copy-\/construct a \mbox{\hyperlink{classqsbd_1_1quantile__quadtree}{quantile\+\_\+quadtree}} by other. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classqsbd_1_1quantile__quadtree_ab94369e56c789afc9f43bedf3e976065}\label{classqsbd_1_1quantile__quadtree_ab94369e56c789afc9f43bedf3e976065}} 
-\mbox{\hyperlink{classqsbd_1_1quantile__quadtree}{quantile\+\_\+quadtree}}$<$ Obj\+Type $>$ \& {\bfseries operator=} (const \mbox{\hyperlink{classqsbd_1_1quantile__quadtree}{quantile\+\_\+quadtree}} \&other)=delete
-\item 
-\mbox{\Hypertarget{classqsbd_1_1quantile__quadtree_aeaed34e66f7e71fc7bad998cf7203e33}\label{classqsbd_1_1quantile__quadtree_aeaed34e66f7e71fc7bad998cf7203e33}} 
-bool {\bfseries update} (const \mbox{\hyperlink{classqsbd_1_1point}{point}}$<$ int $>$ \&pos, Obj\+Type value)
-\item 
-\mbox{\Hypertarget{classqsbd_1_1quantile__quadtree_ae0ba6872219b18e7deeb2cdb8e199526}\label{classqsbd_1_1quantile__quadtree_ae0ba6872219b18e7deeb2cdb8e199526}} 
-bool {\bfseries update} (const \mbox{\hyperlink{classqsbd_1_1point}{point}}$<$ int $>$ \&pos, Obj\+Type value, int weight)
-\item 
-\mbox{\Hypertarget{classqsbd_1_1quantile__quadtree_adda47ebfb6d7a6291452d9e60aa2938f}\label{classqsbd_1_1quantile__quadtree_adda47ebfb6d7a6291452d9e60aa2938f}} 
-int {\bfseries query} (const \mbox{\hyperlink{classqsbd_1_1aabb}{aabb}}$<$ int $>$ \&region, Obj\+Type value)
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{classqsbd_1_1quantile__quadtree}{quantile\+\_\+quadtree}}$<$ Obj\+Type $>$ \& \mbox{\hyperlink{classqsbd_1_1quantile__quadtree_ab94369e56c789afc9f43bedf3e976065}{operator=}} (const \mbox{\hyperlink{classqsbd_1_1quantile__quadtree}{quantile\+\_\+quadtree}} \&other)=delete
+\begin{DoxyCompactList}\small\item\em It\textquotesingle{}s not possible to assign a \mbox{\hyperlink{classqsbd_1_1quantile__quadtree}{quantile\+\_\+quadtree}} to other. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classqsbd_1_1quantile__quadtree_ae1c7036db1cd72dbdebac8416a5861af}\label{classqsbd_1_1quantile__quadtree_ae1c7036db1cd72dbdebac8416a5861af}} 
+\mbox{\hyperlink{classqsbd_1_1quantile__quadtree_ae1c7036db1cd72dbdebac8416a5861af}{$\sim$quantile\+\_\+quadtree}} ()
+\begin{DoxyCompactList}\small\item\em Destructs the \mbox{\hyperlink{classqsbd_1_1quantile__quadtree}{quantile\+\_\+quadtree}} instance. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classqsbd_1_1quantile__quadtree_aeaed34e66f7e71fc7bad998cf7203e33}{update}} (const \mbox{\hyperlink{classqsbd_1_1point}{point}}$<$ int $>$ \&pos, Obj\+Type value)
+\begin{DoxyCompactList}\small\item\em Updates the quantile quadtree with the object {\ttfamily value} with position {\ttfamily pos}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classqsbd_1_1quantile__quadtree_ae0ba6872219b18e7deeb2cdb8e199526}{update}} (const \mbox{\hyperlink{classqsbd_1_1point}{point}}$<$ int $>$ \&pos, Obj\+Type value, int weight)
+\begin{DoxyCompactList}\small\item\em Updates the quantile quadtree with the object {\ttfamily value} with position {\ttfamily pos} and weight {\ttfamily weight}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classqsbd_1_1quantile__quadtree_adda47ebfb6d7a6291452d9e60aa2938f}{query}} (const \mbox{\hyperlink{classqsbd_1_1aabb}{aabb}}$<$ int $>$ \&region, Obj\+Type value)
+\begin{DoxyCompactList}\small\item\em Queries the rank of some object {\ttfamily value} with certain {\ttfamily region}. \end{DoxyCompactList}\item 
+uint64\+\_\+t \mbox{\hyperlink{classqsbd_1_1quantile__quadtree_aabbe1296f9fda66d4d58e6dc0a2fffe4}{get\+\_\+heap\+\_\+size}} ()
+\begin{DoxyCompactList}\small\item\em Getter for the estimated amount of heap memory allocated for this object for a pointer. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 \subsubsection*{template$<$class Obj\+Type$>$\newline
 class qsbd\+::quantile\+\_\+quadtree$<$ Obj\+Type $>$}
+A quadtree that uses quantile sketchs in it\textquotesingle{}s nodes. 
+
+A quadtree is a data structure that is used to subdivide a 2D-\/space into for region, each region in the subdivided space can also subdivide it\textquotesingle{}s space in four more regions. That can be use to make efficient queries and updates if the data has coordenates. A \mbox{\hyperlink{classqsbd_1_1quantile__quadtree}{quantile\+\_\+quadtree}} is a new data structure that simulates a quadtree behavier but also uses quantile\+\_\+sketchs in it\textquotesingle{}s nodes, that way, this structure is able to also anwer group statistics , such as the rank for a given element, the cdf for the data and it\textquotesingle{}s quantile. Remember that the quantile quadtree subdivides the space of this mode\+:
 
 
-Definition at line 10 of file quantile\+\_\+quadtree.\+hpp.
+\begin{DoxyItemize}
+\item If we have a space going from (0, 0) to (4, 4), The root and the first level of subdivision will be\+:
+\end{DoxyItemize}
 
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{.Lvl = 0 :}
+\DoxyCodeLine{(0, 4)-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/(4, 4)}
+\DoxyCodeLine{|                        |}
+\DoxyCodeLine{|                        |}
+\DoxyCodeLine{|                        |}
+\DoxyCodeLine{|                        |}
+\DoxyCodeLine{|                        |}
+\DoxyCodeLine{(0, 0)-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/(4, 0)}
+\DoxyCodeLine{}
+\DoxyCodeLine{-\/ The second level :}
+\DoxyCodeLine{}
+\DoxyCodeLine{.Lvl = 1 :}
+\DoxyCodeLine{}
+\DoxyCodeLine{(0, 4)-\/-\/-\/-\/-\/(2, 4)-\/-\/-\/-\/(4, 4)}
+\DoxyCodeLine{|    NW     |     NE     |}
+\DoxyCodeLine{|           |            |}
+\DoxyCodeLine{(0, 2)-\/-\/-\/-\/-\/(2, 2)-\/-\/-\/-\/(4, 2)}
+\DoxyCodeLine{|    SW     |     SE     |}
+\DoxyCodeLine{|           |            |}
+\DoxyCodeLine{(0, 0)-\/-\/-\/-\/-\/(2, 0)-\/-\/-\/-\/(4, 0)}
+
+\end{DoxyCode}
+
+
+Where NE, NW , SW and SE are nodes of the quantile quadtree and are also directions of where put the point based on it\textquotesingle{}s position in space. The node in Lvl = 0 now owns all nodes in Lvl = 1, it\textquotesingle{}s points to the first node (NE), the other three nodes are stores sequencialy in the tree, we can see that in this form\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Lvl = 0:}
+\DoxyCodeLine{| root |}
+\DoxyCodeLine{        |}
+\DoxyCodeLine{    \(\backslash\) Lvl = 1}
+\DoxyCodeLine{         -\/> [NE, NW, SW, SE]}
+\DoxyCodeLine{              |   |   |   |}
+\DoxyCodeLine{              |   |   |   \(\backslash\) Lvl = 2 }
+\DoxyCodeLine{              |   |   \(\backslash\)     -\/> [NE, NW, SW, SE]}
+\DoxyCodeLine{              |   \(\backslash\)     -\/> [NE, NW, SW, SE]}
+\DoxyCodeLine{              \(\backslash\)     -\/> [NE, NW, SW, SE] }
+\DoxyCodeLine{                -\/> [NE, NW, SW, SE]}
+\DoxyCodeLine{                ...}
+
+\end{DoxyCode}
+ 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Obj\+Type} & The type of the object that the quantile quadtree works with\\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyWarning}{Warning}
+To the \mbox{\hyperlink{classqsbd_1_1quantile__quadtree}{quantile\+\_\+quadtree}} anwer properly it\textquotesingle{}s queries, all quantile sketchs inside this structure must be able to merge together. 
+
+The \mbox{\hyperlink{classqsbd_1_1quantile__quadtree}{quantile\+\_\+quadtree}} only subdivides the space until it\textquotesingle{}s reach in a node of size 1 x 1, if we hit this cell we can\textquotesingle{}t no longer subdivide the tree 
+\end{DoxyWarning}
+
+
+Definition at line 86 of file quantile\+\_\+quadtree.\+hpp.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classqsbd_1_1quantile__quadtree_a0f2862b9ad3a4a3dfb5aa489bd45dcdc}\label{classqsbd_1_1quantile__quadtree_a0f2862b9ad3a4a3dfb5aa489bd45dcdc}} 
+\index{qsbd::quantile\_quadtree$<$ ObjType $>$@{qsbd::quantile\_quadtree$<$ ObjType $>$}!quantile\_quadtree@{quantile\_quadtree}}
+\index{quantile\_quadtree@{quantile\_quadtree}!qsbd::quantile\_quadtree$<$ ObjType $>$@{qsbd::quantile\_quadtree$<$ ObjType $>$}}
+\doxysubsubsection{\texorpdfstring{quantile\_quadtree()}{quantile\_quadtree()}}
+{\footnotesize\ttfamily template$<$class Obj\+Type $>$ \\
+\mbox{\hyperlink{classqsbd_1_1quantile__quadtree}{qsbd\+::quantile\+\_\+quadtree}}$<$ Obj\+Type $>$\+::\mbox{\hyperlink{classqsbd_1_1quantile__quadtree}{quantile\+\_\+quadtree}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classqsbd_1_1aabb}{aabb}}$<$ int $>$ \&}]{region,  }\item[{const int \&}]{deep\+\_\+length,  }\item[{\mbox{\hyperlink{classqsbd_1_1sketch__factory}{sketch\+\_\+factory}}$<$ Obj\+Type $>$ $\ast$}]{fact,  }\item[{bool}]{only\+\_\+leafs = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+A constructor for the \mbox{\hyperlink{classqsbd_1_1quantile__quadtree}{quantile\+\_\+quadtree}}$<$Obj\+Type$>$ 
+
+
+\begin{DoxyParams}{Parameters}
+{\em region} & A AABB to represent the bounds for this quantile quadtree \\
+\hline
+{\em deep\+\_\+length} & The maximum depth for the quantile quadtree \\
+\hline
+{\em fact} & A factory to create new sketchs of a certain class \\
+\hline
+{\em only\+\_\+leafs} & A boolean value to indicate that the \mbox{\hyperlink{classqsbd_1_1quantile__quadtree}{quantile\+\_\+quadtree}} only use sketchs on leafs or no \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 506 of file quantile\+\_\+quadtree.\+hpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{506                                                                                                                                   \{}
+\DoxyCodeLine{507             \mbox{\hyperlink{qsbd__debug_8h_a0966b817b229d48e5ffc7feab19a0be6}{ASSERT}}(fact != \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{508             }
+\DoxyCodeLine{509             this-\/>boundarys = region;}
+\DoxyCodeLine{510             this-\/>max\_deep = deep\_length;}
+\DoxyCodeLine{511             this-\/>only\_leaf = only\_leafs;}
+\DoxyCodeLine{512             this-\/>factory = fact;}
+\DoxyCodeLine{513             this-\/>root = \textcolor{keyword}{new} quantile\_quadtree<ObjType>::node(0);}
+\DoxyCodeLine{514             \textcolor{keywordflow}{if}(not this-\/>only\_leaf) this-\/>root-\/>payload = this-\/>factory-\/>instance();}
+\DoxyCodeLine{515             this-\/>alloc\_childs();}
+\DoxyCodeLine{516         \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classqsbd_1_1quantile__quadtree_aabbe1296f9fda66d4d58e6dc0a2fffe4}\label{classqsbd_1_1quantile__quadtree_aabbe1296f9fda66d4d58e6dc0a2fffe4}} 
+\index{qsbd::quantile\_quadtree$<$ ObjType $>$@{qsbd::quantile\_quadtree$<$ ObjType $>$}!get\_heap\_size@{get\_heap\_size}}
+\index{get\_heap\_size@{get\_heap\_size}!qsbd::quantile\_quadtree$<$ ObjType $>$@{qsbd::quantile\_quadtree$<$ ObjType $>$}}
+\doxysubsubsection{\texorpdfstring{get\_heap\_size()}{get\_heap\_size()}}
+{\footnotesize\ttfamily template$<$class Obj\+Type $>$ \\
+uint64\+\_\+t \mbox{\hyperlink{classqsbd_1_1quantile__quadtree}{qsbd\+::quantile\+\_\+quadtree}}$<$ Obj\+Type $>$\+::get\+\_\+heap\+\_\+size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Getter for the estimated amount of heap memory allocated for this object for a pointer. 
+
+\begin{DoxyReturn}{Returns}
+The estimated memory in bytes. 
+\end{DoxyReturn}
+
+
+Definition at line 597 of file quantile\+\_\+quadtree.\+hpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{597                                  \{}
+\DoxyCodeLine{598             uint64\_t qq\_hs = \textcolor{keyword}{sizeof}(quantile\_quadtree<ObjType>);}
+\DoxyCodeLine{599             uint64\_t root\_hs = \textcolor{keyword}{sizeof}(quantile\_quadtree<ObjType>::node);}
+\DoxyCodeLine{600             uint64\_t tree\_hs = \textcolor{keyword}{sizeof}(quantile\_quadtree<ObjType>::node) * this-\/>tree.capacity();}
+\DoxyCodeLine{601 }
+\DoxyCodeLine{602             \textcolor{keywordflow}{if}(this-\/>root-\/>payload != \textcolor{keyword}{nullptr})\{}
+\DoxyCodeLine{603                 root\_hs += this-\/>root-\/>payload-\/>get\_heap\_size();}
+\DoxyCodeLine{604             \}}
+\DoxyCodeLine{605             }
+\DoxyCodeLine{606             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < this-\/>tree.size(); i++)\{}
+\DoxyCodeLine{607                 \textcolor{keywordflow}{if}(this-\/>tree[i].payload != \textcolor{keyword}{nullptr})\{}
+\DoxyCodeLine{608                     tree\_hs += this-\/>tree[i].payload-\/>get\_heap\_size();}
+\DoxyCodeLine{609                 \}}
+\DoxyCodeLine{610             \}}
+\DoxyCodeLine{611 }
+\DoxyCodeLine{612             \textcolor{keywordflow}{return} qq\_hs + root\_hs + tree\_hs;}
+\DoxyCodeLine{613         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classqsbd_1_1quantile__quadtree_adda47ebfb6d7a6291452d9e60aa2938f}\label{classqsbd_1_1quantile__quadtree_adda47ebfb6d7a6291452d9e60aa2938f}} 
+\index{qsbd::quantile\_quadtree$<$ ObjType $>$@{qsbd::quantile\_quadtree$<$ ObjType $>$}!query@{query}}
+\index{query@{query}!qsbd::quantile\_quadtree$<$ ObjType $>$@{qsbd::quantile\_quadtree$<$ ObjType $>$}}
+\doxysubsubsection{\texorpdfstring{query()}{query()}}
+{\footnotesize\ttfamily template$<$class Obj\+Type $>$ \\
+int \mbox{\hyperlink{classqsbd_1_1quantile__quadtree}{qsbd\+::quantile\+\_\+quadtree}}$<$ Obj\+Type $>$\+::query (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classqsbd_1_1aabb}{aabb}}$<$ int $>$ \&}]{region,  }\item[{Obj\+Type}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Queries the rank of some object {\ttfamily value} with certain {\ttfamily region}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em region} & A AABB region to be queried. \\
+\hline
+{\em value} & The object to be queried. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The estimated rank for this object {\ttfamily value} in the {\ttfamily region} 
+\end{DoxyReturn}
+
+
+Definition at line 570 of file quantile\+\_\+quadtree.\+hpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{570                                                          \{}
+\DoxyCodeLine{571             \textcolor{comment}{// is we are using sketchs on all nodes and the bounds are all inside the query region }}
+\DoxyCodeLine{572             \textcolor{comment}{// we can ask this faster in the root sketch}}
+\DoxyCodeLine{573             \textcolor{keywordflow}{if}(not this-\/>only\_leaf and this-\/>boundarys.is\_inside(region))\{}
+\DoxyCodeLine{574                 \textcolor{keywordtype}{int} ret = this-\/>root-\/>payload-\/>query(value);}
+\DoxyCodeLine{575 }
+\DoxyCodeLine{576                 \textcolor{keywordflow}{return} ret;}
+\DoxyCodeLine{577             \}}
+\DoxyCodeLine{578 }
+\DoxyCodeLine{579             aabb<int> cur\_box(this-\/>boundarys);}
+\DoxyCodeLine{580             quantile\_sketch<ObjType> * sketch = this-\/>factory-\/>instance();}
+\DoxyCodeLine{581 }
+\DoxyCodeLine{582             \textcolor{comment}{//This 0 because here we start from the root}}
+\DoxyCodeLine{583             \textcolor{keywordflow}{if}(this-\/>only\_leaf) search\_region\_only\_leaf(-\/1, region, 0, cur\_box, sketch);}
+\DoxyCodeLine{584             \textcolor{keywordflow}{else} search\_region(-\/1, region, 0, cur\_box, sketch);}
+\DoxyCodeLine{585 }
+\DoxyCodeLine{586             \textcolor{keywordtype}{int} ret = sketch-\/>query(value);}
+\DoxyCodeLine{587 }
+\DoxyCodeLine{588             \textcolor{keyword}{delete} sketch;}
+\DoxyCodeLine{589 }
+\DoxyCodeLine{590             \textcolor{keywordflow}{return} ret;}
+\DoxyCodeLine{591         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classqsbd_1_1quantile__quadtree_aeaed34e66f7e71fc7bad998cf7203e33}\label{classqsbd_1_1quantile__quadtree_aeaed34e66f7e71fc7bad998cf7203e33}} 
+\index{qsbd::quantile\_quadtree$<$ ObjType $>$@{qsbd::quantile\_quadtree$<$ ObjType $>$}!update@{update}}
+\index{update@{update}!qsbd::quantile\_quadtree$<$ ObjType $>$@{qsbd::quantile\_quadtree$<$ ObjType $>$}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class Obj\+Type $>$ \\
+bool \mbox{\hyperlink{classqsbd_1_1quantile__quadtree}{qsbd\+::quantile\+\_\+quadtree}}$<$ Obj\+Type $>$\+::update (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classqsbd_1_1point}{point}}$<$ int $>$ \&}]{pos,  }\item[{Obj\+Type}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Updates the quantile quadtree with the object {\ttfamily value} with position {\ttfamily pos}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & The position for the {\ttfamily value} in int coordenates \\
+\hline
+{\em value} & The object to update the tree. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the maximum depth was reached, false otherwise
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This function will only works properly if the sketch used works with unweighted objects 
+\end{DoxyNote}
+
+
+Definition at line 544 of file quantile\+\_\+quadtree.\+hpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{544                                                          \{}
+\DoxyCodeLine{545             \textcolor{keywordflow}{if}(this-\/>only\_leaf) private\_update\_only\_leaf(pos, value);}
+\DoxyCodeLine{546             \textcolor{keywordflow}{else} private\_update(pos, value);}
+\DoxyCodeLine{547         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classqsbd_1_1quantile__quadtree_ae0ba6872219b18e7deeb2cdb8e199526}\label{classqsbd_1_1quantile__quadtree_ae0ba6872219b18e7deeb2cdb8e199526}} 
+\index{qsbd::quantile\_quadtree$<$ ObjType $>$@{qsbd::quantile\_quadtree$<$ ObjType $>$}!update@{update}}
+\index{update@{update}!qsbd::quantile\_quadtree$<$ ObjType $>$@{qsbd::quantile\_quadtree$<$ ObjType $>$}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class Obj\+Type $>$ \\
+bool \mbox{\hyperlink{classqsbd_1_1quantile__quadtree}{qsbd\+::quantile\+\_\+quadtree}}$<$ Obj\+Type $>$\+::update (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classqsbd_1_1point}{point}}$<$ int $>$ \&}]{pos,  }\item[{Obj\+Type}]{value,  }\item[{int}]{weight }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Updates the quantile quadtree with the object {\ttfamily value} with position {\ttfamily pos} and weight {\ttfamily weight}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & The position for the {\ttfamily value} in int coordenates \\
+\hline
+{\em value} & The object to update the tree. \\
+\hline
+{\em weight} & The weight associated with {\ttfamily value} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the maximum depth was reached, false otherwise
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This function will only works properly if the sketch used works with weighted objects 
+\end{DoxyNote}
+
+
+Definition at line 559 of file quantile\+\_\+quadtree.\+hpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{559                                                                      \{}
+\DoxyCodeLine{560             \textcolor{keywordflow}{if}(this-\/>only\_leaf) private\_update\_only\_leaf(pos, value, weight);}
+\DoxyCodeLine{561             \textcolor{keywordflow}{else} private\_update(pos, value, weight);}
+\DoxyCodeLine{562         \}}
+
+\end{DoxyCode}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-src/quantile\+\_\+quadtree/quantile\+\_\+quadtree.\+hpp\end{DoxyCompactItemize}
+src/quantile\+\_\+quadtree/\mbox{\hyperlink{quantile__quadtree_8hpp}{quantile\+\_\+quadtree.\+hpp}}\end{DoxyCompactItemize}

@@ -201,7 +201,10 @@ namespace qsbd {
 		*/
 		std::vector<std::vector<int>> get_hash_functions_consts() const;
 
-
+		/**
+		 * @brief Getter for the estimated amount of heap memory allocated for this object for a pointer.
+		 * @return The estimated memory in bytes.
+		*/
 		uint64_t get_heap_size();
 	};
 }

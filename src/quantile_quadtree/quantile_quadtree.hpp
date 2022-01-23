@@ -28,6 +28,8 @@ namespace qsbd {
 	 * 
 	 * - If we have a space going from (0, 0) to (4, 4), The root and the first level of subdivision will be:
 	 * 
+	 * ```
+	 * 
 	 * .Lvl = 0 :
 	 * (0, 4)---------------(4, 4)
 	 * |						 |
@@ -49,10 +51,14 @@ namespace qsbd {
 	 * |			|			 |
 	 * (0, 0)-----(2, 0)----(4, 0)
 	 * 
+	 * 	
+	 * ```
+	 * 
 	 * Where NE, NW , SW and SE are nodes of the quantile quadtree and are also directions of where put the point based
 	 * on it's position in space. The node in Lvl = 0 now owns all nodes in Lvl = 1, it's points to the first node (NE), 
 	 * the other three nodes are stores sequencialy in the tree, we can see that in this form:
 	 * 
+	 * ```
 	 * Lvl = 0:
 	 * | root |
 	 * 		|
@@ -66,6 +72,7 @@ namespace qsbd {
 	 * 				-> [NE, NW, SW, SE]
 	 * 				...
 	 * 
+	 * ```
 	 * @tparam ObjType The type of the object that the quantile quadtree works with
 	 * 
 	 * @warning 
@@ -581,6 +588,42 @@ namespace qsbd {
 			delete sketch;
 
 			return ret;
+		}
+
+		/**
+		 * @brief Queries the quantiles of some @p region 
+		 * @param region A AABB region to be queried.
+		 * @param quants A vector of each quantile to be queried.
+		 * @return The estimated quantiles @p quants in the @p region
+		*/
+		std::vector<ObjType> quantiles(const aabb<int>& region, const std::vector<double>& quants){
+			std::vector<ObjType> rets;
+			rets.reserve(quants.size());
+			
+			// is we are using sketchs on all nodes and the bounds are all inside the query region 
+			// we can ask this faster in the root sketch
+			if(not this->only_leaf and this->boundarys.is_inside(region)){
+				for(auto& it : quants){
+					rets.emplace_back(this->root->payload->quantile(it));
+				}
+
+				return rets;
+			}
+
+			aabb<int> cur_box(this->boundarys);
+			quantile_sketch<ObjType> * sketch = this->factory->instance();
+
+			//This 0 because here we start from the root
+			if(this->only_leaf) search_region_only_leaf(-1, region, 0, cur_box, sketch);
+			else search_region(-1, region, 0, cur_box, sketch);
+
+			for(auto& it : quants){
+				rets.emplace_back(sketch->quantile(it));
+			}
+
+			delete sketch;
+
+			return rets;
 		}
 
 		/**

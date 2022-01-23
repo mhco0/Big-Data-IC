@@ -48,7 +48,9 @@ std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \mbox{\hyperlink{classqsbd_1_1coun
 std\+::vector$<$ \mbox{\hyperlink{classqsbd_1_1two__wise__family}{two\+\_\+wise\+\_\+family}} $>$ \mbox{\hyperlink{classqsbd_1_1count__sketch_a8e5c8c42b2ec1c209bb947c7e2e73df9}{get\+\_\+hash\+\_\+functions}} () const
 \begin{DoxyCompactList}\small\item\em A getter for the hash functions. \end{DoxyCompactList}\item 
 std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \mbox{\hyperlink{classqsbd_1_1count__sketch_aa908579f27136909b6e277cf3f8ce15f}{get\+\_\+hash\+\_\+functions\+\_\+consts}} () const
-\begin{DoxyCompactList}\small\item\em A getter for all the hash functions constants. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em A getter for all the hash functions constants. \end{DoxyCompactList}\item 
+uint64\+\_\+t \mbox{\hyperlink{classqsbd_1_1count__sketch_a1747fdc26116e65fad719b7c8ab4f71d}{get\+\_\+heap\+\_\+size}} ()
+\begin{DoxyCompactList}\small\item\em Getter for the estimated amount of heap memory allocated for this object for a pointer. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -58,7 +60,7 @@ It also summarizes a multiset v and answers point queries approximately. It has 
 
 This Count Sketch uses the L1 bound garantee. 
 
-Definition at line 34 of file count\+\_\+sketch.\+h.
+Definition at line 35 of file count\+\_\+sketch.\+h.
 
 
 
@@ -469,6 +471,38 @@ Definition at line 273 of file count\+\_\+sketch.\+cpp.
 \DoxyCodeLine{280 }
 \DoxyCodeLine{281         \textcolor{keywordflow}{return} consts;}
 \DoxyCodeLine{282     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classqsbd_1_1count__sketch_a1747fdc26116e65fad719b7c8ab4f71d}\label{classqsbd_1_1count__sketch_a1747fdc26116e65fad719b7c8ab4f71d}} 
+\index{qsbd::count\_sketch@{qsbd::count\_sketch}!get\_heap\_size@{get\_heap\_size}}
+\index{get\_heap\_size@{get\_heap\_size}!qsbd::count\_sketch@{qsbd::count\_sketch}}
+\doxysubsubsection{\texorpdfstring{get\_heap\_size()}{get\_heap\_size()}}
+{\footnotesize\ttfamily uint64\+\_\+t qsbd\+::count\+\_\+sketch\+::get\+\_\+heap\+\_\+size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter for the estimated amount of heap memory allocated for this object for a pointer. 
+
+\begin{DoxyReturn}{Returns}
+The estimated memory in bytes. 
+\end{DoxyReturn}
+
+
+Definition at line 284 of file count\+\_\+sketch\+\_\+two\+\_\+wise.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{284                                          \{}
+\DoxyCodeLine{285         uint64\_t cs\_hs = \textcolor{keyword}{sizeof}(\mbox{\hyperlink{classqsbd_1_1count__sketch_aa31ebfbec75b141b594795bf1054bfdf}{count\_sketch}});}
+\DoxyCodeLine{286         uint64\_t hf\_hs = \textcolor{keyword}{sizeof}(\mbox{\hyperlink{classtwo__wise__family}{two\_wise\_family}}) * hash\_functions.capacity();}
+\DoxyCodeLine{287         uint64\_t est\_hs = 0;}
+\DoxyCodeLine{288 }
+\DoxyCodeLine{289         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < estimators.size(); i++)\{}
+\DoxyCodeLine{290             est\_hs += \textcolor{keyword}{sizeof}(std::vector<int>) + \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int}) * estimators[i].capacity();}
+\DoxyCodeLine{291         \}}
+\DoxyCodeLine{292 }
+\DoxyCodeLine{293         \textcolor{keywordflow}{return} cs\_hs + hf\_hs + est\_hs;}
+\DoxyCodeLine{294     \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classqsbd_1_1count__sketch_a1f5f376531d72a0b5f090eb9d786fb92}\label{classqsbd_1_1count__sketch_a1f5f376531d72a0b5f090eb9d786fb92}} 

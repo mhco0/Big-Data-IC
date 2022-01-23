@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['debug_5fenable_201',['debug_enable',['../qsbd__debug_8h.html#a14666c543dba70f8b3f29f617bd3ebe3',1,'qsbd::debug']]]
+  ['coin_271',['coin',['../classqsbd_1_1kll.html#a4f7fb4635acceae1391b75225165bd5f',1,'qsbd::kll']]]
 ];

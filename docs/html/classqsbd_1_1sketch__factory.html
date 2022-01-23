@@ -84,8 +84,8 @@ Inheritance diagram for qsbd::sketch_factory&lt; Type &gt;:</div>
  <div class="center">
   <img src="classqsbd_1_1sketch__factory.png" usemap="#qsbd::sketch_5Ffactory_3C_20Type_20_3E_map" alt=""/>
   <map id="qsbd::sketch_5Ffactory_3C_20Type_20_3E_map" name="qsbd::sketch_5Ffactory_3C_20Type_20_3E_map">
-<area href="classqsbd_1_1gk__factory.html" alt="qsbd::gk_factory&lt; Type &gt;" shape="rect" coords="0,56,179,80"/>
-<area href="classqsbd_1_1kll__factory.html" alt="qsbd::kll_factory&lt; Type &gt;" shape="rect" coords="189,56,368,80"/>
+<area href="classqsbd_1_1gk__factory.html" title="A factory of gk." alt="qsbd::gk_factory&lt; Type &gt;" shape="rect" coords="0,56,179,80"/>
+<area href="classqsbd_1_1kll__factory.html" title="A factory of kll." alt="qsbd::kll_factory&lt; Type &gt;" shape="rect" coords="189,56,368,80"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -98,9 +98,15 @@ Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;class Type&gt;<br />
 class qsbd::sketch_factory&lt; Type &gt;</div><p >A interface for factorys of sketchs. </p>
-<p >A interface for a factory that creates new quantile sketchs </p><dl class="section note"><dt>Note</dt><dd>The idea of ​​this class is to always make quantile_sketchs that are able to merge together </dd></dl>
+<p >A interface for a factory that creates new quantile sketchs </p><dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Type</td><td>The object type for the <a class="el" href="classqsbd_1_1quantile__sketch.html" title="A interface for quantile sketchs.">quantile_sketch</a> that the factory will provide </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>The idea of ​​this class is to always make quantile_sketchs that are able to merge together </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="sketch__factory_8hpp_source.html#l00023">23</a> of file <a class="el" href="sketch__factory_8hpp_source.html">sketch_factory.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sketch__factory_8hpp_source.html#l00024">24</a> of file <a class="el" href="sketch__factory_8hpp_source.html">sketch_factory.hpp</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="ad54e5735ea72b515991cc994fe37e23a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad54e5735ea72b515991cc994fe37e23a">&#9670;&nbsp;</a></span>instance()</h2>

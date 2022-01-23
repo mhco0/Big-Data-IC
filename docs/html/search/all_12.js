@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['vdebug_88',['VDEBUG',['../qsbd__debug_8h.html#a5421c131413b97dd17c9c7fb55679639',1,'qsbd_debug.h']]]
+  ['update_114',['update',['../classqsbd_1_1count__sketch.html#adc2e894ccebfa8677a12e5bdad0357b6',1,'qsbd::count_sketch::update()'],['../classqsbd_1_1dcs.html#a156b262c353702c45314cc8a12eafa9a',1,'qsbd::dcs::update()'],['../classqsbd_1_1gk.html#a3a1041a9881bf5362a0fb1578022b3e3',1,'qsbd::gk::update()'],['../classqsbd_1_1kll.html#a2d13b0861967e45ab5c4780d35f1f449',1,'qsbd::kll::update()'],['../classqsbd_1_1q__digest.html#a995cd3e871d7cc1d2f4d34fc7b5aecc8',1,'qsbd::q_digest::update()'],['../classqsbd_1_1quantile__quadtree.html#aeaed34e66f7e71fc7bad998cf7203e33',1,'qsbd::quantile_quadtree::update(const point&lt; int &gt; &amp;pos, ObjType value)'],['../classqsbd_1_1quantile__quadtree.html#ae0ba6872219b18e7deeb2cdb8e199526',1,'qsbd::quantile_quadtree::update(const point&lt; int &gt; &amp;pos, ObjType value, int weight)'],['../classqsbd_1_1quantile__sketch.html#a0e7eefd81eec272e92b7cb989be33c6a',1,'qsbd::quantile_sketch::update(Type elem)'],['../classqsbd_1_1quantile__sketch.html#ab21feebdceb1dc906fb422680b721fcb',1,'qsbd::quantile_sketch::update(Type elem, int weight)']]],
+  ['utils_2eh_115',['utils.h',['../utils_8h.html',1,'']]]
 ];

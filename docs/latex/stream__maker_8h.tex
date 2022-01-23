@@ -1,0 +1,944 @@
+\hypertarget{stream__maker_8h}{}\doxysection{src/stream\+\_\+maker/stream\+\_\+maker.h File Reference}
+\label{stream__maker_8h}\index{src/stream\_maker/stream\_maker.h@{src/stream\_maker/stream\_maker.h}}
+
+
+QSBD stream\+\_\+maker namespace.  
+
+
+{\ttfamily \#include \char`\"{}../commum\+\_\+header/commum\+\_\+header.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../global\+\_\+generator/global\+\_\+generator.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../qsbd\+\_\+debug/qsbd\+\_\+debug.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ pair$<$ int, int $>$ $>$ {\bfseries qsbd\+::stream\+\_\+maker\+::random\+\_\+int\+\_\+stream\+\_\+with\+\_\+weight} (int vector\+\_\+size, int min\+\_\+v, int max\+\_\+v, int min\+\_\+w, int max\+\_\+w)
+\begin{DoxyCompactList}\small\item\em This function generates a random stream with weight for it\textquotesingle{}s integer values. \end{DoxyCompactList}\item 
+vector$<$ pair$<$ int, int $>$ $>$ {\bfseries qsbd\+::stream\+\_\+maker\+::normal\+\_\+int\+\_\+stream\+\_\+with\+\_\+weight} (int vector\+\_\+size, double mean, double stddev, int min\+\_\+w, int max\+\_\+w)
+\begin{DoxyCompactList}\small\item\em This function generates a random stream with weight for it\textquotesingle{}s integer values. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::pair$<$ int, int $>$ $>$ \mbox{\hyperlink{stream__maker_8h_a246191eedc8fcacc74098e9548bdaed8}{qsbd\+::stream\+\_\+maker\+::sort\+\_\+and\+\_\+merge\+\_\+weight}} (std\+::vector$<$ std\+::pair$<$ int, int $>$$>$ \&stream)
+\begin{DoxyCompactList}\small\item\em Sorts a {\ttfamily stream} stream with weight and merges the weights for the values that are the same. \end{DoxyCompactList}\item 
+vector$<$ int $>$ {\bfseries qsbd\+::stream\+\_\+maker\+::random\+\_\+int\+\_\+stream} (int vector\+\_\+size, int min\+\_\+v, int max\+\_\+v)
+\begin{DoxyCompactList}\small\item\em This function generates a random int stream without weight. \end{DoxyCompactList}\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{stream__maker_8h_adcab12006be5f9223b68669545761bb9}{qsbd\+::stream\+\_\+maker\+::real\+\_\+ranks\+\_\+from\+\_\+stream}} (std\+::vector$<$ int $>$ \&stream)
+\begin{DoxyCompactList}\small\item\em This function returns all the ranks for a given int stream. \end{DoxyCompactList}\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{stream__maker_8h_a930e2061171827e71e47073e7169dae0}{qsbd\+::stream\+\_\+maker\+::real\+\_\+ranks\+\_\+from\+\_\+stream\+\_\+with\+\_\+weight}} (std\+::vector$<$ std\+::pair$<$ int, int $>$$>$ \&stream)
+\begin{DoxyCompactList}\small\item\em This function returns all the ranks for a given int stream with weight. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{stream__maker_8h_a0f5a536c4923e5bc586bfc0f4c6f0f00}{qsbd\+::stream\+\_\+maker\+::weight\+\_\+from\+\_\+stream}} (std\+::vector$<$ std\+::pair$<$ int, int $>$$>$ \&stream, bool absolute=true)
+\begin{DoxyCompactList}\small\item\em This function returns the total weight for a given stream with weight. \end{DoxyCompactList}\item 
+std\+::map$<$ int, int $>$ \mbox{\hyperlink{stream__maker_8h_ac3dd29054029195084c011c181559fce}{qsbd\+::stream\+\_\+maker\+::frequency\+\_\+counter}} (std\+::vector$<$ int $>$ \&stream)
+\begin{DoxyCompactList}\small\item\em This function maps all points inside a given stream and returns its frequency. \end{DoxyCompactList}\item 
+std\+::map$<$ int, int $>$ \mbox{\hyperlink{stream__maker_8h_afb66bef679c8557956f9bfddd4fb45da}{qsbd\+::stream\+\_\+maker\+::frequency\+\_\+counter}} (std\+::vector$<$ std\+::pair$<$ int, int $>$$>$ \&stream)
+\begin{DoxyCompactList}\small\item\em This function maps all points inside a given stream and returns its frequency. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{stream__maker_8h_afc897d32dd86f983902ae1852f8a3b67}{qsbd\+::stream\+\_\+maker\+::quantile}} (std\+::vector$<$ std\+::pair$<$ int, int $>$$>$ \&stream, int total\+\_\+weight, double quant)
+\begin{DoxyCompactList}\small\item\em This function calculates the element that represents a given quantile {\ttfamily quant} . \end{DoxyCompactList}\item 
+vector$<$ pair$<$ int, pair$<$ double, double $>$ $>$ $>$ {\bfseries qsbd\+::stream\+\_\+maker\+::random\+\_\+stream\+\_\+in\+\_\+region} (int vector\+\_\+size, double minx, double miny, double maxx, double maxy, int min\+\_\+v, int max\+\_\+v)
+\begin{DoxyCompactList}\small\item\em This function generates a random stream of integer values inside a given region in space. \end{DoxyCompactList}\item 
+vector$<$ pair$<$ pair$<$ int, int $>$, pair$<$ double, double $>$ $>$ $>$ {\bfseries qsbd\+::stream\+\_\+maker\+::random\+\_\+stream\+\_\+in\+\_\+region\+\_\+with\+\_\+weight} (int vector\+\_\+size, double minx, double miny, double maxx, double maxy, int min\+\_\+v, int max\+\_\+v, int min\+\_\+w, int max\+\_\+w)
+\begin{DoxyCompactList}\small\item\em This function generates a random stream of integer values with weight inside a given region in space. \end{DoxyCompactList}\item 
+vector$<$ pair$<$ int, pair$<$ double, double $>$ $>$ $>$ {\bfseries qsbd\+::stream\+\_\+maker\+::random\+\_\+stream\+\_\+city} (int vector\+\_\+size, double minx, double miny, double maxx, double maxy, int min\+\_\+v, int max\+\_\+v, int citys, double max\+\_\+radius)
+\begin{DoxyCompactList}\small\item\em This function generates a random stream of integer values inside a given region in space. The method simulates a city distribution. \end{DoxyCompactList}\item 
+vector$<$ pair$<$ pair$<$ int, int $>$, pair$<$ double, double $>$ $>$ $>$ {\bfseries qsbd\+::stream\+\_\+maker\+::random\+\_\+stream\+\_\+city\+\_\+with\+\_\+weight} (int vector\+\_\+size, double minx, double miny, double maxx, double maxy, int min\+\_\+v, int max\+\_\+v, int min\+\_\+w, int max\+\_\+w, int citys, double max\+\_\+radius)
+\begin{DoxyCompactList}\small\item\em This function generates a random stream of integer values with weight inside a given region in space. The method simulates a city distribution. \end{DoxyCompactList}\item 
+pair$<$ pair$<$ double, double $>$, pair$<$ double, double $>$ $>$ {\bfseries qsbd\+::stream\+\_\+maker\+::random\+\_\+rectangle\+\_\+in\+\_\+region} (double minx, double miny, double maxx, double maxy)
+\begin{DoxyCompactList}\small\item\em This function givens a random rectangle inside a given bound. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\std\+::vector$<$ T $>$ \mbox{\hyperlink{stream__maker_8h_a156ea8b2a240dcbdd648d46042b612c8}{qsbd\+::stream\+\_\+maker\+::merge\+\_\+stream}} (std\+::vector$<$ T $>$ \&stream1, std\+::vector$<$ T $>$ \&stream2)
+\begin{DoxyCompactList}\small\item\em A method to merge two separeted streams {\ttfamily stream1} and {\ttfamily stream2}. Both of the same type. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{stream__maker_8h_a37e51f901d1a0cc909f15ec4a6b31858}{qsbd\+::stream\+\_\+maker\+::show\+\_\+stream}} (std\+::vector$<$ int $>$ \&stream)
+\begin{DoxyCompactList}\small\item\em outputs {\ttfamily stream} in the std\+::cout \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{stream__maker_8h_aa30dd961f93af872817dee79c6c6057b}{qsbd\+::stream\+\_\+maker\+::show\+\_\+stream}} (std\+::vector$<$ std\+::pair$<$ int, int $>$$>$ \&stream)
+\begin{DoxyCompactList}\small\item\em outputs {\ttfamily stream} in the std\+::cout \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+QSBD stream\+\_\+maker namespace. 
+
+\begin{DoxyAuthor}{Author}
+Marcos H C Oliveira \href{mailto:mhco@cin.ufpe.br}{\texttt{ mhco@cin.\+ufpe.\+br}} 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{stream__maker_8h_ac3dd29054029195084c011c181559fce}\label{stream__maker_8h_ac3dd29054029195084c011c181559fce}} 
+\index{stream\_maker.h@{stream\_maker.h}!frequency\_counter@{frequency\_counter}}
+\index{frequency\_counter@{frequency\_counter}!stream\_maker.h@{stream\_maker.h}}
+\doxysubsubsection{\texorpdfstring{frequency\_counter()}{frequency\_counter()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::map$<$int, int$>$ qsbd\+::stream\+\_\+maker\+::frequency\+\_\+counter (\begin{DoxyParamCaption}\item[{std\+::vector$<$ int $>$ \&}]{stream }\end{DoxyParamCaption})}
+
+
+
+This function maps all points inside a given stream and returns its frequency. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stream} & A int stream without weight. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A map where the key is the value of the element on the stream and the value is how many time this element appears. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{stream__maker_8h_afb66bef679c8557956f9bfddd4fb45da}\label{stream__maker_8h_afb66bef679c8557956f9bfddd4fb45da}} 
+\index{stream\_maker.h@{stream\_maker.h}!frequency\_counter@{frequency\_counter}}
+\index{frequency\_counter@{frequency\_counter}!stream\_maker.h@{stream\_maker.h}}
+\doxysubsubsection{\texorpdfstring{frequency\_counter()}{frequency\_counter()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::map$<$int, int$>$ qsbd\+::stream\+\_\+maker\+::frequency\+\_\+counter (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::pair$<$ int, int $>$$>$ \&}]{stream }\end{DoxyParamCaption})}
+
+
+
+This function maps all points inside a given stream and returns its frequency. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stream} & A int stream with weight. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A map where the key is the value of the element on the stream and the value is how many time this element appears. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{stream__maker_8h_a156ea8b2a240dcbdd648d46042b612c8}\label{stream__maker_8h_a156ea8b2a240dcbdd648d46042b612c8}} 
+\index{stream\_maker.h@{stream\_maker.h}!merge\_stream@{merge\_stream}}
+\index{merge\_stream@{merge\_stream}!stream\_maker.h@{stream\_maker.h}}
+\doxysubsubsection{\texorpdfstring{merge\_stream()}{merge\_stream()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+std\+::vector$<$T$>$ qsbd\+::stream\+\_\+maker\+::merge\+\_\+stream (\begin{DoxyParamCaption}\item[{std\+::vector$<$ T $>$ \&}]{stream1,  }\item[{std\+::vector$<$ T $>$ \&}]{stream2 }\end{DoxyParamCaption})}
+
+
+
+A method to merge two separeted streams {\ttfamily stream1} and {\ttfamily stream2}. Both of the same type. 
+
+\begin{DoxyVerb}This method goes by the begin of the two vectors and add the element point by it than increments
+their pointers until one of the streams ends. If some stream has more elements than the other, this 
+elements will appear at the end of the merged stream.
+\end{DoxyVerb}
+ 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type for both streams \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em stream1} & The first stream \\
+\hline
+{\em stream2} & The second stream \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A new stream as the result of merging {\ttfamily stream1} and {\ttfamily stream2} 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <\mbox{\hyperlink{stream__maker_8h}{stream\_maker/stream\_maker.h}}>}}
+\DoxyCodeLine{\textcolor{keyword}{using namespace }qsbd;}
+\DoxyCodeLine{\textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{int} main()\{}
+\DoxyCodeLine{        vector<int> s1 = \{1, 2, 3\};}
+\DoxyCodeLine{        vector<int> s2 = \{4, 5, 6, 7\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{        \textcolor{keyword}{auto} ms = merge\_stream<int>(s1, s2); \textcolor{comment}{// or merge\_stream(s1, s2);}}
+\DoxyCodeLine{}
+\DoxyCodeLine{        \textcolor{keywordflow}{for}(\textcolor{keyword}{auto}\& it : ms)\{}
+\DoxyCodeLine{            cout << it << \textcolor{stringliteral}{"{} "{}};}
+\DoxyCodeLine{        \}}
+\DoxyCodeLine{        cout << endl; \textcolor{comment}{// will output : 1 4 2 5 3 6 7 }}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ 
+
+Definition at line 358 of file stream\+\_\+maker.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{358                                                                                \{}
+\DoxyCodeLine{359             std::vector<T> merged\_stream;}
+\DoxyCodeLine{360             \textcolor{keywordtype}{int} i = 0;}
+\DoxyCodeLine{361             \textcolor{keywordtype}{int} j = 0;}
+\DoxyCodeLine{362 }
+\DoxyCodeLine{363             \textcolor{keywordflow}{while}(i < stream1.size() \&\& j < stream2.size())\{}
+\DoxyCodeLine{364                 merged\_stream.push\_back(stream1[i]);}
+\DoxyCodeLine{365                 merged\_stream.push\_back(stream2[j]);}
+\DoxyCodeLine{366                 i++;}
+\DoxyCodeLine{367                 j++;}
+\DoxyCodeLine{368             \}}
+\DoxyCodeLine{369 }
+\DoxyCodeLine{370             \textcolor{keywordflow}{while}(i < stream1.size())\{}
+\DoxyCodeLine{371                 merged\_stream.push\_back(stream1[i]);}
+\DoxyCodeLine{372                 i++;}
+\DoxyCodeLine{373             \}}
+\DoxyCodeLine{374 }
+\DoxyCodeLine{375             \textcolor{keywordflow}{while}(j < stream2.size())\{}
+\DoxyCodeLine{376                 merged\_stream.push\_back(stream2[j]);}
+\DoxyCodeLine{377                 j++;}
+\DoxyCodeLine{378             \}}
+\DoxyCodeLine{379 }
+\DoxyCodeLine{380             \textcolor{keywordflow}{return} merged\_stream;}
+\DoxyCodeLine{381         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{stream__maker_8cpp_afb7a63f0561215be3f3e985bfb66f927}\label{stream__maker_8cpp_afb7a63f0561215be3f3e985bfb66f927}} 
+\index{stream\_maker.h@{stream\_maker.h}!normal\_int\_stream\_with\_weight@{normal\_int\_stream\_with\_weight}}
+\index{normal\_int\_stream\_with\_weight@{normal\_int\_stream\_with\_weight}!stream\_maker.h@{stream\_maker.h}}
+\doxysubsubsection{\texorpdfstring{normal\_int\_stream\_with\_weight()}{normal\_int\_stream\_with\_weight()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::pair$<$ int, int $>$ $>$ qsbd\+::stream\+\_\+maker\+::normal\+\_\+int\+\_\+stream\+\_\+with\+\_\+weight (\begin{DoxyParamCaption}\item[{int}]{vector\+\_\+size,  }\item[{double}]{mean,  }\item[{double}]{stddev,  }\item[{int}]{min\+\_\+w,  }\item[{int}]{max\+\_\+w }\end{DoxyParamCaption})}
+
+
+
+This function generates a random stream with weight for it\textquotesingle{}s integer values. 
+
+This method returns a random stream with normal distributed values with standard deviation {\ttfamily stddev} and mean {\ttfamily mean} , the weigth for all the values is also evenly distributed in the range \mbox{[} {\ttfamily min\+\_\+w} .. {\ttfamily max\+\_\+w} \mbox{]}. ~\newline
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em vector\+\_\+size} & The size of the elements that will be on the stream \\
+\hline
+{\em mean} & The mean value for the normal distribution \\
+\hline
+{\em stddev} & The standard deviation for the normal distribution \\
+\hline
+{\em min\+\_\+w} & The minimum weight for the values in the stream \\
+\hline
+{\em max\+\_\+w} & The maximum weight for the values in the stream \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A random stream made by this rules.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Isn\textquotesingle{}t true that the sum of all weights on stream is equal to {\ttfamily vector\+\_\+size} .
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+If any minimum value is greater than the maximum value, this function will have a undefined behavior. 
+\end{DoxyWarning}
+
+
+Definition at line 6 of file stream\+\_\+maker.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{6                                                                                                                                \{}
+\DoxyCodeLine{7             normal\_distribution<double> who\_pick(mean, stddev);}
+\DoxyCodeLine{8             uniform\_int\_distribution<int> weight(min\_w, max\_w);}
+\DoxyCodeLine{9             vector<pair<int, int>> normal\_stream;}
+\DoxyCodeLine{10             map<int, int> weight\_got;}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < vector\_size; i++)\{}
+\DoxyCodeLine{13                 \textcolor{keywordtype}{int} element = (int) who\_pick(generator);}
+\DoxyCodeLine{14                 \textcolor{keywordtype}{int} new\_weight = weight(generator);}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16                 \textcolor{keywordflow}{if}(new\_weight > 0)\{}
+\DoxyCodeLine{17                     weight\_got[element] += new\_weight;}
+\DoxyCodeLine{18                 \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{19                     \textcolor{keywordflow}{if}((weight\_got[element] + new\_weight) < 0)\{}
+\DoxyCodeLine{20                         new\_weight = -\/new\_weight;}
+\DoxyCodeLine{21                     \}}
+\DoxyCodeLine{22                 \}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24                 normal\_stream.push\_back(\{element, new\_weight\});}
+\DoxyCodeLine{25             \}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27             \textcolor{keywordflow}{return} normal\_stream;}
+\DoxyCodeLine{28         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{stream__maker_8h_afc897d32dd86f983902ae1852f8a3b67}\label{stream__maker_8h_afc897d32dd86f983902ae1852f8a3b67}} 
+\index{stream\_maker.h@{stream\_maker.h}!quantile@{quantile}}
+\index{quantile@{quantile}!stream\_maker.h@{stream\_maker.h}}
+\doxysubsubsection{\texorpdfstring{quantile()}{quantile()}}
+{\footnotesize\ttfamily int qsbd\+::stream\+\_\+maker\+::quantile (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::pair$<$ int, int $>$$>$ \&}]{stream,  }\item[{int}]{total\+\_\+weight,  }\item[{double}]{quant }\end{DoxyParamCaption})}
+
+
+
+This function calculates the element that represents a given quantile {\ttfamily quant} . 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stream} & A int stream with weight \\
+\hline
+{\em total\+\_\+weight} & The total weight for the given {\ttfamily stream} \\
+\hline
+{\em quant} & The quantile to be queried \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The value in the stream that represents this quantile
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+{\ttfamily quant} should be a number in range \mbox{[}0..1\mbox{]} 
+\end{DoxyNote}
+\mbox{\Hypertarget{stream__maker_8cpp_aee3cbc1ef6779ea6be5551dae7ff2e97}\label{stream__maker_8cpp_aee3cbc1ef6779ea6be5551dae7ff2e97}} 
+\index{stream\_maker.h@{stream\_maker.h}!random\_int\_stream@{random\_int\_stream}}
+\index{random\_int\_stream@{random\_int\_stream}!stream\_maker.h@{stream\_maker.h}}
+\doxysubsubsection{\texorpdfstring{random\_int\_stream()}{random\_int\_stream()}}
+{\footnotesize\ttfamily std\+::vector$<$ int $>$ qsbd\+::stream\+\_\+maker\+::random\+\_\+int\+\_\+stream (\begin{DoxyParamCaption}\item[{int}]{vector\+\_\+size,  }\item[{int}]{min\+\_\+v,  }\item[{int}]{max\+\_\+v }\end{DoxyParamCaption})}
+
+
+
+This function generates a random int stream without weight. 
+
+This method returns a random stream with evenly distributed values in the range \mbox{[} {\ttfamily min\+\_\+v} .. {\ttfamily max\+\_\+v} \mbox{]}. ~\newline
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em vector\+\_\+size} & The size of the elements that will be on the stream \\
+\hline
+{\em min\+\_\+v} & The minimum value that the values can appear in the stream \\
+\hline
+{\em max\+\_\+v} & The maximum value that the values can appear in the stream \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A random stream made by this rules.
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+If any minimum value is greater than the maximum value, this function will have a undefined behavior. 
+\end{DoxyWarning}
+
+
+Definition at line 77 of file stream\+\_\+maker.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{77                                                                             \{}
+\DoxyCodeLine{78             uniform\_int\_distribution<int> who\_pick(min\_v, max\_v);}
+\DoxyCodeLine{79             vector<int> random\_stream;}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < vector\_size; i++)\{}
+\DoxyCodeLine{82                 random\_stream.push\_back(who\_pick(generator));}
+\DoxyCodeLine{83             \}}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85             \textcolor{keywordflow}{return} random\_stream;}
+\DoxyCodeLine{86         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{stream__maker_8cpp_a9759cdb4b8d3b2b9f8dfaad85a457ab2}\label{stream__maker_8cpp_a9759cdb4b8d3b2b9f8dfaad85a457ab2}} 
+\index{stream\_maker.h@{stream\_maker.h}!random\_int\_stream\_with\_weight@{random\_int\_stream\_with\_weight}}
+\index{random\_int\_stream\_with\_weight@{random\_int\_stream\_with\_weight}!stream\_maker.h@{stream\_maker.h}}
+\doxysubsubsection{\texorpdfstring{random\_int\_stream\_with\_weight()}{random\_int\_stream\_with\_weight()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::pair$<$ int, int $>$ $>$ qsbd\+::stream\+\_\+maker\+::random\+\_\+int\+\_\+stream\+\_\+with\+\_\+weight (\begin{DoxyParamCaption}\item[{int}]{vector\+\_\+size,  }\item[{int}]{min\+\_\+v,  }\item[{int}]{max\+\_\+v,  }\item[{int}]{min\+\_\+w,  }\item[{int}]{max\+\_\+w }\end{DoxyParamCaption})}
+
+
+
+This function generates a random stream with weight for it\textquotesingle{}s integer values. 
+
+This method returns a random stream with evenly distributed values in the range \mbox{[} {\ttfamily min\+\_\+v} .. {\ttfamily max\+\_\+v} \mbox{]}, the weigth for all the values is also evenly distributed in the range \mbox{[} {\ttfamily min\+\_\+w} .. {\ttfamily max\+\_\+w} \mbox{]}. ~\newline
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em vector\+\_\+size} & The size of the elements that will be on the stream \\
+\hline
+{\em min\+\_\+v} & The minimum value that the values can appear in the stream \\
+\hline
+{\em max\+\_\+v} & The maximum value that the values can appear in the stream \\
+\hline
+{\em min\+\_\+w} & The minimum weight for the values in the stream \\
+\hline
+{\em max\+\_\+w} & The maximum weight for the values in the stream \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A random stream made by this rules.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Isn\textquotesingle{}t true that the sum of all weights on stream is equal to {\ttfamily vector\+\_\+size} .
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+If any minimum value is greater than the maximum value, this function will have a undefined behavior. 
+\end{DoxyWarning}
+
+
+Definition at line 30 of file stream\+\_\+maker.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{30                                                                                                                          \{}
+\DoxyCodeLine{31             uniform\_int\_distribution<int> who\_pick(min\_v, max\_v);}
+\DoxyCodeLine{32             uniform\_int\_distribution<int> weight(min\_w, max\_w);}
+\DoxyCodeLine{33             vector<pair<int, int>> random\_stream;}
+\DoxyCodeLine{34             map<int, int> weight\_got;}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < vector\_size; i++)\{}
+\DoxyCodeLine{37                 \textcolor{keywordtype}{int} element = who\_pick(generator);}
+\DoxyCodeLine{38                 \textcolor{keywordtype}{int} new\_weight = weight(generator);}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40                 \textcolor{keywordflow}{if}(new\_weight > 0)\{}
+\DoxyCodeLine{41                     weight\_got[element] += new\_weight;}
+\DoxyCodeLine{42                 \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{43                     \textcolor{keywordflow}{if}((weight\_got[element] + new\_weight) < 0)\{}
+\DoxyCodeLine{44                         new\_weight = -\/new\_weight;}
+\DoxyCodeLine{45                     \}}
+\DoxyCodeLine{46                 \}}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48                 random\_stream.push\_back(\{element, new\_weight\});}
+\DoxyCodeLine{49             \}}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51             \textcolor{keywordflow}{return} random\_stream;}
+\DoxyCodeLine{52         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{stream__maker_8cpp_aa6bbd9faf31297910297867b0a6a4213}\label{stream__maker_8cpp_aa6bbd9faf31297910297867b0a6a4213}} 
+\index{stream\_maker.h@{stream\_maker.h}!random\_rectangle\_in\_region@{random\_rectangle\_in\_region}}
+\index{random\_rectangle\_in\_region@{random\_rectangle\_in\_region}!stream\_maker.h@{stream\_maker.h}}
+\doxysubsubsection{\texorpdfstring{random\_rectangle\_in\_region()}{random\_rectangle\_in\_region()}}
+{\footnotesize\ttfamily std\+::pair$<$ std\+::pair$<$ double, double $>$, std\+::pair$<$ double, double $>$ $>$ qsbd\+::stream\+\_\+maker\+::random\+\_\+rectangle\+\_\+in\+\_\+region (\begin{DoxyParamCaption}\item[{double}]{minx,  }\item[{double}]{miny,  }\item[{double}]{maxx,  }\item[{double}]{maxy }\end{DoxyParamCaption})}
+
+
+
+This function givens a random rectangle inside a given bound. 
+
+All points given by this method are evenly distributed over the x and y range. That means that we choose four points (x0, y0) .. (x3, y3) so that xi is choose for a uniform range \mbox{[} {\ttfamily minxx} .. {\ttfamily maxx} \mbox{]} and yi in a uniform range \mbox{[} {\ttfamily miny} .. {\ttfamily maxy} \mbox{]}
+
+We can have any return inside this box \+:
+
+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/--- ( {\ttfamily maxx} , {\ttfamily maxy} ) $\vert$ $\vert$-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---(possiblex2, possibley2) $\vert$ $\vert$ $\vert$ $\vert$ $\vert$ $\vert$ $\vert$ $\vert$ $\vert$ $\vert$ (possiblex1, possibley1)-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---$\vert$ $\vert$ $\vert$ $\vert$ ( {\ttfamily minx} , {\ttfamily miny} ) -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---
+
+
+\begin{DoxyParams}{Parameters}
+{\em minx} & The min x bound \\
+\hline
+{\em miny} & The min y bound \\
+\hline
+{\em maxx} & The max x bound \\
+\hline
+{\em maxy} & The max y bound \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A random rectangle in this area where (possiblex1, possibley1) are the first part of the return and (possiblex2, possibley2) are the second part 
+\end{DoxyReturn}
+
+
+Definition at line 304 of file stream\+\_\+maker.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{304                                                                                                                                        \{}
+\DoxyCodeLine{305             uniform\_real\_distribution<double> x\_distribution(minx, maxx);}
+\DoxyCodeLine{306             uniform\_real\_distribution<double> y\_distribution(miny, maxy);}
+\DoxyCodeLine{307 }
+\DoxyCodeLine{308             \textcolor{keywordtype}{double} x1 = x\_distribution(generator);}
+\DoxyCodeLine{309             \textcolor{keywordtype}{double} x2 = x\_distribution(generator);}
+\DoxyCodeLine{310             \textcolor{keywordtype}{double} y1 = y\_distribution(generator);}
+\DoxyCodeLine{311             \textcolor{keywordtype}{double} y2 = y\_distribution(generator);}
+\DoxyCodeLine{312 }
+\DoxyCodeLine{313             \textcolor{keywordflow}{return} \{\{min(x1, x2), min(y1, y2)\}, \{max(x1, x2), max(y1, y2)\}\};}
+\DoxyCodeLine{314         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{stream__maker_8cpp_a84a8be7ad78630c32af47927abfb2a18}\label{stream__maker_8cpp_a84a8be7ad78630c32af47927abfb2a18}} 
+\index{stream\_maker.h@{stream\_maker.h}!random\_stream\_city@{random\_stream\_city}}
+\index{random\_stream\_city@{random\_stream\_city}!stream\_maker.h@{stream\_maker.h}}
+\doxysubsubsection{\texorpdfstring{random\_stream\_city()}{random\_stream\_city()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::pair$<$ int, std\+::pair$<$ double, double $>$ $>$ $>$ qsbd\+::stream\+\_\+maker\+::random\+\_\+stream\+\_\+city (\begin{DoxyParamCaption}\item[{int}]{vector\+\_\+size,  }\item[{double}]{minx,  }\item[{double}]{miny,  }\item[{double}]{maxx,  }\item[{double}]{maxy,  }\item[{int}]{min\+\_\+v,  }\item[{int}]{max\+\_\+v,  }\item[{int}]{citys,  }\item[{double}]{max\+\_\+radius }\end{DoxyParamCaption})}
+
+
+
+This function generates a random stream of integer values inside a given region in space. The method simulates a city distribution. 
+
+This method returns a random stream with evenly distributed values in the range \mbox{[} {\ttfamily min\+\_\+v} .. {\ttfamily max\+\_\+v} \mbox{]}, the first part of the pair is the value for the stream and the second part is the (x, y) position in the following box \+:
+
+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/--- ( {\ttfamily maxx} , {\ttfamily maxy} ) \tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{1}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }\\\cline{1-1}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }\\\cline{1-1}
+\endhead
+(Randomx, Randomy)    \\\cline{1-1}
+\\\cline{1-1}
+\\\cline{1-1}
+\end{longtabu}
+( {\ttfamily minx} , {\ttfamily miny} ) -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---
+
+the points will be distributed as if this streams represents some citys in this region, the number of citys is given by {\ttfamily citys} . This method tries to subdivides a same amount of {\ttfamily vector\+\_\+size} points for all the citys where all the points are bounded by the {\ttfamily max\+\_\+radius} .
+
+
+\begin{DoxyParams}{Parameters}
+{\em vector\+\_\+size} & The size of the elements that will be on the stream \\
+\hline
+{\em minx} & The min x value for the position of the element \\
+\hline
+{\em miny} & The min y value for the position of the element \\
+\hline
+{\em maxx} & The max x value for the position of the element \\
+\hline
+{\em maxy} & The max y value for the position of the element \\
+\hline
+{\em min\+\_\+v} & The minimum value that the values can appear in the stream \\
+\hline
+{\em max\+\_\+v} & The maximum value that the values can appear in the stream \\
+\hline
+{\em citys} & The number of citys in the stream \\
+\hline
+{\em max\+\_\+radius} & The max radius for points in a given city \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A random int stream made by this rules
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Isn\textquotesingle{}t true that the sum of all weights on stream is equal to {\ttfamily vector\+\_\+size} .
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+If any minimum value is greater than the maximum value, this function will have a undefined behavior.
+
+Given a {\ttfamily citys} equal to zero will cause a runtime error. 
+\end{DoxyWarning}
+
+
+Definition at line 228 of file stream\+\_\+maker.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{228                                                                                                                                                                                            \{}
+\DoxyCodeLine{229             minx += max\_radius;}
+\DoxyCodeLine{230             miny += max\_radius;}
+\DoxyCodeLine{231             maxx -\/= max\_radius;}
+\DoxyCodeLine{232             maxy -\/= max\_radius;}
+\DoxyCodeLine{233 }
+\DoxyCodeLine{234             uniform\_real\_distribution<double> x\_distribution(minx, maxx);}
+\DoxyCodeLine{235             uniform\_real\_distribution<double> y\_distribution(miny, maxy);}
+\DoxyCodeLine{236             uniform\_real\_distribution<double> radius\_dist(0.0, max\_radius);}
+\DoxyCodeLine{237             uniform\_real\_distribution<double> angle\_dist(0.0, 2 * M\_PI);}
+\DoxyCodeLine{238             uniform\_int\_distribution<int> who\_pick(min\_v, max\_v);}
+\DoxyCodeLine{239             vector<pair<int, pair<double, double>>> stream;}
+\DoxyCodeLine{240             \textcolor{keywordtype}{int} same\_points = vector\_size / citys;}
+\DoxyCodeLine{241             \textcolor{keywordtype}{int} rest\_points = vector\_size \% citys;}
+\DoxyCodeLine{242 }
+\DoxyCodeLine{243             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < citys; i++)\{}
+\DoxyCodeLine{244                 \textcolor{keywordtype}{int} points = same\_points;}
+\DoxyCodeLine{245 }
+\DoxyCodeLine{246                 \textcolor{keywordflow}{if} (i == citys -\/ 1)\{}
+\DoxyCodeLine{247                     points += rest\_points;}
+\DoxyCodeLine{248                 \}}
+\DoxyCodeLine{249 }
+\DoxyCodeLine{250                 \textcolor{keywordtype}{double} base\_x = x\_distribution(generator);}
+\DoxyCodeLine{251                 \textcolor{keywordtype}{double} base\_y = y\_distribution(generator);}
+\DoxyCodeLine{252 }
+\DoxyCodeLine{253                 \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j = 0; j < points; j++)\{}
+\DoxyCodeLine{254                     \textcolor{keywordtype}{double} radius = radius\_dist(generator);}
+\DoxyCodeLine{255                     \textcolor{keywordtype}{double} angle = angle\_dist(generator);}
+\DoxyCodeLine{256                     \textcolor{keywordtype}{int} pick = who\_pick(generator);}
+\DoxyCodeLine{257 }
+\DoxyCodeLine{258                     stream.push\_back(\{pick, \{base\_x + radius * cos(angle), base\_y + radius * sin(angle)\}\});}
+\DoxyCodeLine{259                 \}}
+\DoxyCodeLine{260             \}}
+\DoxyCodeLine{261 }
+\DoxyCodeLine{262             \textcolor{keywordflow}{return} stream;}
+\DoxyCodeLine{263         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{stream__maker_8cpp_a84c237574530fe852a1e03b822e6aff8}\label{stream__maker_8cpp_a84c237574530fe852a1e03b822e6aff8}} 
+\index{stream\_maker.h@{stream\_maker.h}!random\_stream\_city\_with\_weight@{random\_stream\_city\_with\_weight}}
+\index{random\_stream\_city\_with\_weight@{random\_stream\_city\_with\_weight}!stream\_maker.h@{stream\_maker.h}}
+\doxysubsubsection{\texorpdfstring{random\_stream\_city\_with\_weight()}{random\_stream\_city\_with\_weight()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::pair$<$ std\+::pair$<$ int, int $>$, std\+::pair$<$ double, double $>$ $>$ $>$ qsbd\+::stream\+\_\+maker\+::random\+\_\+stream\+\_\+city\+\_\+with\+\_\+weight (\begin{DoxyParamCaption}\item[{int}]{vector\+\_\+size,  }\item[{double}]{minx,  }\item[{double}]{miny,  }\item[{double}]{maxx,  }\item[{double}]{maxy,  }\item[{int}]{min\+\_\+v,  }\item[{int}]{max\+\_\+v,  }\item[{int}]{min\+\_\+w,  }\item[{int}]{max\+\_\+w,  }\item[{int}]{citys,  }\item[{double}]{max\+\_\+radius }\end{DoxyParamCaption})}
+
+
+
+This function generates a random stream of integer values with weight inside a given region in space. The method simulates a city distribution. 
+
+This method returns a random stream with evenly distributed values in the range \mbox{[} {\ttfamily min\+\_\+v} .. {\ttfamily max\+\_\+v} \mbox{]}, where the value and the weight are the first part of the pair where the weigth for all the values is also evenly distributed in the range \mbox{[} {\ttfamily min\+\_\+w} .. {\ttfamily max\+\_\+w} \mbox{]}, and the second part is the (x, y) position in the following box \+:
+
+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/--- ( {\ttfamily maxx} , {\ttfamily maxy} ) \tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{1}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }\\\cline{1-1}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }\\\cline{1-1}
+\endhead
+(Randomx, Randomy)    \\\cline{1-1}
+\\\cline{1-1}
+\\\cline{1-1}
+\end{longtabu}
+( {\ttfamily minx} , {\ttfamily miny} ) -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---
+
+the points will be distributed as if this streams represents some citys in this region, the number of citys is given by {\ttfamily citys} . This method tries to subdivides a same amount of {\ttfamily vector\+\_\+size} points for all the citys where all the points are bounded by the {\ttfamily max\+\_\+radius} .
+
+
+\begin{DoxyParams}{Parameters}
+{\em vector\+\_\+size} & The size of the elements that will be on the stream \\
+\hline
+{\em minx} & The min x value for the position of the element \\
+\hline
+{\em miny} & The min y value for the position of the element \\
+\hline
+{\em maxx} & The max x value for the position of the element \\
+\hline
+{\em maxy} & The max y value for the position of the element \\
+\hline
+{\em min\+\_\+v} & The minimum value that the values can appear in the stream \\
+\hline
+{\em max\+\_\+v} & The maximum value that the values can appear in the stream \\
+\hline
+{\em min\+\_\+w} & The minimum weight for the values in the stream \\
+\hline
+{\em max\+\_\+w} & The maximum weight for the values in the stream \\
+\hline
+{\em citys} & The number of citys in the stream \\
+\hline
+{\em max\+\_\+radius} & The max radius for points in a given city \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A random int stream made by this rules
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Isn\textquotesingle{}t true that the sum of all weights on stream is equal to {\ttfamily vector\+\_\+size} .
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+If any minimum value is greater than the maximum value, this function will have a undefined behavior.
+
+Given a {\ttfamily citys} equal to zero will cause a runtime error. 
+\end{DoxyWarning}
+
+
+Definition at line 265 of file stream\+\_\+maker.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{265                                                                                                                                                                                                                                         \{}
+\DoxyCodeLine{266             minx += max\_radius;}
+\DoxyCodeLine{267             miny += max\_radius;}
+\DoxyCodeLine{268             maxx -\/= max\_radius;}
+\DoxyCodeLine{269             maxy -\/= max\_radius;}
+\DoxyCodeLine{270 }
+\DoxyCodeLine{271             uniform\_real\_distribution<double> x\_distribution(minx, maxx);}
+\DoxyCodeLine{272             uniform\_real\_distribution<double> y\_distribution(miny, maxy);}
+\DoxyCodeLine{273             uniform\_real\_distribution<double> radius\_dist(0.0, max\_radius);}
+\DoxyCodeLine{274             uniform\_real\_distribution<double> angle\_dist(0.0, 2 * M\_PI);}
+\DoxyCodeLine{275             uniform\_int\_distribution<int> who\_pick(min\_v, max\_v);}
+\DoxyCodeLine{276             uniform\_int\_distribution<int> what\_weight(min\_w, max\_w);}
+\DoxyCodeLine{277             vector<pair<pair<int, int>,  pair<double, double>>> stream;}
+\DoxyCodeLine{278             \textcolor{keywordtype}{int} same\_points = vector\_size / citys;}
+\DoxyCodeLine{279             \textcolor{keywordtype}{int} rest\_points = vector\_size \% citys;}
+\DoxyCodeLine{280 }
+\DoxyCodeLine{281             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < citys; i++)\{}
+\DoxyCodeLine{282                 \textcolor{keywordtype}{int} points = same\_points;}
+\DoxyCodeLine{283 }
+\DoxyCodeLine{284                 \textcolor{keywordflow}{if} (i == citys -\/ 1)\{}
+\DoxyCodeLine{285                     points += rest\_points;}
+\DoxyCodeLine{286                 \}}
+\DoxyCodeLine{287 }
+\DoxyCodeLine{288                 \textcolor{keywordtype}{double} base\_x = x\_distribution(generator);}
+\DoxyCodeLine{289                 \textcolor{keywordtype}{double} base\_y = y\_distribution(generator);}
+\DoxyCodeLine{290 }
+\DoxyCodeLine{291                 \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j = 0; j < points; j++)\{}
+\DoxyCodeLine{292                     \textcolor{keywordtype}{double} radius = radius\_dist(generator);}
+\DoxyCodeLine{293                     \textcolor{keywordtype}{double} angle = angle\_dist(generator);}
+\DoxyCodeLine{294                     \textcolor{keywordtype}{int} pick = who\_pick(generator);}
+\DoxyCodeLine{295                     \textcolor{keywordtype}{int} weight = what\_weight(generator);}
+\DoxyCodeLine{296 }
+\DoxyCodeLine{297                     stream.push\_back(\{\{pick, weight\}, \{base\_x + radius * cos(angle), base\_y + radius * sin(angle)\}\});}
+\DoxyCodeLine{298                 \}}
+\DoxyCodeLine{299             \}}
+\DoxyCodeLine{300 }
+\DoxyCodeLine{301             \textcolor{keywordflow}{return} stream;}
+\DoxyCodeLine{302         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{stream__maker_8cpp_aa2977b86299f5064a7997ca103e3a2fc}\label{stream__maker_8cpp_aa2977b86299f5064a7997ca103e3a2fc}} 
+\index{stream\_maker.h@{stream\_maker.h}!random\_stream\_in\_region@{random\_stream\_in\_region}}
+\index{random\_stream\_in\_region@{random\_stream\_in\_region}!stream\_maker.h@{stream\_maker.h}}
+\doxysubsubsection{\texorpdfstring{random\_stream\_in\_region()}{random\_stream\_in\_region()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::pair$<$ int, std\+::pair$<$ double, double $>$ $>$ $>$ qsbd\+::stream\+\_\+maker\+::random\+\_\+stream\+\_\+in\+\_\+region (\begin{DoxyParamCaption}\item[{int}]{vector\+\_\+size,  }\item[{double}]{minx,  }\item[{double}]{miny,  }\item[{double}]{maxx,  }\item[{double}]{maxy,  }\item[{int}]{min\+\_\+v,  }\item[{int}]{max\+\_\+v }\end{DoxyParamCaption})}
+
+
+
+This function generates a random stream of integer values inside a given region in space. 
+
+This method returns a random stream with evenly distributed values in the range \mbox{[} {\ttfamily min\+\_\+v} .. {\ttfamily max\+\_\+v} \mbox{]}, where the value is the first part of the pair, and the second part is the (x, y) position of the value evenly distributed in the following box \+:
+
+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/--- ( {\ttfamily maxx} , {\ttfamily maxy} ) \tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{1}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }\\\cline{1-1}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }\\\cline{1-1}
+\endhead
+(Randomx, Randomy)    \\\cline{1-1}
+\\\cline{1-1}
+\\\cline{1-1}
+\end{longtabu}
+( {\ttfamily minx} , {\ttfamily miny} ) -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---
+
+
+\begin{DoxyParams}{Parameters}
+{\em vector\+\_\+size} & The size of the elements that will be on the stream \\
+\hline
+{\em minx} & The min x value for the position of the element \\
+\hline
+{\em miny} & The min y value for the position of the element \\
+\hline
+{\em maxx} & The max x value for the position of the element \\
+\hline
+{\em maxy} & The max y value for the position of the element \\
+\hline
+{\em min\+\_\+v} & The minimum value that the values can appear in the stream \\
+\hline
+{\em max\+\_\+v} & The maximum value that the values can appear in the stream \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A random int stream made by this rules
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+If any minimum value is greater than the maximum value, this function will have a undefined behavior. 
+\end{DoxyWarning}
+
+
+Definition at line 187 of file stream\+\_\+maker.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{187                                                                                                                                                                   \{}
+\DoxyCodeLine{188             uniform\_real\_distribution<double> x\_distribution(minx, maxx);}
+\DoxyCodeLine{189             uniform\_real\_distribution<double> y\_distribution(miny, maxy);}
+\DoxyCodeLine{190             uniform\_int\_distribution<int> who\_pick(min\_v, max\_v);}
+\DoxyCodeLine{191             vector<pair<int, pair<double, double>>> ret;}
+\DoxyCodeLine{192             }
+\DoxyCodeLine{193             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < vector\_size; i++)\{}
+\DoxyCodeLine{194                 \textcolor{keywordtype}{int} element = who\_pick(generator);}
+\DoxyCodeLine{195                 ret.push\_back(\{element, \{x\_distribution(generator), y\_distribution(generator)\}\});}
+\DoxyCodeLine{196             \}}
+\DoxyCodeLine{197 }
+\DoxyCodeLine{198             \textcolor{keywordflow}{return} ret;}
+\DoxyCodeLine{199         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{stream__maker_8cpp_a9799f46e48ee0552dba6df8c20a8d027}\label{stream__maker_8cpp_a9799f46e48ee0552dba6df8c20a8d027}} 
+\index{stream\_maker.h@{stream\_maker.h}!random\_stream\_in\_region\_with\_weight@{random\_stream\_in\_region\_with\_weight}}
+\index{random\_stream\_in\_region\_with\_weight@{random\_stream\_in\_region\_with\_weight}!stream\_maker.h@{stream\_maker.h}}
+\doxysubsubsection{\texorpdfstring{random\_stream\_in\_region\_with\_weight()}{random\_stream\_in\_region\_with\_weight()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::pair$<$ std\+::pair$<$ int, int $>$, std\+::pair$<$ double, double $>$ $>$ $>$ qsbd\+::stream\+\_\+maker\+::random\+\_\+stream\+\_\+in\+\_\+region\+\_\+with\+\_\+weight (\begin{DoxyParamCaption}\item[{int}]{vector\+\_\+size,  }\item[{double}]{minx,  }\item[{double}]{miny,  }\item[{double}]{maxx,  }\item[{double}]{maxy,  }\item[{int}]{min\+\_\+v,  }\item[{int}]{max\+\_\+v,  }\item[{int}]{min\+\_\+w,  }\item[{int}]{max\+\_\+w }\end{DoxyParamCaption})}
+
+
+
+This function generates a random stream of integer values with weight inside a given region in space. 
+
+This method returns a random stream with evenly distributed values in the range \mbox{[} {\ttfamily min\+\_\+v} .. {\ttfamily max\+\_\+v} \mbox{]}, where the value and the weight are the first part of the pair where the weigth for all the values is also evenly distributed in the range \mbox{[} {\ttfamily min\+\_\+w} .. {\ttfamily max\+\_\+w} \mbox{]}, and the second part is the (x, y) position evenly distributed in the following box \+:
+
+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/--- ( {\ttfamily maxx} , {\ttfamily maxy} ) \tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{1}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }\\\cline{1-1}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }\\\cline{1-1}
+\endhead
+(Randomx, Randomy)    \\\cline{1-1}
+\\\cline{1-1}
+\\\cline{1-1}
+\end{longtabu}
+( {\ttfamily minx} , {\ttfamily miny} ) -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---
+
+
+\begin{DoxyParams}{Parameters}
+{\em vector\+\_\+size} & The size of the elements that will be on the stream \\
+\hline
+{\em minx} & The min x value for the position of the element \\
+\hline
+{\em miny} & The min y value for the position of the element \\
+\hline
+{\em maxx} & The max x value for the position of the element \\
+\hline
+{\em maxy} & The max y value for the position of the element \\
+\hline
+{\em min\+\_\+v} & The minimum value that the values can appear in the stream \\
+\hline
+{\em max\+\_\+v} & The maximum value that the values can appear in the stream \\
+\hline
+{\em min\+\_\+w} & The minimum weight for the values in the stream \\
+\hline
+{\em max\+\_\+w} & The maximum weight for the values in the stream \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A random int stream made by this rules
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Isn\textquotesingle{}t true that the sum of all weights on stream is equal to {\ttfamily vector\+\_\+size} .
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+If any minimum value is greater than the maximum value, this function will have a undefined behavior. 
+\end{DoxyWarning}
+
+
+Definition at line 201 of file stream\+\_\+maker.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{201                                                                                                                                                                                                                \{}
+\DoxyCodeLine{202             uniform\_real\_distribution<double> x\_distribution(minx, maxx);}
+\DoxyCodeLine{203             uniform\_real\_distribution<double> y\_distribution(miny, maxy);}
+\DoxyCodeLine{204             uniform\_int\_distribution<int> who\_pick(min\_v, max\_v);}
+\DoxyCodeLine{205             uniform\_int\_distribution<int> weight(min\_w, max\_w);}
+\DoxyCodeLine{206             map<int, int> weight\_got;}
+\DoxyCodeLine{207             vector<pair<pair<int, int>, pair<double, double>>> random\_stream;}
+\DoxyCodeLine{208             }
+\DoxyCodeLine{209             }
+\DoxyCodeLine{210             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < vector\_size; i++)\{}
+\DoxyCodeLine{211                 \textcolor{keywordtype}{int} element = who\_pick(generator);}
+\DoxyCodeLine{212                 \textcolor{keywordtype}{int} new\_weight = weight(generator);}
+\DoxyCodeLine{213 }
+\DoxyCodeLine{214                 \textcolor{keywordflow}{if}(new\_weight > 0)\{}
+\DoxyCodeLine{215                     weight\_got[element] += new\_weight;}
+\DoxyCodeLine{216                 \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{217                     \textcolor{keywordflow}{if}((weight\_got[element] + new\_weight) < 0)\{}
+\DoxyCodeLine{218                         new\_weight = -\/new\_weight;}
+\DoxyCodeLine{219                     \}}
+\DoxyCodeLine{220                 \}}
+\DoxyCodeLine{221 }
+\DoxyCodeLine{222                 random\_stream.push\_back(\{\{element, new\_weight\}, \{x\_distribution(generator), y\_distribution(generator)\}\});}
+\DoxyCodeLine{223             \}}
+\DoxyCodeLine{224 }
+\DoxyCodeLine{225             \textcolor{keywordflow}{return} random\_stream;}
+\DoxyCodeLine{226         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{stream__maker_8h_adcab12006be5f9223b68669545761bb9}\label{stream__maker_8h_adcab12006be5f9223b68669545761bb9}} 
+\index{stream\_maker.h@{stream\_maker.h}!real\_ranks\_from\_stream@{real\_ranks\_from\_stream}}
+\index{real\_ranks\_from\_stream@{real\_ranks\_from\_stream}!stream\_maker.h@{stream\_maker.h}}
+\doxysubsubsection{\texorpdfstring{real\_ranks\_from\_stream()}{real\_ranks\_from\_stream()}}
+{\footnotesize\ttfamily std\+::vector$<$int$>$ qsbd\+::stream\+\_\+maker\+::real\+\_\+ranks\+\_\+from\+\_\+stream (\begin{DoxyParamCaption}\item[{std\+::vector$<$ int $>$ \&}]{stream }\end{DoxyParamCaption})}
+
+
+
+This function returns all the ranks for a given int stream. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stream} & A int stream without weight \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A rank for each element on stream, going from \mbox{[}0..max element on stream\mbox{]}
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The stream will be sorted. 
+\end{DoxyNote}
+\mbox{\Hypertarget{stream__maker_8h_a930e2061171827e71e47073e7169dae0}\label{stream__maker_8h_a930e2061171827e71e47073e7169dae0}} 
+\index{stream\_maker.h@{stream\_maker.h}!real\_ranks\_from\_stream\_with\_weight@{real\_ranks\_from\_stream\_with\_weight}}
+\index{real\_ranks\_from\_stream\_with\_weight@{real\_ranks\_from\_stream\_with\_weight}!stream\_maker.h@{stream\_maker.h}}
+\doxysubsubsection{\texorpdfstring{real\_ranks\_from\_stream\_with\_weight()}{real\_ranks\_from\_stream\_with\_weight()}}
+{\footnotesize\ttfamily std\+::vector$<$int$>$ qsbd\+::stream\+\_\+maker\+::real\+\_\+ranks\+\_\+from\+\_\+stream\+\_\+with\+\_\+weight (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::pair$<$ int, int $>$$>$ \&}]{stream }\end{DoxyParamCaption})}
+
+
+
+This function returns all the ranks for a given int stream with weight. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stream} & A int stream with weight \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A rank for each element on stream, going from \mbox{[}0..max element on stream\mbox{]}
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The stream will be sorted. 
+\end{DoxyNote}
+\mbox{\Hypertarget{stream__maker_8h_a37e51f901d1a0cc909f15ec4a6b31858}\label{stream__maker_8h_a37e51f901d1a0cc909f15ec4a6b31858}} 
+\index{stream\_maker.h@{stream\_maker.h}!show\_stream@{show\_stream}}
+\index{show\_stream@{show\_stream}!stream\_maker.h@{stream\_maker.h}}
+\doxysubsubsection{\texorpdfstring{show\_stream()}{show\_stream()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void qsbd\+::stream\+\_\+maker\+::show\+\_\+stream (\begin{DoxyParamCaption}\item[{std\+::vector$<$ int $>$ \&}]{stream }\end{DoxyParamCaption})}
+
+
+
+outputs {\ttfamily stream} in the std\+::cout 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stream} & a int stream without weight \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{stream__maker_8h_aa30dd961f93af872817dee79c6c6057b}\label{stream__maker_8h_aa30dd961f93af872817dee79c6c6057b}} 
+\index{stream\_maker.h@{stream\_maker.h}!show\_stream@{show\_stream}}
+\index{show\_stream@{show\_stream}!stream\_maker.h@{stream\_maker.h}}
+\doxysubsubsection{\texorpdfstring{show\_stream()}{show\_stream()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void qsbd\+::stream\+\_\+maker\+::show\+\_\+stream (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::pair$<$ int, int $>$$>$ \&}]{stream }\end{DoxyParamCaption})}
+
+
+
+outputs {\ttfamily stream} in the std\+::cout 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stream} & a int stream with weight \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{stream__maker_8h_a246191eedc8fcacc74098e9548bdaed8}\label{stream__maker_8h_a246191eedc8fcacc74098e9548bdaed8}} 
+\index{stream\_maker.h@{stream\_maker.h}!sort\_and\_merge\_weight@{sort\_and\_merge\_weight}}
+\index{sort\_and\_merge\_weight@{sort\_and\_merge\_weight}!stream\_maker.h@{stream\_maker.h}}
+\doxysubsubsection{\texorpdfstring{sort\_and\_merge\_weight()}{sort\_and\_merge\_weight()}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::pair$<$int, int$>$ $>$ qsbd\+::stream\+\_\+maker\+::sort\+\_\+and\+\_\+merge\+\_\+weight (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::pair$<$ int, int $>$$>$ \&}]{stream }\end{DoxyParamCaption})}
+
+
+
+Sorts a {\ttfamily stream} stream with weight and merges the weights for the values that are the same. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stream} & A stream with weight \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The same stream but sorted and with the weights merged.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The original stream will be modified. 
+\end{DoxyNote}
+\mbox{\Hypertarget{stream__maker_8h_a0f5a536c4923e5bc586bfc0f4c6f0f00}\label{stream__maker_8h_a0f5a536c4923e5bc586bfc0f4c6f0f00}} 
+\index{stream\_maker.h@{stream\_maker.h}!weight\_from\_stream@{weight\_from\_stream}}
+\index{weight\_from\_stream@{weight\_from\_stream}!stream\_maker.h@{stream\_maker.h}}
+\doxysubsubsection{\texorpdfstring{weight\_from\_stream()}{weight\_from\_stream()}}
+{\footnotesize\ttfamily int qsbd\+::stream\+\_\+maker\+::weight\+\_\+from\+\_\+stream (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::pair$<$ int, int $>$$>$ \&}]{stream,  }\item[{bool}]{absolute = {\ttfamily true} }\end{DoxyParamCaption})}
+
+
+
+This function returns the total weight for a given stream with weight. 
+
+This method can also return the total weight as if all weights are absoluted values.
+
+
+\begin{DoxyParams}{Parameters}
+{\em stream} & A stream with weight. \\
+\hline
+{\em absolute} & A bool flag to say if all weights should be sum as absolute values or not. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A int representing the total weight for this stream.
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <\mbox{\hyperlink{stream__maker_8h}{stream\_maker/stream\_maker.h}}>}}
+\DoxyCodeLine{\textcolor{keyword}{using namespace }qsbd;}
+\DoxyCodeLine{\textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{int} main()\{}
+\DoxyCodeLine{        vector<pair<int, int>> stream = \{\{1, 3\}, \{2, 3\}, \{1, -\/2\}\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{        cout << weight\_from\_stream(stream) << endl; \textcolor{comment}{// will ouput 8}}
+\DoxyCodeLine{        cout << weight\_from\_stream(stream, \textcolor{keyword}{false}) << endl; \textcolor{comment}{// will ouput 4}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ 

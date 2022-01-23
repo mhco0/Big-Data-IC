@@ -67,19 +67,19 @@ void query_time_summary(const string& test_name, const json& info, vector<double
 }
 
 
-void memory_summary(const string& test_name, const json& info, vector<double>& y_samples, int stream_sizes){
+void memory_summary(const string& test_name, const json& info, vector<uint64_t>& y_samples, int stream_sizes){
     for(int i = 0, j = 10; i < stream_sizes; i++){
         if((i > 100000) and (i == (j - 1) or i == ((j - 1) / 2))){
             
-            int total_bytes = 0;
+            uint64_t total_bytes = info[test_name][string("memory_") + to_string(i + 1)].get<uint64_t>();
 
-            for(auto& it : info[test_name][string("memory_") + to_string(i + 1)].items()){
+            /*for(auto& it : info[test_name][string("memory_") + to_string(i + 1)].items()){
                 for(auto & it2 : it.value()["memory_used"].items()){
                     if ((it2.value()["allocated_type"]) != "[unknown]"){
                         total_bytes += it2.value()["bytes"].get<int>();
                     }
                 }
-            }
+            }*/
 
             y_samples.push_back(total_bytes);
             
@@ -152,7 +152,7 @@ int main(int argc, char* argv[]){
     //"update_time", "construct_time",
     //, "memory", "query_std_dev", "boxplot"
     //query_time
-    vector<string> types_of_plots = {"boxplot"};
+    vector<string> types_of_plots = {"update_time", "construct_time", "memory", "query_std_dev", "boxplot", "query_time"};
     vector<string> streams_files;
     string file_prefix = "out/";
     string test_name;
@@ -183,7 +183,7 @@ int main(int argc, char* argv[]){
     }
 
     for(auto& it : types_of_plots){
-        output_file = file_prefix + it + "_" + args[2] + ".dat";
+        output_file = file_prefix + it + "_" + args[2] + "_leaf.dat";
 
         ofstream out(output_file);
 
@@ -195,7 +195,7 @@ int main(int argc, char* argv[]){
 
         string file = file_prefix;
 
-        file += (to_string(stream_sizes) + "_" + args[2] + ".json");
+        file += (to_string(stream_sizes) + "_" + args[2] + "_leaf_2.json");
 
         ifstream infos(file);
 
@@ -204,6 +204,7 @@ int main(int argc, char* argv[]){
 
             vector<int> x_label;
             vector<double> y_label;
+            vector<uint64_t> memory_label;
 
             x_label_by_stream_size(x_label, stream_sizes);
             
@@ -214,7 +215,14 @@ int main(int argc, char* argv[]){
             }else if(it == "query_time"){
                 query_time_summary(test_name, all_infos, y_label, stream_sizes);
             }else if(it == "memory"){
-                memory_summary(test_name, all_infos, y_label, stream_sizes);
+                memory_summary(test_name, all_infos, memory_label, stream_sizes);
+
+                for(int i = 0; i < x_label.size(); i++){
+                    out << x_label[i] << " " << memory_label[i] << endl;
+                }
+
+                infos.close(); 
+                continue;
             }else if(it == "query_std_dev"){
                 vector<double> queries_time;
                 standard_deviation(test_name, all_infos, queries_time, y_label, stream_sizes);
@@ -224,7 +232,8 @@ int main(int argc, char* argv[]){
                 for(int i = 0; i < x_label.size(); i++){
                     out << x_label[i] << " " << queries_time[i] << " " << y_label[i] << endl;
                 }
-                return 0;
+                infos.close(); 
+                continue;
             }else if (it == "boxplot"){
                 vector<double> queries_times;
 
@@ -233,7 +242,8 @@ int main(int argc, char* argv[]){
                 for(auto& it : queries_times){
                     out << it << endl;
                 }
-                return 0;
+                infos.close(); 
+                continue;
             }else{
                 DEBUG_ERR("Option to build y_label not found");
                 return -1;

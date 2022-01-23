@@ -75,6 +75,9 @@ $(function() {
   <div class="headertitle"><div class="title">qsbd::kll&lt; T &gt; Class Template Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>A class to represent the Karnin-Lang-Liberty sketch.  
+ <a href="classqsbd_1_1kll.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for qsbd::kll&lt; T &gt;:</div>
 <div class="dyncontent">
@@ -87,39 +90,47 @@ Inheritance diagram for qsbd::kll&lt; T &gt;:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aaaac86e4347fb54bef9578d91e2114a3"><td class="memItemLeft" align="right" valign="top"><a id="aaaac86e4347fb54bef9578d91e2114a3"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>kll</b> (double err)</td></tr>
+<tr class="memitem:aaaac86e4347fb54bef9578d91e2114a3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqsbd_1_1kll.html#aaaac86e4347fb54bef9578d91e2114a3">kll</a> (double err)</td></tr>
+<tr class="memdesc:aaaac86e4347fb54bef9578d91e2114a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the kll algorithm.  <a href="classqsbd_1_1kll.html#aaaac86e4347fb54bef9578d91e2114a3">More...</a><br /></td></tr>
 <tr class="separator:aaaac86e4347fb54bef9578d91e2114a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5d8426a8557ee75bcc0d1e9495c2cf96"><td class="memItemLeft" align="right" valign="top"><a id="a5d8426a8557ee75bcc0d1e9495c2cf96"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>compress</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqsbd_1_1kll.html#a5d8426a8557ee75bcc0d1e9495c2cf96">compress</a> ()</td></tr>
+<tr class="memdesc:a5d8426a8557ee75bcc0d1e9495c2cf96"><td class="mdescLeft">&#160;</td><td class="mdescRight">A method that tries to compress the buffer array in the algorithm. <br /></td></tr>
 <tr class="separator:a5d8426a8557ee75bcc0d1e9495c2cf96"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d13b0861967e45ab5c4780d35f1f449"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqsbd_1_1kll.html#a2d13b0861967e45ab5c4780d35f1f449">update</a> (T elem) override</td></tr>
-<tr class="memdesc:a2d13b0861967e45ab5c4780d35f1f449"><td class="mdescLeft">&#160;</td><td class="mdescRight">A virtual update method. Receives a <code>elem</code> and updates the sketch with it.  <a href="classqsbd_1_1kll.html#a2d13b0861967e45ab5c4780d35f1f449">More...</a><br /></td></tr>
+<tr class="memdesc:a2d13b0861967e45ab5c4780d35f1f449"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the kll summary with the element <code>elem</code>.  <a href="classqsbd_1_1kll.html#a2d13b0861967e45ab5c4780d35f1f449">More...</a><br /></td></tr>
 <tr class="separator:a2d13b0861967e45ab5c4780d35f1f449"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae90d25239b925ab9bc1ef7794d9e4104"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqsbd_1_1kll.html#ae90d25239b925ab9bc1ef7794d9e4104">query</a> (T elem) override</td></tr>
-<tr class="memdesc:ae90d25239b925ab9bc1ef7794d9e4104"><td class="mdescLeft">&#160;</td><td class="mdescRight">A virtual query method. Receives a <code>elem</code> and returns the rank associate with this element.  <a href="classqsbd_1_1kll.html#ae90d25239b925ab9bc1ef7794d9e4104">More...</a><br /></td></tr>
+<tr class="memdesc:ae90d25239b925ab9bc1ef7794d9e4104"><td class="mdescLeft">&#160;</td><td class="mdescRight">A method to query the rank of a certain element <code>elem</code>.  <a href="classqsbd_1_1kll.html#ae90d25239b925ab9bc1ef7794d9e4104">More...</a><br /></td></tr>
 <tr class="separator:ae90d25239b925ab9bc1ef7794d9e4104"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a333e8c73e1ad730429f657c3f798ed6c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classqsbd_1_1quantile__sketch.html">quantile_sketch</a>&lt; T &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqsbd_1_1kll.html#a333e8c73e1ad730429f657c3f798ed6c">merge</a> (<a class="el" href="classqsbd_1_1quantile__sketch.html">quantile_sketch</a>&lt; T &gt; &amp;rhs) override</td></tr>
-<tr class="memdesc:a333e8c73e1ad730429f657c3f798ed6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">A pure virtual merge method. Recives a quantile sketch <code>rhs</code> performes a merge with this sketch, and returns a new quantile sketch.  <a href="classqsbd_1_1kll.html#a333e8c73e1ad730429f657c3f798ed6c">More...</a><br /></td></tr>
+<tr class="memdesc:a333e8c73e1ad730429f657c3f798ed6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Merges this instance of kll with another kll instance.  <a href="classqsbd_1_1kll.html#a333e8c73e1ad730429f657c3f798ed6c">More...</a><br /></td></tr>
 <tr class="separator:a333e8c73e1ad730429f657c3f798ed6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a37cec2795a6a5b6ff64e72b635887d7a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqsbd_1_1kll.html#a37cec2795a6a5b6ff64e72b635887d7a">inner_merge</a> (<a class="el" href="classqsbd_1_1quantile__sketch.html">quantile_sketch</a>&lt; T &gt; &amp;rhs) override</td></tr>
-<tr class="memdesc:a37cec2795a6a5b6ff64e72b635887d7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">A pure virtual merge method. Recives a quantile sketch <code>rhs</code> performes a merge with this sketch, and save in this sketch.  <a href="classqsbd_1_1kll.html#a37cec2795a6a5b6ff64e72b635887d7a">More...</a><br /></td></tr>
+<tr class="memdesc:a37cec2795a6a5b6ff64e72b635887d7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Merges this instance of kll with another kll instance and saves it in this instance.  <a href="classqsbd_1_1kll.html#a37cec2795a6a5b6ff64e72b635887d7a">More...</a><br /></td></tr>
 <tr class="separator:a37cec2795a6a5b6ff64e72b635887d7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af2ac5bcbd4e244a90eb409138b31f403"><td class="memItemLeft" align="right" valign="top"><a id="af2ac5bcbd4e244a90eb409138b31f403"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>print</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqsbd_1_1kll.html#af2ac5bcbd4e244a90eb409138b31f403">print</a> ()</td></tr>
+<tr class="memdesc:af2ac5bcbd4e244a90eb409138b31f403"><td class="mdescLeft">&#160;</td><td class="mdescRight">A debug method to print the array of buffers in the summary on the standard ouput. <br /></td></tr>
 <tr class="separator:af2ac5bcbd4e244a90eb409138b31f403"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaf3c85eb29da691cdc9a91d26e4566a6"><td class="memItemLeft" align="right" valign="top"><a id="aaf3c85eb29da691cdc9a91d26e4566a6"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>set_buffers</b> (std::vector&lt; std::vector&lt; T &gt;&gt; &amp;buffers)</td></tr>
+<tr class="memitem:aaf3c85eb29da691cdc9a91d26e4566a6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqsbd_1_1kll.html#aaf3c85eb29da691cdc9a91d26e4566a6">set_buffers</a> (std::vector&lt; std::vector&lt; T &gt;&gt; &amp;buffers)</td></tr>
+<tr class="memdesc:aaf3c85eb29da691cdc9a91d26e4566a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">A setter for the buffer of elements in the sketch.  <a href="classqsbd_1_1kll.html#aaf3c85eb29da691cdc9a91d26e4566a6">More...</a><br /></td></tr>
 <tr class="separator:aaf3c85eb29da691cdc9a91d26e4566a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1aa3b45b8186a44ed6a060a0c9a2430f"><td class="memItemLeft" align="right" valign="top"><a id="a1aa3b45b8186a44ed6a060a0c9a2430f"></a>
-std::vector&lt; std::vector&lt; T &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>get_buffers</b> ()</td></tr>
+std::vector&lt; std::vector&lt; T &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqsbd_1_1kll.html#a1aa3b45b8186a44ed6a060a0c9a2430f">get_buffers</a> ()</td></tr>
+<tr class="memdesc:a1aa3b45b8186a44ed6a060a0c9a2430f"><td class="mdescLeft">&#160;</td><td class="mdescRight">A getter for the array of buffers. <br /></td></tr>
 <tr class="separator:a1aa3b45b8186a44ed6a060a0c9a2430f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad3ffcf29a71c4a6c6b60c548b9449f1a"><td class="memItemLeft" align="right" valign="top"><a id="ad3ffcf29a71c4a6c6b60c548b9449f1a"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>get_error</b> ()</td></tr>
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqsbd_1_1kll.html#ad3ffcf29a71c4a6c6b60c548b9449f1a">get_error</a> ()</td></tr>
+<tr class="memdesc:ad3ffcf29a71c4a6c6b60c548b9449f1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">A getter for the error in the algorithm. <br /></td></tr>
 <tr class="separator:ad3ffcf29a71c4a6c6b60c548b9449f1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a96ecb3525a817e4e950c6cad7a89b732"><td class="memItemLeft" align="right" valign="top"><a id="a96ecb3525a817e4e950c6cad7a89b732"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>get_capacity</b> ()</td></tr>
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqsbd_1_1kll.html#a96ecb3525a817e4e950c6cad7a89b732">get_capacity</a> ()</td></tr>
+<tr class="memdesc:a96ecb3525a817e4e950c6cad7a89b732"><td class="mdescLeft">&#160;</td><td class="mdescRight">A getter for the capacity on each level of the buffers. <br /></td></tr>
 <tr class="separator:a96ecb3525a817e4e950c6cad7a89b732"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae64747f15ffd2774b672924d7e8b048e"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqsbd_1_1kll.html#ae64747f15ffd2774b672924d7e8b048e">get_heap_size</a> () override</td></tr>
+<tr class="memdesc:ae64747f15ffd2774b672924d7e8b048e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Getter for the estimated amount of heap memory allocated for this object for a pointer.  <a href="classqsbd_1_1kll.html#ae64747f15ffd2774b672924d7e8b048e">More...</a><br /></td></tr>
+<tr class="separator:ae64747f15ffd2774b672924d7e8b048e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classqsbd_1_1quantile__sketch"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classqsbd_1_1quantile__sketch')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classqsbd_1_1quantile__sketch.html">qsbd::quantile_sketch&lt; T &gt;</a></td></tr>
 <tr class="memitem:acdc52dcaf3fa236574629e208432aa26 inherit pub_methods_classqsbd_1_1quantile__sketch"><td class="memItemLeft" align="right" valign="top"><a id="acdc52dcaf3fa236574629e208432aa26"></a>
 virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqsbd_1_1quantile__sketch.html#acdc52dcaf3fa236574629e208432aa26">~quantile_sketch</a> ()</td></tr>
@@ -138,14 +149,15 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a1468ecfc87d32ead99cc9970f7ebf50c"><td class="memItemLeft" align="right" valign="top"><a id="a1468ecfc87d32ead99cc9970f7ebf50c"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>insert_sorted</b> (std::vector&lt; T &gt; &amp;buffer, const T &amp;elem)</td></tr>
+<tr class="memitem:a1468ecfc87d32ead99cc9970f7ebf50c"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqsbd_1_1kll.html#a1468ecfc87d32ead99cc9970f7ebf50c">insert_sorted</a> (std::vector&lt; T &gt; &amp;buffer, const T &amp;elem)</td></tr>
+<tr class="memdesc:a1468ecfc87d32ead99cc9970f7ebf50c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inserts the element <code>elem</code> in a sorted vector <code>buffer</code>.  <a href="classqsbd_1_1kll.html#a1468ecfc87d32ead99cc9970f7ebf50c">More...</a><br /></td></tr>
 <tr class="separator:a1468ecfc87d32ead99cc9970f7ebf50c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:a4f7fb4635acceae1391b75225165bd5f"><td class="memItemLeft" align="right" valign="top"><a id="a4f7fb4635acceae1391b75225165bd5f"></a>
-std::uniform_int_distribution&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>coin</b></td></tr>
+std::uniform_int_distribution&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqsbd_1_1kll.html#a4f7fb4635acceae1391b75225165bd5f">coin</a></td></tr>
+<tr class="memdesc:a4f7fb4635acceae1391b75225165bd5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">A coin to flip and choose the elements to change their resolution. <br /></td></tr>
 <tr class="separator:a4f7fb4635acceae1391b75225165bd5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acb09a4077263304b6d7870987990092a"><td class="memItemLeft" align="right" valign="top"><a id="acb09a4077263304b6d7870987990092a"></a>
 std::vector&lt; std::vector&lt; T &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>buffers_array</b></td></tr>
@@ -165,9 +177,99 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>error</b></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;class T&gt;<br />
-class qsbd::kll&lt; T &gt;</div>
-<p class="definition">Definition at line <a class="el" href="kll_8hpp_source.html#l00010">10</a> of file <a class="el" href="kll_8hpp_source.html">kll.hpp</a>.</p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+class qsbd::kll&lt; T &gt;</div><p >A class to represent the Karnin-Lang-Liberty sketch. </p>
+<p >The KLL summary provides a summary of data drawn from an ordered domain U. It is a comparison-based summary. The size of the summary is <img class="formulaInl" alt="$O(\frac{1}{\epsilon}*\sqrt{\log{\frac{1}{\epsilon}}})$" src="form_10.png"/> after any number of UPDATE and MERGE operations. It is more space- and time-efficient than the GK summary, but it is a randomized algorithm that may exceed the <img class="formulaInl" alt="$\epsilon$" src="form_0.png"/> error bound with a small probability. The version of KLL described below assumes unweighted items.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>The object type for the kll </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="kll_8hpp_source.html#l00031">31</a> of file <a class="el" href="kll_8hpp_source.html">kll.hpp</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="aaaac86e4347fb54bef9578d91e2114a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaaac86e4347fb54bef9578d91e2114a3">&#9670;&nbsp;</a></span>kll()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classqsbd_1_1kll.html">qsbd::kll</a>&lt; T &gt;::<a class="el" href="classqsbd_1_1kll.html">kll</a> </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>err</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor for the kll algorithm. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">err</td><td>The error for the bound in the algorithm </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="kll_8cpp_source.html#l00005">5</a> of file <a class="el" href="kll_8cpp_source.html">kll.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;                          : <a class="code" href="classqsbd_1_1kll.html#a4f7fb4635acceae1391b75225165bd5f">coin</a>(0, 1){</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;        error = err;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;        buffer_diff = 0.7; <span class="comment">// change here later</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;        <span class="keywordtype">double</span> capacity_const = (std::pow(buffer_diff, 3) * (2 * buffer_diff - 1)) / 2.0;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;        capacity_const = 1.0 / sqrt(capacity_const);</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;        capacity_max = (capacity_const * sqrt(log(2.0 / error))) / error; <span class="comment">// the error inside log can be the delta parameter, see how to change this later</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        height = 0;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        buffers_array.push_back({});   </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    }</div>
+<div class="ttc" id="aclassqsbd_1_1kll_html_a4f7fb4635acceae1391b75225165bd5f"><div class="ttname"><a href="classqsbd_1_1kll.html#a4f7fb4635acceae1391b75225165bd5f">qsbd::kll::coin</a></div><div class="ttdeci">std::uniform_int_distribution&lt; int &gt; coin</div><div class="ttdoc">A coin to flip and choose the elements to change their resolution.</div><div class="ttdef"><b>Definition:</b> <a href="kll_8hpp_source.html#l00034">kll.hpp:34</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="ae64747f15ffd2774b672924d7e8b048e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae64747f15ffd2774b672924d7e8b048e">&#9670;&nbsp;</a></span>get_heap_size()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint64_t <a class="el" href="classqsbd_1_1kll.html">qsbd::kll</a>&lt; T &gt;::get_heap_size</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Getter for the estimated amount of heap memory allocated for this object for a pointer. </p>
+<dl class="section return"><dt>Returns</dt><dd>The estimated memory in bytes. </dd></dl>
+
+<p>Implements <a class="el" href="classqsbd_1_1quantile__sketch.html#ae814c5158cd183267ed7029d97355267">qsbd::quantile_sketch&lt; T &gt;</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="kll_8cpp_source.html#l00199">199</a> of file <a class="el" href="kll_8cpp_source.html">kll.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;                                  {</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;        uint64_t kll_hs = <span class="keyword">sizeof</span>(kll&lt;T&gt;);</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;        uint64_t ba_hs = 0;</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160; </div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; buffers_array.size(); i++){</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;            ba_hs += <span class="keyword">sizeof</span>(std::vector&lt;T&gt;) + <span class="keyword">sizeof</span>(T) * buffers_array[i].capacity();</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;        }</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160; </div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;        <span class="keywordflow">return</span> kll_hs + ba_hs; </div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    }</div>
+</div><!-- fragment -->
+</div>
+</div>
 <a id="a37cec2795a6a5b6ff64e72b635887d7a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a37cec2795a6a5b6ff64e72b635887d7a">&#9670;&nbsp;</a></span>inner_merge()</h2>
 
@@ -194,14 +296,17 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>A pure virtual merge method. Recives a quantile sketch <code>rhs</code> performes a merge with this sketch, and save in this sketch. </p>
+<p>Merges this instance of kll with another kll instance and saves it in this instance. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">rhs</td><td>A instance of a <a class="el" href="classqsbd_1_1quantile__sketch.html" title="A interface for quantile sketchs.">quantile_sketch</a>&lt;Type&gt; </td></tr>
+    <tr><td class="paramname">rhs</td><td>A kll&lt;T&gt; instance to be merged </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section warning"><dt>Warning</dt><dd>The <a class="el" href="classqsbd_1_1quantile__sketch.html" title="A interface for quantile sketchs.">quantile_sketch</a> passed as argument should be the same as this. </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classqsbd_1_1kll.html" title="A class to represent the Karnin-Lang-Liberty sketch.">kll</a>&lt;T&gt;::<a class="el" href="classqsbd_1_1kll.html#a333e8c73e1ad730429f657c3f798ed6c" title="Merges this instance of kll with another kll instance.">merge</a>(<a class="el" href="classqsbd_1_1quantile__sketch.html" title="A interface for quantile sketchs.">quantile_sketch</a>&lt;T&gt;&amp;) </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>The error in both instances needs to be the same. The error will be considered as the same if <img class="formulaInl" alt="$|this-&gt;error - rhs.error| \leq 1e-6$" src="form_8.png"/></dd>
+<dd>
+The <a class="el" href="classqsbd_1_1quantile__sketch.html" title="A interface for quantile sketchs.">quantile_sketch</a> must be a instance of the kll class </dd></dl>
 
 <p>Implements <a class="el" href="classqsbd_1_1quantile__sketch.html#af3458d26f52106a68ab2a65a81eeb0af">qsbd::quantile_sketch&lt; T &gt;</a>.</p>
 
@@ -254,9 +359,62 @@ template&lt;class T &gt; </div>
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        this-&gt;buffers_array.clear();</div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;        this-&gt;buffers_array = std::move(merged_buffer);</div>
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160; </div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;        this-&gt;compress();</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;        this-&gt;<a class="code" href="classqsbd_1_1kll.html#a5d8426a8557ee75bcc0d1e9495c2cf96">compress</a>();</div>
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    }</div>
+<div class="ttc" id="aclassqsbd_1_1kll_html_a5d8426a8557ee75bcc0d1e9495c2cf96"><div class="ttname"><a href="classqsbd_1_1kll.html#a5d8426a8557ee75bcc0d1e9495c2cf96">qsbd::kll::compress</a></div><div class="ttdeci">void compress()</div><div class="ttdoc">A method that tries to compress the buffer array in the algorithm.</div><div class="ttdef"><b>Definition:</b> <a href="kll_8cpp_source.html#l00021">kll.cpp:21</a></div></div>
 <div class="ttc" id="aqsbd__debug_8h_html_a3c258e30fb14168b98931ca8aeade817"><div class="ttname"><a href="qsbd__debug_8h.html#a3c258e30fb14168b98931ca8aeade817">DEBUG_ERR</a></div><div class="ttdeci">#define DEBUG_ERR(x)</div><div class="ttdoc">A debug macro that outputs the value of x in the std::cerr.</div><div class="ttdef"><b>Definition:</b> <a href="qsbd__debug_8h_source.html#l00045">qsbd_debug.h:45</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a1468ecfc87d32ead99cc9970f7ebf50c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1468ecfc87d32ead99cc9970f7ebf50c">&#9670;&nbsp;</a></span>insert_sorted()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classqsbd_1_1kll.html">qsbd::kll</a>&lt; T &gt;::insert_sorted </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>buffer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>elem</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Inserts the element <code>elem</code> in a sorted vector <code>buffer</code>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buffer</td><td>A vector with sorted elements </td></tr>
+    <tr><td class="paramname">elem</td><td>A new element to be inserted </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="kll_8cpp_source.html#l00016">16</a> of file <a class="el" href="kll_8cpp_source.html">kll.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;                                                                 {</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        buffer.insert(upper_bound(buffer.begin(), buffer.end(), elem), elem);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -286,17 +444,20 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>A pure virtual merge method. Recives a quantile sketch <code>rhs</code> performes a merge with this sketch, and returns a new quantile sketch. </p>
+<p>Merges this instance of kll with another kll instance. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">rhs</td><td>A instance of a <a class="el" href="classqsbd_1_1quantile__sketch.html" title="A interface for quantile sketchs.">quantile_sketch</a>&lt;Type&gt; </td></tr>
+    <tr><td class="paramname">rhs</td><td>A kll&lt;T&gt; instance to be merged </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A pointer to a new instance of a <a class="el" href="classqsbd_1_1quantile__sketch.html" title="A interface for quantile sketchs.">quantile_sketch</a>&lt;Type&gt; </dd></dl>
-<dl class="section warning"><dt>Warning</dt><dd>It's up to a user the function of delete this memory. </dd>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to the new instance of a kll </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classqsbd_1_1kll.html" title="A class to represent the Karnin-Lang-Liberty sketch.">kll</a>&lt;T&gt;::inner_merge(<a class="el" href="classqsbd_1_1quantile__sketch.html" title="A interface for quantile sketchs.">quantile_sketch</a>&lt;T&gt;&amp;) </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>The error in both instance needs to be the same. The error will be considered as the same if <img class="formulaInl" alt="$|this-&gt;error - rhs.error| \leq 1e-6$" src="form_8.png"/></dd>
 <dd>
-The <a class="el" href="classqsbd_1_1quantile__sketch.html" title="A interface for quantile sketchs.">quantile_sketch</a> passed as argument should be the same as this. </dd></dl>
+The <a class="el" href="classqsbd_1_1quantile__sketch.html" title="A interface for quantile sketchs.">quantile_sketch</a> must be a instance of the kll class</dd>
+<dd>
+Is the user responsabilite of frees the returned pointer </dd></dl>
 
 <p>Implements <a class="el" href="classqsbd_1_1quantile__sketch.html#a20950642c0bd2279335f566b1c0170df">qsbd::quantile_sketch&lt; T &gt;</a>.</p>
 
@@ -378,15 +539,14 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>A virtual query method. Receives a <code>elem</code> and returns the rank associate with this element. </p>
+<p>A method to query the rank of a certain element <code>elem</code>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">elem</td><td>The element to be query the rank </td></tr>
+    <tr><td class="paramname">elem</td><td>The element to be queried </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The rank(elem) </dd></dl>
-<dl class="section note"><dt>Note</dt><dd>Unless specified, the rank should be defined as <img class="formulaInl" alt="$rank(elem) = \sum _{y &lt; elem} v_{y}$" src="form_12.png"/>, where <img class="formulaInl" alt="$v_{y} = $" src="form_13.png"/> sum of all weights of y in the input. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The estimated rank for the element <code>elem</code> in the summary </dd></dl>
 
 <p>Reimplemented from <a class="el" href="classqsbd_1_1quantile__sketch.html#a8cf64d79f25d910d1c1aed209ddac71e">qsbd::quantile_sketch&lt; T &gt;</a>.</p>
 
@@ -402,6 +562,35 @@ template&lt;class T &gt; </div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keywordflow">return</span> rank;</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="aaf3c85eb29da691cdc9a91d26e4566a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf3c85eb29da691cdc9a91d26e4566a6">&#9670;&nbsp;</a></span>set_buffers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classqsbd_1_1kll.html">qsbd::kll</a>&lt; T &gt;::set_buffers </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; std::vector&lt; T &gt;&gt; &amp;&#160;</td>
+          <td class="paramname"><em>buffers</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A setter for the buffer of elements in the sketch. </p>
+<dl class="section note"><dt>Note</dt><dd>This can become depreciated in the newer versions of this algoritm </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="kll_8cpp_source.html#l00178">178</a> of file <a class="el" href="kll_8cpp_source.html">kll.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;                                                            {</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;        buffers_array = buffers;</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;        height = buffers.size() - 1;</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -431,10 +620,10 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>A virtual update method. Receives a <code>elem</code> and updates the sketch with it. </p>
+<p>Updates the kll summary with the element <code>elem</code>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">elem</td><td>A element of the type supported by the sketch </td></tr>
+    <tr><td class="paramname">elem</td><td>The new element to be inserted in the summary </td></tr>
   </table>
   </dd>
 </dl>
@@ -443,9 +632,10 @@ template&lt;class T &gt; </div>
 
 <p class="definition">Definition at line <a class="el" href="kll_8cpp_source.html#l00042">42</a> of file <a class="el" href="kll_8cpp_source.html">kll.cpp</a>.</p>
 <div class="fragment"><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                             {</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        kll&lt;T&gt;::insert_sorted(buffers_array[0], elem);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        this-&gt;compress();</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <a class="code" href="classqsbd_1_1kll.html#a1468ecfc87d32ead99cc9970f7ebf50c">kll&lt;T&gt;::insert_sorted</a>(buffers_array[0], elem);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        this-&gt;<a class="code" href="classqsbd_1_1kll.html#a5d8426a8557ee75bcc0d1e9495c2cf96">compress</a>();</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    }</div>
+<div class="ttc" id="aclassqsbd_1_1kll_html_a1468ecfc87d32ead99cc9970f7ebf50c"><div class="ttname"><a href="classqsbd_1_1kll.html#a1468ecfc87d32ead99cc9970f7ebf50c">qsbd::kll::insert_sorted</a></div><div class="ttdeci">static void insert_sorted(std::vector&lt; T &gt; &amp;buffer, const T &amp;elem)</div><div class="ttdoc">Inserts the element elem in a sorted vector buffer.</div><div class="ttdef"><b>Definition:</b> <a href="kll_8cpp_source.html#l00016">kll.cpp:16</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>

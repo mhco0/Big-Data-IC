@@ -2,7 +2,7 @@
  * @file gk.hpp
  * @brief QSBD gk class
  * @author Marcos H C Oliveira <mhco@cin.ufpe.br>
- * @version 1.0
+ * @version 1.5
  *
  */
 
@@ -60,7 +60,7 @@ namespace qsbd {
 			N = 0;
 			epsilon = eps;
 
-			insert_sorted(tuple_list, std::make_pair(std::numeric_limits<T>::max(), std::make_pair(1, 0)));
+			tuple_list.insert(tuple_list.begin(), std::make_pair(std::numeric_limits<T>::max(), std::make_pair(1, 0)));
 		}
 
 		/**
@@ -86,20 +86,64 @@ namespace qsbd {
 				tuple_list[index].second.first += 1;
 			}else{
 				// see if this inserts in the i position
-				insert_sorted(tuple_list, {value, {1, weight + uncertainty - 1}});
+				tuple_list.insert(tuple_list.begin() + index, {value, {1, weight + uncertainty - 1}});
 
-				for(int i = 0, j = 1; j < tuple_list.size(); i++, j++){
+				for(int i = 0, j = 1; j < tuple_list.size() - 1; i++, j++){
 					if ((tuple_list[i].second.first + tuple_list[j].second.first + tuple_list[j].second.second) < capacity){
 						tuple_list[j].second.first += tuple_list[i].second.first;
 
 						tuple_list.erase(tuple_list.begin() + i);
-
-						break;
 					}
 				} 
 			}
 			
 			return;
+		}
+
+		/**
+		 * @brief A method that returns the rank for some element @p value
+		 * @param value The element to be queried
+		 * @return The rank for such element
+		*/
+		int query(T value) override {
+			int weight_sum = 0;
+			int index = 0;
+
+			while(value >= tuple_list[index].first){
+				weight_sum += tuple_list[index].second.first;
+				index++;
+			}
+			
+			return (weight_sum - 1 + ((tuple_list[index].second.first + tuple_list[index].second.second) / 2));
+		}
+
+		/**
+		 * @brief Quantile method. Receives a @p quant and returns a element associate with this quantile.
+		 * @param quant The quantile to be queried
+		 * @return The element associete with the quantile @p quant
+		 * @warning 
+		 * The quantile should be in range [0..1]
+		*/
+		T quantile(double quant) override {
+			int rank = (int) this->N * quant;
+			
+			if((rank + 1) <= (N - (epsilon * N))){
+				int weight_sum = 0;
+				int index = 0;
+
+				while((weight_sum + tuple_list[index].second.first + tuple_list[index].second.second) <= (rank + (epsilon * N) + 1)){
+					weight_sum += tuple_list[index].second.first;
+					index++;
+				}
+
+				if(index) return tuple_list[index - 1].first;
+				else tuple_list[index].first;
+			}else{
+				if(tuple_list.size() > 1) return tuple_list[tuple_list.size() - 2].first;
+				else return T();
+			}
+
+			return T();
 		}
 
 		/**
@@ -126,8 +170,9 @@ namespace qsbd {
 			int left_index = 0;
 			int right_index = 0; 
 			gk<T>* merged_summary = new gk<T>(epsilon);
+			merged_summary->tuple_list.clear();
 
-			while(left_index < tuple_list.size() and right_index < rhs_cv.tuple_list.size()){
+			while(left_index < tuple_list.size() - 1 and right_index < rhs_cv.tuple_list.size() - 1){
 				merged_summary->N += 1;
 
 				if(tuple_list[left_index].first < rhs_cv.tuple_list[right_index].first){
@@ -135,7 +180,7 @@ namespace qsbd {
 					int weight = tuple_list[left_index].second.first;
 					int uncertainty = tuple_list[left_index].second.second + rhs_cv.tuple_list[right_index].second.first + rhs_cv.tuple_list[right_index].second.second - 1; 
 					
-					insert_sorted(merged_summary->tuple_list, {value, {weight, uncertainty}});
+					merged_summary->tuple_list.push_back({value, {weight, uncertainty}});
 
 					left_index++;
 				}else{
@@ -143,28 +188,30 @@ namespace qsbd {
 					int weight = rhs_cv.tuple_list[right_index].second.first;
 					int uncertainty = rhs_cv.tuple_list[right_index].second.second + rhs_cv.tuple_list[right_index].second.first + tuple_list[left_index].second.second - 1; 
 
-					insert_sorted(merged_summary->tuple_list, {value, {weight, uncertainty}});
+					merged_summary->tuple_list.push_back({value, {weight, uncertainty}});
 
 					right_index++;
 				}
 			}
 
-			while(left_index < tuple_list.size()){
+			while(left_index < tuple_list.size() - 1){
 				merged_summary->N += 1;
-				insert_sorted(merged_summary->tuple_list, tuple_list[left_index]);
+				merged_summary->tuple_list.push_back(tuple_list[left_index]);
 
 				left_index++;
 			}
 
-			while(right_index < rhs_cv.tuple_list.size()){
+			while(right_index < rhs_cv.tuple_list.size() - 1){
 				merged_summary->N += 1;
-				insert_sorted(merged_summary->tuple_list, rhs_cv.tuple_list[right_index]);
+				merged_summary->tuple_list.push_back(rhs_cv.tuple_list[right_index]);
 
 				right_index++;
 			}
 
+			merged_summary->tuple_list.push_back(std::make_pair(std::numeric_limits<T>::max(), std::make_pair(1, 0)));
+
 			int capacity = (int) ceil(2.0 * epsilon * merged_summary->get_N());
-			for(int i = 0, j = 1; j < merged_summary->tuple_list.size(); i++, j++){
+			for(int i = 0, j = 1; j < merged_summary->tuple_list.size() - 1; i++, j++){
 				if ((merged_summary->tuple_list[i].second.first + merged_summary->tuple_list[j].second.first + merged_summary->tuple_list[j].second.second) < capacity){
 					merged_summary->tuple_list[j].second.first += merged_summary->tuple_list[i].second.first;
 
@@ -199,7 +246,7 @@ namespace qsbd {
 
 			std::vector<std::pair<T, std::pair<int, int>>> merged_tuple;
 
-			while(left_index < tuple_list.size() and right_index < rhs_cv.tuple_list.size()){
+			while(left_index < tuple_list.size() - 1 and right_index < rhs_cv.tuple_list.size() - 1){
 				merged_N += 1;
 
 				if(tuple_list[left_index].first < rhs_cv.tuple_list[right_index].first){
@@ -207,7 +254,7 @@ namespace qsbd {
 					int weight = tuple_list[left_index].second.first;
 					int uncertainty = tuple_list[left_index].second.second + rhs_cv.tuple_list[right_index].second.first + rhs_cv.tuple_list[right_index].second.second - 1; 
 					
-					insert_sorted(merged_tuple, {value, {weight, uncertainty}});
+					merged_tuple.push_back({value, {weight, uncertainty}});
 
 					left_index++;
 				}else{
@@ -215,28 +262,30 @@ namespace qsbd {
 					int weight = rhs_cv.tuple_list[right_index].second.first;
 					int uncertainty = rhs_cv.tuple_list[right_index].second.second + rhs_cv.tuple_list[right_index].second.first + tuple_list[left_index].second.second - 1; 
 
-					insert_sorted(merged_tuple, {value, {weight, uncertainty}});
+					merged_tuple.push_back({value, {weight, uncertainty}});
 
 					right_index++;
 				}
 			}
 
-			while(left_index < tuple_list.size()){
+			while(left_index < tuple_list.size() - 1){
 				merged_N += 1;
-				insert_sorted(merged_tuple, tuple_list[left_index]);
+				merged_tuple.push_back(tuple_list[left_index]);
 
 				left_index++;
 			}
 
-			while(right_index < rhs_cv.tuple_list.size()){
+			while(right_index < rhs_cv.tuple_list.size() - 1){
 				merged_N += 1;
-				insert_sorted(merged_tuple, rhs_cv.tuple_list[right_index]);
+				merged_tuple.push_back(rhs_cv.tuple_list[right_index]);
 
 				right_index++;
 			}
 
+			merged_tuple.push_back(std::make_pair(std::numeric_limits<T>::max(), std::make_pair(1, 0)));
+
 			int capacity = (int) ceil(2.0 * epsilon * merged_N);
-			for(int i = 0, j = 1; j < merged_tuple.size(); i++, j++){
+			for(int i = 0, j = 1; j < merged_tuple.size() - 1; i++, j++){
 				if ((merged_tuple[i].second.first + merged_tuple[j].second.first + merged_tuple[j].second.second) < capacity){
 					merged_tuple[j].second.first += merged_tuple[i].second.first;
 
@@ -244,26 +293,8 @@ namespace qsbd {
 				}
 			}
 
-			//this->tuple_list.clear();
 			this->tuple_list = std::move(merged_tuple);
 			this->N = merged_N;
-		}
-
-		/**
-		 * @brief A method that returns the rank for some element @p value
-		 * @param value The element to be queried
-		 * @return The rank for such element
-		*/
-		int query(T value) override {
-			int weight_sum = 0;
-			int index = 0;
-
-			while(value >= tuple_list[index].first){
-				weight_sum += tuple_list[index].second.first;
-				index++;
-			}
-			
-			return (weight_sum - 1 + ((tuple_list[index].second.first + tuple_list[index].second.second) / 2));
 		}
 
 		/**

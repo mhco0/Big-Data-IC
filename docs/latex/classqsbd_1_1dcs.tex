@@ -1,5 +1,14 @@
 \hypertarget{classqsbd_1_1dcs}{}\doxysection{qsbd\+::dcs Class Reference}
 \label{classqsbd_1_1dcs}\index{qsbd::dcs@{qsbd::dcs}}
+
+
+A class to represent the Dyadic Count Sketch summary.  
+
+
+
+
+{\ttfamily \#include $<$dcs.\+h$>$}
+
 Inheritance diagram for qsbd\+::dcs\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,49 +18,44 @@ Inheritance diagram for qsbd\+::dcs\+:\begin{figure}[H]
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classqsbd_1_1dcs_a3e61f9233679a751187e6fc6a8a22eeb}\label{classqsbd_1_1dcs_a3e61f9233679a751187e6fc6a8a22eeb}} 
-{\bfseries dcs} (double err, int univ)
-\item 
-\mbox{\Hypertarget{classqsbd_1_1dcs_a455c4c01b0972de56fa5bdca7fd82c29}\label{classqsbd_1_1dcs_a455c4c01b0972de56fa5bdca7fd82c29}} 
-{\bfseries dcs} (double err, int univ, const std\+::vector$<$ std\+::vector$<$ std\+::vector$<$ int $>$$>$$>$ \&hashs\+\_\+consts)
-\item 
+\mbox{\hyperlink{classqsbd_1_1dcs_a3e61f9233679a751187e6fc6a8a22eeb}{dcs}} (double err, int univ)
+\begin{DoxyCompactList}\small\item\em The constructor for the dcs. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classqsbd_1_1dcs_a455c4c01b0972de56fa5bdca7fd82c29}{dcs}} (double err, int univ, const std\+::vector$<$ std\+::vector$<$ std\+::vector$<$ int $>$$>$$>$ \&hashs\+\_\+consts)
+\begin{DoxyCompactList}\small\item\em The constructor for dcs that can regule the constants used in the hash functions. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classqsbd_1_1dcs_afe9241286fda62f7932cd4e194caf3e1}\label{classqsbd_1_1dcs_afe9241286fda62f7932cd4e194caf3e1}} 
+\mbox{\hyperlink{classqsbd_1_1dcs_afe9241286fda62f7932cd4e194caf3e1}{$\sim$dcs}} ()
+\begin{DoxyCompactList}\small\item\em A destructor for the dcs. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classqsbd_1_1dcs_a156b262c353702c45314cc8a12eafa9a}{update}} (int x, int weight) override
-\begin{DoxyCompactList}\small\item\em A virtual update method. Receives a {\ttfamily elem} and a {\ttfamily weight} and updates the sketch with it. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Inserts a element {\ttfamily x} with weight {\ttfamily weight}. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{classqsbd_1_1dcs_acdb1bcb6b35ce55084fe2b0ed673672f}{query}} (int x) override
-\begin{DoxyCompactList}\small\item\em A virtual query method. Receives a {\ttfamily elem} and returns the rank associate with this element. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Query the rank of the element {\ttfamily x}. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{classqsbd_1_1dcs_acd06f01bc3561d7231ed2dbf20f89241}{quantile}} (double quant) override
-\begin{DoxyCompactList}\small\item\em A virtual quantile method. Receives a {\ttfamily quant} and returns a element associate with this quantile. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Query the element for a given quantile {\ttfamily quant}. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$ int $>$ $\ast$ \mbox{\hyperlink{classqsbd_1_1dcs_a9916003b7f514ed84f7298c5faa53d84}{merge}} (\mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$ int $>$ \&rhs) override
-\begin{DoxyCompactList}\small\item\em A pure virtual merge method. Recives a quantile sketch {\ttfamily rhs} performes a merge with this sketch, and returns a new quantile sketch. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Merges this instance of dcs with another dcs instance. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classqsbd_1_1dcs_a524fea14527f34c75a0280c0fc32ddb4}{inner\+\_\+merge}} (\mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$ int $>$ \&rhs) override
-\begin{DoxyCompactList}\small\item\em A pure virtual merge method. Recives a quantile sketch {\ttfamily rhs} performes a merge with this sketch, and save in this sketch. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classqsbd_1_1dcs_af4603f6a42c7d76ebca1b27610b3e3c7}\label{classqsbd_1_1dcs_af4603f6a42c7d76ebca1b27610b3e3c7}} 
-std\+::vector$<$ \mbox{\hyperlink{classqsbd_1_1count__sketch}{count\+\_\+sketch}} $>$ {\bfseries get\+\_\+estimators} () const
-\item 
-\mbox{\Hypertarget{classqsbd_1_1dcs_ae90f6c1529970340ebf81f742a134cf9}\label{classqsbd_1_1dcs_ae90f6c1529970340ebf81f742a134cf9}} 
-int {\bfseries get\+\_\+tree\+\_\+lvl} () const
-\item 
-\mbox{\Hypertarget{classqsbd_1_1dcs_ac3e7f7acd39ee045b210835fe738e0c4}\label{classqsbd_1_1dcs_ac3e7f7acd39ee045b210835fe738e0c4}} 
-int {\bfseries get\+\_\+w} () const
-\item 
-\mbox{\Hypertarget{classqsbd_1_1dcs_a03ac0ca2dfe2ef845740ef7703917815}\label{classqsbd_1_1dcs_a03ac0ca2dfe2ef845740ef7703917815}} 
-int {\bfseries get\+\_\+d} () const
-\item 
-\mbox{\Hypertarget{classqsbd_1_1dcs_adce16c360cef3b1f78de2cce57e8643f}\label{classqsbd_1_1dcs_adce16c360cef3b1f78de2cce57e8643f}} 
-int {\bfseries get\+\_\+s} () const
-\item 
-\mbox{\Hypertarget{classqsbd_1_1dcs_a0b3f0288db8a427fdebcf49712a1958a}\label{classqsbd_1_1dcs_a0b3f0288db8a427fdebcf49712a1958a}} 
-double {\bfseries get\+\_\+error} () const
-\item 
-\mbox{\Hypertarget{classqsbd_1_1dcs_a5faa2e080c48e4c498d6f0e0965aa0d7}\label{classqsbd_1_1dcs_a5faa2e080c48e4c498d6f0e0965aa0d7}} 
-int {\bfseries get\+\_\+universe} () const
-\item 
-\mbox{\Hypertarget{classqsbd_1_1dcs_a82226679f587bbef7e46e3870722e54b}\label{classqsbd_1_1dcs_a82226679f587bbef7e46e3870722e54b}} 
-int {\bfseries get\+\_\+total\+\_\+weight} () const
-\item 
+\begin{DoxyCompactList}\small\item\em Merges this instance of dcs with another dcs instance and saves it in this instance. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classqsbd_1_1count__sketch}{count\+\_\+sketch}} $>$ \mbox{\hyperlink{classqsbd_1_1dcs_af4603f6a42c7d76ebca1b27610b3e3c7}{get\+\_\+estimators}} () const
+\begin{DoxyCompactList}\small\item\em A getter for all estimators in the summary. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classqsbd_1_1dcs_ae90f6c1529970340ebf81f742a134cf9}{get\+\_\+tree\+\_\+lvl}} () const
+\begin{DoxyCompactList}\small\item\em A getter for how many levels we use in the summary. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classqsbd_1_1dcs_ac3e7f7acd39ee045b210835fe738e0c4}{get\+\_\+w}} () const
+\begin{DoxyCompactList}\small\item\em A getter for the number of collumns used in each Count Sketch. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classqsbd_1_1dcs_a03ac0ca2dfe2ef845740ef7703917815}{get\+\_\+d}} () const
+\begin{DoxyCompactList}\small\item\em A getter for the number of rows used in each Count Sketch. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classqsbd_1_1dcs_adce16c360cef3b1f78de2cce57e8643f}{get\+\_\+s}} () const
+\begin{DoxyCompactList}\small\item\em A getter for the level that we stop using Count Sketchs in summary. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classqsbd_1_1dcs_a0b3f0288db8a427fdebcf49712a1958a}{get\+\_\+error}} () const
+\begin{DoxyCompactList}\small\item\em A getter for the error in the algorithm. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classqsbd_1_1dcs_a5faa2e080c48e4c498d6f0e0965aa0d7}{get\+\_\+universe}} () const
+\begin{DoxyCompactList}\small\item\em A getter for the universe use in the algorithm. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classqsbd_1_1dcs_a82226679f587bbef7e46e3870722e54b}{get\+\_\+total\+\_\+weight}} () const
+\begin{DoxyCompactList}\small\item\em A getter for the total weight sean in the summary. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classqsbd_1_1dcs_a3682a76c8459a9079b5221cb10364e6d}\label{classqsbd_1_1dcs_a3682a76c8459a9079b5221cb10364e6d}} 
-std\+::vector$<$ std\+::vector$<$ std\+::vector$<$ int $>$ $>$ $>$ {\bfseries get\+\_\+count\+\_\+sketchs\+\_\+hash\+\_\+functions\+\_\+constants} () const
-\end{DoxyCompactItemize}
+std\+::vector$<$ std\+::vector$<$ std\+::vector$<$ int $>$ $>$ $>$ \mbox{\hyperlink{classqsbd_1_1dcs_a3682a76c8459a9079b5221cb10364e6d}{get\+\_\+count\+\_\+sketchs\+\_\+hash\+\_\+functions\+\_\+constants}} () const
+\begin{DoxyCompactList}\small\item\em A getter for all hash functions. \end{DoxyCompactList}\item 
+uint64\+\_\+t \mbox{\hyperlink{classqsbd_1_1dcs_a0410203f07c28f25776c12c35bdb2ef2}{get\+\_\+heap\+\_\+size}} () override
+\begin{DoxyCompactList}\small\item\em Getter for the estimated amount of heap memory allocated for this object for a pointer. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Friends}
 \begin{DoxyCompactItemize}
 \item 
@@ -61,13 +65,351 @@ class {\bfseries dcs\+\_\+factory}
 
 
 \doxysubsection{Detailed Description}
+A class to represent the Dyadic Count Sketch summary. 
+
+The DCS summary provides a compact summary of data drawn from an integer domain \mbox{[}U\mbox{]} = \mbox{[}0, 1, . . . , U − 1\mbox{]}. It takes (x,w) pairs as input where w can be an integer that is either positive or negative. But the multiplicity of x for any x in the data set must remain nonnegative when the summary is queried for it to be meaningful. It is a randomized algorithm. This summary takes space $O(\frac{1}{\epsilon}*\log^{1.5}{U}*\log^{1.5}{\frac{\log{U}}{\epsilon}})$, and returns all ranks within εW error with constant probability, where W is the total weight of input integers. The summary works upon a dyadic structure over the universe U and maintains a Count Sketch structure for frequency estimation in each level of this 
+
+Definition at line 35 of file dcs.\+h.
 
 
-Definition at line 13 of file dcs.\+h.
 
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classqsbd_1_1dcs_a3e61f9233679a751187e6fc6a8a22eeb}\label{classqsbd_1_1dcs_a3e61f9233679a751187e6fc6a8a22eeb}} 
+\index{qsbd::dcs@{qsbd::dcs}!dcs@{dcs}}
+\index{dcs@{dcs}!qsbd::dcs@{qsbd::dcs}}
+\doxysubsubsection{\texorpdfstring{dcs()}{dcs()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily qsbd\+::dcs\+::dcs (\begin{DoxyParamCaption}\item[{double}]{err,  }\item[{int}]{univ }\end{DoxyParamCaption})}
+
+
+
+The constructor for the dcs. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em err} & The error used by the algorithm \\
+\hline
+{\em univ} & The universe of values choosed \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 43 of file dcs.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{43                                 \{}
+\DoxyCodeLine{44         this-\/>set\_params(err, univ);}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46         this-\/>frequency\_counters.reserve(this-\/>lvls -\/ (this-\/>s + 1));}
+\DoxyCodeLine{47         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = this-\/>s + 1; i < this-\/>lvls; i++)\{}
+\DoxyCodeLine{48             this-\/>frequency\_counters.emplace\_back();}
+\DoxyCodeLine{49             \textcolor{keywordtype}{int} dyadic\_interval = 1 << i;}
+\DoxyCodeLine{50             \textcolor{keywordtype}{int} interval\_size = universe / dyadic\_interval;}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j = 0; j < interval\_size; j++)\{}
+\DoxyCodeLine{53                 this-\/>frequency\_counters[i -\/ (this-\/>s + 1)].emplace\_back(0);}
+\DoxyCodeLine{54             \}}
+\DoxyCodeLine{55         \}}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57         this-\/>estimators.reserve(this-\/>s + 1);}
+\DoxyCodeLine{58         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i <= this-\/>s; i++)\{}
+\DoxyCodeLine{59             this-\/>estimators.emplace\_back(this-\/>d, this-\/>w);}
+\DoxyCodeLine{60         \}}
+\DoxyCodeLine{61     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classqsbd_1_1dcs_a455c4c01b0972de56fa5bdca7fd82c29}\label{classqsbd_1_1dcs_a455c4c01b0972de56fa5bdca7fd82c29}} 
+\index{qsbd::dcs@{qsbd::dcs}!dcs@{dcs}}
+\index{dcs@{dcs}!qsbd::dcs@{qsbd::dcs}}
+\doxysubsubsection{\texorpdfstring{dcs()}{dcs()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily qsbd\+::dcs\+::dcs (\begin{DoxyParamCaption}\item[{double}]{err,  }\item[{int}]{univ,  }\item[{const std\+::vector$<$ std\+::vector$<$ std\+::vector$<$ int $>$$>$$>$ \&}]{hashs\+\_\+consts }\end{DoxyParamCaption})}
+
+
+
+The constructor for dcs that can regule the constants used in the hash functions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em err} & The error used by the algorithm \\
+\hline
+{\em univ} & The universe of values choosed \\
+\hline
+{\em hashs\+\_\+consts} & A vector of constants to be used in each hash function in each Count Sketch\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+This constructor is helpful to construct dcs\textquotesingle{}s that can merge together
+\end{DoxyNote}
+\begin{DoxyWarning}{Warning}
+The vector for {\ttfamily hashs\+\_\+consts} should have the size as the levels that the algorithm uses the Count Sketch 
+\end{DoxyWarning}
+
+
+Definition at line 14 of file dcs.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{14                                                                                           \{}
+\DoxyCodeLine{15         this-\/>set\_params(err, univ);}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17         this-\/>frequency\_counters.reserve(this-\/>lvls -\/ (this-\/>s + 1));}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = this-\/>s + 1; i < this-\/>lvls; i++)\{}
+\DoxyCodeLine{20             this-\/>frequency\_counters.emplace\_back();}
+\DoxyCodeLine{21             \textcolor{keywordtype}{int} dyadic\_interval = 1 << i;}
+\DoxyCodeLine{22             \textcolor{keywordtype}{int} interval\_size = universe / dyadic\_interval;}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24             this-\/>frequency\_counters[i -\/ (this-\/>s + 1)].reserve(interval\_size);}
+\DoxyCodeLine{25             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j = 0; j < interval\_size; j++)\{}
+\DoxyCodeLine{26                 this-\/>frequency\_counters[i -\/ (this-\/>s + 1)].emplace\_back(0);}
+\DoxyCodeLine{27             \}}
+\DoxyCodeLine{28         \}}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30         \mbox{\hyperlink{qsbd__debug_8h_a0966b817b229d48e5ffc7feab19a0be6}{ASSERT}}((this-\/>s + 1) == hashs\_consts.size());}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32         this-\/>estimators.reserve(this-\/>s + 1);}
+\DoxyCodeLine{33         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i <= this-\/>s; i++)\{}
+\DoxyCodeLine{34             this-\/>estimators.emplace\_back(this-\/>d, this-\/>w, hashs\_consts[i]);}
+\DoxyCodeLine{35         \}}
+\DoxyCodeLine{36     \}}
+
+\end{DoxyCode}
 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classqsbd_1_1dcs_a03ac0ca2dfe2ef845740ef7703917815}\label{classqsbd_1_1dcs_a03ac0ca2dfe2ef845740ef7703917815}} 
+\index{qsbd::dcs@{qsbd::dcs}!get\_d@{get\_d}}
+\index{get\_d@{get\_d}!qsbd::dcs@{qsbd::dcs}}
+\doxysubsubsection{\texorpdfstring{get\_d()}{get\_d()}}
+{\footnotesize\ttfamily int qsbd\+::dcs\+::get\+\_\+d (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+A getter for the number of rows used in each Count Sketch. 
+
+\begin{DoxyReturn}{Returns}
+The number of rows in each Count Sketch 
+\end{DoxyReturn}
+
+
+Definition at line 216 of file dcs.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{216                          \{}
+\DoxyCodeLine{217         \textcolor{keywordflow}{return} this-\/>d;}
+\DoxyCodeLine{218     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classqsbd_1_1dcs_a0b3f0288db8a427fdebcf49712a1958a}\label{classqsbd_1_1dcs_a0b3f0288db8a427fdebcf49712a1958a}} 
+\index{qsbd::dcs@{qsbd::dcs}!get\_error@{get\_error}}
+\index{get\_error@{get\_error}!qsbd::dcs@{qsbd::dcs}}
+\doxysubsubsection{\texorpdfstring{get\_error()}{get\_error()}}
+{\footnotesize\ttfamily double qsbd\+::dcs\+::get\+\_\+error (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+A getter for the error in the algorithm. 
+
+\begin{DoxyReturn}{Returns}
+The error 
+\end{DoxyReturn}
+
+
+Definition at line 224 of file dcs.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{224                                 \{}
+\DoxyCodeLine{225         \textcolor{keywordflow}{return} this-\/>error;}
+\DoxyCodeLine{226     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classqsbd_1_1dcs_af4603f6a42c7d76ebca1b27610b3e3c7}\label{classqsbd_1_1dcs_af4603f6a42c7d76ebca1b27610b3e3c7}} 
+\index{qsbd::dcs@{qsbd::dcs}!get\_estimators@{get\_estimators}}
+\index{get\_estimators@{get\_estimators}!qsbd::dcs@{qsbd::dcs}}
+\doxysubsubsection{\texorpdfstring{get\_estimators()}{get\_estimators()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classqsbd_1_1count__sketch}{count\+\_\+sketch}} $>$ qsbd\+::dcs\+::get\+\_\+estimators (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+A getter for all estimators in the summary. 
+
+\begin{DoxyReturn}{Returns}
+A vector of Count Sketchs that are beening used 
+\end{DoxyReturn}
+
+
+Definition at line 38 of file dcs.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{38                                                       \{}
+\DoxyCodeLine{39         \textcolor{keywordflow}{return} this-\/>estimators;}
+\DoxyCodeLine{40     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classqsbd_1_1dcs_a0410203f07c28f25776c12c35bdb2ef2}\label{classqsbd_1_1dcs_a0410203f07c28f25776c12c35bdb2ef2}} 
+\index{qsbd::dcs@{qsbd::dcs}!get\_heap\_size@{get\_heap\_size}}
+\index{get\_heap\_size@{get\_heap\_size}!qsbd::dcs@{qsbd::dcs}}
+\doxysubsubsection{\texorpdfstring{get\_heap\_size()}{get\_heap\_size()}}
+{\footnotesize\ttfamily uint64\+\_\+t qsbd\+::dcs\+::get\+\_\+heap\+\_\+size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Getter for the estimated amount of heap memory allocated for this object for a pointer. 
+
+\begin{DoxyReturn}{Returns}
+The estimated memory in bytes. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classqsbd_1_1quantile__sketch_ae814c5158cd183267ed7029d97355267}{qsbd\+::quantile\+\_\+sketch$<$ int $>$}}.
+
+
+
+Definition at line 247 of file dcs.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{247                                \{}
+\DoxyCodeLine{248         uint64\_t dcs\_hs = \textcolor{keyword}{sizeof}(\mbox{\hyperlink{classqsbd_1_1dcs_a3e61f9233679a751187e6fc6a8a22eeb}{dcs}});}
+\DoxyCodeLine{249         uint64\_t fc\_hs = 0;}
+\DoxyCodeLine{250 }
+\DoxyCodeLine{251         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < frequency\_counters.size(); i++)\{}
+\DoxyCodeLine{252             fc\_hs += \textcolor{keyword}{sizeof}(std::vector<int>) + \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int}) * frequency\_counters[i].capacity();}
+\DoxyCodeLine{253         \}}
+\DoxyCodeLine{254 }
+\DoxyCodeLine{255         uint64\_t cs\_hs = 0;}
+\DoxyCodeLine{256 }
+\DoxyCodeLine{257         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < estimators.size(); i++)\{}
+\DoxyCodeLine{258             cs\_hs += estimators[i].get\_heap\_size();}
+\DoxyCodeLine{259         \}}
+\DoxyCodeLine{260 }
+\DoxyCodeLine{261         \textcolor{keywordflow}{return} dcs\_hs + fc\_hs + cs\_hs;}
+\DoxyCodeLine{262     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classqsbd_1_1dcs_adce16c360cef3b1f78de2cce57e8643f}\label{classqsbd_1_1dcs_adce16c360cef3b1f78de2cce57e8643f}} 
+\index{qsbd::dcs@{qsbd::dcs}!get\_s@{get\_s}}
+\index{get\_s@{get\_s}!qsbd::dcs@{qsbd::dcs}}
+\doxysubsubsection{\texorpdfstring{get\_s()}{get\_s()}}
+{\footnotesize\ttfamily int qsbd\+::dcs\+::get\+\_\+s (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+A getter for the level that we stop using Count Sketchs in summary. 
+
+\begin{DoxyReturn}{Returns}
+The level that we stop using Count Sketchs 
+\end{DoxyReturn}
+
+
+Definition at line 220 of file dcs.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{220                          \{}
+\DoxyCodeLine{221         \textcolor{keywordflow}{return} this-\/>s;}
+\DoxyCodeLine{222     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classqsbd_1_1dcs_a82226679f587bbef7e46e3870722e54b}\label{classqsbd_1_1dcs_a82226679f587bbef7e46e3870722e54b}} 
+\index{qsbd::dcs@{qsbd::dcs}!get\_total\_weight@{get\_total\_weight}}
+\index{get\_total\_weight@{get\_total\_weight}!qsbd::dcs@{qsbd::dcs}}
+\doxysubsubsection{\texorpdfstring{get\_total\_weight()}{get\_total\_weight()}}
+{\footnotesize\ttfamily int qsbd\+::dcs\+::get\+\_\+total\+\_\+weight (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+A getter for the total weight sean in the summary. 
+
+\begin{DoxyReturn}{Returns}
+The total weight 
+\end{DoxyReturn}
+
+
+Definition at line 232 of file dcs.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{232                                     \{}
+\DoxyCodeLine{233         \textcolor{keywordflow}{return} this-\/>total\_weight;}
+\DoxyCodeLine{234     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classqsbd_1_1dcs_ae90f6c1529970340ebf81f742a134cf9}\label{classqsbd_1_1dcs_ae90f6c1529970340ebf81f742a134cf9}} 
+\index{qsbd::dcs@{qsbd::dcs}!get\_tree\_lvl@{get\_tree\_lvl}}
+\index{get\_tree\_lvl@{get\_tree\_lvl}!qsbd::dcs@{qsbd::dcs}}
+\doxysubsubsection{\texorpdfstring{get\_tree\_lvl()}{get\_tree\_lvl()}}
+{\footnotesize\ttfamily int qsbd\+::dcs\+::get\+\_\+tree\+\_\+lvl (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+A getter for how many levels we use in the summary. 
+
+\begin{DoxyReturn}{Returns}
+The levels usedsin the dcs 
+\end{DoxyReturn}
+
+
+Definition at line 208 of file dcs.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{208                                 \{}
+\DoxyCodeLine{209         \textcolor{keywordflow}{return} this-\/>lvls;}
+\DoxyCodeLine{210     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classqsbd_1_1dcs_a5faa2e080c48e4c498d6f0e0965aa0d7}\label{classqsbd_1_1dcs_a5faa2e080c48e4c498d6f0e0965aa0d7}} 
+\index{qsbd::dcs@{qsbd::dcs}!get\_universe@{get\_universe}}
+\index{get\_universe@{get\_universe}!qsbd::dcs@{qsbd::dcs}}
+\doxysubsubsection{\texorpdfstring{get\_universe()}{get\_universe()}}
+{\footnotesize\ttfamily int qsbd\+::dcs\+::get\+\_\+universe (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+A getter for the universe use in the algorithm. 
+
+\begin{DoxyReturn}{Returns}
+The universe 
+\end{DoxyReturn}
+
+
+Definition at line 228 of file dcs.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{228                                 \{}
+\DoxyCodeLine{229         \textcolor{keywordflow}{return} this-\/>universe;}
+\DoxyCodeLine{230     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classqsbd_1_1dcs_ac3e7f7acd39ee045b210835fe738e0c4}\label{classqsbd_1_1dcs_ac3e7f7acd39ee045b210835fe738e0c4}} 
+\index{qsbd::dcs@{qsbd::dcs}!get\_w@{get\_w}}
+\index{get\_w@{get\_w}!qsbd::dcs@{qsbd::dcs}}
+\doxysubsubsection{\texorpdfstring{get\_w()}{get\_w()}}
+{\footnotesize\ttfamily int qsbd\+::dcs\+::get\+\_\+w (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+A getter for the number of collumns used in each Count Sketch. 
+
+\begin{DoxyReturn}{Returns}
+The number of collumns in each Count Sketch 
+\end{DoxyReturn}
+
+
+Definition at line 212 of file dcs.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{212                          \{}
+\DoxyCodeLine{213         \textcolor{keywordflow}{return} this-\/>w;}
+\DoxyCodeLine{214     \}}
+
+\end{DoxyCode}
 \mbox{\Hypertarget{classqsbd_1_1dcs_a524fea14527f34c75a0280c0fc32ddb4}\label{classqsbd_1_1dcs_a524fea14527f34c75a0280c0fc32ddb4}} 
 \index{qsbd::dcs@{qsbd::dcs}!inner\_merge@{inner\_merge}}
 \index{inner\_merge@{inner\_merge}!qsbd::dcs@{qsbd::dcs}}
@@ -76,15 +418,20 @@ Definition at line 13 of file dcs.\+h.
 
 
 
-A pure virtual merge method. Recives a quantile sketch {\ttfamily rhs} performes a merge with this sketch, and save in this sketch. 
+Merges this instance of dcs with another dcs instance and saves it in this instance. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em rhs} & A instance of a \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$Type$>$ \\
+{\em rhs} & A dcs instance to be merged \\
 \hline
 \end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classqsbd_1_1dcs_a9916003b7f514ed84f7298c5faa53d84}{dcs\+::merge}}(\mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$int$>$\&) 
+\end{DoxySeeAlso}
 \begin{DoxyWarning}{Warning}
-The \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}} passed as argument should be the same as this. 
+The error in both instances needs to be the same. The error will be considered as the same if $|this->error - rhs.error| \leq 1e-6$
+
+The \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}} must be a instance of the dcs class 
 \end{DoxyWarning}
 
 
@@ -97,7 +444,7 @@ Definition at line 182 of file dcs.\+cpp.
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{182                                                   \{}
-\DoxyCodeLine{183         dcs\& rhs\_cv = \textcolor{keyword}{dynamic\_cast<}dcs\&\textcolor{keyword}{>} (rhs);}
+\DoxyCodeLine{183         \mbox{\hyperlink{classqsbd_1_1dcs_a3e61f9233679a751187e6fc6a8a22eeb}{dcs}}\& rhs\_cv = \textcolor{keyword}{dynamic\_cast<}\mbox{\hyperlink{classqsbd_1_1dcs_a3e61f9233679a751187e6fc6a8a22eeb}{dcs}}\&\textcolor{keyword}{>} (rhs);}
 \DoxyCodeLine{184 }
 \DoxyCodeLine{185         \textcolor{keywordflow}{if}(this-\/>error -\/ rhs\_cv.error > 1e-\/6)\{}
 \DoxyCodeLine{186             \mbox{\hyperlink{qsbd__debug_8h_a3c258e30fb14168b98931ca8aeade817}{DEBUG\_ERR}}(\textcolor{stringliteral}{"{}dcs's error need to match"{}});}
@@ -131,20 +478,25 @@ Definition at line 182 of file dcs.\+cpp.
 
 
 
-A pure virtual merge method. Recives a quantile sketch {\ttfamily rhs} performes a merge with this sketch, and returns a new quantile sketch. 
+Merges this instance of dcs with another dcs instance. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em rhs} & A instance of a \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$Type$>$ \\
+{\em rhs} & A dcs instance to be merged \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-A pointer to a new instance of a \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$Type$>$ 
+A pointer to the new instance of a dcs 
 \end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classqsbd_1_1dcs_a524fea14527f34c75a0280c0fc32ddb4}{dcs\+::inner\+\_\+merge}}(\mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$int$>$\&) 
+\end{DoxySeeAlso}
 \begin{DoxyWarning}{Warning}
-It\textquotesingle{}s up to a user the function of delete this memory. 
+The error in both instance needs to be the same. The error will be considered as the same if $|this->error - rhs.error| \leq 1e-6$
 
-The \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}} passed as argument should be the same as this. 
+The \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}} must be a instance of the dcs class
+
+Is the user responsabilite of frees the returned pointer 
 \end{DoxyWarning}
 
 
@@ -157,7 +509,7 @@ Definition at line 144 of file dcs.\+cpp.
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{144                                                               \{}
-\DoxyCodeLine{145         dcs\& rhs\_cv = \textcolor{keyword}{dynamic\_cast<}dcs\&\textcolor{keyword}{>} (rhs);}
+\DoxyCodeLine{145         \mbox{\hyperlink{classqsbd_1_1dcs_a3e61f9233679a751187e6fc6a8a22eeb}{dcs}}\& rhs\_cv = \textcolor{keyword}{dynamic\_cast<}\mbox{\hyperlink{classqsbd_1_1dcs_a3e61f9233679a751187e6fc6a8a22eeb}{dcs}}\&\textcolor{keyword}{>} (rhs);}
 \DoxyCodeLine{146 }
 \DoxyCodeLine{147         \textcolor{keywordflow}{if}(this-\/>error -\/ rhs\_cv.error > 1e-\/6)\{}
 \DoxyCodeLine{148             \mbox{\hyperlink{qsbd__debug_8h_a3c258e30fb14168b98931ca8aeade817}{DEBUG\_ERR}}(\textcolor{stringliteral}{"{}dcs's error need to match"{}});}
@@ -169,7 +521,7 @@ Definition at line 144 of file dcs.\+cpp.
 \DoxyCodeLine{154             \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};}
 \DoxyCodeLine{155         \}}
 \DoxyCodeLine{156 }
-\DoxyCodeLine{157         dcs* merged = \textcolor{keyword}{new} dcs(this-\/>error, this-\/>universe, this-\/>get\_count\_sketchs\_hash\_functions\_constants());}
+\DoxyCodeLine{157         \mbox{\hyperlink{classqsbd_1_1dcs_a3e61f9233679a751187e6fc6a8a22eeb}{dcs}}* merged = \textcolor{keyword}{new} \mbox{\hyperlink{classqsbd_1_1dcs_a3e61f9233679a751187e6fc6a8a22eeb}{dcs}}(this-\/>error, this-\/>universe, this-\/>\mbox{\hyperlink{classqsbd_1_1dcs_a3682a76c8459a9079b5221cb10364e6d}{get\_count\_sketchs\_hash\_functions\_constants}}());}
 \DoxyCodeLine{158 }
 \DoxyCodeLine{159         merged-\/>total\_weight = this-\/>total\_weight + rhs\_cv.total\_weight;}
 \DoxyCodeLine{160 }
@@ -203,7 +555,7 @@ Definition at line 144 of file dcs.\+cpp.
 
 
 
-A virtual quantile method. Receives a {\ttfamily quant} and returns a element associate with this quantile. 
+Query the element for a given quantile {\ttfamily quant}. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -211,10 +563,10 @@ A virtual quantile method. Receives a {\ttfamily quant} and returns a element as
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-The element associete with the quantile {\ttfamily quant} 
+The estimated value that represents the quantile {\ttfamily quant} 
 \end{DoxyReturn}
 \begin{DoxyWarning}{Warning}
-The quantile should be in range \mbox{[}0..1) 
+{\ttfamily quant} Should be in range \mbox{[}0.\+0 .. 1.\+0\mbox{]}. 
 \end{DoxyWarning}
 
 
@@ -257,23 +609,20 @@ Definition at line 118 of file dcs.\+cpp.
 \index{qsbd::dcs@{qsbd::dcs}!query@{query}}
 \index{query@{query}!qsbd::dcs@{qsbd::dcs}}
 \doxysubsubsection{\texorpdfstring{query()}{query()}}
-{\footnotesize\ttfamily int qsbd\+::dcs\+::query (\begin{DoxyParamCaption}\item[{int}]{elem }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily int qsbd\+::dcs\+::query (\begin{DoxyParamCaption}\item[{int}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
-A virtual query method. Receives a {\ttfamily elem} and returns the rank associate with this element. 
+Query the rank of the element {\ttfamily x}. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em elem} & The element to be query the rank \\
+{\em x} & The element to be queried \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-The rank(elem) 
+The estimated rank for {\ttfamily x} 
 \end{DoxyReturn}
-\begin{DoxyNote}{Note}
-Unless specified, the rank should be defined as $rank(elem) = \sum _{y < elem} v_{y}$, where $v_{y} = $ sum of all weights of y in the input. 
-\end{DoxyNote}
 
 
 Reimplemented from \mbox{\hyperlink{classqsbd_1_1quantile__sketch_a8cf64d79f25d910d1c1aed209ddac71e}{qsbd\+::quantile\+\_\+sketch$<$ int $>$}}.
@@ -313,17 +662,17 @@ Definition at line 94 of file dcs.\+cpp.
 \index{qsbd::dcs@{qsbd::dcs}!update@{update}}
 \index{update@{update}!qsbd::dcs@{qsbd::dcs}}
 \doxysubsubsection{\texorpdfstring{update()}{update()}}
-{\footnotesize\ttfamily void qsbd\+::dcs\+::update (\begin{DoxyParamCaption}\item[{int}]{elem,  }\item[{int}]{weight }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily void qsbd\+::dcs\+::update (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{weight }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
-A virtual update method. Receives a {\ttfamily elem} and a {\ttfamily weight} and updates the sketch with it. 
+Inserts a element {\ttfamily x} with weight {\ttfamily weight}. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em elem} & A element of the type supported by the sketch \\
+{\em x} & The element to be inserted \\
 \hline
-{\em weight} & The weight associate with this {\ttfamily elem} \\
+{\em weight} & The weight of this element \\
 \hline
 \end{DoxyParams}
 
@@ -369,5 +718,5 @@ Definition at line 66 of file dcs.\+cpp.
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-src/dcs/dcs.\+h\item 
+src/dcs/\mbox{\hyperlink{dcs_8h}{dcs.\+h}}\item 
 src/dcs/dcs.\+cpp\end{DoxyCompactItemize}

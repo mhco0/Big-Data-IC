@@ -73,6 +73,11 @@ $(function() {
   <div class="headertitle"><div class="title">qsbd::dcs_factory Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>A factory of dcs.  
+ <a href="classqsbd_1_1dcs__factory.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="dcs__factory_8h_source.html">dcs_factory.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for qsbd::dcs_factory:</div>
 <div class="dyncontent">
@@ -85,20 +90,75 @@ Inheritance diagram for qsbd::dcs_factory:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:afbc21b646462cdf9573def2fadec8402"><td class="memItemLeft" align="right" valign="top"><a id="afbc21b646462cdf9573def2fadec8402"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>dcs_factory</b> (double err, int univ)</td></tr>
+<tr class="memitem:afbc21b646462cdf9573def2fadec8402"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqsbd_1_1dcs__factory.html#afbc21b646462cdf9573def2fadec8402">dcs_factory</a> (double err, int univ)</td></tr>
+<tr class="memdesc:afbc21b646462cdf9573def2fadec8402"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the class.  <a href="classqsbd_1_1dcs__factory.html#afbc21b646462cdf9573def2fadec8402">More...</a><br /></td></tr>
 <tr class="separator:afbc21b646462cdf9573def2fadec8402"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0156f21c78b6ed70d0ae33c579d57440"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classqsbd_1_1quantile__sketch.html">quantile_sketch</a>&lt; int &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqsbd_1_1dcs__factory.html#a0156f21c78b6ed70d0ae33c579d57440">instance</a> () override</td></tr>
-<tr class="memdesc:a0156f21c78b6ed70d0ae33c579d57440"><td class="mdescLeft">&#160;</td><td class="mdescRight">A pure virtual method for create new instances of a <a class="el" href="classqsbd_1_1quantile__sketch.html" title="A interface for quantile sketchs.">quantile_sketch</a>&lt;Type&gt;.  <a href="classqsbd_1_1dcs__factory.html#a0156f21c78b6ed70d0ae33c579d57440">More...</a><br /></td></tr>
+<tr class="memdesc:a0156f21c78b6ed70d0ae33c579d57440"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new instance of a dcs and returns it.  <a href="classqsbd_1_1dcs__factory.html#a0156f21c78b6ed70d0ae33c579d57440">More...</a><br /></td></tr>
 <tr class="separator:a0156f21c78b6ed70d0ae33c579d57440"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af134895abe49946e7a829e49f044cf1f"><td class="memItemLeft" align="right" valign="top"><a id="af134895abe49946e7a829e49f044cf1f"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>allocations</b> ()</td></tr>
-<tr class="separator:af134895abe49946e7a829e49f044cf1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="dcs__factory_8h_source.html#l00007">7</a> of file <a class="el" href="dcs__factory_8h_source.html">dcs_factory.h</a>.</p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+<div class="textblock"><p >A factory of dcs. </p>
+<p >A factory that create new dcs instances that are able to merge with each other. </p>
+
+<p class="definition">Definition at line <a class="el" href="dcs__factory_8h_source.html#l00021">21</a> of file <a class="el" href="dcs__factory_8h_source.html">dcs_factory.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="afbc21b646462cdf9573def2fadec8402"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afbc21b646462cdf9573def2fadec8402">&#9670;&nbsp;</a></span>dcs_factory()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">qsbd::dcs_factory::dcs_factory </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>err</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>univ</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructor for the class. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">err</td><td>The error that will be used in all instances of dcs from this factory </td></tr>
+    <tr><td class="paramname">uni</td><td>The universe that will be used in all instances of dcs from this factory </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="dcs__factory_8h_source.html#l00033">33</a> of file <a class="el" href="dcs__factory_8h_source.html">dcs_factory.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                                         {</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            this-&gt;error = err;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            this-&gt;universe = univ;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            dcs dummy(err, univ);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            hashs_consts = std::move(dummy.get_count_sketchs_hash_functions_constants());</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
 <a id="a0156f21c78b6ed70d0ae33c579d57440"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0156f21c78b6ed70d0ae33c579d57440">&#9670;&nbsp;</a></span>instance()</h2>
 
@@ -122,19 +182,18 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>allocations</b> ()</td
 </table>
 </div><div class="memdoc">
 
-<p>A pure virtual method for create new instances of a <a class="el" href="classqsbd_1_1quantile__sketch.html" title="A interface for quantile sketchs.">quantile_sketch</a>&lt;Type&gt;. </p>
-<dl class="section return"><dt>Returns</dt><dd>A pointer to a new allocated <a class="el" href="classqsbd_1_1quantile__sketch.html" title="A interface for quantile sketchs.">quantile_sketch</a>&lt;Type&gt; </dd></dl>
+<p>Creates a new instance of a dcs and returns it. </p>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to a new instance of dcs in the heap </dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>It's up to a user the function of delete this memory. </dd>
 <dd>
-All quantile sketchs returned by this method should be capable of merging together. </dd></dl>
+It's return as a <a class="el" href="classqsbd_1_1quantile__sketch.html" title="A interface for quantile sketchs.">quantile_sketch</a>&lt;int&gt; you should cast it to the correct type (dcs *). </dd></dl>
 
 <p>Implements <a class="el" href="classqsbd_1_1sketch__factory.html#ad54e5735ea72b515991cc994fe37e23a">qsbd::sketch_factory&lt; int &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="dcs__factory_8h_source.html#l00024">24</a> of file <a class="el" href="dcs__factory_8h_source.html">dcs_factory.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                                                   {</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;            count++;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">new</span> dcs(this-&gt;error, this-&gt;universe, this-&gt;hashs_consts);</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="dcs__factory_8h_source.html#l00050">50</a> of file <a class="el" href="dcs__factory_8h_source.html">dcs_factory.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                                                   {</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">new</span> dcs(this-&gt;error, this-&gt;universe, this-&gt;hashs_consts);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>

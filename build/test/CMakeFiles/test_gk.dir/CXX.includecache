@@ -385,6 +385,8 @@ iostream
 -
 
 ../src/quantile_sketch/quantile_sketch.hpp
+cstdint
+-
 
 ../src/sketch_factory/sketch_factory.hpp
 ../quantile_sketch/quantile_sketch.hpp
@@ -408,6 +410,8 @@ vector
 deque
 -
 stdint.h
+-
+cmath
 -
 
 /mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_gk.cpp

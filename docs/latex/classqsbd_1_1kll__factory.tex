@@ -1,5 +1,14 @@
 \hypertarget{classqsbd_1_1kll__factory}{}\doxysection{qsbd\+::kll\+\_\+factory$<$ Type $>$ Class Template Reference}
 \label{classqsbd_1_1kll__factory}\index{qsbd::kll\_factory$<$ Type $>$@{qsbd::kll\_factory$<$ Type $>$}}
+
+
+A factory of kll.  
+
+
+
+
+{\ttfamily \#include $<$kll\+\_\+factory.\+hpp$>$}
+
 Inheritance diagram for qsbd\+::kll\+\_\+factory$<$ Type $>$\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,20 +18,56 @@ Inheritance diagram for qsbd\+::kll\+\_\+factory$<$ Type $>$\+:\begin{figure}[H]
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classqsbd_1_1kll__factory_ae746f6470ebbc1fb58f127c76d54bee0}\label{classqsbd_1_1kll__factory_ae746f6470ebbc1fb58f127c76d54bee0}} 
-{\bfseries kll\+\_\+factory} (double err)
-\item 
+\mbox{\hyperlink{classqsbd_1_1kll__factory_ae746f6470ebbc1fb58f127c76d54bee0}{kll\+\_\+factory}} (double err)
+\begin{DoxyCompactList}\small\item\em Constructor for the class. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$ Type $>$ $\ast$ \mbox{\hyperlink{classqsbd_1_1kll__factory_adce0aec1afea9987269fea54d03e5b1c}{instance}} () override
-\begin{DoxyCompactList}\small\item\em A pure virtual method for create new instances of a \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$Type$>$. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Creates a new instance of a kll and returns it. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 \subsubsection*{template$<$class Type$>$\newline
 class qsbd\+::kll\+\_\+factory$<$ Type $>$}
+A factory of kll. 
 
 
-Definition at line 8 of file kll\+\_\+factory.\+hpp.
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Type} & The object type for the \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}} that the factory will provide\\
+\hline
+\end{DoxyTemplParams}
+A factory that create new kll$<$Type$>$ instances that are able to merge with each other. 
 
+Definition at line 23 of file kll\+\_\+factory.\+hpp.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classqsbd_1_1kll__factory_ae746f6470ebbc1fb58f127c76d54bee0}\label{classqsbd_1_1kll__factory_ae746f6470ebbc1fb58f127c76d54bee0}} 
+\index{qsbd::kll\_factory$<$ Type $>$@{qsbd::kll\_factory$<$ Type $>$}!kll\_factory@{kll\_factory}}
+\index{kll\_factory@{kll\_factory}!qsbd::kll\_factory$<$ Type $>$@{qsbd::kll\_factory$<$ Type $>$}}
+\doxysubsubsection{\texorpdfstring{kll\_factory()}{kll\_factory()}}
+{\footnotesize\ttfamily template$<$class Type $>$ \\
+\mbox{\hyperlink{classqsbd_1_1kll__factory}{qsbd\+::kll\+\_\+factory}}$<$ Type $>$\+::\mbox{\hyperlink{classqsbd_1_1kll__factory}{kll\+\_\+factory}} (\begin{DoxyParamCaption}\item[{double}]{err }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor for the class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em err} & The error that will be used in all instances of kll$<$Type$>$ from this factory \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 32 of file kll\+\_\+factory.\+hpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{32                                \{}
+\DoxyCodeLine{33             this-\/>error = err;}
+\DoxyCodeLine{34         \}}
+
+\end{DoxyCode}
 
 
 \doxysubsection{Member Function Documentation}
@@ -35,15 +80,15 @@ Definition at line 8 of file kll\+\_\+factory.\+hpp.
 
 
 
-A pure virtual method for create new instances of a \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$Type$>$. 
+Creates a new instance of a kll and returns it. 
 
 \begin{DoxyReturn}{Returns}
-A pointer to a new allocated \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$Type$>$ 
+A pointer to a new instance of kll in the heap 
 \end{DoxyReturn}
 \begin{DoxyWarning}{Warning}
 It\textquotesingle{}s up to a user the function of delete this memory. 
 
-All quantile sketchs returned by this method should be capable of merging together. 
+It\textquotesingle{}s return as a \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$int$>$ you should cast it to the correct type (kll$<$Type$>$ $\ast$). 
 \end{DoxyWarning}
 
 
@@ -51,13 +96,13 @@ Implements \mbox{\hyperlink{classqsbd_1_1sketch__factory_ad54e5735ea72b515991cc9
 
 
 
-Definition at line 16 of file kll\+\_\+factory.\+hpp.
+Definition at line 44 of file kll\+\_\+factory.\+hpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{16                                                     \{}
-\DoxyCodeLine{17             \textcolor{keywordflow}{return} \textcolor{keyword}{new} kll<Type>(this-\/>error);}
-\DoxyCodeLine{18         \}}
+\DoxyCodeLine{44                                                     \{}
+\DoxyCodeLine{45             \textcolor{keywordflow}{return} \textcolor{keyword}{new} kll<Type>(this-\/>error);}
+\DoxyCodeLine{46         \}}
 
 \end{DoxyCode}
 

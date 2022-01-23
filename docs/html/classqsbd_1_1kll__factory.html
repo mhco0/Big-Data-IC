@@ -73,6 +73,11 @@ $(function() {
   <div class="headertitle"><div class="title">qsbd::kll_factory&lt; Type &gt; Class Template Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>A factory of kll.  
+ <a href="classqsbd_1_1kll__factory.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="kll__factory_8hpp_source.html">kll_factory.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for qsbd::kll_factory&lt; Type &gt;:</div>
 <div class="dyncontent">
@@ -85,18 +90,68 @@ Inheritance diagram for qsbd::kll_factory&lt; Type &gt;:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ae746f6470ebbc1fb58f127c76d54bee0"><td class="memItemLeft" align="right" valign="top"><a id="ae746f6470ebbc1fb58f127c76d54bee0"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>kll_factory</b> (double err)</td></tr>
+<tr class="memitem:ae746f6470ebbc1fb58f127c76d54bee0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqsbd_1_1kll__factory.html#ae746f6470ebbc1fb58f127c76d54bee0">kll_factory</a> (double err)</td></tr>
+<tr class="memdesc:ae746f6470ebbc1fb58f127c76d54bee0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the class.  <a href="classqsbd_1_1kll__factory.html#ae746f6470ebbc1fb58f127c76d54bee0">More...</a><br /></td></tr>
 <tr class="separator:ae746f6470ebbc1fb58f127c76d54bee0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adce0aec1afea9987269fea54d03e5b1c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classqsbd_1_1quantile__sketch.html">quantile_sketch</a>&lt; Type &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classqsbd_1_1kll__factory.html#adce0aec1afea9987269fea54d03e5b1c">instance</a> () override</td></tr>
-<tr class="memdesc:adce0aec1afea9987269fea54d03e5b1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">A pure virtual method for create new instances of a <a class="el" href="classqsbd_1_1quantile__sketch.html" title="A interface for quantile sketchs.">quantile_sketch</a>&lt;Type&gt;.  <a href="classqsbd_1_1kll__factory.html#adce0aec1afea9987269fea54d03e5b1c">More...</a><br /></td></tr>
+<tr class="memdesc:adce0aec1afea9987269fea54d03e5b1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new instance of a kll and returns it.  <a href="classqsbd_1_1kll__factory.html#adce0aec1afea9987269fea54d03e5b1c">More...</a><br /></td></tr>
 <tr class="separator:adce0aec1afea9987269fea54d03e5b1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;class Type&gt;<br />
-class qsbd::kll_factory&lt; Type &gt;</div>
-<p class="definition">Definition at line <a class="el" href="kll__factory_8hpp_source.html#l00008">8</a> of file <a class="el" href="kll__factory_8hpp_source.html">kll_factory.hpp</a>.</p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+class qsbd::kll_factory&lt; Type &gt;</div><p >A factory of kll. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Type</td><td>The object type for the <a class="el" href="classqsbd_1_1quantile__sketch.html" title="A interface for quantile sketchs.">quantile_sketch</a> that the factory will provide</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>A factory that create new kll&lt;Type&gt; instances that are able to merge with each other. </p>
+
+<p class="definition">Definition at line <a class="el" href="kll__factory_8hpp_source.html#l00023">23</a> of file <a class="el" href="kll__factory_8hpp_source.html">kll_factory.hpp</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ae746f6470ebbc1fb58f127c76d54bee0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae746f6470ebbc1fb58f127c76d54bee0">&#9670;&nbsp;</a></span>kll_factory()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Type &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classqsbd_1_1kll__factory.html">qsbd::kll_factory</a>&lt; Type &gt;::<a class="el" href="classqsbd_1_1kll__factory.html">kll_factory</a> </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>err</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructor for the class. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">err</td><td>The error that will be used in all instances of kll&lt;Type&gt; from this factory </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="kll__factory_8hpp_source.html#l00032">32</a> of file <a class="el" href="kll__factory_8hpp_source.html">kll_factory.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                               {</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            this-&gt;error = err;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
 <a id="adce0aec1afea9987269fea54d03e5b1c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#adce0aec1afea9987269fea54d03e5b1c">&#9670;&nbsp;</a></span>instance()</h2>
 
@@ -122,18 +177,18 @@ template&lt;class Type &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>A pure virtual method for create new instances of a <a class="el" href="classqsbd_1_1quantile__sketch.html" title="A interface for quantile sketchs.">quantile_sketch</a>&lt;Type&gt;. </p>
-<dl class="section return"><dt>Returns</dt><dd>A pointer to a new allocated <a class="el" href="classqsbd_1_1quantile__sketch.html" title="A interface for quantile sketchs.">quantile_sketch</a>&lt;Type&gt; </dd></dl>
+<p>Creates a new instance of a kll and returns it. </p>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to a new instance of kll in the heap </dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>It's up to a user the function of delete this memory. </dd>
 <dd>
-All quantile sketchs returned by this method should be capable of merging together. </dd></dl>
+It's return as a <a class="el" href="classqsbd_1_1quantile__sketch.html" title="A interface for quantile sketchs.">quantile_sketch</a>&lt;int&gt; you should cast it to the correct type (kll&lt;Type&gt; *). </dd></dl>
 
 <p>Implements <a class="el" href="classqsbd_1_1sketch__factory.html#ad54e5735ea72b515991cc994fe37e23a">qsbd::sketch_factory&lt; Type &gt;</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="kll__factory_8hpp_source.html#l00016">16</a> of file <a class="el" href="kll__factory_8hpp_source.html">kll_factory.hpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;                                                    {</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">new</span> kll&lt;Type&gt;(this-&gt;error);</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        }</div>
+<p class="definition">Definition at line <a class="el" href="kll__factory_8hpp_source.html#l00044">44</a> of file <a class="el" href="kll__factory_8hpp_source.html">kll_factory.hpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                                                    {</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">new</span> kll&lt;Type&gt;(this-&gt;error);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        }</div>
 </div><!-- fragment -->
 </div>
 </div>

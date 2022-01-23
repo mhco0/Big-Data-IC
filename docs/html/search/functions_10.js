@@ -1,11 +1,4 @@
 var searchData=
 [
-  ['_7eaabb_193',['~aabb',['../classqsbd_1_1aabb.html#a5e351063c772dc142290713687838a59',1,'qsbd::aabb']]],
-  ['_7ecount_5fsketch_194',['~count_sketch',['../classqsbd_1_1count__sketch.html#a37754d593bad7f44f98d8e2ce4a514e9',1,'qsbd::count_sketch']]],
-  ['_7ek_5fwise_5ffamily_195',['~k_wise_family',['../classqsbd_1_1k__wise__family.html#a867cab92fe7f0b427842eb817e588b16',1,'qsbd::k_wise_family']]],
-  ['_7epoint_196',['~point',['../classqsbd_1_1point.html#a1d20cb34d95b0980cc0c3c64828e602d',1,'qsbd::point']]],
-  ['_7eq_5fdigest_197',['~q_digest',['../classqsbd_1_1q__digest.html#a85178f37abd3d436ae925a4f6b95074b',1,'qsbd::q_digest']]],
-  ['_7equantile_5fsketch_198',['~quantile_sketch',['../classqsbd_1_1quantile__sketch.html#acdc52dcaf3fa236574629e208432aa26',1,'qsbd::quantile_sketch']]],
-  ['_7etimer_199',['~timer',['../classqsbd_1_1timer.html#a982185ed3c707faeb6f266b8f52a557e',1,'qsbd::timer']]],
-  ['_7etwo_5fwise_5ffamily_200',['~two_wise_family',['../classqsbd_1_1two__wise__family.html#abe2b5c5f7c2f5bbd28c614ef4bae6f3c',1,'qsbd::two_wise_family']]]
+  ['update_255',['update',['../classqsbd_1_1count__sketch.html#adc2e894ccebfa8677a12e5bdad0357b6',1,'qsbd::count_sketch::update()'],['../classqsbd_1_1dcs.html#a156b262c353702c45314cc8a12eafa9a',1,'qsbd::dcs::update()'],['../classqsbd_1_1gk.html#a3a1041a9881bf5362a0fb1578022b3e3',1,'qsbd::gk::update()'],['../classqsbd_1_1kll.html#a2d13b0861967e45ab5c4780d35f1f449',1,'qsbd::kll::update()'],['../classqsbd_1_1q__digest.html#a995cd3e871d7cc1d2f4d34fc7b5aecc8',1,'qsbd::q_digest::update()'],['../classqsbd_1_1quantile__quadtree.html#aeaed34e66f7e71fc7bad998cf7203e33',1,'qsbd::quantile_quadtree::update(const point&lt; int &gt; &amp;pos, ObjType value)'],['../classqsbd_1_1quantile__quadtree.html#ae0ba6872219b18e7deeb2cdb8e199526',1,'qsbd::quantile_quadtree::update(const point&lt; int &gt; &amp;pos, ObjType value, int weight)'],['../classqsbd_1_1quantile__sketch.html#a0e7eefd81eec272e92b7cb989be33c6a',1,'qsbd::quantile_sketch::update(Type elem)'],['../classqsbd_1_1quantile__sketch.html#ab21feebdceb1dc906fb422680b721fcb',1,'qsbd::quantile_sketch::update(Type elem, int weight)']]]
 ];

@@ -13,8 +13,8 @@
 
 namespace qsbd {
 
-	/** @class kll_factory_factory
-	 *  @brief A factory of kll_factory
+	/** @class kll_factory
+	 *  @brief A factory of kll
 	 *  @tparam Type The object type for the quantile_sketch that the factory will provide
 	 * 
 	 * A factory that create new kll\<Type\> instances that are able to merge with each other.
@@ -23,14 +23,18 @@ namespace qsbd {
 	class kll_factory : public sketch_factory<Type>{
 	private:
 		double error;
+		double delta;
+		double multiplier;
 	public:
 
 		/**
 		 * @brief Constructor for the class
 		 * @param err The error that will be used in all instances of kll\<Type\> from this factory
 		*/
-		kll_factory(double err){
+		kll_factory(double err, double delt = 0.3, double c = 0.7){
 			this->error = err;
+			this->delta = delt;
+			this->multiplier = c;
 		}
 
 		/**

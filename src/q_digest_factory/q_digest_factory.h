@@ -1,6 +1,6 @@
 /**
- * @file q_digest.h
- * @brief QSBD q_digest class
+ * @file q_digest_factory.h
+ * @brief QSBD q_digest_factory class
  * @author Marcos H C Oliveira <mhco@cin.ufpe.br>
  * @version 1.0
  *

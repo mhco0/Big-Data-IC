@@ -1,5 +1,10 @@
 \hypertarget{classqsbd_1_1kll}{}\doxysection{qsbd\+::kll$<$ T $>$ Class Template Reference}
 \label{classqsbd_1_1kll}\index{qsbd::kll$<$ T $>$@{qsbd::kll$<$ T $>$}}
+
+
+A class to represent the Karnin-\/\+Lang-\/\+Liberty sketch.  
+
+
 Inheritance diagram for qsbd\+::kll$<$ T $>$\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,47 +14,46 @@ Inheritance diagram for qsbd\+::kll$<$ T $>$\+:\begin{figure}[H]
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classqsbd_1_1kll_aaaac86e4347fb54bef9578d91e2114a3}\label{classqsbd_1_1kll_aaaac86e4347fb54bef9578d91e2114a3}} 
-{\bfseries kll} (double err)
-\item 
+\mbox{\hyperlink{classqsbd_1_1kll_aaaac86e4347fb54bef9578d91e2114a3}{kll}} (double err)
+\begin{DoxyCompactList}\small\item\em Constructor for the kll algorithm. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classqsbd_1_1kll_a5d8426a8557ee75bcc0d1e9495c2cf96}\label{classqsbd_1_1kll_a5d8426a8557ee75bcc0d1e9495c2cf96}} 
-void {\bfseries compress} ()
-\item 
+void \mbox{\hyperlink{classqsbd_1_1kll_a5d8426a8557ee75bcc0d1e9495c2cf96}{compress}} ()
+\begin{DoxyCompactList}\small\item\em A method that tries to compress the buffer array in the algorithm. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classqsbd_1_1kll_a2d13b0861967e45ab5c4780d35f1f449}{update}} (T elem) override
-\begin{DoxyCompactList}\small\item\em A virtual update method. Receives a {\ttfamily elem} and updates the sketch with it. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Updates the kll summary with the element {\ttfamily elem}. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{classqsbd_1_1kll_ae90d25239b925ab9bc1ef7794d9e4104}{query}} (T elem) override
-\begin{DoxyCompactList}\small\item\em A virtual query method. Receives a {\ttfamily elem} and returns the rank associate with this element. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em A method to query the rank of a certain element {\ttfamily elem}. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$ T $>$ $\ast$ \mbox{\hyperlink{classqsbd_1_1kll_a333e8c73e1ad730429f657c3f798ed6c}{merge}} (\mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$ T $>$ \&rhs) override
-\begin{DoxyCompactList}\small\item\em A pure virtual merge method. Recives a quantile sketch {\ttfamily rhs} performes a merge with this sketch, and returns a new quantile sketch. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Merges this instance of kll with another kll instance. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classqsbd_1_1kll_a37cec2795a6a5b6ff64e72b635887d7a}{inner\+\_\+merge}} (\mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$ T $>$ \&rhs) override
-\begin{DoxyCompactList}\small\item\em A pure virtual merge method. Recives a quantile sketch {\ttfamily rhs} performes a merge with this sketch, and save in this sketch. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Merges this instance of kll with another kll instance and saves it in this instance. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classqsbd_1_1kll_af2ac5bcbd4e244a90eb409138b31f403}\label{classqsbd_1_1kll_af2ac5bcbd4e244a90eb409138b31f403}} 
-void {\bfseries print} ()
-\item 
-\mbox{\Hypertarget{classqsbd_1_1kll_aaf3c85eb29da691cdc9a91d26e4566a6}\label{classqsbd_1_1kll_aaf3c85eb29da691cdc9a91d26e4566a6}} 
-void {\bfseries set\+\_\+buffers} (std\+::vector$<$ std\+::vector$<$ T $>$$>$ \&buffers)
-\item 
+void \mbox{\hyperlink{classqsbd_1_1kll_af2ac5bcbd4e244a90eb409138b31f403}{print}} ()
+\begin{DoxyCompactList}\small\item\em A debug method to print the array of buffers in the summary on the standard ouput. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classqsbd_1_1kll_aaf3c85eb29da691cdc9a91d26e4566a6}{set\+\_\+buffers}} (std\+::vector$<$ std\+::vector$<$ T $>$$>$ \&buffers)
+\begin{DoxyCompactList}\small\item\em A setter for the buffer of elements in the sketch. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classqsbd_1_1kll_a1aa3b45b8186a44ed6a060a0c9a2430f}\label{classqsbd_1_1kll_a1aa3b45b8186a44ed6a060a0c9a2430f}} 
-std\+::vector$<$ std\+::vector$<$ T $>$ $>$ {\bfseries get\+\_\+buffers} ()
-\item 
+std\+::vector$<$ std\+::vector$<$ T $>$ $>$ \mbox{\hyperlink{classqsbd_1_1kll_a1aa3b45b8186a44ed6a060a0c9a2430f}{get\+\_\+buffers}} ()
+\begin{DoxyCompactList}\small\item\em A getter for the array of buffers. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classqsbd_1_1kll_ad3ffcf29a71c4a6c6b60c548b9449f1a}\label{classqsbd_1_1kll_ad3ffcf29a71c4a6c6b60c548b9449f1a}} 
-double {\bfseries get\+\_\+error} ()
-\item 
+double \mbox{\hyperlink{classqsbd_1_1kll_ad3ffcf29a71c4a6c6b60c548b9449f1a}{get\+\_\+error}} ()
+\begin{DoxyCompactList}\small\item\em A getter for the error in the algorithm. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classqsbd_1_1kll_a96ecb3525a817e4e950c6cad7a89b732}\label{classqsbd_1_1kll_a96ecb3525a817e4e950c6cad7a89b732}} 
-double {\bfseries get\+\_\+capacity} ()
-\end{DoxyCompactItemize}
+double \mbox{\hyperlink{classqsbd_1_1kll_a96ecb3525a817e4e950c6cad7a89b732}{get\+\_\+capacity}} ()
+\begin{DoxyCompactList}\small\item\em A getter for the capacity on each level of the buffers. \end{DoxyCompactList}\item 
+uint64\+\_\+t \mbox{\hyperlink{classqsbd_1_1kll_ae64747f15ffd2774b672924d7e8b048e}{get\+\_\+heap\+\_\+size}} () override
+\begin{DoxyCompactList}\small\item\em Getter for the estimated amount of heap memory allocated for this object for a pointer. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classqsbd_1_1kll_a1468ecfc87d32ead99cc9970f7ebf50c}\label{classqsbd_1_1kll_a1468ecfc87d32ead99cc9970f7ebf50c}} 
-static void {\bfseries insert\+\_\+sorted} (std\+::vector$<$ T $>$ \&buffer, const T \&elem)
-\end{DoxyCompactItemize}
+static void \mbox{\hyperlink{classqsbd_1_1kll_a1468ecfc87d32ead99cc9970f7ebf50c}{insert\+\_\+sorted}} (std\+::vector$<$ T $>$ \&buffer, const T \&elem)
+\begin{DoxyCompactList}\small\item\em Inserts the element {\ttfamily elem} in a sorted vector {\ttfamily buffer}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{classqsbd_1_1kll_a4f7fb4635acceae1391b75225165bd5f}\label{classqsbd_1_1kll_a4f7fb4635acceae1391b75225165bd5f}} 
-std\+::uniform\+\_\+int\+\_\+distribution$<$ int $>$ {\bfseries coin}
-\item 
+std\+::uniform\+\_\+int\+\_\+distribution$<$ int $>$ \mbox{\hyperlink{classqsbd_1_1kll_a4f7fb4635acceae1391b75225165bd5f}{coin}}
+\begin{DoxyCompactList}\small\item\em A coin to flip and choose the elements to change their resolution. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classqsbd_1_1kll_acb09a4077263304b6d7870987990092a}\label{classqsbd_1_1kll_acb09a4077263304b6d7870987990092a}} 
 std\+::vector$<$ std\+::vector$<$ T $>$ $>$ {\bfseries buffers\+\_\+array}
 \item 
@@ -70,13 +74,94 @@ double {\bfseries error}
 \doxysubsection{Detailed Description}
 \subsubsection*{template$<$class T$>$\newline
 class qsbd\+::kll$<$ T $>$}
+A class to represent the Karnin-\/\+Lang-\/\+Liberty sketch. 
+
+The KLL summary provides a summary of data drawn from an ordered domain U. It is a comparison-\/based summary. The size of the summary is $O(\frac{1}{\epsilon}*\sqrt{\log{\frac{1}{\epsilon}}})$ after any number of UPDATE and MERGE operations. It is more space-\/ and time-\/efficient than the GK summary, but it is a randomized algorithm that may exceed the $\epsilon$ error bound with a small probability. The version of KLL described below assumes unweighted items.
 
 
-Definition at line 10 of file kll.\+hpp.
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The object type for the kll \\
+\hline
+\end{DoxyTemplParams}
 
+
+Definition at line 31 of file kll.\+hpp.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classqsbd_1_1kll_aaaac86e4347fb54bef9578d91e2114a3}\label{classqsbd_1_1kll_aaaac86e4347fb54bef9578d91e2114a3}} 
+\index{qsbd::kll$<$ T $>$@{qsbd::kll$<$ T $>$}!kll@{kll}}
+\index{kll@{kll}!qsbd::kll$<$ T $>$@{qsbd::kll$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{kll()}{kll()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classqsbd_1_1kll}{qsbd\+::kll}}$<$ T $>$\+::\mbox{\hyperlink{classqsbd_1_1kll}{kll}} (\begin{DoxyParamCaption}\item[{double}]{err }\end{DoxyParamCaption})}
+
+
+
+Constructor for the kll algorithm. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em err} & The error for the bound in the algorithm \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 5 of file kll.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{5                           : \mbox{\hyperlink{classqsbd_1_1kll_a4f7fb4635acceae1391b75225165bd5f}{coin}}(0, 1)\{}
+\DoxyCodeLine{6         error = err;}
+\DoxyCodeLine{7         buffer\_diff = 0.7; \textcolor{comment}{// change here later}}
+\DoxyCodeLine{8         \textcolor{keywordtype}{double} capacity\_const = (std::pow(buffer\_diff, 3) * (2 * buffer\_diff -\/ 1)) / 2.0;}
+\DoxyCodeLine{9         capacity\_const = 1.0 / sqrt(capacity\_const);}
+\DoxyCodeLine{10         capacity\_max = (capacity\_const * sqrt(log(2.0 / error))) / error; \textcolor{comment}{// the error inside log can be the delta parameter, see how to change this later}}
+\DoxyCodeLine{11         height = 0;}
+\DoxyCodeLine{12         buffers\_array.push\_back(\{\});   }
+\DoxyCodeLine{13     \}}
+
+\end{DoxyCode}
 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classqsbd_1_1kll_ae64747f15ffd2774b672924d7e8b048e}\label{classqsbd_1_1kll_ae64747f15ffd2774b672924d7e8b048e}} 
+\index{qsbd::kll$<$ T $>$@{qsbd::kll$<$ T $>$}!get\_heap\_size@{get\_heap\_size}}
+\index{get\_heap\_size@{get\_heap\_size}!qsbd::kll$<$ T $>$@{qsbd::kll$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{get\_heap\_size()}{get\_heap\_size()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+uint64\+\_\+t \mbox{\hyperlink{classqsbd_1_1kll}{qsbd\+::kll}}$<$ T $>$\+::get\+\_\+heap\+\_\+size\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Getter for the estimated amount of heap memory allocated for this object for a pointer. 
+
+\begin{DoxyReturn}{Returns}
+The estimated memory in bytes. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classqsbd_1_1quantile__sketch_ae814c5158cd183267ed7029d97355267}{qsbd\+::quantile\+\_\+sketch$<$ T $>$}}.
+
+
+
+Definition at line 199 of file kll.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{199                                   \{}
+\DoxyCodeLine{200         uint64\_t kll\_hs = \textcolor{keyword}{sizeof}(kll<T>);}
+\DoxyCodeLine{201         uint64\_t ba\_hs = 0;}
+\DoxyCodeLine{202 }
+\DoxyCodeLine{203         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < buffers\_array.size(); i++)\{}
+\DoxyCodeLine{204             ba\_hs += \textcolor{keyword}{sizeof}(std::vector<T>) + \textcolor{keyword}{sizeof}(T) * buffers\_array[i].capacity();}
+\DoxyCodeLine{205         \}}
+\DoxyCodeLine{206 }
+\DoxyCodeLine{207         \textcolor{keywordflow}{return} kll\_hs + ba\_hs; }
+\DoxyCodeLine{208     \}}
+
+\end{DoxyCode}
 \mbox{\Hypertarget{classqsbd_1_1kll_a37cec2795a6a5b6ff64e72b635887d7a}\label{classqsbd_1_1kll_a37cec2795a6a5b6ff64e72b635887d7a}} 
 \index{qsbd::kll$<$ T $>$@{qsbd::kll$<$ T $>$}!inner\_merge@{inner\_merge}}
 \index{inner\_merge@{inner\_merge}!qsbd::kll$<$ T $>$@{qsbd::kll$<$ T $>$}}
@@ -86,15 +171,20 @@ void \mbox{\hyperlink{classqsbd_1_1kll}{qsbd\+::kll}}$<$ T $>$\+::inner\+\_\+mer
 
 
 
-A pure virtual merge method. Recives a quantile sketch {\ttfamily rhs} performes a merge with this sketch, and save in this sketch. 
+Merges this instance of kll with another kll instance and saves it in this instance. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em rhs} & A instance of a \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$Type$>$ \\
+{\em rhs} & A kll$<$T$>$ instance to be merged \\
 \hline
 \end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classqsbd_1_1kll}{kll}}$<$T$>$::\mbox{\hyperlink{classqsbd_1_1kll_a333e8c73e1ad730429f657c3f798ed6c}{merge}}(\mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$T$>$\&) 
+\end{DoxySeeAlso}
 \begin{DoxyWarning}{Warning}
-The \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}} passed as argument should be the same as this. 
+The error in both instances needs to be the same. The error will be considered as the same if $|this->error - rhs.error| \leq 1e-6$
+
+The \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}} must be a instance of the kll class 
 \end{DoxyWarning}
 
 
@@ -154,8 +244,37 @@ Definition at line 111 of file kll.\+cpp.
 \DoxyCodeLine{156         this-\/>buffers\_array.clear();}
 \DoxyCodeLine{157         this-\/>buffers\_array = std::move(merged\_buffer);}
 \DoxyCodeLine{158 }
-\DoxyCodeLine{159         this-\/>compress();}
+\DoxyCodeLine{159         this-\/>\mbox{\hyperlink{classqsbd_1_1kll_a5d8426a8557ee75bcc0d1e9495c2cf96}{compress}}();}
 \DoxyCodeLine{160     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classqsbd_1_1kll_a1468ecfc87d32ead99cc9970f7ebf50c}\label{classqsbd_1_1kll_a1468ecfc87d32ead99cc9970f7ebf50c}} 
+\index{qsbd::kll$<$ T $>$@{qsbd::kll$<$ T $>$}!insert\_sorted@{insert\_sorted}}
+\index{insert\_sorted@{insert\_sorted}!qsbd::kll$<$ T $>$@{qsbd::kll$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{insert\_sorted()}{insert\_sorted()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{classqsbd_1_1kll}{qsbd\+::kll}}$<$ T $>$\+::insert\+\_\+sorted (\begin{DoxyParamCaption}\item[{std\+::vector$<$ T $>$ \&}]{buffer,  }\item[{const T \&}]{elem }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Inserts the element {\ttfamily elem} in a sorted vector {\ttfamily buffer}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & A vector with sorted elements \\
+\hline
+{\em elem} & A new element to be inserted \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 16 of file kll.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{16                                                                  \{}
+\DoxyCodeLine{17         buffer.insert(upper\_bound(buffer.begin(), buffer.end(), elem), elem);}
+\DoxyCodeLine{18     \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classqsbd_1_1kll_a333e8c73e1ad730429f657c3f798ed6c}\label{classqsbd_1_1kll_a333e8c73e1ad730429f657c3f798ed6c}} 
@@ -167,20 +286,25 @@ Definition at line 111 of file kll.\+cpp.
 
 
 
-A pure virtual merge method. Recives a quantile sketch {\ttfamily rhs} performes a merge with this sketch, and returns a new quantile sketch. 
+Merges this instance of kll with another kll instance. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em rhs} & A instance of a \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$Type$>$ \\
+{\em rhs} & A kll$<$T$>$ instance to be merged \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-A pointer to a new instance of a \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$Type$>$ 
+A pointer to the new instance of a kll 
 \end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classqsbd_1_1kll}{kll}}$<$T$>$\+::inner\+\_\+merge(\mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$T$>$\&) 
+\end{DoxySeeAlso}
 \begin{DoxyWarning}{Warning}
-It\textquotesingle{}s up to a user the function of delete this memory. 
+The error in both instance needs to be the same. The error will be considered as the same if $|this->error - rhs.error| \leq 1e-6$
 
-The \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}} passed as argument should be the same as this. 
+The \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}} must be a instance of the kll class
+
+Is the user responsabilite of frees the returned pointer 
 \end{DoxyWarning}
 
 
@@ -251,19 +375,16 @@ int \mbox{\hyperlink{classqsbd_1_1kll}{qsbd\+::kll}}$<$ T $>$\+::query (\begin{D
 
 
 
-A virtual query method. Receives a {\ttfamily elem} and returns the rank associate with this element. 
+A method to query the rank of a certain element {\ttfamily elem}. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em elem} & The element to be query the rank \\
+{\em elem} & The element to be queried \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-The rank(elem) 
+The estimated rank for the element {\ttfamily elem} in the summary 
 \end{DoxyReturn}
-\begin{DoxyNote}{Note}
-Unless specified, the rank should be defined as $rank(elem) = \sum _{y < elem} v_{y}$, where $v_{y} = $ sum of all weights of y in the input. 
-\end{DoxyNote}
 
 
 Reimplemented from \mbox{\hyperlink{classqsbd_1_1quantile__sketch_a8cf64d79f25d910d1c1aed209ddac71e}{qsbd\+::quantile\+\_\+sketch$<$ T $>$}}.
@@ -287,6 +408,32 @@ Definition at line 48 of file kll.\+cpp.
 \DoxyCodeLine{58     \}}
 
 \end{DoxyCode}
+\mbox{\Hypertarget{classqsbd_1_1kll_aaf3c85eb29da691cdc9a91d26e4566a6}\label{classqsbd_1_1kll_aaf3c85eb29da691cdc9a91d26e4566a6}} 
+\index{qsbd::kll$<$ T $>$@{qsbd::kll$<$ T $>$}!set\_buffers@{set\_buffers}}
+\index{set\_buffers@{set\_buffers}!qsbd::kll$<$ T $>$@{qsbd::kll$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{set\_buffers()}{set\_buffers()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{classqsbd_1_1kll}{qsbd\+::kll}}$<$ T $>$\+::set\+\_\+buffers (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::vector$<$ T $>$$>$ \&}]{buffers }\end{DoxyParamCaption})}
+
+
+
+A setter for the buffer of elements in the sketch. 
+
+\begin{DoxyNote}{Note}
+This can become depreciated in the newer versions of this algoritm 
+\end{DoxyNote}
+
+
+Definition at line 178 of file kll.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{178                                                             \{}
+\DoxyCodeLine{179         buffers\_array = buffers;}
+\DoxyCodeLine{180         height = buffers.size() -\/ 1;}
+\DoxyCodeLine{181     \}}
+
+\end{DoxyCode}
 \mbox{\Hypertarget{classqsbd_1_1kll_a2d13b0861967e45ab5c4780d35f1f449}\label{classqsbd_1_1kll_a2d13b0861967e45ab5c4780d35f1f449}} 
 \index{qsbd::kll$<$ T $>$@{qsbd::kll$<$ T $>$}!update@{update}}
 \index{update@{update}!qsbd::kll$<$ T $>$@{qsbd::kll$<$ T $>$}}
@@ -296,11 +443,11 @@ void \mbox{\hyperlink{classqsbd_1_1kll}{qsbd\+::kll}}$<$ T $>$\+::update (\begin
 
 
 
-A virtual update method. Receives a {\ttfamily elem} and updates the sketch with it. 
+Updates the kll summary with the element {\ttfamily elem}. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em elem} & A element of the type supported by the sketch \\
+{\em elem} & The new element to be inserted in the summary \\
 \hline
 \end{DoxyParams}
 
@@ -314,8 +461,8 @@ Definition at line 42 of file kll.\+cpp.
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{42                              \{}
-\DoxyCodeLine{43         kll<T>::insert\_sorted(buffers\_array[0], elem);}
-\DoxyCodeLine{44         this-\/>compress();}
+\DoxyCodeLine{43         \mbox{\hyperlink{classqsbd_1_1kll_a1468ecfc87d32ead99cc9970f7ebf50c}{kll<T>::insert\_sorted}}(buffers\_array[0], elem);}
+\DoxyCodeLine{44         this-\/>\mbox{\hyperlink{classqsbd_1_1kll_a5d8426a8557ee75bcc0d1e9495c2cf96}{compress}}();}
 \DoxyCodeLine{45     \}}
 
 \end{DoxyCode}
@@ -323,5 +470,5 @@ Definition at line 42 of file kll.\+cpp.
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-src/kll/kll.\+hpp\item 
+src/kll/\mbox{\hyperlink{kll_8hpp}{kll.\+hpp}}\item 
 src/kll/kll.\+cpp\end{DoxyCompactItemize}

@@ -13,8 +13,8 @@
 
 namespace qsbd {
 
-	/** @class gk_factory_factory
-	 *  @brief A factory of gk_factory
+	/** @class gk_factory
+	 *  @brief A factory of gk
 	 *  @tparam Type The object type for the quantile_sketch that the factory will provide
 	 * 
 	 * A factory that create new gk\<Type\> instances that are able to merge with each other.

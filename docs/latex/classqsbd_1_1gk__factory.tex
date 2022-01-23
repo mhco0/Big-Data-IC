@@ -1,5 +1,14 @@
 \hypertarget{classqsbd_1_1gk__factory}{}\doxysection{qsbd\+::gk\+\_\+factory$<$ Type $>$ Class Template Reference}
 \label{classqsbd_1_1gk__factory}\index{qsbd::gk\_factory$<$ Type $>$@{qsbd::gk\_factory$<$ Type $>$}}
+
+
+A factory of gk.  
+
+
+
+
+{\ttfamily \#include $<$gk\+\_\+factory.\+hpp$>$}
+
 Inheritance diagram for qsbd\+::gk\+\_\+factory$<$ Type $>$\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,20 +18,56 @@ Inheritance diagram for qsbd\+::gk\+\_\+factory$<$ Type $>$\+:\begin{figure}[H]
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classqsbd_1_1gk__factory_ac2bb185dcaadc3fa38534ee517d3cb9f}\label{classqsbd_1_1gk__factory_ac2bb185dcaadc3fa38534ee517d3cb9f}} 
-{\bfseries gk\+\_\+factory} (double err)
-\item 
+\mbox{\hyperlink{classqsbd_1_1gk__factory_ac2bb185dcaadc3fa38534ee517d3cb9f}{gk\+\_\+factory}} (double err)
+\begin{DoxyCompactList}\small\item\em Constructor for the class. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$ Type $>$ $\ast$ \mbox{\hyperlink{classqsbd_1_1gk__factory_a8e366608d9731870b0cb8265980a9e86}{instance}} () override
-\begin{DoxyCompactList}\small\item\em A pure virtual method for create new instances of a \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$Type$>$. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Creates a new instance of a gk and returns it. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 \subsubsection*{template$<$class Type$>$\newline
 class qsbd\+::gk\+\_\+factory$<$ Type $>$}
+A factory of gk. 
 
 
-Definition at line 8 of file gk\+\_\+factory.\+hpp.
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Type} & The object type for the \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}} that the factory will provide\\
+\hline
+\end{DoxyTemplParams}
+A factory that create new gk$<$Type$>$ instances that are able to merge with each other. 
 
+Definition at line 23 of file gk\+\_\+factory.\+hpp.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classqsbd_1_1gk__factory_ac2bb185dcaadc3fa38534ee517d3cb9f}\label{classqsbd_1_1gk__factory_ac2bb185dcaadc3fa38534ee517d3cb9f}} 
+\index{qsbd::gk\_factory$<$ Type $>$@{qsbd::gk\_factory$<$ Type $>$}!gk\_factory@{gk\_factory}}
+\index{gk\_factory@{gk\_factory}!qsbd::gk\_factory$<$ Type $>$@{qsbd::gk\_factory$<$ Type $>$}}
+\doxysubsubsection{\texorpdfstring{gk\_factory()}{gk\_factory()}}
+{\footnotesize\ttfamily template$<$class Type $>$ \\
+\mbox{\hyperlink{classqsbd_1_1gk__factory}{qsbd\+::gk\+\_\+factory}}$<$ Type $>$\+::\mbox{\hyperlink{classqsbd_1_1gk__factory}{gk\+\_\+factory}} (\begin{DoxyParamCaption}\item[{double}]{err }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor for the class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em err} & The error that will be used in all instances of gk$<$Type$>$ from this factory \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 32 of file gk\+\_\+factory.\+hpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{32                               \{}
+\DoxyCodeLine{33             this-\/>error = err;}
+\DoxyCodeLine{34         \}}
+
+\end{DoxyCode}
 
 
 \doxysubsection{Member Function Documentation}
@@ -35,15 +80,15 @@ Definition at line 8 of file gk\+\_\+factory.\+hpp.
 
 
 
-A pure virtual method for create new instances of a \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$Type$>$. 
+Creates a new instance of a gk and returns it. 
 
 \begin{DoxyReturn}{Returns}
-A pointer to a new allocated \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$Type$>$ 
+A pointer to a new instance of gk in the heap 
 \end{DoxyReturn}
 \begin{DoxyWarning}{Warning}
 It\textquotesingle{}s up to a user the function of delete this memory. 
 
-All quantile sketchs returned by this method should be capable of merging together. 
+It\textquotesingle{}s return as a \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$int$>$ you should cast it to the correct type (gk$<$Type$>$ $\ast$). 
 \end{DoxyWarning}
 
 
@@ -51,13 +96,13 @@ Implements \mbox{\hyperlink{classqsbd_1_1sketch__factory_ad54e5735ea72b515991cc9
 
 
 
-Definition at line 16 of file gk\+\_\+factory.\+hpp.
+Definition at line 44 of file gk\+\_\+factory.\+hpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{16                                                     \{}
-\DoxyCodeLine{17             \textcolor{keywordflow}{return} \textcolor{keyword}{new} \mbox{\hyperlink{classgk}{gk<Type>}}(this-\/>error);}
-\DoxyCodeLine{18         \}}
+\DoxyCodeLine{44                                                     \{}
+\DoxyCodeLine{45             \textcolor{keywordflow}{return} \textcolor{keyword}{new} \mbox{\hyperlink{classgk}{gk<Type>}}(this-\/>error);}
+\DoxyCodeLine{46         \}}
 
 \end{DoxyCode}
 

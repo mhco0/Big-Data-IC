@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.8...3.19)
 
 project(
-    BIG-DATA-IC
+    QSBD
     VERSION 0.0.1
     LANGUAGES C CXX
 )

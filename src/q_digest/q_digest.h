@@ -65,9 +65,11 @@ namespace qsbd{
 		void private_merge(const std::vector<q_digest::node>& left, const std::vector<q_digest::node>& right_tree, int cur_node, int left_node, int right_node);
 		void private_update(int x, int weight);
 		int private_query(int x);
+		void private_quantile(int cur_node, const int& rank, int& cur_weight, int& ret, bool& trancking, int left_range, int right_range);
 		void insert_in_buffer(const int& x, const int& weight);
 		void transfer_buffer_to_tree();
 		int query_from_buffer(const int& x);
+		int quantile_from_buffer(const int& rank);
 
 	public:
 		/**
@@ -111,6 +113,15 @@ namespace qsbd{
 		 * @note All ranks will be int values, and \f$query(x) \leq rank(x) \leq query(x) + \epsilon * W\f$ 
 		*/
 		int query(int x) override;
+
+		/**
+		 * @brief Quantile method. Receives a @p quant and returns a element associate with this quantile.
+		 * @param quant The quantile to be queried
+		 * @return The element associete with the quantile @p quant
+		 * @warning 
+		 * The quantile should be in range [0..1]
+		*/
+		int quantile(double quant) override;
 		
 		/**
 		 * @brief Trys to compress the q_digest tree if possible

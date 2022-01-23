@@ -70,11 +70,11 @@ $(function() {
   <div class="headertitle"><div class="title">kll.cpp</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;kll.hpp&quot;</span></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="kll_8hpp.html">kll.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">namespace </span>qsbd {</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;    kll&lt;T&gt;::kll(<span class="keywordtype">double</span> err) : coin(0, 1){</div>
+<div class="line"><a name="l00005"></a><span class="lineno"><a class="line" href="classqsbd_1_1kll.html#aaaac86e4347fb54bef9578d91e2114a3">    5</a></span>&#160;    <a class="code" href="classqsbd_1_1kll.html#aaaac86e4347fb54bef9578d91e2114a3">kll&lt;T&gt;::kll</a>(<span class="keywordtype">double</span> err) : coin(0, 1){</div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;        error = err;</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;        buffer_diff = 0.7; <span class="comment">// change here later</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;        <span class="keywordtype">double</span> capacity_const = (std::pow(buffer_diff, 3) * (2 * buffer_diff - 1)) / 2.0;</div>
@@ -85,20 +85,20 @@ $(function() {
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    }</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordtype">void</span> kll&lt;T&gt;::insert_sorted(std::vector&lt;T&gt;&amp; buffer, <span class="keyword">const</span> T&amp; elem){</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classqsbd_1_1kll.html#a1468ecfc87d32ead99cc9970f7ebf50c">   16</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classqsbd_1_1kll.html#a1468ecfc87d32ead99cc9970f7ebf50c">kll&lt;T&gt;::insert_sorted</a>(std::vector&lt;T&gt;&amp; buffer, <span class="keyword">const</span> T&amp; elem){</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        buffer.insert(upper_bound(buffer.begin(), buffer.end(), elem), elem);</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    }</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">void</span> kll&lt;T&gt;::compress(){</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="classqsbd_1_1kll.html#a5d8426a8557ee75bcc0d1e9495c2cf96">   21</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classqsbd_1_1kll.html#a5d8426a8557ee75bcc0d1e9495c2cf96">kll&lt;T&gt;::compress</a>(){</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> l = 0; l &lt;= height; l++){</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;            <span class="keywordflow">if</span>(buffers_array[l].size() &gt;= std::max(2.0, std::pow(buffer_diff, height - l) * capacity_max)){</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                <span class="keywordflow">if</span>(l == height){</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                    buffers_array.push_back({});</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                }</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;                <span class="keywordflow">for</span>(<span class="keyword">auto</span> i = buffers_array[l].begin() + coin(generator); i &lt; buffers_array[l].end(); i = next(i, 2)){</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;                    kll&lt;T&gt;::insert_sorted(buffers_array[l + 1], (*i));</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;                <span class="keywordflow">for</span>(<span class="keyword">auto</span> i = buffers_array[l].begin() + coin(<a class="code" href="global__generator_8h.html#a2bbc6d216e390d097010618639728f34">generator</a>); i &lt; buffers_array[l].end(); i = next(i, 2)){</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;                    <a class="code" href="classqsbd_1_1kll.html#a1468ecfc87d32ead99cc9970f7ebf50c">kll&lt;T&gt;::insert_sorted</a>(buffers_array[l + 1], (*i));</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                }</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;                </div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                buffers_array[l].clear();</div>
@@ -111,13 +111,13 @@ $(function() {
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    }</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="classqsbd_1_1kll.html#a2d13b0861967e45ab5c4780d35f1f449">   42</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classqsbd_1_1kll.html">kll&lt;T&gt;::update</a>(T elem){</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <a class="code" href="classqsbd_1_1kll.html">kll&lt;T&gt;::insert_sorted</a>(buffers_array[0], elem);</div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="classqsbd_1_1kll.html#a2d13b0861967e45ab5c4780d35f1f449">   42</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classqsbd_1_1kll.html#a2d13b0861967e45ab5c4780d35f1f449">kll&lt;T&gt;::update</a>(T elem){</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <a class="code" href="classqsbd_1_1kll.html#a1468ecfc87d32ead99cc9970f7ebf50c">kll&lt;T&gt;::insert_sorted</a>(buffers_array[0], elem);</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        this-&gt;compress();</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    }</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="classqsbd_1_1kll.html#ae90d25239b925ab9bc1ef7794d9e4104">   48</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classqsbd_1_1kll.html">kll&lt;T&gt;::query</a>(T elem){</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="classqsbd_1_1kll.html#ae90d25239b925ab9bc1ef7794d9e4104">   48</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classqsbd_1_1kll.html#ae90d25239b925ab9bc1ef7794d9e4104">kll&lt;T&gt;::query</a>(T elem){</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordtype">int</span> rank = 0;</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt;= height; i++){</div>
@@ -130,7 +130,7 @@ $(function() {
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    }</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="classqsbd_1_1kll.html#a333e8c73e1ad730429f657c3f798ed6c">   61</a></span>&#160;    <a class="code" href="classqsbd_1_1quantile__sketch.html">quantile_sketch&lt;T&gt;</a>* <a class="code" href="classqsbd_1_1kll.html">kll&lt;T&gt;::merge</a>(<a class="code" href="classqsbd_1_1quantile__sketch.html">quantile_sketch&lt;T&gt;</a>&amp; rhs){</div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="classqsbd_1_1kll.html#a333e8c73e1ad730429f657c3f798ed6c">   61</a></span>&#160;    <a class="code" href="classqsbd_1_1quantile__sketch.html">quantile_sketch&lt;T&gt;</a>* <a class="code" href="classqsbd_1_1kll.html#a333e8c73e1ad730429f657c3f798ed6c">kll&lt;T&gt;::merge</a>(<a class="code" href="classqsbd_1_1quantile__sketch.html">quantile_sketch&lt;T&gt;</a>&amp; rhs){</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <a class="code" href="classqsbd_1_1kll.html">kll&lt;T&gt;</a>&amp; rhs_cv = <span class="keyword">dynamic_cast&lt;</span><a class="code" href="classqsbd_1_1kll.html">kll&lt;T&gt;</a>&amp;<span class="keyword">&gt;</span> (rhs);</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordflow">if</span>((rhs_cv.error - this-&gt;error) &gt; 1e-6){</div>
@@ -174,13 +174,13 @@ $(function() {
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;            }</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        }</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        merged_summary-&gt;compress();</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        merged_summary-&gt;<a class="code" href="classqsbd_1_1kll.html#a5d8426a8557ee75bcc0d1e9495c2cf96">compress</a>();</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <span class="keywordflow">return</span> merged_summary;</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    }</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="classqsbd_1_1kll.html#a37cec2795a6a5b6ff64e72b635887d7a">  111</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classqsbd_1_1kll.html">kll&lt;T&gt;::inner_merge</a>(<a class="code" href="classqsbd_1_1quantile__sketch.html">quantile_sketch&lt;T&gt;</a>&amp; rhs){</div>
+<div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="classqsbd_1_1kll.html#a37cec2795a6a5b6ff64e72b635887d7a">  111</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classqsbd_1_1kll.html#a37cec2795a6a5b6ff64e72b635887d7a">kll&lt;T&gt;::inner_merge</a>(<a class="code" href="classqsbd_1_1quantile__sketch.html">quantile_sketch&lt;T&gt;</a>&amp; rhs){</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <a class="code" href="classqsbd_1_1kll.html">kll&lt;T&gt;</a>&amp; rhs_cv = <span class="keyword">dynamic_cast&lt;</span><a class="code" href="classqsbd_1_1kll.html">kll&lt;T&gt;</a>&amp;<span class="keyword">&gt;</span> (rhs);</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <span class="keywordflow">if</span>((rhs_cv.error - this-&gt;error) &gt; 1e-6){</div>
@@ -234,7 +234,7 @@ $(function() {
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    <span class="comment">//DEBUG</span></div>
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160; </div>
 <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classqsbd_1_1kll.html">kll&lt;T&gt;::print</a>(){</div>
+<div class="line"><a name="l00165"></a><span class="lineno"><a class="line" href="classqsbd_1_1kll.html#af2ac5bcbd4e244a90eb409138b31f403">  165</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classqsbd_1_1kll.html#af2ac5bcbd4e244a90eb409138b31f403">kll&lt;T&gt;::print</a>(){</div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> l = 0; l &lt;= height; l++){</div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;height [&quot;</span> &lt;&lt; l &lt;&lt; <span class="stringliteral">&quot;]: &quot;</span>;</div>
 <div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;            <span class="keywordflow">for</span>(<span class="keyword">auto</span>&amp; i : buffers_array[l]){</div>
@@ -247,31 +247,58 @@ $(function() {
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    }</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160; </div>
 <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <span class="keywordtype">void</span> kll&lt;T&gt;::set_buffers(std::vector&lt;std::vector&lt;T&gt;&gt;&amp; buffers){</div>
+<div class="line"><a name="l00178"></a><span class="lineno"><a class="line" href="classqsbd_1_1kll.html#aaf3c85eb29da691cdc9a91d26e4566a6">  178</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classqsbd_1_1kll.html#aaf3c85eb29da691cdc9a91d26e4566a6">kll&lt;T&gt;::set_buffers</a>(std::vector&lt;std::vector&lt;T&gt;&gt;&amp; buffers){</div>
 <div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;        buffers_array = buffers;</div>
 <div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;        height = buffers.size() - 1;</div>
 <div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    }</div>
 <div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160; </div>
 <div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    std::vector&lt;std::vector&lt;T&gt;&gt; kll&lt;T&gt;::get_buffers(){</div>
+<div class="line"><a name="l00184"></a><span class="lineno"><a class="line" href="classqsbd_1_1kll.html#a1aa3b45b8186a44ed6a060a0c9a2430f">  184</a></span>&#160;    std::vector&lt;std::vector&lt;T&gt;&gt; <a class="code" href="classqsbd_1_1kll.html#a1aa3b45b8186a44ed6a060a0c9a2430f">kll&lt;T&gt;::get_buffers</a>(){</div>
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;        <span class="keywordflow">return</span> buffers_array;</div>
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    }</div>
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160; </div>
 <div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    <span class="keywordtype">double</span> kll&lt;T&gt;::get_error(){</div>
+<div class="line"><a name="l00189"></a><span class="lineno"><a class="line" href="classqsbd_1_1kll.html#ad3ffcf29a71c4a6c6b60c548b9449f1a">  189</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classqsbd_1_1kll.html#ad3ffcf29a71c4a6c6b60c548b9449f1a">kll&lt;T&gt;::get_error</a>(){</div>
 <div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;        <span class="keywordflow">return</span> error;</div>
 <div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    }</div>
 <div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160; </div>
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    <span class="keywordtype">double</span> kll&lt;T&gt;::get_capacity(){</div>
+<div class="line"><a name="l00194"></a><span class="lineno"><a class="line" href="classqsbd_1_1kll.html#a96ecb3525a817e4e950c6cad7a89b732">  194</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classqsbd_1_1kll.html#a96ecb3525a817e4e950c6cad7a89b732">kll&lt;T&gt;::get_capacity</a>(){</div>
 <div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;        <span class="keywordflow">return</span> capacity_max;</div>
 <div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    }</div>
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160; </div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    <span class="keyword">template</span> <span class="keyword">class </span>kll&lt;int&gt;;</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    <span class="keyword">template</span> <span class="keyword">class </span>kll&lt;double&gt;;</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;}</div>
-<div class="ttc" id="aclassqsbd_1_1kll_html"><div class="ttname"><a href="classqsbd_1_1kll.html">qsbd::kll</a></div><div class="ttdef"><b>Definition:</b> <a href="kll_8hpp_source.html#l00010">kll.hpp:10</a></div></div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00199"></a><span class="lineno"><a class="line" href="classqsbd_1_1kll.html#ae64747f15ffd2774b672924d7e8b048e">  199</a></span>&#160;    uint64_t <a class="code" href="classqsbd_1_1kll.html#ae64747f15ffd2774b672924d7e8b048e">kll&lt;T&gt;::get_heap_size</a>(){</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;        uint64_t kll_hs = <span class="keyword">sizeof</span>(<a class="code" href="classqsbd_1_1kll.html">kll&lt;T&gt;</a>);</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;        uint64_t ba_hs = 0;</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160; </div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; buffers_array.size(); i++){</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;            ba_hs += <span class="keyword">sizeof</span>(std::vector&lt;T&gt;) + <span class="keyword">sizeof</span>(T) * buffers_array[i].capacity();</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;        }</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160; </div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;        <span class="keywordflow">return</span> kll_hs + ba_hs; </div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    }</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160; </div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    <span class="keyword">template</span> <span class="keyword">class </span><a class="code" href="classqsbd_1_1kll.html">kll&lt;int&gt;</a>;</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    <span class="keyword">template</span> <span class="keyword">class </span><a class="code" href="classqsbd_1_1kll.html">kll&lt;double&gt;</a>;</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;}</div>
+<div class="ttc" id="aclassqsbd_1_1kll_html"><div class="ttname"><a href="classqsbd_1_1kll.html">qsbd::kll</a></div><div class="ttdoc">A class to represent the Karnin-Lang-Liberty sketch.</div><div class="ttdef"><b>Definition:</b> <a href="kll_8hpp_source.html#l00031">kll.hpp:31</a></div></div>
+<div class="ttc" id="aclassqsbd_1_1kll_html_a1468ecfc87d32ead99cc9970f7ebf50c"><div class="ttname"><a href="classqsbd_1_1kll.html#a1468ecfc87d32ead99cc9970f7ebf50c">qsbd::kll::insert_sorted</a></div><div class="ttdeci">static void insert_sorted(std::vector&lt; T &gt; &amp;buffer, const T &amp;elem)</div><div class="ttdoc">Inserts the element elem in a sorted vector buffer.</div><div class="ttdef"><b>Definition:</b> <a href="kll_8cpp_source.html#l00016">kll.cpp:16</a></div></div>
+<div class="ttc" id="aclassqsbd_1_1kll_html_a1aa3b45b8186a44ed6a060a0c9a2430f"><div class="ttname"><a href="classqsbd_1_1kll.html#a1aa3b45b8186a44ed6a060a0c9a2430f">qsbd::kll::get_buffers</a></div><div class="ttdeci">std::vector&lt; std::vector&lt; T &gt; &gt; get_buffers()</div><div class="ttdoc">A getter for the array of buffers.</div><div class="ttdef"><b>Definition:</b> <a href="kll_8cpp_source.html#l00184">kll.cpp:184</a></div></div>
+<div class="ttc" id="aclassqsbd_1_1kll_html_a2d13b0861967e45ab5c4780d35f1f449"><div class="ttname"><a href="classqsbd_1_1kll.html#a2d13b0861967e45ab5c4780d35f1f449">qsbd::kll::update</a></div><div class="ttdeci">void update(T elem) override</div><div class="ttdoc">Updates the kll summary with the element elem.</div><div class="ttdef"><b>Definition:</b> <a href="kll_8cpp_source.html#l00042">kll.cpp:42</a></div></div>
+<div class="ttc" id="aclassqsbd_1_1kll_html_a333e8c73e1ad730429f657c3f798ed6c"><div class="ttname"><a href="classqsbd_1_1kll.html#a333e8c73e1ad730429f657c3f798ed6c">qsbd::kll::merge</a></div><div class="ttdeci">quantile_sketch&lt; T &gt; * merge(quantile_sketch&lt; T &gt; &amp;rhs) override</div><div class="ttdoc">Merges this instance of kll with another kll instance.</div><div class="ttdef"><b>Definition:</b> <a href="kll_8cpp_source.html#l00061">kll.cpp:61</a></div></div>
+<div class="ttc" id="aclassqsbd_1_1kll_html_a37cec2795a6a5b6ff64e72b635887d7a"><div class="ttname"><a href="classqsbd_1_1kll.html#a37cec2795a6a5b6ff64e72b635887d7a">qsbd::kll::inner_merge</a></div><div class="ttdeci">void inner_merge(quantile_sketch&lt; T &gt; &amp;rhs) override</div><div class="ttdoc">Merges this instance of kll with another kll instance and saves it in this instance.</div><div class="ttdef"><b>Definition:</b> <a href="kll_8cpp_source.html#l00111">kll.cpp:111</a></div></div>
+<div class="ttc" id="aclassqsbd_1_1kll_html_a5d8426a8557ee75bcc0d1e9495c2cf96"><div class="ttname"><a href="classqsbd_1_1kll.html#a5d8426a8557ee75bcc0d1e9495c2cf96">qsbd::kll::compress</a></div><div class="ttdeci">void compress()</div><div class="ttdoc">A method that tries to compress the buffer array in the algorithm.</div><div class="ttdef"><b>Definition:</b> <a href="kll_8cpp_source.html#l00021">kll.cpp:21</a></div></div>
+<div class="ttc" id="aclassqsbd_1_1kll_html_a96ecb3525a817e4e950c6cad7a89b732"><div class="ttname"><a href="classqsbd_1_1kll.html#a96ecb3525a817e4e950c6cad7a89b732">qsbd::kll::get_capacity</a></div><div class="ttdeci">double get_capacity()</div><div class="ttdoc">A getter for the capacity on each level of the buffers.</div><div class="ttdef"><b>Definition:</b> <a href="kll_8cpp_source.html#l00194">kll.cpp:194</a></div></div>
+<div class="ttc" id="aclassqsbd_1_1kll_html_aaaac86e4347fb54bef9578d91e2114a3"><div class="ttname"><a href="classqsbd_1_1kll.html#aaaac86e4347fb54bef9578d91e2114a3">qsbd::kll::kll</a></div><div class="ttdeci">kll(double err)</div><div class="ttdoc">Constructor for the kll algorithm.</div><div class="ttdef"><b>Definition:</b> <a href="kll_8cpp_source.html#l00005">kll.cpp:5</a></div></div>
+<div class="ttc" id="aclassqsbd_1_1kll_html_aaf3c85eb29da691cdc9a91d26e4566a6"><div class="ttname"><a href="classqsbd_1_1kll.html#aaf3c85eb29da691cdc9a91d26e4566a6">qsbd::kll::set_buffers</a></div><div class="ttdeci">void set_buffers(std::vector&lt; std::vector&lt; T &gt;&gt; &amp;buffers)</div><div class="ttdoc">A setter for the buffer of elements in the sketch.</div><div class="ttdef"><b>Definition:</b> <a href="kll_8cpp_source.html#l00178">kll.cpp:178</a></div></div>
+<div class="ttc" id="aclassqsbd_1_1kll_html_ad3ffcf29a71c4a6c6b60c548b9449f1a"><div class="ttname"><a href="classqsbd_1_1kll.html#ad3ffcf29a71c4a6c6b60c548b9449f1a">qsbd::kll::get_error</a></div><div class="ttdeci">double get_error()</div><div class="ttdoc">A getter for the error in the algorithm.</div><div class="ttdef"><b>Definition:</b> <a href="kll_8cpp_source.html#l00189">kll.cpp:189</a></div></div>
+<div class="ttc" id="aclassqsbd_1_1kll_html_ae64747f15ffd2774b672924d7e8b048e"><div class="ttname"><a href="classqsbd_1_1kll.html#ae64747f15ffd2774b672924d7e8b048e">qsbd::kll::get_heap_size</a></div><div class="ttdeci">uint64_t get_heap_size() override</div><div class="ttdoc">Getter for the estimated amount of heap memory allocated for this object for a pointer.</div><div class="ttdef"><b>Definition:</b> <a href="kll_8cpp_source.html#l00199">kll.cpp:199</a></div></div>
+<div class="ttc" id="aclassqsbd_1_1kll_html_ae90d25239b925ab9bc1ef7794d9e4104"><div class="ttname"><a href="classqsbd_1_1kll.html#ae90d25239b925ab9bc1ef7794d9e4104">qsbd::kll::query</a></div><div class="ttdeci">int query(T elem) override</div><div class="ttdoc">A method to query the rank of a certain element elem.</div><div class="ttdef"><b>Definition:</b> <a href="kll_8cpp_source.html#l00048">kll.cpp:48</a></div></div>
+<div class="ttc" id="aclassqsbd_1_1kll_html_af2ac5bcbd4e244a90eb409138b31f403"><div class="ttname"><a href="classqsbd_1_1kll.html#af2ac5bcbd4e244a90eb409138b31f403">qsbd::kll::print</a></div><div class="ttdeci">void print()</div><div class="ttdoc">A debug method to print the array of buffers in the summary on the standard ouput.</div><div class="ttdef"><b>Definition:</b> <a href="kll_8cpp_source.html#l00165">kll.cpp:165</a></div></div>
 <div class="ttc" id="aclassqsbd_1_1quantile__sketch_html"><div class="ttname"><a href="classqsbd_1_1quantile__sketch.html">qsbd::quantile_sketch&lt; T &gt;</a></div></div>
+<div class="ttc" id="aglobal__generator_8h_html_a2bbc6d216e390d097010618639728f34"><div class="ttname"><a href="global__generator_8h.html#a2bbc6d216e390d097010618639728f34">qsbd::generator</a></div><div class="ttdeci">std::default_random_engine generator</div><div class="ttdoc">The global generator responsable for creating the random numbers.</div></div>
+<div class="ttc" id="akll_8hpp_html"><div class="ttname"><a href="kll_8hpp.html">kll.hpp</a></div><div class="ttdoc">QSBD kll class.</div></div>
 <div class="ttc" id="aqsbd__debug_8h_html_a3c258e30fb14168b98931ca8aeade817"><div class="ttname"><a href="qsbd__debug_8h.html#a3c258e30fb14168b98931ca8aeade817">DEBUG_ERR</a></div><div class="ttdeci">#define DEBUG_ERR(x)</div><div class="ttdoc">A debug macro that outputs the value of x in the std::cerr.</div><div class="ttdef"><b>Definition:</b> <a href="qsbd__debug_8h_source.html#l00045">qsbd_debug.h:45</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

@@ -2,12 +2,15 @@
 
 namespace qsbd {
 	template<class T>
-	kll<T>::kll(double err) : coin(0, 1){
+	kll<T>::kll(double err, double delt, double multiplier) : coin(0, 1){
+		ASSERT(multiplier > 0.5 and multiplier < 1.0);
 		error = err;
-		buffer_diff = 0.7; // change here later
-		double capacity_const = (std::pow(buffer_diff, 3) * (2 * buffer_diff - 1)) / 2.0;
+		delta = delt;
+		buffer_diff = multiplier;
+		N = 0;
+		double capacity_const = (std::pow(buffer_diff, 2) * (2 * buffer_diff - 1));
 		capacity_const = 1.0 / sqrt(capacity_const);
-		capacity_max = (capacity_const * sqrt(log(2.0 / error))) / error; // the error inside log can be the delta parameter, see how to change this later
+		capacity_max = (capacity_const * sqrt(log(2.0 / delta))) / error;
 		height = 0;
 		buffers_array.push_back({});   
 	}
@@ -40,6 +43,7 @@ namespace qsbd {
 
 	template<class T>
 	void kll<T>::update(T elem){
+		this->N++;
 		kll<T>::insert_sorted(buffers_array[0], elem);
 		this->compress();
 	}
@@ -58,11 +62,41 @@ namespace qsbd {
 	}
 
 	template<class T>
+	T kll<T>::quantile(double quant){
+		int64_t rank = (int64_t) this->N * quant;
+		int64_t total_weight = 0;
+		std::map<T, int64_t> weights;
+
+		for(int64_t i = 0; i <= height; i++){
+			for(int64_t j = 0; j < buffers_array[i].size(); j++){
+				weights[buffers_array[i][j]] += (int64_t)(1LL << i);
+			}
+		}
+
+		for(auto& it : weights){
+			if(total_weight + it.second > rank) return it.first;
+			else total_weight += it.second;
+		}
+
+		return T();
+	}
+
+	template<class T>
 	quantile_sketch<T>* kll<T>::merge(quantile_sketch<T>& rhs){
 		kll<T>& rhs_cv = dynamic_cast<kll<T>&> (rhs);
 
 		if((rhs_cv.error - this->error) > 1e-6){
 			DEBUG_ERR("in kll::merge kll's error need to match");
+			return nullptr;
+		}
+
+		if((rhs_cv.delta - this->delta) > 1e-6){
+			DEBUG_ERR("in kll::merge kll's error prob need to match");
+			return nullptr;
+		}
+
+		if((rhs_cv.buffer_diff - this->buffer_diff) > 1e-6){
+			DEBUG_ERR("in kll::merge kll's C constant need to match");
 			return nullptr;
 		}
 
@@ -102,6 +136,7 @@ namespace qsbd {
 			}
 		}
 
+		merged_summary->N = this->N + rhs_cv.N;
 		merged_summary->compress();
 
 		return merged_summary;
@@ -113,6 +148,14 @@ namespace qsbd {
 
 		if((rhs_cv.error - this->error) > 1e-6){
 			DEBUG_ERR("in kll::inner_merge kll's error need to match");
+		}
+
+		if((rhs_cv.delta - this->delta) > 1e-6){
+			DEBUG_ERR("in kll::merge kll's error prob need to match");
+		}
+
+		if((rhs_cv.buffer_diff - this->buffer_diff) > 1e-6){
+			DEBUG_ERR("in kll::merge kll's C constant need to match");
 		}
 
 		int merged_height = std::max(rhs_cv.height, this->height);
@@ -153,6 +196,7 @@ namespace qsbd {
 		}
 
 		this->height = merged_height;
+		this->N += rhs_cv.N;
 		this->buffers_array.clear();
 		this->buffers_array = std::move(merged_buffer);
 
@@ -188,6 +232,16 @@ namespace qsbd {
 	template<class T>
 	double kll<T>::get_error(){
 		return error;
+	}
+
+	template<class T>
+	double kll<T>::get_delta(){
+		return delta;
+	}
+
+	template<class T>
+	int kll<T>::get_N(){
+		return N;
 	}
 
 	template<class T>

@@ -40,13 +40,15 @@ int \mbox{\hyperlink{classqsbd_1_1q__digest_ade7168cd70f94767678988531ea30414}{q
 \begin{DoxyCompactList}\small\item\em Query the rank of the element {\ttfamily x}. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classqsbd_1_1q__digest_aceacbb604670ff642ddfec5b65dd572b}\label{classqsbd_1_1q__digest_aceacbb604670ff642ddfec5b65dd572b}} 
 void \mbox{\hyperlink{classqsbd_1_1q__digest_aceacbb604670ff642ddfec5b65dd572b}{compress}} ()
-\begin{DoxyCompactList}\small\item\em Trys to compress the q\+\_\+digeste tree if possible. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Trys to compress the \mbox{\hyperlink{classqsbd_1_1q__digest}{q\+\_\+digest}} tree if possible. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$ int $>$ $\ast$ \mbox{\hyperlink{classqsbd_1_1q__digest_a9c5c1c479213737f979b41ef44229527}{merge}} (\mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$ int $>$ \&rhs) override
-\begin{DoxyCompactList}\small\item\em Merges this instance of quadtree with another \mbox{\hyperlink{classqsbd_1_1q__digest}{q\+\_\+digest}} instance. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Merges this instance of \mbox{\hyperlink{classqsbd_1_1q__digest}{q\+\_\+digest}} with another \mbox{\hyperlink{classqsbd_1_1q__digest}{q\+\_\+digest}} instance. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classqsbd_1_1q__digest_a7716bd59379244c24c4493155527ddd4}{inner\+\_\+merge}} (\mbox{\hyperlink{classqsbd_1_1quantile__sketch}{quantile\+\_\+sketch}}$<$ int $>$ \&rhs) override
-\begin{DoxyCompactList}\small\item\em Merges this instance of quadtree with another \mbox{\hyperlink{classqsbd_1_1q__digest}{q\+\_\+digest}} instance and saves it in this instance. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Merges this instance of \mbox{\hyperlink{classqsbd_1_1q__digest}{q\+\_\+digest}} with another \mbox{\hyperlink{classqsbd_1_1q__digest}{q\+\_\+digest}} instance and saves it in this instance. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{classqsbd_1_1q__digest_a4ab1ac055cb586cc8af5f5eb40180e14}{get\+\_\+total\+\_\+weight}} () const
-\begin{DoxyCompactList}\small\item\em Getter for the total weight saw the the instance. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Getter for the total weight saw the the instance. \end{DoxyCompactList}\item 
+uint64\+\_\+t \mbox{\hyperlink{classqsbd_1_1q__digest_a3a00afbd8d4579dc172abca6b8609ce6}{get\+\_\+heap\+\_\+size}} () override
+\begin{DoxyCompactList}\small\item\em Getter for the estimated amount of heap memory allocated for this object for a pointer. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -96,6 +98,38 @@ Definition at line 281 of file q\+\_\+digest.\+cpp.
 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classqsbd_1_1q__digest_a3a00afbd8d4579dc172abca6b8609ce6}\label{classqsbd_1_1q__digest_a3a00afbd8d4579dc172abca6b8609ce6}} 
+\index{qsbd::q\_digest@{qsbd::q\_digest}!get\_heap\_size@{get\_heap\_size}}
+\index{get\_heap\_size@{get\_heap\_size}!qsbd::q\_digest@{qsbd::q\_digest}}
+\doxysubsubsection{\texorpdfstring{get\_heap\_size()}{get\_heap\_size()}}
+{\footnotesize\ttfamily uint64\+\_\+t q\+\_\+digest\+::get\+\_\+heap\+\_\+size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Getter for the estimated amount of heap memory allocated for this object for a pointer. 
+
+\begin{DoxyReturn}{Returns}
+The estimated memory in bytes. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classqsbd_1_1quantile__sketch_ae814c5158cd183267ed7029d97355267}{qsbd\+::quantile\+\_\+sketch$<$ int $>$}}.
+
+
+
+Definition at line 383 of file q\+\_\+digest.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{383                                     \{}
+\DoxyCodeLine{384         uint64\_t q\_digest\_hs = \textcolor{keyword}{sizeof}(\mbox{\hyperlink{classqsbd_1_1q__digest_a5836b79fcd15d45326b5465ae8ed1c3f}{q\_digest}});}
+\DoxyCodeLine{385         uint64\_t tree\_hs = \textcolor{keyword}{sizeof}(q\_digest::node) * tree.capacity();}
+\DoxyCodeLine{386         uint64\_t sb\_hs = \textcolor{keyword}{sizeof}(std::pair<int, int>) * small\_buffer.capacity();}
+\DoxyCodeLine{387 }
+\DoxyCodeLine{388         \textcolor{keywordflow}{return} q\_digest\_hs + tree\_hs + sb\_hs;}
+\DoxyCodeLine{389     \}}
+
+\end{DoxyCode}
 \mbox{\Hypertarget{classqsbd_1_1q__digest_a4ab1ac055cb586cc8af5f5eb40180e14}\label{classqsbd_1_1q__digest_a4ab1ac055cb586cc8af5f5eb40180e14}} 
 \index{qsbd::q\_digest@{qsbd::q\_digest}!get\_total\_weight@{get\_total\_weight}}
 \index{get\_total\_weight@{get\_total\_weight}!qsbd::q\_digest@{qsbd::q\_digest}}
@@ -128,7 +162,7 @@ Definition at line 379 of file q\+\_\+digest.\+cpp.
 
 
 
-Merges this instance of quadtree with another \mbox{\hyperlink{classqsbd_1_1q__digest}{q\+\_\+digest}} instance and saves it in this instance. 
+Merges this instance of \mbox{\hyperlink{classqsbd_1_1q__digest}{q\+\_\+digest}} with another \mbox{\hyperlink{classqsbd_1_1q__digest}{q\+\_\+digest}} instance and saves it in this instance. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -183,7 +217,7 @@ Definition at line 358 of file q\+\_\+digest.\+cpp.
 
 
 
-Merges this instance of quadtree with another \mbox{\hyperlink{classqsbd_1_1q__digest}{q\+\_\+digest}} instance. 
+Merges this instance of \mbox{\hyperlink{classqsbd_1_1q__digest}{q\+\_\+digest}} with another \mbox{\hyperlink{classqsbd_1_1q__digest}{q\+\_\+digest}} instance. 
 
 
 \begin{DoxyParams}{Parameters}

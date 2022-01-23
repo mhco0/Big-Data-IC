@@ -1,0 +1,462 @@
+\hypertarget{utils_8h}{}\doxysection{src/utils/utils.h File Reference}
+\label{utils_8h}\index{src/utils/utils.h@{src/utils/utils.h}}
+
+
+QSBD functions that may be utils for the user.  
+
+
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$deque$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool {\bfseries qsbd\+::is\+Prime} (int n)
+\begin{DoxyCompactList}\small\item\em This function calculate if a given number {\ttfamily n} is prime. \end{DoxyCompactList}\item 
+int {\bfseries qsbd\+::next\+Prime} (int N)
+\begin{DoxyCompactList}\small\item\em This function calculates the next prime greater than {\ttfamily N}. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{utils_8h_a7c7f0eb7b6174d4612d4a9624dbcf4bf}{qsbd\+::parse\+\_\+string}} (const std\+::string \&sample, const std\+::string \&delimiter=\char`\"{} \char`\"{})
+\begin{DoxyCompactList}\small\item\em This function separates the string {\ttfamily sample} by any {\ttfamily delimiter}. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{utils_8h_a96a9079c273a7d9e7489cb6fc1fd8a8a}{qsbd\+::erase\+\_\+special\+\_\+characters}} (const std\+::string \&sample, const std\+::string \&except=\{\})
+\begin{DoxyCompactList}\small\item\em Erase any character in a given string that isn\textquotesingle{}t a alphabetic character or a digit in the string. \end{DoxyCompactList}\item 
+deque$<$ string $>$ {\bfseries qsbd\+::process\+\_\+args} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em This function takes the program argc and argv format and transforms it in a deque of strings. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{utils_8h_a66d97985329ecdd4b31f7e402e9cd647}{qsbd\+::ends\+\_\+with}} (std\+::string const \&value, std\+::string const \&ending)
+\begin{DoxyCompactList}\small\item\em This function verifys with some string {\ttfamily value} ends with other string {\ttfamily ending}. \end{DoxyCompactList}\item 
+int {\bfseries qsbd\+::map\+\_\+coord} (double coord, double min\+\_\+coord, double max\+\_\+coord, int resolution)
+\begin{DoxyCompactList}\small\item\em This function maps some double coordenate into a int coordenate. \end{DoxyCompactList}\item 
+double {\bfseries qsbd\+::map\+\_\+coord\+\_\+inv} (int coord, double min\+\_\+coord, double max\+\_\+coord, int resolution)
+\begin{DoxyCompactList}\small\item\em This function maps some int coordenate into a double coordenate. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\void \mbox{\hyperlink{utils_8h_abd01b471b80c0ef69eb752347fdc662a}{qsbd\+::insert\+\_\+sorted}} (std\+::vector$<$ T $>$ \&vec, const T \&data)
+\begin{DoxyCompactList}\small\item\em This function inserts a element {\ttfamily data} into a vector {\ttfamily vec} and keeps it sorted. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\double \mbox{\hyperlink{utils_8h_a37a356b67fe7f52fd180de2380755d2c}{qsbd\+::p\+\_\+norm}} (std\+::vector$<$ T $>$ \&vec, const int \&norm)
+\begin{DoxyCompactList}\small\item\em This function calculate the p-\/norm of a vector and returns it to the user. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+QSBD functions that may be utils for the user. 
+
+\begin{DoxyAuthor}{Author}
+Marcos H C Oliveira \href{mailto:mhco@cin.ufpe.br}{\texttt{ mhco@cin.\+ufpe.\+br}} 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{utils_8h_a66d97985329ecdd4b31f7e402e9cd647}\label{utils_8h_a66d97985329ecdd4b31f7e402e9cd647}} 
+\index{utils.h@{utils.h}!ends\_with@{ends\_with}}
+\index{ends\_with@{ends\_with}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{ends\_with()}{ends\_with()}}
+{\footnotesize\ttfamily bool qsbd\+::ends\+\_\+with (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{value,  }\item[{std\+::string const \&}]{ending }\end{DoxyParamCaption})}
+
+
+
+This function verifys with some string {\ttfamily value} ends with other string {\ttfamily ending}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & A string to be tested \\
+\hline
+{\em ending} & A string that represents the end that wee want to test. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if {\ttfamily value} ends with {\ttfamily ending} , false otherwise 
+\end{DoxyReturn}
+\mbox{\Hypertarget{utils_8h_a96a9079c273a7d9e7489cb6fc1fd8a8a}\label{utils_8h_a96a9079c273a7d9e7489cb6fc1fd8a8a}} 
+\index{utils.h@{utils.h}!erase\_special\_characters@{erase\_special\_characters}}
+\index{erase\_special\_characters@{erase\_special\_characters}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{erase\_special\_characters()}{erase\_special\_characters()}}
+{\footnotesize\ttfamily std\+::string qsbd\+::erase\+\_\+special\+\_\+characters (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{sample,  }\item[{const std\+::string \&}]{except = {\ttfamily \{\}} }\end{DoxyParamCaption})}
+
+
+
+Erase any character in a given string that isn\textquotesingle{}t a alphabetic character or a digit in the string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sample} & A string to get the special characters erase \\
+\hline
+{\em except} & Some characters that should be also a exception \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The string after erase special characters
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+isalpha(char); 
+
+isdigit(char);
+\end{DoxySeeAlso}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <\mbox{\hyperlink{utils_8h}{utils/utils.h}}>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{\textcolor{keyword}{using namespace }qsbd;}
+\DoxyCodeLine{\textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{int} main()\{}
+\DoxyCodeLine{        \textcolor{keywordtype}{string} t1 = \textcolor{stringliteral}{"{}hello world!1"{}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{        cout << erase\_special\_characters(t1); \textcolor{comment}{// will ouput "{}helloworld1"{}}}
+\DoxyCodeLine{        cout << erase\_special\_characters(t1, \textcolor{stringliteral}{"{}! "{}}) \textcolor{comment}{// will ouput "{}hello world!1"{}}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ \mbox{\Hypertarget{utils_8h_abd01b471b80c0ef69eb752347fdc662a}\label{utils_8h_abd01b471b80c0ef69eb752347fdc662a}} 
+\index{utils.h@{utils.h}!insert\_sorted@{insert\_sorted}}
+\index{insert\_sorted@{insert\_sorted}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{insert\_sorted()}{insert\_sorted()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void qsbd\+::insert\+\_\+sorted (\begin{DoxyParamCaption}\item[{std\+::vector$<$ T $>$ \&}]{vec,  }\item[{const T \&}]{data }\end{DoxyParamCaption})}
+
+
+
+This function inserts a element {\ttfamily data} into a vector {\ttfamily vec} and keeps it sorted. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of a vector \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em vec} & A sorted vector \\
+\hline
+{\em data} & The element to be inserted on the vector\\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+The {\ttfamily vec} should be sorted. 
+\end{DoxyWarning}
+
+
+Definition at line 176 of file utils.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{176                                                         \{}
+\DoxyCodeLine{177         \textcolor{comment}{// The vector must be sorted}}
+\DoxyCodeLine{178 }
+\DoxyCodeLine{179         \textcolor{keyword}{typename} std::vector<T>::iterator insert\_position;}
+\DoxyCodeLine{180 }
+\DoxyCodeLine{181         insert\_position = std::lower\_bound(vec.begin(), vec.end(), data);}
+\DoxyCodeLine{182         vec.insert(insert\_position, data);}
+\DoxyCodeLine{183 }
+\DoxyCodeLine{184         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{185     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{utils_8cpp_a604f94a3e6f8913220e09f5c2e42573d}\label{utils_8cpp_a604f94a3e6f8913220e09f5c2e42573d}} 
+\index{utils.h@{utils.h}!isPrime@{isPrime}}
+\index{isPrime@{isPrime}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{isPrime()}{isPrime()}}
+{\footnotesize\ttfamily bool qsbd\+::is\+Prime (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+This function calculate if a given number {\ttfamily n} is prime. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & A int number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the {\ttfamily n} is prime, and false otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 7 of file utils.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{7                        \{  }
+\DoxyCodeLine{8         \textcolor{comment}{// Corner cases  }}
+\DoxyCodeLine{9         \textcolor{keywordflow}{if} (n <= 1)  \textcolor{keywordflow}{return} \textcolor{keyword}{false};  }
+\DoxyCodeLine{10         \textcolor{keywordflow}{if} (n <= 3)  \textcolor{keywordflow}{return} \textcolor{keyword}{true};  }
+\DoxyCodeLine{11         }
+\DoxyCodeLine{12         \textcolor{comment}{// This is checked so that we can skip   }}
+\DoxyCodeLine{13         \textcolor{comment}{// middle five numbers in below loop  }}
+\DoxyCodeLine{14         \textcolor{keywordflow}{if} (n\%2 == 0 || n\%3 == 0) \textcolor{keywordflow}{return} \textcolor{keyword}{false};  }
+\DoxyCodeLine{15         }
+\DoxyCodeLine{16         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 5; i*i <= n; i = i + 6)  }
+\DoxyCodeLine{17             \textcolor{keywordflow}{if} (n\%i == 0 || n\%(i+2) == 0)  }
+\DoxyCodeLine{18             \textcolor{keywordflow}{return} \textcolor{keyword}{false};  }
+\DoxyCodeLine{19         }
+\DoxyCodeLine{20         \textcolor{keywordflow}{return} \textcolor{keyword}{true};  }
+\DoxyCodeLine{21     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{utils_8cpp_a930573226abd7f34e82d096528042c26}\label{utils_8cpp_a930573226abd7f34e82d096528042c26}} 
+\index{utils.h@{utils.h}!map\_coord@{map\_coord}}
+\index{map\_coord@{map\_coord}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{map\_coord()}{map\_coord()}}
+{\footnotesize\ttfamily int qsbd\+::map\+\_\+coord (\begin{DoxyParamCaption}\item[{double}]{coord,  }\item[{double}]{min\+\_\+coord,  }\item[{double}]{max\+\_\+coord,  }\item[{int}]{resolution }\end{DoxyParamCaption})}
+
+
+
+This function maps some double coordenate into a int coordenate. 
+
+We subdivide the space based on the {\ttfamily resolution} given, imagine that we are subdividing a space that goes from {\ttfamily min\+\_\+coord} = 0.\+0 to {\ttfamily max\+\_\+coord} = 10.\+0, if we choose {\ttfamily resolution} equals to 2, we gonna have 2$^\wedge$2 = 4 possible spaces in int coordenates.
+
+0.\+0-\/-\/-\/-\/-\/---)2.\+5-\/-\/-\/-\/-\/---)5.\+0-\/-\/-\/-\/-\/---)7.\+5-\/-\/-\/-\/-\/---)10.\+0
+
+\mbox{[}0.\+0 .. 2.\+5) = 0 \mbox{[}2.\+5 .. 5.\+0) = 1 \mbox{[}5.\+0 .. 7.\+5) = 2 \mbox{[}7.\+5 .. 10.\+0) = 3
+
+So, if we give a coordenate {\ttfamily coord} = 3.\+5 that coordenate will be mapped in a int coordenated equal to 1.
+
+
+\begin{DoxyParams}{Parameters}
+{\em coord} & The double coordenate to be mapped \\
+\hline
+{\em min\+\_\+coord} & The minimum coordenate that can appear in the space \\
+\hline
+{\em max\+\_\+coord} & The maximum coordenate that can appear in the space \\
+\hline
+{\em resolution} & The amout of subdivisions in the space \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The coordenate {\ttfamily coord} mapped in a int space
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This can be use to map double coordenates into a quantile quadtree. 
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+quantile\+\_\+quadtree 
+\end{DoxySeeAlso}
+
+
+Definition at line 103 of file utils.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{103                                                                                    \{}
+\DoxyCodeLine{104         \textcolor{keywordflow}{return} ((coord -\/ min\_coord) * (1 << resolution)) / (max\_coord -\/ min\_coord); }
+\DoxyCodeLine{105     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{utils_8cpp_a095be9e0572bdcd090ffee149b00867b}\label{utils_8cpp_a095be9e0572bdcd090ffee149b00867b}} 
+\index{utils.h@{utils.h}!map\_coord\_inv@{map\_coord\_inv}}
+\index{map\_coord\_inv@{map\_coord\_inv}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{map\_coord\_inv()}{map\_coord\_inv()}}
+{\footnotesize\ttfamily double qsbd\+::map\+\_\+coord\+\_\+inv (\begin{DoxyParamCaption}\item[{int}]{coord,  }\item[{double}]{min\+\_\+coord,  }\item[{double}]{max\+\_\+coord,  }\item[{int}]{resolution }\end{DoxyParamCaption})}
+
+
+
+This function maps some int coordenate into a double coordenate. 
+
+We subdivide the space based on the {\ttfamily resolution} given, imagine that we are subdividing a space that goes from {\ttfamily min\+\_\+coord} = 0.\+0 to {\ttfamily max\+\_\+coord} = 10.\+0, if we choose {\ttfamily resolution} equals to 2, we gonna have 2$^\wedge$2 = 4 possible spaces in int coordenates.
+
+0.\+0-\/-\/-\/-\/-\/---)2.\+5-\/-\/-\/-\/-\/---)5.\+0-\/-\/-\/-\/-\/---)7.\+5-\/-\/-\/-\/-\/---)10.\+0
+
+\mbox{[}0.\+0 .. 2.\+5) = 0 \mbox{[}2.\+5 .. 5.\+0) = 1 \mbox{[}5.\+0 .. 7.\+5) = 2 \mbox{[}7.\+5 .. 10.\+0) = 3
+
+So, if we give a coordenate {\ttfamily coord} = 1 that means that the double coordenated should be in range \mbox{[}2.\+5 .. 5.\+0), so we return the lower bound of this range.
+
+
+\begin{DoxyParams}{Parameters}
+{\em coord} & The int coordenate to be mapped \\
+\hline
+{\em min\+\_\+coord} & The minimum coordenate that can appear in the space \\
+\hline
+{\em max\+\_\+coord} & The maximum coordenate that can appear in the space \\
+\hline
+{\em resolution} & The amout of subdivisions in the space \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The coordenate {\ttfamily coord} mapped in a double space 
+\end{DoxyReturn}
+
+
+Definition at line 107 of file utils.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{107                                                                                        \{}
+\DoxyCodeLine{108         \textcolor{keywordflow}{return} (((coord * (max\_coord -\/ min\_coord)) / (1 << resolution)) + min\_coord);}
+\DoxyCodeLine{109     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{utils_8cpp_a6bea530141d4e3dc882c924a3ff9d0e8}\label{utils_8cpp_a6bea530141d4e3dc882c924a3ff9d0e8}} 
+\index{utils.h@{utils.h}!nextPrime@{nextPrime}}
+\index{nextPrime@{nextPrime}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{nextPrime()}{nextPrime()}}
+{\footnotesize\ttfamily int qsbd\+::next\+Prime (\begin{DoxyParamCaption}\item[{int}]{N }\end{DoxyParamCaption})}
+
+
+
+This function calculates the next prime greater than {\ttfamily N}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em N} & A int number where we start to look for the next prime number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A prime greater than {\ttfamily N} 
+\end{DoxyReturn}
+
+
+Definition at line 25 of file utils.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{25                         \{ }
+\DoxyCodeLine{26     }
+\DoxyCodeLine{27         \textcolor{comment}{// Base case }}
+\DoxyCodeLine{28         \textcolor{keywordflow}{if} (N <= 1) }
+\DoxyCodeLine{29             \textcolor{keywordflow}{return} 2; }
+\DoxyCodeLine{30     }
+\DoxyCodeLine{31         \textcolor{keywordtype}{int} prime = N; }
+\DoxyCodeLine{32         \textcolor{keywordtype}{bool} found = \textcolor{keyword}{false}; }
+\DoxyCodeLine{33     }
+\DoxyCodeLine{34         \textcolor{comment}{// Loop continuously until isPrime returns }}
+\DoxyCodeLine{35         \textcolor{comment}{// true for a number greater than n }}
+\DoxyCodeLine{36         \textcolor{keywordflow}{while} (!found) \{ }
+\DoxyCodeLine{37             prime++; }
+\DoxyCodeLine{38     }
+\DoxyCodeLine{39             \textcolor{keywordflow}{if} (isPrime(prime)) }
+\DoxyCodeLine{40                 found = \textcolor{keyword}{true}; }
+\DoxyCodeLine{41         \} }
+\DoxyCodeLine{42     }
+\DoxyCodeLine{43         \textcolor{keywordflow}{return} prime; }
+\DoxyCodeLine{44     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{utils_8h_a37a356b67fe7f52fd180de2380755d2c}\label{utils_8h_a37a356b67fe7f52fd180de2380755d2c}} 
+\index{utils.h@{utils.h}!p\_norm@{p\_norm}}
+\index{p\_norm@{p\_norm}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{p\_norm()}{p\_norm()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+double qsbd\+::p\+\_\+norm (\begin{DoxyParamCaption}\item[{std\+::vector$<$ T $>$ \&}]{vec,  }\item[{const int \&}]{norm }\end{DoxyParamCaption})}
+
+
+
+This function calculate the p-\/norm of a vector and returns it to the user. 
+
+The p-\/norm of a vector x = \{x1, x2, ... xn\} is defined as
+
+$ ||x||_{p} = (|x_{1}|^p + |x_{2}|^p ... + |x_{n}|^p)^{p^{-1}} $
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of a vector. This can be any type that is used by std\+::pow \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em vec} & A vector to calculate the p-\/norm \\
+\hline
+{\em norm} & The norm to be calculated. This is the \textquotesingle{}p\textquotesingle{} in the definition \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The p-\/norm of {\ttfamily vec} 
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+The {\ttfamily norm} should be greater or equal to zero. 
+\end{DoxyWarning}
+
+
+Definition at line 203 of file utils.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{203                                                      \{}
+\DoxyCodeLine{204         \textcolor{keywordtype}{double} sum = 0.0;}
+\DoxyCodeLine{205 }
+\DoxyCodeLine{206         \textcolor{keywordflow}{for}(\textcolor{keyword}{auto}\& it : vec)\{}
+\DoxyCodeLine{207             sum += pow(abs(it), norm);}
+\DoxyCodeLine{208         \}}
+\DoxyCodeLine{209 }
+\DoxyCodeLine{210         \textcolor{keywordflow}{if}(norm > 1) \textcolor{keywordflow}{return} pow(sum, 1.0 / norm);}
+\DoxyCodeLine{211         \textcolor{keywordflow}{else} \textcolor{keywordflow}{return} sum;}
+\DoxyCodeLine{212     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{utils_8h_a7c7f0eb7b6174d4612d4a9624dbcf4bf}\label{utils_8h_a7c7f0eb7b6174d4612d4a9624dbcf4bf}} 
+\index{utils.h@{utils.h}!parse\_string@{parse\_string}}
+\index{parse\_string@{parse\_string}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{parse\_string()}{parse\_string()}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::string$>$ qsbd\+::parse\+\_\+string (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{sample,  }\item[{const std\+::string \&}]{delimiter = {\ttfamily \char`\"{}~\char`\"{}} }\end{DoxyParamCaption})}
+
+
+
+This function separates the string {\ttfamily sample} by any {\ttfamily delimiter}. 
+
+The function will copy the {\ttfamily sample} string and separates it in new strings. The cut will be delimited by {\ttfamily delimiter} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sample} & A string to be parsed \\
+\hline
+{\em delimiter} & A demiliter for the string {\ttfamily sample} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector of strings
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <\mbox{\hyperlink{utils_8h}{utils/utils.h}}>}}
+\DoxyCodeLine{\textcolor{keyword}{using namespace }qsbd;}
+\DoxyCodeLine{\textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{int} main()\{}
+\DoxyCodeLine{        \textcolor{keywordtype}{string} t1 = \textcolor{stringliteral}{"{}hello world!"{}};}
+\DoxyCodeLine{        \textcolor{keywordtype}{string} t2 = \textcolor{stringliteral}{"{}hello.world.again"{}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{        \textcolor{keyword}{auto} vt1 = parse\_string(t1); \textcolor{comment}{// \{"{}hello"{}, "{}world!"{}\}}}
+\DoxyCodeLine{        \textcolor{keyword}{auto} vt2 = parse\_string(t2, \textcolor{stringliteral}{"{}."{}}); \{\textcolor{stringliteral}{"{}hello"{}}, \textcolor{stringliteral}{"{}world"{}}, \textcolor{stringliteral}{"{}again"{}}\}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ \mbox{\Hypertarget{utils_8cpp_a3f5e472c050889a789edb16441ab3d29}\label{utils_8cpp_a3f5e472c050889a789edb16441ab3d29}} 
+\index{utils.h@{utils.h}!process\_args@{process\_args}}
+\index{process\_args@{process\_args}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{process\_args()}{process\_args()}}
+{\footnotesize\ttfamily std\+::deque$<$ std\+::string $>$ qsbd\+::process\+\_\+args (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+This function takes the program argc and argv format and transforms it in a deque of strings. 
+
+This a helper function, this justs takes the program name from the argv format and trasforms all char$\ast$ in strings.
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & The number of arguments for the program \\
+\hline
+{\em argv} & The arguments for the program \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A deque with all {\ttfamily argv} as strings, except the program name 
+\end{DoxyReturn}
+
+
+Definition at line 86 of file utils.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{86                                                       \{}
+\DoxyCodeLine{87         deque<string> args;}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 1; i < argc; i++)\{}
+\DoxyCodeLine{90             \textcolor{keywordtype}{string} arg(argv[i]);}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{92             args.push\_back(arg);}
+\DoxyCodeLine{93         \}}
+\DoxyCodeLine{94         }
+\DoxyCodeLine{95         \textcolor{keywordflow}{return} args;}
+\DoxyCodeLine{96     \}}
+
+\end{DoxyCode}

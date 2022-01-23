@@ -13,6 +13,8 @@ int main(int argc, char* argv[]){
     string query_file_prefix = "query/query_"; // temporary
     string output_file_prefix = "out/";
     int stream_sizes = 10000000;
+    vector<double> bounds = {0.0, 0.0, 1280.0, 720.0};
+    int max_deep = 10;
 
 	if(args.size() != 2){
         DEBUG_ERR("You need to pass the test name and the option for the stream\n Ex [gk/ kll/ q_digest/ dcs] [-c/ -cw/ -u/ -uw]");
@@ -38,25 +40,26 @@ int main(int argc, char* argv[]){
         return -1;
     }
 
+    for(int deep = 5; deep <= max_deep; deep += 5){
 
-    for(int i = stream_sizes; i <= stream_sizes; i *= 10){
-        string stream_file = stream_file_prefix + to_string(i) + ".json";
-        string query_file = query_file_prefix + to_string(i) + "_uniform.json";
-        string output_file = output_file_prefix + to_string(i) +".json";
+        for(int i = stream_sizes; i <= stream_sizes; i *= 10){
+            string stream_file = stream_file_prefix + to_string(i) + ".json";
+            string query_file = query_file_prefix + to_string(i) + ".json";
+            string output_file = output_file_prefix + to_string(i) + "_" + to_string(deep) + ".json";
 
-        DEBUG(stream_file);
-        DEBUG(query_file);
-        DEBUG(output_file);
+            DEBUG(stream_file);
+            DEBUG(query_file);
+            DEBUG(output_file);
 
-        DEBUG(string("./bin/brute_force ") + stream_file + " " + query_file + " " + output_file + " " + args[0]);
-        DEBUG("\n");
+            DEBUG(string("./bin/brute_force ") + stream_file + " " + query_file + " " + output_file + " " + args[0] + " " + to_string(bounds[0]) + " " + to_string(bounds[1]) + " " + to_string(bounds[2]) + " " + to_string(bounds[3]) + " " + to_string(deep) );
+            DEBUG("\n");
 
-        if (system((string("./bin/brute_force ") + stream_file + " " + query_file + " " + output_file + " " + args[0]).c_str()) != 0){
-            DEBUG_ERR("Some Error Brute Force");
-            return -1;
+            if (system((string("./bin/brute_force ") + stream_file + " " + query_file + " " + output_file + " " + args[0] + " " + to_string(bounds[0]) + " " + to_string(bounds[1]) + " " + to_string(bounds[2]) + " " + to_string(bounds[3]) + " " + to_string(deep) ).c_str()) != 0){
+                DEBUG_ERR("Some Error Brute Force");
+                return -1;
+            }
         }
     }
-    
 
     return 0;
 }

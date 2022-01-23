@@ -180,7 +180,6 @@ set(QSBD_LIBS
     QSBD_HEAP_TRACKER
 )
 
-
 foreach(QSBD_LIB ${QSBD_LIBS})
     set_target_properties(${QSBD_LIB} PROPERTIES LINKER_LANGUAGE CXX)
 endforeach()

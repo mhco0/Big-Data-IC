@@ -2,7 +2,7 @@
 #include <k_wise_family/k_wise_family.h>
 using namespace std;
 using namespace qsbd;
-using ll = long long int;
+using ll = unsigned long long int;
 
 /*
 	Test if the Two Wise Family is uniform distribuited
@@ -10,7 +10,7 @@ using ll = long long int;
 TEST(TwoWiseTest, TestUniformity){
     ll universe = 200;
 	ll contra_domain = nextPrime(universe);
-	vector<unsigned long long int> constants = {0, 0};
+	vector<int> constants = {0, 0};
 	vector<vector<ll>> counter;
 
 	counter.resize(contra_domain);
@@ -50,7 +50,7 @@ TEST(TwoWiseTest, TestUniformity){
 TEST(TwoWiseTest, IsTwoWise){
     ll universe = 10;
 	ll contra_domain = nextPrime(universe);
-	vector<unsigned long long int> constants = {0, 0};
+	vector<int> constants = {0, 0};
 	vector<vector<vector<vector<ll>>>> counter;
 
 	counter.resize(contra_domain);

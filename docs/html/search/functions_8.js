@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['operator_28_29_177',['operator()',['../classqsbd_1_1k__wise__family.html#af2a269f0778a85ccd81723ec3fcc14aa',1,'qsbd::k_wise_family::operator()()'],['../classqsbd_1_1two__wise__family.html#a5b96b0128427fabc03f2772c6452625a',1,'qsbd::two_wise_family::operator()()']]],
-  ['operator_3d_178',['operator=',['../classqsbd_1_1aabb.html#aa63c92744cbf2f5279a369092cd2e6ed',1,'qsbd::aabb::operator=()'],['../classqsbd_1_1count__sketch.html#a0413add7eb49f751d1db6a9d6b413428',1,'qsbd::count_sketch::operator=()'],['../classqsbd_1_1k__wise__family.html#aed44f18a31016eb89b13c911fcd6f420',1,'qsbd::k_wise_family::operator=()'],['../classqsbd_1_1point.html#ada4a3b36d192ef774e2a612a82c30462',1,'qsbd::point::operator=()'],['../classqsbd_1_1two__wise__family.html#aa5f8d48c22c080ad4e041ccb48e962dc',1,'qsbd::two_wise_family::operator=()']]]
+  ['k_5fwise_5ffamily_230',['k_wise_family',['../classqsbd_1_1k__wise__family.html#adc66bf591df0d21d391ce4cb9b99a1cb',1,'qsbd::k_wise_family::k_wise_family()=default'],['../classqsbd_1_1k__wise__family.html#ad853e44b7afe096f2327efe848860beb',1,'qsbd::k_wise_family::k_wise_family(int k, int universe)'],['../classqsbd_1_1k__wise__family.html#ac7ec7ba962604c277ed02ab387924951',1,'qsbd::k_wise_family::k_wise_family(int k, int universe, const std::vector&lt; int &gt; &amp;conf)'],['../classqsbd_1_1k__wise__family.html#ad88f2e95b6e1e0645d1ff83f7b15a2da',1,'qsbd::k_wise_family::k_wise_family(const k_wise_family &amp;rhs)']]],
+  ['kll_231',['kll',['../classqsbd_1_1kll.html#aaaac86e4347fb54bef9578d91e2114a3',1,'qsbd::kll']]],
+  ['kll_5ffactory_232',['kll_factory',['../classqsbd_1_1kll__factory.html#ae746f6470ebbc1fb58f127c76d54bee0',1,'qsbd::kll_factory']]]
 ];
