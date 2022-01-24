@@ -19,7 +19,7 @@ int main(int argc, char* argv[]){
     int max_deep = 10;
     int stream_sizes = 10000000;
     double error = 0.3;
-    int universe = 1024;
+    int universe = 16384;
     bool only_leafs = true;
     
     if(args.size() != 2){
@@ -73,8 +73,8 @@ int main(int argc, char* argv[]){
 
         for(int i = stream_sizes; i <= stream_sizes; i *= 10){
             string stream_file = stream_file_prefix + to_string(i) + ".json";
-            string query_file = query_file_prefix + to_string(i) + "_uniform.json";
-            string output_file = output_file_prefix + to_string(i) + "_" + to_string(deep) + "_leaf_2.json";
+            string query_file = query_file_prefix + to_string(i) + ".json";
+            string output_file = output_file_prefix + to_string(i) + "_" + to_string(deep) + "_leaf_quantiles.json";
 
             DEBUG(stream_file);
             DEBUG(query_file);

@@ -14,9 +14,89 @@ using namespace std;
 using json = nlohmann::json;
 
 /*
-* TODO : cdf queries and quantile queries
+* TODO : cdf queries
 *
 */
+
+json q_digest_quantile_test(const vector<pair<pair<int, int>, pair<double, double>>>& stream, const vector<pair<int, vector<double>>>& regions_to_search, double error, int universe, int* discrete_bounds, double* bounds, int depth, bool only_leafs){
+    qsbd::aabb<int> bound_box(discrete_bounds[0], discrete_bounds[1], discrete_bounds[2], discrete_bounds[3]);
+    
+    json out_info = json::object();
+    out_info["q_digest_test"] = json::object();
+
+    cout << "Running...";
+    cout.flush();
+
+    qsbd::q_digest_factory factory(error, universe);
+    qsbd::quantile_quadtree<int> qq_test(bound_box, depth, &factory, only_leafs);
+    json loop_info;
+    double update_time_acc = 0.0;
+
+    for(int i = 0, j = 10; i < stream.size(); i++){
+        qsbd::timer update_once;
+        qsbd::point<int> coord(qsbd::map_coord(stream[i].second.first, bounds[0], bounds[2], depth), qsbd::map_coord(stream[i].second.second, bounds[1], bounds[3], depth));
+
+        update_once.start();
+        qq_test.update(coord, stream[i].first.first, stream[i].first.second);
+        update_once.end();
+
+        update_time_acc += update_once.count();
+        if ((i > 100000) and (i == (j - 1) or i == ((j - 1) / 2))){
+            double avg_update_time = update_time_acc / (i + 1);
+            loop_info["time"][string("update_time_acc_") + to_string(i + 1)] = update_time_acc;
+            loop_info["time"][string("avg_update_time_") + to_string(i + 1)] = avg_update_time;
+
+            double query_time_acc = 0.0;
+            loop_info["time"][string("queries_") + to_string(i + 1)] = json::array();
+
+            for(int j = 0; j < regions_to_search.size(); j++){
+                int region_discrete_bound[4] = {0, 0, 0, 0};
+
+                for(int z = 0; z < 4; z++){
+                    if(z & 1){
+                        region_discrete_bound[z] = qsbd::map_coord(regions_to_search[j].second[z], bounds[1], bounds[3], depth);
+                    }else{
+                        region_discrete_bound[z] = qsbd::map_coord(regions_to_search[j].second[z], bounds[0], bounds[2], depth);
+                    }
+                }
+
+                qsbd::aabb<int> region(region_discrete_bound[0], region_discrete_bound[1], region_discrete_bound[2], region_discrete_bound[3]);
+                qsbd::timer query_once;
+                json region_info;
+
+                query_once.start();
+                std::vector<int> ret = qq_test.quantiles(region, {0.25, 0.5, 0.75, 0.99});
+                query_once.end();
+
+                query_time_acc += query_once.count();
+                
+                region_info["region"] = regions_to_search[j].second;
+                region_info["query_quantile"] = {0.25, 0.5, 0.75, 0.99};
+                region_info["quantile"] = ret;
+                region_info["query_time"] = query_once.count();
+
+                loop_info["time"][string("queries_") + to_string(i + 1)].push_back(region_info);
+            }
+
+            double avg_query_time = query_time_acc / regions_to_search.size();
+
+            loop_info["time"][string("avg_query_time_") + to_string(i + 1)] = avg_query_time;
+            loop_info[string("memory_") + to_string(i + 1)] = qq_test.get_heap_size();
+
+        }
+        
+        if(i == (j - 1)){
+            j *= 10;
+        }
+    }
+
+    out_info["q_digest_test"] = loop_info;
+
+    cout << "Done!" << endl;
+
+    return out_info;
+}
+
 
 json q_digest_test(const vector<pair<pair<int, int>, pair<double, double>>>& stream, const vector<pair<int, vector<double>>>& regions_to_search, double error, int universe, int* discrete_bounds, double* bounds, int depth, bool only_leafs){
     qsbd::aabb<int> bound_box(discrete_bounds[0], discrete_bounds[1], discrete_bounds[2], discrete_bounds[3]);
@@ -91,6 +171,84 @@ json q_digest_test(const vector<pair<pair<int, int>, pair<double, double>>>& str
     }
 
     out_info["q_digest_test"] = loop_info;
+
+    cout << "Done!" << endl;
+
+    return out_info;
+}
+
+json kll_quantile_test(const vector<pair<int, pair<double, double>>>& stream, const vector<pair<int, vector<double>>>& regions_to_search, double error, int* discrete_bounds, double* bounds, int depth, bool only_leafs){
+    qsbd::aabb<int> bound_box(discrete_bounds[0], discrete_bounds[1], discrete_bounds[2], discrete_bounds[3]);
+    
+    json out_info = json::object();
+    out_info["kll_test"] = json::object();
+
+    cout << "Running...";
+    cout.flush();
+
+    qsbd::kll_factory<int> factory(error);
+    qsbd::quantile_quadtree<int> qq_test(bound_box, depth, &factory, only_leafs);
+    json loop_info;
+    double update_time_acc = 0.0;
+
+    for(int i = 0, j = 10; i < stream.size(); i++){
+        qsbd::timer update_once;
+        qsbd::point<int> coord(qsbd::map_coord(stream[i].second.first, bounds[0], bounds[2], depth), qsbd::map_coord(stream[i].second.second, bounds[1], bounds[3], depth));
+
+        update_once.start();
+        qq_test.update(coord, stream[i].first);
+        update_once.end();
+
+        update_time_acc += update_once.count();
+        if ((i > 100000) and (i == (j - 1) or i == ((j - 1) / 2))){
+            double avg_update_time = update_time_acc / (i + 1);
+            loop_info["time"][string("update_time_acc_") + to_string(i + 1)] = update_time_acc;
+            loop_info["time"][string("avg_update_time_") + to_string(i + 1)] = avg_update_time;
+
+            double query_time_acc = 0.0;
+            loop_info["time"][string("queries_") + to_string(i + 1)] = json::array();
+
+            for(int j = 0; j < regions_to_search.size(); j++){
+                int region_discrete_bound[4] = {0, 0, 0, 0};
+
+                for(int z = 0; z < 4; z++){
+                    if(z & 1){
+                        region_discrete_bound[z] = qsbd::map_coord(regions_to_search[j].second[z], bounds[1], bounds[3], depth);
+                    }else{
+                        region_discrete_bound[z] = qsbd::map_coord(regions_to_search[j].second[z], bounds[0], bounds[2], depth);
+                    }
+                }
+
+                qsbd::aabb<int> region(region_discrete_bound[0], region_discrete_bound[1], region_discrete_bound[2], region_discrete_bound[3]);
+                qsbd::timer query_once;
+                json region_info;
+
+                query_once.start();
+                std::vector<int> ret = qq_test.quantiles(region, {0.25, 0.5, 0.75, 0.99});
+                query_once.end();
+
+                query_time_acc += query_once.count();
+                
+                region_info["region"] = regions_to_search[j].second;
+                region_info["query_quantile"] = {0.25, 0.5, 0.75, 0.99};
+                region_info["quantile"] = ret;
+                region_info["query_time"] = query_once.count();
+
+                loop_info["time"][string("queries_") + to_string(i + 1)].push_back(region_info);
+            }
+
+            double avg_query_time = query_time_acc / regions_to_search.size();
+
+            loop_info["time"][string("avg_query_time_") + to_string(i + 1)] = avg_query_time;
+            loop_info[string("memory_") + to_string(i + 1)] = qq_test.get_heap_size();
+        }
+        
+        if(i == (j - 1)){
+            j *= 10;
+        }
+    }
+
+    out_info["kll_test"] = loop_info;
 
     cout << "Done!" << endl;
 
@@ -175,6 +333,84 @@ json kll_test(const vector<pair<int, pair<double, double>>>& stream, const vecto
     return out_info;
 }
 
+json dcs_quantile_test(const vector<pair<pair<int, int>, pair<double, double>>>& stream, const vector<pair<int, vector<double>>>& regions_to_search, double error, int universe, int* discrete_bounds, double* bounds, int depth, bool only_leafs){
+    qsbd::aabb<int> bound_box(discrete_bounds[0], discrete_bounds[1], discrete_bounds[2], discrete_bounds[3]);
+    
+    json out_info = json::object();
+    out_info["dcs_test"] = json::object();
+
+    cout << "Running...";
+    cout.flush();
+
+    qsbd::dcs_factory factory(error, universe);
+    qsbd::quantile_quadtree<int> qq_test(bound_box, depth, &factory, only_leafs);
+    json loop_info;
+    double update_time_acc = 0.0;
+
+    for(int i = 0, j = 10; i < stream.size(); i++){
+        qsbd::timer update_once;
+        qsbd::point<int> coord(qsbd::map_coord(stream[i].second.first, bounds[0], bounds[2], depth), qsbd::map_coord(stream[i].second.second, bounds[1], bounds[3], depth));
+
+        update_once.start();
+        qq_test.update(coord, stream[i].first.first, stream[i].first.second);
+        update_once.end();
+
+        update_time_acc += update_once.count();
+        if ((i > 100000) and (i == (j - 1) or i == ((j - 1) / 2))){
+            double avg_update_time = update_time_acc / (i + 1);
+            loop_info["time"][string("update_time_acc_") + to_string(i + 1)] = update_time_acc;
+            loop_info["time"][string("avg_update_time_") + to_string(i + 1)] = avg_update_time;
+
+            double query_time_acc = 0.0;
+            loop_info["time"][string("queries_") + to_string(i + 1)] = json::array();
+
+            for(int j = 0; j < regions_to_search.size(); j++){
+                int region_discrete_bound[4] = {0, 0, 0, 0};
+
+                for(int z = 0; z < 4; z++){
+                    if(z & 1){
+                        region_discrete_bound[z] = qsbd::map_coord(regions_to_search[j].second[z], bounds[1], bounds[3], depth);
+                    }else{
+                        region_discrete_bound[z] = qsbd::map_coord(regions_to_search[j].second[z], bounds[0], bounds[2], depth);
+                    }
+                }
+
+                qsbd::aabb<int> region(region_discrete_bound[0], region_discrete_bound[1], region_discrete_bound[2], region_discrete_bound[3]);
+                qsbd::timer query_once;
+                json region_info;
+
+                query_once.start();
+                std::vector<int> ret = qq_test.quantiles(region, {0.25, 0.5, 0.75, 0.99});
+                query_once.end();
+
+                query_time_acc += query_once.count();
+                
+                region_info["region"] = regions_to_search[j].second;
+                region_info["query_quantile"] = {0.25, 0.5, 0.75, 0.99};
+                region_info["quantile"] = ret;
+                region_info["query_time"] = query_once.count();
+
+                loop_info["time"][string("queries_") + to_string(i + 1)].push_back(region_info);
+            }
+
+            double avg_query_time = query_time_acc / regions_to_search.size();
+
+            loop_info["time"][string("avg_query_time_") + to_string(i + 1)] = avg_query_time;
+            loop_info[string("memory_") + to_string(i + 1)] = qq_test.get_heap_size();
+        }
+        
+        if(i == (j - 1)){
+            j *= 10;
+        }
+    }
+
+    out_info["dcs_test"] = loop_info;
+
+    cout << "Done!" << endl;
+    
+    return out_info;
+}
+
 json dcs_test(const vector<pair<pair<int, int>, pair<double, double>>>& stream, const vector<pair<int, vector<double>>>& regions_to_search, double error, int universe, int* discrete_bounds, double* bounds, int depth, bool only_leafs){
     qsbd::aabb<int> bound_box(discrete_bounds[0], discrete_bounds[1], discrete_bounds[2], discrete_bounds[3]);
     
@@ -250,6 +486,85 @@ json dcs_test(const vector<pair<pair<int, int>, pair<double, double>>>& stream, 
 
     cout << "Done!" << endl;
     
+    return out_info;
+}
+
+json gk_quantile_test(const vector<pair<int, pair<double, double>>>& stream, const vector<pair<int, vector<double>>>& regions_to_search, double error, int* discrete_bounds, double* bounds, int depth, bool only_leafs){
+    qsbd::aabb<int> bound_box(discrete_bounds[0], discrete_bounds[1], discrete_bounds[2], discrete_bounds[3]);
+    
+    json out_info = json::object();
+    out_info["gk_test"] = json::object();
+
+    cout << "Running...";
+    cout.flush();
+
+    qsbd::gk_factory<int> factory(error);
+    qsbd::quantile_quadtree<int> qq_test(bound_box, depth, &factory, only_leafs);
+    json loop_info;
+    double update_time_acc = 0.0;
+
+    for(int i = 0, j = 10; i < stream.size(); i++){
+        qsbd::timer update_once;
+        qsbd::point<int> coord(qsbd::map_coord(stream[i].second.first, bounds[0], bounds[2], depth), qsbd::map_coord(stream[i].second.second, bounds[1], bounds[3], depth));
+
+        update_once.start();
+        qq_test.update(coord, stream[i].first);
+        update_once.end();
+
+        update_time_acc += (double) update_once.count();
+
+        if ((i > 100000) and (i == (j - 1) or i == ((j - 1) / 2))){
+            double avg_update_time = update_time_acc / (i + 1);
+            loop_info["time"][string("update_time_acc_") + to_string(i + 1)] = update_time_acc;
+            loop_info["time"][string("avg_update_time_") + to_string(i + 1)] = avg_update_time;
+
+            double query_time_acc = 0.0;
+            loop_info["time"][string("queries_") + to_string(i + 1)] = json::array();
+
+            for(int j = 0; j < regions_to_search.size(); j++){
+                int region_discrete_bound[4] = {0, 0, 0, 0};
+
+                for(int z = 0; z < 4; z++){
+                    if(z & 1){
+                        region_discrete_bound[z] = qsbd::map_coord(regions_to_search[j].second[z], bounds[1], bounds[3], depth);
+                    }else{
+                        region_discrete_bound[z] = qsbd::map_coord(regions_to_search[j].second[z], bounds[0], bounds[2], depth);
+                    }
+                }
+
+                qsbd::aabb<int> region(region_discrete_bound[0], region_discrete_bound[1], region_discrete_bound[2], region_discrete_bound[3]);
+                qsbd::timer query_once;
+                json region_info;
+
+                query_once.start();
+                std::vector<int> ret = qq_test.quantiles(region, {0.25, 0.5, 0.75, 0.99});
+                query_once.end();
+
+                query_time_acc += query_once.count();
+                
+                region_info["region"] = regions_to_search[j].second;
+                region_info["query_quantile"] = {0.25, 0.5, 0.75, 0.99};
+                region_info["quantile"] = ret;
+                region_info["query_time"] = query_once.count();
+
+                loop_info["time"][string("queries_") + to_string(i + 1)].push_back(region_info);
+            }
+
+            double avg_query_time = query_time_acc / regions_to_search.size();
+
+            loop_info["time"][string("avg_query_time_") + to_string(i + 1)] = avg_query_time;
+            loop_info[string("memory_") + to_string(i + 1)] = qq_test.get_heap_size();
+        }
+        
+        if(i == (j - 1)){
+            j *= 10;
+        }
+    }
+
+    out_info["gk_test"] = loop_info;
+
+    cout << "Done!" << endl;
+
     return out_info;
 }
 
@@ -442,18 +757,18 @@ int main(int argc, char * argv[]){
 		cout << "Using error & universe : " << error << " " << universe << endl; 
     	cout << "Running Experiment..." << endl;
 		if(sketch_to_test == "dcs"){
-			out_info = dcs_test(stream_ww, regions_to_search, error, universe, discrete_bounds, bounds, depth, only_leafs);
+			out_info = dcs_quantile_test(stream_ww, regions_to_search, error, universe, discrete_bounds, bounds, depth, only_leafs);
 		}else{
-			out_info = q_digest_test(stream_ww, regions_to_search, error, universe, discrete_bounds, bounds, depth, only_leafs);
+			out_info = q_digest_quantile_test(stream_ww, regions_to_search, error, universe, discrete_bounds, bounds, depth, only_leafs);
 		}
 	}else if(sketch_to_test == "kll" or sketch_to_test == "gk"){
 
     	cout << "Using error : " << error << endl;
 		cout << "Running Experiment..." << endl;
 		if(sketch_to_test == "gk"){
-			out_info = gk_test(stream, regions_to_search, error, discrete_bounds, bounds, depth, only_leafs);
+			out_info = gk_quantile_test(stream, regions_to_search, error, discrete_bounds, bounds, depth, only_leafs);
 		}else{
-			out_info = kll_test(stream, regions_to_search, error, discrete_bounds, bounds, depth, only_leafs);
+			out_info = kll_quantile_test(stream, regions_to_search, error, discrete_bounds, bounds, depth, only_leafs);
 		}
 	}else{
         DEBUG_ERR("This sketch isn't supported for the quantile quadtree");
