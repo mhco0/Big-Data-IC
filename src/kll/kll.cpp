@@ -63,13 +63,13 @@ namespace qsbd {
 
 	template<class T>
 	T kll<T>::quantile(double quant){
-		int64_t rank = (int64_t) this->N * quant;
-		int64_t total_weight = 0;
-		std::map<T, int64_t> weights;
+		int rank = (int) this->N * quant;
+		int total_weight = 0;
+		std::map<T, int> weights;
 
-		for(int64_t i = 0; i <= height; i++){
-			for(int64_t j = 0; j < buffers_array[i].size(); j++){
-				weights[buffers_array[i][j]] += (int64_t)(1LL << i);
+		for(int i = 0; i <= height; i++){
+			for(int j = 0; j < buffers_array[i].size(); j++){
+				weights[buffers_array[i][j]] += (int)(1LL << i);
 			}
 		}
 

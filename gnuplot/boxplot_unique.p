@@ -8,7 +8,7 @@ set xlabel xname
 set ylabel yname
 
 set title title_name
-#set ytics autofreq 0.5
+set ytics autofreq 0.5
 
 plot data_file using (0):1 with boxplot title data_name
 

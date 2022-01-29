@@ -137,7 +137,7 @@ namespace qsbd {
 				}
 
 				if(index) return tuple_list[index - 1].first;
-				else tuple_list[index].first;
+				else return tuple_list[index].first; 
 			}else{
 				if(tuple_list.size() > 1) return tuple_list[tuple_list.size() - 2].first;
 				else return T();
