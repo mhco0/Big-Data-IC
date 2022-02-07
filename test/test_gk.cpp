@@ -221,6 +221,52 @@ TEST(GkTest, TestUpdateAndQuery){
     }
 }
 
+
+/*
+    Testing the quantile method from the gk algorithm
+*/
+TEST(GkTest, TestQuantile){
+    vector<int> input = random_int_stream(10000, 0, 99);
+    vector<double> quantiles = {0.25, 0.5, 0.75, 0.99};
+    gk<int> summary(0.2);
+
+    for(int i = 0; i < input.size(); i++){
+        summary.update(input[i]);
+    }
+
+    cout << "update done" << endl;
+
+    for(int i = 0; i < quantiles.size(); i++){
+        int value = summary.quantile(quantiles[i]);
+        cout << value << " \n"[i == quantiles.size() - 1];
+    }
+}
+
+/*
+    Testing the quantile method from the gk algorithm after merges
+*/
+TEST(GkTest, TestQuantileAndMerge){
+    vector<int> input = random_int_stream(10000, 0, 99);
+    vector<int> input2 = random_int_stream(10000, 100, 199);
+    vector<double> quantiles = {0.25, 0.5, 0.75, 0.99};
+    gk<int> summary(0.2);
+    gk<int> summary2(0.2);
+
+    for(int i = 0; i < input.size(); i++){
+        summary.update(input[i]);
+        summary2.update(input2[i]);
+    }
+
+    cout << "update done" << endl;
+
+    summary.inner_merge(summary2);
+
+    for(int i = 0; i < quantiles.size(); i++){
+        int value = summary.quantile(quantiles[i]);
+        cout << value << " \n"[i == quantiles.size() - 1];
+    }
+}
+
 /*
     Testing the gk summary for int numbers
 */
@@ -282,6 +328,7 @@ TEST(GkTest, TestFactory){
 		EXPECT_LT((fails[i]/(double) attempts), error);
 	}
 }
+
 
 int main(int argc, char* argv[]){
     testing::InitGoogleTest(&argc, argv);

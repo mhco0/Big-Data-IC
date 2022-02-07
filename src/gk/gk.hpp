@@ -125,20 +125,30 @@ namespace qsbd {
 		 * The quantile should be in range [0..1]
 		*/
 		T quantile(double quant) override {
+			DEBUG("In quantile");
 			int rank = (int) this->N * quant;
 			
+			VDEBUG((rank + 1));
+			VDEBUG((N - (epsilon * N)));
+
 			if((rank + 1) <= (N - (epsilon * N))){
+				DEBUG("inside if");
 				int weight_sum = 0;
 				int index = 0;
 
-				while((weight_sum + tuple_list[index].second.first + tuple_list[index].second.second) <= (rank + (epsilon * N) + 1)){
+				while((weight_sum + tuple_list[index].second.first + tuple_list[index].second.second) <= (rank + (epsilon * N) + 1) and index < tuple_list.size()){
 					weight_sum += tuple_list[index].second.first;
 					index++;
 				}
 
+				VDEBUG(index);
+				this->print();
 				if(index) return tuple_list[index - 1].first;
 				else return tuple_list[index].first; 
 			}else{
+				DEBUG("inside else");
+				VDEBUG(tuple_list.size());
+				this->print();
 				if(tuple_list.size() > 1) return tuple_list[tuple_list.size() - 2].first;
 				else return T();
 			}
@@ -173,7 +183,6 @@ namespace qsbd {
 			merged_summary->tuple_list.clear();
 
 			while(left_index < tuple_list.size() - 1 and right_index < rhs_cv.tuple_list.size() - 1){
-				merged_summary->N += 1;
 
 				if(tuple_list[left_index].first < rhs_cv.tuple_list[right_index].first){
 					T value = tuple_list[left_index].first;
@@ -195,19 +204,18 @@ namespace qsbd {
 			}
 
 			while(left_index < tuple_list.size() - 1){
-				merged_summary->N += 1;
 				merged_summary->tuple_list.push_back(tuple_list[left_index]);
 
 				left_index++;
 			}
 
 			while(right_index < rhs_cv.tuple_list.size() - 1){
-				merged_summary->N += 1;
 				merged_summary->tuple_list.push_back(rhs_cv.tuple_list[right_index]);
 
 				right_index++;
 			}
 
+			merged_summary->N = this->N + rhs_cv.N;
 			merged_summary->tuple_list.push_back(std::make_pair(std::numeric_limits<T>::max(), std::make_pair(1, 0)));
 
 			int capacity = (int) ceil(2.0 * epsilon * merged_summary->get_N());
@@ -247,7 +255,6 @@ namespace qsbd {
 			std::vector<std::pair<T, std::pair<int, int>>> merged_tuple;
 
 			while(left_index < tuple_list.size() - 1 and right_index < rhs_cv.tuple_list.size() - 1){
-				merged_N += 1;
 
 				if(tuple_list[left_index].first < rhs_cv.tuple_list[right_index].first){
 					T value = tuple_list[left_index].first;
@@ -269,19 +276,18 @@ namespace qsbd {
 			}
 
 			while(left_index < tuple_list.size() - 1){
-				merged_N += 1;
 				merged_tuple.push_back(tuple_list[left_index]);
 
 				left_index++;
 			}
 
 			while(right_index < rhs_cv.tuple_list.size() - 1){
-				merged_N += 1;
 				merged_tuple.push_back(rhs_cv.tuple_list[right_index]);
 
 				right_index++;
 			}
 
+			merged_N = this->N + rhs_cv.N;
 			merged_tuple.push_back(std::make_pair(std::numeric_limits<T>::max(), std::make_pair(1, 0)));
 
 			int capacity = (int) ceil(2.0 * epsilon * merged_N);
