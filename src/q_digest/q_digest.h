@@ -122,6 +122,13 @@ namespace qsbd{
 		 * The quantile should be in range [0..1]
 		*/
 		int quantile(double quant) override;
+
+		/**
+		 * @brief CDF method. Receives a @p elem and returns a probability for some value be less than this value. 
+		 * @param elem The element to be queried
+		 * @return The probability for this element
+		*/
+		double cdf(int elem) override;
 		
 		/**
 		 * @brief Trys to compress the q_digest tree if possible

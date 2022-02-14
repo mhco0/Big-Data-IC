@@ -125,14 +125,9 @@ namespace qsbd {
 		 * The quantile should be in range [0..1]
 		*/
 		T quantile(double quant) override {
-			DEBUG("In quantile");
 			int rank = (int) this->N * quant;
-			
-			VDEBUG((rank + 1));
-			VDEBUG((N - (epsilon * N)));
 
 			if((rank + 1) <= (N - (epsilon * N))){
-				DEBUG("inside if");
 				int weight_sum = 0;
 				int index = 0;
 
@@ -141,19 +136,25 @@ namespace qsbd {
 					index++;
 				}
 
-				VDEBUG(index);
-				this->print();
 				if(index) return tuple_list[index - 1].first;
 				else return tuple_list[index].first; 
 			}else{
-				DEBUG("inside else");
-				VDEBUG(tuple_list.size());
-				this->print();
 				if(tuple_list.size() > 1) return tuple_list[tuple_list.size() - 2].first;
 				else return T();
 			}
 
 			return T();
+		}
+
+		/**
+		 * @brief CDF method. Receives a @p elem and returns a probability for some value be less than this value. 
+		 * @param elem The element to be queried
+		 * @return The probability for this element
+		*/
+		double cdf(T elem) override {
+			if (not this->N) return 0.0;
+
+			return this->query(elem) / this->N;
 		}
 
 		/**

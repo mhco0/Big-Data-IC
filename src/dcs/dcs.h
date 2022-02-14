@@ -106,6 +106,13 @@ namespace qsbd{
 		int quantile(double quant) override;
 
 		/**
+		 * @brief CDF method. Receives a @p elem and returns a probability for some value be less than this value. 
+		 * @param elem The element to be queried
+		 * @return The probability for this element
+		*/
+		double cdf(int elem) override;
+		
+		/**
 		 * @brief Merges this instance of dcs with another dcs instance
 		 * @param rhs A dcs instance to be merged
 		 * @return A pointer to the new instance of a dcs 

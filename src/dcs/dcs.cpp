@@ -141,6 +141,12 @@ namespace qsbd {
 		return x;
 	}
 
+	double dcs::cdf(int elem) override {
+		if (not this->total_weight) return 0.0;
+
+		return this->query(elem) / this->total_weight;
+	}
+
 	quantile_sketch<int> * dcs::merge(quantile_sketch<int>& rhs){
 		dcs& rhs_cv = dynamic_cast<dcs&> (rhs);
 

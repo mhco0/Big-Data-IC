@@ -82,6 +82,13 @@ namespace qsbd {
 	}
 
 	template<class T>
+	double kll<T>::cdf(T elem){
+		if (not this->N) return 0.0;
+
+		return this->query(elem) / this->N;
+	} 
+
+	template<class T>
 	quantile_sketch<T>* kll<T>::merge(quantile_sketch<T>& rhs){
 		kll<T>& rhs_cv = dynamic_cast<kll<T>&> (rhs);
 

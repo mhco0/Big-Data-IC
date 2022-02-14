@@ -70,6 +70,13 @@ namespace qsbd {
 		virtual int query(Type elem){return 0;}
 
 		/**
+		 * @brief A virtual cdf method. Receives a @p elem and returns the probability that some value X is smaller than this value.
+		 * @param elem The element to query the cdf
+		 * @return P[X < elem] == (query(elem) / # elements saw by the sketch)
+		*/
+		virtual double cdf(Type elem){return 0.0;}
+
+		/**
 		 * @brief A pure virtual merge method. Recives a quantile sketch @p rhs performes a merge with this sketch, and returns a new quantile sketch
 		 * @param rhs A instance of a quantile_sketch\<Type\>
 		 * @return A pointer to a new instance of a quantile_sketch\<Type\>

@@ -84,6 +84,13 @@ namespace qsbd {
 		T quantile(double quant) override;
 
 		/**
+		 * @brief CDF method. Receives a @p elem and returns a probability for some value be less than this value. 
+		 * @param elem The element to be queried
+		 * @return The probability for this element
+		*/
+		double cdf(T elem) override;
+
+		/**
 		 * @brief Merges this instance of kll with another kll instance
 		 * @param rhs A kll\<T\> instance to be merged
 		 * @return A pointer to the new instance of a kll 

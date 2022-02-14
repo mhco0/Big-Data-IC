@@ -9,8 +9,8 @@ set ylabel yname
 
 set title title_name
 set grid y
-set yrange [-0.1:1]
-set ytics autofreq 0.25
+set yrange [-0.1:100]
+#set ytics autofreq 0.25
 set key noautotitle
 set style boxplot nooutliers
 

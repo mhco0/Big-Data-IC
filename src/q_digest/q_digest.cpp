@@ -371,6 +371,12 @@ namespace qsbd {
 		}
 	}
 
+	double q_digest::cdf(int elem) {
+		if (not this->total_weight) return 0.0;
+
+		return this->query(elem) / this->total_weight;
+	}
+
 	void q_digest::compress(){
 		capacity = (error * total_weight) / log2(universe);
 		private_compress(0, 0, 0, universe - 1);
