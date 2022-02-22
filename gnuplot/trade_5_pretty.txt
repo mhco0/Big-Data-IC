@@ -1,0 +1,5 @@
+		Elasticsearch 		KLL[depth=5]		    Q_DIGEST[depth=5]	    DCS[depth=5]		    GK[depth=5]
+CT		212849.1442s		111.9108s			    88.3677s			    58.4576s		        64.7294s
+UT		0.0213s				1.1191e-05s			    8.8368e-06s			    5.8457e-06s 	 	 	6.4729e-06s
+ME		1039.4700MB			18.6218MB				101.5900MB		        64.7782MB		        2.0825MB
+QT		0.6773s				0.0091s					0.0676s			     	0.0080s				    0.0171s

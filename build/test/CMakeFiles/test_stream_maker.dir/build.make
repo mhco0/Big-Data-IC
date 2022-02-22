@@ -79,12 +79,12 @@ test_stream_maker_EXTERNAL_OBJECTS =
 
 bin/test_stream_maker: test/CMakeFiles/test_stream_maker.dir/test_stream_maker.cpp.o
 bin/test_stream_maker: test/CMakeFiles/test_stream_maker.dir/build.make
-bin/test_stream_maker: lib/libgtest_maind.a
+bin/test_stream_maker: lib/libgtest_main.a
 bin/test_stream_maker: lib/libQSBD_STREAM_MAKER.a
 bin/test_stream_maker: lib/libQSBD_GLOBAL_GEN.a
 bin/test_stream_maker: lib/libQSBD_COMMUM_HEADER.a
 bin/test_stream_maker: lib/libQSBD_UTILS.a
-bin/test_stream_maker: lib/libgtestd.a
+bin/test_stream_maker: lib/libgtest.a
 bin/test_stream_maker: lib/libQSBD_DEBUG.a
 bin/test_stream_maker: test/CMakeFiles/test_stream_maker.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ../bin/test_stream_maker"

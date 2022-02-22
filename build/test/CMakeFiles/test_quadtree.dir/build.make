@@ -79,11 +79,11 @@ test_quadtree_EXTERNAL_OBJECTS =
 
 bin/test_quadtree: test/CMakeFiles/test_quadtree.dir/test_quadtree.cpp.o
 bin/test_quadtree: test/CMakeFiles/test_quadtree.dir/build.make
-bin/test_quadtree: lib/libgtest_maind.a
+bin/test_quadtree: lib/libgtest_main.a
 bin/test_quadtree: lib/libQSBD_QUADTREE.a
 bin/test_quadtree: lib/libQSBD_STREAM_MAKER.a
 bin/test_quadtree: lib/libQSBD_UTILS.a
-bin/test_quadtree: lib/libgtestd.a
+bin/test_quadtree: lib/libgtest.a
 bin/test_quadtree: lib/libQSBD_AABB.a
 bin/test_quadtree: lib/libQSBD_POINT.a
 bin/test_quadtree: lib/libQSBD_COMMUM_HEADER.a

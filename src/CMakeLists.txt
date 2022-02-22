@@ -149,6 +149,12 @@ add_library(
     "heap_tracker/heap_tracker.hpp"
 )
 
+add_library(
+    QSBD_KS
+    "kolmogorov_smirnov/kolmogorov_smirnov.hpp"
+    "kolmogorov_smirnov/kolmogorov_smirnov.cpp"
+)
+
 set(QSBD_LIBS
 
     QSBD_GLOBAL_GEN
@@ -178,6 +184,7 @@ set(QSBD_LIBS
     QSBD_QUANTILE_QUADTREE
     QSBD_LOG
     QSBD_HEAP_TRACKER
+    QSBD_KS
 )
 
 foreach(QSBD_LIB ${QSBD_LIBS})
@@ -246,3 +253,8 @@ target_link_libraries(QSBD_LOG PUBLIC QSBD_DEBUG)
 target_link_libraries(QSBD_MEMORY_TRACKER PUBLIC nlohmann_json)
 
 target_link_libraries(QSBD_HEAP_TRACKER PUBLIC QSBD_DEBUG)
+
+target_link_libraries(QSBD_KS PUBLIC QSBD_QUANTILE_SKETCH)
+target_link_libraries(QSBD_KS PUBLIC QSBD_UTILS)
+target_link_libraries(QSBD_KS PUBLIC QSBD_DEBUG)
+target_link_libraries(QSBD_KS PUBLIC QSBD_STREAM_MAKER)

@@ -183,21 +183,6 @@ QSBD_DCS/fast:
 .PHONY : QSBD_DCS/fast
 
 # Convenience name for target.
-src/CMakeFiles/QSBD_LOG.dir/rule:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/QSBD_LOG.dir/rule
-.PHONY : src/CMakeFiles/QSBD_LOG.dir/rule
-
-# Convenience name for target.
-QSBD_LOG: src/CMakeFiles/QSBD_LOG.dir/rule
-
-.PHONY : QSBD_LOG
-
-# fast build rule for target.
-QSBD_LOG/fast:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f src/CMakeFiles/QSBD_LOG.dir/build.make src/CMakeFiles/QSBD_LOG.dir/build
-.PHONY : QSBD_LOG/fast
-
-# Convenience name for target.
 src/CMakeFiles/QSBD_KLL.dir/rule:
 	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/QSBD_KLL.dir/rule
 .PHONY : src/CMakeFiles/QSBD_KLL.dir/rule
@@ -572,6 +557,36 @@ QSBD_DCS_FACTORY/fast:
 	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f src/CMakeFiles/QSBD_DCS_FACTORY.dir/build.make src/CMakeFiles/QSBD_DCS_FACTORY.dir/build
 .PHONY : QSBD_DCS_FACTORY/fast
 
+# Convenience name for target.
+src/CMakeFiles/QSBD_LOG.dir/rule:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/QSBD_LOG.dir/rule
+.PHONY : src/CMakeFiles/QSBD_LOG.dir/rule
+
+# Convenience name for target.
+QSBD_LOG: src/CMakeFiles/QSBD_LOG.dir/rule
+
+.PHONY : QSBD_LOG
+
+# fast build rule for target.
+QSBD_LOG/fast:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f src/CMakeFiles/QSBD_LOG.dir/build.make src/CMakeFiles/QSBD_LOG.dir/build
+.PHONY : QSBD_LOG/fast
+
+# Convenience name for target.
+src/CMakeFiles/QSBD_KS.dir/rule:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/QSBD_KS.dir/rule
+.PHONY : src/CMakeFiles/QSBD_KS.dir/rule
+
+# Convenience name for target.
+QSBD_KS: src/CMakeFiles/QSBD_KS.dir/rule
+
+.PHONY : QSBD_KS
+
+# fast build rule for target.
+QSBD_KS/fast:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f src/CMakeFiles/QSBD_KS.dir/build.make src/CMakeFiles/QSBD_KS.dir/build
+.PHONY : QSBD_KS/fast
+
 aabb/aabb.o: aabb/aabb.cpp.o
 
 .PHONY : aabb/aabb.o
@@ -760,6 +775,33 @@ kll/kll.s: kll/kll.cpp.s
 kll/kll.cpp.s:
 	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f src/CMakeFiles/QSBD_KLL.dir/build.make src/CMakeFiles/QSBD_KLL.dir/kll/kll.cpp.s
 .PHONY : kll/kll.cpp.s
+
+kolmogorov_smirnov/kolmogorov_smirnov.o: kolmogorov_smirnov/kolmogorov_smirnov.cpp.o
+
+.PHONY : kolmogorov_smirnov/kolmogorov_smirnov.o
+
+# target to build an object file
+kolmogorov_smirnov/kolmogorov_smirnov.cpp.o:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f src/CMakeFiles/QSBD_KS.dir/build.make src/CMakeFiles/QSBD_KS.dir/kolmogorov_smirnov/kolmogorov_smirnov.cpp.o
+.PHONY : kolmogorov_smirnov/kolmogorov_smirnov.cpp.o
+
+kolmogorov_smirnov/kolmogorov_smirnov.i: kolmogorov_smirnov/kolmogorov_smirnov.cpp.i
+
+.PHONY : kolmogorov_smirnov/kolmogorov_smirnov.i
+
+# target to preprocess a source file
+kolmogorov_smirnov/kolmogorov_smirnov.cpp.i:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f src/CMakeFiles/QSBD_KS.dir/build.make src/CMakeFiles/QSBD_KS.dir/kolmogorov_smirnov/kolmogorov_smirnov.cpp.i
+.PHONY : kolmogorov_smirnov/kolmogorov_smirnov.cpp.i
+
+kolmogorov_smirnov/kolmogorov_smirnov.s: kolmogorov_smirnov/kolmogorov_smirnov.cpp.s
+
+.PHONY : kolmogorov_smirnov/kolmogorov_smirnov.s
+
+# target to generate assembly for a file
+kolmogorov_smirnov/kolmogorov_smirnov.cpp.s:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f src/CMakeFiles/QSBD_KS.dir/build.make src/CMakeFiles/QSBD_KS.dir/kolmogorov_smirnov/kolmogorov_smirnov.cpp.s
+.PHONY : kolmogorov_smirnov/kolmogorov_smirnov.cpp.s
 
 logger/logger.o: logger/logger.cpp.o
 
@@ -1013,7 +1055,6 @@ help:
 	@echo "... install"
 	@echo "... rebuild_cache"
 	@echo "... QSBD_DCS"
-	@echo "... QSBD_LOG"
 	@echo "... QSBD_KLL"
 	@echo "... QSBD_K_WISE_FAMILY"
 	@echo "... list_install_components"
@@ -1044,6 +1085,8 @@ help:
 	@echo "... QSBD_KLL_FACTORY"
 	@echo "... QSBD_Q_DIGEST_FACTORY"
 	@echo "... QSBD_DCS_FACTORY"
+	@echo "... QSBD_LOG"
+	@echo "... QSBD_KS"
 	@echo "... aabb/aabb.o"
 	@echo "... aabb/aabb.i"
 	@echo "... aabb/aabb.s"
@@ -1065,6 +1108,9 @@ help:
 	@echo "... kll/kll.o"
 	@echo "... kll/kll.i"
 	@echo "... kll/kll.s"
+	@echo "... kolmogorov_smirnov/kolmogorov_smirnov.o"
+	@echo "... kolmogorov_smirnov/kolmogorov_smirnov.i"
+	@echo "... kolmogorov_smirnov/kolmogorov_smirnov.s"
 	@echo "... logger/logger.o"
 	@echo "... logger/logger.i"
 	@echo "... logger/logger.s"

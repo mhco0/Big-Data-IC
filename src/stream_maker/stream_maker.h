@@ -37,6 +37,18 @@ namespace qsbd{
 		std::vector<std::pair<int, int>> random_int_stream_with_weight(int vector_size, int min_v, int max_v, int min_w, int max_w);
 		
 		/**
+		 * @brief This function generates a random stream of int values with a normal distribution;
+		 * 
+		 * This method returns a random stream with normal distributed values with standard deviation @p stddev and mean @p mean of size @p vector_size .
+		 * 
+		 * @param vector_size The size of the stream
+		 * @param mean The mean value for the normal distribution
+		 * @param stddev The standar deviation for the normal distribution
+		 * @return A random stream made by this rules.
+		*/
+		std::vector<int> normal_int_stream(int vector_size, double mean, double stddev);
+		
+		/**
 		 * @brief This function generates a random stream with weight for it's integer values.
 		 * 
 		 * This method returns a random stream with normal distributed values with standard deviation @p stddev and mean @p mean , 

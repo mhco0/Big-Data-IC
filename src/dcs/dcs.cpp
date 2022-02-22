@@ -141,7 +141,7 @@ namespace qsbd {
 		return x;
 	}
 
-	double dcs::cdf(int elem) override {
+	double dcs::cdf(int elem) {
 		if (not this->total_weight) return 0.0;
 
 		return this->query(elem) / this->total_weight;

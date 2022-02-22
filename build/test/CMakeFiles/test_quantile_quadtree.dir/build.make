@@ -79,7 +79,7 @@ test_quantile_quadtree_EXTERNAL_OBJECTS =
 
 bin/test_quantile_quadtree: test/CMakeFiles/test_quantile_quadtree.dir/test_quantile_quadtree.cpp.o
 bin/test_quantile_quadtree: test/CMakeFiles/test_quantile_quadtree.dir/build.make
-bin/test_quantile_quadtree: lib/libgtest_maind.a
+bin/test_quantile_quadtree: lib/libgtest_main.a
 bin/test_quantile_quadtree: lib/libQSBD_QUANTILE_QUADTREE.a
 bin/test_quantile_quadtree: lib/libQSBD_STREAM_MAKER.a
 bin/test_quantile_quadtree: lib/libQSBD_COUNT_SKETCH.a
@@ -91,7 +91,7 @@ bin/test_quantile_quadtree: lib/libQSBD_MEMORY_TRACKER.a
 bin/test_quantile_quadtree: lib/libQSBD_TIMER.a
 bin/test_quantile_quadtree: lib/libQSBD_DEBUG.a
 bin/test_quantile_quadtree: lib/libQSBD_UTILS.a
-bin/test_quantile_quadtree: lib/libgtestd.a
+bin/test_quantile_quadtree: lib/libgtest.a
 bin/test_quantile_quadtree: lib/libQSBD_AABB.a
 bin/test_quantile_quadtree: lib/libQSBD_POINT.a
 bin/test_quantile_quadtree: lib/libQSBD_KLL.a

@@ -79,11 +79,11 @@ test_count_sketch_EXTERNAL_OBJECTS =
 
 bin/test_count_sketch: test/CMakeFiles/test_count_sketch.dir/test_count_sketch.cpp.o
 bin/test_count_sketch: test/CMakeFiles/test_count_sketch.dir/build.make
-bin/test_count_sketch: lib/libgtest_maind.a
+bin/test_count_sketch: lib/libgtest_main.a
 bin/test_count_sketch: lib/libQSBD_COUNT_SKETCH.a
 bin/test_count_sketch: lib/libQSBD_STREAM_MAKER.a
 bin/test_count_sketch: lib/libQSBD_UTILS.a
-bin/test_count_sketch: lib/libgtestd.a
+bin/test_count_sketch: lib/libgtest.a
 bin/test_count_sketch: lib/libQSBD_TWO_WISE_FAMILY.a
 bin/test_count_sketch: lib/libQSBD_UTILS.a
 bin/test_count_sketch: lib/libQSBD_DEBUG.a

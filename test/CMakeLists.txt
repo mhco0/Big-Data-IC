@@ -32,6 +32,11 @@ target_link_libraries(test_kll PRIVATE gtest_main QSBD_KLL QSBD_STREAM_MAKER QSB
 target_include_directories(test_kll PRIVATE ${QSBD_DIR_SOURCE})
 add_test(NAME test_kll COMMAND test_kll)
 
+add_executable(test_kolmogorov test_kolmogorov.cpp)
+target_link_libraries(test_kolmogorov PRIVATE gtest_main QSBD_KS QSBD_KLL QSBD_DCS QSBD_GK QSBD_Q_DIGEST)
+target_include_directories(test_kolmogorov PRIVATE ${QSBD_DIR_SOURCE})
+add_test(NAME test_kolmogorov COMMAND test_kolmogorov)
+
 add_executable(test_k_wise_family test_k_wise_family.cpp)
 target_link_libraries(test_k_wise_family PRIVATE gtest_main QSBD_K_WISE_FAMILY QSBD_GLOBAL_GEN QSBD_COMMUM_HEADER QSBD_UTILS)
 target_include_directories(test_k_wise_family PRIVATE ${QSBD_DIR_SOURCE})

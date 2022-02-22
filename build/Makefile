@@ -246,19 +246,6 @@ QSBD_DCS/fast:
 .PHONY : QSBD_DCS/fast
 
 #=============================================================================
-# Target rules for targets named QSBD_LOG
-
-# Build rule for target.
-QSBD_LOG: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 QSBD_LOG
-.PHONY : QSBD_LOG
-
-# fast build rule for target.
-QSBD_LOG/fast:
-	$(MAKE) -f src/CMakeFiles/QSBD_LOG.dir/build.make src/CMakeFiles/QSBD_LOG.dir/build
-.PHONY : QSBD_LOG/fast
-
-#=============================================================================
 # Target rules for targets named QSBD_KLL
 
 # Build rule for target.
@@ -584,6 +571,32 @@ QSBD_DCS_FACTORY/fast:
 .PHONY : QSBD_DCS_FACTORY/fast
 
 #=============================================================================
+# Target rules for targets named QSBD_LOG
+
+# Build rule for target.
+QSBD_LOG: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 QSBD_LOG
+.PHONY : QSBD_LOG
+
+# fast build rule for target.
+QSBD_LOG/fast:
+	$(MAKE) -f src/CMakeFiles/QSBD_LOG.dir/build.make src/CMakeFiles/QSBD_LOG.dir/build
+.PHONY : QSBD_LOG/fast
+
+#=============================================================================
+# Target rules for targets named QSBD_KS
+
+# Build rule for target.
+QSBD_KS: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 QSBD_KS
+.PHONY : QSBD_KS
+
+# fast build rule for target.
+QSBD_KS/fast:
+	$(MAKE) -f src/CMakeFiles/QSBD_KS.dir/build.make src/CMakeFiles/QSBD_KS.dir/build
+.PHONY : QSBD_KS/fast
+
+#=============================================================================
 # Target rules for targets named tester
 
 # Build rule for target.
@@ -595,6 +608,19 @@ tester: cmake_check_build_system
 tester/fast:
 	$(MAKE) -f test/CMakeFiles/tester.dir/build.make test/CMakeFiles/tester.dir/build
 .PHONY : tester/fast
+
+#=============================================================================
+# Target rules for targets named test_log
+
+# Build rule for target.
+test_log: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_log
+.PHONY : test_log
+
+# fast build rule for target.
+test_log/fast:
+	$(MAKE) -f test/CMakeFiles/test_log.dir/build.make test/CMakeFiles/test_log.dir/build
+.PHONY : test_log/fast
 
 #=============================================================================
 # Target rules for targets named test_json
@@ -649,19 +675,6 @@ test_kll/fast:
 .PHONY : test_kll/fast
 
 #=============================================================================
-# Target rules for targets named test_log
-
-# Build rule for target.
-test_log: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test_log
-.PHONY : test_log
-
-# fast build rule for target.
-test_log/fast:
-	$(MAKE) -f test/CMakeFiles/test_log.dir/build.make test/CMakeFiles/test_log.dir/build
-.PHONY : test_log/fast
-
-#=============================================================================
 # Target rules for targets named test_quantile_quadtree
 
 # Build rule for target.
@@ -673,6 +686,19 @@ test_quantile_quadtree: cmake_check_build_system
 test_quantile_quadtree/fast:
 	$(MAKE) -f test/CMakeFiles/test_quantile_quadtree.dir/build.make test/CMakeFiles/test_quantile_quadtree.dir/build
 .PHONY : test_quantile_quadtree/fast
+
+#=============================================================================
+# Target rules for targets named test_kolmogorov
+
+# Build rule for target.
+test_kolmogorov: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_kolmogorov
+.PHONY : test_kolmogorov
+
+# fast build rule for target.
+test_kolmogorov/fast:
+	$(MAKE) -f test/CMakeFiles/test_kolmogorov.dir/build.make test/CMakeFiles/test_kolmogorov.dir/build
+.PHONY : test_kolmogorov/fast
 
 #=============================================================================
 # Target rules for targets named test_k_wise_family
@@ -1044,7 +1070,6 @@ help:
 	@echo "... gtest"
 	@echo "... nlohmann_json"
 	@echo "... QSBD_DCS"
-	@echo "... QSBD_LOG"
 	@echo "... QSBD_KLL"
 	@echo "... QSBD_K_WISE_FAMILY"
 	@echo "... QSBD_AABB"
@@ -1070,13 +1095,16 @@ help:
 	@echo "... QSBD_KLL_FACTORY"
 	@echo "... QSBD_Q_DIGEST_FACTORY"
 	@echo "... QSBD_DCS_FACTORY"
+	@echo "... QSBD_LOG"
+	@echo "... QSBD_KS"
 	@echo "... tester"
+	@echo "... test_log"
 	@echo "... test_json"
 	@echo "... test_stream_maker"
 	@echo "... test_memory_tracker"
 	@echo "... test_kll"
-	@echo "... test_log"
 	@echo "... test_quantile_quadtree"
+	@echo "... test_kolmogorov"
 	@echo "... test_k_wise_family"
 	@echo "... test_quadtree"
 	@echo "... test_dcs"

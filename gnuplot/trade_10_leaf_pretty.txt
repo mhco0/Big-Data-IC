@@ -1,0 +1,5 @@
+		Elasticsearch 		KLL[depth=10|leaf]		Q_DIGEST[depth=10|leaf]	DCS[depth=10|leaf]		GK[depth=10|leaf]
+CT		212849.1442s    	52.4037s        		109.9229s               72.7303s                102.7888s
+UT		0.0213s         	5.2404e-06s             1.0992e-05s             7.2730e-06s         	1.0279e-05s
+ME		1039.4700MB			61.7461MB				731.3500MB				2047.9200MB             57.2684MB
+QT		0.6773s         	0.4243s         		7.8718s         	    1.0591s                 3.1844s

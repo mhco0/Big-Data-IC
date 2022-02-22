@@ -183,6 +183,21 @@ tester/fast:
 .PHONY : tester/fast
 
 # Convenience name for target.
+test/CMakeFiles/test_log.dir/rule:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_log.dir/rule
+.PHONY : test/CMakeFiles/test_log.dir/rule
+
+# Convenience name for target.
+test_log: test/CMakeFiles/test_log.dir/rule
+
+.PHONY : test_log
+
+# fast build rule for target.
+test_log/fast:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_log.dir/build.make test/CMakeFiles/test_log.dir/build
+.PHONY : test_log/fast
+
+# Convenience name for target.
 test/CMakeFiles/test_json.dir/rule:
 	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_json.dir/rule
 .PHONY : test/CMakeFiles/test_json.dir/rule
@@ -243,21 +258,6 @@ test_kll/fast:
 .PHONY : test_kll/fast
 
 # Convenience name for target.
-test/CMakeFiles/test_log.dir/rule:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_log.dir/rule
-.PHONY : test/CMakeFiles/test_log.dir/rule
-
-# Convenience name for target.
-test_log: test/CMakeFiles/test_log.dir/rule
-
-.PHONY : test_log
-
-# fast build rule for target.
-test_log/fast:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_log.dir/build.make test/CMakeFiles/test_log.dir/build
-.PHONY : test_log/fast
-
-# Convenience name for target.
 test/CMakeFiles/test_quantile_quadtree.dir/rule:
 	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_quantile_quadtree.dir/rule
 .PHONY : test/CMakeFiles/test_quantile_quadtree.dir/rule
@@ -271,6 +271,21 @@ test_quantile_quadtree: test/CMakeFiles/test_quantile_quadtree.dir/rule
 test_quantile_quadtree/fast:
 	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_quantile_quadtree.dir/build.make test/CMakeFiles/test_quantile_quadtree.dir/build
 .PHONY : test_quantile_quadtree/fast
+
+# Convenience name for target.
+test/CMakeFiles/test_kolmogorov.dir/rule:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_kolmogorov.dir/rule
+.PHONY : test/CMakeFiles/test_kolmogorov.dir/rule
+
+# Convenience name for target.
+test_kolmogorov: test/CMakeFiles/test_kolmogorov.dir/rule
+
+.PHONY : test_kolmogorov
+
+# fast build rule for target.
+test_kolmogorov/fast:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_kolmogorov.dir/build.make test/CMakeFiles/test_kolmogorov.dir/build
+.PHONY : test_kolmogorov/fast
 
 # Convenience name for target.
 test/CMakeFiles/test_k_wise_family.dir/rule:
@@ -566,6 +581,33 @@ test_kll.cpp.s:
 	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_kll.dir/build.make test/CMakeFiles/test_kll.dir/test_kll.cpp.s
 .PHONY : test_kll.cpp.s
 
+test_kolmogorov.o: test_kolmogorov.cpp.o
+
+.PHONY : test_kolmogorov.o
+
+# target to build an object file
+test_kolmogorov.cpp.o:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_kolmogorov.dir/build.make test/CMakeFiles/test_kolmogorov.dir/test_kolmogorov.cpp.o
+.PHONY : test_kolmogorov.cpp.o
+
+test_kolmogorov.i: test_kolmogorov.cpp.i
+
+.PHONY : test_kolmogorov.i
+
+# target to preprocess a source file
+test_kolmogorov.cpp.i:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_kolmogorov.dir/build.make test/CMakeFiles/test_kolmogorov.dir/test_kolmogorov.cpp.i
+.PHONY : test_kolmogorov.cpp.i
+
+test_kolmogorov.s: test_kolmogorov.cpp.s
+
+.PHONY : test_kolmogorov.s
+
+# target to generate assembly for a file
+test_kolmogorov.cpp.s:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_kolmogorov.dir/build.make test/CMakeFiles/test_kolmogorov.dir/test_kolmogorov.cpp.s
+.PHONY : test_kolmogorov.cpp.s
+
 test_log.o: test_log.cpp.o
 
 .PHONY : test_log.o
@@ -768,12 +810,13 @@ help:
 	@echo "... test"
 	@echo "... list_install_components"
 	@echo "... tester"
+	@echo "... test_log"
 	@echo "... test_json"
 	@echo "... test_stream_maker"
 	@echo "... test_memory_tracker"
 	@echo "... test_kll"
-	@echo "... test_log"
 	@echo "... test_quantile_quadtree"
+	@echo "... test_kolmogorov"
 	@echo "... test_k_wise_family"
 	@echo "... test_quadtree"
 	@echo "... test_dcs"
@@ -803,6 +846,9 @@ help:
 	@echo "... test_kll.o"
 	@echo "... test_kll.i"
 	@echo "... test_kll.s"
+	@echo "... test_kolmogorov.o"
+	@echo "... test_kolmogorov.i"
+	@echo "... test_kolmogorov.s"
 	@echo "... test_log.o"
 	@echo "... test_log.i"
 	@echo "... test_log.s"

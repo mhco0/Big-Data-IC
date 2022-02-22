@@ -3,6 +3,20 @@ using namespace std;
 
 namespace qsbd{
 	namespace stream_maker{
+
+		vector<int> normal_int_stream(int vector_size, double mean, double stddev){
+			normal_distribution<double> who_pick(mean, stddev);
+			vector<int> normal_stream;
+
+			for(int i = 0; i < vector_size; i++){
+				int element = (int) who_pick(generator);
+
+				normal_stream.push_back(element);
+			}
+
+			return normal_stream;
+		}
+
 		vector<pair<int, int>> normal_int_stream_with_weight(int vector_size, double mean, double stddev, int min_w, int max_w){
 			normal_distribution<double> who_pick(mean, stddev);
 			uniform_int_distribution<int> weight(min_w, max_w);
