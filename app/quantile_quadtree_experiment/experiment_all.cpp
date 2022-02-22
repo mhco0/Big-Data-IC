@@ -18,7 +18,7 @@ int main(int argc, char* argv[]){
     vector<double> bounds = {0.0, 0.0, 1280.0, 720.0};
     int max_deep = 10;
     int stream_sizes = 10000000;
-    double error = 0.3;
+    double error = 0.003;
     int universe = 16384;
     bool only_leafs = true;
     

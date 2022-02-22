@@ -116,3 +116,8 @@ add_executable(quadtree_data_bounds "quantile_quadtree_experiment/quadtree_data_
 target_include_directories(quadtree_data_bounds PRIVATE ${QSBD_DIR_SOURCE})
 target_include_directories(quadtree_data_bounds PRIVATE ${THIRD_PARTY_DIR_SOURCE})
 target_link_libraries(quadtree_data_bounds PRIVATE QSBD_AABB QSBD_UTILS QSBD_DEBUG)
+
+add_executable(ks "ks/ks.cpp")
+target_include_directories(ks PRIVATE ${QSBD_DIR_SOURCE})
+target_include_directories(ks PRIVATE ${THIRD_PARTY_DIR_SOURCE})
+target_link_libraries(ks PRIVATE QSBD_KS QSBD_KLL QSBD_DCS QSBD_GK QSBD_Q_DIGEST)
