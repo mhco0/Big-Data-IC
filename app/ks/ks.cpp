@@ -10,71 +10,29 @@ using namespace stream_maker;
 
 deque<string> g_args;
 
-void TestNormalDistribution(){
-    int samples = 10000;
-    int start = 0;
-    int end = 1000;
-    int step = 1;
-    double mean = 700.0;
-    double std = 200.0;
-
+pair<double, vector<double>> test_normal_distribution(const int& samples, const int& start, const int& end, const int& step, const double& mean, const double& std){
     vector<int> lhs = normal_int_stream(samples, mean, std);
     vector<int> rhs = normal_int_stream(samples, mean, std);
 
-    auto dks = distributions_ks(lhs, rhs, start, end, step);
-    
-    cout << dks.first << endl;
-
-    cout << endl;
-
-    for(auto& it : dks.second){
-        cout << it << " ";
-    }
-
-    cout << endl;
+   	return distributions_ks(lhs, rhs, start, end, step);
 }
 
-void TestDistincNormalDistribution(){
-    int samples = 10000;
-    int start = 0;
-    int end = 1000;
-    int step = 1;
-    double mean_lhs = 700.0;
-    double std_lhs = 200.0;
-    double mean_rhs = 300.0;
-    double std_rhs = 100.0;
-
+pair<double, vector<double>> test_distinct_normal_distribution(const int& samples, const int& start, const int& end, const int& step, const double& mean_lhs, const double& std_lhs, const double& mean_rhs, const double& std_rhs){
     vector<int> lhs = normal_int_stream(samples, mean_lhs, std_lhs);
     vector<int> rhs = normal_int_stream(samples, mean_rhs, std_rhs);
 
-    auto dks = distributions_ks(lhs, rhs, start, end, step);
-    
-    cout << dks.first << endl;
-
-    cout << endl;
-
-    for(auto& it : dks.second){
-        cout << it << " ";
-    }
-
-    cout << endl;
+    return distributions_ks(lhs, rhs, start, end, step);
 }
 
-void TestKSWithKLL(){
-    int samples = 10000;
-    int start = 0;
-    int end = 1000;
-    int step = 1;
-    double mean = 700.0;
-    double std = 200.0;
+pair<double, vector<double>> test_ks_with_kll(const int& samples, const int& start, const int& end, const int& step, const double& mean, const double& std, const double& error){
     vector<double> distances;
     double max_dist = numeric_limits<double>::min();
-    kll<int> sketch(0.003);
+    kll<int> sketch(error);
 
     vector<int> distribution = normal_int_stream(samples, mean, std);
 
     for(size_t i = 0; i < distribution.size(); i++){
-        sketch.update(distribution[i]);
+        sketch.update(max(0, min(1023, distribution[i]))); // tries to take away this min and max bounds
     }
 
     auto cdf_samples = cdf_from_samples(distribution, start, end, step);
@@ -85,32 +43,40 @@ void TestKSWithKLL(){
         max_dist = max(max_dist, distance);
     }
     
-    cout << max_dist << endl;
-
-    cout << endl;
-
-    for(auto& it : distances){
-        cout << it << " ";
-    }
-
-    cout << endl;
+	return {max_dist, distances};
 }
 
-void TestKSWithDCS(){
-    int samples = 10000;
-    int start = 0;
-    int end = 1000;
-    int step = 1;
-    double mean = 700.0;
-    double std = 200.0;
+pair<double, vector<double>> test_ks_with_dcs(const int& samples, const int& start, const int& end, const int& step, const double& mean, const double& std, const double& error, const int& universe){
     vector<double> distances;
     double max_dist = numeric_limits<double>::min();
-    dcs sketch(0.003, 16384);
+    dcs sketch(error, universe);
 
     vector<int> distribution = normal_int_stream(samples, mean, std);
 
     for(size_t i = 0; i < distribution.size(); i++){
-        sketch.update(distribution[i], 1);
+        sketch.update(max(0, min(1023, distribution[i])), 1);
+    }
+
+    auto cdf_samples = cdf_from_samples(distribution, start, end, step);
+
+    for(int i = start, j = 0; i < end and j < cdf_samples.size(); i += step, j++){
+        double distance = fabs(cdf_samples[j] - sketch.cdf(i));
+        distances.push_back(distance);
+        max_dist = max(max_dist, distance);
+    }
+
+	return {max_dist, distances};
+}
+
+pair<double, vector<double>> test_ks_with_q_digest(const int& samples, const int& start, const int& end, const int& step, const double& mean, const double& std, const double& error, const int& universe){
+    vector<double> distances;
+    double max_dist = numeric_limits<double>::min();
+    q_digest sketch(error, universe);
+
+    vector<int> distribution = normal_int_stream(samples, mean, std);
+
+    for(size_t i = 0; i < distribution.size(); i++){
+        sketch.update(max(0, min(1023, distribution[i])), 1);
     }
 
     auto cdf_samples = cdf_from_samples(distribution, start, end, step);
@@ -121,32 +87,18 @@ void TestKSWithDCS(){
         max_dist = max(max_dist, distance);
     }
     
-    cout << max_dist << endl;
-
-    cout << endl;
-
-    for(auto& it : distances){
-        cout << it << " ";
-    }
-
-    cout << endl;
+	return {max_dist, distances};
 }
 
-void TestKSWithQDigest(){
-    int samples = 10000;
-    int start = 0;
-    int end = 1000;
-    int step = 1;
-    double mean = 700.0;
-    double std = 200.0;
+pair<double, vector<double>> test_ks_with_gk(const int& samples, const int& start, const int& end, const int& step, const double& mean, const double& std, const double& error){
     vector<double> distances;
     double max_dist = numeric_limits<double>::min();
-    q_digest sketch(0.003, 16384);
+    gk<int> sketch(error);
 
     vector<int> distribution = normal_int_stream(samples, mean, std);
 
     for(size_t i = 0; i < distribution.size(); i++){
-        sketch.update(distribution[i], 1);
+        sketch.update(max(0, min(1023, distribution[i])));
     }
 
     auto cdf_samples = cdf_from_samples(distribution, start, end, step);
@@ -156,61 +108,17 @@ void TestKSWithQDigest(){
         distances.push_back(distance);
         max_dist = max(max_dist, distance);
     }
-    
-    cout << max_dist << endl;
 
-    cout << endl;
-
-    for(auto& it : distances){
-        cout << it << " ";
-    }
-
-    cout << endl;
-}
-
-void TestKSWithGK(){
-    int samples = 10000;
-    int start = 0;
-    int end = 1000;
-    int step = 1;
-    double mean = 700.0;
-    double std = 200.0;
-    vector<double> distances;
-    double max_dist = numeric_limits<double>::min();
-    gk<int> sketch(0.003);
-
-    vector<int> distribution = normal_int_stream(samples, mean, std);
-
-    for(size_t i = 0; i < distribution.size(); i++){
-        sketch.update(distribution[i]);
-    }
-
-    auto cdf_samples = cdf_from_samples(distribution, start, end, step);
-
-    for(int i = start, j = 0; i < end and j < cdf_samples.size(); i += step, j++){
-        double distance = fabs(cdf_samples[j] - sketch.cdf(i));
-        distances.push_back(distance);
-        max_dist = max(max_dist, distance);
-    }
-    
-    cout << max_dist << endl;
-
-    cout << endl;
-
-    for(auto& it : distances){
-        cout << it << " ";
-    }
-
-    cout << endl;
+	return {max_dist, distances};
 }
 
 int main(int argc, char* argv[]){
-    TestNormalDistribution();
-    TestDistincNormalDistribution();
-    TestKSWithKLL();
-    TestKSWithDCS();
-    TestKSWithQDigest();
-    TestKSWithGK();
+    test_normal_distribution(10000, 0, 1000, 1, 700.0, 200.0);
+    test_distinct_normal_distribution(10000, 0, 1000, 1, 300.0, 100.0, 700.0, 100.0);
+    test_ks_with_kll(10000, 0, 1000, 1, 700.0, 100.0, 0.003);
+    test_ks_with_dcs(10000, 0, 1000, 1, 700.0, 100.0, 0.003, 1024);
+    test_ks_with_q_digest(10000, 0, 1000, 1, 700.0, 100.0, 0.003, 1024);
+    test_ks_with_gk(10000, 0, 1000, 1, 700.0, 100.0, 0.003);
 
     return 0;
 }
