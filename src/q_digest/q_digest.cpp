@@ -374,7 +374,7 @@ namespace qsbd {
 	double q_digest::cdf(int elem) {
 		if (not this->total_weight) return 0.0;
 
-		return this->query(elem) / this->total_weight;
+		return this->query(elem) / (double) this->total_weight;
 	}
 
 	void q_digest::compress(){

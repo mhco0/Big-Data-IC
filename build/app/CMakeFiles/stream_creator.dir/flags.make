@@ -6,5 +6,5 @@ CXX_FLAGS =  -g  -O0 -Wall -fPIE   -std=gnu++11
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/mhco/projects/Big-Data-IC/src -I/home/mhco/projects/Big-Data-IC/thirdparty 
+CXX_INCLUDES = -I"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src" -I"/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/thirdparty" 
 

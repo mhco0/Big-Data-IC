@@ -144,7 +144,7 @@ namespace qsbd {
 	double dcs::cdf(int elem) {
 		if (not this->total_weight) return 0.0;
 
-		return this->query(elem) / this->total_weight;
+		return this->query(elem) / (double) this->total_weight;
 	}
 
 	quantile_sketch<int> * dcs::merge(quantile_sketch<int>& rhs){

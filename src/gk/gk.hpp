@@ -154,7 +154,7 @@ namespace qsbd {
 		double cdf(T elem) override {
 			if (not this->N) return 0.0;
 
-			return this->query(elem) / this->N;
+			return this->query(elem) / (double) this->N;
 		}
 
 		/**

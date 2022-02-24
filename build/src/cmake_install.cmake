@@ -1,4 +1,4 @@
-# Install script for directory: /home/mhco/projects/Big-Data-IC/src
+# Install script for directory: /mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
