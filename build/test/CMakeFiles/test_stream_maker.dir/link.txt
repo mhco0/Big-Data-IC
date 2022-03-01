@@ -1,1 +1,1 @@
-/usr/bin/c++   -g -Wall   -g -Wall CMakeFiles/test_stream_maker.dir/test_stream_maker.cpp.o  -o ../bin/test_stream_maker  -lgtest_main ../lib/libQSBD_STREAM_MAKER.a ../lib/libQSBD_GLOBAL_GEN.a ../lib/libQSBD_COMMUM_HEADER.a ../lib/libQSBD_UTILS.a ../lib/libQSBD_DEBUG.a 
+/bin/x86_64-linux-gnu-g++-9   -g -Wall -g   -g -Wall CMakeFiles/test_stream_maker.dir/test_stream_maker.cpp.o  -o ../bin/test_stream_maker  -lgtest_main ../lib/libQSBD_STREAM_MAKER.a ../lib/libQSBD_GLOBAL_GEN.a ../lib/libQSBD_COMMUM_HEADER.a ../lib/libQSBD_UTILS.a ../lib/libQSBD_DEBUG.a 

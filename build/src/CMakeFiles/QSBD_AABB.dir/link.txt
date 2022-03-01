@@ -1,2 +1,2 @@
-/usr/bin/ar qc ../lib/libQSBD_AABB.a  CMakeFiles/QSBD_AABB.dir/aabb/aabb.cpp.o
-/usr/bin/ranlib ../lib/libQSBD_AABB.a
+/bin/ar qc ../lib/libQSBD_AABB.a  CMakeFiles/QSBD_AABB.dir/aabb/aabb.cpp.o
+/bin/ranlib ../lib/libQSBD_AABB.a

@@ -44,9 +44,11 @@ namespace qsbd{
 		 * @param vector_size The size of the stream
 		 * @param mean The mean value for the normal distribution
 		 * @param stddev The standar deviation for the normal distribution
+		 * @param min_value The minimum value in the stream
+		 * @param max_value The maximum value in the stream
 		 * @return A random stream made by this rules.
 		*/
-		std::vector<int> normal_int_stream(int vector_size, double mean, double stddev);
+		std::vector<int> normal_int_stream(int vector_size, double mean, double stddev, int min_value, int max_value);
 		
 		/**
 		 * @brief This function generates a random stream with weight for it's integer values.

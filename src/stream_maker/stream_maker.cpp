@@ -4,14 +4,14 @@ using namespace std;
 namespace qsbd{
 	namespace stream_maker{
 
-		vector<int> normal_int_stream(int vector_size, double mean, double stddev){
+		vector<int> normal_int_stream(int vector_size, double mean, double stddev, int min_value, int max_value){
 			normal_distribution<double> who_pick(mean, stddev);
 			vector<int> normal_stream;
 
 			for(int i = 0; i < vector_size; i++){
 				int element = (int) who_pick(generator);
 
-				normal_stream.push_back(element);
+				normal_stream.push_back(max(min_value, min(max_value, element)));
 			}
 
 			return normal_stream;
