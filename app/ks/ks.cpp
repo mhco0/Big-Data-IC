@@ -377,6 +377,67 @@ ostream& operator<<(ostream& out, const ks_test_result_t& res){
     return out;
 }
 
+ostream& operator<<(ostream& out, const ks_compair_test_result_t& res){
+    /*
+        vector<int> distribution_lhs;
+        vector<int> distribution_rhs;
+        vector<double> cdf_distribution_lhs;
+        vector<double> cdf_distribution_rhs;
+        vector<double> sketch_cdf_distribution_lhs;
+        vector<double> sketch_cdf_distribution_rhs;
+        vector<double> distances_distributions;
+        vector<double> distances_sketches;
+        double max_distance_distributions;
+        double max_distance_sketches;
+    */
+
+    out << "Left Distribution : ";
+    for(size_t i = 0; i < res.distribution_lhs.size(); i++){
+        out << res.distribution_lhs[i] << " \n"[ i == res.distribution_lhs.size() - 1];
+    }
+
+    out << "Right Distribution : ";
+    for(size_t i = 0; i < res.distribution_rhs.size(); i++){
+        out << res.distribution_rhs[i] << " \n"[ i == res.distribution_rhs.size() - 1];
+    }
+
+    out << "Left CDF : ";
+    for(size_t i = 0; i < res.cdf_distribution_lhs.size(); i++){
+        out << res.cdf_distribution_lhs[i] << " \n"[ i == res.cdf_distribution_lhs.size() - 1];
+    }
+
+    out << "Right CDF : ";
+    for(size_t i = 0; i < res.cdf_distribution_rhs.size(); i++){
+        out << res.cdf_distribution_rhs[i] << " \n"[ i == res.cdf_distribution_rhs.size() - 1];
+    }
+
+    out << "Left Sketch CDF : ";
+    for(size_t i = 0; i < res.sketch_cdf_distribution_lhs.size(); i++){
+        out << res.sketch_cdf_distribution_lhs[i] << " \n"[ i == res.sketch_cdf_distribution_lhs.size() - 1];
+    }
+
+    out << "Right Sketch CDF : ";
+    for(size_t i = 0; i < res.sketch_cdf_distribution_rhs.size(); i++){
+        out << res.sketch_cdf_distribution_rhs[i] << " \n"[ i == res.sketch_cdf_distribution_rhs.size() - 1];
+    }
+
+    out << "Distances Distributions : ";
+    for(size_t i = 0; i < res.distances_distributions.size(); i++){
+        out << res.distances_distributions[i] << " \n"[ i == res.distances_distributions.size() - 1];
+    }
+
+    out << "Distances Sketches : ";
+    for(size_t i = 0; i < res.distances_sketches.size(); i++){
+        out << res.distances_sketches[i] << " \n"[ i == res.distances_sketches.size() - 1];
+    }
+
+    out << "Max distance in distributions: " << res.max_distance_distributions << "\n";
+
+    out << "Max distance in sketches: " << res.max_distance_sketches << "\n";
+
+    return out;
+}
+
 void save_test(const string& prefix, const ks_test_result_t& res){
     string dist_fn = "distribution.dat";
     string cdf_fn = "cdf.dat";
@@ -421,9 +482,7 @@ void save_test(const string& prefix, const ks_test_result_t& res){
 
     out << res.max_distance << "\n";
     
-
     out.close();
-
 
     return;
 }
@@ -455,9 +514,10 @@ int main(int argc, char* argv[]){
     double max_dist = numeric_limits<double>::min();
 
     //test_normal_distribution(10000, 0, 1000, 1, 700.0, 200.0);
+    cout << test_compair_normal_distribution_with_gk(samples, start_point, end_point, step, max_mean_range, max_std_range, error) << endl;
     //test_distinct_normal_distribution(10000, 0, 1000, 1, 300.0, 100.0, 700.0, 100.0);
 
-    for(double mean = min_mean_range; mean <= max_mean_range; mean += 50.0){
+    /*for(double mean = min_mean_range; mean <= max_mean_range; mean += 50.0){
         for(double std = min_std_range; std <= max_std_range; std += 50.0){
             res = test_ks_with_kll(samples, start_point, end_point, step, mean, std, error);
             
@@ -514,7 +574,7 @@ int main(int argc, char* argv[]){
     }
 
     //cout << "GK : " << worst_gk_res << endl;
-    save_test(string("./gk_") + to_string(error) + string("_"), worst_gk_res);
+    save_test(string("./gk_") + to_string(error) + string("_"), worst_gk_res);*/
 
     return 0;
 }
