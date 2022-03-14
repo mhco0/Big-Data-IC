@@ -36,7 +36,6 @@ target_include_directories(profiler PRIVATE ${QSBD_DIR_SOURCE})
 target_include_directories(profiler PRIVATE ${THIRD_PARTY_DIR_SOURCE})
 target_link_libraries(profiler PRIVATE QSBD_QUANTILE_QUADTREE QSBD_GK_FACTORY QSBD_KLL_FACTORY QSBD_DCS_FACTORY QSBD_Q_DIGEST_FACTORY QSBD_UTILS QSBD_LOG QSBD_DEBUG QSBD_STREAM_MAKER)
 
-
 add_executable(profile_count_sketch "profiler/profile_count_sketch.cpp")
 target_include_directories(profile_count_sketch PRIVATE ${QSBD_DIR_SOURCE})
 target_include_directories(profile_count_sketch PRIVATE ${THIRD_PARTY_DIR_SOURCE})
@@ -116,6 +115,11 @@ add_executable(quadtree_data_bounds "quantile_quadtree_experiment/quadtree_data_
 target_include_directories(quadtree_data_bounds PRIVATE ${QSBD_DIR_SOURCE})
 target_include_directories(quadtree_data_bounds PRIVATE ${THIRD_PARTY_DIR_SOURCE})
 target_link_libraries(quadtree_data_bounds PRIVATE QSBD_AABB QSBD_UTILS QSBD_DEBUG)
+
+add_executable(quantile_quadtree_ks "quantile_quadtree_experiment/quantile_quadtree_ks.cpp")
+target_include_directories(quantile_quadtree_ks PRIVATE ${QSBD_DIR_SOURCE})
+target_include_directories(quantile_quadtree_ks PRIVATE ${THIRD_PARTY_DIR_SOURCE})
+target_link_libraries(quantile_quadtree_ks PRIVATE QSBD_QUANTILE_QUADTREE QSBD_GK_FACTORY QSBD_KLL_FACTORY QSBD_DCS_FACTORY QSBD_Q_DIGEST_FACTORY QSBD_UTILS QSBD_LOG QSBD_DEBUG QSBD_KS)
 
 add_executable(ks "ks/ks.cpp")
 target_include_directories(ks PRIVATE ${QSBD_DIR_SOURCE})

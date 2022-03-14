@@ -694,6 +694,19 @@ test_gk/fast:
 .PHONY : test_gk/fast
 
 #=============================================================================
+# Target rules for targets named quantile_quadtree_ks
+
+# Build rule for target.
+quantile_quadtree_ks: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 quantile_quadtree_ks
+.PHONY : quantile_quadtree_ks
+
+# fast build rule for target.
+quantile_quadtree_ks/fast:
+	$(MAKE) -f app/CMakeFiles/quantile_quadtree_ks.dir/build.make app/CMakeFiles/quantile_quadtree_ks.dir/build
+.PHONY : quantile_quadtree_ks/fast
+
+#=============================================================================
 # Target rules for targets named new_quantile_quadtree_experiment
 
 # Build rule for target.
@@ -1019,6 +1032,7 @@ help:
 	@echo "... test_q_digest"
 	@echo "... test_config"
 	@echo "... test_gk"
+	@echo "... quantile_quadtree_ks"
 	@echo "... new_quantile_quadtree_experiment"
 	@echo "... build_brute_force"
 	@echo "... query_creator"

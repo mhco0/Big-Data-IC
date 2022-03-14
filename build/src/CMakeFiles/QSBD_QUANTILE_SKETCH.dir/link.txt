@@ -1,2 +1,2 @@
-/bin/ar qc ../lib/libQSBD_QUANTILE_SKETCH.a  
-/bin/ranlib ../lib/libQSBD_QUANTILE_SKETCH.a
+/usr/bin/ar qc ../lib/libQSBD_QUANTILE_SKETCH.a  
+/usr/bin/ranlib ../lib/libQSBD_QUANTILE_SKETCH.a

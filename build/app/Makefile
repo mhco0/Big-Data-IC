@@ -122,6 +122,21 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+app/CMakeFiles/quantile_quadtree_ks.dir/rule:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/quantile_quadtree_ks.dir/rule
+.PHONY : app/CMakeFiles/quantile_quadtree_ks.dir/rule
+
+# Convenience name for target.
+quantile_quadtree_ks: app/CMakeFiles/quantile_quadtree_ks.dir/rule
+
+.PHONY : quantile_quadtree_ks
+
+# fast build rule for target.
+quantile_quadtree_ks/fast:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/quantile_quadtree_ks.dir/build.make app/CMakeFiles/quantile_quadtree_ks.dir/build
+.PHONY : quantile_quadtree_ks/fast
+
+# Convenience name for target.
 app/CMakeFiles/new_quantile_quadtree_experiment.dir/rule:
 	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/new_quantile_quadtree_experiment.dir/rule
 .PHONY : app/CMakeFiles/new_quantile_quadtree_experiment.dir/rule
@@ -895,6 +910,33 @@ quantile_quadtree_experiment/quantile_quadtree_experiment.cpp.s:
 	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/quantile_quadtree_experiment.dir/build.make app/CMakeFiles/quantile_quadtree_experiment.dir/quantile_quadtree_experiment/quantile_quadtree_experiment.cpp.s
 .PHONY : quantile_quadtree_experiment/quantile_quadtree_experiment.cpp.s
 
+quantile_quadtree_experiment/quantile_quadtree_ks.o: quantile_quadtree_experiment/quantile_quadtree_ks.cpp.o
+
+.PHONY : quantile_quadtree_experiment/quantile_quadtree_ks.o
+
+# target to build an object file
+quantile_quadtree_experiment/quantile_quadtree_ks.cpp.o:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/quantile_quadtree_ks.dir/build.make app/CMakeFiles/quantile_quadtree_ks.dir/quantile_quadtree_experiment/quantile_quadtree_ks.cpp.o
+.PHONY : quantile_quadtree_experiment/quantile_quadtree_ks.cpp.o
+
+quantile_quadtree_experiment/quantile_quadtree_ks.i: quantile_quadtree_experiment/quantile_quadtree_ks.cpp.i
+
+.PHONY : quantile_quadtree_experiment/quantile_quadtree_ks.i
+
+# target to preprocess a source file
+quantile_quadtree_experiment/quantile_quadtree_ks.cpp.i:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/quantile_quadtree_ks.dir/build.make app/CMakeFiles/quantile_quadtree_ks.dir/quantile_quadtree_experiment/quantile_quadtree_ks.cpp.i
+.PHONY : quantile_quadtree_experiment/quantile_quadtree_ks.cpp.i
+
+quantile_quadtree_experiment/quantile_quadtree_ks.s: quantile_quadtree_experiment/quantile_quadtree_ks.cpp.s
+
+.PHONY : quantile_quadtree_experiment/quantile_quadtree_ks.s
+
+# target to generate assembly for a file
+quantile_quadtree_experiment/quantile_quadtree_ks.cpp.s:
+	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f app/CMakeFiles/quantile_quadtree_ks.dir/build.make app/CMakeFiles/quantile_quadtree_ks.dir/quantile_quadtree_experiment/quantile_quadtree_ks.cpp.s
+.PHONY : quantile_quadtree_experiment/quantile_quadtree_ks.cpp.s
+
 query_creator/build_queries.o: query_creator/build_queries.cpp.o
 
 .PHONY : query_creator/build_queries.o
@@ -1009,6 +1051,7 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... quantile_quadtree_ks"
 	@echo "... new_quantile_quadtree_experiment"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
@@ -1084,6 +1127,9 @@ help:
 	@echo "... quantile_quadtree_experiment/quantile_quadtree_experiment.o"
 	@echo "... quantile_quadtree_experiment/quantile_quadtree_experiment.i"
 	@echo "... quantile_quadtree_experiment/quantile_quadtree_experiment.s"
+	@echo "... quantile_quadtree_experiment/quantile_quadtree_ks.o"
+	@echo "... quantile_quadtree_experiment/quantile_quadtree_ks.i"
+	@echo "... quantile_quadtree_experiment/quantile_quadtree_ks.s"
 	@echo "... query_creator/build_queries.o"
 	@echo "... query_creator/build_queries.i"
 	@echo "... query_creator/build_queries.s"

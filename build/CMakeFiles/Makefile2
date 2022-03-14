@@ -80,6 +80,7 @@ clean: app/clean
 # Directory level rules for directory app
 
 # Recursive "all" directory target.
+app/all: app/CMakeFiles/quantile_quadtree_ks.dir/all
 app/all: app/CMakeFiles/new_quantile_quadtree_experiment.dir/all
 app/all: app/CMakeFiles/build_brute_force.dir/all
 app/all: app/CMakeFiles/query_creator.dir/all
@@ -110,6 +111,7 @@ app/preinstall:
 .PHONY : app/preinstall
 
 # Recursive "clean" directory target.
+app/clean: app/CMakeFiles/quantile_quadtree_ks.dir/clean
 app/clean: app/CMakeFiles/new_quantile_quadtree_experiment.dir/clean
 app/clean: app/CMakeFiles/build_brute_force.dir/clean
 app/clean: app/CMakeFiles/query_creator.dir/clean
@@ -277,7 +279,7 @@ thirdparty/clean: thirdparty/CMakeFiles/nlohmann_json.dir/clean
 thirdparty/CMakeFiles/nlohmann_json.dir/all:
 	$(MAKE) -f thirdparty/CMakeFiles/nlohmann_json.dir/build.make thirdparty/CMakeFiles/nlohmann_json.dir/depend
 	$(MAKE) -f thirdparty/CMakeFiles/nlohmann_json.dir/build.make thirdparty/CMakeFiles/nlohmann_json.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=57 "Built target nlohmann_json"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=56 "Built target nlohmann_json"
 .PHONY : thirdparty/CMakeFiles/nlohmann_json.dir/all
 
 # Build rule for subdir invocation for target.
@@ -315,7 +317,7 @@ src/CMakeFiles/QSBD_DCS.dir/all: src/CMakeFiles/QSBD_QUANTILE_SKETCH.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/QSBD_DCS.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 10
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 11
 	$(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/QSBD_DCS.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : src/CMakeFiles/QSBD_DCS.dir/rule
@@ -344,7 +346,7 @@ src/CMakeFiles/QSBD_KLL.dir/all: src/CMakeFiles/QSBD_GLOBAL_GEN.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/QSBD_KLL.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 5
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 6
 	$(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/QSBD_KLL.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : src/CMakeFiles/QSBD_KLL.dir/rule
@@ -373,7 +375,7 @@ src/CMakeFiles/QSBD_K_WISE_FAMILY.dir/all: src/CMakeFiles/QSBD_GLOBAL_GEN.dir/al
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/QSBD_K_WISE_FAMILY.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 6
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 7
 	$(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/QSBD_K_WISE_FAMILY.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : src/CMakeFiles/QSBD_K_WISE_FAMILY.dir/rule
@@ -488,7 +490,7 @@ src/CMakeFiles/QSBD_Q_DIGEST.dir/all: src/CMakeFiles/QSBD_QUANTILE_SKETCH.dir/al
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/QSBD_Q_DIGEST.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 5
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 6
 	$(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/QSBD_Q_DIGEST.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : src/CMakeFiles/QSBD_Q_DIGEST.dir/rule
@@ -537,12 +539,12 @@ src/CMakeFiles/QSBD_HEAP_TRACKER.dir/clean:
 src/CMakeFiles/QSBD_TIMER.dir/all:
 	$(MAKE) -f src/CMakeFiles/QSBD_TIMER.dir/build.make src/CMakeFiles/QSBD_TIMER.dir/depend
 	$(MAKE) -f src/CMakeFiles/QSBD_TIMER.dir/build.make src/CMakeFiles/QSBD_TIMER.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=34 "Built target QSBD_TIMER"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=33,34 "Built target QSBD_TIMER"
 .PHONY : src/CMakeFiles/QSBD_TIMER.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/QSBD_TIMER.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 1
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 2
 	$(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/QSBD_TIMER.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : src/CMakeFiles/QSBD_TIMER.dir/rule
@@ -572,7 +574,7 @@ src/CMakeFiles/QSBD_GK.dir/all: src/CMakeFiles/QSBD_QUANTILE_SKETCH.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/QSBD_GK.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 4
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 6
 	$(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/QSBD_GK.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : src/CMakeFiles/QSBD_GK.dir/rule
@@ -594,7 +596,7 @@ src/CMakeFiles/QSBD_GK.dir/clean:
 src/CMakeFiles/QSBD_UTILS.dir/all:
 	$(MAKE) -f src/CMakeFiles/QSBD_UTILS.dir/build.make src/CMakeFiles/QSBD_UTILS.dir/depend
 	$(MAKE) -f src/CMakeFiles/QSBD_UTILS.dir/build.make src/CMakeFiles/QSBD_UTILS.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=37,38 "Built target QSBD_UTILS"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=36,37 "Built target QSBD_UTILS"
 .PHONY : src/CMakeFiles/QSBD_UTILS.dir/all
 
 # Build rule for subdir invocation for target.
@@ -650,7 +652,7 @@ src/CMakeFiles/QSBD_TWO_WISE_FAMILY.dir/all: src/CMakeFiles/QSBD_DEBUG.dir/all
 src/CMakeFiles/QSBD_TWO_WISE_FAMILY.dir/all: src/CMakeFiles/QSBD_GLOBAL_GEN.dir/all
 	$(MAKE) -f src/CMakeFiles/QSBD_TWO_WISE_FAMILY.dir/build.make src/CMakeFiles/QSBD_TWO_WISE_FAMILY.dir/depend
 	$(MAKE) -f src/CMakeFiles/QSBD_TWO_WISE_FAMILY.dir/build.make src/CMakeFiles/QSBD_TWO_WISE_FAMILY.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=35,36 "Built target QSBD_TWO_WISE_FAMILY"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=35 "Built target QSBD_TWO_WISE_FAMILY"
 .PHONY : src/CMakeFiles/QSBD_TWO_WISE_FAMILY.dir/all
 
 # Build rule for subdir invocation for target.
@@ -681,12 +683,12 @@ src/CMakeFiles/QSBD_QUANTILE_QUADTREE.dir/all: src/CMakeFiles/QSBD_POINT.dir/all
 src/CMakeFiles/QSBD_QUANTILE_QUADTREE.dir/all: src/CMakeFiles/QSBD_QUANTILE_SKETCH.dir/all
 	$(MAKE) -f src/CMakeFiles/QSBD_QUANTILE_QUADTREE.dir/build.make src/CMakeFiles/QSBD_QUANTILE_QUADTREE.dir/depend
 	$(MAKE) -f src/CMakeFiles/QSBD_QUANTILE_QUADTREE.dir/build.make src/CMakeFiles/QSBD_QUANTILE_QUADTREE.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=27 "Built target QSBD_QUANTILE_QUADTREE"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=26 "Built target QSBD_QUANTILE_QUADTREE"
 .PHONY : src/CMakeFiles/QSBD_QUANTILE_QUADTREE.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/QSBD_QUANTILE_QUADTREE.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 6
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 7
 	$(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/QSBD_QUANTILE_QUADTREE.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : src/CMakeFiles/QSBD_QUANTILE_QUADTREE.dir/rule
@@ -767,7 +769,7 @@ src/CMakeFiles/QSBD_GK_FACTORY.dir/all: src/CMakeFiles/QSBD_SKETCH_FACTORY.dir/a
 src/CMakeFiles/QSBD_GK_FACTORY.dir/all: src/CMakeFiles/QSBD_QUANTILE_SKETCH.dir/all
 	$(MAKE) -f src/CMakeFiles/QSBD_GK_FACTORY.dir/build.make src/CMakeFiles/QSBD_GK_FACTORY.dir/depend
 	$(MAKE) -f src/CMakeFiles/QSBD_GK_FACTORY.dir/build.make src/CMakeFiles/QSBD_GK_FACTORY.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=11 "Built target QSBD_GK_FACTORY"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num= "Built target QSBD_GK_FACTORY"
 .PHONY : src/CMakeFiles/QSBD_GK_FACTORY.dir/all
 
 # Build rule for subdir invocation for target.
@@ -796,12 +798,12 @@ src/CMakeFiles/QSBD_STREAM_MAKER.dir/all: src/CMakeFiles/QSBD_COMMUM_HEADER.dir/
 src/CMakeFiles/QSBD_STREAM_MAKER.dir/all: src/CMakeFiles/QSBD_GLOBAL_GEN.dir/all
 	$(MAKE) -f src/CMakeFiles/QSBD_STREAM_MAKER.dir/build.make src/CMakeFiles/QSBD_STREAM_MAKER.dir/depend
 	$(MAKE) -f src/CMakeFiles/QSBD_STREAM_MAKER.dir/build.make src/CMakeFiles/QSBD_STREAM_MAKER.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=32,33 "Built target QSBD_STREAM_MAKER"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=31,32 "Built target QSBD_STREAM_MAKER"
 .PHONY : src/CMakeFiles/QSBD_STREAM_MAKER.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/QSBD_STREAM_MAKER.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 5
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 6
 	$(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/QSBD_STREAM_MAKER.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : src/CMakeFiles/QSBD_STREAM_MAKER.dir/rule
@@ -823,12 +825,12 @@ src/CMakeFiles/QSBD_STREAM_MAKER.dir/clean:
 src/CMakeFiles/QSBD_MEMORY_TRACKER.dir/all: thirdparty/CMakeFiles/nlohmann_json.dir/all
 	$(MAKE) -f src/CMakeFiles/QSBD_MEMORY_TRACKER.dir/build.make src/CMakeFiles/QSBD_MEMORY_TRACKER.dir/depend
 	$(MAKE) -f src/CMakeFiles/QSBD_MEMORY_TRACKER.dir/build.make src/CMakeFiles/QSBD_MEMORY_TRACKER.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=22 "Built target QSBD_MEMORY_TRACKER"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=21,22 "Built target QSBD_MEMORY_TRACKER"
 .PHONY : src/CMakeFiles/QSBD_MEMORY_TRACKER.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/QSBD_MEMORY_TRACKER.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 2
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 3
 	$(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/QSBD_MEMORY_TRACKER.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : src/CMakeFiles/QSBD_MEMORY_TRACKER.dir/rule
@@ -850,12 +852,12 @@ src/CMakeFiles/QSBD_MEMORY_TRACKER.dir/clean:
 src/CMakeFiles/QSBD_GLOBAL_GEN.dir/all:
 	$(MAKE) -f src/CMakeFiles/QSBD_GLOBAL_GEN.dir/build.make src/CMakeFiles/QSBD_GLOBAL_GEN.dir/depend
 	$(MAKE) -f src/CMakeFiles/QSBD_GLOBAL_GEN.dir/build.make src/CMakeFiles/QSBD_GLOBAL_GEN.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=12 "Built target QSBD_GLOBAL_GEN"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=11,12 "Built target QSBD_GLOBAL_GEN"
 .PHONY : src/CMakeFiles/QSBD_GLOBAL_GEN.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/QSBD_GLOBAL_GEN.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 1
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 2
 	$(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/QSBD_GLOBAL_GEN.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : src/CMakeFiles/QSBD_GLOBAL_GEN.dir/rule
@@ -879,12 +881,12 @@ src/CMakeFiles/QSBD_QUADTREE.dir/all: src/CMakeFiles/QSBD_COMMUM_HEADER.dir/all
 src/CMakeFiles/QSBD_QUADTREE.dir/all: src/CMakeFiles/QSBD_POINT.dir/all
 	$(MAKE) -f src/CMakeFiles/QSBD_QUADTREE.dir/build.make src/CMakeFiles/QSBD_QUADTREE.dir/depend
 	$(MAKE) -f src/CMakeFiles/QSBD_QUADTREE.dir/build.make src/CMakeFiles/QSBD_QUADTREE.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=25,26 "Built target QSBD_QUADTREE"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=25 "Built target QSBD_QUADTREE"
 .PHONY : src/CMakeFiles/QSBD_QUADTREE.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/QSBD_QUADTREE.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 6
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 5
 	$(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/QSBD_QUADTREE.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : src/CMakeFiles/QSBD_QUADTREE.dir/rule
@@ -906,12 +908,12 @@ src/CMakeFiles/QSBD_QUADTREE.dir/clean:
 src/CMakeFiles/QSBD_SKETCH_FACTORY.dir/all:
 	$(MAKE) -f src/CMakeFiles/QSBD_SKETCH_FACTORY.dir/build.make src/CMakeFiles/QSBD_SKETCH_FACTORY.dir/depend
 	$(MAKE) -f src/CMakeFiles/QSBD_SKETCH_FACTORY.dir/build.make src/CMakeFiles/QSBD_SKETCH_FACTORY.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=31 "Built target QSBD_SKETCH_FACTORY"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num= "Built target QSBD_SKETCH_FACTORY"
 .PHONY : src/CMakeFiles/QSBD_SKETCH_FACTORY.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/QSBD_SKETCH_FACTORY.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 1
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 0
 	$(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/QSBD_SKETCH_FACTORY.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : src/CMakeFiles/QSBD_SKETCH_FACTORY.dir/rule
@@ -933,12 +935,12 @@ src/CMakeFiles/QSBD_SKETCH_FACTORY.dir/clean:
 src/CMakeFiles/QSBD_QUANTILE_SKETCH.dir/all:
 	$(MAKE) -f src/CMakeFiles/QSBD_QUANTILE_SKETCH.dir/build.make src/CMakeFiles/QSBD_QUANTILE_SKETCH.dir/depend
 	$(MAKE) -f src/CMakeFiles/QSBD_QUANTILE_SKETCH.dir/build.make src/CMakeFiles/QSBD_QUANTILE_SKETCH.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num= "Built target QSBD_QUANTILE_SKETCH"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=27 "Built target QSBD_QUANTILE_SKETCH"
 .PHONY : src/CMakeFiles/QSBD_QUANTILE_SKETCH.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/QSBD_QUANTILE_SKETCH.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 1
 	$(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/QSBD_QUANTILE_SKETCH.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : src/CMakeFiles/QSBD_QUANTILE_SKETCH.dir/rule
@@ -964,12 +966,12 @@ src/CMakeFiles/QSBD_KLL_FACTORY.dir/all: src/CMakeFiles/QSBD_GLOBAL_GEN.dir/all
 src/CMakeFiles/QSBD_KLL_FACTORY.dir/all: src/CMakeFiles/QSBD_SKETCH_FACTORY.dir/all
 	$(MAKE) -f src/CMakeFiles/QSBD_KLL_FACTORY.dir/build.make src/CMakeFiles/QSBD_KLL_FACTORY.dir/depend
 	$(MAKE) -f src/CMakeFiles/QSBD_KLL_FACTORY.dir/build.make src/CMakeFiles/QSBD_KLL_FACTORY.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=16 "Built target QSBD_KLL_FACTORY"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num= "Built target QSBD_KLL_FACTORY"
 .PHONY : src/CMakeFiles/QSBD_KLL_FACTORY.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/QSBD_KLL_FACTORY.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 7
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 6
 	$(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/QSBD_KLL_FACTORY.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : src/CMakeFiles/QSBD_KLL_FACTORY.dir/rule
@@ -1057,12 +1059,12 @@ src/CMakeFiles/QSBD_DCS_FACTORY.dir/clean:
 src/CMakeFiles/QSBD_LOG.dir/all: src/CMakeFiles/QSBD_DEBUG.dir/all
 	$(MAKE) -f src/CMakeFiles/QSBD_LOG.dir/build.make src/CMakeFiles/QSBD_LOG.dir/depend
 	$(MAKE) -f src/CMakeFiles/QSBD_LOG.dir/build.make src/CMakeFiles/QSBD_LOG.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=20,21 "Built target QSBD_LOG"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=20 "Built target QSBD_LOG"
 .PHONY : src/CMakeFiles/QSBD_LOG.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/QSBD_LOG.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 3
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 2
 	$(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/QSBD_LOG.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : src/CMakeFiles/QSBD_LOG.dir/rule
@@ -1089,12 +1091,12 @@ src/CMakeFiles/QSBD_KS.dir/all: src/CMakeFiles/QSBD_GLOBAL_GEN.dir/all
 src/CMakeFiles/QSBD_KS.dir/all: src/CMakeFiles/QSBD_QUANTILE_SKETCH.dir/all
 	$(MAKE) -f src/CMakeFiles/QSBD_KS.dir/build.make src/CMakeFiles/QSBD_KS.dir/depend
 	$(MAKE) -f src/CMakeFiles/QSBD_KS.dir/build.make src/CMakeFiles/QSBD_KS.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=17 "Built target QSBD_KS"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=16,17 "Built target QSBD_KS"
 .PHONY : src/CMakeFiles/QSBD_KS.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/QSBD_KS.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 8
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 11
 	$(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/QSBD_KS.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : src/CMakeFiles/QSBD_KS.dir/rule
@@ -1146,7 +1148,7 @@ test/CMakeFiles/test_log.dir/all: src/CMakeFiles/QSBD_DEBUG.dir/all
 test/CMakeFiles/test_log.dir/all: src/CMakeFiles/QSBD_LOG.dir/all
 	$(MAKE) -f test/CMakeFiles/test_log.dir/build.make test/CMakeFiles/test_log.dir/depend
 	$(MAKE) -f test/CMakeFiles/test_log.dir/build.make test/CMakeFiles/test_log.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=89 "Built target test_log"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=89,90 "Built target test_log"
 .PHONY : test/CMakeFiles/test_log.dir/all
 
 # Build rule for subdir invocation for target.
@@ -1209,7 +1211,7 @@ test/CMakeFiles/test_stream_maker.dir/all: src/CMakeFiles/QSBD_GLOBAL_GEN.dir/al
 
 # Build rule for subdir invocation for target.
 test/CMakeFiles/test_stream_maker.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 9
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 10
 	$(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_stream_maker.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : test/CMakeFiles/test_stream_maker.dir/rule
@@ -1233,7 +1235,7 @@ test/CMakeFiles/test_memory_tracker.dir/all: src/CMakeFiles/QSBD_UTILS.dir/all
 test/CMakeFiles/test_memory_tracker.dir/all: src/CMakeFiles/QSBD_MEMORY_TRACKER.dir/all
 	$(MAKE) -f test/CMakeFiles/test_memory_tracker.dir/build.make test/CMakeFiles/test_memory_tracker.dir/depend
 	$(MAKE) -f test/CMakeFiles/test_memory_tracker.dir/build.make test/CMakeFiles/test_memory_tracker.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=90,91 "Built target test_memory_tracker"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=91 "Built target test_memory_tracker"
 .PHONY : test/CMakeFiles/test_memory_tracker.dir/all
 
 # Build rule for subdir invocation for target.
@@ -1267,12 +1269,12 @@ test/CMakeFiles/test_kll.dir/all: src/CMakeFiles/QSBD_SKETCH_FACTORY.dir/all
 test/CMakeFiles/test_kll.dir/all: src/CMakeFiles/QSBD_KLL_FACTORY.dir/all
 	$(MAKE) -f test/CMakeFiles/test_kll.dir/build.make test/CMakeFiles/test_kll.dir/depend
 	$(MAKE) -f test/CMakeFiles/test_kll.dir/build.make test/CMakeFiles/test_kll.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=85,86 "Built target test_kll"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=86 "Built target test_kll"
 .PHONY : test/CMakeFiles/test_kll.dir/all
 
 # Build rule for subdir invocation for target.
 test/CMakeFiles/test_kll.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 13
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 11
 	$(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_kll.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : test/CMakeFiles/test_kll.dir/rule
@@ -1316,12 +1318,12 @@ test/CMakeFiles/test_quantile_quadtree.dir/all: src/CMakeFiles/QSBD_Q_DIGEST_FAC
 test/CMakeFiles/test_quantile_quadtree.dir/all: src/CMakeFiles/QSBD_DCS_FACTORY.dir/all
 	$(MAKE) -f test/CMakeFiles/test_quantile_quadtree.dir/build.make test/CMakeFiles/test_quantile_quadtree.dir/depend
 	$(MAKE) -f test/CMakeFiles/test_quantile_quadtree.dir/build.make test/CMakeFiles/test_quantile_quadtree.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=95,96 "Built target test_quantile_quadtree"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=96 "Built target test_quantile_quadtree"
 .PHONY : test/CMakeFiles/test_quantile_quadtree.dir/all
 
 # Build rule for subdir invocation for target.
 test/CMakeFiles/test_quantile_quadtree.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 31
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 30
 	$(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_quantile_quadtree.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : test/CMakeFiles/test_quantile_quadtree.dir/rule
@@ -1360,7 +1362,7 @@ test/CMakeFiles/test_kolmogorov.dir/all: src/CMakeFiles/QSBD_KS.dir/all
 
 # Build rule for subdir invocation for target.
 test/CMakeFiles/test_kolmogorov.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 20
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 22
 	$(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_kolmogorov.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : test/CMakeFiles/test_kolmogorov.dir/rule
@@ -1386,12 +1388,12 @@ test/CMakeFiles/test_k_wise_family.dir/all: src/CMakeFiles/QSBD_COMMUM_HEADER.di
 test/CMakeFiles/test_k_wise_family.dir/all: src/CMakeFiles/QSBD_GLOBAL_GEN.dir/all
 	$(MAKE) -f test/CMakeFiles/test_k_wise_family.dir/build.make test/CMakeFiles/test_k_wise_family.dir/depend
 	$(MAKE) -f test/CMakeFiles/test_k_wise_family.dir/build.make test/CMakeFiles/test_k_wise_family.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=84 "Built target test_k_wise_family"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=84,85 "Built target test_k_wise_family"
 .PHONY : test/CMakeFiles/test_k_wise_family.dir/all
 
 # Build rule for subdir invocation for target.
 test/CMakeFiles/test_k_wise_family.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 8
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 10
 	$(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_k_wise_family.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : test/CMakeFiles/test_k_wise_family.dir/rule
@@ -1420,12 +1422,12 @@ test/CMakeFiles/test_quadtree.dir/all: src/CMakeFiles/QSBD_GLOBAL_GEN.dir/all
 test/CMakeFiles/test_quadtree.dir/all: src/CMakeFiles/QSBD_QUADTREE.dir/all
 	$(MAKE) -f test/CMakeFiles/test_quadtree.dir/build.make test/CMakeFiles/test_quadtree.dir/depend
 	$(MAKE) -f test/CMakeFiles/test_quadtree.dir/build.make test/CMakeFiles/test_quadtree.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=94 "Built target test_quadtree"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=94,95 "Built target test_quadtree"
 .PHONY : test/CMakeFiles/test_quadtree.dir/all
 
 # Build rule for subdir invocation for target.
 test/CMakeFiles/test_quadtree.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 13
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 14
 	$(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_quadtree.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : test/CMakeFiles/test_quadtree.dir/rule
@@ -1459,12 +1461,12 @@ test/CMakeFiles/test_dcs.dir/all: src/CMakeFiles/QSBD_QUANTILE_SKETCH.dir/all
 test/CMakeFiles/test_dcs.dir/all: src/CMakeFiles/QSBD_DCS_FACTORY.dir/all
 	$(MAKE) -f test/CMakeFiles/test_dcs.dir/build.make test/CMakeFiles/test_dcs.dir/depend
 	$(MAKE) -f test/CMakeFiles/test_dcs.dir/build.make test/CMakeFiles/test_dcs.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=78,79 "Built target test_dcs"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=79,80 "Built target test_dcs"
 .PHONY : test/CMakeFiles/test_dcs.dir/all
 
 # Build rule for subdir invocation for target.
 test/CMakeFiles/test_dcs.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 18
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 19
 	$(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_dcs.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : test/CMakeFiles/test_dcs.dir/rule
@@ -1492,12 +1494,12 @@ test/CMakeFiles/test_count_sketch.dir/all: src/CMakeFiles/QSBD_STREAM_MAKER.dir/
 test/CMakeFiles/test_count_sketch.dir/all: src/CMakeFiles/QSBD_GLOBAL_GEN.dir/all
 	$(MAKE) -f test/CMakeFiles/test_count_sketch.dir/build.make test/CMakeFiles/test_count_sketch.dir/depend
 	$(MAKE) -f test/CMakeFiles/test_count_sketch.dir/build.make test/CMakeFiles/test_count_sketch.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=77 "Built target test_count_sketch"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=77,78 "Built target test_count_sketch"
 .PHONY : test/CMakeFiles/test_count_sketch.dir/all
 
 # Build rule for subdir invocation for target.
 test/CMakeFiles/test_count_sketch.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 11
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 12
 	$(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_count_sketch.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : test/CMakeFiles/test_count_sketch.dir/rule
@@ -1532,7 +1534,7 @@ test/CMakeFiles/test_q_digest.dir/all: src/CMakeFiles/QSBD_Q_DIGEST_FACTORY.dir/
 
 # Build rule for subdir invocation for target.
 test/CMakeFiles/test_q_digest.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 13
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 14
 	$(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_q_digest.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : test/CMakeFiles/test_q_digest.dir/rule
@@ -1556,12 +1558,12 @@ test/CMakeFiles/test_config.dir/all: src/CMakeFiles/QSBD_UTILS.dir/all
 test/CMakeFiles/test_config.dir/all: src/CMakeFiles/QSBD_DEBUG.dir/all
 	$(MAKE) -f test/CMakeFiles/test_config.dir/build.make test/CMakeFiles/test_config.dir/depend
 	$(MAKE) -f test/CMakeFiles/test_config.dir/build.make test/CMakeFiles/test_config.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=75,76 "Built target test_config"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=76 "Built target test_config"
 .PHONY : test/CMakeFiles/test_config.dir/all
 
 # Build rule for subdir invocation for target.
 test/CMakeFiles/test_config.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 7
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 6
 	$(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_config.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : test/CMakeFiles/test_config.dir/rule
@@ -1589,12 +1591,12 @@ test/CMakeFiles/test_gk.dir/all: src/CMakeFiles/QSBD_GLOBAL_GEN.dir/all
 test/CMakeFiles/test_gk.dir/all: src/CMakeFiles/QSBD_QUANTILE_SKETCH.dir/all
 	$(MAKE) -f test/CMakeFiles/test_gk.dir/build.make test/CMakeFiles/test_gk.dir/depend
 	$(MAKE) -f test/CMakeFiles/test_gk.dir/build.make test/CMakeFiles/test_gk.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=80,81 "Built target test_gk"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=81 "Built target test_gk"
 .PHONY : test/CMakeFiles/test_gk.dir/all
 
 # Build rule for subdir invocation for target.
 test/CMakeFiles/test_gk.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 10
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 11
 	$(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_gk.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : test/CMakeFiles/test_gk.dir/rule
@@ -1608,6 +1610,54 @@ test_gk: test/CMakeFiles/test_gk.dir/rule
 test/CMakeFiles/test_gk.dir/clean:
 	$(MAKE) -f test/CMakeFiles/test_gk.dir/build.make test/CMakeFiles/test_gk.dir/clean
 .PHONY : test/CMakeFiles/test_gk.dir/clean
+
+#=============================================================================
+# Target rules for target app/CMakeFiles/quantile_quadtree_ks.dir
+
+# All Build rule for target.
+app/CMakeFiles/quantile_quadtree_ks.dir/all: src/CMakeFiles/QSBD_DCS.dir/all
+app/CMakeFiles/quantile_quadtree_ks.dir/all: src/CMakeFiles/QSBD_KLL.dir/all
+app/CMakeFiles/quantile_quadtree_ks.dir/all: src/CMakeFiles/QSBD_AABB.dir/all
+app/CMakeFiles/quantile_quadtree_ks.dir/all: src/CMakeFiles/QSBD_COUNT_SKETCH.dir/all
+app/CMakeFiles/quantile_quadtree_ks.dir/all: src/CMakeFiles/QSBD_Q_DIGEST.dir/all
+app/CMakeFiles/quantile_quadtree_ks.dir/all: src/CMakeFiles/QSBD_GK.dir/all
+app/CMakeFiles/quantile_quadtree_ks.dir/all: src/CMakeFiles/QSBD_UTILS.dir/all
+app/CMakeFiles/quantile_quadtree_ks.dir/all: src/CMakeFiles/QSBD_DEBUG.dir/all
+app/CMakeFiles/quantile_quadtree_ks.dir/all: src/CMakeFiles/QSBD_TWO_WISE_FAMILY.dir/all
+app/CMakeFiles/quantile_quadtree_ks.dir/all: src/CMakeFiles/QSBD_QUANTILE_QUADTREE.dir/all
+app/CMakeFiles/quantile_quadtree_ks.dir/all: src/CMakeFiles/QSBD_COMMUM_HEADER.dir/all
+app/CMakeFiles/quantile_quadtree_ks.dir/all: src/CMakeFiles/QSBD_POINT.dir/all
+app/CMakeFiles/quantile_quadtree_ks.dir/all: src/CMakeFiles/QSBD_GK_FACTORY.dir/all
+app/CMakeFiles/quantile_quadtree_ks.dir/all: src/CMakeFiles/QSBD_STREAM_MAKER.dir/all
+app/CMakeFiles/quantile_quadtree_ks.dir/all: src/CMakeFiles/QSBD_GLOBAL_GEN.dir/all
+app/CMakeFiles/quantile_quadtree_ks.dir/all: src/CMakeFiles/QSBD_SKETCH_FACTORY.dir/all
+app/CMakeFiles/quantile_quadtree_ks.dir/all: src/CMakeFiles/QSBD_QUANTILE_SKETCH.dir/all
+app/CMakeFiles/quantile_quadtree_ks.dir/all: src/CMakeFiles/QSBD_KLL_FACTORY.dir/all
+app/CMakeFiles/quantile_quadtree_ks.dir/all: src/CMakeFiles/QSBD_Q_DIGEST_FACTORY.dir/all
+app/CMakeFiles/quantile_quadtree_ks.dir/all: src/CMakeFiles/QSBD_DCS_FACTORY.dir/all
+app/CMakeFiles/quantile_quadtree_ks.dir/all: src/CMakeFiles/QSBD_LOG.dir/all
+app/CMakeFiles/quantile_quadtree_ks.dir/all: src/CMakeFiles/QSBD_KS.dir/all
+	$(MAKE) -f app/CMakeFiles/quantile_quadtree_ks.dir/build.make app/CMakeFiles/quantile_quadtree_ks.dir/depend
+	$(MAKE) -f app/CMakeFiles/quantile_quadtree_ks.dir/build.make app/CMakeFiles/quantile_quadtree_ks.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=71 "Built target quantile_quadtree_ks"
+.PHONY : app/CMakeFiles/quantile_quadtree_ks.dir/all
+
+# Build rule for subdir invocation for target.
+app/CMakeFiles/quantile_quadtree_ks.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 28
+	$(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/quantile_quadtree_ks.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 0
+.PHONY : app/CMakeFiles/quantile_quadtree_ks.dir/rule
+
+# Convenience name for target.
+quantile_quadtree_ks: app/CMakeFiles/quantile_quadtree_ks.dir/rule
+
+.PHONY : quantile_quadtree_ks
+
+# clean rule for target.
+app/CMakeFiles/quantile_quadtree_ks.dir/clean:
+	$(MAKE) -f app/CMakeFiles/quantile_quadtree_ks.dir/build.make app/CMakeFiles/quantile_quadtree_ks.dir/clean
+.PHONY : app/CMakeFiles/quantile_quadtree_ks.dir/clean
 
 #=============================================================================
 # Target rules for target app/CMakeFiles/new_quantile_quadtree_experiment.dir
@@ -1636,12 +1686,12 @@ app/CMakeFiles/new_quantile_quadtree_experiment.dir/all: src/CMakeFiles/QSBD_DCS
 app/CMakeFiles/new_quantile_quadtree_experiment.dir/all: src/CMakeFiles/QSBD_LOG.dir/all
 	$(MAKE) -f app/CMakeFiles/new_quantile_quadtree_experiment.dir/build.make app/CMakeFiles/new_quantile_quadtree_experiment.dir/depend
 	$(MAKE) -f app/CMakeFiles/new_quantile_quadtree_experiment.dir/build.make app/CMakeFiles/new_quantile_quadtree_experiment.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=56 "Built target new_quantile_quadtree_experiment"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=55 "Built target new_quantile_quadtree_experiment"
 .PHONY : app/CMakeFiles/new_quantile_quadtree_experiment.dir/all
 
 # Build rule for subdir invocation for target.
 app/CMakeFiles/new_quantile_quadtree_experiment.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 28
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 26
 	$(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/new_quantile_quadtree_experiment.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : app/CMakeFiles/new_quantile_quadtree_experiment.dir/rule
@@ -1664,12 +1714,12 @@ app/CMakeFiles/build_brute_force.dir/all: src/CMakeFiles/QSBD_UTILS.dir/all
 app/CMakeFiles/build_brute_force.dir/all: src/CMakeFiles/QSBD_DEBUG.dir/all
 	$(MAKE) -f app/CMakeFiles/build_brute_force.dir/build.make app/CMakeFiles/build_brute_force.dir/depend
 	$(MAKE) -f app/CMakeFiles/build_brute_force.dir/build.make app/CMakeFiles/build_brute_force.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=40,41 "Built target build_brute_force"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=40 "Built target build_brute_force"
 .PHONY : app/CMakeFiles/build_brute_force.dir/all
 
 # Build rule for subdir invocation for target.
 app/CMakeFiles/build_brute_force.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 5
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 4
 	$(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/build_brute_force.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : app/CMakeFiles/build_brute_force.dir/rule
@@ -1697,12 +1747,12 @@ app/CMakeFiles/query_creator.dir/all: src/CMakeFiles/QSBD_GLOBAL_GEN.dir/all
 app/CMakeFiles/query_creator.dir/all: src/CMakeFiles/QSBD_LOG.dir/all
 	$(MAKE) -f app/CMakeFiles/query_creator.dir/build.make app/CMakeFiles/query_creator.dir/depend
 	$(MAKE) -f app/CMakeFiles/query_creator.dir/build.make app/CMakeFiles/query_creator.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=72 "Built target query_creator"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=72,73 "Built target query_creator"
 .PHONY : app/CMakeFiles/query_creator.dir/all
 
 # Build rule for subdir invocation for target.
 app/CMakeFiles/query_creator.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 11
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 12
 	$(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/query_creator.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : app/CMakeFiles/query_creator.dir/rule
@@ -1728,7 +1778,7 @@ app/CMakeFiles/quadtree_data_bounds.dir/all: src/CMakeFiles/QSBD_COMMUM_HEADER.d
 app/CMakeFiles/quadtree_data_bounds.dir/all: src/CMakeFiles/QSBD_POINT.dir/all
 	$(MAKE) -f app/CMakeFiles/quadtree_data_bounds.dir/build.make app/CMakeFiles/quadtree_data_bounds.dir/depend
 	$(MAKE) -f app/CMakeFiles/quadtree_data_bounds.dir/build.make app/CMakeFiles/quadtree_data_bounds.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=68,69 "Built target quadtree_data_bounds"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=67,68 "Built target quadtree_data_bounds"
 .PHONY : app/CMakeFiles/quadtree_data_bounds.dir/all
 
 # Build rule for subdir invocation for target.
@@ -1757,12 +1807,12 @@ app/CMakeFiles/coletor.dir/all: src/CMakeFiles/QSBD_UTILS.dir/all
 app/CMakeFiles/coletor.dir/all: src/CMakeFiles/QSBD_DEBUG.dir/all
 	$(MAKE) -f app/CMakeFiles/coletor.dir/build.make app/CMakeFiles/coletor.dir/depend
 	$(MAKE) -f app/CMakeFiles/coletor.dir/build.make app/CMakeFiles/coletor.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=45,46 "Built target coletor"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=45 "Built target coletor"
 .PHONY : app/CMakeFiles/coletor.dir/all
 
 # Build rule for subdir invocation for target.
 app/CMakeFiles/coletor.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 6
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 5
 	$(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/coletor.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : app/CMakeFiles/coletor.dir/rule
@@ -1786,7 +1836,7 @@ app/CMakeFiles/experiment_all.dir/all: src/CMakeFiles/QSBD_UTILS.dir/all
 app/CMakeFiles/experiment_all.dir/all: src/CMakeFiles/QSBD_DEBUG.dir/all
 	$(MAKE) -f app/CMakeFiles/experiment_all.dir/build.make app/CMakeFiles/experiment_all.dir/depend
 	$(MAKE) -f app/CMakeFiles/experiment_all.dir/build.make app/CMakeFiles/experiment_all.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=52,53 "Built target experiment_all"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=51,52 "Built target experiment_all"
 .PHONY : app/CMakeFiles/experiment_all.dir/all
 
 # Build rule for subdir invocation for target.
@@ -1815,7 +1865,7 @@ app/CMakeFiles/data_points.dir/all: src/CMakeFiles/QSBD_UTILS.dir/all
 app/CMakeFiles/data_points.dir/all: src/CMakeFiles/QSBD_DEBUG.dir/all
 	$(MAKE) -f app/CMakeFiles/data_points.dir/build.make app/CMakeFiles/data_points.dir/depend
 	$(MAKE) -f app/CMakeFiles/data_points.dir/build.make app/CMakeFiles/data_points.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=51 "Built target data_points"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=50 "Built target data_points"
 .PHONY : app/CMakeFiles/data_points.dir/all
 
 # Build rule for subdir invocation for target.
@@ -1848,7 +1898,7 @@ app/CMakeFiles/convert_stream.dir/all: src/CMakeFiles/QSBD_GLOBAL_GEN.dir/all
 app/CMakeFiles/convert_stream.dir/all: src/CMakeFiles/QSBD_LOG.dir/all
 	$(MAKE) -f app/CMakeFiles/convert_stream.dir/build.make app/CMakeFiles/convert_stream.dir/depend
 	$(MAKE) -f app/CMakeFiles/convert_stream.dir/build.make app/CMakeFiles/convert_stream.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=49,50 "Built target convert_stream"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=48,49 "Built target convert_stream"
 .PHONY : app/CMakeFiles/convert_stream.dir/all
 
 # Build rule for subdir invocation for target.
@@ -1877,7 +1927,7 @@ app/CMakeFiles/comparator.dir/all: src/CMakeFiles/QSBD_UTILS.dir/all
 app/CMakeFiles/comparator.dir/all: src/CMakeFiles/QSBD_DEBUG.dir/all
 	$(MAKE) -f app/CMakeFiles/comparator.dir/build.make app/CMakeFiles/comparator.dir/depend
 	$(MAKE) -f app/CMakeFiles/comparator.dir/build.make app/CMakeFiles/comparator.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=47,48 "Built target comparator"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=46,47 "Built target comparator"
 .PHONY : app/CMakeFiles/comparator.dir/all
 
 # Build rule for subdir invocation for target.
@@ -1924,12 +1974,12 @@ app/CMakeFiles/profiler.dir/all: src/CMakeFiles/QSBD_DCS_FACTORY.dir/all
 app/CMakeFiles/profiler.dir/all: src/CMakeFiles/QSBD_LOG.dir/all
 	$(MAKE) -f app/CMakeFiles/profiler.dir/build.make app/CMakeFiles/profiler.dir/depend
 	$(MAKE) -f app/CMakeFiles/profiler.dir/build.make app/CMakeFiles/profiler.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=67 "Built target profiler"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=66 "Built target profiler"
 .PHONY : app/CMakeFiles/profiler.dir/all
 
 # Build rule for subdir invocation for target.
 app/CMakeFiles/profiler.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 29
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 26
 	$(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/profiler.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : app/CMakeFiles/profiler.dir/rule
@@ -1959,12 +2009,12 @@ app/CMakeFiles/brute_force.dir/all: src/CMakeFiles/QSBD_GLOBAL_GEN.dir/all
 app/CMakeFiles/brute_force.dir/all: src/CMakeFiles/QSBD_LOG.dir/all
 	$(MAKE) -f app/CMakeFiles/brute_force.dir/build.make app/CMakeFiles/brute_force.dir/depend
 	$(MAKE) -f app/CMakeFiles/brute_force.dir/build.make app/CMakeFiles/brute_force.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=39 "Built target brute_force"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=38,39 "Built target brute_force"
 .PHONY : app/CMakeFiles/brute_force.dir/all
 
 # Build rule for subdir invocation for target.
 app/CMakeFiles/brute_force.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 14
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 15
 	$(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/brute_force.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : app/CMakeFiles/brute_force.dir/rule
@@ -1992,7 +2042,7 @@ app/CMakeFiles/profile_count_sketch.dir/all: src/CMakeFiles/QSBD_STREAM_MAKER.di
 app/CMakeFiles/profile_count_sketch.dir/all: src/CMakeFiles/QSBD_GLOBAL_GEN.dir/all
 	$(MAKE) -f app/CMakeFiles/profile_count_sketch.dir/build.make app/CMakeFiles/profile_count_sketch.dir/depend
 	$(MAKE) -f app/CMakeFiles/profile_count_sketch.dir/build.make app/CMakeFiles/profile_count_sketch.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=58,59 "Built target profile_count_sketch"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=57,58 "Built target profile_count_sketch"
 .PHONY : app/CMakeFiles/profile_count_sketch.dir/all
 
 # Build rule for subdir invocation for target.
@@ -2025,12 +2075,12 @@ app/CMakeFiles/profile_gk.dir/all: src/CMakeFiles/QSBD_GLOBAL_GEN.dir/all
 app/CMakeFiles/profile_gk.dir/all: src/CMakeFiles/QSBD_QUANTILE_SKETCH.dir/all
 	$(MAKE) -f app/CMakeFiles/profile_gk.dir/build.make app/CMakeFiles/profile_gk.dir/depend
 	$(MAKE) -f app/CMakeFiles/profile_gk.dir/build.make app/CMakeFiles/profile_gk.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=62 "Built target profile_gk"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=61 "Built target profile_gk"
 .PHONY : app/CMakeFiles/profile_gk.dir/all
 
 # Build rule for subdir invocation for target.
 app/CMakeFiles/profile_gk.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 9
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 11
 	$(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/profile_gk.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : app/CMakeFiles/profile_gk.dir/rule
@@ -2064,12 +2114,12 @@ app/CMakeFiles/ks.dir/all: src/CMakeFiles/QSBD_QUANTILE_SKETCH.dir/all
 app/CMakeFiles/ks.dir/all: src/CMakeFiles/QSBD_KS.dir/all
 	$(MAKE) -f app/CMakeFiles/ks.dir/build.make app/CMakeFiles/ks.dir/depend
 	$(MAKE) -f app/CMakeFiles/ks.dir/build.make app/CMakeFiles/ks.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=54,55 "Built target ks"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=53,54 "Built target ks"
 .PHONY : app/CMakeFiles/ks.dir/all
 
 # Build rule for subdir invocation for target.
 app/CMakeFiles/ks.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 20
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 22
 	$(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/ks.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : app/CMakeFiles/ks.dir/rule
@@ -2097,12 +2147,12 @@ app/CMakeFiles/profile_q_digest.dir/all: src/CMakeFiles/QSBD_GLOBAL_GEN.dir/all
 app/CMakeFiles/profile_q_digest.dir/all: src/CMakeFiles/QSBD_QUANTILE_SKETCH.dir/all
 	$(MAKE) -f app/CMakeFiles/profile_q_digest.dir/build.make app/CMakeFiles/profile_q_digest.dir/depend
 	$(MAKE) -f app/CMakeFiles/profile_q_digest.dir/build.make app/CMakeFiles/profile_q_digest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=65,66 "Built target profile_q_digest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=64,65 "Built target profile_q_digest"
 .PHONY : app/CMakeFiles/profile_q_digest.dir/all
 
 # Build rule for subdir invocation for target.
 app/CMakeFiles/profile_q_digest.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 11
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 13
 	$(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/profile_q_digest.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : app/CMakeFiles/profile_q_digest.dir/rule
@@ -2132,12 +2182,12 @@ app/CMakeFiles/profile_dcs.dir/all: src/CMakeFiles/QSBD_GLOBAL_GEN.dir/all
 app/CMakeFiles/profile_dcs.dir/all: src/CMakeFiles/QSBD_QUANTILE_SKETCH.dir/all
 	$(MAKE) -f app/CMakeFiles/profile_dcs.dir/build.make app/CMakeFiles/profile_dcs.dir/depend
 	$(MAKE) -f app/CMakeFiles/profile_dcs.dir/build.make app/CMakeFiles/profile_dcs.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=60,61 "Built target profile_dcs"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=59,60 "Built target profile_dcs"
 .PHONY : app/CMakeFiles/profile_dcs.dir/all
 
 # Build rule for subdir invocation for target.
 app/CMakeFiles/profile_dcs.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 14
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 15
 	$(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/profile_dcs.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : app/CMakeFiles/profile_dcs.dir/rule
@@ -2181,12 +2231,12 @@ app/CMakeFiles/quantile_quadtree_experiment.dir/all: src/CMakeFiles/QSBD_DCS_FAC
 app/CMakeFiles/quantile_quadtree_experiment.dir/all: src/CMakeFiles/QSBD_LOG.dir/all
 	$(MAKE) -f app/CMakeFiles/quantile_quadtree_experiment.dir/build.make app/CMakeFiles/quantile_quadtree_experiment.dir/depend
 	$(MAKE) -f app/CMakeFiles/quantile_quadtree_experiment.dir/build.make app/CMakeFiles/quantile_quadtree_experiment.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=70,71 "Built target quantile_quadtree_experiment"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=69,70 "Built target quantile_quadtree_experiment"
 .PHONY : app/CMakeFiles/quantile_quadtree_experiment.dir/all
 
 # Build rule for subdir invocation for target.
 app/CMakeFiles/quantile_quadtree_experiment.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 31
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 30
 	$(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/quantile_quadtree_experiment.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : app/CMakeFiles/quantile_quadtree_experiment.dir/rule
@@ -2210,7 +2260,7 @@ app/CMakeFiles/build_queries.dir/all: src/CMakeFiles/QSBD_UTILS.dir/all
 app/CMakeFiles/build_queries.dir/all: src/CMakeFiles/QSBD_DEBUG.dir/all
 	$(MAKE) -f app/CMakeFiles/build_queries.dir/build.make app/CMakeFiles/build_queries.dir/depend
 	$(MAKE) -f app/CMakeFiles/build_queries.dir/build.make app/CMakeFiles/build_queries.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=42,43 "Built target build_queries"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=41,42 "Built target build_queries"
 .PHONY : app/CMakeFiles/build_queries.dir/all
 
 # Build rule for subdir invocation for target.
@@ -2242,12 +2292,12 @@ app/CMakeFiles/profile_kll.dir/all: src/CMakeFiles/QSBD_STREAM_MAKER.dir/all
 app/CMakeFiles/profile_kll.dir/all: src/CMakeFiles/QSBD_GLOBAL_GEN.dir/all
 	$(MAKE) -f app/CMakeFiles/profile_kll.dir/build.make app/CMakeFiles/profile_kll.dir/depend
 	$(MAKE) -f app/CMakeFiles/profile_kll.dir/build.make app/CMakeFiles/profile_kll.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=63,64 "Built target profile_kll"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=62,63 "Built target profile_kll"
 .PHONY : app/CMakeFiles/profile_kll.dir/all
 
 # Build rule for subdir invocation for target.
 app/CMakeFiles/profile_kll.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 11
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 12
 	$(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/profile_kll.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : app/CMakeFiles/profile_kll.dir/rule
@@ -2271,12 +2321,12 @@ app/CMakeFiles/build_streams.dir/all: src/CMakeFiles/QSBD_UTILS.dir/all
 app/CMakeFiles/build_streams.dir/all: src/CMakeFiles/QSBD_DEBUG.dir/all
 	$(MAKE) -f app/CMakeFiles/build_streams.dir/build.make app/CMakeFiles/build_streams.dir/depend
 	$(MAKE) -f app/CMakeFiles/build_streams.dir/build.make app/CMakeFiles/build_streams.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=44 "Built target build_streams"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=43,44 "Built target build_streams"
 .PHONY : app/CMakeFiles/build_streams.dir/all
 
 # Build rule for subdir invocation for target.
 app/CMakeFiles/build_streams.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 5
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 6
 	$(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/build_streams.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : app/CMakeFiles/build_streams.dir/rule
@@ -2304,7 +2354,7 @@ app/CMakeFiles/stream_creator.dir/all: src/CMakeFiles/QSBD_GLOBAL_GEN.dir/all
 app/CMakeFiles/stream_creator.dir/all: src/CMakeFiles/QSBD_LOG.dir/all
 	$(MAKE) -f app/CMakeFiles/stream_creator.dir/build.make app/CMakeFiles/stream_creator.dir/depend
 	$(MAKE) -f app/CMakeFiles/stream_creator.dir/build.make app/CMakeFiles/stream_creator.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=73,74 "Built target stream_creator"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=74,75 "Built target stream_creator"
 .PHONY : app/CMakeFiles/stream_creator.dir/all
 
 # Build rule for subdir invocation for target.

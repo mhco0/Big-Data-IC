@@ -86,7 +86,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\src;C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\googletest\googletest\include;C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\googletest\googletest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) -g</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -104,10 +104,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\src;C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\googletest\googletest\include;C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\googletest\googletest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\src;C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\googletest\googletest\include;C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\googletest\googletest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -115,7 +115,7 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>..\lib\Debug\gtest_maind.lib;..\lib\Debug\QSBD_CONFIG.lib;..\lib\Debug\QSBD_DEBUG.lib;..\lib\Debug\QSBD_UTILS.lib;..\lib\Debug\gtestd.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>gtest_main.lib;..\lib\Debug\QSBD_CONFIG.lib;..\lib\Debug\QSBD_DEBUG.lib;..\lib\Debug\QSBD_UTILS.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64 -g -Wall</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -130,7 +130,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\src;C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\googletest\googletest\include;C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\googletest\googletest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) -g</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>Sync</ExceptionHandling>
@@ -148,10 +148,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\src;C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\googletest\googletest\include;C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\googletest\googletest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\src;C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\googletest\googletest\include;C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\googletest\googletest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -159,7 +159,7 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>..\lib\Release\gtest_main.lib;..\lib\Release\QSBD_CONFIG.lib;..\lib\Release\QSBD_DEBUG.lib;..\lib\Release\QSBD_UTILS.lib;..\lib\Release\gtest.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>gtest_main.lib;..\lib\Release\QSBD_CONFIG.lib;..\lib\Release\QSBD_DEBUG.lib;..\lib\Release\QSBD_UTILS.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64 -g -Wall</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
@@ -174,7 +174,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\src;C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\googletest\googletest\include;C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\googletest\googletest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) -g</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>Sync</ExceptionHandling>
@@ -192,10 +192,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"MinSizeRel\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\src;C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\googletest\googletest\include;C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\googletest\googletest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\src;C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\googletest\googletest\include;C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\googletest\googletest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -203,7 +203,7 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>..\lib\MinSizeRel\gtest_main.lib;..\lib\MinSizeRel\QSBD_CONFIG.lib;..\lib\MinSizeRel\QSBD_DEBUG.lib;..\lib\MinSizeRel\QSBD_UTILS.lib;..\lib\MinSizeRel\gtest.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>gtest_main.lib;..\lib\MinSizeRel\QSBD_CONFIG.lib;..\lib\MinSizeRel\QSBD_DEBUG.lib;..\lib\MinSizeRel\QSBD_UTILS.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64 -g -Wall</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
@@ -218,7 +218,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\src;C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\googletest\googletest\include;C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\googletest\googletest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) -g</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -235,10 +235,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"RelWithDebInfo\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\src;C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\googletest\googletest\include;C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\googletest\googletest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\src;C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\googletest\googletest\include;C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\googletest\googletest;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -246,7 +246,7 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>..\lib\RelWithDebInfo\gtest_main.lib;..\lib\RelWithDebInfo\QSBD_CONFIG.lib;..\lib\RelWithDebInfo\QSBD_DEBUG.lib;..\lib\RelWithDebInfo\QSBD_UTILS.lib;..\lib\RelWithDebInfo\gtest.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>gtest_main.lib;..\lib\RelWithDebInfo\QSBD_CONFIG.lib;..\lib\RelWithDebInfo\QSBD_DEBUG.lib;..\lib\RelWithDebInfo\QSBD_UTILS.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64 -g -Wall</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -336,14 +336,6 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ProjectReference Include="C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\build\src\QSBD_UTILS.vcxproj">
       <Project>{A1227CE1-0CCB-3655-8AF9-CEA83EBE85D3}</Project>
       <Name>QSBD_UTILS</Name>
-    </ProjectReference>
-    <ProjectReference Include="C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\build\googletest\googletest\gtest.vcxproj">
-      <Project>{048054D8-7689-310A-A704-41CF1602641D}</Project>
-      <Name>gtest</Name>
-    </ProjectReference>
-    <ProjectReference Include="C:\Users\Marcos\Desktop\Meus projetos\Big-Data-IC\build\googletest\googletest\gtest_main.vcxproj">
-      <Project>{07D39BF4-9039-375D-8DB2-1EE8E9C4F6A0}</Project>
-      <Name>gtest_main</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

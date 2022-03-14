@@ -591,6 +591,71 @@ namespace qsbd {
 		}
 
 		/**
+		 * @brief Queries the cdf of some object @p value with certain @p region 
+		 * @param region A AABB region to be queried.
+		 * @param value The object to be queried.
+		 * @return The estimated probability for some value be less than this object @p value in the @p region
+		*/
+		double cdf(const aabb<int>& region, ObjType value){
+			// is we are using sketchs on all nodes and the bounds are all inside the query region 
+			// we can ask this faster in the root sketch
+			if(not this->only_leaf and this->boundarys.is_inside(region)){
+				double ret = this->root->payload->cdf(value);
+
+				return ret;
+			}
+
+			aabb<int> cur_box(this->boundarys);
+			quantile_sketch<ObjType> * sketch = this->factory->instance();
+
+			//This 0 because here we start from the root
+			if(this->only_leaf) search_region_only_leaf(-1, region, 0, cur_box, sketch);
+			else search_region(-1, region, 0, cur_box, sketch);
+
+			double ret = sketch->cdf(value);
+
+			delete sketch;
+
+			return ret;
+		}
+
+		/**
+		 * @brief Queries the cdfs of some objects @p value with certain @p region 
+		 * @param region A AABB region to be queried.
+		 * @param value The object to be queried.
+		 * @return The estimated probability for some value be less than this object @p value in the @p region
+		*/
+		std::vector<double> cdfs(const aabb<int>& region, const std::vector<ObjType>& values){
+			std::vector<double> rets;
+			rets.reserve(values.size());
+
+			// is we are using sketchs on all nodes and the bounds are all inside the query region 
+			// we can ask this faster in the root sketch
+			if(not this->only_leaf and this->boundarys.is_inside(region)){
+				for(auto& value : values){
+					rets.emplace_back(this->root->payload->cdf(value));
+				}
+
+				return rets;
+			}
+
+			aabb<int> cur_box(this->boundarys);
+			quantile_sketch<ObjType> * sketch = this->factory->instance();
+
+			//This 0 because here we start from the root
+			if(this->only_leaf) search_region_only_leaf(-1, region, 0, cur_box, sketch);
+			else search_region(-1, region, 0, cur_box, sketch);
+
+			for(auto& value : values){
+				rets.emplace_back(sketch->cdf(value));
+			}
+
+			delete sketch;
+
+			return rets;
+		}
+
+		/**
 		 * @brief Queries the quantiles of some @p region 
 		 * @param region A AABB region to be queried.
 		 * @param quants A vector of each quantile to be queried.
