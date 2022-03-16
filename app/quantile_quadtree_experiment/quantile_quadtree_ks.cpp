@@ -17,6 +17,24 @@ using namespace stream_maker;
 
 using regions_samples = vector<pair<aabb<int>, aabb<int>>>;
 
+struct ks_compair_qq_t {
+	vector<double> left_region_cdf;
+	vector<double> right_region_cdf;
+	vector<double> lhs_gk_cdf;
+	vector<double> lhs_kll_cdf;
+	vector<double> lhs_q_digest_cdf;
+	vector<double> lhs_dcs_cdf;
+	vector<double> rhs_gk_cdf;
+	vector<double> rhs_kll_cdf;
+	vector<double> rhs_q_digest_cdf;
+	vector<double> rhs_dcs_cdf;
+	double max_distance_distributions;
+	double max_distance_gk;
+	double max_distance_kll;
+	double max_distance_q_digest;
+	double max_distance_dcs;
+};
+
 short direction(const aabb<int>& box, const point<int>& pos){
     int center_x = (box.bounds().first.x() + box.bounds().second.x()) / 2;
     int center_y = (box.bounds().first.y() + box.bounds().second.y()) / 2;
@@ -127,7 +145,7 @@ pair<vector<double>, vector<double>> real_cdfs_from_region_pair(const vector<pai
 	return {lhs_cdf, rhs_cdf};
 }
 
-void test_quantile_quadtree_ks(const int& samples, const int& start_point, const int& end_point, const int& step, const int& citys, const double& max_radius, const double& err, const int& depth, const bool& only_leaf, const double * bounds){
+vector<ks_compair_qq_t> test_quantile_quadtree_ks(const int& samples, const int& start_point, const int& end_point, const int& step, const int& citys, const double& max_radius, const double& err, const int& universe, const int& depth, const bool& only_leaf, const double * bounds){
 	int discrete_bounds[4] = {0, 0, 0, 0};
 
 	ASSERT((sizeof(bounds) / sizeof(double)) == 4);
@@ -152,6 +170,7 @@ void test_quantile_quadtree_ks(const int& samples, const int& start_point, const
 	regions_samples regions_to_search = all_pairs_in_resolution(depth);
 	vector<int> values_to_search;
 	vector<pair<int, pair<double, double>>> stream = random_stream_city(samples, bounds[0], bounds[1], bounds[2], bounds[3], MIN_VALUE_IN_STREAM, MAX_VALUE_IN_STREAM, citys, max_radius);
+	vector<ks_compair_qq_t> tests;
 
 	q_digest_factory qd_factory(error, universe);
 	dcs_factory dcs_factory(error, universe);
@@ -177,31 +196,79 @@ void test_quantile_quadtree_ks(const int& samples, const int& start_point, const
 	}
 
 	for(auto& region : regions_to_search){
-		pair<vector<double>, vector<double>> real_cdfs = real_cdfs_from_region_pair(stream, region, depth, bounds, start_point, end_point, step)
+		pair<vector<double>, vector<double>> real_cdfs = real_cdfs_from_region_pair(stream, region, depth, bounds, start_point, end_point, step);
+		vector<double> lhs_cdf = real_cdfs.first;
+		vector<double> rhs_cdf = real_cdfs.second;
+		double max_distance_distributions = numeric_limits<double>::min();
+		double max_distance_q_digest = numeric_limits<double>::min();
+		double max_distance_dcs = numeric_limits<double>::min();
+		double max_distance_kll = numeric_limits<double>::min();
+		double max_distance_gk = numeric_limits<double>::min();
 
-		vector<double> lhs_q_digest_cdfs = qq_qd_test.cdfs(region.first, values_to_search);
-		vector<double> lhs_dcs_cdfs = qq_dcs_test.cdfs(region.first, values_to_search);
-		vector<double> lhs_kll_cdfs = qq_kll_test.cdfs(region.first, values_to_search);
-		vector<double> lhs_gk_cdfs = qq_gk_test.cdfs(region.first, values_to_search);
+		vector<double> lhs_q_digest_cdf = qq_qd_test.cdfs(region.first, values_to_search);
+		vector<double> lhs_dcs_cdf = qq_dcs_test.cdfs(region.first, values_to_search);
+		vector<double> lhs_kll_cdf = qq_kll_test.cdfs(region.first, values_to_search);
+		vector<double> lhs_gk_cdf = qq_gk_test.cdfs(region.first, values_to_search);
 
-		vector<double> rhs_q_digest_cdfs = qq_qd_test.cdfs(region.second, values_to_search);
-		vector<double> rhs_dcs_cdfs = qq_dcs_test.cdfs(region.second, values_to_search);
-		vector<double> rhs_kll_cdfs = qq_kll_test.cdfs(region.second, values_to_search);
-		vector<double> rhs_gk_cdfs = qq_gk_test.cdfs(region.second, values_to_search);
+		vector<double> rhs_q_digest_cdf = qq_qd_test.cdfs(region.second, values_to_search);
+		vector<double> rhs_dcs_cdf = qq_dcs_test.cdfs(region.second, values_to_search);
+		vector<double> rhs_kll_cdf = qq_kll_test.cdfs(region.second, values_to_search);
+		vector<double> rhs_gk_cdf = qq_gk_test.cdfs(region.second, values_to_search);
+
+		ASSERT(lhs_cdf.size() == rhs_cdf.size());
+		ASSERT(lhs_cdf.size() == lhs_q_digest_cdf.size() == rhs_q_digest_cdf.size());
+		ASSERT(lhs_cdf.size() == lhs_dcs_cdf.size() == rhs_dcs_cdf.size());
+		ASSERT(lhs_cdf.size() == lhs_kll_cdf.size() == rhs_kll_cdf.size());
+		ASSERT(lhs_cdf.size() == lhs_gk_cdf.size() == rhs_gk_cdf.size());
+
+		for(size_t i = 0; i < lhs_cdf.size(); i++){
+			double distribution_distance = fabs(lhs_cdf[i] - rhs_cdf[i]);
+			double q_digest_distance = fabs(lhs_q_digest_cdf[i] - rhs_q_digest_cdf[i]);
+			double dcs_distance = fabs(lhs_dcs_cdf[i] - rhs_dcs_cdf[i]);
+			double kll_distance = fabs(lhs_kll_cdf[i] - rhs_kll_cdf[i]);
+			double gk_distance = fabs(lhs_gk_cdf[i] - rhs_gk_cdf[i]);
+		
+			max_distance_distributions = max(max_distance_distributions, distribution_distance);
+			max_distance_q_digest = max(max_distance_q_digest, q_digest_distance);
+			max_distance_dcs = max(max_distance_dcs, dcs_distance);
+			max_distance_kll = max(max_distance_kll, kll_distance);
+			max_distance_gk = max(max_distance_gk, gk_distance);
+		}
+
+		ks_compair_qq_t test = {
+			.left_region_cdf = lhs_cdf,
+		 	.right_region_cdf = rhs_cdf, 
+		 	.lhs_gk_cdf = lhs_gk_cdf,
+			.lhs_kll_cdf = lhs_kll_cdf,
+			.lhs_q_digest_cdf = lhs_q_digest_cdf,
+			.lhs_dcs_cdf = lhs_dcs_cdf,
+			.rhs_gk_cdf = rhs_gk_cdf,
+			.rhs_kll_cdf = rhs_kll_cdf,
+			.rhs_q_digest_cdf = rhs_q_digest_cdf,
+			.rhs_dcs_cdf = rhs_dcs_cdf,
+			.max_distance_distributions = max_distance_distributions,
+			.max_distance_gk = max_distance_gk,
+			.max_distance_kll = max_distance_kll,
+			.max_distance_q_digest = max_distance_q_digest,
+			.max_distance_dcs = max_distance_dcs,
+	 	};
+
+		tests.emplace_back(test);
 	}
 
+	return tests;
 }
 
 void help(){
     cout << "This program shows some results of the test for the kolmogorov-smirnov algorithm in the quantile quadtree." << endl;
 	cout << "Usage: " << endl;
-	cout << "./quantile_quadtree_ks samples start_point end_point step mean std error universe depth only_leafs min_x min_y max_x max_y" << endl;
+	cout << "./quantile_quadtree_ks samples start_point end_point step citys max_radius error universe depth only_leafs min_x min_y max_x max_y" << endl;
 	cout << "samples: The number of samples collected by each distribution" << endl;
 	cout << "start_point: The start point to collect in the cdf" << endl;
 	cout << "end_point: The end point to collect in the cdf" << endl;
 	cout << "step: The step between the end and the start point" << endl;
-	cout << "mean: The  mean value for the range of tested values in the distribution" << endl;
-	cout << "std: The  std value for the range of tested values in the distribution" << endl;
+	cout << "citys: The number of citys in the distribution" << endl;
+	cout << "max_radius: The max radius for each city in the distribution" << endl;
 	cout << "error: The epsilon error for each sketch" << endl;
 	cout << "universe: The universe of values range for the sketches that need it" << endl;
     cout << "depth: The max depth for the quantile quadtree" << endl;
@@ -210,6 +277,21 @@ void help(){
     cout << "min_y: The minimum y bound for the points" << endl; 
     cout << "max_x: The maximum x bound for the points" << endl; 
     cout << "max_y: The maximum y bound for the points" << endl; 
+}
+
+void save_csv_compair(const string& prefix, const vector<ks_compair_qq_t>& tests){
+	string ks_filename = "ks_distances.csv";
+	fstream out;
+
+	out.open(prefix + ks_filename, fstream::out);
+
+	out << "max_distance_distributions,max_distance_gk,max_distance_kll,max_distance_q_digest,max_distance_dcs\n";
+
+	for(const ks_compair_qq_t& test : tests){
+		out << test.max_distance_distributions << "," << test.max_distance_gk << "," << test.max_distance_kll << "," << test.max_distance_q_digest << "," << test.max_distance_dcs << "\n";
+	}
+
+	out.close();
 }
 
 int main(int argc, char* argv[]){
@@ -224,15 +306,19 @@ int main(int argc, char* argv[]){
 	int start_point = stoi(args[1]);
 	int end_point = stoi(args[2]);
 	int step = stoi(args[3]);
-	double mean = stod(args[4]);
-	double std = stod(args[5]);
+	int citys = stoi(args[4]);
+	double max_radius = stod(args[5]);
 	double error = stod(args[6]);
 	int universe = stoi(args[7]);
 	int depth = stoi(args[8]);
     bool only_leafs = (bool) stoi(args[9]);
 	double bounds[4] = {stod(args[10]), stod(args[11]), stod(args[12]), stod(args[13])};
 
-	test_quantile_quadtree_ks_with_kll(samples, start_point, end_point, step, mean, std, error, depth, only_leafs, bounds);
+	vector<ks_compair_qq_t> tests = test_quantile_quadtree_ks_with_kll(samples, start_point, end_point, step, citys, max_radius, error, universe, depth, only_leafs, bounds);
+
+	string use_leafs = only_leafs ? "leaf" : "";
+
+	save_csv_compair("ks_quantile_test_" + to_string(depth) + "_" + use_leafs + "_" + to_string(error), tests);
  
     return 0;
 }
