@@ -85,11 +85,6 @@ void change_box(aabb<int>& cur_box, short direction){
 }
 
 void write_bounds(aabb<int>& root_box, int depth, const int& max_depth, vector<aabb<int>>& out){
-    int iminx = root_box.bounds().first.x();
-    int iminy = root_box.bounds().first.y();
-    int imaxx = root_box.bounds().second.x();
-    int imaxy = root_box.bounds().second.y();
-
 
     if(depth == max_depth or unit_box(root_box)){
         out.emplace_back(root_box);
@@ -112,7 +107,9 @@ regions_samples all_pairs_in_resolution(const int& depth){
 
 	regions_samples all_pairs;
 
-	write_bounds(max_bound, 0, depth, bounds);
+	for(int i = 0; i <= depth; i++){
+		write_bounds(max_bound, 0, i, bounds);
+	}
 
 	for(size_t i = 0; i < bounds.size(); i++){
 		for(size_t j = i + 1; j < bounds.size(); j++){
@@ -123,20 +120,25 @@ regions_samples all_pairs_in_resolution(const int& depth){
 	return all_pairs;
 }
 
-pair<vector<double>, vector<double>> real_cdfs_from_region_pair(const vector<pair<int, pair<double, double>>>& stream, const pair<aabb<int>, pair<aabb<int>>>& regions, const int& depth, const double * bounds, const int& start_point, const int& end_point, const int& step){
-	ASSERT((sizeof(bounds) / sizeof(double)) == 4);
+pair<vector<double>, vector<double>> real_cdfs_from_region_pair(const vector<pair<int, pair<double, double>>>& stream, const pair<aabb<int>, aabb<int>>& regions, const int& depth, const double * bounds, const int& start_point, const int& end_point, const int& step, bool& have_data){
 
 	vector<int> lhs_samples;
 	vector<int> rhs_samples;
 
 	for(auto& it : stream){
-		if (regions.first.contains()){
+		point<int> coord(map_coord(it.second.first, bounds[0], bounds[2], depth), map_coord(it.second.second, bounds[1], bounds[3], depth));
+		
+		if (regions.first.contains(coord)){
 			lhs_samples.push_back(it.first);
 		}
 
-		if (regions.second.contains()){
+		if (regions.second.contains(coord)){
 			rhs_samples.push_back(it.first);
 		}
+	}
+
+	if(rhs_samples.size() != 0 and lhs_samples.size() != 0){
+		have_data = true;
 	}
 
 	vector<double> lhs_cdf = cdf_from_samples(lhs_samples, start_point, end_point, step);
@@ -145,10 +147,8 @@ pair<vector<double>, vector<double>> real_cdfs_from_region_pair(const vector<pai
 	return {lhs_cdf, rhs_cdf};
 }
 
-vector<ks_compair_qq_t> test_quantile_quadtree_ks(const int& samples, const int& start_point, const int& end_point, const int& step, const int& citys, const double& max_radius, const double& err, const int& universe, const int& depth, const bool& only_leaf, const double * bounds){
+vector<ks_compair_qq_t> test_quantile_quadtree_ks(const int& samples, const int& start_point, const int& end_point, const int& step, const int& citys, const double& max_radius, const double& err, const int& universe, const int& depth, const bool& only_leafs, const double * bounds){
 	int discrete_bounds[4] = {0, 0, 0, 0};
-
-	ASSERT((sizeof(bounds) / sizeof(double)) == 4);
 
 	cout << "Discrete bounds : " << endl;
 	for(int i = 0; i < 4; i++){
@@ -166,16 +166,18 @@ vector<ks_compair_qq_t> test_quantile_quadtree_ks(const int& samples, const int&
 	}
 	cout << endl;
 
+	cout << "Only leafs : " << only_leafs << endl;
+
  	aabb<int> bound_box(discrete_bounds[0], discrete_bounds[1], discrete_bounds[2], discrete_bounds[3]);
 	regions_samples regions_to_search = all_pairs_in_resolution(depth);
 	vector<int> values_to_search;
 	vector<pair<int, pair<double, double>>> stream = random_stream_city(samples, bounds[0], bounds[1], bounds[2], bounds[3], MIN_VALUE_IN_STREAM, MAX_VALUE_IN_STREAM, citys, max_radius);
 	vector<ks_compair_qq_t> tests;
 
-	q_digest_factory qd_factory(error, universe);
-	dcs_factory dcs_factory(error, universe);
-	kll_factory kll_factory(error);
-	gk_factory gk_factory(error);
+	q_digest_factory qd_factory(err, universe);
+	dcs_factory dcs_factory(err, universe);
+	kll_factory<int> kll_factory(err);
+	gk_factory<int> gk_factory(err);
 
     quantile_quadtree<int> qq_qd_test(bound_box, depth, &qd_factory, only_leafs);
 	quantile_quadtree<int> qq_dcs_test(bound_box, depth, &dcs_factory, only_leafs);
@@ -196,7 +198,8 @@ vector<ks_compair_qq_t> test_quantile_quadtree_ks(const int& samples, const int&
 	}
 
 	for(auto& region : regions_to_search){
-		pair<vector<double>, vector<double>> real_cdfs = real_cdfs_from_region_pair(stream, region, depth, bounds, start_point, end_point, step);
+		bool have_data = false;
+		pair<vector<double>, vector<double>> real_cdfs = real_cdfs_from_region_pair(stream, region, depth, bounds, start_point, end_point, step, have_data);
 		vector<double> lhs_cdf = real_cdfs.first;
 		vector<double> rhs_cdf = real_cdfs.second;
 		double max_distance_distributions = numeric_limits<double>::min();
@@ -216,44 +219,47 @@ vector<ks_compair_qq_t> test_quantile_quadtree_ks(const int& samples, const int&
 		vector<double> rhs_gk_cdf = qq_gk_test.cdfs(region.second, values_to_search);
 
 		ASSERT(lhs_cdf.size() == rhs_cdf.size());
-		ASSERT(lhs_cdf.size() == lhs_q_digest_cdf.size() == rhs_q_digest_cdf.size());
-		ASSERT(lhs_cdf.size() == lhs_dcs_cdf.size() == rhs_dcs_cdf.size());
-		ASSERT(lhs_cdf.size() == lhs_kll_cdf.size() == rhs_kll_cdf.size());
-		ASSERT(lhs_cdf.size() == lhs_gk_cdf.size() == rhs_gk_cdf.size());
+		ASSERT((lhs_cdf.size() == lhs_q_digest_cdf.size()) and (lhs_q_digest_cdf.size() == rhs_q_digest_cdf.size()));
+		ASSERT((lhs_cdf.size() == lhs_dcs_cdf.size()) and (lhs_dcs_cdf.size() == rhs_dcs_cdf.size()));
+		ASSERT((lhs_cdf.size() == lhs_kll_cdf.size()) and (lhs_kll_cdf.size() == rhs_kll_cdf.size()));
+		ASSERT((lhs_cdf.size() == lhs_gk_cdf.size()) and (lhs_gk_cdf.size() == rhs_gk_cdf.size()));
 
-		for(size_t i = 0; i < lhs_cdf.size(); i++){
-			double distribution_distance = fabs(lhs_cdf[i] - rhs_cdf[i]);
-			double q_digest_distance = fabs(lhs_q_digest_cdf[i] - rhs_q_digest_cdf[i]);
-			double dcs_distance = fabs(lhs_dcs_cdf[i] - rhs_dcs_cdf[i]);
-			double kll_distance = fabs(lhs_kll_cdf[i] - rhs_kll_cdf[i]);
-			double gk_distance = fabs(lhs_gk_cdf[i] - rhs_gk_cdf[i]);
+		if(have_data){
+			for(size_t i = 0; i < lhs_cdf.size(); i++){
+				double distribution_distance = fabs(lhs_cdf[i] - rhs_cdf[i]);
+				double q_digest_distance = fabs(lhs_q_digest_cdf[i] - rhs_q_digest_cdf[i]);
+				double dcs_distance = fabs(lhs_dcs_cdf[i] - rhs_dcs_cdf[i]);
+				double kll_distance = fabs(lhs_kll_cdf[i] - rhs_kll_cdf[i]);
+				double gk_distance = fabs(lhs_gk_cdf[i] - rhs_gk_cdf[i]);
+			
+				max_distance_distributions = max(max_distance_distributions, distribution_distance);
+				max_distance_q_digest = max(max_distance_q_digest, q_digest_distance);
+				max_distance_dcs = max(max_distance_dcs, dcs_distance);
+				max_distance_kll = max(max_distance_kll, kll_distance);
+				max_distance_gk = max(max_distance_gk, gk_distance);
+			}
+
 		
-			max_distance_distributions = max(max_distance_distributions, distribution_distance);
-			max_distance_q_digest = max(max_distance_q_digest, q_digest_distance);
-			max_distance_dcs = max(max_distance_dcs, dcs_distance);
-			max_distance_kll = max(max_distance_kll, kll_distance);
-			max_distance_gk = max(max_distance_gk, gk_distance);
-		}
+			ks_compair_qq_t test = {
+				.left_region_cdf = lhs_cdf,
+				.right_region_cdf = rhs_cdf, 
+				.lhs_gk_cdf = lhs_gk_cdf,
+				.lhs_kll_cdf = lhs_kll_cdf,
+				.lhs_q_digest_cdf = lhs_q_digest_cdf,
+				.lhs_dcs_cdf = lhs_dcs_cdf,
+				.rhs_gk_cdf = rhs_gk_cdf,
+				.rhs_kll_cdf = rhs_kll_cdf,
+				.rhs_q_digest_cdf = rhs_q_digest_cdf,
+				.rhs_dcs_cdf = rhs_dcs_cdf,
+				.max_distance_distributions = max_distance_distributions,
+				.max_distance_gk = max_distance_gk,
+				.max_distance_kll = max_distance_kll,
+				.max_distance_q_digest = max_distance_q_digest,
+				.max_distance_dcs = max_distance_dcs,
+			};
 
-		ks_compair_qq_t test = {
-			.left_region_cdf = lhs_cdf,
-		 	.right_region_cdf = rhs_cdf, 
-		 	.lhs_gk_cdf = lhs_gk_cdf,
-			.lhs_kll_cdf = lhs_kll_cdf,
-			.lhs_q_digest_cdf = lhs_q_digest_cdf,
-			.lhs_dcs_cdf = lhs_dcs_cdf,
-			.rhs_gk_cdf = rhs_gk_cdf,
-			.rhs_kll_cdf = rhs_kll_cdf,
-			.rhs_q_digest_cdf = rhs_q_digest_cdf,
-			.rhs_dcs_cdf = rhs_dcs_cdf,
-			.max_distance_distributions = max_distance_distributions,
-			.max_distance_gk = max_distance_gk,
-			.max_distance_kll = max_distance_kll,
-			.max_distance_q_digest = max_distance_q_digest,
-			.max_distance_dcs = max_distance_dcs,
-	 	};
-
-		tests.emplace_back(test);
+			tests.emplace_back(test);
+		}	
 	}
 
 	return tests;
@@ -314,11 +320,11 @@ int main(int argc, char* argv[]){
     bool only_leafs = (bool) stoi(args[9]);
 	double bounds[4] = {stod(args[10]), stod(args[11]), stod(args[12]), stod(args[13])};
 
-	vector<ks_compair_qq_t> tests = test_quantile_quadtree_ks_with_kll(samples, start_point, end_point, step, citys, max_radius, error, universe, depth, only_leafs, bounds);
+	vector<ks_compair_qq_t> tests = test_quantile_quadtree_ks(samples, start_point, end_point, step, citys, max_radius, error, universe, depth, only_leafs, bounds);
 
-	string use_leafs = only_leafs ? "leaf" : "";
+	string use_leafs = only_leafs ? "leaf_" : "";
 
-	save_csv_compair("ks_quantile_test_" + to_string(depth) + "_" + use_leafs + "_" + to_string(error), tests);
+	save_csv_compair("temp_ks_quantile_test_" + to_string(depth) + "_" + use_leafs + to_string(error) + "_", tests);
  
     return 0;
 }
