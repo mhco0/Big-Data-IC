@@ -14,6 +14,8 @@ namespace qsbd{
     }
 
     std::vector<double> cdf_from_samples(std::vector<int> samples, const int& start, const int& end, const int& step){
+        ASSERT(samples.size() > 0);
+        
         std::vector<double> cdf;
 
         std::sort(samples.begin(), samples.end());

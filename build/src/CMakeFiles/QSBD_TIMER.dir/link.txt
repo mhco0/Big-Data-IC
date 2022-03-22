@@ -1,2 +1,2 @@
-/bin/ar qc ../lib/libQSBD_TIMER.a  CMakeFiles/QSBD_TIMER.dir/timer/timer.cpp.o
-/bin/ranlib ../lib/libQSBD_TIMER.a
+/usr/bin/ar qc ../lib/libQSBD_TIMER.a  CMakeFiles/QSBD_TIMER.dir/timer/timer.cpp.o
+/usr/bin/ranlib ../lib/libQSBD_TIMER.a

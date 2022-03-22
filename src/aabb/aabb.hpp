@@ -107,6 +107,17 @@ namespace qsbd{
 		template<class U>
 		friend std::ostream& operator<<(std::ostream& os, const aabb<U>& box);
 	};
-
+	
+	/**
+	 * @brief A function to ouput aabb\<T\>
+	 * @tparam T The class to work with, sould be int, double or float
+	 * @param os The output stream
+	 * @param box The aabb to be outputed
+	 * @return The same as @p os
+	*/
+	template<class T>
+	std::ostream& operator<<(std::ostream& os, const aabb<T>& box) { 
+		return os << "[Bottom Left : (" << box.min_bound.x() << ", " << box.min_bound.y() << "), Top Right : (" << box.max_bound.x() << ", " << box.max_bound.y() << ")]";
+	}
 }
 #endif

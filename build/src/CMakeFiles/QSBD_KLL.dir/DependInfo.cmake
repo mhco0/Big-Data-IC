@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/kll/kll.cpp" "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/QSBD_KLL.dir/kll/kll.cpp.o"
+  "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/src/kll/kll.cpp" "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/src/CMakeFiles/QSBD_KLL.dir/kll/kll.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -14,9 +14,9 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/QSBD_COMMUM_HEADER.dir/DependInfo.cmake"
-  "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/QSBD_GLOBAL_GEN.dir/DependInfo.cmake"
-  "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/QSBD_DEBUG.dir/DependInfo.cmake"
+  "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/src/CMakeFiles/QSBD_COMMUM_HEADER.dir/DependInfo.cmake"
+  "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/src/CMakeFiles/QSBD_GLOBAL_GEN.dir/DependInfo.cmake"
+  "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/src/CMakeFiles/QSBD_DEBUG.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

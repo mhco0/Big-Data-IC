@@ -6,17 +6,17 @@
 
 #IncludeRegexTransform: 
 
-/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/aabb/aabb.cpp
+/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/src/aabb/aabb.cpp
 aabb.hpp
-/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/aabb/aabb.hpp
+/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/src/aabb/aabb.hpp
 
-/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/aabb/aabb.hpp
+/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/src/aabb/aabb.hpp
 ../point/point.hpp
-/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/point/point.hpp
+/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/src/point/point.hpp
 iostream
 -
 
-/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/commum_header/commum_header.h
+/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/src/commum_header/commum_header.h
 iostream
 -
 fstream
@@ -48,7 +48,7 @@ exception
 limits
 -
 
-/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/point/point.hpp
+/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/src/point/point.hpp
 ../commum_header/commum_header.h
-/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/commum_header/commum_header.h
+/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/src/commum_header/commum_header.h
 

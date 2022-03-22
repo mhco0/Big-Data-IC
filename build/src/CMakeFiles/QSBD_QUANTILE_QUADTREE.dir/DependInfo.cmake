@@ -5,11 +5,11 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/QSBD_QUANTILE_SKETCH.dir/DependInfo.cmake"
-  "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/QSBD_AABB.dir/DependInfo.cmake"
-  "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/QSBD_DEBUG.dir/DependInfo.cmake"
-  "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/QSBD_POINT.dir/DependInfo.cmake"
-  "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/src/CMakeFiles/QSBD_COMMUM_HEADER.dir/DependInfo.cmake"
+  "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/src/CMakeFiles/QSBD_QUANTILE_SKETCH.dir/DependInfo.cmake"
+  "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/src/CMakeFiles/QSBD_AABB.dir/DependInfo.cmake"
+  "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/src/CMakeFiles/QSBD_DEBUG.dir/DependInfo.cmake"
+  "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/src/CMakeFiles/QSBD_POINT.dir/DependInfo.cmake"
+  "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/src/CMakeFiles/QSBD_COMMUM_HEADER.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

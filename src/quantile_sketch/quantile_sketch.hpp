@@ -9,6 +9,7 @@
 #ifndef QSBD_QUANTILE_SKETCH
 #define QSBD_QUANTILE_SKETCH
 #include <cstdint>
+//#include <vector>
 
 namespace qsbd {
 
@@ -100,6 +101,11 @@ namespace qsbd {
 		 * @return The heap size for this class as if this was allocated by a quantile_sketch\<Type\> pointer.
 		*/
 		virtual uint64_t get_heap_size() = 0;
+		
+	
+		/*virtual std::vector<int> get_samples(){
+			return std::vector<int>();
+		}*/
 	};
 }
 

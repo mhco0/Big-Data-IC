@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC"
+CMAKE_SOURCE_DIR = "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build"
+CMAKE_BINARY_DIR = "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build"
 
 # Include any dependencies generated for this target.
 include app/CMakeFiles/quantile_quadtree_experiment.dir/depend.make
@@ -59,16 +59,16 @@ include app/CMakeFiles/quantile_quadtree_experiment.dir/flags.make
 
 app/CMakeFiles/quantile_quadtree_experiment.dir/quantile_quadtree_experiment/quantile_quadtree_experiment.cpp.o: app/CMakeFiles/quantile_quadtree_experiment.dir/flags.make
 app/CMakeFiles/quantile_quadtree_experiment.dir/quantile_quadtree_experiment/quantile_quadtree_experiment.cpp.o: ../app/quantile_quadtree_experiment/quantile_quadtree_experiment.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object app/CMakeFiles/quantile_quadtree_experiment.dir/quantile_quadtree_experiment/quantile_quadtree_experiment.cpp.o"
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/app" && /bin/x86_64-linux-gnu-g++-9  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/quantile_quadtree_experiment.dir/quantile_quadtree_experiment/quantile_quadtree_experiment.cpp.o -c "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/app/quantile_quadtree_experiment/quantile_quadtree_experiment.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object app/CMakeFiles/quantile_quadtree_experiment.dir/quantile_quadtree_experiment/quantile_quadtree_experiment.cpp.o"
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/app" && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/quantile_quadtree_experiment.dir/quantile_quadtree_experiment/quantile_quadtree_experiment.cpp.o -c "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/app/quantile_quadtree_experiment/quantile_quadtree_experiment.cpp"
 
 app/CMakeFiles/quantile_quadtree_experiment.dir/quantile_quadtree_experiment/quantile_quadtree_experiment.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/quantile_quadtree_experiment.dir/quantile_quadtree_experiment/quantile_quadtree_experiment.cpp.i"
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/app" && /bin/x86_64-linux-gnu-g++-9 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/app/quantile_quadtree_experiment/quantile_quadtree_experiment.cpp" > CMakeFiles/quantile_quadtree_experiment.dir/quantile_quadtree_experiment/quantile_quadtree_experiment.cpp.i
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/app" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/app/quantile_quadtree_experiment/quantile_quadtree_experiment.cpp" > CMakeFiles/quantile_quadtree_experiment.dir/quantile_quadtree_experiment/quantile_quadtree_experiment.cpp.i
 
 app/CMakeFiles/quantile_quadtree_experiment.dir/quantile_quadtree_experiment/quantile_quadtree_experiment.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/quantile_quadtree_experiment.dir/quantile_quadtree_experiment/quantile_quadtree_experiment.cpp.s"
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/app" && /bin/x86_64-linux-gnu-g++-9 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/app/quantile_quadtree_experiment/quantile_quadtree_experiment.cpp" -o CMakeFiles/quantile_quadtree_experiment.dir/quantile_quadtree_experiment/quantile_quadtree_experiment.cpp.s
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/app" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/app/quantile_quadtree_experiment/quantile_quadtree_experiment.cpp" -o CMakeFiles/quantile_quadtree_experiment.dir/quantile_quadtree_experiment/quantile_quadtree_experiment.cpp.s
 
 # Object files for target quantile_quadtree_experiment
 quantile_quadtree_experiment_OBJECTS = \
@@ -105,8 +105,8 @@ bin/quantile_quadtree_experiment: lib/libQSBD_QUANTILE_SKETCH.a
 bin/quantile_quadtree_experiment: lib/libQSBD_DEBUG.a
 bin/quantile_quadtree_experiment: lib/libnlohmann_json.a
 bin/quantile_quadtree_experiment: app/CMakeFiles/quantile_quadtree_experiment.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ../bin/quantile_quadtree_experiment"
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/app" && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/quantile_quadtree_experiment.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ../bin/quantile_quadtree_experiment"
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/app" && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/quantile_quadtree_experiment.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 app/CMakeFiles/quantile_quadtree_experiment.dir/build: bin/quantile_quadtree_experiment
@@ -114,10 +114,10 @@ app/CMakeFiles/quantile_quadtree_experiment.dir/build: bin/quantile_quadtree_exp
 .PHONY : app/CMakeFiles/quantile_quadtree_experiment.dir/build
 
 app/CMakeFiles/quantile_quadtree_experiment.dir/clean:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/app" && $(CMAKE_COMMAND) -P CMakeFiles/quantile_quadtree_experiment.dir/cmake_clean.cmake
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/app" && $(CMAKE_COMMAND) -P CMakeFiles/quantile_quadtree_experiment.dir/cmake_clean.cmake
 .PHONY : app/CMakeFiles/quantile_quadtree_experiment.dir/clean
 
 app/CMakeFiles/quantile_quadtree_experiment.dir/depend:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC" "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/app" "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/app" "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/app/CMakeFiles/quantile_quadtree_experiment.dir/DependInfo.cmake" --color=$(COLOR)
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC" "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/app" "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/app" "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/app/CMakeFiles/quantile_quadtree_experiment.dir/DependInfo.cmake" --color=$(COLOR)
 .PHONY : app/CMakeFiles/quantile_quadtree_experiment.dir/depend
 

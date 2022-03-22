@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC"
+CMAKE_SOURCE_DIR = "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build"
+CMAKE_BINARY_DIR = "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -91,14 +91,14 @@ test/fast: test
 
 # The main all target
 all: cmake_check_build_system
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test/CMakeFiles/progress.marks"
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 test/all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/CMakeFiles" 0
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/test/CMakeFiles/progress.marks"
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 test/all
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 test/clean
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 test/clean
 .PHONY : clean
 
 # The main clean target
@@ -108,22 +108,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 test/preinstall
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 test/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 test/preinstall
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 test/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 test/CMakeFiles/tester.dir/rule:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/tester.dir/rule
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/tester.dir/rule
 .PHONY : test/CMakeFiles/tester.dir/rule
 
 # Convenience name for target.
@@ -133,12 +133,12 @@ tester: test/CMakeFiles/tester.dir/rule
 
 # fast build rule for target.
 tester/fast:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/tester.dir/build.make test/CMakeFiles/tester.dir/build
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/tester.dir/build.make test/CMakeFiles/tester.dir/build
 .PHONY : tester/fast
 
 # Convenience name for target.
 test/CMakeFiles/test_log.dir/rule:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_log.dir/rule
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_log.dir/rule
 .PHONY : test/CMakeFiles/test_log.dir/rule
 
 # Convenience name for target.
@@ -148,12 +148,12 @@ test_log: test/CMakeFiles/test_log.dir/rule
 
 # fast build rule for target.
 test_log/fast:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_log.dir/build.make test/CMakeFiles/test_log.dir/build
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_log.dir/build.make test/CMakeFiles/test_log.dir/build
 .PHONY : test_log/fast
 
 # Convenience name for target.
 test/CMakeFiles/test_json.dir/rule:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_json.dir/rule
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_json.dir/rule
 .PHONY : test/CMakeFiles/test_json.dir/rule
 
 # Convenience name for target.
@@ -163,12 +163,12 @@ test_json: test/CMakeFiles/test_json.dir/rule
 
 # fast build rule for target.
 test_json/fast:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_json.dir/build.make test/CMakeFiles/test_json.dir/build
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_json.dir/build.make test/CMakeFiles/test_json.dir/build
 .PHONY : test_json/fast
 
 # Convenience name for target.
 test/CMakeFiles/test_stream_maker.dir/rule:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_stream_maker.dir/rule
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_stream_maker.dir/rule
 .PHONY : test/CMakeFiles/test_stream_maker.dir/rule
 
 # Convenience name for target.
@@ -178,12 +178,12 @@ test_stream_maker: test/CMakeFiles/test_stream_maker.dir/rule
 
 # fast build rule for target.
 test_stream_maker/fast:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_stream_maker.dir/build.make test/CMakeFiles/test_stream_maker.dir/build
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_stream_maker.dir/build.make test/CMakeFiles/test_stream_maker.dir/build
 .PHONY : test_stream_maker/fast
 
 # Convenience name for target.
 test/CMakeFiles/test_memory_tracker.dir/rule:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_memory_tracker.dir/rule
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_memory_tracker.dir/rule
 .PHONY : test/CMakeFiles/test_memory_tracker.dir/rule
 
 # Convenience name for target.
@@ -193,12 +193,12 @@ test_memory_tracker: test/CMakeFiles/test_memory_tracker.dir/rule
 
 # fast build rule for target.
 test_memory_tracker/fast:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_memory_tracker.dir/build.make test/CMakeFiles/test_memory_tracker.dir/build
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_memory_tracker.dir/build.make test/CMakeFiles/test_memory_tracker.dir/build
 .PHONY : test_memory_tracker/fast
 
 # Convenience name for target.
 test/CMakeFiles/test_kll.dir/rule:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_kll.dir/rule
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_kll.dir/rule
 .PHONY : test/CMakeFiles/test_kll.dir/rule
 
 # Convenience name for target.
@@ -208,12 +208,12 @@ test_kll: test/CMakeFiles/test_kll.dir/rule
 
 # fast build rule for target.
 test_kll/fast:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_kll.dir/build.make test/CMakeFiles/test_kll.dir/build
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_kll.dir/build.make test/CMakeFiles/test_kll.dir/build
 .PHONY : test_kll/fast
 
 # Convenience name for target.
 test/CMakeFiles/test_quantile_quadtree.dir/rule:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_quantile_quadtree.dir/rule
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_quantile_quadtree.dir/rule
 .PHONY : test/CMakeFiles/test_quantile_quadtree.dir/rule
 
 # Convenience name for target.
@@ -223,12 +223,12 @@ test_quantile_quadtree: test/CMakeFiles/test_quantile_quadtree.dir/rule
 
 # fast build rule for target.
 test_quantile_quadtree/fast:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_quantile_quadtree.dir/build.make test/CMakeFiles/test_quantile_quadtree.dir/build
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_quantile_quadtree.dir/build.make test/CMakeFiles/test_quantile_quadtree.dir/build
 .PHONY : test_quantile_quadtree/fast
 
 # Convenience name for target.
 test/CMakeFiles/test_kolmogorov.dir/rule:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_kolmogorov.dir/rule
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_kolmogorov.dir/rule
 .PHONY : test/CMakeFiles/test_kolmogorov.dir/rule
 
 # Convenience name for target.
@@ -238,12 +238,12 @@ test_kolmogorov: test/CMakeFiles/test_kolmogorov.dir/rule
 
 # fast build rule for target.
 test_kolmogorov/fast:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_kolmogorov.dir/build.make test/CMakeFiles/test_kolmogorov.dir/build
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_kolmogorov.dir/build.make test/CMakeFiles/test_kolmogorov.dir/build
 .PHONY : test_kolmogorov/fast
 
 # Convenience name for target.
 test/CMakeFiles/test_k_wise_family.dir/rule:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_k_wise_family.dir/rule
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_k_wise_family.dir/rule
 .PHONY : test/CMakeFiles/test_k_wise_family.dir/rule
 
 # Convenience name for target.
@@ -253,12 +253,12 @@ test_k_wise_family: test/CMakeFiles/test_k_wise_family.dir/rule
 
 # fast build rule for target.
 test_k_wise_family/fast:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_k_wise_family.dir/build.make test/CMakeFiles/test_k_wise_family.dir/build
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_k_wise_family.dir/build.make test/CMakeFiles/test_k_wise_family.dir/build
 .PHONY : test_k_wise_family/fast
 
 # Convenience name for target.
 test/CMakeFiles/test_quadtree.dir/rule:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_quadtree.dir/rule
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_quadtree.dir/rule
 .PHONY : test/CMakeFiles/test_quadtree.dir/rule
 
 # Convenience name for target.
@@ -268,12 +268,12 @@ test_quadtree: test/CMakeFiles/test_quadtree.dir/rule
 
 # fast build rule for target.
 test_quadtree/fast:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_quadtree.dir/build.make test/CMakeFiles/test_quadtree.dir/build
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_quadtree.dir/build.make test/CMakeFiles/test_quadtree.dir/build
 .PHONY : test_quadtree/fast
 
 # Convenience name for target.
 test/CMakeFiles/test_dcs.dir/rule:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_dcs.dir/rule
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_dcs.dir/rule
 .PHONY : test/CMakeFiles/test_dcs.dir/rule
 
 # Convenience name for target.
@@ -283,12 +283,12 @@ test_dcs: test/CMakeFiles/test_dcs.dir/rule
 
 # fast build rule for target.
 test_dcs/fast:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_dcs.dir/build.make test/CMakeFiles/test_dcs.dir/build
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_dcs.dir/build.make test/CMakeFiles/test_dcs.dir/build
 .PHONY : test_dcs/fast
 
 # Convenience name for target.
 test/CMakeFiles/test_count_sketch.dir/rule:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_count_sketch.dir/rule
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_count_sketch.dir/rule
 .PHONY : test/CMakeFiles/test_count_sketch.dir/rule
 
 # Convenience name for target.
@@ -298,12 +298,12 @@ test_count_sketch: test/CMakeFiles/test_count_sketch.dir/rule
 
 # fast build rule for target.
 test_count_sketch/fast:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_count_sketch.dir/build.make test/CMakeFiles/test_count_sketch.dir/build
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_count_sketch.dir/build.make test/CMakeFiles/test_count_sketch.dir/build
 .PHONY : test_count_sketch/fast
 
 # Convenience name for target.
 test/CMakeFiles/test_q_digest.dir/rule:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_q_digest.dir/rule
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_q_digest.dir/rule
 .PHONY : test/CMakeFiles/test_q_digest.dir/rule
 
 # Convenience name for target.
@@ -313,12 +313,12 @@ test_q_digest: test/CMakeFiles/test_q_digest.dir/rule
 
 # fast build rule for target.
 test_q_digest/fast:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_q_digest.dir/build.make test/CMakeFiles/test_q_digest.dir/build
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_q_digest.dir/build.make test/CMakeFiles/test_q_digest.dir/build
 .PHONY : test_q_digest/fast
 
 # Convenience name for target.
 test/CMakeFiles/test_config.dir/rule:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_config.dir/rule
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_config.dir/rule
 .PHONY : test/CMakeFiles/test_config.dir/rule
 
 # Convenience name for target.
@@ -328,12 +328,12 @@ test_config: test/CMakeFiles/test_config.dir/rule
 
 # fast build rule for target.
 test_config/fast:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_config.dir/build.make test/CMakeFiles/test_config.dir/build
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_config.dir/build.make test/CMakeFiles/test_config.dir/build
 .PHONY : test_config/fast
 
 # Convenience name for target.
 test/CMakeFiles/test_gk.dir/rule:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_gk.dir/rule
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_gk.dir/rule
 .PHONY : test/CMakeFiles/test_gk.dir/rule
 
 # Convenience name for target.
@@ -343,7 +343,7 @@ test_gk: test/CMakeFiles/test_gk.dir/rule
 
 # fast build rule for target.
 test_gk/fast:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_gk.dir/build.make test/CMakeFiles/test_gk.dir/build
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_gk.dir/build.make test/CMakeFiles/test_gk.dir/build
 .PHONY : test_gk/fast
 
 test_config.o: test_config.cpp.o
@@ -352,7 +352,7 @@ test_config.o: test_config.cpp.o
 
 # target to build an object file
 test_config.cpp.o:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_config.dir/build.make test/CMakeFiles/test_config.dir/test_config.cpp.o
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_config.dir/build.make test/CMakeFiles/test_config.dir/test_config.cpp.o
 .PHONY : test_config.cpp.o
 
 test_config.i: test_config.cpp.i
@@ -361,7 +361,7 @@ test_config.i: test_config.cpp.i
 
 # target to preprocess a source file
 test_config.cpp.i:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_config.dir/build.make test/CMakeFiles/test_config.dir/test_config.cpp.i
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_config.dir/build.make test/CMakeFiles/test_config.dir/test_config.cpp.i
 .PHONY : test_config.cpp.i
 
 test_config.s: test_config.cpp.s
@@ -370,7 +370,7 @@ test_config.s: test_config.cpp.s
 
 # target to generate assembly for a file
 test_config.cpp.s:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_config.dir/build.make test/CMakeFiles/test_config.dir/test_config.cpp.s
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_config.dir/build.make test/CMakeFiles/test_config.dir/test_config.cpp.s
 .PHONY : test_config.cpp.s
 
 test_count_sketch.o: test_count_sketch.cpp.o
@@ -379,7 +379,7 @@ test_count_sketch.o: test_count_sketch.cpp.o
 
 # target to build an object file
 test_count_sketch.cpp.o:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_count_sketch.dir/build.make test/CMakeFiles/test_count_sketch.dir/test_count_sketch.cpp.o
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_count_sketch.dir/build.make test/CMakeFiles/test_count_sketch.dir/test_count_sketch.cpp.o
 .PHONY : test_count_sketch.cpp.o
 
 test_count_sketch.i: test_count_sketch.cpp.i
@@ -388,7 +388,7 @@ test_count_sketch.i: test_count_sketch.cpp.i
 
 # target to preprocess a source file
 test_count_sketch.cpp.i:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_count_sketch.dir/build.make test/CMakeFiles/test_count_sketch.dir/test_count_sketch.cpp.i
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_count_sketch.dir/build.make test/CMakeFiles/test_count_sketch.dir/test_count_sketch.cpp.i
 .PHONY : test_count_sketch.cpp.i
 
 test_count_sketch.s: test_count_sketch.cpp.s
@@ -397,7 +397,7 @@ test_count_sketch.s: test_count_sketch.cpp.s
 
 # target to generate assembly for a file
 test_count_sketch.cpp.s:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_count_sketch.dir/build.make test/CMakeFiles/test_count_sketch.dir/test_count_sketch.cpp.s
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_count_sketch.dir/build.make test/CMakeFiles/test_count_sketch.dir/test_count_sketch.cpp.s
 .PHONY : test_count_sketch.cpp.s
 
 test_dcs.o: test_dcs.cpp.o
@@ -406,7 +406,7 @@ test_dcs.o: test_dcs.cpp.o
 
 # target to build an object file
 test_dcs.cpp.o:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_dcs.dir/build.make test/CMakeFiles/test_dcs.dir/test_dcs.cpp.o
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_dcs.dir/build.make test/CMakeFiles/test_dcs.dir/test_dcs.cpp.o
 .PHONY : test_dcs.cpp.o
 
 test_dcs.i: test_dcs.cpp.i
@@ -415,7 +415,7 @@ test_dcs.i: test_dcs.cpp.i
 
 # target to preprocess a source file
 test_dcs.cpp.i:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_dcs.dir/build.make test/CMakeFiles/test_dcs.dir/test_dcs.cpp.i
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_dcs.dir/build.make test/CMakeFiles/test_dcs.dir/test_dcs.cpp.i
 .PHONY : test_dcs.cpp.i
 
 test_dcs.s: test_dcs.cpp.s
@@ -424,7 +424,7 @@ test_dcs.s: test_dcs.cpp.s
 
 # target to generate assembly for a file
 test_dcs.cpp.s:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_dcs.dir/build.make test/CMakeFiles/test_dcs.dir/test_dcs.cpp.s
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_dcs.dir/build.make test/CMakeFiles/test_dcs.dir/test_dcs.cpp.s
 .PHONY : test_dcs.cpp.s
 
 test_gk.o: test_gk.cpp.o
@@ -433,7 +433,7 @@ test_gk.o: test_gk.cpp.o
 
 # target to build an object file
 test_gk.cpp.o:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_gk.dir/build.make test/CMakeFiles/test_gk.dir/test_gk.cpp.o
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_gk.dir/build.make test/CMakeFiles/test_gk.dir/test_gk.cpp.o
 .PHONY : test_gk.cpp.o
 
 test_gk.i: test_gk.cpp.i
@@ -442,7 +442,7 @@ test_gk.i: test_gk.cpp.i
 
 # target to preprocess a source file
 test_gk.cpp.i:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_gk.dir/build.make test/CMakeFiles/test_gk.dir/test_gk.cpp.i
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_gk.dir/build.make test/CMakeFiles/test_gk.dir/test_gk.cpp.i
 .PHONY : test_gk.cpp.i
 
 test_gk.s: test_gk.cpp.s
@@ -451,7 +451,7 @@ test_gk.s: test_gk.cpp.s
 
 # target to generate assembly for a file
 test_gk.cpp.s:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_gk.dir/build.make test/CMakeFiles/test_gk.dir/test_gk.cpp.s
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_gk.dir/build.make test/CMakeFiles/test_gk.dir/test_gk.cpp.s
 .PHONY : test_gk.cpp.s
 
 test_json.o: test_json.cpp.o
@@ -460,7 +460,7 @@ test_json.o: test_json.cpp.o
 
 # target to build an object file
 test_json.cpp.o:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_json.dir/build.make test/CMakeFiles/test_json.dir/test_json.cpp.o
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_json.dir/build.make test/CMakeFiles/test_json.dir/test_json.cpp.o
 .PHONY : test_json.cpp.o
 
 test_json.i: test_json.cpp.i
@@ -469,7 +469,7 @@ test_json.i: test_json.cpp.i
 
 # target to preprocess a source file
 test_json.cpp.i:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_json.dir/build.make test/CMakeFiles/test_json.dir/test_json.cpp.i
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_json.dir/build.make test/CMakeFiles/test_json.dir/test_json.cpp.i
 .PHONY : test_json.cpp.i
 
 test_json.s: test_json.cpp.s
@@ -478,7 +478,7 @@ test_json.s: test_json.cpp.s
 
 # target to generate assembly for a file
 test_json.cpp.s:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_json.dir/build.make test/CMakeFiles/test_json.dir/test_json.cpp.s
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_json.dir/build.make test/CMakeFiles/test_json.dir/test_json.cpp.s
 .PHONY : test_json.cpp.s
 
 test_k_wise_family.o: test_k_wise_family.cpp.o
@@ -487,7 +487,7 @@ test_k_wise_family.o: test_k_wise_family.cpp.o
 
 # target to build an object file
 test_k_wise_family.cpp.o:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_k_wise_family.dir/build.make test/CMakeFiles/test_k_wise_family.dir/test_k_wise_family.cpp.o
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_k_wise_family.dir/build.make test/CMakeFiles/test_k_wise_family.dir/test_k_wise_family.cpp.o
 .PHONY : test_k_wise_family.cpp.o
 
 test_k_wise_family.i: test_k_wise_family.cpp.i
@@ -496,7 +496,7 @@ test_k_wise_family.i: test_k_wise_family.cpp.i
 
 # target to preprocess a source file
 test_k_wise_family.cpp.i:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_k_wise_family.dir/build.make test/CMakeFiles/test_k_wise_family.dir/test_k_wise_family.cpp.i
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_k_wise_family.dir/build.make test/CMakeFiles/test_k_wise_family.dir/test_k_wise_family.cpp.i
 .PHONY : test_k_wise_family.cpp.i
 
 test_k_wise_family.s: test_k_wise_family.cpp.s
@@ -505,7 +505,7 @@ test_k_wise_family.s: test_k_wise_family.cpp.s
 
 # target to generate assembly for a file
 test_k_wise_family.cpp.s:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_k_wise_family.dir/build.make test/CMakeFiles/test_k_wise_family.dir/test_k_wise_family.cpp.s
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_k_wise_family.dir/build.make test/CMakeFiles/test_k_wise_family.dir/test_k_wise_family.cpp.s
 .PHONY : test_k_wise_family.cpp.s
 
 test_kll.o: test_kll.cpp.o
@@ -514,7 +514,7 @@ test_kll.o: test_kll.cpp.o
 
 # target to build an object file
 test_kll.cpp.o:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_kll.dir/build.make test/CMakeFiles/test_kll.dir/test_kll.cpp.o
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_kll.dir/build.make test/CMakeFiles/test_kll.dir/test_kll.cpp.o
 .PHONY : test_kll.cpp.o
 
 test_kll.i: test_kll.cpp.i
@@ -523,7 +523,7 @@ test_kll.i: test_kll.cpp.i
 
 # target to preprocess a source file
 test_kll.cpp.i:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_kll.dir/build.make test/CMakeFiles/test_kll.dir/test_kll.cpp.i
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_kll.dir/build.make test/CMakeFiles/test_kll.dir/test_kll.cpp.i
 .PHONY : test_kll.cpp.i
 
 test_kll.s: test_kll.cpp.s
@@ -532,7 +532,7 @@ test_kll.s: test_kll.cpp.s
 
 # target to generate assembly for a file
 test_kll.cpp.s:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_kll.dir/build.make test/CMakeFiles/test_kll.dir/test_kll.cpp.s
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_kll.dir/build.make test/CMakeFiles/test_kll.dir/test_kll.cpp.s
 .PHONY : test_kll.cpp.s
 
 test_kolmogorov.o: test_kolmogorov.cpp.o
@@ -541,7 +541,7 @@ test_kolmogorov.o: test_kolmogorov.cpp.o
 
 # target to build an object file
 test_kolmogorov.cpp.o:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_kolmogorov.dir/build.make test/CMakeFiles/test_kolmogorov.dir/test_kolmogorov.cpp.o
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_kolmogorov.dir/build.make test/CMakeFiles/test_kolmogorov.dir/test_kolmogorov.cpp.o
 .PHONY : test_kolmogorov.cpp.o
 
 test_kolmogorov.i: test_kolmogorov.cpp.i
@@ -550,7 +550,7 @@ test_kolmogorov.i: test_kolmogorov.cpp.i
 
 # target to preprocess a source file
 test_kolmogorov.cpp.i:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_kolmogorov.dir/build.make test/CMakeFiles/test_kolmogorov.dir/test_kolmogorov.cpp.i
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_kolmogorov.dir/build.make test/CMakeFiles/test_kolmogorov.dir/test_kolmogorov.cpp.i
 .PHONY : test_kolmogorov.cpp.i
 
 test_kolmogorov.s: test_kolmogorov.cpp.s
@@ -559,7 +559,7 @@ test_kolmogorov.s: test_kolmogorov.cpp.s
 
 # target to generate assembly for a file
 test_kolmogorov.cpp.s:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_kolmogorov.dir/build.make test/CMakeFiles/test_kolmogorov.dir/test_kolmogorov.cpp.s
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_kolmogorov.dir/build.make test/CMakeFiles/test_kolmogorov.dir/test_kolmogorov.cpp.s
 .PHONY : test_kolmogorov.cpp.s
 
 test_log.o: test_log.cpp.o
@@ -568,7 +568,7 @@ test_log.o: test_log.cpp.o
 
 # target to build an object file
 test_log.cpp.o:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_log.dir/build.make test/CMakeFiles/test_log.dir/test_log.cpp.o
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_log.dir/build.make test/CMakeFiles/test_log.dir/test_log.cpp.o
 .PHONY : test_log.cpp.o
 
 test_log.i: test_log.cpp.i
@@ -577,7 +577,7 @@ test_log.i: test_log.cpp.i
 
 # target to preprocess a source file
 test_log.cpp.i:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_log.dir/build.make test/CMakeFiles/test_log.dir/test_log.cpp.i
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_log.dir/build.make test/CMakeFiles/test_log.dir/test_log.cpp.i
 .PHONY : test_log.cpp.i
 
 test_log.s: test_log.cpp.s
@@ -586,7 +586,7 @@ test_log.s: test_log.cpp.s
 
 # target to generate assembly for a file
 test_log.cpp.s:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_log.dir/build.make test/CMakeFiles/test_log.dir/test_log.cpp.s
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_log.dir/build.make test/CMakeFiles/test_log.dir/test_log.cpp.s
 .PHONY : test_log.cpp.s
 
 test_memory_tracker.o: test_memory_tracker.cpp.o
@@ -595,7 +595,7 @@ test_memory_tracker.o: test_memory_tracker.cpp.o
 
 # target to build an object file
 test_memory_tracker.cpp.o:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_memory_tracker.dir/build.make test/CMakeFiles/test_memory_tracker.dir/test_memory_tracker.cpp.o
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_memory_tracker.dir/build.make test/CMakeFiles/test_memory_tracker.dir/test_memory_tracker.cpp.o
 .PHONY : test_memory_tracker.cpp.o
 
 test_memory_tracker.i: test_memory_tracker.cpp.i
@@ -604,7 +604,7 @@ test_memory_tracker.i: test_memory_tracker.cpp.i
 
 # target to preprocess a source file
 test_memory_tracker.cpp.i:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_memory_tracker.dir/build.make test/CMakeFiles/test_memory_tracker.dir/test_memory_tracker.cpp.i
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_memory_tracker.dir/build.make test/CMakeFiles/test_memory_tracker.dir/test_memory_tracker.cpp.i
 .PHONY : test_memory_tracker.cpp.i
 
 test_memory_tracker.s: test_memory_tracker.cpp.s
@@ -613,7 +613,7 @@ test_memory_tracker.s: test_memory_tracker.cpp.s
 
 # target to generate assembly for a file
 test_memory_tracker.cpp.s:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_memory_tracker.dir/build.make test/CMakeFiles/test_memory_tracker.dir/test_memory_tracker.cpp.s
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_memory_tracker.dir/build.make test/CMakeFiles/test_memory_tracker.dir/test_memory_tracker.cpp.s
 .PHONY : test_memory_tracker.cpp.s
 
 test_q_digest.o: test_q_digest.cpp.o
@@ -622,7 +622,7 @@ test_q_digest.o: test_q_digest.cpp.o
 
 # target to build an object file
 test_q_digest.cpp.o:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_q_digest.dir/build.make test/CMakeFiles/test_q_digest.dir/test_q_digest.cpp.o
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_q_digest.dir/build.make test/CMakeFiles/test_q_digest.dir/test_q_digest.cpp.o
 .PHONY : test_q_digest.cpp.o
 
 test_q_digest.i: test_q_digest.cpp.i
@@ -631,7 +631,7 @@ test_q_digest.i: test_q_digest.cpp.i
 
 # target to preprocess a source file
 test_q_digest.cpp.i:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_q_digest.dir/build.make test/CMakeFiles/test_q_digest.dir/test_q_digest.cpp.i
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_q_digest.dir/build.make test/CMakeFiles/test_q_digest.dir/test_q_digest.cpp.i
 .PHONY : test_q_digest.cpp.i
 
 test_q_digest.s: test_q_digest.cpp.s
@@ -640,7 +640,7 @@ test_q_digest.s: test_q_digest.cpp.s
 
 # target to generate assembly for a file
 test_q_digest.cpp.s:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_q_digest.dir/build.make test/CMakeFiles/test_q_digest.dir/test_q_digest.cpp.s
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_q_digest.dir/build.make test/CMakeFiles/test_q_digest.dir/test_q_digest.cpp.s
 .PHONY : test_q_digest.cpp.s
 
 test_quadtree.o: test_quadtree.cpp.o
@@ -649,7 +649,7 @@ test_quadtree.o: test_quadtree.cpp.o
 
 # target to build an object file
 test_quadtree.cpp.o:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_quadtree.dir/build.make test/CMakeFiles/test_quadtree.dir/test_quadtree.cpp.o
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_quadtree.dir/build.make test/CMakeFiles/test_quadtree.dir/test_quadtree.cpp.o
 .PHONY : test_quadtree.cpp.o
 
 test_quadtree.i: test_quadtree.cpp.i
@@ -658,7 +658,7 @@ test_quadtree.i: test_quadtree.cpp.i
 
 # target to preprocess a source file
 test_quadtree.cpp.i:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_quadtree.dir/build.make test/CMakeFiles/test_quadtree.dir/test_quadtree.cpp.i
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_quadtree.dir/build.make test/CMakeFiles/test_quadtree.dir/test_quadtree.cpp.i
 .PHONY : test_quadtree.cpp.i
 
 test_quadtree.s: test_quadtree.cpp.s
@@ -667,7 +667,7 @@ test_quadtree.s: test_quadtree.cpp.s
 
 # target to generate assembly for a file
 test_quadtree.cpp.s:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_quadtree.dir/build.make test/CMakeFiles/test_quadtree.dir/test_quadtree.cpp.s
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_quadtree.dir/build.make test/CMakeFiles/test_quadtree.dir/test_quadtree.cpp.s
 .PHONY : test_quadtree.cpp.s
 
 test_quantile_quadtree.o: test_quantile_quadtree.cpp.o
@@ -676,7 +676,7 @@ test_quantile_quadtree.o: test_quantile_quadtree.cpp.o
 
 # target to build an object file
 test_quantile_quadtree.cpp.o:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_quantile_quadtree.dir/build.make test/CMakeFiles/test_quantile_quadtree.dir/test_quantile_quadtree.cpp.o
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_quantile_quadtree.dir/build.make test/CMakeFiles/test_quantile_quadtree.dir/test_quantile_quadtree.cpp.o
 .PHONY : test_quantile_quadtree.cpp.o
 
 test_quantile_quadtree.i: test_quantile_quadtree.cpp.i
@@ -685,7 +685,7 @@ test_quantile_quadtree.i: test_quantile_quadtree.cpp.i
 
 # target to preprocess a source file
 test_quantile_quadtree.cpp.i:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_quantile_quadtree.dir/build.make test/CMakeFiles/test_quantile_quadtree.dir/test_quantile_quadtree.cpp.i
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_quantile_quadtree.dir/build.make test/CMakeFiles/test_quantile_quadtree.dir/test_quantile_quadtree.cpp.i
 .PHONY : test_quantile_quadtree.cpp.i
 
 test_quantile_quadtree.s: test_quantile_quadtree.cpp.s
@@ -694,7 +694,7 @@ test_quantile_quadtree.s: test_quantile_quadtree.cpp.s
 
 # target to generate assembly for a file
 test_quantile_quadtree.cpp.s:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_quantile_quadtree.dir/build.make test/CMakeFiles/test_quantile_quadtree.dir/test_quantile_quadtree.cpp.s
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_quantile_quadtree.dir/build.make test/CMakeFiles/test_quantile_quadtree.dir/test_quantile_quadtree.cpp.s
 .PHONY : test_quantile_quadtree.cpp.s
 
 test_stream_maker.o: test_stream_maker.cpp.o
@@ -703,7 +703,7 @@ test_stream_maker.o: test_stream_maker.cpp.o
 
 # target to build an object file
 test_stream_maker.cpp.o:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_stream_maker.dir/build.make test/CMakeFiles/test_stream_maker.dir/test_stream_maker.cpp.o
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_stream_maker.dir/build.make test/CMakeFiles/test_stream_maker.dir/test_stream_maker.cpp.o
 .PHONY : test_stream_maker.cpp.o
 
 test_stream_maker.i: test_stream_maker.cpp.i
@@ -712,7 +712,7 @@ test_stream_maker.i: test_stream_maker.cpp.i
 
 # target to preprocess a source file
 test_stream_maker.cpp.i:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_stream_maker.dir/build.make test/CMakeFiles/test_stream_maker.dir/test_stream_maker.cpp.i
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_stream_maker.dir/build.make test/CMakeFiles/test_stream_maker.dir/test_stream_maker.cpp.i
 .PHONY : test_stream_maker.cpp.i
 
 test_stream_maker.s: test_stream_maker.cpp.s
@@ -721,7 +721,7 @@ test_stream_maker.s: test_stream_maker.cpp.s
 
 # target to generate assembly for a file
 test_stream_maker.cpp.s:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_stream_maker.dir/build.make test/CMakeFiles/test_stream_maker.dir/test_stream_maker.cpp.s
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/test_stream_maker.dir/build.make test/CMakeFiles/test_stream_maker.dir/test_stream_maker.cpp.s
 .PHONY : test_stream_maker.cpp.s
 
 tester.o: tester.cpp.o
@@ -730,7 +730,7 @@ tester.o: tester.cpp.o
 
 # target to build an object file
 tester.cpp.o:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/tester.dir/build.make test/CMakeFiles/tester.dir/tester.cpp.o
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/tester.dir/build.make test/CMakeFiles/tester.dir/tester.cpp.o
 .PHONY : tester.cpp.o
 
 tester.i: tester.cpp.i
@@ -739,7 +739,7 @@ tester.i: tester.cpp.i
 
 # target to preprocess a source file
 tester.cpp.i:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/tester.dir/build.make test/CMakeFiles/tester.dir/tester.cpp.i
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/tester.dir/build.make test/CMakeFiles/tester.dir/tester.cpp.i
 .PHONY : tester.cpp.i
 
 tester.s: tester.cpp.s
@@ -748,7 +748,7 @@ tester.s: tester.cpp.s
 
 # target to generate assembly for a file
 tester.cpp.s:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/tester.dir/build.make test/CMakeFiles/tester.dir/tester.cpp.s
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f test/CMakeFiles/tester.dir/build.make test/CMakeFiles/tester.dir/tester.cpp.s
 .PHONY : tester.cpp.s
 
 # Help Target
@@ -831,6 +831,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build" && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

@@ -31,7 +31,7 @@ namespace qsbd {
 
 	template<class T>
 	bool aabb<T>::contains(const point<T>& pos) const{
-		return (pos.x() >= min_bound.x() and pos.x() <= max_bound.x() and pos.y() >= min_bound.y() and pos.y() <= max_bound.y());
+		return (pos.x() >= min_bound.x() and pos.x() < max_bound.x() and pos.y() >= min_bound.y() and pos.y() < max_bound.y());
 	}
 
 	template<class T>
@@ -62,11 +62,6 @@ namespace qsbd {
 	template<class T>
 	pair<point<T>, point<T>> aabb<T>::bounds() const {
 		return {this->min_bound, this->max_bound};
-	}
-
-	template<class T>
-	ostream& operator<<(ostream& os, const aabb<T>& box) { 
-		return os << "[Bottom Left : (" << box.min_bound.x() << ", " << box.min_bound.y() << "), Top Right : (" << box.max_bound.x() << ", " << box.max_bound.y() << ")]";
 	}
 
 	template class aabb<int>;

@@ -6,13 +6,13 @@
 
 #IncludeRegexTransform: 
 
-/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/logger/logger.cpp
+/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/src/logger/logger.cpp
 logger.h
-/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/logger/logger.h
+/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/src/logger/logger.h
 
-/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/logger/logger.h
+/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/src/logger/logger.h
 ../qsbd_debug/qsbd_debug.h
-/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/qsbd_debug/qsbd_debug.h
+/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/src/qsbd_debug/qsbd_debug.h
 fstream
 -
 iomanip
@@ -24,7 +24,7 @@ vector
 map
 -
 
-/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/src/qsbd_debug/qsbd_debug.h
+/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/src/qsbd_debug/qsbd_debug.h
 iostream
 -
 

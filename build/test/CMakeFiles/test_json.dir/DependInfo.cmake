@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/test/test_json.cpp" "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/test/CMakeFiles/test_json.dir/test_json.cpp.o"
+  "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/test/test_json.cpp" "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/test/CMakeFiles/test_json.dir/test_json.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -15,7 +15,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/mnt/c/Users/Marcos/Desktop/Meus projetos/Big-Data-IC/build/thirdparty/CMakeFiles/nlohmann_json.dir/DependInfo.cmake"
+  "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/thirdparty/CMakeFiles/nlohmann_json.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

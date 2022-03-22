@@ -712,6 +712,30 @@ namespace qsbd {
 
 			return qq_hs + root_hs + tree_hs;
 		}
+
+	/*#ifdef QSBD_DEBUG_H
+		std::vector<int> get_samples(const aabb<int>& region){
+
+			// is we are using sketchs on all nodes and the bounds are all inside the query region 
+			// we can ask this faster in the root sketch
+			if(not this->only_leaf and this->boundarys.is_inside(region)){
+				return this->root->payload->get_samples();
+			}
+
+			aabb<int> cur_box(this->boundarys);
+			quantile_sketch<ObjType> * sketch = this->factory->instance();
+
+			//This 0 because here we start from the root
+			if(this->only_leaf) search_region_only_leaf(-1, region, 0, cur_box, sketch);
+			else search_region(-1, region, 0, cur_box, sketch);
+
+			std::vector<int> ret = sketch->get_samples();
+
+			delete sketch;
+
+			return ret;
+		}	
+	#endif*/
 	};
 }
 #endif
