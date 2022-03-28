@@ -555,6 +555,9 @@ void save_test(const string& prefix, const ks_test_result_t& res){
 	return;
 }
 
+
+
+#if 0
 int main(int argc, char* argv[]){
 	deque<string> args = process_args(argc, argv);
 
@@ -687,3 +690,26 @@ int main(int argc, char* argv[]){
 
 	return 0;
 }
+
+#endif
+
+
+#if 1
+
+int main(void){
+    vector<int> samples = {5, 10, 12, 20, 43};
+
+    for(int i = 0; i < 100; i++){
+		int r1 = rs2(samples, i);
+		int r2 = rank_from_samples(samples, i);
+
+		VDEBUG(r1);
+		VDEBUG(r2);
+
+        ASSERT(r1 == r2);
+    }
+
+	return 0;
+}
+
+#endif

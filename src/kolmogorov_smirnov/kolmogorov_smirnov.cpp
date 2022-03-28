@@ -2,6 +2,28 @@
 
 namespace qsbd{
 
+    int rs2(const std::vector<int>& sorted_vector, const int& value){
+        size_t left = 0;
+        size_t right = sorted_vector.size() - 1;
+        int rank = 0;
+        size_t middle = (left + right) / 2;
+
+        while(left < right){
+            if (value == sorted_vector[middle]){
+                break;
+            }
+
+            if (value > sorted_vector[middle]) left = middle + 1;
+            if (value < sorted_vector[middle]) right = middle - 1;
+
+            middle = (left + right) / 2;
+        }
+
+        rank = middle;
+
+        return rank;
+    }
+
     int rank_from_samples(const std::vector<int>& sorted_vector, const int& value){
         int rank = 0;
 

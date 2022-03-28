@@ -188,17 +188,17 @@ void write_bounds(aabb<int>& root_box, int depth, const int& max_depth, vector<a
 
 regions_samples all_pairs_in_resolution(const int& depth){
 	aabb<int> max_bound(0, 0, 1 << depth, 1 << depth);
-	vector<aabb<int>> bounds;
-
+	
 	regions_samples all_pairs;
 
 	for(int i = 0; i <= depth; i++){
+		vector<aabb<int>> bounds;
 		write_bounds(max_bound, 0, i, bounds);
-	}
 
-	for(size_t i = 0; i < bounds.size(); i++){
-		for(size_t j = i + 1; j < bounds.size(); j++){
-			all_pairs.emplace_back(bounds[i], bounds[j]);
+		for(size_t i = 0; i < bounds.size(); i++){
+			for(size_t j = i + 1; j < bounds.size(); j++){
+				all_pairs.emplace_back(bounds[i], bounds[j]);
+			}
 		}
 	}
 

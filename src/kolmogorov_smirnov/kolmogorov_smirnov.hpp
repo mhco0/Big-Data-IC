@@ -5,13 +5,17 @@
  * @version 1.0
  *
  */
+#ifndef QSBD_KS_H
+#define QSBD_KS_H
 #include "../quantile_sketch/quantile_sketch.hpp"
 #include "../utils/utils.h"
 #include "../stream_maker/stream_maker.h"
 #include "../qsbd_debug/qsbd_debug.h"
 #include <random>
 
-namespace qsbd{
+namespace qsbd {
+
+    int rs2(const std::vector<int>& sorted_vector, const int& value);
 
     /**
 	 * @brief This function calculate the Kolmogorov Smirnov distance between two quantile sketchs in a interval.
@@ -81,3 +85,4 @@ namespace qsbd{
     */
     std::pair<double, std::vector<double>> distributions_ks(const std::vector<int>& lhs_samples, const std::vector<int>& rhs_samples, const int& start, const int& end, const int& step);
 }
+#endif
