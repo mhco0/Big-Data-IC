@@ -135,6 +135,19 @@ nlohmann_json/fast:
 .PHONY : nlohmann_json/fast
 
 #=============================================================================
+# Target rules for targets named csv_parser
+
+# Build rule for target.
+csv_parser: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 csv_parser
+.PHONY : csv_parser
+
+# fast build rule for target.
+csv_parser/fast:
+	$(MAKE) -f thirdparty/CMakeFiles/csv_parser.dir/build.make thirdparty/CMakeFiles/csv_parser.dir/build
+.PHONY : csv_parser/fast
+
+#=============================================================================
 # Target rules for targets named QSBD_DCS
 
 # Build rule for target.
@@ -989,6 +1002,7 @@ help:
 	@echo "... edit_cache"
 	@echo "... test"
 	@echo "... nlohmann_json"
+	@echo "... csv_parser"
 	@echo "... QSBD_DCS"
 	@echo "... QSBD_KLL"
 	@echo "... QSBD_K_WISE_FAMILY"

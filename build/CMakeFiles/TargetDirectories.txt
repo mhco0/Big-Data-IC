@@ -5,6 +5,7 @@
 /mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/thirdparty/CMakeFiles/test.dir
 /mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/thirdparty/CMakeFiles/rebuild_cache.dir
 /mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/thirdparty/CMakeFiles/nlohmann_json.dir
+/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/thirdparty/CMakeFiles/csv_parser.dir
 /mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/src/CMakeFiles/rebuild_cache.dir
 /mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/src/CMakeFiles/QSBD_DCS.dir
 /mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/src/CMakeFiles/QSBD_KLL.dir

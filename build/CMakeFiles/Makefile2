@@ -259,6 +259,7 @@ test/clean: test/CMakeFiles/test_gk.dir/clean
 
 # Recursive "all" directory target.
 thirdparty/all: thirdparty/CMakeFiles/nlohmann_json.dir/all
+thirdparty/all: thirdparty/CMakeFiles/csv_parser.dir/all
 
 .PHONY : thirdparty/all
 
@@ -269,6 +270,7 @@ thirdparty/preinstall:
 
 # Recursive "clean" directory target.
 thirdparty/clean: thirdparty/CMakeFiles/nlohmann_json.dir/clean
+thirdparty/clean: thirdparty/CMakeFiles/csv_parser.dir/clean
 
 .PHONY : thirdparty/clean
 
@@ -279,7 +281,7 @@ thirdparty/clean: thirdparty/CMakeFiles/nlohmann_json.dir/clean
 thirdparty/CMakeFiles/nlohmann_json.dir/all:
 	$(MAKE) -f thirdparty/CMakeFiles/nlohmann_json.dir/build.make thirdparty/CMakeFiles/nlohmann_json.dir/depend
 	$(MAKE) -f thirdparty/CMakeFiles/nlohmann_json.dir/build.make thirdparty/CMakeFiles/nlohmann_json.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" --progress-num=56 "Built target nlohmann_json"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" --progress-num=57 "Built target nlohmann_json"
 .PHONY : thirdparty/CMakeFiles/nlohmann_json.dir/all
 
 # Build rule for subdir invocation for target.
@@ -300,6 +302,33 @@ thirdparty/CMakeFiles/nlohmann_json.dir/clean:
 .PHONY : thirdparty/CMakeFiles/nlohmann_json.dir/clean
 
 #=============================================================================
+# Target rules for target thirdparty/CMakeFiles/csv_parser.dir
+
+# All Build rule for target.
+thirdparty/CMakeFiles/csv_parser.dir/all:
+	$(MAKE) -f thirdparty/CMakeFiles/csv_parser.dir/build.make thirdparty/CMakeFiles/csv_parser.dir/depend
+	$(MAKE) -f thirdparty/CMakeFiles/csv_parser.dir/build.make thirdparty/CMakeFiles/csv_parser.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" --progress-num=49 "Built target csv_parser"
+.PHONY : thirdparty/CMakeFiles/csv_parser.dir/all
+
+# Build rule for subdir invocation for target.
+thirdparty/CMakeFiles/csv_parser.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 1
+	$(MAKE) -f CMakeFiles/Makefile2 thirdparty/CMakeFiles/csv_parser.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 0
+.PHONY : thirdparty/CMakeFiles/csv_parser.dir/rule
+
+# Convenience name for target.
+csv_parser: thirdparty/CMakeFiles/csv_parser.dir/rule
+
+.PHONY : csv_parser
+
+# clean rule for target.
+thirdparty/CMakeFiles/csv_parser.dir/clean:
+	$(MAKE) -f thirdparty/CMakeFiles/csv_parser.dir/build.make thirdparty/CMakeFiles/csv_parser.dir/clean
+.PHONY : thirdparty/CMakeFiles/csv_parser.dir/clean
+
+#=============================================================================
 # Target rules for target src/CMakeFiles/QSBD_DCS.dir
 
 # All Build rule for target.
@@ -317,7 +346,7 @@ src/CMakeFiles/QSBD_DCS.dir/all: src/CMakeFiles/QSBD_QUANTILE_SKETCH.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/QSBD_DCS.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 11
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 12
 	$(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/QSBD_DCS.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : src/CMakeFiles/QSBD_DCS.dir/rule
@@ -341,12 +370,12 @@ src/CMakeFiles/QSBD_KLL.dir/all: src/CMakeFiles/QSBD_COMMUM_HEADER.dir/all
 src/CMakeFiles/QSBD_KLL.dir/all: src/CMakeFiles/QSBD_GLOBAL_GEN.dir/all
 	$(MAKE) -f src/CMakeFiles/QSBD_KLL.dir/build.make src/CMakeFiles/QSBD_KLL.dir/depend
 	$(MAKE) -f src/CMakeFiles/QSBD_KLL.dir/build.make src/CMakeFiles/QSBD_KLL.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" --progress-num=14,15 "Built target QSBD_KLL"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" --progress-num=14 "Built target QSBD_KLL"
 .PHONY : src/CMakeFiles/QSBD_KLL.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/QSBD_KLL.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 6
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 5
 	$(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/QSBD_KLL.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : src/CMakeFiles/QSBD_KLL.dir/rule
@@ -403,7 +432,7 @@ src/CMakeFiles/QSBD_AABB.dir/all: src/CMakeFiles/QSBD_POINT.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/QSBD_AABB.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 4
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 3
 	$(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/QSBD_AABB.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : src/CMakeFiles/QSBD_AABB.dir/rule
@@ -461,7 +490,7 @@ src/CMakeFiles/QSBD_COUNT_SKETCH.dir/all: src/CMakeFiles/QSBD_GLOBAL_GEN.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/QSBD_COUNT_SKETCH.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 8
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 9
 	$(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/QSBD_COUNT_SKETCH.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : src/CMakeFiles/QSBD_COUNT_SKETCH.dir/rule
@@ -485,12 +514,12 @@ src/CMakeFiles/QSBD_Q_DIGEST.dir/all: src/CMakeFiles/QSBD_DEBUG.dir/all
 src/CMakeFiles/QSBD_Q_DIGEST.dir/all: src/CMakeFiles/QSBD_QUANTILE_SKETCH.dir/all
 	$(MAKE) -f src/CMakeFiles/QSBD_Q_DIGEST.dir/build.make src/CMakeFiles/QSBD_Q_DIGEST.dir/depend
 	$(MAKE) -f src/CMakeFiles/QSBD_Q_DIGEST.dir/build.make src/CMakeFiles/QSBD_Q_DIGEST.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" --progress-num=28,29 "Built target QSBD_Q_DIGEST"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" --progress-num=28 "Built target QSBD_Q_DIGEST"
 .PHONY : src/CMakeFiles/QSBD_Q_DIGEST.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/QSBD_Q_DIGEST.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 6
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 5
 	$(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/QSBD_Q_DIGEST.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : src/CMakeFiles/QSBD_Q_DIGEST.dir/rule
@@ -539,12 +568,12 @@ src/CMakeFiles/QSBD_HEAP_TRACKER.dir/clean:
 src/CMakeFiles/QSBD_TIMER.dir/all:
 	$(MAKE) -f src/CMakeFiles/QSBD_TIMER.dir/build.make src/CMakeFiles/QSBD_TIMER.dir/depend
 	$(MAKE) -f src/CMakeFiles/QSBD_TIMER.dir/build.make src/CMakeFiles/QSBD_TIMER.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" --progress-num=33,34 "Built target QSBD_TIMER"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" --progress-num=33 "Built target QSBD_TIMER"
 .PHONY : src/CMakeFiles/QSBD_TIMER.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/QSBD_TIMER.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 2
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 1
 	$(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/QSBD_TIMER.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : src/CMakeFiles/QSBD_TIMER.dir/rule
@@ -569,12 +598,12 @@ src/CMakeFiles/QSBD_GK.dir/all: src/CMakeFiles/QSBD_GLOBAL_GEN.dir/all
 src/CMakeFiles/QSBD_GK.dir/all: src/CMakeFiles/QSBD_QUANTILE_SKETCH.dir/all
 	$(MAKE) -f src/CMakeFiles/QSBD_GK.dir/build.make src/CMakeFiles/QSBD_GK.dir/depend
 	$(MAKE) -f src/CMakeFiles/QSBD_GK.dir/build.make src/CMakeFiles/QSBD_GK.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" --progress-num=10 "Built target QSBD_GK"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" --progress-num= "Built target QSBD_GK"
 .PHONY : src/CMakeFiles/QSBD_GK.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/QSBD_GK.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 6
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 5
 	$(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/QSBD_GK.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : src/CMakeFiles/QSBD_GK.dir/rule
@@ -652,12 +681,12 @@ src/CMakeFiles/QSBD_TWO_WISE_FAMILY.dir/all: src/CMakeFiles/QSBD_DEBUG.dir/all
 src/CMakeFiles/QSBD_TWO_WISE_FAMILY.dir/all: src/CMakeFiles/QSBD_GLOBAL_GEN.dir/all
 	$(MAKE) -f src/CMakeFiles/QSBD_TWO_WISE_FAMILY.dir/build.make src/CMakeFiles/QSBD_TWO_WISE_FAMILY.dir/depend
 	$(MAKE) -f src/CMakeFiles/QSBD_TWO_WISE_FAMILY.dir/build.make src/CMakeFiles/QSBD_TWO_WISE_FAMILY.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" --progress-num=35 "Built target QSBD_TWO_WISE_FAMILY"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" --progress-num=34,35 "Built target QSBD_TWO_WISE_FAMILY"
 .PHONY : src/CMakeFiles/QSBD_TWO_WISE_FAMILY.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/QSBD_TWO_WISE_FAMILY.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 6
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 7
 	$(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/QSBD_TWO_WISE_FAMILY.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : src/CMakeFiles/QSBD_TWO_WISE_FAMILY.dir/rule
@@ -688,7 +717,7 @@ src/CMakeFiles/QSBD_QUANTILE_QUADTREE.dir/all: src/CMakeFiles/QSBD_QUANTILE_SKET
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/QSBD_QUANTILE_QUADTREE.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 7
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 6
 	$(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/QSBD_QUANTILE_QUADTREE.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : src/CMakeFiles/QSBD_QUANTILE_QUADTREE.dir/rule
@@ -737,12 +766,12 @@ src/CMakeFiles/QSBD_COMMUM_HEADER.dir/clean:
 src/CMakeFiles/QSBD_POINT.dir/all: src/CMakeFiles/QSBD_COMMUM_HEADER.dir/all
 	$(MAKE) -f src/CMakeFiles/QSBD_POINT.dir/build.make src/CMakeFiles/QSBD_POINT.dir/depend
 	$(MAKE) -f src/CMakeFiles/QSBD_POINT.dir/build.make src/CMakeFiles/QSBD_POINT.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" --progress-num=23,24 "Built target QSBD_POINT"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" --progress-num=23 "Built target QSBD_POINT"
 .PHONY : src/CMakeFiles/QSBD_POINT.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/QSBD_POINT.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 3
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 2
 	$(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/QSBD_POINT.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : src/CMakeFiles/QSBD_POINT.dir/rule
@@ -769,12 +798,12 @@ src/CMakeFiles/QSBD_GK_FACTORY.dir/all: src/CMakeFiles/QSBD_SKETCH_FACTORY.dir/a
 src/CMakeFiles/QSBD_GK_FACTORY.dir/all: src/CMakeFiles/QSBD_QUANTILE_SKETCH.dir/all
 	$(MAKE) -f src/CMakeFiles/QSBD_GK_FACTORY.dir/build.make src/CMakeFiles/QSBD_GK_FACTORY.dir/depend
 	$(MAKE) -f src/CMakeFiles/QSBD_GK_FACTORY.dir/build.make src/CMakeFiles/QSBD_GK_FACTORY.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" --progress-num= "Built target QSBD_GK_FACTORY"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" --progress-num=10 "Built target QSBD_GK_FACTORY"
 .PHONY : src/CMakeFiles/QSBD_GK_FACTORY.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/QSBD_GK_FACTORY.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 6
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 7
 	$(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/QSBD_GK_FACTORY.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : src/CMakeFiles/QSBD_GK_FACTORY.dir/rule
@@ -881,7 +910,7 @@ src/CMakeFiles/QSBD_QUADTREE.dir/all: src/CMakeFiles/QSBD_COMMUM_HEADER.dir/all
 src/CMakeFiles/QSBD_QUADTREE.dir/all: src/CMakeFiles/QSBD_POINT.dir/all
 	$(MAKE) -f src/CMakeFiles/QSBD_QUADTREE.dir/build.make src/CMakeFiles/QSBD_QUADTREE.dir/depend
 	$(MAKE) -f src/CMakeFiles/QSBD_QUADTREE.dir/build.make src/CMakeFiles/QSBD_QUADTREE.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" --progress-num=25 "Built target QSBD_QUADTREE"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" --progress-num=24,25 "Built target QSBD_QUADTREE"
 .PHONY : src/CMakeFiles/QSBD_QUADTREE.dir/all
 
 # Build rule for subdir invocation for target.
@@ -908,12 +937,12 @@ src/CMakeFiles/QSBD_QUADTREE.dir/clean:
 src/CMakeFiles/QSBD_SKETCH_FACTORY.dir/all:
 	$(MAKE) -f src/CMakeFiles/QSBD_SKETCH_FACTORY.dir/build.make src/CMakeFiles/QSBD_SKETCH_FACTORY.dir/depend
 	$(MAKE) -f src/CMakeFiles/QSBD_SKETCH_FACTORY.dir/build.make src/CMakeFiles/QSBD_SKETCH_FACTORY.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" --progress-num= "Built target QSBD_SKETCH_FACTORY"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" --progress-num=30 "Built target QSBD_SKETCH_FACTORY"
 .PHONY : src/CMakeFiles/QSBD_SKETCH_FACTORY.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/QSBD_SKETCH_FACTORY.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 1
 	$(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/QSBD_SKETCH_FACTORY.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : src/CMakeFiles/QSBD_SKETCH_FACTORY.dir/rule
@@ -966,12 +995,12 @@ src/CMakeFiles/QSBD_KLL_FACTORY.dir/all: src/CMakeFiles/QSBD_GLOBAL_GEN.dir/all
 src/CMakeFiles/QSBD_KLL_FACTORY.dir/all: src/CMakeFiles/QSBD_SKETCH_FACTORY.dir/all
 	$(MAKE) -f src/CMakeFiles/QSBD_KLL_FACTORY.dir/build.make src/CMakeFiles/QSBD_KLL_FACTORY.dir/depend
 	$(MAKE) -f src/CMakeFiles/QSBD_KLL_FACTORY.dir/build.make src/CMakeFiles/QSBD_KLL_FACTORY.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" --progress-num= "Built target QSBD_KLL_FACTORY"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" --progress-num=15 "Built target QSBD_KLL_FACTORY"
 .PHONY : src/CMakeFiles/QSBD_KLL_FACTORY.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/QSBD_KLL_FACTORY.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 6
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 7
 	$(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/QSBD_KLL_FACTORY.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : src/CMakeFiles/QSBD_KLL_FACTORY.dir/rule
@@ -997,7 +1026,7 @@ src/CMakeFiles/QSBD_Q_DIGEST_FACTORY.dir/all: src/CMakeFiles/QSBD_SKETCH_FACTORY
 src/CMakeFiles/QSBD_Q_DIGEST_FACTORY.dir/all: src/CMakeFiles/QSBD_QUANTILE_SKETCH.dir/all
 	$(MAKE) -f src/CMakeFiles/QSBD_Q_DIGEST_FACTORY.dir/build.make src/CMakeFiles/QSBD_Q_DIGEST_FACTORY.dir/depend
 	$(MAKE) -f src/CMakeFiles/QSBD_Q_DIGEST_FACTORY.dir/build.make src/CMakeFiles/QSBD_Q_DIGEST_FACTORY.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" --progress-num=30 "Built target QSBD_Q_DIGEST_FACTORY"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" --progress-num=29 "Built target QSBD_Q_DIGEST_FACTORY"
 .PHONY : src/CMakeFiles/QSBD_Q_DIGEST_FACTORY.dir/all
 
 # Build rule for subdir invocation for target.
@@ -1037,7 +1066,7 @@ src/CMakeFiles/QSBD_DCS_FACTORY.dir/all: src/CMakeFiles/QSBD_QUANTILE_SKETCH.dir
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/QSBD_DCS_FACTORY.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 12
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 14
 	$(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/QSBD_DCS_FACTORY.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : src/CMakeFiles/QSBD_DCS_FACTORY.dir/rule
@@ -1274,7 +1303,7 @@ test/CMakeFiles/test_kll.dir/all: src/CMakeFiles/QSBD_KLL_FACTORY.dir/all
 
 # Build rule for subdir invocation for target.
 test/CMakeFiles/test_kll.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 11
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 12
 	$(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_kll.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : test/CMakeFiles/test_kll.dir/rule
@@ -1323,7 +1352,7 @@ test/CMakeFiles/test_quantile_quadtree.dir/all: src/CMakeFiles/QSBD_DCS_FACTORY.
 
 # Build rule for subdir invocation for target.
 test/CMakeFiles/test_quantile_quadtree.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 30
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 29
 	$(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_quantile_quadtree.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : test/CMakeFiles/test_quantile_quadtree.dir/rule
@@ -1362,7 +1391,7 @@ test/CMakeFiles/test_kolmogorov.dir/all: src/CMakeFiles/QSBD_KS.dir/all
 
 # Build rule for subdir invocation for target.
 test/CMakeFiles/test_kolmogorov.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 22
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 20
 	$(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_kolmogorov.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : test/CMakeFiles/test_kolmogorov.dir/rule
@@ -1466,7 +1495,7 @@ test/CMakeFiles/test_dcs.dir/all: src/CMakeFiles/QSBD_DCS_FACTORY.dir/all
 
 # Build rule for subdir invocation for target.
 test/CMakeFiles/test_dcs.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 19
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 21
 	$(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_dcs.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : test/CMakeFiles/test_dcs.dir/rule
@@ -1499,7 +1528,7 @@ test/CMakeFiles/test_count_sketch.dir/all: src/CMakeFiles/QSBD_GLOBAL_GEN.dir/al
 
 # Build rule for subdir invocation for target.
 test/CMakeFiles/test_count_sketch.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 12
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 13
 	$(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_count_sketch.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : test/CMakeFiles/test_count_sketch.dir/rule
@@ -1596,7 +1625,7 @@ test/CMakeFiles/test_gk.dir/all: src/CMakeFiles/QSBD_QUANTILE_SKETCH.dir/all
 
 # Build rule for subdir invocation for target.
 test/CMakeFiles/test_gk.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 11
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 10
 	$(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/test_gk.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : test/CMakeFiles/test_gk.dir/rule
@@ -1615,6 +1644,7 @@ test/CMakeFiles/test_gk.dir/clean:
 # Target rules for target app/CMakeFiles/quantile_quadtree_ks.dir
 
 # All Build rule for target.
+app/CMakeFiles/quantile_quadtree_ks.dir/all: thirdparty/CMakeFiles/csv_parser.dir/all
 app/CMakeFiles/quantile_quadtree_ks.dir/all: src/CMakeFiles/QSBD_DCS.dir/all
 app/CMakeFiles/quantile_quadtree_ks.dir/all: src/CMakeFiles/QSBD_KLL.dir/all
 app/CMakeFiles/quantile_quadtree_ks.dir/all: src/CMakeFiles/QSBD_AABB.dir/all
@@ -1644,7 +1674,7 @@ app/CMakeFiles/quantile_quadtree_ks.dir/all: src/CMakeFiles/QSBD_KS.dir/all
 
 # Build rule for subdir invocation for target.
 app/CMakeFiles/quantile_quadtree_ks.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 28
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 29
 	$(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/quantile_quadtree_ks.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : app/CMakeFiles/quantile_quadtree_ks.dir/rule
@@ -1686,7 +1716,7 @@ app/CMakeFiles/new_quantile_quadtree_experiment.dir/all: src/CMakeFiles/QSBD_DCS
 app/CMakeFiles/new_quantile_quadtree_experiment.dir/all: src/CMakeFiles/QSBD_LOG.dir/all
 	$(MAKE) -f app/CMakeFiles/new_quantile_quadtree_experiment.dir/build.make app/CMakeFiles/new_quantile_quadtree_experiment.dir/depend
 	$(MAKE) -f app/CMakeFiles/new_quantile_quadtree_experiment.dir/build.make app/CMakeFiles/new_quantile_quadtree_experiment.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" --progress-num=55 "Built target new_quantile_quadtree_experiment"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" --progress-num=55,56 "Built target new_quantile_quadtree_experiment"
 .PHONY : app/CMakeFiles/new_quantile_quadtree_experiment.dir/all
 
 # Build rule for subdir invocation for target.
@@ -1714,12 +1744,12 @@ app/CMakeFiles/build_brute_force.dir/all: src/CMakeFiles/QSBD_UTILS.dir/all
 app/CMakeFiles/build_brute_force.dir/all: src/CMakeFiles/QSBD_DEBUG.dir/all
 	$(MAKE) -f app/CMakeFiles/build_brute_force.dir/build.make app/CMakeFiles/build_brute_force.dir/depend
 	$(MAKE) -f app/CMakeFiles/build_brute_force.dir/build.make app/CMakeFiles/build_brute_force.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" --progress-num=40 "Built target build_brute_force"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" --progress-num=39,40 "Built target build_brute_force"
 .PHONY : app/CMakeFiles/build_brute_force.dir/all
 
 # Build rule for subdir invocation for target.
 app/CMakeFiles/build_brute_force.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 4
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 5
 	$(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/build_brute_force.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : app/CMakeFiles/build_brute_force.dir/rule
@@ -1783,7 +1813,7 @@ app/CMakeFiles/quadtree_data_bounds.dir/all: src/CMakeFiles/QSBD_POINT.dir/all
 
 # Build rule for subdir invocation for target.
 app/CMakeFiles/quadtree_data_bounds.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 9
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 8
 	$(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/quadtree_data_bounds.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : app/CMakeFiles/quadtree_data_bounds.dir/rule
@@ -1807,12 +1837,12 @@ app/CMakeFiles/coletor.dir/all: src/CMakeFiles/QSBD_UTILS.dir/all
 app/CMakeFiles/coletor.dir/all: src/CMakeFiles/QSBD_DEBUG.dir/all
 	$(MAKE) -f app/CMakeFiles/coletor.dir/build.make app/CMakeFiles/coletor.dir/depend
 	$(MAKE) -f app/CMakeFiles/coletor.dir/build.make app/CMakeFiles/coletor.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" --progress-num=45 "Built target coletor"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" --progress-num=44,45 "Built target coletor"
 .PHONY : app/CMakeFiles/coletor.dir/all
 
 # Build rule for subdir invocation for target.
 app/CMakeFiles/coletor.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 5
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 6
 	$(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/coletor.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : app/CMakeFiles/coletor.dir/rule
@@ -1836,12 +1866,12 @@ app/CMakeFiles/experiment_all.dir/all: src/CMakeFiles/QSBD_UTILS.dir/all
 app/CMakeFiles/experiment_all.dir/all: src/CMakeFiles/QSBD_DEBUG.dir/all
 	$(MAKE) -f app/CMakeFiles/experiment_all.dir/build.make app/CMakeFiles/experiment_all.dir/depend
 	$(MAKE) -f app/CMakeFiles/experiment_all.dir/build.make app/CMakeFiles/experiment_all.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" --progress-num=51,52 "Built target experiment_all"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" --progress-num=52 "Built target experiment_all"
 .PHONY : app/CMakeFiles/experiment_all.dir/all
 
 # Build rule for subdir invocation for target.
 app/CMakeFiles/experiment_all.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 6
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 5
 	$(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/experiment_all.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : app/CMakeFiles/experiment_all.dir/rule
@@ -1865,12 +1895,12 @@ app/CMakeFiles/data_points.dir/all: src/CMakeFiles/QSBD_UTILS.dir/all
 app/CMakeFiles/data_points.dir/all: src/CMakeFiles/QSBD_DEBUG.dir/all
 	$(MAKE) -f app/CMakeFiles/data_points.dir/build.make app/CMakeFiles/data_points.dir/depend
 	$(MAKE) -f app/CMakeFiles/data_points.dir/build.make app/CMakeFiles/data_points.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" --progress-num=50 "Built target data_points"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" --progress-num=50,51 "Built target data_points"
 .PHONY : app/CMakeFiles/data_points.dir/all
 
 # Build rule for subdir invocation for target.
 app/CMakeFiles/data_points.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 5
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 6
 	$(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/data_points.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : app/CMakeFiles/data_points.dir/rule
@@ -1898,12 +1928,12 @@ app/CMakeFiles/convert_stream.dir/all: src/CMakeFiles/QSBD_GLOBAL_GEN.dir/all
 app/CMakeFiles/convert_stream.dir/all: src/CMakeFiles/QSBD_LOG.dir/all
 	$(MAKE) -f app/CMakeFiles/convert_stream.dir/build.make app/CMakeFiles/convert_stream.dir/depend
 	$(MAKE) -f app/CMakeFiles/convert_stream.dir/build.make app/CMakeFiles/convert_stream.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" --progress-num=48,49 "Built target convert_stream"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" --progress-num=48 "Built target convert_stream"
 .PHONY : app/CMakeFiles/convert_stream.dir/all
 
 # Build rule for subdir invocation for target.
 app/CMakeFiles/convert_stream.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 12
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 11
 	$(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/convert_stream.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : app/CMakeFiles/convert_stream.dir/rule
@@ -2009,12 +2039,12 @@ app/CMakeFiles/brute_force.dir/all: src/CMakeFiles/QSBD_GLOBAL_GEN.dir/all
 app/CMakeFiles/brute_force.dir/all: src/CMakeFiles/QSBD_LOG.dir/all
 	$(MAKE) -f app/CMakeFiles/brute_force.dir/build.make app/CMakeFiles/brute_force.dir/depend
 	$(MAKE) -f app/CMakeFiles/brute_force.dir/build.make app/CMakeFiles/brute_force.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" --progress-num=38,39 "Built target brute_force"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" --progress-num=38 "Built target brute_force"
 .PHONY : app/CMakeFiles/brute_force.dir/all
 
 # Build rule for subdir invocation for target.
 app/CMakeFiles/brute_force.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 15
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 13
 	$(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/brute_force.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : app/CMakeFiles/brute_force.dir/rule
@@ -2042,7 +2072,7 @@ app/CMakeFiles/profile_count_sketch.dir/all: src/CMakeFiles/QSBD_STREAM_MAKER.di
 app/CMakeFiles/profile_count_sketch.dir/all: src/CMakeFiles/QSBD_GLOBAL_GEN.dir/all
 	$(MAKE) -f app/CMakeFiles/profile_count_sketch.dir/build.make app/CMakeFiles/profile_count_sketch.dir/depend
 	$(MAKE) -f app/CMakeFiles/profile_count_sketch.dir/build.make app/CMakeFiles/profile_count_sketch.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" --progress-num=57,58 "Built target profile_count_sketch"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" --progress-num=58 "Built target profile_count_sketch"
 .PHONY : app/CMakeFiles/profile_count_sketch.dir/all
 
 # Build rule for subdir invocation for target.
@@ -2080,7 +2110,7 @@ app/CMakeFiles/profile_gk.dir/all: src/CMakeFiles/QSBD_QUANTILE_SKETCH.dir/all
 
 # Build rule for subdir invocation for target.
 app/CMakeFiles/profile_gk.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 11
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 10
 	$(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/profile_gk.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : app/CMakeFiles/profile_gk.dir/rule
@@ -2119,7 +2149,7 @@ app/CMakeFiles/ks.dir/all: src/CMakeFiles/QSBD_KS.dir/all
 
 # Build rule for subdir invocation for target.
 app/CMakeFiles/ks.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 22
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 20
 	$(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/ks.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : app/CMakeFiles/ks.dir/rule
@@ -2152,7 +2182,7 @@ app/CMakeFiles/profile_q_digest.dir/all: src/CMakeFiles/QSBD_QUANTILE_SKETCH.dir
 
 # Build rule for subdir invocation for target.
 app/CMakeFiles/profile_q_digest.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 13
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 12
 	$(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/profile_q_digest.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : app/CMakeFiles/profile_q_digest.dir/rule
@@ -2187,7 +2217,7 @@ app/CMakeFiles/profile_dcs.dir/all: src/CMakeFiles/QSBD_QUANTILE_SKETCH.dir/all
 
 # Build rule for subdir invocation for target.
 app/CMakeFiles/profile_dcs.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 15
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 16
 	$(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/profile_dcs.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : app/CMakeFiles/profile_dcs.dir/rule
@@ -2236,7 +2266,7 @@ app/CMakeFiles/quantile_quadtree_experiment.dir/all: src/CMakeFiles/QSBD_LOG.dir
 
 # Build rule for subdir invocation for target.
 app/CMakeFiles/quantile_quadtree_experiment.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 30
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 29
 	$(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/quantile_quadtree_experiment.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : app/CMakeFiles/quantile_quadtree_experiment.dir/rule
@@ -2297,7 +2327,7 @@ app/CMakeFiles/profile_kll.dir/all: src/CMakeFiles/QSBD_GLOBAL_GEN.dir/all
 
 # Build rule for subdir invocation for target.
 app/CMakeFiles/profile_kll.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 12
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 11
 	$(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/profile_kll.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : app/CMakeFiles/profile_kll.dir/rule
@@ -2321,12 +2351,12 @@ app/CMakeFiles/build_streams.dir/all: src/CMakeFiles/QSBD_UTILS.dir/all
 app/CMakeFiles/build_streams.dir/all: src/CMakeFiles/QSBD_DEBUG.dir/all
 	$(MAKE) -f app/CMakeFiles/build_streams.dir/build.make app/CMakeFiles/build_streams.dir/depend
 	$(MAKE) -f app/CMakeFiles/build_streams.dir/build.make app/CMakeFiles/build_streams.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" --progress-num=43,44 "Built target build_streams"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" --progress-num=43 "Built target build_streams"
 .PHONY : app/CMakeFiles/build_streams.dir/all
 
 # Build rule for subdir invocation for target.
 app/CMakeFiles/build_streams.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 6
+	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 5
 	$(MAKE) -f CMakeFiles/Makefile2 app/CMakeFiles/build_streams.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build/CMakeFiles" 0
 .PHONY : app/CMakeFiles/build_streams.dir/rule

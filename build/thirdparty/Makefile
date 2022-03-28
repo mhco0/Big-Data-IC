@@ -136,6 +136,21 @@ nlohmann_json/fast:
 	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f thirdparty/CMakeFiles/nlohmann_json.dir/build.make thirdparty/CMakeFiles/nlohmann_json.dir/build
 .PHONY : nlohmann_json/fast
 
+# Convenience name for target.
+thirdparty/CMakeFiles/csv_parser.dir/rule:
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f CMakeFiles/Makefile2 thirdparty/CMakeFiles/csv_parser.dir/rule
+.PHONY : thirdparty/CMakeFiles/csv_parser.dir/rule
+
+# Convenience name for target.
+csv_parser: thirdparty/CMakeFiles/csv_parser.dir/rule
+
+.PHONY : csv_parser
+
+# fast build rule for target.
+csv_parser/fast:
+	cd "/mnt/c/Users/Marcos/OneDrive/Área de Trabalho/Meus Projetos/Big-Data-IC/build" && $(MAKE) -f thirdparty/CMakeFiles/csv_parser.dir/build.make thirdparty/CMakeFiles/csv_parser.dir/build
+.PHONY : csv_parser/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -146,6 +161,7 @@ help:
 	@echo "... test"
 	@echo "... rebuild_cache"
 	@echo "... nlohmann_json"
+	@echo "... csv_parser"
 .PHONY : help
 
 

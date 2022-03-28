@@ -9,6 +9,7 @@
 #include <utils/utils.h>
 #include <iostream>
 #include <fstream>
+#include <csv_parser/csv.h>
 #define MIN_VALUE_IN_STREAM 0
 #define MAX_VALUE_IN_STREAM 1023
 using namespace std;
@@ -252,7 +253,22 @@ pair<vector<double>, vector<double>> real_cdfs_from_region_pair(const vector<pai
 	return {{}, {}};
 }
 
-vector<ks_compair_qq_t> test_quantile_quadtree_ks(const int& samples, const int& start_point, const int& end_point, const int& step, const int& citys, const double& max_radius, const double& err, const int& universe, const int& depth, const bool& only_leafs, const double * bounds){
+vector<pair<int, pair<double, double>>> stream_by_csv(const string& filename){
+	vector<pair<int, pair<double, double>>> stream;
+	io::CSVReader<3, io::trim_chars<' ', '\t'>, io::no_quote_escape<','>, io::throw_on_overflow, io::empty_line_comment> in(filename);
+	in.read_header(io::ignore_extra_column, "passenger_count", "pickup_longitude", "pickup_latitude");
+	double lon, lat;
+	int pass_cout;
+	
+	while(in.read_row(pass_cout, lon, lat)){
+		//cout << pass_cout << " " << lon << " " << lat << endl;
+		stream.push_back({pass_cout, {lon, lat}});
+	}
+
+	return stream;
+}
+
+vector<ks_compair_qq_t> test_quantile_quadtree_ks(const int& samples, const int& start_point, const int& end_point, const int& step, const int& citys, const double& max_radius, const double& err, const int& universe, const int& depth, const bool& only_leafs, const double * bounds, const string& filename = ""){
 	int discrete_bounds[4] = {0, 0, 0, 0};
 
 	cout << "Discrete bounds : " << endl;
@@ -276,7 +292,13 @@ vector<ks_compair_qq_t> test_quantile_quadtree_ks(const int& samples, const int&
  	aabb<int> bound_box(discrete_bounds[0], discrete_bounds[1], discrete_bounds[2], discrete_bounds[3]);
 	regions_samples regions_to_search = all_pairs_in_resolution(depth);
 	vector<int> values_to_search;
-	vector<pair<int, pair<double, double>>> stream = random_stream_city(samples, bounds[0], bounds[1], bounds[2], bounds[3], MIN_VALUE_IN_STREAM, MAX_VALUE_IN_STREAM, citys, max_radius);
+	vector<pair<int, pair<double, double>>> stream;
+	
+	if (filename == ""){
+		stream = random_stream_city(samples, bounds[0], bounds[1], bounds[2], bounds[3], MIN_VALUE_IN_STREAM, MAX_VALUE_IN_STREAM, citys, max_radius);
+	}else{
+		stream = stream_by_csv(filename);
+	}
 	//cout << stream << endl;
 	vector<ks_compair_qq_t> tests;
 
@@ -421,7 +443,7 @@ void help(){
     cout << "min_x: The minimum x bound for the points" << endl; 
     cout << "min_y: The minimum y bound for the points" << endl; 
     cout << "max_x: The maximum x bound for the points" << endl; 
-    cout << "max_y: The maximum y bound for the points" << endl; 
+    cout << "max_y: The maximum y bound for the points" << endl;
 }
 
 void save_csv_compair(const string& prefix, const vector<ks_compair_qq_t>& tests){
@@ -442,7 +464,7 @@ void save_csv_compair(const string& prefix, const vector<ks_compair_qq_t>& tests
 int main(int argc, char* argv[]){
     deque<string> args = process_args(argc, argv); 
 
-    if (args.size() != 14){
+    if (not (args.size() == 14 or args.size() == 15)){
         help();
         return -1;
     }
@@ -458,12 +480,17 @@ int main(int argc, char* argv[]){
 	int depth = stoi(args[8]);
     bool only_leafs = (bool) stoi(args[9]);
 	double bounds[4] = {stod(args[10]), stod(args[11]), stod(args[12]), stod(args[13])};
+	string filename = "";
 
-	vector<ks_compair_qq_t> tests = test_quantile_quadtree_ks(samples, start_point, end_point, step, citys, max_radius, error, universe, depth, only_leafs, bounds);
+	if(args.size() == 15){
+		filename = args[14];
+	}
+
+	vector<ks_compair_qq_t> tests = test_quantile_quadtree_ks(samples, start_point, end_point, step, citys, max_radius, error, universe, depth, only_leafs, bounds, filename);
 
 	string use_leafs = only_leafs ? "leaf_" : "";
 
-	save_csv_compair("ks_quantile_test_" + to_string(depth) + "_" + use_leafs + to_string(error) + "_", tests);
+	save_csv_compair("file_ks_quantile_test_" + to_string(depth) + "_" + use_leafs + to_string(error) + "_", tests);
  
     return 0;
 }
