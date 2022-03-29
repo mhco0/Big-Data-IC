@@ -268,15 +268,23 @@ vector<pair<int, pair<double, double>>> stream_by_csv(const string& filename){
 	return stream;
 }
 
-vector<ks_compair_qq_t> test_quantile_quadtree_ks(const int& samples, const int& start_point, const int& end_point, const int& step, const int& citys, const double& max_radius, const double& err, const int& universe, const int& depth, const bool& only_leafs, const double * bounds, const string& filename = ""){
+vector<pair<int, pair<double, double>>> make_city_stream(const int& samples, const int& citys, const double& max_radius, const double * bounds){
+	return random_stream_city(samples, bounds[0], bounds[1], bounds[2], bounds[3], MIN_VALUE_IN_STREAM, MAX_VALUE_IN_STREAM, citys, max_radius);
+}
+
+void filter_by_bounds(vector<pair<int, pair<double, double>>>& stream, const double * bounds){
+	stream.erase(std::remove_if(
+    stream.begin(), stream.end(),
+    [&bounds](const pair<int, pair<double, double>>& element) { 
+		return (element.second.first < bounds[0]) or (element.second.first > bounds[2]) or (element.second.second < bounds[1]) or (element.second.second > bounds[3]);
+    }), stream.end());
+}
+
+vector<ks_compair_qq_t> test_quantile_quadtree_ks(const vector<pair<int, pair<double, double>>>& stream, const int& start_point, const int& end_point, const int& step, const double& err, const int& universe, const int& depth, const bool& only_leafs, const double * bounds){
 	int discrete_bounds[4] = {0, 0, 0, 0};
 
 	cout << "Discrete bounds : " << endl;
 	for(int i = 0; i < 4; i++){
-		// 0 -> 0 2
-		// 1 -> 1 3
-		// 2 -> 0 2 
-		// 3 -> 1 3
 		if(i & 1){
 			discrete_bounds[i] = map_coord(bounds[i], bounds[1], bounds[3], depth);
 		}else{
@@ -292,13 +300,7 @@ vector<ks_compair_qq_t> test_quantile_quadtree_ks(const int& samples, const int&
  	aabb<int> bound_box(discrete_bounds[0], discrete_bounds[1], discrete_bounds[2], discrete_bounds[3]);
 	regions_samples regions_to_search = all_pairs_in_resolution(depth);
 	vector<int> values_to_search;
-	vector<pair<int, pair<double, double>>> stream;
-	
-	if (filename == ""){
-		stream = random_stream_city(samples, bounds[0], bounds[1], bounds[2], bounds[3], MIN_VALUE_IN_STREAM, MAX_VALUE_IN_STREAM, citys, max_radius);
-	}else{
-		stream = stream_by_csv(filename);
-	}
+
 	//cout << stream << endl;
 	vector<ks_compair_qq_t> tests;
 
@@ -448,17 +450,23 @@ void help(){
 
 void save_csv_compair(const string& prefix, const vector<ks_compair_qq_t>& tests){
 	string ks_filename = "ks_distances.csv";
-	fstream out;
+	string err_ks_filename = "error_ks_distances.csv";
+	fstream out_ks;
+	fstream out_err;
 
-	out.open(prefix + ks_filename, fstream::out);
+	out_ks.open(prefix + ks_filename, fstream::out);
+	out_err.open(prefix + err_ks_filename, fstream::out);
 
-	out << "max_distance_distributions,max_distance_gk,max_distance_kll,max_distance_q_digest,max_distance_dcs\n";
+	out_ks << "max_distance_distributions,max_distance_gk,max_distance_kll,max_distance_q_digest,max_distance_dcs\n";
+	out_err << "err_max_distance_gk,err_max_distance_kll,err_max_distance_q_digest,err_max_distance_dcs\n";
 
 	for(const ks_compair_qq_t& test : tests){
-		out << test.max_distance_distributions << "," << test.max_distance_gk << "," << test.max_distance_kll << "," << test.max_distance_q_digest << "," << test.max_distance_dcs << "\n";
+		out_ks << test.max_distance_distributions << "," << test.max_distance_gk << "," << test.max_distance_kll << "," << test.max_distance_q_digest << "," << test.max_distance_dcs << "\n";
+		out_err << fabs(test.max_distance_gk - test.max_distance_distributions) << "," << fabs(test.max_distance_kll - test.max_distance_distributions) << "," << fabs(test.max_distance_q_digest - test.max_distance_distributions) << "," << fabs(test.max_distance_dcs - test.max_distance_distributions) << "\n";
 	}
 
-	out.close();
+	out_ks.close();
+	out_err.close();
 }
 
 int main(int argc, char* argv[]){
@@ -480,17 +488,22 @@ int main(int argc, char* argv[]){
 	int depth = stoi(args[8]);
     bool only_leafs = (bool) stoi(args[9]);
 	double bounds[4] = {stod(args[10]), stod(args[11]), stod(args[12]), stod(args[13])};
-	string filename = "";
-
+	vector<pair<int, pair<double, double>>> stream;
+	
 	if(args.size() == 15){
-		filename = args[14];
+		string filename = args[14];
+		stream = stream_by_csv(filename);
+	}else{
+		stream = make_city_stream(samples, citys, max_radius, bounds);
 	}
 
-	vector<ks_compair_qq_t> tests = test_quantile_quadtree_ks(samples, start_point, end_point, step, citys, max_radius, error, universe, depth, only_leafs, bounds, filename);
+	filter_by_bounds(stream, bounds);
+
+	vector<ks_compair_qq_t> tests = test_quantile_quadtree_ks(stream, start_point, end_point, step, error, universe, depth, only_leafs, bounds);
 
 	string use_leafs = only_leafs ? "leaf_" : "";
 
-	save_csv_compair("file_ks_quantile_test_" + to_string(depth) + "_" + use_leafs + to_string(error) + "_", tests);
- 
+	save_csv_compair("file_ks_quantile_test_" + to_string(depth) + "_" + use_leafs + to_string(error) + "_", tests);	
+
     return 0;
 }
