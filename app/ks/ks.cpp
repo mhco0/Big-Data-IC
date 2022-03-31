@@ -557,7 +557,7 @@ void save_test(const string& prefix, const ks_test_result_t& res){
 
 
 
-#if 0
+#if 1
 int main(int argc, char* argv[]){
 	deque<string> args = process_args(argc, argv);
 
@@ -694,17 +694,20 @@ int main(int argc, char* argv[]){
 #endif
 
 
-#if 1
+#if 0
 
 int main(void){
-    vector<int> samples = {5, 10, 12, 20, 43};
+	int test_points = 100000;
+    vector<int> samples;
+	samples.reserve(test_points);
 
-    for(int i = 0; i < 100; i++){
+	for(int i = 0; i < test_points; i++){
+		samples.emplace_back(i);
+	}
+
+    for(int i = 0; i < test_points; i++){
 		int r1 = rs2(samples, i);
 		int r2 = rank_from_samples(samples, i);
-
-		VDEBUG(r1);
-		VDEBUG(r2);
 
         ASSERT(r1 == r2);
     }

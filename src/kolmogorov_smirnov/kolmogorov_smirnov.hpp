@@ -12,10 +12,13 @@
 #include "../stream_maker/stream_maker.h"
 #include "../qsbd_debug/qsbd_debug.h"
 #include <random>
+#include <algorithm>
 
 namespace qsbd {
 
+    #if 0
     int rs2(const std::vector<int>& sorted_vector, const int& value);
+    #endif
 
     /**
 	 * @brief This function calculate the Kolmogorov Smirnov distance between two quantile sketchs in a interval.

@@ -2,29 +2,16 @@
 
 namespace qsbd{
 
+    #if 0
     int rs2(const std::vector<int>& sorted_vector, const int& value){
-        size_t left = 0;
-        size_t right = sorted_vector.size() - 1;
-        int rank = 0;
-        size_t middle = (left + right) / 2;
-
-        while(left < right){
-            if (value == sorted_vector[middle]){
-                break;
-            }
-
-            if (value > sorted_vector[middle]) left = middle + 1;
-            if (value < sorted_vector[middle]) right = middle - 1;
-
-            middle = (left + right) / 2;
-        }
-
-        rank = middle;
-
+        auto low = std::lower_bound(sorted_vector.begin(), sorted_vector.end(), value);
+        int rank = (low - sorted_vector.begin()); 
         return rank;
     }
+    #endif
 
     int rank_from_samples(const std::vector<int>& sorted_vector, const int& value){
+        #if 0
         int rank = 0;
 
         for(size_t i = 0; i < sorted_vector.size(); i++){
@@ -33,6 +20,14 @@ namespace qsbd{
         }
 
         return rank;
+        
+        #else
+
+        auto low = std::lower_bound(sorted_vector.begin(), sorted_vector.end(), value);
+        int rank = (low - sorted_vector.begin()); 
+        return rank;
+
+        #endif
     }
 
     std::vector<double> cdf_from_samples(std::vector<int> samples, const int& start, const int& end, const int& step){
