@@ -591,6 +591,37 @@ namespace qsbd {
 		}
 
 		/**
+		 * @brief Queries the rank of some object @p value in multiple @p regions combined
+		 * @param regions A vector of AABB regions to be queried.
+		 * @param value The object to be queried.
+		 * @return The estimated rank for this object @p value in the @p regions as if all the sketches in the areas become merged
+		*/
+		int query_combined_regions(const std::vector<aabb<int>>& regions, ObjType value){
+			quantile_sketch<ObjType>* final_sketch = this->factory->instance();
+
+			for(size_t i = 0; i < regions.size(); i++){
+
+				if(not this->only_leaf and this->boundarys.is_inside(regions[i])){
+					final_sketch->inner_merge(*this->root->payload);
+
+					continue;
+				}
+
+				aabb<int> cur_box(this->boundarys);
+				
+				//This 0 because here we start from the root
+				if(this->only_leaf) search_region_only_leaf(-1, regions[i], 0, cur_box, final_sketch);
+				else search_region(-1, regions[i], 0, cur_box, final_sketch);
+			}
+
+			int ret = final_sketch->query(value);
+
+			delete final_sketch;
+
+			return ret;
+		}
+
+		/**
 		 * @brief Queries the cdf of some object @p value with certain @p region 
 		 * @param region A AABB region to be queried.
 		 * @param value The object to be queried.
@@ -687,6 +718,42 @@ namespace qsbd {
 			}
 
 			delete sketch;
+
+			return rets;
+		}
+
+		/**
+		 * @brief Queries the quantiles of some @p regions as if they were combined
+		 * @param regions A vector of AABB regions to be queried.
+		 * @param quants A vector of each quantile to be queried.
+		 * @return The estimated quantiles @p quants in the @p regions
+		*/
+		std::vector<ObjType> quantiles_combined_regions(const std::vector<aabb<int>>& regions, const std::vector<double>& quants){
+			std::vector<ObjType> rets;
+			rets.reserve(quants.size());
+
+			quantile_sketch<ObjType>* final_sketch = this->factory->instance();
+			
+			for(size_t i = 0; i < regions.size(); i++){
+
+				if(not this->only_leaf and this->boundarys.is_inside(regions[i])){
+					final_sketch->inner_merge(*this->root->payload);
+
+					continue;
+				}
+
+				aabb<int> cur_box(this->boundarys);
+				
+				//This 0 because here we start from the root
+				if(this->only_leaf) search_region_only_leaf(-1, regions[i], 0, cur_box, final_sketch);
+				else search_region(-1, regions[i], 0, cur_box, final_sketch);
+			}
+
+			for(auto& it : quants){
+				rets.emplace_back(final_sketch->quantile(it));
+			}
+
+			delete final_sketch;
 
 			return rets;
 		}

@@ -220,7 +220,8 @@ void rprint(const string& text, const aabb<int>& region, const vector<int>& samp
 	cout << endl;
 }
 
-pair<vector<double>, vector<double>> real_cdfs_from_region_pair(const vector<pair<int, pair<double, double>>>& stream, const pair<aabb<int>, aabb<int>>& regions, const int& depth, const double * bounds, const int& start_point, const int& end_point, const int& step, bool& both_have_data){
+template<class T>
+pair<vector<double>, vector<double>> real_cdfs_from_region_pair(const vector<pair<T, pair<double, double>>>& stream, const pair<aabb<int>, aabb<int>>& regions, const int& depth, const double * bounds, const int& start_point, const int& end_point, const int& step, bool& both_have_data){
 
 	vector<int> lhs_samples;
 	vector<int> rhs_samples;
@@ -253,16 +254,17 @@ pair<vector<double>, vector<double>> real_cdfs_from_region_pair(const vector<pai
 	return {{}, {}};
 }
 
-vector<pair<int, pair<double, double>>> stream_by_csv(const string& filename){
-	vector<pair<int, pair<double, double>>> stream;
+template<class T>
+vector<pair<T, pair<double, double>>> stream_by_csv(const string& filename, const string& lon_col, const string& lat_col, const string& value_col){
+	vector<pair<T, pair<double, double>>> stream;
 	io::CSVReader<3, io::trim_chars<' ', '\t'>, io::no_quote_escape<','>, io::throw_on_overflow, io::empty_line_comment> in(filename);
-	in.read_header(io::ignore_extra_column, "passenger_count", "pickup_longitude", "pickup_latitude");
+	in.read_header(io::ignore_extra_column, value_col, lon_col, lat_col);
 	double lon, lat;
-	int pass_cout;
+	T value;
 	
-	while(in.read_row(pass_cout, lon, lat)){
-		//cout << pass_cout << " " << lon << " " << lat << endl;
-		stream.push_back({pass_cout, {lon, lat}});
+	while(in.read_row(value, lon, lat)){
+		//cout << value << " " << lon << " " << lat << endl;
+		stream.push_back({value, {lon, lat}});
 	}
 
 	return stream;
@@ -272,15 +274,17 @@ vector<pair<int, pair<double, double>>> make_city_stream(const int& samples, con
 	return random_stream_city(samples, bounds[0], bounds[1], bounds[2], bounds[3], MIN_VALUE_IN_STREAM, MAX_VALUE_IN_STREAM, citys, max_radius);
 }
 
-void filter_by_bounds(vector<pair<int, pair<double, double>>>& stream, const double * bounds){
+template<class T>
+void filter_by_bounds(vector<pair<T, pair<double, double>>>& stream, const double * bounds){
 	stream.erase(std::remove_if(
     stream.begin(), stream.end(),
-    [&bounds](const pair<int, pair<double, double>>& element) { 
+    [&bounds](const pair<T, pair<double, double>>& element) { 
 		return (element.second.first < bounds[0]) or (element.second.first > bounds[2]) or (element.second.second < bounds[1]) or (element.second.second > bounds[3]);
     }), stream.end());
 }
 
-vector<ks_compair_qq_t> test_quantile_quadtree_ks(const vector<pair<int, pair<double, double>>>& stream, const int& start_point, const int& end_point, const int& step, const double& err, const int& universe, const int& depth, const bool& only_leafs, const double * bounds){
+template<class T>
+vector<ks_compair_qq_t> test_quantile_quadtree_ks(const vector<pair<T, pair<double, double>>>& stream, const int& start_point, const int& end_point, const int& step, const double& err, const int& universe, const int& depth, const bool& only_leafs, const double * bounds){
 	int discrete_bounds[4] = {0, 0, 0, 0};
 
 	cout << "Discrete bounds : " << endl;
@@ -300,20 +304,21 @@ vector<ks_compair_qq_t> test_quantile_quadtree_ks(const vector<pair<int, pair<do
  	aabb<int> bound_box(discrete_bounds[0], discrete_bounds[1], discrete_bounds[2], discrete_bounds[3]);
 	regions_samples regions_to_search = all_pairs_in_resolution(depth);
 	vector<int> values_to_search;
+	
 
 	//cout << stream << endl;
 	vector<ks_compair_qq_t> tests;
 
 	q_digest_factory qd_factory(err, universe);
 	dcs_factory dcs_factory(err, universe);
-	kll_factory<int> kll_factory(err);
-	gk_factory<int> gk_factory(err);
+	kll_factory<T> kll_factory(err);
+	gk_factory<T> gk_factory(err);
 	//dummy_factory dm_factory;
 
     quantile_quadtree<int> qq_qd_test(bound_box, depth, &qd_factory, only_leafs);
 	quantile_quadtree<int> qq_dcs_test(bound_box, depth, &dcs_factory, only_leafs);
-	quantile_quadtree<int> qq_kll_test(bound_box, depth, &kll_factory, only_leafs);
-	quantile_quadtree<int> qq_gk_test(bound_box, depth, &gk_factory, only_leafs); 
+	quantile_quadtree<T> qq_kll_test(bound_box, depth, &kll_factory, only_leafs);
+	quantile_quadtree<T> qq_gk_test(bound_box, depth, &gk_factory, only_leafs); 
 	//quantile_quadtree<int> qq_dm_test(bound_box, depth, &dm_factory, only_leafs);
 
 
@@ -331,9 +336,11 @@ vector<ks_compair_qq_t> test_quantile_quadtree_ks(const vector<pair<int, pair<do
 		values_to_search.emplace_back(i);
 	}
 
+	vector<T> values_to_search_type(values_to_search.begin(), values_to_search.end());
+
 	for(auto& region : regions_to_search){
 		bool both_have_data = false;
-		pair<vector<double>, vector<double>> real_cdfs = real_cdfs_from_region_pair(stream, region, depth, bounds, start_point, end_point, step, both_have_data);
+		pair<vector<double>, vector<double>> real_cdfs = real_cdfs_from_region_pair<T>(stream, region, depth, bounds, start_point, end_point, step, both_have_data);
 		vector<double> lhs_cdf = real_cdfs.first;
 		vector<double> rhs_cdf = real_cdfs.second;
 		double max_distance_distributions = numeric_limits<double>::min();
@@ -351,14 +358,14 @@ vector<ks_compair_qq_t> test_quantile_quadtree_ks(const vector<pair<int, pair<do
 		if(both_have_data){
 			vector<double> lhs_q_digest_cdf = qq_qd_test.cdfs(region.first, values_to_search);
 			vector<double> lhs_dcs_cdf = qq_dcs_test.cdfs(region.first, values_to_search);
-			vector<double> lhs_kll_cdf = qq_kll_test.cdfs(region.first, values_to_search);
-			vector<double> lhs_gk_cdf = qq_gk_test.cdfs(region.first, values_to_search);
+			vector<double> lhs_kll_cdf = qq_kll_test.cdfs(region.first, values_to_search_type);
+			vector<double> lhs_gk_cdf = qq_gk_test.cdfs(region.first, values_to_search_type);
 			//vector<double> lhs_dm_cdf = qq_dm_test.cdfs(region.first, values_to_search);
 
 			vector<double> rhs_q_digest_cdf = qq_qd_test.cdfs(region.second, values_to_search);
 			vector<double> rhs_dcs_cdf = qq_dcs_test.cdfs(region.second, values_to_search);
-			vector<double> rhs_kll_cdf = qq_kll_test.cdfs(region.second, values_to_search);
-			vector<double> rhs_gk_cdf = qq_gk_test.cdfs(region.second, values_to_search);
+			vector<double> rhs_kll_cdf = qq_kll_test.cdfs(region.second, values_to_search_type);
+			vector<double> rhs_gk_cdf = qq_gk_test.cdfs(region.second, values_to_search_type);
 			//vector<double> rhs_dm_cdf = qq_dm_test.cdfs(region.second, values_to_search);
 
 			//ASSERT(lhs_dm_cdf.size() == rhs_dm_cdf.size() and lhs_cdf.size() == lhs_dm_cdf.size() and rhs_cdf.size() == rhs_cdf.size());
@@ -430,14 +437,8 @@ vector<ks_compair_qq_t> test_quantile_quadtree_ks(const vector<pair<int, pair<do
 
 void help(){
     cout << "This program shows some results of the test for the kolmogorov-smirnov algorithm in the quantile quadtree." << endl;
-	cout << "Usage: " << endl;
-	cout << "./quantile_quadtree_ks samples start_point end_point step citys max_radius error universe depth only_leafs min_x min_y max_x max_y" << endl;
-	cout << "samples: The number of samples collected by each distribution" << endl;
-	cout << "start_point: The start point to collect in the cdf" << endl;
-	cout << "end_point: The end point to collect in the cdf" << endl;
-	cout << "step: The step between the end and the start point" << endl;
-	cout << "citys: The number of citys in the distribution" << endl;
-	cout << "max_radius: The max radius for each city in the distribution" << endl;
+	cout << "Usage (1): " << endl;
+	cout << "./quantile_quadtree_ks error universe depth only_leafs min_x min_y max_x max_y start_point end_point step samples citys max_radius" << endl;
 	cout << "error: The epsilon error for each sketch" << endl;
 	cout << "universe: The universe of values range for the sketches that need it" << endl;
     cout << "depth: The max depth for the quantile quadtree" << endl;
@@ -446,6 +447,22 @@ void help(){
     cout << "min_y: The minimum y bound for the points" << endl; 
     cout << "max_x: The maximum x bound for the points" << endl; 
     cout << "max_y: The maximum y bound for the points" << endl;
+	cout << "start_point: The start point to collect in the cdf" << endl;
+	cout << "end_point: The end point to collect in the cdf" << endl;
+	cout << "step: The step between the end and the start point" << endl;
+	cout << "samples: The number of samples collected by each distribution" << endl;
+	cout << "citys: The number of citys in the distribution" << endl;
+	cout << "max_radius: The max radius for each city in the distribution" << endl;
+	cout << endl;
+	cout << "You can also pass a csv file to process the test." << endl;
+	cout << "Usage (2): " << endl;
+	cout << "./quantile_quadtree_ks error universe depth only_leafs min_x min_y max_x max_y start_point end_point step -f filename lon_col_name lat_col_name val_col_name val_col_type" << endl;
+	cout << "-f: This flag is mandatory. You need this to especify that you are passing a file." << endl;
+	cout << "filename: The name of the csv file that you are passing." << endl;
+	cout << "lon_col_name: The name of the column in the csv file to express the longitude value for the quantile quadtree." << endl;
+	cout << "lat_col_name: The name of the column in the csv file to express the latitude value for the quantile quadtree." << endl;
+	cout << "val_col_name: The name of the column in the csv file to express the value to be indexed for the quantile quadtree." << endl;
+	cout << "val_col_type: The name of the column in the csv file to express the longitude value for the quantile quadtree." << endl;	
 }
 
 void save_csv_compair(const string& prefix, const vector<ks_compair_qq_t>& tests){
@@ -472,38 +489,64 @@ void save_csv_compair(const string& prefix, const vector<ks_compair_qq_t>& tests
 int main(int argc, char* argv[]){
     deque<string> args = process_args(argc, argv); 
 
-    if (not (args.size() == 14 or args.size() == 15)){
+    if (not (args.size() == 14 or args.size() == 17)){
         help();
         return -1;
     }
 
-    int samples = stoi(args[0]);
-	int start_point = stoi(args[1]);
-	int end_point = stoi(args[2]);
-	int step = stoi(args[3]);
-	int citys = stoi(args[4]);
-	double max_radius = stod(args[5]);
-	double error = stod(args[6]);
-	int universe = stoi(args[7]);
-	int depth = stoi(args[8]);
-    bool only_leafs = (bool) stoi(args[9]);
-	double bounds[4] = {stod(args[10]), stod(args[11]), stod(args[12]), stod(args[13])};
-	vector<pair<int, pair<double, double>>> stream;
+	double error = stod(args[0]);
+	int universe = stoi(args[1]);
+	int depth = stoi(args[2]);
+    bool only_leafs = (bool) stoi(args[3]);
+	double bounds[4] = {stod(args[4]), stod(args[5]), stod(args[6]), stod(args[7])};
+	int start_point = stoi(args[8]);
+	int end_point = stoi(args[9]);
+	int step = stoi(args[10]);
 	
-	if(args.size() == 15){
-		string filename = args[14];
-		stream = stream_by_csv(filename);
+	if(args[11] == "-f"){
+		string filename = args[12];
+		string lon_col_name = args[13];
+		string lat_col_name = args[14];
+		string val_col_name = args[15];
+		string val_col_type = args[16];
+		vector<ks_compair_qq_t> tests;
+
+		if (val_col_type == "integer") {
+			vector<pair<int, pair<double, double>>> stream;
+			stream = stream_by_csv<int>(filename, lon_col_name, lat_col_name, val_col_name);
+
+			filter_by_bounds<int>(stream, bounds);
+			tests = test_quantile_quadtree_ks<int>(stream, start_point, end_point, step, error, universe, depth, only_leafs, bounds);
+		}else if (val_col_type == "double") {
+			vector<pair<double, pair<double, double>>> stream;
+			stream = stream_by_csv<double>(filename, lon_col_name, lat_col_name, val_col_name);
+
+			filter_by_bounds<double>(stream, bounds);
+
+			tests = test_quantile_quadtree_ks<double>(stream, start_point, end_point, step, error, universe, depth, only_leafs, bounds);
+		}
+
+		cout << "WTF" << endl;
+
+		string use_leafs = only_leafs ? "leaf_" : "";
+
+		save_csv_compair("file_col_" + val_col_name + "_ks_quantile_test_" + to_string(depth) + "_" + use_leafs + to_string(error) + "_", tests);
 	}else{
+		int samples = stoi(args[11]);
+		int citys = stoi(args[12]);
+		double max_radius = stod(args[13]);
+
+		vector<pair<int, pair<double, double>>> stream;
 		stream = make_city_stream(samples, citys, max_radius, bounds);
+
+		filter_by_bounds<int>(stream, bounds);
+
+		vector<ks_compair_qq_t> tests = test_quantile_quadtree_ks<int>(stream, start_point, end_point, step, error, universe, depth, only_leafs, bounds);
+
+		string use_leafs = only_leafs ? "leaf_" : "";
+
+		save_csv_compair("ks_quantile_test_" + to_string(depth) + "_" + use_leafs + to_string(error) + "_", tests);
 	}
-
-	filter_by_bounds(stream, bounds);
-
-	vector<ks_compair_qq_t> tests = test_quantile_quadtree_ks(stream, start_point, end_point, step, error, universe, depth, only_leafs, bounds);
-
-	string use_leafs = only_leafs ? "leaf_" : "";
-
-	save_csv_compair("file_ks_quantile_test_" + to_string(depth) + "_" + use_leafs + to_string(error) + "_", tests);	
 
     return 0;
 }
